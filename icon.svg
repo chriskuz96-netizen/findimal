@@ -27,7 +27,9 @@
       <circle cx="68" cy="36" r="1" fill="#fff" />
       <circle cx="78.5" cy="44" r="1.8" fill="#13261C" />
       
-      <path d="M74 70L67 75" stroke="#FFD2A8" stroke-width="4.5" stroke-linecap="round" />
-      <circle cx="81" cy="63" r="9" fill="rgba(255,243,230,0.22)" stroke="#FFD2A8" stroke-width="3.5" />
-      <ellipse cx="68" cy="73" rx="4" ry="3" fill="#8F5733" />
+      <ellipse cx="72" cy="62" rx="5" ry="6" fill="#C98A3E" />
+      <path d="M66 58Q72 51 78 58Z" fill="#6B4A1F" />
+      <path d="M72 54L73 50" stroke="#6B4A1F" stroke-width="1.6" stroke-linecap="round" />
+      <ellipse cx="67" cy="64" rx="3.5" ry="2.8" fill="#8F5733" />
+      <ellipse cx="77" cy="64" rx="3.5" ry="2.8" fill="#8F5733" />
     </svg>
