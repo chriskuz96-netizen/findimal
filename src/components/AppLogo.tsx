@@ -38,12 +38,13 @@ export function AppLogo({ size, rounded = true }: { size: number; rounded?: bool
       <Path d="M34 62Q38 65 42 62" stroke="#13261C" strokeWidth={1.4} fill="none" strokeLinecap="round" />
       <Rect x={36.4} y={63.6} width={3.2} height={3.6} rx={0.8} fill="#fff" />
       {/* große Lupe vor dem rechten Auge – das Auge wirkt riesig */}
-      <Path d="M71 57L87 79" stroke="#6B4A1F" strokeWidth={7.5} strokeLinecap="round" />
-      <Circle cx={58} cy={42} r={20} fill="#DCEBDD" />
+      <Path d="M71 57L87 79" stroke="#13261C" strokeWidth={7.5} strokeLinecap="round" />
+      <Circle cx={58} cy={42} r={20} fill="#D6ECF2" />
       <Ellipse cx={58} cy={43} rx={11} ry={12} fill="#13261C" />
       <Circle cx={62} cy={38} r={4} fill="#fff" />
       <Circle cx={54} cy={48} r={1.8} fill="#fff" />
-      <Circle cx={58} cy={42} r={20} fill="none" stroke="#E8833A" strokeWidth={5} />
+      <Circle cx={58} cy={42} r={20} fill="none" stroke="#13261C" strokeWidth={7} />
+      <Circle cx={58} cy={42} r={20} fill="none" stroke="#E9EEF0" strokeWidth={4.5} />
       <Path d="M44 32Q48 26 55 25" stroke="#fff" strokeWidth={2.2} fill="none" strokeLinecap="round" opacity={0.8} />
       {/* Pfote hält den Griff */}
       <Ellipse cx={80} cy={70} rx={5.5} ry={4.5} fill="#8F5733" />
