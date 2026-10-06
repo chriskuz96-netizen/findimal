@@ -8,6 +8,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
 } from 'react-native';
@@ -29,15 +30,23 @@ type Props =
       // replaceId: Fund, der mit einer neuen Bestimmung (z. B. nach zweitem Foto) ersetzt wird
       onIdentified: (animal: Animal, replaceId: string | null) => Promise<{ id: string; reward: Reward }>;
       morePhoto: (kind: 'camera' | 'library') => Promise<Photo | null>;
+      onNote?: undefined;
       onBack: () => void;
     }
   // Fund aus der Sammlung: wird nur angezeigt
-  | { photo?: undefined; saved: Find; onIdentified?: undefined; morePhoto?: undefined; onBack: () => void };
+  | {
+      photo?: undefined;
+      saved: Find;
+      onIdentified?: undefined;
+      morePhoto?: undefined;
+      onNote: (note: string) => void;
+      onBack: () => void;
+    };
 
 const MAX_PHOTOS = 3;
 
 // Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
-export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: Props) {
+export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
@@ -45,6 +54,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
   const [result, setResult] = useState<IdentifyResult | null>(saved ? { ok: true, animal: saved.animal } : null);
   const [reward, setReward] = useState<Reward | null>(null);
   const [details, setDetails] = useState(false);
+  const [note, setNote] = useState(saved?.note ?? '');
   const findId = useRef<string | null>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
@@ -79,6 +89,12 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
     run(list);
   };
 
+  // Beim Verlassen eine geänderte Notiz noch speichern
+  const leave = () => {
+    if (onNote && note.trim() !== (saved?.note ?? '')) onNote(note.trim());
+    onBack();
+  };
+
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
   const mainUri = photo ? photo.uri : savedPhoto;
   const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
@@ -87,7 +103,12 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
   const noAnimal = !!morePhoto && !!result?.ok && !animal;
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
+    <ScrollView
+      style={{ flex: 1, backgroundColor: p.bg }}
+      contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
+      keyboardShouldPersistTaps="handled"
+      automaticallyAdjustKeyboardInsets
+    >
       {/* Großes Foto oben */}
       <View style={[styles.hero, { height: 300 + insets.top }]}>
         {mainUri && (
@@ -108,7 +129,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
         )}
         {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss */}
         <Pressable
-          onPress={onBack}
+          onPress={leave}
           accessibilityRole="button"
           hitSlop={10}
           style={({ pressed }) => [styles.back, { top: insets.top + 10, opacity: pressed ? 0.7 : 1 }]}
@@ -196,6 +217,25 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
       {/* Belohnung */}
       {reward && animal && <RewardCard reward={reward} photos={photos.length} p={p} />}
 
+      {/* Eigene Notiz (nur bei gespeicherten Funden) */}
+      {saved && onNote && (
+        <View style={[styles.card, { backgroundColor: p.card }]}>
+          <Text style={[styles.cardTitle, { color: p.ink }]}>{t('res.note')}</Text>
+          <TextInput
+            value={note}
+            onChangeText={setNote}
+            onEndEditing={() => {
+              if (note.trim() !== (saved.note ?? '')) onNote(note.trim());
+            }}
+            placeholder={t('res.notePlaceholder')}
+            placeholderTextColor={p.mute}
+            multiline
+            maxLength={500}
+            style={[styles.noteInput, { color: p.ink, borderColor: p.line }]}
+          />
+        </View>
+      )}
+
       {/* Wusstest du? */}
       {animal && !!animal.wusstest_du && (
         <View style={[styles.card, styles.fun, { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
@@ -223,7 +263,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
         </>
       )}
 
-      <Button label={t('res.continue')} onPress={onBack} p={p} filled={!!result} />
+      <Button label={t('res.continue')} onPress={leave} p={p} filled={!!result} />
     </ScrollView>
   );
 }
@@ -466,6 +506,16 @@ const styles = StyleSheet.create({
   certaintyText: { fontFamily: fonts.sansBold, fontSize: 13 },
   second: { borderWidth: 2, borderStyle: 'dashed', borderColor: colors.accent },
   notRight: { alignSelf: 'center', marginTop: 12 },
+  noteInput: {
+    marginTop: 8,
+    minHeight: 70,
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 10,
+    fontFamily: fonts.sans,
+    fontSize: 15,
+    textAlignVertical: 'top',
+  },
   notRightText: { fontFamily: fonts.sansBold, fontSize: 14, textDecorationLine: 'underline' },
   cardTitle: { fontFamily: fonts.serifBold, fontSize: 18 },
   row: { flexDirection: 'row', gap: 8, marginTop: 12 },

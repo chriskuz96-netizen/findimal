@@ -9,7 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
 import { Tab, TabBar } from './src/components/TabBar';
-import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
+import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updateNote } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { BadgeId, computeProgress, computeReward, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog, questionFor } from './src/quiz';
@@ -188,7 +188,11 @@ function Main() {
     return (
       <>
         <StatusBar style="light" />
-        <ResultScreen saved={openFind} onBack={() => setOpenFind(null)} />
+        <ResultScreen
+          saved={openFind}
+          onNote={(note) => updateNote(findsRef.current, openFind.id, note).then(setFinds)}
+          onBack={() => setOpenFind(null)}
+        />
       </>
     );
   }

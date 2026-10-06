@@ -11,6 +11,7 @@ export type Find = {
   date: string; // ISO-Datum
   animal: Animal;
   coords?: Coords | null; // Fundort (nur auf dem Handy gespeichert)
+  note?: string; // eigene Notiz, z. B. wo und wie das Tier zu sehen war
 };
 
 const FINDS_KEY = 'findimal-finds';
@@ -86,6 +87,13 @@ export async function addFind(
 // Ersetzt die Bestimmung eines Fundes (z. B. nach einem zweiten Foto).
 export async function updateFind(finds: Find[], id: string, animal: Animal): Promise<Find[]> {
   const next = finds.map((f) => (f.id === id ? { ...f, animal } : f));
+  await storeFinds(next);
+  return next;
+}
+
+// Speichert die eigene Notiz zu einem Fund.
+export async function updateNote(finds: Find[], id: string, note: string): Promise<Find[]> {
+  const next = finds.map((f) => (f.id === id ? { ...f, note } : f));
   await storeFinds(next);
   return next;
 }
