@@ -10,7 +10,7 @@ import { BadgeId, DailyId, XP } from '../progress';
 import { Medal } from '../components/Medal';
 import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
-import { Butterfly } from '../components/animals/Butterfly';
+import { Snail } from '../components/animals/Snail';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
 import { Ladybug } from '../components/animals/Ladybug';
@@ -73,7 +73,7 @@ export function StartScreen({
           <Robin width={40} />
         </View>
         <View style={[styles.animal, { right: width * 0.03, top: '52%' }]}>
-          <Butterfly width={26} />
+          <Snail width={40} />
         </View>
 
         {/* Profilbild: Anfangsbuchstabe oder Abzeichen, öffnet das Profil */}
