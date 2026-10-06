@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AppLogo } from '../components/AppLogo';
 import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
@@ -82,8 +83,13 @@ export function StartScreen({
         <Text style={[styles.avatarXp, { top: insets.top + 60 }]}>{xp} XP</Text>
         <LanguageButton top={insets.top + 14} />
 
-        <View style={[styles.center, { paddingTop: insets.top }]}>
+        {/* Schriftzug klein oben in der Mitte, mit dem Fuchs-Symbol */}
+        <View style={[styles.brand, { top: insets.top + 18 }]} pointerEvents="none">
+          <AppLogo size={30} />
           <Text style={styles.title}>Findimal</Text>
+        </View>
+
+        <View style={[styles.center, { paddingTop: insets.top }]}>
           <CameraButton size={camSize} onPress={onTakePhoto} label={t('a11y.takePhoto')} />
           <Pressable onPress={onPickPhoto} accessibilityRole="button" hitSlop={10}>
             <Text style={styles.pickLink}>{t('start.pick')}</Text>
@@ -217,14 +223,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 18,
   },
+  brand: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
   title: {
     fontFamily: fonts.serifBold,
-    fontSize: 36,
+    fontSize: 22,
     letterSpacing: 0.5,
     color: colors.white,
     textShadowColor: 'rgba(0,0,0,0.5)',
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 18,
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 10,
   },
   pickLink: {
     marginTop: 10,
