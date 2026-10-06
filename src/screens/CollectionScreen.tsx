@@ -25,31 +25,28 @@ type Props = {
   onDiscover: () => void;
 };
 
-
-// Sammlung: alle entdeckten Arten, filterbar nach Tiergruppe.
+// Sammlung als Fotoalbum: zuerst die eigenen Fotos, danach die Arten nach Gruppen.
 export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, locale } = useI18n();
   const fmt = (n: number) => n.toLocaleString(locale);
   const [filter, setFilter] = useState<GroupId | null>(null);
-  const [mode, setMode] = useState<'list' | 'map'>('list');
+  const [mode, setMode] = useState<'photos' | 'map'>('photos');
 
-  // Pro Art nur der erste Fund, mit fortlaufender Nummer
-  const species: { find: Find; no: number }[] = [];
-  const seen = new Set<string>();
+  // Arten (pro Art der erste Fund) für Zähler und Gruppen-Übersicht
+  const speciesKeys = new Set<string>();
+  const speciesFinds: Find[] = [];
   for (const f of finds) {
     const k = speciesKey(f.animal);
-    if (!seen.has(k)) {
-      seen.add(k);
-      species.push({ find: f, no: species.length + 1 });
+    if (!speciesKeys.has(k)) {
+      speciesKeys.add(k);
+      speciesFinds.push(f);
     }
   }
-  const groupsFound = new Set(species.map((s) => groupOf(s.find.animal.gruppe)?.id).filter(Boolean));
-  const active = filter ? GROUPS.find((g) => g.id === filter)! : null;
-  const list = species
-    .filter((s) => !filter || groupOf(s.find.animal.gruppe)?.id === filter)
-    .reverse(); // neueste zuerst
+  const groupsFound = new Set(speciesFinds.map((f) => groupOf(f.animal.gruppe)?.id).filter(Boolean));
+  const inFilter = (f: Find) => !filter || groupOf(f.animal.gruppe)?.id === filter;
+  const photos = finds.filter(inFilter).slice().reverse(); // alle eigenen Fotos, neueste zuerst
 
   const askDelete = (f: Find) =>
     Alert.alert(t('col.deleteTitle', { name: f.animal.name }), t('col.deleteText'), [
@@ -59,117 +56,125 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
-      <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
+      {/* Kopf mit Zählern */}
+      <View style={[styles.hx, { paddingTop: insets.top + 30 }]}>
         <HeaderBackground />
         <Text style={styles.h2}>{t('col.title')}</Text>
         <View style={styles.stats}>
-          <Stat value={String(species.length)} label={t('col.species')} />
-          <Stat value={`${groupsFound.size} / ${GROUPS.length}`} label={t('col.groups')} />
+          <Stat value={String(finds.length)} label={t('col.photos')} />
+          <Stat value={String(speciesKeys.size)} label={t('col.species')} />
+          <Stat value={`${groupsFound.size}/${GROUPS.length}`} label={t('col.groups')} />
         </View>
       </View>
 
-      {/* Gruppen-Kacheln, ragen in den Kopfbereich hinein */}
-      <View style={styles.tiles}>
-        {GROUPS.map((g) => {
-          const n = species.filter((s) => groupOf(s.find.animal.gruppe)?.id === g.id).length;
-          const on = filter === g.id;
-          return (
-            <Pressable
-              key={g.id}
-              onPress={() => setFilter(on ? null : g.id)}
-              accessibilityRole="button"
-              accessibilityState={{ selected: on }}
-              style={[
-                styles.tile,
-                on
-                  ? { backgroundColor: '#123826', borderColor: colors.accent }
-                  : { backgroundColor: p.card, borderColor: p.line },
-              ]}
-            >
-              <GroupIcon id={g.id} size={28} color={colors.accent} />
-              <Text style={[styles.tileName, { color: on ? colors.accentLight : p.ink }]}>{t(`g.${g.id}`)}</Text>
-              <Text style={[styles.tileCount, { color: on ? colors.accentLight : p.mute }]}>
-                {n} / {fmt(g.total)}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </View>
-
-      {/* Umschalter Liste / Karte */}
-      <View style={[styles.seg, { backgroundColor: p.line }]}>
-        {(['list', 'map'] as const).map((m) => (
-          <Pressable
-            key={m}
-            onPress={() => setMode(m)}
-            accessibilityRole="tab"
-            accessibilityState={{ selected: mode === m }}
-            style={[styles.segBtn, mode === m && styles.segOn]}
-          >
-            <Text style={[styles.segText, { color: mode === m ? colors.accentLight : p.ink }]}>
-              {t(m === 'list' ? 'col.list' : 'col.map')}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
-
-      {mode === 'map' && (() => {
-        const shown = finds.filter((f) => !filter || groupOf(f.animal.gruppe)?.id === filter);
-        return shown.some((f) => f.coords) ? (
-          <>
-            <View style={styles.map}>
-              <FindsMap finds={shown} locale={locale} onOpen={onOpen} />
-            </View>
-            <Text style={[styles.note, { color: p.mute }]}>{t('col.mapHint')}</Text>
-          </>
-        ) : (
-          <View style={[styles.empty, { backgroundColor: p.card, borderColor: p.line }]}>
-            <Text style={[styles.emptyText, { color: p.mute }]}>{t('col.noPlaces')}</Text>
-          </View>
-        );
-      })()}
-
-      {mode === 'list' && (
-      <>
-      <View style={styles.chd}>
-        <Text style={[styles.h3, { color: p.ink }]}>{active ? t(`g.${active.id}`) : t('col.all')}</Text>
-        {active && (
-          <Pressable onPress={() => setFilter(null)} hitSlop={10}>
-            <Text style={[styles.link, { color: p.moss }]}>{t('col.all')}</Text>
-          </Pressable>
-        )}
-      </View>
-
-      {species.length === 0 ? (
+      {finds.length === 0 ? (
         <View style={[styles.empty, { backgroundColor: p.card, borderColor: p.line }]}>
           <Text style={[styles.h3, { color: p.ink }]}>{t('col.emptyTitle')}</Text>
-          <Text style={[styles.emptyText, { color: p.mute }]}>
-            {t('col.emptyText')}
-          </Text>
+          <Text style={[styles.emptyText, { color: p.mute }]}>{t('col.emptyText')}</Text>
           <Pressable onPress={onDiscover} style={[styles.btn, { backgroundColor: p.moss }]}>
             <Text style={styles.btnText}>{t('col.go')}</Text>
           </Pressable>
         </View>
       ) : (
-        <View style={styles.grid}>
-          {list.map(({ find, no }) => (
-            <Card key={find.id} find={find} no={no} p={p} onPress={() => onOpen(find)} onLongPress={() => askDelete(find)} />
-          ))}
-          <View style={[styles.card, styles.more, { borderColor: p.mute }]}>
-            {active && <GroupIcon id={active.id} size={40} color={p.mute} />}
-            <Text style={[styles.moreText, { color: p.mute }]}>
-              {active
-                ? t('col.more', { n: fmt(Math.max(0, active.total - list.length)) })
-                : t('col.moreAll')}
-            </Text>
+        <>
+          {/* Umschalter Fotos / Karte */}
+          <View style={[styles.seg, { backgroundColor: p.card, borderColor: p.line }]}>
+            {(['photos', 'map'] as const).map((m) => (
+              <Pressable
+                key={m}
+                onPress={() => setMode(m)}
+                accessibilityRole="tab"
+                accessibilityState={{ selected: mode === m }}
+                style={[styles.segBtn, mode === m && styles.segOn]}
+              >
+                <Text style={[styles.segText, { color: mode === m ? colors.accentLight : p.ink }]}>
+                  {t(m === 'photos' ? 'col.photos' : 'col.map')}
+                </Text>
+              </Pressable>
+            ))}
           </View>
-        </View>
-      )}
 
-      <Text style={[styles.note, { color: p.mute }]}>
-        {t('col.note')}
-      </Text>
-      </>
+          {/* Gruppen-Filter als kleine Chips */}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
+            <Chip label={t('col.all')} on={!filter} onPress={() => setFilter(null)} p={p} />
+            {GROUPS.filter((g) => finds.some((f) => groupOf(f.animal.gruppe)?.id === g.id)).map((g) => (
+              <Chip
+                key={g.id}
+                label={t(`g.${g.id}`)}
+                icon={g.id}
+                on={filter === g.id}
+                onPress={() => setFilter(filter === g.id ? null : g.id)}
+                p={p}
+              />
+            ))}
+          </ScrollView>
+
+          {mode === 'photos' ? (
+            <View style={styles.grid}>
+              {photos.map((f) => (
+                <PhotoTile
+                  key={f.id}
+                  find={f}
+                  locale={locale}
+                  onPress={() => onOpen(f)}
+                  onLongPress={() => askDelete(f)}
+                />
+              ))}
+            </View>
+          ) : photos.some((f) => f.coords) ? (
+            <>
+              <View style={styles.map}>
+                <FindsMap finds={photos} locale={locale} onOpen={onOpen} />
+              </View>
+              <Text style={[styles.note, { color: p.mute }]}>{t('col.mapHint')}</Text>
+            </>
+          ) : (
+            <View style={[styles.empty, { backgroundColor: p.card, borderColor: p.line }]}>
+              <Text style={[styles.emptyText, { color: p.mute }]}>{t('col.noPlaces')}</Text>
+            </View>
+          )}
+
+          {/* Danach: Arten nach Gruppen */}
+          <View style={styles.section}>
+            <Text style={[styles.h3, { color: p.ink }]}>{t('col.byGroup')}</Text>
+            <Text style={[styles.sub, { color: p.mute }]}>{t('col.byGroupSub')}</Text>
+          </View>
+          <View style={styles.groups}>
+            {GROUPS.map((g) => {
+              const n = speciesFinds.filter((f) => groupOf(f.animal.gruppe)?.id === g.id).length;
+              const on = filter === g.id;
+              const share = Math.min(1, n / Math.min(g.total, 50)); // Balken: sichtbar wachsen, auch bei vielen Arten
+              return (
+                <Pressable
+                  key={g.id}
+                  onPress={() => setFilter(on ? null : g.id)}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: on }}
+                  style={[
+                    styles.group,
+                    { backgroundColor: p.card, borderColor: on ? colors.accent : p.line },
+                  ]}
+                >
+                  <View style={[styles.groupIcon, { backgroundColor: g.c1 }]}>
+                    <GroupIcon id={g.id} size={22} color={colors.accentLight} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <View style={styles.groupHead}>
+                      <Text style={[styles.groupName, { color: p.ink }]}>{t(`g.${g.id}`)}</Text>
+                      <Text style={[styles.groupCount, { color: p.mute }]}>
+                        {n} / {fmt(g.total)}
+                      </Text>
+                    </View>
+                    <View style={[styles.groupBar, { backgroundColor: p.line }]}>
+                      <View style={[styles.groupFill, { width: `${Math.max(n ? 6 : 0, share * 100)}%` }]} />
+                    </View>
+                  </View>
+                </Pressable>
+              );
+            })}
+          </View>
+          <Text style={[styles.note, { color: p.mute }]}>{t('col.note')}</Text>
+        </>
       )}
     </ScrollView>
   );
@@ -184,50 +189,72 @@ function Stat({ value, label }: { value: string; label: string }) {
   );
 }
 
-function Card({
-  find,
-  no,
+function Chip({
+  label,
+  icon,
+  on,
+  onPress,
   p,
+}: {
+  label: string;
+  icon?: GroupId;
+  on: boolean;
+  onPress: () => void;
+  p: Palette;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityState={{ selected: on }}
+      style={[styles.chip, on ? { backgroundColor: '#1F5639', borderColor: '#1F5639' } : { backgroundColor: p.card, borderColor: p.line }]}
+    >
+      {icon && <GroupIcon id={icon} size={16} color={on ? colors.accentLight : colors.accent} />}
+      <Text style={[styles.chipText, { color: on ? colors.accentLight : p.ink }]}>{label}</Text>
+    </Pressable>
+  );
+}
+
+// Großes Foto-Kärtchen mit Name und Datum auf dem Bild
+function PhotoTile({
+  find,
+  locale,
   onPress,
   onLongPress,
 }: {
   find: Find;
-  no: number;
-  p: Palette;
+  locale: string;
   onPress: () => void;
   onLongPress: () => void;
 }) {
+  const uri = useFindPhoto(find.id);
   const g = groupOf(find.animal.gruppe);
-  const photoUri = useFindPhoto(find.id);
-  const { locale } = useI18n();
   return (
     <Pressable
       onPress={onPress}
       onLongPress={onLongPress}
       accessibilityRole="button"
-      style={({ pressed }) => [
-        styles.card,
-        { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.85 : 1 },
-      ]}
+      accessibilityLabel={find.animal.name}
+      style={({ pressed }) => [styles.tile, { backgroundColor: g?.c1 ?? '#2F6B47', opacity: pressed ? 0.85 : 1 }]}
     >
-      <View style={[styles.ph, { backgroundColor: g?.c1 ?? '#2F6B47' }]}>
-        {photoUri && (
-          <Image source={{ uri: photoUri }} style={StyleSheet.absoluteFill} resizeMode="cover" />
-        )}
-        <Text style={styles.no}>#{String(no).padStart(3, '0')}</Text>
-        <View style={styles.badge}>
-          <GroupIcon id={g?.id ?? null} size={16} color={colors.accentLight} />
+      {uri ? (
+        <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode="cover" />
+      ) : (
+        <View style={[StyleSheet.absoluteFill, styles.tilePlaceholder]}>
+          <GroupIcon id={g?.id ?? null} size={40} color={colors.accentLight} />
         </View>
+      )}
+      <View style={styles.badge}>
+        <GroupIcon id={g?.id ?? null} size={14} color={colors.accentLight} />
       </View>
-      <View style={styles.tx}>
-        <Text style={[styles.cardName, { color: p.ink }]} numberOfLines={2}>
+      <View style={styles.caption}>
+        <Text style={styles.captionName} numberOfLines={2}>
           {find.animal.name}
         </Text>
-        <Text style={[styles.cardSci, { color: p.mute }]} numberOfLines={1}>
-          {find.animal.wissenschaftlicher_name}
-        </Text>
-        <Text style={[styles.cardDate, { color: p.mute }]}>{new Date(find.date).toLocaleDateString(locale)}</Text>
+        <Text style={styles.captionDate}>{new Date(find.date).toLocaleDateString(locale)}</Text>
       </View>
+      {/* dünner Rand in Akzentfarbe unten, wie die Karten der Vorlage */}
+      <View style={styles.tileLine} />
     </Pressable>
   );
 }
@@ -235,203 +262,119 @@ function Card({
 const styles = StyleSheet.create({
   hx: {
     paddingHorizontal: spacing.gutter,
-    paddingBottom: 40,
+    paddingBottom: 22,
     borderBottomLeftRadius: spacing.radiusHero,
     borderBottomRightRadius: spacing.radiusHero,
     overflow: 'hidden',
   },
-  h2: {
-    fontFamily: fonts.serifBold,
-    fontSize: 28,
-    color: colors.white,
-    marginBottom: 14,
-  },
-  stats: {
-    flexDirection: 'row',
-    gap: 10,
-  },
+  h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 12 },
+  stats: { flexDirection: 'row', gap: 8 },
   stat: {
     flex: 1,
     backgroundColor: 'rgba(255,255,255,0.07)',
     borderWidth: 1,
     borderColor: 'rgba(255,210,168,0.25)',
     borderRadius: 14,
-    padding: 10,
+    paddingVertical: 8,
     alignItems: 'center',
   },
-  statValue: {
-    fontFamily: fonts.serifBold,
-    fontSize: 26,
-    color: colors.accentLight,
-  },
-  statLabel: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    color: colors.white,
-    opacity: 0.8,
-  },
-  tiles: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    marginTop: -26,
-    marginHorizontal: spacing.gutter,
-  },
-  tile: {
-    width: '31.5%',
-    flexGrow: 1,
-    borderWidth: 1.5,
-    borderRadius: 16,
-    paddingVertical: 10,
-    paddingHorizontal: 6,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.12,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 6 },
-  },
-  tileName: {
-    fontFamily: fonts.sansBold,
-    fontSize: 13,
-    marginTop: 4,
-  },
-  tileCount: {
-    fontFamily: fonts.sans,
-    fontSize: 11,
-  },
+  statValue: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.accentLight },
+  statLabel: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8 },
   seg: {
     flexDirection: 'row',
     borderRadius: 99,
+    borderWidth: 1,
     padding: 3,
-    marginTop: 18,
+    marginTop: 14,
     marginHorizontal: spacing.gutter,
   },
   segBtn: { flex: 1, borderRadius: 99, paddingVertical: 8, alignItems: 'center' },
   segOn: { backgroundColor: '#1F5639' },
   segText: { fontFamily: fonts.sansBold, fontSize: 14 },
-  map: {
-    height: 420,
-    marginTop: 14,
-    marginHorizontal: spacing.gutter,
-    borderRadius: 22,
-    overflow: 'hidden',
-  },
-  chd: {
+  chips: { gap: 8, paddingHorizontal: spacing.gutter, paddingTop: 12, paddingBottom: 2 },
+  chip: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 22,
-    marginHorizontal: spacing.gutter,
+    gap: 5,
+    borderWidth: 1.5,
+    borderRadius: 99,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
   },
-  h3: {
-    fontFamily: fonts.serifBold,
-    fontSize: 20,
-  },
-  link: {
-    fontFamily: fonts.sansBold,
-    fontSize: 14,
-  },
+  chipText: { fontFamily: fonts.sansBold, fontSize: 14 },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 14,
+    gap: 10,
     marginTop: 12,
     marginHorizontal: spacing.gutter,
   },
-  card: {
-    width: '47.5%',
-    flexGrow: 1,
-    borderRadius: 16,
-    borderWidth: 1,
+  tile: {
+    width: '48.5%',
+    aspectRatio: 0.85,
+    borderRadius: 18,
     overflow: 'hidden',
   },
-  ph: {
-    height: 130,
-  },
-  no: {
-    position: 'absolute',
-    top: 7,
-    left: 9,
-    fontFamily: fonts.sansBold,
-    fontSize: 11,
-    color: colors.white,
-    textShadowColor: 'rgba(0,0,0,0.6)',
-    textShadowRadius: 4,
-  },
+  tilePlaceholder: { alignItems: 'center', justifyContent: 'center' },
   badge: {
     position: 'absolute',
-    right: 8,
-    bottom: 8,
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+    top: 8,
+    left: 8,
+    width: 26,
+    height: 26,
+    borderRadius: 13,
     backgroundColor: 'rgba(10,30,20,0.7)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  tx: {
-    paddingTop: 9,
+  caption: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    paddingTop: 18,
+    paddingBottom: 10,
     paddingHorizontal: 10,
-    paddingBottom: 11,
-    borderTopWidth: 2,
-    borderTopColor: colors.accent,
+    backgroundColor: 'rgba(0,0,0,0.45)',
   },
-  cardName: {
-    fontFamily: fonts.serifBold,
-    fontSize: 15,
-    lineHeight: 18,
-  },
-  cardSci: {
-    fontFamily: fonts.sans,
-    fontStyle: 'italic',
-    fontSize: 12,
-  },
-  cardDate: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    marginTop: 2,
-  },
-  more: {
-    minHeight: 200,
-    borderStyle: 'dashed',
-    borderWidth: 1.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 12,
-    gap: 8,
-  },
-  moreText: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    textAlign: 'center',
-  },
-  empty: {
+  captionName: { fontFamily: fonts.serifBold, fontSize: 14.5, lineHeight: 17, color: colors.white },
+  captionDate: { fontFamily: fonts.sans, fontSize: 11.5, color: colors.white, opacity: 0.85 },
+  tileLine: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 3, backgroundColor: colors.accent },
+  map: {
+    height: 420,
     marginTop: 12,
+    marginHorizontal: spacing.gutter,
+    borderRadius: 22,
+    overflow: 'hidden',
+  },
+  section: { marginTop: 28, marginHorizontal: spacing.gutter },
+  h3: { fontFamily: fonts.serifBold, fontSize: 20 },
+  sub: { fontFamily: fonts.sans, fontSize: 13.5, marginTop: 2 },
+  groups: { marginTop: 10, marginHorizontal: spacing.gutter, gap: 8 },
+  group: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderWidth: 1.5,
+    borderRadius: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+  },
+  groupIcon: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' },
+  groupHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' },
+  groupName: { fontFamily: fonts.sansBold, fontSize: 15 },
+  groupBar: { height: 6, borderRadius: 6, marginTop: 6, overflow: 'hidden' },
+  groupFill: { height: '100%', backgroundColor: colors.accent },
+  groupCount: { fontFamily: fonts.sansBold, fontSize: 13 },
+  empty: {
+    marginTop: 14,
     marginHorizontal: spacing.gutter,
     borderWidth: 1,
     borderRadius: 20,
     padding: 16,
   },
-  emptyText: {
-    fontFamily: fonts.sans,
-    fontSize: 14.5,
-    marginTop: 4,
-  },
-  btn: {
-    marginTop: 12,
-    borderRadius: 16,
-    padding: 14,
-    alignItems: 'center',
-  },
-  btnText: {
-    color: colors.white,
-    fontFamily: fonts.sansBold,
-    fontSize: 17,
-  },
-  note: {
-    marginTop: 10,
-    marginHorizontal: spacing.gutter,
-    fontFamily: fonts.sans,
-    fontSize: 12,
-  },
+  emptyText: { fontFamily: fonts.sans, fontSize: 14.5, marginTop: 4 },
+  btn: { marginTop: 12, borderRadius: 16, padding: 14, alignItems: 'center' },
+  btnText: { color: colors.white, fontFamily: fonts.sansBold, fontSize: 17 },
+  note: { marginTop: 10, marginHorizontal: spacing.gutter, fontFamily: fonts.sans, fontSize: 12 },
 });
