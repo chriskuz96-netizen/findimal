@@ -40,7 +40,7 @@ export function StartScreen({ name, onChangeName, onTakePhoto, onPickPhoto }: Pr
   const camSize = Math.min(168, Math.max(120, height * 0.21));
 
   return (
-    <View style={[styles.screen, { paddingBottom: insets.bottom }]}>
+    <View style={styles.screen}>
       <View style={styles.hero}>
         <JungleBackground />
 

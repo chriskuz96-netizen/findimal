@@ -12,21 +12,36 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Photo } from '../camera';
+import { HeaderBackground } from '../components/HeaderBackground';
+import { Find } from '../finds';
 import { Explorer } from '../components/Explorer';
 import { Animal, identify, IdentifyResult } from '../identify';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
-type Props = { photo: Photo; onBack: () => void };
+type Props =
+  // Neues Foto: wird bestimmt und (wenn ein Tier drauf ist) gespeichert
+  | { photo: Photo; saved?: undefined; onIdentified: (animal: Animal) => Promise<boolean>; onBack: () => void }
+  // Fund aus der Sammlung: wird nur angezeigt
+  | { photo?: undefined; saved: Find; onIdentified?: undefined; onBack: () => void };
 
-// Ergebnisseite nach dem Foto: fragt den Findimal-Server und zeigt den Steckbrief.
-export function ResultScreen({ photo, onBack }: Props) {
+// Ergebnisseite: bestimmt ein neues Foto oder zeigt einen gespeicherten Fund.
+export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
-  const [result, setResult] = useState<IdentifyResult | null>(null);
+  const [result, setResult] = useState<IdentifyResult | null>(
+    saved ? { ok: true, animal: saved.animal } : null,
+  );
+  const [isNew, setIsNew] = useState(false);
 
   const run = useCallback(() => {
+    if (!photo) return;
     setResult(null);
-    identify(photo).then(setResult);
+    identify(photo).then(async (r) => {
+      setResult(r);
+      if (r.ok && r.animal.tier_gefunden) setIsNew(await onIdentified(r.animal));
+    });
+    // onIdentified absichtlich nicht als Abhängigkeit: nur einmal pro Foto bestimmen
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [photo]);
 
   useEffect(run, [run]);
@@ -58,6 +73,7 @@ export function ResultScreen({ photo, onBack }: Props) {
     >
       {/* Dunkler Kopfbereich mit dem Forscher und seiner Sprechblase */}
       <View style={[styles.top, { paddingTop: insets.top + 24 }]}>
+        <HeaderBackground />
         <View style={styles.guide}>
           <Explorer size={72} />
           <View style={styles.bubble}>
@@ -69,7 +85,19 @@ export function ResultScreen({ photo, onBack }: Props) {
         </View>
       </View>
 
-      <Image source={{ uri: photo.uri }} style={styles.photo} accessibilityLabel="Dein Foto" />
+      <View style={styles.photo}>
+        <Image
+          source={{ uri: photo ? photo.uri : saved.photoUri }}
+          style={StyleSheet.absoluteFill}
+          accessibilityLabel="Dein Foto"
+        />
+        {isNew && <Text style={styles.stamp}>Neu entdeckt</Text>}
+      </View>
+      {saved && (
+        <Text style={[styles.foundOn, { color: p.mute }]}>
+          Gefunden am {new Date(saved.date).toLocaleDateString('de-DE')}
+        </Text>
+      )}
 
       {animal && <Profile animal={animal} p={p} />}
 
@@ -166,7 +194,7 @@ function Button({
 
 const styles = StyleSheet.create({
   top: {
-    backgroundColor: '#164730',
+    overflow: 'hidden',
     paddingHorizontal: spacing.gutter,
     paddingBottom: 22,
     borderBottomLeftRadius: spacing.radiusHero,
@@ -213,7 +241,29 @@ const styles = StyleSheet.create({
     margin: spacing.gutter,
     height: 240,
     borderRadius: 22,
+    overflow: 'hidden',
     backgroundColor: '#5a4a33',
+  },
+  stamp: {
+    position: 'absolute',
+    right: 12,
+    top: 12,
+    borderWidth: 2,
+    borderColor: colors.coral,
+    borderRadius: 8,
+    backgroundColor: 'rgba(255,255,255,0.92)',
+    color: colors.coral,
+    fontFamily: fonts.serifBold,
+    fontSize: 17,
+    paddingHorizontal: 10,
+    transform: [{ rotate: '7deg' }],
+  },
+  foundOn: {
+    marginTop: -8,
+    marginBottom: 10,
+    marginHorizontal: spacing.gutter,
+    fontFamily: fonts.sans,
+    fontSize: 13,
   },
   sheet: {
     marginHorizontal: spacing.gutter,
