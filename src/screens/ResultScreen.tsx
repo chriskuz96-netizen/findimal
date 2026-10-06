@@ -70,10 +70,11 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
     if (photo) run([photo]);
   }, [photo, run]);
 
-  const addPhoto = async (kind: 'camera' | 'library') => {
+  // fresh = true: kein Tier erkannt, das neue Foto ersetzt das alte statt es zu ergänzen
+  const addPhoto = async (kind: 'camera' | 'library', fresh = false) => {
     const extra = await morePhoto?.(kind);
     if (!extra) return;
-    const list = [...photos, extra];
+    const list = fresh ? [extra] : [...photos, extra];
     setPhotos(list);
     run(list);
   };
@@ -81,7 +82,9 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
   const mainUri = photo ? photo.uri : savedPhoto;
   const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
-  const canAddPhoto = !!morePhoto && !!animal && animal.sicherheit !== 'sicher' && photos.length < MAX_PHOTOS;
+  const canAddPhoto = !!morePhoto && !!animal && photos.length < MAX_PHOTOS;
+  const unsure = canAddPhoto && animal.sicherheit !== 'sicher';
+  const noAnimal = !!morePhoto && !!result?.ok && !animal;
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
@@ -163,11 +166,16 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
 
       {result && !result.ok && <Button label={t('res.retry')} onPress={() => run(photos)} p={p} filled />}
 
-      {/* Belohnung */}
-      {reward && animal && <RewardCard reward={reward} photos={photos.length} p={p} />}
+      {/* Kein Tier erkannt: gleich ein neues Foto machen */}
+      {noAnimal && (
+        <View style={[styles.row, { marginHorizontal: spacing.gutter, marginTop: 12 }]}>
+          <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera', true)} filled p={p} />
+          <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library', true)} p={p} />
+        </View>
+      )}
 
-      {/* Zweites Foto, wenn die KI nicht sicher ist */}
-      {canAddPhoto && (
+      {/* KI nicht ganz sicher: zweites Foto direkt unter dem Ergebnis anbieten */}
+      {unsure && (
         <View style={[styles.card, styles.second, { backgroundColor: p.card }]}>
           <Text style={[styles.cardTitle, { color: p.ink }]}>{t('res.secondTitle')}</Text>
           <Text style={[styles.body, { color: p.mute }]}>{t('res.secondText')}</Text>
@@ -177,6 +185,16 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
           </View>
         </View>
       )}
+
+      {/* KI sicher: trotzdem leise die Möglichkeit für ein weiteres Foto */}
+      {canAddPhoto && !unsure && (
+        <Pressable onPress={() => addPhoto('camera')} accessibilityRole="button" hitSlop={8} style={styles.notRight}>
+          <Text style={[styles.notRightText, { color: p.moss }]}>{t('res.notRight')}</Text>
+        </Pressable>
+      )}
+
+      {/* Belohnung */}
+      {reward && animal && <RewardCard reward={reward} photos={photos.length} p={p} />}
 
       {/* Wusstest du? */}
       {animal && !!animal.wusstest_du && (
@@ -447,6 +465,8 @@ const styles = StyleSheet.create({
   dot: { width: 8, height: 8, borderRadius: 4 },
   certaintyText: { fontFamily: fonts.sansBold, fontSize: 13 },
   second: { borderWidth: 2, borderStyle: 'dashed', borderColor: colors.accent },
+  notRight: { alignSelf: 'center', marginTop: 12 },
+  notRightText: { fontFamily: fonts.sansBold, fontSize: 14, textDecorationLine: 'underline' },
   cardTitle: { fontFamily: fonts.serifBold, fontSize: 18 },
   row: { flexDirection: 'row', gap: 8, marginTop: 12 },
   smallBtn: { flex: 1, borderWidth: 1.5, borderRadius: 14, paddingVertical: 11, alignItems: 'center' },
