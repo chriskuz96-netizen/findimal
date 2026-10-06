@@ -12,6 +12,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { HeaderBackground } from '../components/HeaderBackground';
+import { FindsMap } from '../components/map/FindsMap';
 import { Find, speciesKey, useFindPhoto } from '../finds';
 import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
@@ -32,6 +33,7 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
   const { t, locale } = useI18n();
   const fmt = (n: number) => n.toLocaleString(locale);
   const [filter, setFilter] = useState<GroupId | null>(null);
+  const [mode, setMode] = useState<'list' | 'map'>('list');
 
   // Pro Art nur der erste Fund, mit fortlaufender Nummer
   const species: { find: Find; no: number }[] = [];
@@ -94,6 +96,41 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
         })}
       </View>
 
+      {/* Umschalter Liste / Karte */}
+      <View style={[styles.seg, { backgroundColor: p.line }]}>
+        {(['list', 'map'] as const).map((m) => (
+          <Pressable
+            key={m}
+            onPress={() => setMode(m)}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: mode === m }}
+            style={[styles.segBtn, mode === m && styles.segOn]}
+          >
+            <Text style={[styles.segText, { color: mode === m ? colors.accentLight : p.ink }]}>
+              {t(m === 'list' ? 'col.list' : 'col.map')}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+
+      {mode === 'map' && (() => {
+        const shown = finds.filter((f) => !filter || groupOf(f.animal.gruppe)?.id === filter);
+        return shown.some((f) => f.coords) ? (
+          <>
+            <View style={styles.map}>
+              <FindsMap finds={shown} locale={locale} onOpen={onOpen} />
+            </View>
+            <Text style={[styles.note, { color: p.mute }]}>{t('col.mapHint')}</Text>
+          </>
+        ) : (
+          <View style={[styles.empty, { backgroundColor: p.card, borderColor: p.line }]}>
+            <Text style={[styles.emptyText, { color: p.mute }]}>{t('col.noPlaces')}</Text>
+          </View>
+        );
+      })()}
+
+      {mode === 'list' && (
+      <>
       <View style={styles.chd}>
         <Text style={[styles.h3, { color: p.ink }]}>{active ? t(`g.${active.id}`) : t('col.all')}</Text>
         {active && (
@@ -132,6 +169,8 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
       <Text style={[styles.note, { color: p.mute }]}>
         {t('col.note')}
       </Text>
+      </>
+      )}
     </ScrollView>
   );
 }
@@ -259,6 +298,23 @@ const styles = StyleSheet.create({
   tileCount: {
     fontFamily: fonts.sans,
     fontSize: 11,
+  },
+  seg: {
+    flexDirection: 'row',
+    borderRadius: 99,
+    padding: 3,
+    marginTop: 18,
+    marginHorizontal: spacing.gutter,
+  },
+  segBtn: { flex: 1, borderRadius: 99, paddingVertical: 8, alignItems: 'center' },
+  segOn: { backgroundColor: '#1F5639' },
+  segText: { fontFamily: fonts.sansBold, fontSize: 14 },
+  map: {
+    height: 420,
+    marginTop: 14,
+    marginHorizontal: spacing.gutter,
+    borderRadius: 22,
+    overflow: 'hidden',
   },
   chd: {
     flexDirection: 'row',
