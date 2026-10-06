@@ -9,6 +9,7 @@ import { Lang, Translate } from './i18n';
 export type Animal = {
   tier_gefunden: boolean;
   name: string;
+  rasse?: string; // nur bei Haus- und Nutztieren, z. B. "Golden Retriever"
   wissenschaftlicher_name: string;
   gruppe: string;
   sicherheit: 'sicher' | 'wahrscheinlich' | 'unsicher';

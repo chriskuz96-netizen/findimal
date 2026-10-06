@@ -33,19 +33,25 @@ Gib nur Fakten an, bei denen du dir sicher bist. Wenn die Art unsicher ist, nenn
 (z. B. "Eine Schwebfliege") und setze "sicherheit" auf "unsicher".
 Wenn kein Tier zu sehen ist, setze "tier_gefunden" auf false, lass die Tierfelder leer und erkläre in
 "hinweis" kurz und freundlich, was du siehst und wie ein besseres Foto gelingt.
-Gefährdungsstatus bitte mit IUCN-Kürzel, z. B. "Nicht gefährdet (IUCN: LC)".`;
+Gefährdungsstatus bitte mit IUCN-Kürzel, z. B. "Nicht gefährdet (IUCN: LC)".
+Bei Haus- und Nutztieren (z. B. Hund, Katze, Huhn, Pferd, Rind, Schaf, Ziege, Kaninchen, Meerschweinchen)
+bestimme zusätzlich die Rasse so genau wie möglich und schreibe sie in "rasse" (z. B. "Golden Retriever",
+"Brahma", "Haflinger"). Sieht das Tier nach einer Mischung aus, schreibe z. B. "Mischling (vermutlich mit
+Labrador)". Bist du dir bei der Rasse nicht sicher, schreibe "vermutlich ..." davor. "name" bleibt die Tierart
+(z. B. "Haushund", "Haushuhn"). Bei Wildtieren bleibt "rasse" leer.`;
 
 const SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: [
-    'tier_gefunden', 'name', 'wissenschaftlicher_name', 'gruppe', 'sicherheit', 'kurzbeschreibung',
+    'tier_gefunden', 'name', 'rasse', 'wissenschaftlicher_name', 'gruppe', 'sicherheit', 'kurzbeschreibung',
     'klasse', 'familie', 'groesse', 'aktiv', 'lebensraum', 'verbreitung', 'gefaehrdung',
     'wusstest_du', 'rolle_in_der_natur', 'nahrung', 'fressfeinde', 'hinweis',
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
     name: TEXT,
+    rasse: TEXT,
     wissenschaftlicher_name: TEXT,
     gruppe: GRUPPE,
     sicherheit: { type: 'string', enum: ['sicher', 'wahrscheinlich', 'unsicher'] },

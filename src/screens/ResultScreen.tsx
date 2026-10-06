@@ -140,6 +140,11 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
         {animal && (
           <>
             <Text style={[styles.name, { color: p.ink }]}>{animal.name}</Text>
+            {!!animal.rasse && (
+              <Text style={styles.breed}>
+                {t('res.breed')}: {animal.rasse}
+              </Text>
+            )}
             {!!animal.wissenschaftlicher_name && (
               <Text style={[styles.sci, { color: p.mute }]}>{animal.wissenschaftlicher_name}</Text>
             )}
@@ -425,6 +430,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 8 },
   },
   name: { fontFamily: fonts.serifBold, fontSize: 25, lineHeight: 29 },
+  breed: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.accent, marginTop: 2 },
   sci: { fontFamily: fonts.sans, fontStyle: 'italic', fontSize: 14, marginTop: 1 },
   body: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, marginTop: 8 },
   foundOn: { fontFamily: fonts.sans, fontSize: 13, marginTop: 10 },

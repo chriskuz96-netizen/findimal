@@ -267,7 +267,7 @@ function PhotoTile({
       </View>
       <View style={styles.caption}>
         <Text style={styles.captionName} numberOfLines={2}>
-          {find.animal.name}
+          {find.animal.rasse || find.animal.name}
         </Text>
         <Text style={styles.captionDate}>{new Date(find.date).toLocaleDateString(locale)}</Text>
       </View>
