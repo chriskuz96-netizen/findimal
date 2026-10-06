@@ -6,7 +6,6 @@ import {
   Image,
   Pressable,
   ScrollView,
-  Share,
   StyleSheet,
   Text,
   TextInput,
@@ -98,16 +97,6 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
   const mainUri = photo ? photo.uri : savedPhoto;
-
-  // Fund teilen: Text mit Name und "Wusstest du?" plus das eigene Foto (als Bild-Daten)
-  const shareFind = () => {
-    if (!animal) return;
-    const title = animal.rasse ? `${animal.name} (${animal.rasse})` : animal.name;
-    const sci = animal.wissenschaftlicher_name ? ` – ${animal.wissenschaftlicher_name}` : '';
-    const fact = animal.wusstest_du ? `\n\n${t('f.fun')} ${animal.wusstest_du}` : '';
-    const image = photo?.base64 ? `data:image/jpeg;base64,${photo.base64}` : savedPhoto?.startsWith('data:') ? savedPhoto : undefined;
-    Share.share({ message: `${t('res.shareText', { name: title })}${sci}${fact}`, url: image }).catch(() => {});
-  };
   const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
   const canAddPhoto = !!morePhoto && !!animal && photos.length < MAX_PHOTOS;
   const unsure = canAddPhoto && animal.sicherheit !== 'sicher';
@@ -274,7 +263,6 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
         </>
       )}
 
-      {animal && <Button label={t('res.share')} onPress={shareFind} p={p} filled={false} />}
       <Button label={t('res.continue')} onPress={leave} p={p} filled={!!result} />
     </ScrollView>
   );
