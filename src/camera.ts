@@ -1,18 +1,32 @@
+import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import * as ImagePicker from 'expo-image-picker';
 import { Alert, Linking } from 'react-native';
 
 const OPTIONS: ImagePicker.ImagePickerOptions = {
   mediaTypes: ['images'],
-  quality: 0.7,
-  base64: true, // brauchen wir später für die Tierbestimmung
+  quality: 1,
 };
+
+const MAX_SIDE = 1280; // größer braucht die Tierbestimmung nicht
 
 export type Photo = { uri: string; base64: string | null };
 
-function toPhoto(result: ImagePicker.ImagePickerResult): Photo | null {
+// Verkleinert das Foto und wandelt es in Text (base64) um, damit es
+// schnell und günstig an die Tierbestimmung geschickt werden kann.
+async function toPhoto(result: ImagePicker.ImagePickerResult): Promise<Photo | null> {
   if (result.canceled || !result.assets?.length) return null;
   const a = result.assets[0];
-  return { uri: a.uri, base64: a.base64 ?? null };
+  try {
+    let ctx = ImageManipulator.manipulate(a.uri);
+    if (Math.max(a.width, a.height) > MAX_SIDE) {
+      ctx = ctx.resize(a.width >= a.height ? { width: MAX_SIDE } : { height: MAX_SIDE });
+    }
+    const image = await ctx.renderAsync();
+    const saved = await image.saveAsync({ compress: 0.7, format: SaveFormat.JPEG, base64: true });
+    return { uri: saved.uri, base64: saved.base64 ?? null };
+  } catch {
+    return { uri: a.uri, base64: null };
+  }
 }
 
 function askForSettings(what: string) {
