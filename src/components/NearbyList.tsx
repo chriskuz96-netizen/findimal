@@ -19,7 +19,7 @@ export function NearbyList({ region }: { region: string }) {
   return (
     <View style={styles.near}>
       <View style={styles.head}>
-        <Explorer size={22} />
+        <Explorer size={30} />
         <View>
           <Text style={[styles.when, { color: p.mute }]}>
             {region || 'Deutschland'}, {daytime()}
@@ -49,16 +49,19 @@ export function NearbyList({ region }: { region: string }) {
                 ]}
               >
                 <View style={styles.icon}>
-                  <GroupIcon id={g?.id ?? null} size={14} color={colors.accentLight} />
+                  <GroupIcon id={g?.id ?? null} size={20} color={colors.accentLight} />
                 </View>
-                <View style={{ flex: 1, minWidth: 0 }}>
-                  <Text style={[styles.name, { color: p.ink }]} numberOfLines={1}>
-                    {t.name}
-                  </Text>
-                  <Text style={[styles.where, { color: p.mute }]} numberOfLines={1}>
-                    {t.wo}
-                  </Text>
-                </View>
+                <Text
+                  style={[styles.name, { color: p.ink }]}
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.7}
+                >
+                  {t.name}
+                </Text>
+                <Text style={[styles.where, { color: p.mute }]} numberOfLines={2}>
+                  {t.wo}
+                </Text>
               </Pressable>
             );
           })}
@@ -71,8 +74,8 @@ export function NearbyList({ region }: { region: string }) {
 const styles = StyleSheet.create({
   near: {
     marginHorizontal: spacing.gutter,
-    marginTop: 8,
-    marginBottom: 8,
+    marginTop: 12,
+    marginBottom: 12,
   },
   head: {
     flexDirection: 'row',
@@ -81,49 +84,51 @@ const styles = StyleSheet.create({
   },
   when: {
     fontFamily: fonts.sans,
-    fontSize: 10.5,
+    fontSize: 12.5,
   },
   title: {
     fontFamily: fonts.serifBold,
-    fontSize: 13,
+    fontSize: 17,
   },
   list: {
     flexDirection: 'row',
-    gap: 6,
-    marginTop: 4,
+    gap: 8,
+    marginTop: 8,
   },
   item: {
     flex: 1,
-    flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
     borderWidth: 1,
-    borderRadius: 10,
-    paddingVertical: 5,
+    borderRadius: 14,
+    paddingVertical: 10,
     paddingHorizontal: 6,
     minWidth: 0,
   },
   icon: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     backgroundColor: '#123826',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 6,
   },
   name: {
     fontFamily: fonts.sansBold,
-    fontSize: 11.5,
-    lineHeight: 14,
+    fontSize: 14,
+    lineHeight: 17,
+    textAlign: 'center',
   },
   where: {
     fontFamily: fonts.sans,
-    fontSize: 9.5,
-    lineHeight: 12,
+    fontSize: 12,
+    lineHeight: 15,
+    textAlign: 'center',
+    marginTop: 2,
   },
   empty: {
     fontFamily: fonts.sans,
-    fontSize: 12,
+    fontSize: 14,
     marginTop: 4,
   },
 });
