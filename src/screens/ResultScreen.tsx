@@ -15,6 +15,7 @@ import { Photo } from '../camera';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Find, useFindPhoto } from '../finds';
 import { Explorer } from '../components/Explorer';
+import { useI18n } from '../i18n';
 import { Animal, identify, IdentifyResult } from '../identify';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -28,6 +29,7 @@ type Props =
 export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
+  const { t, lang, locale } = useI18n();
   const [result, setResult] = useState<IdentifyResult | null>(
     saved ? { ok: true, animal: saved.animal } : null,
   );
@@ -38,7 +40,7 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
   const run = useCallback(() => {
     if (!photo) return;
     setResult(null);
-    identify(photo).then(async (r) => {
+    identify(photo, t, lang).then(async (r) => {
       setResult(r);
       if (r.ok && r.animal.tier_gefunden) {
         const res = await onIdentified(r.animal);
@@ -55,14 +57,14 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
 
   // Kurzer Text in der Sprechblase des Forschers (lange Texte stehen unten in der Karte)
-  let title = 'Moment …';
-  let sub = 'Ich schaue genau hin';
+  let title = t('res.wait');
+  let sub = t('res.looking');
   if (result && !result.ok) {
-    title = 'Hoppla!';
-    sub = 'Das hat nicht geklappt';
+    title = t('res.oops');
+    sub = t('res.failed');
   } else if (result?.ok && !animal) {
-    title = 'Kein Tier entdeckt';
-    sub = 'Versuch es gleich nochmal';
+    title = t('res.noAnimal');
+    sub = t('res.tryAgainSoon');
   } else if (animal) {
     title = animal.name;
     sub = animal.wissenschaftlicher_name;
@@ -95,15 +97,15 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
             source={{ uri: photo ? photo.uri : savedPhoto! }}
             style={StyleSheet.absoluteFill}
             resizeMode="cover"
-            accessibilityLabel="Dein Foto"
+            accessibilityLabel={t('res.yourPhoto')}
           />
         )}
-        {isNew && <Text style={styles.stamp}>Neu entdeckt</Text>}
+        {isNew && <Text style={styles.stamp}>{t('res.new')}</Text>}
         {!!reward && <Text style={styles.reward}>{reward}</Text>}
       </View>
       {saved && (
         <Text style={[styles.foundOn, { color: p.mute }]}>
-          Gefunden am {new Date(saved.date).toLocaleDateString('de-DE')}
+          {t('res.foundOn', { date: new Date(saved.date).toLocaleDateString(locale) })}
         </Text>
       )}
 
@@ -114,23 +116,23 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
           <Text style={[styles.p, { color: p.ink }]}>
             {!result.ok
               ? result.message
-              : result.animal.hinweis || 'Versuch es mit einem näheren, schärferen Foto.'}
+              : result.animal.hinweis || t('res.noAnimalHint')}
           </Text>
         </View>
       )}
 
       {result && !result.ok && (
-        <Button label="Nochmal versuchen" onPress={run} filled color={p.moss} />
+        <Button label={t('res.retry')} onPress={run} filled color={p.moss} />
       )}
-      <Button label="Weiter entdecken" onPress={onBack} filled={!result || result.ok} color={p.moss} p={p} />
+      <Button label={t('res.continue')} onPress={onBack} filled={!result || result.ok} color={p.moss} p={p} />
     </ScrollView>
   );
 }
 
 // Kleines Schild in der Sprechblase: wie sicher die Bestimmung ist
 function Certainty({ value }: { value: Animal['sicherheit'] }) {
-  const label =
-    value === 'sicher' ? 'Sicher bestimmt' : value === 'wahrscheinlich' ? 'Ziemlich sicher' : 'Nicht ganz sicher';
+  const { t } = useI18n();
+  const label = t(value === 'sicher' ? 'res.sure' : value === 'wahrscheinlich' ? 'res.likely' : 'res.unsure');
   return (
     <View style={styles.certainty}>
       <View style={[styles.dot, { backgroundColor: value === 'unsicher' ? colors.accent : '#6FBF8A' }]} />
@@ -141,19 +143,20 @@ function Certainty({ value }: { value: Animal['sicherheit'] }) {
 
 // Steckbrief-Karte wie im Entwurf
 function Profile({ animal, p }: { animal: Animal; p: Palette }) {
+  const { t } = useI18n();
   const rows: [string, string][] = [
-    ['Klasse', animal.klasse],
-    ['Familie', animal.familie],
-    ['Größe', animal.groesse],
-    ['Aktiv', animal.aktiv],
-    ['Lebensraum', animal.lebensraum],
-    ['Verbreitung', animal.verbreitung],
+    [t('f.class'), animal.klasse],
+    [t('f.family'), animal.familie],
+    [t('f.size'), animal.groesse],
+    [t('f.active'), animal.aktiv],
+    [t('f.habitat'), animal.lebensraum],
+    [t('f.range'), animal.verbreitung],
   ];
   const sections: [string, string][] = [
-    ['Wusstest du?', animal.wusstest_du],
-    ['Rolle in der Natur', animal.rolle_in_der_natur],
-    ['Nahrung', animal.nahrung],
-    ['Fressfeinde', animal.fressfeinde],
+    [t('f.fun'), animal.wusstest_du],
+    [t('f.role'), animal.rolle_in_der_natur],
+    [t('f.food'), animal.nahrung],
+    [t('f.predators'), animal.fressfeinde],
   ];
 
   return (
@@ -162,7 +165,7 @@ function Profile({ animal, p }: { animal: Animal; p: Palette }) {
         <Text style={[styles.p, styles.intro, { color: p.ink }]}>{animal.kurzbeschreibung}</Text>
       )}
       {animal.sicherheit === 'unsicher' && (
-        <Text style={[styles.tip, { color: colors.accent }]}>Tipp: Ein näheres, scharfes Foto hilft mir.</Text>
+        <Text style={[styles.tip, { color: colors.accent }]}>{t('res.tip')}</Text>
       )}
       {rows
         .filter(([, v]) => v)
@@ -186,7 +189,7 @@ function Profile({ animal, p }: { animal: Animal; p: Palette }) {
             <Text style={[styles.p, { color: p.ink }]}>{v}</Text>
           </View>
         ))}
-      <Text style={[styles.ai, { color: p.mute }]}>Angaben laut KI-Einschätzung, ohne Gewähr.</Text>
+      <Text style={[styles.ai, { color: p.mute }]}>{t('res.ai')}</Text>
     </View>
   );
 }

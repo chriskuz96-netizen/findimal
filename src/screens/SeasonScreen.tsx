@@ -4,18 +4,18 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Find } from '../finds';
 import { GroupIcon } from '../groups';
-import { MONTHS, Season, seasonFor } from '../season';
+import { useI18n } from '../i18n';
+import { Season, seasonFor, seasonId } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 // Hat man das Saison-Tier in dieser Jahreszeit schon gefunden?
 function eventDone(season: Season, finds: Find[], now: Date): boolean {
-  const words = [season.event.name, season.event.sci].map((w) => w.toLowerCase());
   return finds.some((f) => {
     const d = new Date(f.date);
-    if (seasonFor(d) !== season || now.getTime() - d.getTime() > 120 * 86400000) return false;
+    if (seasonId(d) !== season.id || now.getTime() - d.getTime() > 120 * 86400000) return false;
     const a = f.animal;
     const text = `${a.name} ${a.wissenschaftlicher_name} ${a.familie} ${a.klasse}`.toLowerCase();
-    return words.some((w) => text.includes(w));
+    return season.event.match.some((w) => text.includes(w));
   });
 }
 
@@ -24,37 +24,38 @@ export function SeasonScreen({ finds }: { finds: Find[] }) {
   const dark = useColorScheme() === 'dark';
   const p = dark ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
+  const { t, lang } = useI18n();
   const now = new Date();
-  const season = seasonFor(now);
+  const season = seasonFor(now, lang);
   const done = eventDone(season, finds, now);
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
         <HeaderBackground />
-        <Text style={styles.h2}>{MONTHS[now.getMonth()]}</Text>
+        <Text style={styles.h2}>{t(`month.${now.getMonth()}` as 'month.0')}</Text>
         <Text style={styles.season}>{season.name}</Text>
       </View>
 
       {/* Saison-Aktion */}
       <View style={[styles.mis, { backgroundColor: p.card }]}>
         <View style={styles.mi}>
-          <GroupIcon id={season.phenomena.find((x) => x.sci === season.event.sci)?.icon ?? 'mam'} size={30} color={colors.accentLight} />
+          <GroupIcon id={season.event.icon} size={30} color={colors.accentLight} />
         </View>
         <View style={{ flex: 1 }}>
-          <Text style={[styles.small, { color: p.mute }]}>Saison-Aktion</Text>
+          <Text style={[styles.small, { color: p.mute }]}>{t('sea.event')}</Text>
           <Text style={[styles.misText, { color: p.ink }]}>{season.event.title}</Text>
         </View>
         {done && (
           <View style={styles.done}>
-            <Text style={styles.doneText}>✓ Geschafft</Text>
+            <Text style={styles.doneText}>✓ {t('ch.done')}</Text>
           </View>
         )}
       </View>
 
       {/* Was jetzt los ist */}
       <View style={styles.blk}>
-        <Text style={[styles.h3, { color: p.ink }]}>Das passiert gerade</Text>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('sea.now')}</Text>
         {season.phenomena.map((ph, i) => (
           <View
             key={ph.title}
@@ -75,9 +76,9 @@ export function SeasonScreen({ finds }: { finds: Find[] }) {
 
       {/* So hilfst du */}
       <View style={[styles.help, { backgroundColor: 'rgba(31,110,71,0.09)' }]}>
-        <Text style={[styles.h3, { color: p.ink }]}>So hilfst du den Tieren jetzt</Text>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('sea.help')}</Text>
         <Text style={[styles.sub, { color: p.mute }]}>
-          Kleine Dinge mit großer Wirkung, im Garten, auf dem Balkon oder im Park.
+          {t('sea.helpSub')}
         </Text>
         {season.help.map((h, i) => (
           <View key={h.title} style={[styles.hi, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}>

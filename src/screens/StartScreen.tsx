@@ -5,19 +5,16 @@ import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
 import { GroupIcon, GroupId } from '../groups';
-import { BadgeId, XP } from '../progress';
+import { BadgeId, DailyId, XP } from '../progress';
 import { Medal } from '../components/Medal';
-import { nickname } from '../nickname';
+import { LanguageButton } from '../components/LanguageButton';
+import { useI18n } from '../i18n';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
 import { Ladybug } from '../components/animals/Ladybug';
 import { Squirrel } from '../components/animals/Squirrel';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
-function greeting(name: string | null): string {
-  if (!name) return 'Was entdeckst du heute?';
-  return `Willkommen zurück, ${name}, du ${nickname}!`;
-}
 
 type Props = {
   name: string | null;
@@ -25,7 +22,7 @@ type Props = {
   onOpenProfile: () => void;
   xp: number;
   avatar: BadgeId | null; // Abzeichen als Profilbild
-  daily: { text: string; icon: GroupId | null; done: boolean };
+  daily: { id: DailyId; icon: GroupId | null; done: boolean };
   onOpenChallenges: () => void;
   onTakePhoto: () => void;
   onPickPhoto: () => void;
@@ -44,6 +41,8 @@ export function StartScreen({
 }: Props) {
   const insets = useSafeAreaInsets();
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
+  const { t, nickname } = useI18n();
+  const greeting = name ? t('start.welcome', { name, nick: nickname }) : t('start.hello');
   const { width, height } = useWindowDimensions();
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
   const camSize = Math.min(168, Math.max(120, height * 0.21));
@@ -71,7 +70,7 @@ export function StartScreen({
         <Pressable
           onPress={onOpenProfile}
           accessibilityRole="button"
-          accessibilityLabel="Profil"
+          accessibilityLabel={t('a11y.profile')}
           style={[avatar ? styles.avatarMedal : styles.avatar, { top: insets.top + (avatar ? 6 : 12) }]}
         >
           {avatar ? (
@@ -81,17 +80,18 @@ export function StartScreen({
           )}
         </Pressable>
         <Text style={[styles.avatarXp, { top: insets.top + 60 }]}>{xp} XP</Text>
+        <LanguageButton top={insets.top + 14} />
 
         <View style={[styles.center, { paddingTop: insets.top }]}>
           <Text style={styles.title}>Findimal</Text>
-          <CameraButton size={camSize} onPress={onTakePhoto} />
+          <CameraButton size={camSize} onPress={onTakePhoto} label={t('a11y.takePhoto')} />
           <Pressable onPress={onPickPhoto} accessibilityRole="button" hitSlop={10}>
-            <Text style={styles.pickLink}>oder Foto auswählen</Text>
+            <Text style={styles.pickLink}>{t('start.pick')}</Text>
           </Pressable>
         </View>
 
         <View style={styles.greetingWrap} pointerEvents="none">
-          <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting(name)}</Text>
+          <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting}</Text>
         </View>
       </View>
       {/* Tageschallenge (öffnet die Challenges) */}
@@ -107,11 +107,11 @@ export function StartScreen({
           <GroupIcon id={daily.icon} size={22} color={colors.accentLight} />
         </View>
         <View style={{ flex: 1 }}>
-          <Text style={[styles.teaseSmall, { color: p.mute }]}>Tageschallenge</Text>
-          <Text style={[styles.teaseText, { color: p.ink }]}>{daily.text}</Text>
+          <Text style={[styles.teaseSmall, { color: p.mute }]}>{t('start.daily')}</Text>
+          <Text style={[styles.teaseText, { color: p.ink }]}>{t(`daily.${daily.id}`)}</Text>
         </View>
         <Text style={[styles.teaseXp, daily.done && { backgroundColor: '#6FBF8A' }]}>
-          {daily.done ? '✓ Geschafft' : `+${XP.daily} XP`}
+          {daily.done ? t('start.done') : `+${XP.daily} XP`}
         </Text>
       </Pressable>
       <NearbyList region={region} />

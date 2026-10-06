@@ -9,6 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { Tab, TabBar } from './src/components/TabBar';
 import { addFind, Find, loadFinds, removeFind } from './src/finds';
+import { LangProvider, useI18n } from './src/i18n';
 import { BadgeId, computeProgress, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog, questionFor } from './src/quiz';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
@@ -25,7 +26,9 @@ import { colors } from './src/theme';
 export default function App() {
   return (
     <SafeAreaProvider>
-      <Main />
+      <LangProvider>
+        <Main />
+      </LangProvider>
     </SafeAreaProvider>
   );
 }
@@ -37,6 +40,7 @@ function Main() {
     NunitoSans_500Medium,
     NunitoSans_700Bold,
   });
+  const { t, lang } = useI18n();
   // undefined = wird noch geladen, null = noch kein Name gespeichert
   const [name, setName] = useState<string | null | undefined>(undefined);
   // undefined = wird geladen, null = noch nicht gefragt, '' = übersprungen
@@ -156,9 +160,9 @@ function Main() {
             const after = computeProgress(next, correctAnswers(quizRef.current));
             // Belohnung als kurzer Text auf dem Foto, z. B. "+50 XP · Tageschallenge geschafft!"
             const parts = [`+${after.xp - before.xp} XP`];
-            if (after.daily.done && !before.daily.done) parts.push('Tageschallenge geschafft!');
-            else if (after.weekly.done && !before.weekly.done) parts.push('Wochenchallenge geschafft!');
-            else if (after.level > before.level) parts.push(`Stufe ${after.level}!`);
+            if (after.daily.done && !before.daily.done) parts.push(t('rew.daily'));
+            else if (after.weekly.done && !before.weekly.done) parts.push(t('rew.weekly'));
+            else if (after.level > before.level) parts.push(t('rew.level', { n: after.level }));
             return { isNew, reward: parts.join(' · ') };
           }}
           onBack={() => setPhoto(null)}
@@ -189,7 +193,7 @@ function Main() {
             avatar={avatarBadge as BadgeId | null}
             daily={progress.daily}
             onOpenChallenges={() => setTab('challenges')}
-            onTakePhoto={() => takePhoto().then((p) => p && setPhoto(p))}
+            onTakePhoto={() => takePhoto(t).then((p) => p && setPhoto(p))}
             onPickPhoto={() => pickPhoto().then((p) => p && setPhoto(p))}
           />
         )}
@@ -204,7 +208,7 @@ function Main() {
         {tab === 'challenges' && (
           <ChallengesScreen
             progress={progress}
-            question={questionFor(now)}
+            question={questionFor(now, lang)}
             answer={quiz[dayKey(now)]}
             onAnswer={(i) => answerQuiz(quizRef.current, now, i).then(setQuiz)}
             avatar={avatarBadge ?? ''}

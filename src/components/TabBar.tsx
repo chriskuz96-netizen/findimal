@@ -2,16 +2,12 @@ import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
 
+import { useI18n } from '../i18n';
 import { darkPalette, fonts, lightPalette } from '../theme';
 
 export type Tab = 'start' | 'collection' | 'challenges' | 'season';
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: 'start', label: 'Entdecken' },
-  { id: 'collection', label: 'Sammlung' },
-  { id: 'challenges', label: 'Challenges' },
-  { id: 'season', label: 'Saison' },
-];
+const TABS: Tab[] = ['start', 'collection', 'challenges', 'season'];
 
 function TabIcon({ id, color }: { id: Tab; color: string }) {
   const s = { fill: 'none', stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
@@ -49,21 +45,22 @@ function TabIcon({ id, color }: { id: Tab; color: string }) {
 export function TabBar({ active, onSelect }: { active: Tab; onSelect: (t: Tab) => void }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
+  const { t } = useI18n();
   return (
     <View style={[styles.bar, { backgroundColor: p.card, borderTopColor: p.line, paddingBottom: insets.bottom }]}>
-      {TABS.map((t) => {
-        const on = t.id === active;
+      {TABS.map((id) => {
+        const on = id === active;
         const color = on ? p.moss : p.mute;
         return (
           <Pressable
-            key={t.id}
-            onPress={() => onSelect(t.id)}
+            key={id}
+            onPress={() => onSelect(id)}
             accessibilityRole="tab"
             accessibilityState={{ selected: on }}
             style={styles.btn}
           >
-            <TabIcon id={t.id} color={color} />
-            <Text style={[styles.label, { color }]}>{t.label}</Text>
+            <TabIcon id={id} color={color} />
+            <Text style={[styles.label, { color }]}>{t(`tab.${id}`)}</Text>
           </Pressable>
         );
       })}

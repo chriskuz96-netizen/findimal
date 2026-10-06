@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 
 import { GroupIcon, groupOf } from '../groups';
+import { useI18n } from '../i18n';
 import { daytime, loadNearby, NearbyAnimal } from '../nearby';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 import { Explorer } from './Explorer';
@@ -9,12 +10,13 @@ import { Explorer } from './Explorer';
 // "Jetzt in deiner Nähe": drei Tiere, die man gerade in der Region entdecken kann.
 export function NearbyList({ region }: { region: string }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
+  const { t, lang } = useI18n();
   const [tiere, setTiere] = useState<NearbyAnimal[] | null | undefined>(undefined);
 
   useEffect(() => {
     setTiere(undefined);
-    loadNearby(region).then(setTiere);
-  }, [region]);
+    loadNearby(region, lang).then(setTiere);
+  }, [region, lang]);
 
   return (
     <View style={styles.near}>
@@ -22,26 +24,26 @@ export function NearbyList({ region }: { region: string }) {
         <Explorer size={30} />
         <View>
           <Text style={[styles.when, { color: p.mute }]}>
-            {region || 'Deutschland'}, {daytime()}
+            {region || t('near.yourArea')}, {t(daytime() === 'day' ? 'near.day' : 'near.eve')}
           </Text>
-          <Text style={[styles.title, { color: p.ink }]}>Jetzt in deiner Nähe</Text>
+          <Text style={[styles.title, { color: p.ink }]}>{t('near.title')}</Text>
         </View>
       </View>
 
       {tiere === undefined && <ActivityIndicator color={p.mute} style={{ marginVertical: 12 }} />}
       {tiere === null && (
         <Text style={[styles.empty, { color: p.mute }]}>
-          Gerade keine Vorschläge. Mach ein Foto, dann versuche ich es später nochmal.
+          {t('near.empty')}
         </Text>
       )}
       {tiere && (
         <View style={styles.list}>
-          {tiere.map((t) => {
-            const g = groupOf(t.gruppe);
+          {tiere.map((a) => {
+            const g = groupOf(a.gruppe);
             return (
               <Pressable
-                key={t.name}
-                onPress={() => Alert.alert(t.name, `${t.tipp}\n\nWo suchen: ${t.wo}`)}
+                key={a.name}
+                onPress={() => Alert.alert(a.name, `${a.tipp}\n\n${t('near.where', { where: a.wo })}`)}
                 accessibilityRole="button"
                 style={({ pressed }) => [
                   styles.item,
@@ -57,10 +59,10 @@ export function NearbyList({ region }: { region: string }) {
                   adjustsFontSizeToFit
                   minimumFontScale={0.7}
                 >
-                  {t.name}
+                  {a.name}
                 </Text>
                 <Text style={[styles.where, { color: p.mute }]} numberOfLines={2}>
-                  {t.wo}
+                  {a.wo}
                 </Text>
               </Pressable>
             );

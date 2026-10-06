@@ -6,10 +6,10 @@ import { colors } from '../theme';
 
 const ICON = 78; // Größe des Kamera-Symbols
 
-type Props = { size: number; onPress: () => void };
+type Props = { size: number; onPress: () => void; label: string };
 
 // Großer runder Kamera-Knopf mit pulsierendem Ring.
-export function CameraButton({ size, onPress }: Props) {
+export function CameraButton({ size, onPress, label }: Props) {
   const t = useLoop(2600, { easing: Easing.out(Easing.ease) });
   const scale = t.interpolate({ inputRange: [0, 1], outputRange: [0.92, 1.15] });
   const opacity = t.interpolate({ inputRange: [0, 1], outputRange: [1, 0] });
@@ -35,7 +35,7 @@ export function CameraButton({ size, onPress }: Props) {
       <Pressable
         onPress={onPress}
         accessibilityRole="button"
-        accessibilityLabel="Foto aufnehmen"
+        accessibilityLabel={label}
         style={({ pressed }) => [
           styles.button,
           { width: size, height: size, borderRadius: size / 2, transform: [{ scale: pressed ? 0.96 : 1 }] },

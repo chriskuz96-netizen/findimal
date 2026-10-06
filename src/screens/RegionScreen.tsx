@@ -15,6 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Explorer } from '../components/Explorer';
 import { detectPlace } from '../location';
+import { useI18n } from '../i18n';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 
 type Props = { onDone: (region: string) => void };
@@ -23,6 +24,7 @@ type Props = { onDone: (region: string) => void };
 export function RegionScreen({ onDone }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
+  const { t } = useI18n();
   const [region, setRegion] = useState('');
   const [locating, setLocating] = useState(false);
   const trimmed = region.trim();
@@ -33,10 +35,7 @@ export function RegionScreen({ onDone }: Props) {
     setLocating(false);
     if (place) onDone(place);
     else
-      Alert.alert(
-        'Standort nicht gefunden',
-        'Ich konnte deinen Ort nicht bestimmen. Gib deine Region einfach unten ein.',
-      );
+      Alert.alert(t('reg.notFoundTitle'), t('reg.notFoundText'));
   };
 
   return (
@@ -46,10 +45,9 @@ export function RegionScreen({ onDone }: Props) {
     >
       <View style={styles.content}>
         <Explorer size={96} />
-        <Text style={[styles.title, { color: p.ink }]}>Wo bist du unterwegs?</Text>
+        <Text style={[styles.title, { color: p.ink }]}>{t('reg.title')}</Text>
         <Text style={[styles.text, { color: p.mute }]}>
-          Damit ich dir zeigen kann, welche Tiere es in deiner Nähe gibt. Ich merke mir nur den Ortsnamen,
-          nicht deinen genauen Standort.
+          {t('reg.text')}
         </Text>
 
         <Pressable
@@ -64,21 +62,21 @@ export function RegionScreen({ onDone }: Props) {
           {locating ? (
             <ActivityIndicator color={colors.white} />
           ) : (
-            <Text style={styles.buttonText}>Standort verwenden</Text>
+            <Text style={styles.buttonText}>{t('reg.useLocation')}</Text>
           )}
         </Pressable>
 
-        <Text style={[styles.or, { color: p.mute }]}>oder Region eingeben</Text>
+        <Text style={[styles.or, { color: p.mute }]}>{t('reg.or')}</Text>
         <TextInput
           value={region}
           onChangeText={setRegion}
-          placeholder="z. B. München"
+          placeholder={t('reg.placeholder')}
           placeholderTextColor={p.mute}
           maxLength={40}
           autoCapitalize="words"
           returnKeyType="done"
           onSubmitEditing={() => trimmed && onDone(trimmed)}
-          accessibilityLabel="Region"
+          accessibilityLabel={t('pro.region')}
           style={[styles.input, { backgroundColor: p.card, borderColor: p.line, color: p.ink }]}
         />
         <Pressable
@@ -91,10 +89,10 @@ export function RegionScreen({ onDone }: Props) {
             { borderColor: p.line, opacity: !trimmed ? 0.5 : pressed ? 0.85 : 1 },
           ]}
         >
-          <Text style={[styles.buttonText, { color: p.ink }]}>Weiter</Text>
+          <Text style={[styles.buttonText, { color: p.ink }]}>{t('reg.next')}</Text>
         </Pressable>
         <Pressable onPress={() => onDone('')} hitSlop={10} style={{ marginTop: 14 }}>
-          <Text style={[styles.link, { color: p.moss }]}>Später</Text>
+          <Text style={[styles.link, { color: p.moss }]}>{t('reg.later')}</Text>
         </Pressable>
       </View>
     </KeyboardAvoidingView>

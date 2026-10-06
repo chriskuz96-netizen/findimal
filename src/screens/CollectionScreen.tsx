@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Find, speciesKey, useFindPhoto } from '../finds';
 import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
+import { useI18n } from '../i18n';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
@@ -23,17 +24,13 @@ type Props = {
   onDiscover: () => void;
 };
 
-const fmt = (n: number) => n.toLocaleString('de-DE');
-
-function shortDate(iso: string) {
-  const d = new Date(iso);
-  return `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
-}
 
 // Sammlung: alle entdeckten Arten, filterbar nach Tiergruppe.
 export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
+  const { t, locale } = useI18n();
+  const fmt = (n: number) => n.toLocaleString(locale);
   const [filter, setFilter] = useState<GroupId | null>(null);
 
   // Pro Art nur der erste Fund, mit fortlaufender Nummer
@@ -53,19 +50,19 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
     .reverse(); // neueste zuerst
 
   const askDelete = (f: Find) =>
-    Alert.alert(`${f.animal.name} löschen?`, 'Der Fund wird aus deiner Sammlung entfernt.', [
-      { text: 'Abbrechen', style: 'cancel' },
-      { text: 'Löschen', style: 'destructive', onPress: () => onDelete(f) },
+    Alert.alert(t('col.deleteTitle', { name: f.animal.name }), t('col.deleteText'), [
+      { text: t('common.cancel'), style: 'cancel' },
+      { text: t('common.delete'), style: 'destructive', onPress: () => onDelete(f) },
     ]);
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
         <HeaderBackground />
-        <Text style={styles.h2}>Sammlung</Text>
+        <Text style={styles.h2}>{t('col.title')}</Text>
         <View style={styles.stats}>
-          <Stat value={String(species.length)} label="Arten" />
-          <Stat value={`${groupsFound.size} / ${GROUPS.length}`} label="Gruppen" />
+          <Stat value={String(species.length)} label={t('col.species')} />
+          <Stat value={`${groupsFound.size} / ${GROUPS.length}`} label={t('col.groups')} />
         </View>
       </View>
 
@@ -88,7 +85,7 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
               ]}
             >
               <GroupIcon id={g.id} size={28} color={colors.accent} />
-              <Text style={[styles.tileName, { color: on ? colors.accentLight : p.ink }]}>{g.name}</Text>
+              <Text style={[styles.tileName, { color: on ? colors.accentLight : p.ink }]}>{t(`g.${g.id}`)}</Text>
               <Text style={[styles.tileCount, { color: on ? colors.accentLight : p.mute }]}>
                 {n} / {fmt(g.total)}
               </Text>
@@ -98,22 +95,22 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
       </View>
 
       <View style={styles.chd}>
-        <Text style={[styles.h3, { color: p.ink }]}>{active ? active.name : 'Alle'}</Text>
+        <Text style={[styles.h3, { color: p.ink }]}>{active ? t(`g.${active.id}`) : t('col.all')}</Text>
         {active && (
           <Pressable onPress={() => setFilter(null)} hitSlop={10}>
-            <Text style={[styles.link, { color: p.moss }]}>Alle</Text>
+            <Text style={[styles.link, { color: p.moss }]}>{t('col.all')}</Text>
           </Pressable>
         )}
       </View>
 
       {species.length === 0 ? (
         <View style={[styles.empty, { backgroundColor: p.card, borderColor: p.line }]}>
-          <Text style={[styles.h3, { color: p.ink }]}>Noch keine Funde</Text>
+          <Text style={[styles.h3, { color: p.ink }]}>{t('col.emptyTitle')}</Text>
           <Text style={[styles.emptyText, { color: p.mute }]}>
-            Fotografiere dein erstes Tier, dann landet es hier in deiner Sammlung.
+            {t('col.emptyText')}
           </Text>
           <Pressable onPress={onDiscover} style={[styles.btn, { backgroundColor: p.moss }]}>
-            <Text style={styles.btnText}>Los geht’s</Text>
+            <Text style={styles.btnText}>{t('col.go')}</Text>
           </Pressable>
         </View>
       ) : (
@@ -125,15 +122,15 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
             {active && <GroupIcon id={active.id} size={40} color={p.mute} />}
             <Text style={[styles.moreText, { color: p.mute }]}>
               {active
-                ? `+ ca. ${fmt(Math.max(0, active.total - list.length))} weitere`
-                : 'Noch viele Arten zu entdecken'}
+                ? t('col.more', { n: fmt(Math.max(0, active.total - list.length)) })
+                : t('col.moreAll')}
             </Text>
           </View>
         </View>
       )}
 
       <Text style={[styles.note, { color: p.mute }]}>
-        Artenzahlen: ungefähre Werte für Deutschland. Lange drücken, um einen Fund zu löschen.
+        {t('col.note')}
       </Text>
     </ScrollView>
   );
@@ -163,6 +160,7 @@ function Card({
 }) {
   const g = groupOf(find.animal.gruppe);
   const photoUri = useFindPhoto(find.id);
+  const { locale } = useI18n();
   return (
     <Pressable
       onPress={onPress}
@@ -189,7 +187,7 @@ function Card({
         <Text style={[styles.cardSci, { color: p.mute }]} numberOfLines={1}>
           {find.animal.wissenschaftlicher_name}
         </Text>
-        <Text style={[styles.cardDate, { color: p.mute }]}>{shortDate(find.date)}</Text>
+        <Text style={[styles.cardDate, { color: p.mute }]}>{new Date(find.date).toLocaleDateString(locale)}</Text>
       </View>
     </Pressable>
   );

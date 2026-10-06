@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { SERVER_URL } from './config';
+import { Lang } from './i18n';
 import { getAppKey } from './identify';
 
 export type NearbyAnimal = {
@@ -17,18 +18,18 @@ const MONTHS = [
 ];
 
 // Wie in der Vorlage: 6–17 Uhr = tagsüber, sonst abends
-export function daytime(date = new Date()): 'tagsüber' | 'heute Abend' {
+export function daytime(date = new Date()): 'day' | 'eve' {
   const h = date.getHours();
-  return h >= 6 && h < 17 ? 'tagsüber' : 'heute Abend';
+  return h >= 6 && h < 17 ? 'day' : 'eve';
 }
 
 const CACHE_KEY = 'findimal-nearby';
 
 // Holt drei Vorschläge vom Server. Pro Tag, Tageszeit und Region nur einmal (spart Kosten).
-export async function loadNearby(region: string): Promise<NearbyAnimal[] | null> {
+export async function loadNearby(region: string, lang: Lang): Promise<NearbyAnimal[] | null> {
   const now = new Date();
-  const zeit = `${MONTHS[now.getMonth()]}, ${daytime(now) === 'tagsüber' ? 'tagsüber' : 'abends'}`;
-  const key = `${region}|${now.toDateString()}|${zeit}`;
+  const zeit = `${MONTHS[now.getMonth()]}, ${daytime(now) === 'day' ? 'tagsüber' : 'abends'}`;
+  const key = `${region}|${lang}|${now.toDateString()}|${zeit}`;
 
   try {
     const cached = await AsyncStorage.getItem(CACHE_KEY);
@@ -45,7 +46,7 @@ export async function loadNearby(region: string): Promise<NearbyAnimal[] | null>
     const res = await fetch(SERVER_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey() },
-      body: JSON.stringify({ mode: 'nearby', region: region || 'Deutschland', zeit }),
+      body: JSON.stringify({ mode: 'nearby', region: region || 'Mitteleuropa', zeit, lang }),
     });
     if (!res.ok) return null;
     const data = (await res.json()) as { tiere?: NearbyAnimal[] };

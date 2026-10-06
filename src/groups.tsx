@@ -3,15 +3,16 @@ import Svg, { Circle, Ellipse, G, Path } from 'react-native-svg';
 // Tiergruppen wie in der Vorlage (Farben für Karten, ungefähre Artenzahl in Deutschland).
 export type GroupId = 'mam' | 'bird' | 'ins' | 'amp' | 'mol' | 'ara';
 
-export type Group = { id: GroupId; name: string; c1: string; c2: string; total: number };
+// Name der Gruppe: Text 'g.<id>'
+export type Group = { id: GroupId; c1: string; c2: string; total: number };
 
 export const GROUPS: Group[] = [
-  { id: 'mam', name: 'Säugetiere', c1: '#5A3E2B', c2: '#8E5E3C', total: 100 },
-  { id: 'bird', name: 'Vögel', c1: '#1F4E6B', c2: '#3A7CA5', total: 260 },
-  { id: 'ins', name: 'Insekten', c1: '#6B4A1F', c2: '#B7832F', total: 30000 },
-  { id: 'amp', name: 'Amphibien', c1: '#1F5A3A', c2: '#3E8F5E', total: 20 },
-  { id: 'mol', name: 'Weichtiere', c1: '#6B5A2B', c2: '#A68A3E', total: 350 },
-  { id: 'ara', name: 'Spinnentiere', c1: '#3A2F4A', c2: '#5E4E78', total: 1000 },
+  { id: 'mam', c1: '#5A3E2B', c2: '#8E5E3C', total: 100 },
+  { id: 'bird', c1: '#1F4E6B', c2: '#3A7CA5', total: 260 },
+  { id: 'ins', c1: '#6B4A1F', c2: '#B7832F', total: 30000 },
+  { id: 'amp', c1: '#1F5A3A', c2: '#3E8F5E', total: 20 },
+  { id: 'mol', c1: '#6B5A2B', c2: '#A68A3E', total: 350 },
+  { id: 'ara', c1: '#3A2F4A', c2: '#5E4E78', total: 1000 },
 ];
 
 // Gruppe aus der Antwort des Servers -> Gruppe der Sammlung (null = keine der sechs)

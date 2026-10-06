@@ -13,15 +13,8 @@ export const XP = {
   quiz: 10, // Quizfrage richtig beantwortet
 };
 
-const LEVELS = [
-  { xp: 0, name: 'Neuling' },
-  { xp: 100, name: 'Entdecker' },
-  { xp: 200, name: 'Spurenleser' },
-  { xp: 400, name: 'Fährtenkenner' },
-  { xp: 700, name: 'Naturforscher' },
-  { xp: 1100, name: 'Wildnisprofi' },
-  { xp: 1600, name: 'Meister der Wildnis' },
-];
+// XP ab der jeweiligen Stufe (Namen: Texte 'level.0' bis 'level.6')
+const LEVELS = [0, 100, 200, 400, 700, 1100, 1600];
 
 // ---------- Datum-Helfer (lokale Zeit) ----------
 
@@ -43,19 +36,20 @@ function weekKey(d: Date): string {
 
 type DayFinds = { finds: Find[]; newSpecies: number };
 
-type Daily = { text: string; icon: GroupId | null; check: (day: DayFinds) => boolean };
+export type DailyId = 'ins' | 'bird' | 'ara' | 'new' | 'mam' | 'three' | 'mol';
+type Daily = { id: DailyId; icon: GroupId | null; check: (day: DayFinds) => boolean };
 
 const hasGroup = (id: GroupId) => (day: DayFinds) =>
   day.finds.some((f) => groupOf(f.animal.gruppe)?.id === id);
 
 const DAILIES: Daily[] = [
-  { text: 'Finde etwas mit sechs Beinen', icon: 'ins', check: hasGroup('ins') },
-  { text: 'Entdecke einen Vogel', icon: 'bird', check: hasGroup('bird') },
-  { text: 'Finde ein Tier mit acht Beinen', icon: 'ara', check: hasGroup('ara') },
-  { text: 'Entdecke eine neue Art', icon: null, check: (d) => d.newSpecies > 0 },
-  { text: 'Finde ein Säugetier', icon: 'mam', check: hasGroup('mam') },
-  { text: 'Mach heute drei Funde', icon: null, check: (d) => d.finds.length >= 3 },
-  { text: 'Finde eine Schnecke', icon: 'mol', check: hasGroup('mol') },
+  { id: 'ins', icon: 'ins', check: hasGroup('ins') },
+  { id: 'bird', icon: 'bird', check: hasGroup('bird') },
+  { id: 'ara', icon: 'ara', check: hasGroup('ara') },
+  { id: 'new', icon: null, check: (d) => d.newSpecies > 0 },
+  { id: 'mam', icon: 'mam', check: hasGroup('mam') },
+  { id: 'three', icon: null, check: (d) => d.finds.length >= 3 },
+  { id: 'mol', icon: 'mol', check: hasGroup('mol') },
 ];
 
 export function dailyFor(date: Date): Daily {
@@ -75,18 +69,18 @@ export type BadgeId =
   | 'species25'
   | 'allgroups';
 
-export type Badge = { id: BadgeId; name: string; hint: string; earned: boolean };
+// Name und Hinweis: Texte 'badge.<id>' und 'badge.<id>.hint'
+export type Badge = { id: BadgeId; earned: boolean };
 
 // ---------- Gesamtstand ----------
 
 export type Progress = {
   xp: number;
-  level: number;
-  levelName: string;
+  level: number; // 1 = erste Stufe
   levelStart: number;
   nextLevelXp: number | null;
   streak: number;
-  daily: { text: string; icon: GroupId | null; done: boolean };
+  daily: { id: DailyId; icon: GroupId | null; done: boolean };
   weekly: { groups: GroupId[]; done: boolean };
   badges: Badge[];
 };
@@ -148,7 +142,7 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
 
   // Stufe
   let level = 0;
-  while (level + 1 < LEVELS.length && xp >= LEVELS[level + 1].xp) level++;
+  while (level + 1 < LEVELS.length && xp >= LEVELS[level + 1]) level++;
 
   const todayFinds = days.get(dayKey(now)) ?? { finds: [], newSpecies: 0 };
   const daily = dailyFor(now);
@@ -164,22 +158,21 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
   return {
     xp,
     level: level + 1,
-    levelName: LEVELS[level].name,
-    levelStart: LEVELS[level].xp,
-    nextLevelXp: LEVELS[level + 1]?.xp ?? null,
+    levelStart: LEVELS[level],
+    nextLevelXp: LEVELS[level + 1] ?? null,
     streak,
-    daily: { text: daily.text, icon: daily.icon, done: daily.check(todayFinds) },
+    daily: { id: daily.id, icon: daily.icon, done: daily.check(todayFinds) },
     weekly: { groups: thisWeek, done: thisWeek.length >= 3 },
     badges: [
-      { id: 'first', name: 'Erster Fund', hint: 'Mach deinen ersten Fund.', earned: finds.length >= 1 },
-      { id: 'streak3', name: '3-Tage-Serie', hint: 'Finde an drei Tagen hintereinander ein Tier.', earned: best >= 3 },
-      { id: 'insects5', name: 'Käferkenner', hint: 'Finde fünf Insekten.', earned: countGroup('ins') >= 5 },
-      { id: 'night', name: 'Nachteule', hint: 'Entdecke ein Tier nach 20 Uhr.', earned: nightFind },
-      { id: 'birds5', name: 'Vogelfreund', hint: 'Finde fünf Vögel.', earned: countGroup('bird') >= 5 },
-      { id: 'species10', name: '10 Arten', hint: 'Entdecke zehn verschiedene Arten.', earned: seen.size >= 10 },
-      { id: 'streak7', name: '7-Tage-Serie', hint: 'Finde eine Woche lang jeden Tag ein Tier.', earned: best >= 7 },
-      { id: 'species25', name: '25 Arten', hint: 'Entdecke 25 verschiedene Arten.', earned: seen.size >= 25 },
-      { id: 'allgroups', name: 'Alle Gruppen', hint: 'Finde Tiere aus allen sechs Gruppen.', earned: groupsEver.size >= 6 },
+      { id: 'first', earned: finds.length >= 1 },
+      { id: 'streak3', earned: best >= 3 },
+      { id: 'insects5', earned: countGroup('ins') >= 5 },
+      { id: 'night', earned: nightFind },
+      { id: 'birds5', earned: countGroup('bird') >= 5 },
+      { id: 'species10', earned: seen.size >= 10 },
+      { id: 'streak7', earned: best >= 7 },
+      { id: 'species25', earned: seen.size >= 25 },
+      { id: 'allgroups', earned: groupsEver.size >= 6 },
     ],
   };
 }

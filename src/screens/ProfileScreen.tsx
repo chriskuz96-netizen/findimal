@@ -14,7 +14,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Medal } from '../components/Medal';
 import { Find, speciesKey } from '../finds';
-import { nickname } from '../nickname';
+import { LanguageChips } from '../components/LanguageButton';
+import { useI18n } from '../i18n';
 import { BadgeId, Progress } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -36,6 +37,7 @@ export function ProfileScreen(props: Props) {
   const { name, region, avatar, progress, finds, onBack, onRename, onChangeRegion, onSelectAvatar, onReset } = props;
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
+  const { t, nickname } = useI18n();
   const [newName, setNewName] = useState(name);
   const earned = progress.badges.filter((b) => b.earned);
   const species = new Set(finds.map((f) => speciesKey(f.animal))).size;
@@ -45,11 +47,11 @@ export function ProfileScreen(props: Props) {
 
   const confirmReset = () =>
     Alert.alert(
-      'Profil zurücksetzen?',
-      'Name, Region, alle Funde, Fotos und Punkte werden auf diesem Handy gelöscht. Das kann man nicht rückgängig machen.',
+      t('pro.resetTitle'),
+      t('pro.resetText'),
       [
-        { text: 'Abbrechen', style: 'cancel' },
-        { text: 'Alles löschen', style: 'destructive', onPress: onReset },
+        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('pro.resetYes'), style: 'destructive', onPress: onReset },
       ],
     );
 
@@ -58,7 +60,7 @@ export function ProfileScreen(props: Props) {
       <View style={[styles.hx, { paddingTop: insets.top + 10 }]}>
         <HeaderBackground />
         <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" style={styles.back}>
-          <Text style={styles.backText}>‹ Zurück</Text>
+          <Text style={styles.backText}>{t('pro.back')}</Text>
         </Pressable>
         <View style={styles.pr}>
           {avatar ? (
@@ -71,7 +73,7 @@ export function ProfileScreen(props: Props) {
           <View style={{ flex: 1 }}>
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.nick}>
-              {nickname} · Stufe {progress.level}
+              {nickname} · {t('ch.level')} {progress.level}
             </Text>
           </View>
         </View>
@@ -80,7 +82,7 @@ export function ProfileScreen(props: Props) {
       {/* Stufe und Statistik */}
       <Card p={p} style={{ marginTop: -24 }}>
         <Text style={[styles.h3, { color: p.ink }]}>
-          Stufe {progress.level}: {progress.levelName}
+          {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
         </Text>
         <View style={[styles.prog, { backgroundColor: p.line }]}>
           <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
@@ -89,18 +91,18 @@ export function ProfileScreen(props: Props) {
           {progress.nextLevelXp ? `${progress.xp} / ${progress.nextLevelXp} XP` : `${progress.xp} XP`}
         </Text>
         <View style={styles.stats}>
-          <Stat p={p} value={finds.length} label="Funde" />
-          <Stat p={p} value={species} label="Arten" />
-          <Stat p={p} value={progress.streak} label="Tage Serie" />
-          <Stat p={p} value={earned.length} label="Abzeichen" />
+          <Stat p={p} value={finds.length} label={t('pro.finds')} />
+          <Stat p={p} value={species} label={t('col.species')} />
+          <Stat p={p} value={progress.streak} label={t('ch.streak')} />
+          <Stat p={p} value={earned.length} label={t('ch.badges')} />
         </View>
       </Card>
 
       {/* Profilbild */}
       <Card p={p}>
-        <Text style={[styles.h3, { color: p.ink }]}>Profilbild</Text>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.avatar')}</Text>
         <Text style={[styles.sub, { color: p.mute }]}>
-          {earned.length ? 'Wähle deinen Buchstaben oder ein verdientes Abzeichen.' : 'Verdiene Abzeichen, um sie als Profilbild zu nutzen.'}
+          {earned.length ? t('pro.avatarHint') : t('pro.avatarNone')}
         </Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pick}>
           <Pressable onPress={() => onSelectAvatar('')} style={[styles.pickItem, !avatar && styles.pickOn]}>
@@ -118,7 +120,7 @@ export function ProfileScreen(props: Props) {
 
       {/* Name */}
       <Card p={p}>
-        <Text style={[styles.h3, { color: p.ink }]}>Dein Name</Text>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.name')}</Text>
         <View style={styles.row}>
           <TextInput
             value={newName}
@@ -128,11 +130,11 @@ export function ProfileScreen(props: Props) {
             style={[styles.input, { borderColor: p.line, backgroundColor: p.bg, color: p.ink }]}
           />
           <SmallButton
-            label="Speichern"
+            label={t('common.save')}
             disabled={!newName.trim() || newName.trim() === name}
             onPress={() => {
               onRename(newName.trim());
-              Alert.alert('Gespeichert', `Hallo, ${newName.trim()}!`);
+              Alert.alert(t('pro.saved'), t('pro.hello', { name: newName.trim() }));
             }}
             p={p}
           />
@@ -141,15 +143,21 @@ export function ProfileScreen(props: Props) {
 
       {/* Region */}
       <Card p={p}>
-        <Text style={[styles.h3, { color: p.ink }]}>Deine Region</Text>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.region')}</Text>
         <View style={styles.row}>
-          <Text style={[styles.region, { color: region ? p.ink : p.mute }]}>{region || 'Noch keine Region gewählt'}</Text>
-          <SmallButton label="Ändern" onPress={onChangeRegion} p={p} />
+          <Text style={[styles.region, { color: region ? p.ink : p.mute }]}>{region || t('pro.noRegion')}</Text>
+          <SmallButton label={t('pro.change')} onPress={onChangeRegion} p={p} />
         </View>
       </Card>
 
+      {/* Sprache */}
+      <Card p={p}>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.language')}</Text>
+        <LanguageChips />
+      </Card>
+
       <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
-        <Text style={[styles.resetText, { color: colors.coral }]}>Profil zurücksetzen</Text>
+        <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
       </Pressable>
     </ScrollView>
   );

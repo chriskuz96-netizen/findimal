@@ -5,6 +5,7 @@ import { Explorer } from '../components/Explorer';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
+import { useI18n } from '../i18n';
 import { Badge, Progress, XP } from '../progress';
 import { Question } from '../quiz';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
@@ -21,7 +22,10 @@ type Props = {
 export function ChallengesScreen({ progress, question, answer, onAnswer, avatar, onSelectAvatar }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
+  const { t, locale } = useI18n();
   const { daily, weekly } = progress;
+  const badgeName = (b: Badge) => t(`badge.${b.id}`);
+  const badgeHint = (b: Badge) => t(`badge.${b.id}.hint`);
   const span = (progress.nextLevelXp ?? progress.xp) - progress.levelStart;
   const share = progress.nextLevelXp ? (progress.xp - progress.levelStart) / span : 1;
 
@@ -29,11 +33,11 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
         <HeaderBackground />
-        <Text style={styles.h2}>Challenges</Text>
+        <Text style={styles.h2}>{t('ch.title')}</Text>
         <View style={styles.stats}>
-          <Stat value={String(progress.streak)} label={progress.streak === 1 ? 'Tag Serie' : 'Tage Serie'} />
-          <Stat value={progress.xp.toLocaleString('de-DE')} label="XP" />
-          <Stat value={String(progress.level)} label="Stufe" />
+          <Stat value={String(progress.streak)} label={t(progress.streak === 1 ? 'ch.streakOne' : 'ch.streak')} />
+          <Stat value={progress.xp.toLocaleString(locale)} label="XP" />
+          <Stat value={String(progress.level)} label={t('ch.level')} />
         </View>
       </View>
 
@@ -43,34 +47,34 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
           <GroupIcon id={daily.icon} size={30} color={colors.accentLight} />
         </View>
         <View style={{ flex: 1 }}>
-          <Text style={[styles.small, { color: p.mute }]}>Tageschallenge</Text>
-          <Text style={[styles.misText, { color: p.ink }]}>{daily.text}</Text>
+          <Text style={[styles.small, { color: p.mute }]}>{t('ch.daily')}</Text>
+          <Text style={[styles.misText, { color: p.ink }]}>{t(`daily.${daily.id}`)}</Text>
         </View>
-        <XpPill text={daily.done ? 'Geschafft' : `+${XP.daily} XP`} done={daily.done} />
+        <XpPill text={daily.done ? t('ch.done') : `+${XP.daily} XP`} done={daily.done} />
       </View>
 
       {/* Stufe */}
       <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
         <Text style={[styles.h3, { color: p.ink }]}>
-          Stufe {progress.level}: {progress.levelName}
+          {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
         </Text>
         <View style={[styles.prog, { backgroundColor: p.line }]}>
           <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
         </View>
         <Text style={[styles.sub, { color: p.mute }]}>
           {progress.nextLevelXp
-            ? `${progress.xp} / ${progress.nextLevelXp} XP bis zur nächsten Stufe`
-            : `${progress.xp} XP – höchste Stufe erreicht!`}
+            ? t('ch.toNext', { xp: progress.xp, next: progress.nextLevelXp })
+            : t('ch.max', { xp: progress.xp })}
         </Text>
       </View>
 
       {/* Wochenchallenge */}
       <View style={styles.blk}>
         <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>Wochenchallenge</Text>
-          <XpPill text={weekly.done ? 'Geschafft' : `+${XP.weekly} XP`} done={weekly.done} />
+          <Text style={[styles.h3, { color: p.ink }]}>{t('ch.weekly')}</Text>
+          <XpPill text={weekly.done ? t('ch.done') : `+${XP.weekly} XP`} done={weekly.done} />
         </View>
-        <Text style={[styles.sub, { color: p.mute }]}>Finde diese Woche Tiere aus drei verschiedenen Gruppen.</Text>
+        <Text style={[styles.sub, { color: p.mute }]}>{t('ch.weeklyText')}</Text>
         <View style={styles.trail}>
           {[0, 1, 2].map((i) => {
             const g = GROUPS.find((x) => x.id === weekly.groups[i]);
@@ -84,8 +88,8 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
                   ]}
                 />
                 <View>
-                  <Text style={[styles.stName, { color: g ? p.ink : p.mute }]}>{g ? g.name : 'Noch offen'}</Text>
-                  <Text style={[styles.small, { color: p.mute }]}>{g ? 'Gefunden' : `Gruppe ${i + 1} von 3`}</Text>
+                  <Text style={[styles.stName, { color: g ? p.ink : p.mute }]}>{g ? t(`g.${g.id}`) : t('ch.open')}</Text>
+                  <Text style={[styles.small, { color: p.mute }]}>{g ? t('ch.found') : t('ch.groupN', { i: i + 1 })}</Text>
                 </View>
               </View>
             );
@@ -96,7 +100,7 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
       {/* Frage des Forschers */}
       <View style={styles.blk}>
         <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>Frage des Forschers</Text>
+          <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
           <XpPill text={`+${XP.quiz} XP`} done={answer === question.right} />
         </View>
         <View style={styles.qrow}>
@@ -131,7 +135,7 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
           <Text style={[styles.sub, { color: p.mute, marginTop: 8 }]}>
             {answer === question.right
               ? question.explain
-              : `Leider falsch. Richtig ist: ${question.answers[question.right]}. Morgen gibt es eine neue Frage!`}
+              : t('ch.wrong', { a: question.answers[question.right] })}
           </Text>
         )}
       </View>
@@ -139,12 +143,12 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
       {/* Abzeichen */}
       <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}>
         <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>Abzeichen</Text>
+          <Text style={[styles.h3, { color: p.ink }]}>{t('ch.badges')}</Text>
           <Text style={[styles.small, { color: p.mute }]}>
             {progress.badges.filter((b) => b.earned).length} / {progress.badges.length}
           </Text>
         </View>
-        <Text style={[styles.sub, { color: p.mute }]}>Tippe ein Abzeichen an, um es als Profilbild zu nehmen.</Text>
+        <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
         <View style={styles.badges}>
           {progress.badges.map((b) => (
             <BadgeView
@@ -154,16 +158,16 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
               selected={avatar === b.id}
               onPress={() => {
                 if (!b.earned) {
-                  Alert.alert(b.name, `Noch nicht geschafft. ${b.hint}`);
+                  Alert.alert(badgeName(b), t('ch.notYet', { hint: badgeHint(b) }));
                 } else if (avatar === b.id) {
-                  Alert.alert(b.name, 'Das ist gerade dein Profilbild.', [
-                    { text: 'Buchstaben zeigen', onPress: () => onSelectAvatar('') },
-                    { text: 'Behalten', style: 'cancel' },
+                  Alert.alert(badgeName(b), t('ch.isAvatar'), [
+                    { text: t('ch.showLetter'), onPress: () => onSelectAvatar('') },
+                    { text: t('ch.keep'), style: 'cancel' },
                   ]);
                 } else {
-                  Alert.alert(b.name, `${b.hint}\n\nAls Profilbild verwenden?`, [
-                    { text: 'Abbrechen', style: 'cancel' },
-                    { text: 'Ja, gerne', onPress: () => onSelectAvatar(b.id) },
+                  Alert.alert(badgeName(b), t('ch.useAsAvatar', { hint: badgeHint(b) }), [
+                    { text: t('common.cancel'), style: 'cancel' },
+                    { text: t('ch.yes'), onPress: () => onSelectAvatar(b.id) },
                   ]);
                 }
               }}
@@ -173,8 +177,7 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
       </View>
 
       <Text style={[styles.note, { color: p.mute }]}>
-        Punkte gibt es für jeden Fund (+{XP.find}), neue Arten (+{XP.newSpecies}) und geschaffte Challenges.
-        Ranglisten mit Freunden kommen später.
+        {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
       </Text>
     </ScrollView>
   );
@@ -208,13 +211,14 @@ function BadgeView({
   selected: boolean;
   onPress: () => void;
 }) {
+  const { t } = useI18n();
   return (
     <Pressable onPress={onPress} accessibilityRole="button" style={styles.badge}>
       <View style={[styles.medalWrap, selected && { borderColor: colors.accent }]}>
         <Medal id={badge.id} size={64} earned={badge.earned} />
       </View>
-      <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{badge.name}</Text>
-      {selected && <Text style={[styles.badgeSel, { color: colors.accent }]}>Profilbild</Text>}
+      <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{t(`badge.${badge.id}`)}</Text>
+      {selected && <Text style={[styles.badgeSel, { color: colors.accent }]}>{t('ch.profilePic')}</Text>}
     </Pressable>
   );
 }

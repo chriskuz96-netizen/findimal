@@ -9,6 +9,8 @@
 //
 // Geheime Variablen in Cloudflare (Settings -> Variables and Secrets):
 //   ANTHROPIC_API_KEY  dein Claude-API-Schlüssel (sk-ant-...)
+//   (Sprachen: Die App schickt "lang" mit, Claude antwortet dann auf Deutsch, Englisch,
+//    Französisch oder Spanisch.)
 //   APP_KEY            ein selbst ausgedachtes Passwort; die App fragt einmal danach
 //
 // Dieser Code wird direkt im Cloudflare-Editor eingefügt. Dort gibt es kein npm,
@@ -26,7 +28,7 @@ const GRUPPE = {
 
 const SYSTEM = `Du bist der Tierexperte der App Findimal, einer freundlichen App zum Bestimmen und Sammeln von Tieren.
 Du bekommst ein Foto und bestimmst das Tier darauf so genau wie möglich (am liebsten bis zur Art).
-Antworte auf Deutsch, freundlich und gut verständlich für Kinder und Erwachsene.
+Antworte freundlich und gut verständlich für Kinder und Erwachsene.
 Gib nur Fakten an, bei denen du dir sicher bist. Wenn die Art unsicher ist, nenne die nächstsichere Gruppe
 (z. B. "Eine Schwebfliege") und setze "sicherheit" auf "unsicher".
 Wenn kein Tier zu sehen ist, setze "tier_gefunden" auf false, lass die Tierfelder leer und erkläre in
@@ -68,7 +70,7 @@ const SCHEMA = {
 const NEARBY_SYSTEM = `Du bist der Tierexperte der App Findimal.
 Schlage drei häufige, wild lebende Tiere vor, die man in der genannten Region zur genannten Jahres- und
 Tageszeit mit etwas Glück selbst entdecken kann (keine Haustiere, keine seltenen oder gefährlichen Arten).
-Wähle möglichst verschiedene Tiergruppen. Antworte auf Deutsch, kurz und freundlich.
+Wähle möglichst verschiedene Tiergruppen. Antworte kurz und freundlich.
 "wo" sind höchstens fünf Wörter (z. B. "Hecken und Laubhaufen"), "tipp" ist ein kurzer Satz.`;
 
 const NEARBY_SCHEMA = {
@@ -93,6 +95,14 @@ const NEARBY_SCHEMA = {
     },
   },
 };
+
+// Sprache der Antwort (die App schickt de, en, fr oder es)
+const LANGUAGES = { de: 'Deutsch', en: 'Englisch', fr: 'Französisch', es: 'Spanisch' };
+
+function languageRule(lang) {
+  const name = LANGUAGES[lang] || LANGUAGES.de;
+  return `\n\nSchreibe alle Texte auf ${name}. Die Werte für "gruppe" und "sicherheit" bleiben genau wie im Schema vorgegeben.`;
+}
 
 // ---------- Hilfsfunktionen ----------
 
@@ -171,7 +181,7 @@ export default {
     if (body.mode === 'nearby') {
       const region = String(body.region || 'Deutschland').slice(0, 60);
       const zeit = String(body.zeit || '').slice(0, 60);
-      return askClaude(env, NEARBY_SYSTEM, NEARBY_SCHEMA, [
+      return askClaude(env, NEARBY_SYSTEM + languageRule(body.lang), NEARBY_SCHEMA, [
         { type: 'text', text: `Region: ${region}\nZeit: ${zeit}` },
       ]);
     }
@@ -180,7 +190,7 @@ export default {
     if (!image || image.length > 7_000_000) {
       return json({ fehler: 'Kein oder zu großes Foto.' }, 400);
     }
-    return askClaude(env, SYSTEM, SCHEMA, [
+    return askClaude(env, SYSTEM + languageRule(body.lang), SCHEMA, [
       { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: image } },
       { type: 'text', text: 'Welches Tier ist auf diesem Foto?' },
     ]);

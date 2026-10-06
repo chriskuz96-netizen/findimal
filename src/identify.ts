@@ -3,6 +3,7 @@ import { Alert } from 'react-native';
 
 import { Photo } from './camera';
 import { SERVER_URL } from './config';
+import { Lang, Translate } from './i18n';
 
 // Steckbrief, wie ihn der Server zurückgibt (Felder siehe server/findimal-worker.js).
 export type Animal = {
@@ -39,15 +40,15 @@ export async function getAppKey(): Promise<string> {
 }
 
 // Fragt einmalig nach dem Findimal-Code (APP_KEY aus Cloudflare) und speichert ihn.
-function askForAppKey(): Promise<string | null> {
+function askForAppKey(t: Translate): Promise<string | null> {
   return new Promise((resolve) => {
     Alert.prompt(
-      'Findimal-Code',
-      'Bitte gib den Code ein, den du in Cloudflare als APP_KEY festgelegt hast.',
+      t('id.codeTitle'),
+      t('id.codeText'),
       [
-        { text: 'Abbrechen', style: 'cancel', onPress: () => resolve(null) },
+        { text: t('common.cancel'), style: 'cancel', onPress: () => resolve(null) },
         {
-          text: 'Speichern',
+          text: t('common.save'),
           onPress: async (value?: string) => {
             const key = (value ?? '').trim();
             try {
@@ -64,34 +65,32 @@ function askForAppKey(): Promise<string | null> {
   });
 }
 
-async function send(photo: Photo, appKey: string): Promise<Response> {
+async function send(photo: Photo, appKey: string, lang: Lang): Promise<Response> {
   return fetch(SERVER_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': appKey },
-    body: JSON.stringify({ image: photo.base64 }),
+    body: JSON.stringify({ image: photo.base64, lang }),
   });
 }
 
 // Schickt das Foto an den Findimal-Server und liefert den Steckbrief.
-export async function identify(photo: Photo): Promise<IdentifyResult> {
-  if (!SERVER_URL) {
-    return { ok: false, message: 'Der Findimal-Server ist noch nicht eingerichtet.' };
-  }
-  if (!photo.base64) {
-    return { ok: false, message: 'Das Foto konnte nicht vorbereitet werden. Bitte nochmal versuchen.' };
-  }
+export async function identify(photo: Photo, t: Translate, lang: Lang): Promise<IdentifyResult> {
+  if (!SERVER_URL) return { ok: false, message: t('id.noServer') };
+  if (!photo.base64) return { ok: false, message: t('id.noPhoto') };
   try {
-    let res = await send(photo, await getAppKey());
+    let res = await send(photo, await getAppKey(), lang);
     if (res.status === 401) {
-      const key = await askForAppKey();
-      if (!key) return { ok: false, message: 'Ohne Findimal-Code kann ich das Tier nicht bestimmen.' };
-      res = await send(photo, key);
-      if (res.status === 401) return { ok: false, message: 'Der Findimal-Code stimmt nicht.' };
+      const key = await askForAppKey(t);
+      if (!key) return { ok: false, message: t('id.noCode') };
+      res = await send(photo, key, lang);
+      if (res.status === 401) return { ok: false, message: t('id.wrongCode') };
     }
-    const data = await res.json();
-    if (!res.ok) return { ok: false, message: data?.fehler ?? 'Etwas ist schiefgelaufen.' };
-    return { ok: true, animal: data as Animal };
+    if (res.status === 400) return { ok: false, message: t('id.badPhoto') };
+    if (res.status === 422) return { ok: false, message: t('id.refused') };
+    if (res.status >= 500) return { ok: false, message: t('id.unavailable') };
+    if (!res.ok) return { ok: false, message: t('id.error') };
+    return { ok: true, animal: (await res.json()) as Animal };
   } catch {
-    return { ok: false, message: 'Keine Verbindung. Bist du online?' };
+    return { ok: false, message: t('id.offline') };
   }
 }

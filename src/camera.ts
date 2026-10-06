@@ -2,6 +2,8 @@ import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 import * as ImagePicker from 'expo-image-picker';
 import { Alert, Linking } from 'react-native';
 
+import { Translate } from './i18n';
+
 const OPTIONS: ImagePicker.ImagePickerOptions = {
   mediaTypes: ['images'],
   quality: 1,
@@ -29,22 +31,18 @@ async function toPhoto(result: ImagePicker.ImagePickerResult): Promise<Photo | n
   }
 }
 
-function askForSettings(what: string) {
-  Alert.alert(
-    `Kein Zugriff auf ${what}`,
-    `Findimal braucht Zugriff auf ${what}, um Tiere zu bestimmen. Du kannst das in den Einstellungen erlauben.`,
-    [
-      { text: 'Abbrechen', style: 'cancel' },
-      { text: 'Einstellungen öffnen', onPress: () => Linking.openSettings() },
-    ],
-  );
+function askForSettings(t: Translate) {
+  Alert.alert(t('cam.noAccessTitle'), t('cam.noAccessText'), [
+    { text: t('common.cancel'), style: 'cancel' },
+    { text: t('cam.openSettings'), onPress: () => Linking.openSettings() },
+  ]);
 }
 
 // Öffnet die Kamera und liefert das Foto (oder null, wenn abgebrochen).
-export async function takePhoto(): Promise<Photo | null> {
+export async function takePhoto(t: Translate): Promise<Photo | null> {
   const perm = await ImagePicker.requestCameraPermissionsAsync();
   if (!perm.granted) {
-    askForSettings('die Kamera');
+    askForSettings(t);
     return null;
   }
   try {
