@@ -255,7 +255,7 @@ function Main() {
           />
         )}
         {tab === 'season' && (
-          <SeasonScreen finds={finds} />
+          <SeasonScreen finds={finds} onOpen={setOpenFind} />
         )}
       </View>
       <TabBar active={tab} onSelect={setTab} />
