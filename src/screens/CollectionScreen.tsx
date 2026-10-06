@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
+  useWindowDimensions,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -33,6 +34,9 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
   const fmt = (n: number) => n.toLocaleString(locale);
   const [filter, setFilter] = useState<GroupId | null>(null);
   const [mode, setMode] = useState<'photos' | 'map'>('photos');
+  // Kachelbreite fest ausrechnen (zwei Spalten) – Prozentwerte zeigt das iPhone hier nicht zuverlässig an
+  const { width } = useWindowDimensions();
+  const tileW = Math.floor((width - spacing.gutter * 2 - GAP) / 2);
 
   // Arten (pro Art der erste Fund) für Zähler und Gruppen-Übersicht
   const speciesKeys = new Set<string>();
@@ -95,7 +99,12 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
           </View>
 
           {/* Gruppen-Filter als kleine Chips */}
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.chipRow}
+            contentContainerStyle={styles.chips}
+          >
             <Chip label={t('col.all')} on={!filter} onPress={() => setFilter(null)} p={p} />
             {GROUPS.filter((g) => finds.some((f) => groupOf(f.animal.gruppe)?.id === g.id)).map((g) => (
               <Chip
@@ -116,6 +125,7 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
                   key={f.id}
                   find={f}
                   locale={locale}
+                  width={tileW}
                   onPress={() => onOpen(f)}
                   onLongPress={() => askDelete(f)}
                 />
@@ -215,15 +225,19 @@ function Chip({
   );
 }
 
+const GAP = 10;
+
 // Großes Foto-Kärtchen mit Name und Datum auf dem Bild
 function PhotoTile({
   find,
   locale,
+  width,
   onPress,
   onLongPress,
 }: {
   find: Find;
   locale: string;
+  width: number;
   onPress: () => void;
   onLongPress: () => void;
 }) {
@@ -235,10 +249,14 @@ function PhotoTile({
       onLongPress={onLongPress}
       accessibilityRole="button"
       accessibilityLabel={find.animal.name}
-      style={({ pressed }) => [styles.tile, { backgroundColor: g?.c1 ?? '#2F6B47', opacity: pressed ? 0.85 : 1 }]}
+      style={[styles.tile, { width, height: Math.round(width / 0.85), backgroundColor: g?.c1 ?? '#2F6B47' }]}
     >
       {uri ? (
-        <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode="cover" />
+        <Image
+          source={{ uri }}
+          style={{ position: 'absolute', left: 0, top: 0, width, height: Math.round(width / 0.85) }}
+          resizeMode="cover"
+        />
       ) : (
         <View style={[StyleSheet.absoluteFill, styles.tilePlaceholder]}>
           <GroupIcon id={g?.id ?? null} size={40} color={colors.accentLight} />
@@ -291,6 +309,7 @@ const styles = StyleSheet.create({
   segBtn: { flex: 1, borderRadius: 99, paddingVertical: 8, alignItems: 'center' },
   segOn: { backgroundColor: '#1F5639' },
   segText: { fontFamily: fonts.sansBold, fontSize: 14 },
+  chipRow: { flexGrow: 0 },
   chips: { gap: 8, paddingHorizontal: spacing.gutter, paddingTop: 12, paddingBottom: 2 },
   chip: {
     flexDirection: 'row',
@@ -305,13 +324,11 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 10,
+    gap: GAP,
     marginTop: 12,
     marginHorizontal: spacing.gutter,
   },
   tile: {
-    width: '48.5%',
-    aspectRatio: 0.85,
     borderRadius: 18,
     overflow: 'hidden',
   },
