@@ -3,6 +3,7 @@
 // 1. Tierbestimmung: Die App schickt ein Foto; der Worker fragt Claude, welches Tier es ist,
 //    und gibt einen deutschen Steckbrief zurück.
 // 2. "Jetzt in deiner Nähe": drei Tiere, die man gerade in der Region entdecken kann.
+// 3. Rangliste mit Freunden (Spitzname und Punkte, gespeichert im Cloudflare-KV-Speicher).
 //
 // Der Claude-API-Schlüssel liegt nur hier im Worker (als geheime Variable), nie in der App
 // oder auf GitHub.
@@ -12,6 +13,10 @@
 //   (Sprachen: Die App schickt "lang" mit, Claude antwortet dann auf Deutsch, Englisch,
 //    Französisch oder Spanisch.)
 //   APP_KEY            ein selbst ausgedachtes Passwort; die App fragt einmal danach
+//
+// Rangliste: braucht einen KV-Speicher (Storage & Databases -> KV), der im Worker unter
+// Bindings mit dem Variablennamen DB verbunden ist. Gespeichert werden nur Spitzname,
+// XP, Stufe, Anzahl Arten und Abzeichen-Bild – keine Fotos, keine Orte.
 //
 // Dieser Code wird direkt im Cloudflare-Editor eingefügt. Dort gibt es kein npm,
 // deshalb ruft er die Claude-API mit fetch auf statt mit dem Anthropic-SDK.
@@ -110,6 +115,54 @@ function languageRule(lang) {
   return `\n\nSchreibe alle Texte auf ${name}. Die Werte für "gruppe" und "sicherheit" bleiben genau wie im Schema vorgegeben.`;
 }
 
+// ---------- 3. Rangliste mit Freunden ----------
+
+const CODE = /^[A-HJ-NP-Z2-9]{6}$/; // Freundescode, z. B. "K7QX2M" (ohne 0/O und 1/I)
+const int = (v, max) => Math.max(0, Math.min(max, Math.floor(Number(v) || 0)));
+
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function board(env, body) {
+  if (!env.DB) return json({ fehler: 'keine_datenbank' }, 503);
+
+  // Eigene Werte speichern (nur wer das Geheimnis kennt, darf seinen Eintrag ändern)
+  if (body.mode === 'board_save' || body.mode === 'board_delete') {
+    const id = String(body.id || '');
+    const secret = String(body.secret || '');
+    if (!CODE.test(id) || secret.length < 16 || secret.length > 64) return json({ fehler: 'Ungültig.' }, 400);
+    const hash = await sha256(secret);
+    const old = await env.DB.get('p:' + id, 'json');
+    if (old && old.hash !== hash) return json({ fehler: 'Code vergeben.' }, 403);
+    if (body.mode === 'board_delete') {
+      await env.DB.delete('p:' + id);
+      return json({ ok: true });
+    }
+    const entry = {
+      hash,
+      name: String(body.name || '?').trim().slice(0, 20) || '?',
+      xp: int(body.xp, 1_000_000),
+      level: int(body.level, 100),
+      species: int(body.species, 100_000),
+      avatar: String(body.avatar || '').slice(0, 20),
+      updated: Date.now(),
+    };
+    await env.DB.put('p:' + id, JSON.stringify(entry));
+    return json({ ok: true });
+  }
+
+  // Einträge zu einer Liste von Freundescodes holen
+  const ids = (Array.isArray(body.ids) ? body.ids : []).map(String).filter((i) => CODE.test(i)).slice(0, 50);
+  const entries = await Promise.all(ids.map((id) => env.DB.get('p:' + id, 'json')));
+  const people = [];
+  entries.forEach((e, i) => {
+    if (e) people.push({ id: ids[i], name: e.name, xp: e.xp, level: e.level, species: e.species, avatar: e.avatar });
+  });
+  return json({ people });
+}
+
 // ---------- Hilfsfunktionen ----------
 
 const CORS = {
@@ -183,6 +236,8 @@ export default {
     } catch {
       return json({ fehler: 'Ungültige Anfrage.' }, 400);
     }
+
+    if (typeof body.mode === 'string' && body.mode.startsWith('board_')) return board(env, body);
 
     if (body.mode === 'nearby') {
       const region = String(body.region || 'Deutschland').slice(0, 60);

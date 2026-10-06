@@ -230,6 +230,8 @@ function Main() {
             onAnswer={(i) => answerQuiz(quizRef.current, now, i).then(setQuiz)}
             avatar={avatarBadge ?? ''}
             onSelectAvatar={chooseAvatar}
+            name={name}
+            species={new Set(finds.map((f) => speciesKey(f.animal))).size}
           />
         )}
         {tab === 'season' && (

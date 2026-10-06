@@ -1,5 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { leave, loadMe } from './board';
+
 // Alles, was die App dauerhaft auf dem Handy speichert.
 const NAME_KEY = 'findimal-name';
 
@@ -68,6 +70,9 @@ export async function saveAvatar(id: string): Promise<void> {
 // Löscht alle Findimal-Daten auf dem Handy (außer dem Findimal-Code für den Server).
 export async function resetAll(): Promise<void> {
   try {
+    // Eintrag in der Rangliste auf dem Server ebenfalls löschen
+    const me = await loadMe();
+    if (me) await leave(me);
     const keys = await AsyncStorage.getAllKeys();
     await AsyncStorage.multiRemove(
       keys.filter((k) => k.startsWith('findimal-') && k !== 'findimal-app-key'),

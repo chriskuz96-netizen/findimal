@@ -1,0 +1,100 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { SERVER_URL } from './config';
+import { getAppKey } from './identify';
+
+// Rangliste mit Freunden. Auf dem Server liegen nur Spitzname, XP, Stufe,
+// Anzahl Arten und das Abzeichen-Bild – keine Fotos und keine Fundorte.
+
+export type Me = { id: string; secret: string };
+export type Person = { id: string; name: string; xp: number; level: number; species: number; avatar: string };
+export type MyStats = { name: string; xp: number; level: number; species: number; avatar: string };
+
+const ME_KEY = 'findimal-board';
+const FRIENDS_KEY = 'findimal-friends';
+const SENT_KEY = 'findimal-board-sent';
+const LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // ohne 0/O und 1/I (leicht zu verwechseln)
+
+const random = (n: number, chars: string) =>
+  Array.from({ length: n }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+
+// Freundescode schön lesbar: "K7Q X2M" -> intern "K7QX2M"
+export const cleanCode = (code: string) => code.toUpperCase().replace(/[^A-Z0-9]/g, '');
+export const isCode = (code: string) => /^[A-HJ-NP-Z2-9]{6}$/.test(code);
+
+async function call(body: object): Promise<Response> {
+  return fetch(SERVER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey() },
+    body: JSON.stringify(body),
+  });
+}
+
+export async function loadMe(): Promise<Me | null> {
+  try {
+    const raw = await AsyncStorage.getItem(ME_KEY);
+    return raw ? (JSON.parse(raw) as Me) : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function loadFriends(): Promise<string[]> {
+  try {
+    const raw = await AsyncStorage.getItem(FRIENDS_KEY);
+    return raw ? (JSON.parse(raw) as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function saveFriends(ids: string[]): Promise<void> {
+  await AsyncStorage.setItem(FRIENDS_KEY, JSON.stringify(ids)).catch(() => {});
+}
+
+// Mitmachen: eigenen Freundescode anlegen und die eigenen Werte hochladen.
+// Liefert eine Fehlermeldung-ID oder null bei Erfolg.
+export async function join(stats: MyStats): Promise<{ me: Me | null; error: 'offline' | 'nodb' | null }> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const me = { id: random(6, LETTERS), secret: random(32, LETTERS) };
+    const res = await call({ mode: 'board_save', ...me, ...stats }).catch(() => null);
+    if (!res) return { me: null, error: 'offline' };
+    if (res.status === 503) return { me: null, error: 'nodb' };
+    if (res.status === 403) continue; // Code schon vergeben: neuen würfeln
+    if (!res.ok) return { me: null, error: 'offline' };
+    await AsyncStorage.setItem(ME_KEY, JSON.stringify(me)).catch(() => {});
+    await AsyncStorage.setItem(SENT_KEY, JSON.stringify(stats)).catch(() => {});
+    return { me, error: null };
+  }
+  return { me: null, error: 'offline' };
+}
+
+// Eigene Werte aktualisieren – nur wenn sich etwas geändert hat (spart Schreibzugriffe).
+export async function syncMe(me: Me, stats: MyStats): Promise<void> {
+  const text = JSON.stringify(stats);
+  try {
+    if ((await AsyncStorage.getItem(SENT_KEY)) === text) return;
+    const res = await call({ mode: 'board_save', ...me, ...stats });
+    if (res.ok) await AsyncStorage.setItem(SENT_KEY, text);
+  } catch {
+    // offline: beim nächsten Mal
+  }
+}
+
+// Aussteigen: Eintrag auf dem Server löschen und alles lokal vergessen.
+export async function leave(me: Me): Promise<void> {
+  await call({ mode: 'board_delete', ...me }).catch(() => null);
+  await AsyncStorage.multiRemove([ME_KEY, FRIENDS_KEY, SENT_KEY]).catch(() => {});
+}
+
+export async function fetchPeople(ids: string[]): Promise<Person[] | null> {
+  if (!ids.length) return [];
+  try {
+    const res = await call({ mode: 'board_get', ids });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { people?: Person[] };
+    return data.people ?? [];
+  } catch {
+    return null;
+  }
+}

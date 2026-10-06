@@ -3,6 +3,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Explorer } from '../components/Explorer';
 import { HeaderBackground } from '../components/HeaderBackground';
+import { Leaderboard } from '../components/Leaderboard';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
@@ -17,9 +18,11 @@ type Props = {
   onAnswer: (i: number) => void;
   avatar: string; // Abzeichen als Profilbild ('' = keins)
   onSelectAvatar: (id: string) => void;
+  name: string;
+  species: number; // Anzahl verschiedener Arten (für die Rangliste)
 };
 
-export function ChallengesScreen({ progress, question, answer, onAnswer, avatar, onSelectAvatar }: Props) {
+export function ChallengesScreen({ progress, question, answer, onAnswer, avatar, onSelectAvatar, name, species }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, locale } = useI18n();
@@ -67,6 +70,9 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
             : t('ch.max', { xp: progress.xp })}
         </Text>
       </View>
+
+      {/* Rangliste mit Freunden */}
+      <Leaderboard stats={{ name, xp: progress.xp, level: progress.level, species, avatar }} p={p} />
 
       {/* Wochenchallenge */}
       <View style={styles.blk}>
