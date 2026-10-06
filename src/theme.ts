@@ -25,6 +25,35 @@ export const colors = {
   white: '#FFFFFF',
 };
 
+// Helle und dunkle Variante für normale Seiten (z. B. Begrüßung).
+// Die Startseite ist immer dunkel.
+export type Palette = {
+  bg: string;
+  ink: string;
+  mute: string;
+  line: string;
+  card: string;
+  moss: string;
+};
+
+export const lightPalette: Palette = {
+  bg: colors.bg,
+  ink: colors.ink,
+  mute: colors.mute,
+  line: colors.line,
+  card: colors.card,
+  moss: colors.moss,
+};
+
+export const darkPalette: Palette = {
+  bg: '#0A1711',
+  ink: '#E5EEE3',
+  mute: '#9DB0A2',
+  line: '#22392C',
+  card: '#12241A',
+  moss: '#6FBF8A',
+};
+
 export const fonts = {
   // Überschriften
   serifBold: 'Fraunces_700Bold',

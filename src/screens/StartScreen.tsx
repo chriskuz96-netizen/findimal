@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { CameraButton } from '../components/CameraButton';
@@ -26,9 +26,9 @@ function greeting(name: string | null): string {
   return `Willkommen zurück, ${name}, du ${nickname}!`;
 }
 
-type Props = { name: string | null };
+type Props = { name: string | null; onChangeName: () => void };
 
-export function StartScreen({ name }: Props) {
+export function StartScreen({ name, onChangeName }: Props) {
   const insets = useSafeAreaInsets();
   const { width, height } = useWindowDimensions();
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
@@ -52,6 +52,21 @@ export function StartScreen({ name }: Props) {
         <View style={[styles.animal, { left: width * 0.05, bottom: '7%' }]}>
           <Hedgehog width={58} />
         </View>
+
+        {/* Kreis mit dem Anfangsbuchstaben (später: Profil) */}
+        <Pressable
+          onPress={() =>
+            Alert.alert(`Hallo, ${name ?? 'Forscher'}!`, 'Möchtest du deinen Namen ändern?', [
+              { text: 'Abbrechen', style: 'cancel' },
+              { text: 'Namen ändern', onPress: onChangeName },
+            ])
+          }
+          accessibilityRole="button"
+          accessibilityLabel="Profil"
+          style={[styles.avatar, { top: insets.top + 12 }]}
+        >
+          <Text style={styles.avatarText}>{name ? name[0].toUpperCase() : '?'}</Text>
+        </Pressable>
 
         <View style={[styles.center, { paddingTop: insets.top }]}>
           <Text style={styles.title}>Findimal</Text>
@@ -83,6 +98,24 @@ const styles = StyleSheet.create({
   },
   animal: {
     position: 'absolute',
+  },
+  avatar: {
+    position: 'absolute',
+    left: 14,
+    zIndex: 2,
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    borderWidth: 2,
+    borderColor: colors.accentLight,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatarText: {
+    fontFamily: fonts.serifBold,
+    fontSize: 19,
+    color: colors.ink,
   },
   center: {
     flex: 1,
