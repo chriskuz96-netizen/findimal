@@ -49,22 +49,18 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
 
-  // Text in der Sprechblase des Forschers
+  // Kurzer Text in der Sprechblase des Forschers (lange Texte stehen unten in der Karte)
   let title = 'Moment …';
   let sub = 'Ich schaue genau hin';
-  let text = 'Gleich weißt du, wen du entdeckt hast.';
   if (result && !result.ok) {
     title = 'Hoppla!';
     sub = 'Das hat nicht geklappt';
-    text = result.message;
   } else if (result?.ok && !animal) {
-    title = 'Hmm …';
-    sub = 'Kein Tier entdeckt';
-    text = result.animal.hinweis || 'Versuch es mit einem näheren, schärferen Foto.';
+    title = 'Kein Tier entdeckt';
+    sub = 'Versuch es gleich nochmal';
   } else if (animal) {
     title = animal.name;
     sub = animal.wissenschaftlicher_name;
-    text = animal.kurzbeschreibung;
   }
 
   return (
@@ -72,16 +68,18 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
       style={{ flex: 1, backgroundColor: p.bg }}
       contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
     >
+      {/* Grün auch oberhalb, falls man über den oberen Rand hinaus zieht */}
+      <View style={styles.overscroll} />
       {/* Dunkler Kopfbereich mit dem Forscher und seiner Sprechblase */}
-      <View style={[styles.top, { paddingTop: insets.top + 24 }]}>
+      <View style={[styles.top, { paddingTop: insets.top + 20 }]}>
         <HeaderBackground />
         <View style={styles.guide}>
-          <Explorer size={72} />
+          <Explorer size={60} />
           <View style={styles.bubble}>
             <Text style={styles.bubbleTitle}>{title}</Text>
-            <Text style={styles.bubbleSub}>{sub}</Text>
-            <Text style={styles.bubbleText}>{text}</Text>
-            {!result && <ActivityIndicator color={colors.accentLight} style={{ marginTop: 8 }} />}
+            {!!sub && <Text style={styles.bubbleSub}>{sub}</Text>}
+            {animal && <Certainty value={animal.sicherheit} />}
+            {!result && <ActivityIndicator color={colors.accentLight} style={styles.spinner} />}
           </View>
         </View>
       </View>
@@ -91,6 +89,7 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
           <Image
             source={{ uri: photo ? photo.uri : savedPhoto! }}
             style={StyleSheet.absoluteFill}
+            resizeMode="cover"
             accessibilityLabel="Dein Foto"
           />
         )}
@@ -104,11 +103,33 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
 
       {animal && <Profile animal={animal} p={p} />}
 
+      {result && !animal && (
+        <View style={[styles.sheet, { backgroundColor: p.card, borderColor: p.line }]}>
+          <Text style={[styles.p, { color: p.ink }]}>
+            {!result.ok
+              ? result.message
+              : result.animal.hinweis || 'Versuch es mit einem näheren, schärferen Foto.'}
+          </Text>
+        </View>
+      )}
+
       {result && !result.ok && (
         <Button label="Nochmal versuchen" onPress={run} filled color={p.moss} />
       )}
-      <Button label="Weiter entdecken" onPress={onBack} filled={!result || !!animal || result.ok} color={p.moss} p={p} />
+      <Button label="Weiter entdecken" onPress={onBack} filled={!result || result.ok} color={p.moss} p={p} />
     </ScrollView>
+  );
+}
+
+// Kleines Schild in der Sprechblase: wie sicher die Bestimmung ist
+function Certainty({ value }: { value: Animal['sicherheit'] }) {
+  const label =
+    value === 'sicher' ? 'Sicher bestimmt' : value === 'wahrscheinlich' ? 'Ziemlich sicher' : 'Nicht ganz sicher';
+  return (
+    <View style={styles.certainty}>
+      <View style={[styles.dot, { backgroundColor: value === 'unsicher' ? colors.accent : '#6FBF8A' }]} />
+      <Text style={styles.certaintyText}>{label}</Text>
+    </View>
   );
 }
 
@@ -131,12 +152,11 @@ function Profile({ animal, p }: { animal: Animal; p: Palette }) {
 
   return (
     <View style={[styles.sheet, { backgroundColor: p.card, borderColor: p.line }]}>
-      {animal.sicherheit !== 'sicher' && (
-        <Text style={[styles.unsure, { color: colors.accentDark }]}>
-          {animal.sicherheit === 'wahrscheinlich'
-            ? 'Ziemlich sicher, aber schau gern nochmal genau hin.'
-            : 'Da bin ich mir nicht sicher. Ein näheres Foto hilft mir.'}
-        </Text>
+      {!!animal.kurzbeschreibung && (
+        <Text style={[styles.p, styles.intro, { color: p.ink }]}>{animal.kurzbeschreibung}</Text>
+      )}
+      {animal.sicherheit === 'unsicher' && (
+        <Text style={[styles.tip, { color: colors.accent }]}>Tipp: Ein näheres, scharfes Foto hilft mir.</Text>
       )}
       {rows
         .filter(([, v]) => v)
@@ -198,6 +218,7 @@ function Button({
 const styles = StyleSheet.create({
   top: {
     overflow: 'hidden',
+    backgroundColor: '#17462F',
     paddingHorizontal: spacing.gutter,
     paddingBottom: 22,
     borderBottomLeftRadius: spacing.radiusHero,
@@ -234,11 +255,42 @@ const styles = StyleSheet.create({
     marginTop: 2,
     marginBottom: 6,
   },
-  bubbleText: {
-    fontFamily: fonts.sans,
-    fontSize: 15,
-    lineHeight: 21,
+  overscroll: {
+    position: 'absolute',
+    top: -1000,
+    left: 0,
+    right: 0,
+    height: 1000,
+    backgroundColor: '#17462F',
+  },
+  spinner: {
+    alignSelf: 'flex-start',
+    marginTop: 4,
+  },
+  certainty: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    gap: 6,
+    marginTop: 2,
+    paddingVertical: 3,
+    paddingHorizontal: 9,
+    borderRadius: 99,
+    backgroundColor: 'rgba(255,255,255,0.1)',
+  },
+  certaintyText: {
+    fontFamily: fonts.sansBold,
+    fontSize: 12,
     color: colors.white,
+  },
+  intro: {
+    marginBottom: 12,
+  },
+  tip: {
+    fontFamily: fonts.sansBold,
+    fontSize: 13,
+    marginTop: -6,
+    marginBottom: 12,
   },
   photo: {
     margin: spacing.gutter,
@@ -274,11 +326,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     paddingVertical: 14,
     paddingHorizontal: 16,
-  },
-  unsure: {
-    fontFamily: fonts.sansBold,
-    fontSize: 13,
-    marginBottom: 10,
   },
   kv: {
     flexDirection: 'row',
