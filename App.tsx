@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
+import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
 import { clearName, loadName, saveName } from './src/storage';
 import { colors } from './src/theme';
@@ -20,6 +22,8 @@ export default function App() {
   });
   // undefined = wird noch geladen, null = noch kein Name gespeichert
   const [name, setName] = useState<string | null | undefined>(undefined);
+  // Das zuletzt aufgenommene Foto; solange es gesetzt ist, zeigen wir die Ergebnisseite.
+  const [photo, setPhoto] = useState<Photo | null>(null);
 
   useEffect(() => {
     loadName().then(setName);
@@ -32,7 +36,12 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      {name ? (
+      {name && photo ? (
+        <>
+          <StatusBar style="light" />
+          <ResultScreen photo={photo} onBack={() => setPhoto(null)} />
+        </>
+      ) : name ? (
         <>
           <StatusBar style="light" />
           <StartScreen
@@ -41,6 +50,8 @@ export default function App() {
               clearName();
               setName(null);
             }}
+            onTakePhoto={() => takePhoto().then((p) => p && setPhoto(p))}
+            onPickPhoto={() => pickPhoto().then((p) => p && setPhoto(p))}
           />
         </>
       ) : (

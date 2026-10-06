@@ -26,9 +26,14 @@ function greeting(name: string | null): string {
   return `Willkommen zurück, ${name}, du ${nickname}!`;
 }
 
-type Props = { name: string | null; onChangeName: () => void };
+type Props = {
+  name: string | null;
+  onChangeName: () => void;
+  onTakePhoto: () => void;
+  onPickPhoto: () => void;
+};
 
-export function StartScreen({ name, onChangeName }: Props) {
+export function StartScreen({ name, onChangeName, onTakePhoto, onPickPhoto }: Props) {
   const insets = useSafeAreaInsets();
   const { width, height } = useWindowDimensions();
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
@@ -70,10 +75,10 @@ export function StartScreen({ name, onChangeName }: Props) {
 
         <View style={[styles.center, { paddingTop: insets.top }]}>
           <Text style={styles.title}>Findimal</Text>
-          <CameraButton
-            size={camSize}
-            onPress={() => Alert.alert('Gleich geht’s los', 'Die Kamera bauen wir im nächsten Schritt ein.')}
-          />
+          <CameraButton size={camSize} onPress={onTakePhoto} />
+          <Pressable onPress={onPickPhoto} accessibilityRole="button" hitSlop={10}>
+            <Text style={styles.pickLink}>oder Foto auswählen</Text>
+          </Pressable>
         </View>
 
         <View style={styles.greetingWrap} pointerEvents="none">
@@ -131,6 +136,16 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 18,
+  },
+  pickLink: {
+    marginTop: 10,
+    fontFamily: fonts.sansBold,
+    fontSize: 14,
+    color: colors.accentLight,
+    textDecorationLine: 'underline',
+    textShadowColor: 'rgba(0,0,0,0.45)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 8,
   },
   greetingWrap: {
     position: 'absolute',
