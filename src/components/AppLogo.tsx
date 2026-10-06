@@ -1,6 +1,6 @@
 import Svg, { Circle, Defs, Ellipse, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 
-// Findimal-Symbol: Eichhörnchen mit Lupe auf dunklem Waldgrün.
+// Findimal-Symbol: Eichhörnchen mit Eichel auf dunklem Waldgrün.
 // Wird beim Laden der App gezeigt; als Bild (icon.png) im Zweig design-vorlage.
 export function AppLogo({ size, rounded = true }: { size: number; rounded?: boolean }) {
   return (
@@ -33,10 +33,12 @@ export function AppLogo({ size, rounded = true }: { size: number; rounded?: bool
       <Circle cx={67} cy={37} r={3} fill="#13261C" />
       <Circle cx={68} cy={36} r={1} fill="#fff" />
       <Circle cx={78.5} cy={44} r={1.8} fill="#13261C" />
-      {/* Lupe in den Pfoten */}
-      <Path d="M74 70L67 75" stroke="#FFD2A8" strokeWidth={4.5} strokeLinecap="round" />
-      <Circle cx={81} cy={63} r={9} fill="rgba(255,243,230,0.22)" stroke="#FFD2A8" strokeWidth={3.5} />
-      <Ellipse cx={68} cy={73} rx={4} ry={3} fill="#8F5733" />
+      {/* Eichel in den Pfoten */}
+      <Ellipse cx={72} cy={62} rx={5} ry={6} fill="#C98A3E" />
+      <Path d="M66 58Q72 51 78 58Z" fill="#6B4A1F" />
+      <Path d="M72 54L73 50" stroke="#6B4A1F" strokeWidth={1.6} strokeLinecap="round" />
+      <Ellipse cx={67} cy={64} rx={3.5} ry={2.8} fill="#8F5733" />
+      <Ellipse cx={77} cy={64} rx={3.5} ry={2.8} fill="#8F5733" />
     </Svg>
   );
 }
