@@ -9,7 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { Tab, TabBar } from './src/components/TabBar';
 import { addFind, Find, loadFinds, removeFind } from './src/finds';
-import { computeProgress, dayKey } from './src/progress';
+import { BadgeId, computeProgress, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog, questionFor } from './src/quiz';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
@@ -18,7 +18,7 @@ import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { RegionScreen } from './src/screens/RegionScreen';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
-import { clearName, loadName, loadRegion, saveName, saveRegion } from './src/storage';
+import { clearName, loadAvatar, loadName, loadRegion, saveAvatar, saveName, saveRegion } from './src/storage';
 import { colors } from './src/theme';
 
 export default function App() {
@@ -50,6 +50,7 @@ function Main() {
   const findsRef = useRef<Find[]>([]);
   findsRef.current = finds;
   const [quiz, setQuiz] = useState<QuizLog>({});
+  const [avatar, setAvatar] = useState('');
   const quizRef = useRef<QuizLog>({});
   quizRef.current = quiz;
 
@@ -58,11 +59,18 @@ function Main() {
     loadRegion().then(setRegion);
     loadFinds().then(setFinds);
     loadQuiz().then(setQuiz);
+    loadAvatar().then(setAvatar);
   }, []);
 
   // Punkte, Stufe, Serie und Challenges – immer frisch berechnet
   const now = new Date();
   const progress = computeProgress(finds, correctAnswers(quiz), now);
+  // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
+  const avatarBadge = progress.badges.find((b) => b.id === avatar && b.earned)?.id ?? null;
+  const chooseAvatar = (id: string) => {
+    saveAvatar(id);
+    setAvatar(id);
+  };
 
   // Solange Schriften oder Name laden, nur den dunkelgrünen Hintergrund zeigen.
   if (!fontsLoaded || name === undefined || region === undefined) {
@@ -144,6 +152,7 @@ function Main() {
             region={region}
             onChangeRegion={() => setAskRegion(true)}
             xp={progress.xp}
+            avatar={avatarBadge as BadgeId | null}
             daily={progress.daily}
             onOpenChallenges={() => setTab('challenges')}
             onChangeName={() => {
@@ -168,6 +177,8 @@ function Main() {
             question={questionFor(now)}
             answer={quiz[dayKey(now)]}
             onAnswer={(i) => answerQuiz(quizRef.current, now, i).then(setQuiz)}
+            avatar={avatarBadge ?? ''}
+            onSelectAvatar={chooseAvatar}
           />
         )}
         {tab === 'season' && (

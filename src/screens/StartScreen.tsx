@@ -5,7 +5,8 @@ import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
 import { GroupIcon, GroupId } from '../groups';
-import { XP } from '../progress';
+import { BadgeId, XP } from '../progress';
+import { Medal } from '../components/Medal';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
 import { Ladybug } from '../components/animals/Ladybug';
@@ -35,6 +36,7 @@ type Props = {
   onChangeName: () => void;
   onChangeRegion: () => void;
   xp: number;
+  avatar: BadgeId | null; // Abzeichen als Profilbild
   daily: { text: string; icon: GroupId | null; done: boolean };
   onOpenChallenges: () => void;
   onTakePhoto: () => void;
@@ -47,6 +49,7 @@ export function StartScreen({
   onChangeName,
   onChangeRegion,
   xp,
+  avatar,
   daily,
   onOpenChallenges,
   onTakePhoto,
@@ -88,9 +91,13 @@ export function StartScreen({
           }
           accessibilityRole="button"
           accessibilityLabel="Profil"
-          style={[styles.avatar, { top: insets.top + 12 }]}
+          style={[avatar ? styles.avatarMedal : styles.avatar, { top: insets.top + (avatar ? 6 : 12) }]}
         >
-          <Text style={styles.avatarText}>{name ? name[0].toUpperCase() : '?'}</Text>
+          {avatar ? (
+            <Medal id={avatar} size={54} />
+          ) : (
+            <Text style={styles.avatarText}>{name ? name[0].toUpperCase() : '?'}</Text>
+          )}
         </Pressable>
         <Text style={[styles.avatarXp, { top: insets.top + 60 }]}>{xp} XP</Text>
 
@@ -157,6 +164,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  avatarMedal: {
+    position: 'absolute',
+    left: 8,
+    zIndex: 2,
   },
   avatarXp: {
     position: 'absolute',

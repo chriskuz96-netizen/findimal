@@ -45,3 +45,22 @@ export async function saveRegion(region: string): Promise<void> {
     // ignorieren
   }
 }
+
+// Abzeichen, das als Profilbild dient ('' = Anfangsbuchstabe)
+const AVATAR_KEY = 'findimal-avatar';
+
+export async function loadAvatar(): Promise<string> {
+  try {
+    return (await AsyncStorage.getItem(AVATAR_KEY)) ?? '';
+  } catch {
+    return '';
+  }
+}
+
+export async function saveAvatar(id: string): Promise<void> {
+  try {
+    await AsyncStorage.setItem(AVATAR_KEY, id);
+  } catch {
+    // ignorieren
+  }
+}

@@ -1,9 +1,9 @@
-import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Path } from 'react-native-svg';
 
 import { Explorer } from '../components/Explorer';
 import { HeaderBackground } from '../components/HeaderBackground';
+import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { Badge, Progress, XP } from '../progress';
 import { Question } from '../quiz';
@@ -14,9 +14,11 @@ type Props = {
   question: Question;
   answer: number | undefined; // heute gewählte Antwort
   onAnswer: (i: number) => void;
+  avatar: string; // Abzeichen als Profilbild ('' = keins)
+  onSelectAvatar: (id: string) => void;
 };
 
-export function ChallengesScreen({ progress, question, answer, onAnswer }: Props) {
+export function ChallengesScreen({ progress, question, answer, onAnswer, avatar, onSelectAvatar }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { daily, weekly } = progress;
@@ -136,10 +138,36 @@ export function ChallengesScreen({ progress, question, answer, onAnswer }: Props
 
       {/* Abzeichen */}
       <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}>
-        <Text style={[styles.h3, { color: p.ink }]}>Abzeichen</Text>
+        <View style={styles.bh}>
+          <Text style={[styles.h3, { color: p.ink }]}>Abzeichen</Text>
+          <Text style={[styles.small, { color: p.mute }]}>
+            {progress.badges.filter((b) => b.earned).length} / {progress.badges.length}
+          </Text>
+        </View>
+        <Text style={[styles.sub, { color: p.mute }]}>Tippe ein Abzeichen an, um es als Profilbild zu nehmen.</Text>
         <View style={styles.badges}>
           {progress.badges.map((b) => (
-            <BadgeView key={b.id} badge={b} p={p} />
+            <BadgeView
+              key={b.id}
+              badge={b}
+              p={p}
+              selected={avatar === b.id}
+              onPress={() => {
+                if (!b.earned) {
+                  Alert.alert(b.name, `Noch nicht geschafft. ${b.hint}`);
+                } else if (avatar === b.id) {
+                  Alert.alert(b.name, 'Das ist gerade dein Profilbild.', [
+                    { text: 'Buchstaben zeigen', onPress: () => onSelectAvatar('') },
+                    { text: 'Behalten', style: 'cancel' },
+                  ]);
+                } else {
+                  Alert.alert(b.name, `${b.hint}\n\nAls Profilbild verwenden?`, [
+                    { text: 'Abbrechen', style: 'cancel' },
+                    { text: 'Ja, gerne', onPress: () => onSelectAvatar(b.id) },
+                  ]);
+                }
+              }}
+            />
           ))}
         </View>
       </View>
@@ -169,46 +197,25 @@ function XpPill({ text, done }: { text: string; done: boolean }) {
   );
 }
 
-function BadgeView({ badge, p }: { badge: Badge; p: Palette }) {
-  const color = badge.earned ? colors.accentLight : p.mute;
+function BadgeView({
+  badge,
+  p,
+  selected,
+  onPress,
+}: {
+  badge: Badge;
+  p: Palette;
+  selected: boolean;
+  onPress: () => void;
+}) {
   return (
-    <View style={styles.badge}>
-      <View
-        style={[
-          styles.badgeCircle,
-          badge.earned
-            ? { backgroundColor: '#123826', borderColor: colors.accent }
-            : { backgroundColor: p.line, borderColor: p.line },
-        ]}
-      >
-        {badge.id.startsWith('streak') ? (
-          // Flamme für Serien
-          <Svg width={30} height={30} viewBox="0 0 24 24">
-            <Path
-              d="M12 21c-3.9 0-6.5-2.6-6.5-6.1 0-3.3 2.4-5.4 3.6-8.4.4 1.9 1.4 3.2 2.6 3.9.2-2.6 1.5-5 3.6-7.4.3 3.1 3.2 5.6 3.2 10.1 0 4.5-2.6 7.9-6.5 7.9z"
-              fill="none"
-              stroke={color}
-              strokeWidth={1.5}
-              strokeLinejoin="round"
-            />
-          </Svg>
-        ) : badge.id === 'first' ? (
-          // Stern für den ersten Fund
-          <Svg width={30} height={30} viewBox="0 0 24 24">
-            <Path
-              d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6-4.5-4.2 6.1-.7z"
-              fill="none"
-              stroke={color}
-              strokeWidth={1.5}
-              strokeLinejoin="round"
-            />
-          </Svg>
-        ) : (
-          <GroupIcon id={badge.icon} size={30} color={color} />
-        )}
+    <Pressable onPress={onPress} accessibilityRole="button" style={styles.badge}>
+      <View style={[styles.medalWrap, selected && { borderColor: colors.accent }]}>
+        <Medal id={badge.id} size={64} earned={badge.earned} />
       </View>
       <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{badge.name}</Text>
-    </View>
+      {selected && <Text style={[styles.badgeSel, { color: colors.accent }]}>Profilbild</Text>}
+    </Pressable>
   );
 }
 
@@ -283,17 +290,16 @@ const styles = StyleSheet.create({
   answers: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 10 },
   answer: { borderWidth: 1.5, borderRadius: 99, paddingVertical: 8, paddingHorizontal: 14 },
   answerText: { fontFamily: fonts.sansBold, fontSize: 15 },
-  badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 10, rowGap: 14 },
+  badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 12, rowGap: 16 },
   badge: { width: '33.3%', alignItems: 'center' },
-  badgeCircle: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 5,
+  medalWrap: {
+    borderRadius: 40,
+    borderWidth: 2.5,
+    borderColor: 'transparent',
+    padding: 3,
+    marginBottom: 4,
   },
-  badgeName: { fontFamily: fonts.sans, fontSize: 12, textAlign: 'center' },
+  badgeName: { fontFamily: fonts.sansBold, fontSize: 12.5, textAlign: 'center' },
+  badgeSel: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 1 },
   note: { marginTop: 14, marginHorizontal: spacing.gutter, fontFamily: fonts.sans, fontSize: 12 },
 });

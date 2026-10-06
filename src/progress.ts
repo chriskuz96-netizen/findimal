@@ -64,7 +64,18 @@ export function dailyFor(date: Date): Daily {
 
 // ---------- Abzeichen ----------
 
-export type Badge = { id: string; name: string; icon: GroupId | null; earned: boolean };
+export type BadgeId =
+  | 'first'
+  | 'streak3'
+  | 'insects5'
+  | 'night'
+  | 'birds5'
+  | 'species10'
+  | 'streak7'
+  | 'species25'
+  | 'allgroups';
+
+export type Badge = { id: BadgeId; name: string; hint: string; earned: boolean };
 
 // ---------- Gesamtstand ----------
 
@@ -143,7 +154,11 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
   const daily = dailyFor(now);
   const thisWeek = [...(weeks.get(weekKey(now)) ?? [])];
 
-  const birds = finds.filter((f) => groupOf(f.animal.gruppe)?.id === 'bird').length;
+  const countGroup = (id: GroupId) => finds.filter((f) => groupOf(f.animal.gruppe)?.id === id).length;
+  const nightFind = finds.some((f) => {
+    const h = new Date(f.date).getHours();
+    return h >= 20 || h < 5;
+  });
   const groupsEver = new Set(finds.map((f) => groupOf(f.animal.gruppe)?.id).filter(Boolean));
 
   return {
@@ -156,12 +171,15 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
     daily: { text: daily.text, icon: daily.icon, done: daily.check(todayFinds) },
     weekly: { groups: thisWeek, done: thisWeek.length >= 3 },
     badges: [
-      { id: 'first', name: 'Erster Fund', icon: null, earned: finds.length >= 1 },
-      { id: 'streak3', name: '3-Tage-Serie', icon: null, earned: best >= 3 },
-      { id: 'streak7', name: '7-Tage-Serie', icon: null, earned: best >= 7 },
-      { id: 'species10', name: '10 Arten', icon: 'ins', earned: seen.size >= 10 },
-      { id: 'birds5', name: '5 Vögel', icon: 'bird', earned: birds >= 5 },
-      { id: 'allgroups', name: 'Alle Gruppen', icon: 'mam', earned: groupsEver.size >= 6 },
+      { id: 'first', name: 'Erster Fund', hint: 'Mach deinen ersten Fund.', earned: finds.length >= 1 },
+      { id: 'streak3', name: '3-Tage-Serie', hint: 'Finde an drei Tagen hintereinander ein Tier.', earned: best >= 3 },
+      { id: 'insects5', name: 'Käferkenner', hint: 'Finde fünf Insekten.', earned: countGroup('ins') >= 5 },
+      { id: 'night', name: 'Nachteule', hint: 'Entdecke ein Tier nach 20 Uhr.', earned: nightFind },
+      { id: 'birds5', name: 'Vogelfreund', hint: 'Finde fünf Vögel.', earned: countGroup('bird') >= 5 },
+      { id: 'species10', name: '10 Arten', hint: 'Entdecke zehn verschiedene Arten.', earned: seen.size >= 10 },
+      { id: 'streak7', name: '7-Tage-Serie', hint: 'Finde eine Woche lang jeden Tag ein Tier.', earned: best >= 7 },
+      { id: 'species25', name: '25 Arten', hint: 'Entdecke 25 verschiedene Arten.', earned: seen.size >= 25 },
+      { id: 'allgroups', name: 'Alle Gruppen', hint: 'Finde Tiere aus allen sechs Gruppen.', earned: groupsEver.size >= 6 },
     ],
   };
 }
