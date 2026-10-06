@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { HeaderBackground } from '../components/HeaderBackground';
@@ -11,6 +11,7 @@ import { Phenomenon, Season, seasonFor, seasonId } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 const DAY = 86400000;
+const GAP = 10;
 const HELP_KEY = 'findimal-help'; // erledigte Tipps, pro Saison und Jahr
 
 // Beginn und Ende der aktuellen Jahreszeit (Winter geht über den Jahreswechsel)
@@ -63,6 +64,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
   const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / DAY));
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
+  const [page, setPage] = useState(0);
+  // Kartenbreite: etwas schmaler als der Bildschirm, damit die nächste Karte hervorschaut
+  const cardW = useWindowDimensions().width - spacing.gutter * 2 - 24;
 
   // Erledigte Tipps merken (z. B. "autumn-2026": [0, 2])
   const helpKey = `${seasonId(now)}-${start.getFullYear()}`;
@@ -107,7 +111,7 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         )}
       </View>
 
-      {/* Saison-Tiere: vier Karten zum Abhaken, Tippen zeigt mehr */}
+      {/* Saison-Tiere: vier Karten zum Abhaken */}
       <View style={styles.blk}>
         <View style={styles.bh}>
           <Text style={[styles.h3, { color: p.ink }]}>{t('sea.now')}</Text>
@@ -116,15 +120,34 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           </Text>
         </View>
         <Text style={[styles.sub, { color: p.mute }]}>{t('sea.nowSub')}</Text>
+      </View>
+      {/* Karussell: zur Seite wischen statt langer Liste */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        snapToInterval={cardW + GAP}
+        decelerationRate="fast"
+        contentContainerStyle={styles.carousel}
+        onScroll={(e) => setPage(Math.round(e.nativeEvent.contentOffset.x / (cardW + GAP)))}
+        scrollEventThrottle={32}
+      >
         {season.phenomena.map((ph, i) => (
           <SeasonRow
             key={ph.title}
             ph={ph}
             found={matches[i]}
-            last={i === season.phenomena.length - 1}
+            width={cardW}
             onOpen={onOpen}
             dark={dark}
             p={p}
+          />
+        ))}
+      </ScrollView>
+      <View style={styles.dots}>
+        {season.phenomena.map((ph, i) => (
+          <View
+            key={ph.title}
+            style={[styles.dot, { backgroundColor: i === page ? colors.accent : p.line }, i === page && styles.dotOn]}
           />
         ))}
       </View>
@@ -180,18 +203,18 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   );
 }
 
-// Ein Saison-Tier mit ganzem Text; schon entdeckt = eigenes Foto und Haken
+// Karte eines Saison-Tiers mit ganzem Text; schon entdeckt = eigenes Foto und Haken
 function SeasonRow({
   ph,
   found,
-  last,
+  width,
   onOpen,
   dark,
   p,
 }: {
   ph: Phenomenon;
   found: Find | null;
-  last: boolean;
+  width: number;
   onOpen: (f: Find) => void;
   dark: boolean;
   p: typeof lightPalette;
@@ -199,7 +222,7 @@ function SeasonRow({
   const { t } = useI18n();
   const uri = useFindPhoto(found?.id ?? '');
   return (
-    <View style={[styles.zi, { borderBottomColor: p.line }, last && { borderBottomWidth: 0 }]}>
+    <View style={[styles.zi, { width, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line }]}>
       <Pressable onPress={found ? () => onOpen(found) : undefined} disabled={!found} style={{ alignSelf: 'flex-start' }}>
         <View style={[styles.zIcon, found && styles.zIconFound]}>
           {found && uri ? (
@@ -294,7 +317,11 @@ const styles = StyleSheet.create({
   count: { fontFamily: fonts.sansBold, fontSize: 14 },
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 4, marginBottom: 4 },
   sci: { fontFamily: fonts.sans, fontStyle: 'italic', fontSize: 12 },
-  zi: { flexDirection: 'row', gap: 12, paddingVertical: 14, borderBottomWidth: 1 },
+  zi: { flexDirection: 'row', gap: 12, padding: 14, borderWidth: 1.5, borderRadius: 20 },
+  carousel: { gap: GAP, paddingHorizontal: spacing.gutter, paddingTop: 10 },
+  dots: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 10 },
+  dot: { width: 7, height: 7, borderRadius: 4 },
+  dotOn: { width: 18 },
   zIcon: {
     width: 48,
     height: 48,
