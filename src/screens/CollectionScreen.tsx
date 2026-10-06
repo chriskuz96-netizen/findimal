@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Circle, Path } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { FindsMap } from '../components/map/FindsMap';
@@ -33,7 +34,7 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
   const { t, locale } = useI18n();
   const fmt = (n: number) => n.toLocaleString(locale);
   const [filter, setFilter] = useState<GroupId | null>(null);
-  const [mode, setMode] = useState<'photos' | 'map'>('photos');
+  const [showMap, setShowMap] = useState(false);
   // Kachelbreite fest ausrechnen (zwei Spalten) – Prozentwerte zeigt das iPhone hier nicht zuverlässig an
   const { width } = useWindowDimensions();
   const tileW = Math.floor((width - spacing.gutter * 2 - GAP) / 2);
@@ -58,12 +59,51 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
       { text: t('common.delete'), style: 'destructive', onPress: () => onDelete(f) },
     ]);
 
+  // Karte als eigene Ansicht (über den Knopf "Karte" oben in der Sammlung)
+  if (showMap) {
+    return (
+      <View style={{ flex: 1, backgroundColor: p.bg }}>
+        <View style={[styles.mapHead, { paddingTop: insets.top + 8 }]}>
+          <HeaderBackground />
+          <Pressable onPress={() => setShowMap(false)} accessibilityRole="button" hitSlop={10}>
+            <Text style={styles.backText}>{t('pro.back')}</Text>
+          </Pressable>
+          <Text style={styles.mapTitle}>{t('col.map')}</Text>
+        </View>
+        <View style={{ flex: 1 }}>
+          <FindsMap
+            finds={finds}
+            locale={locale}
+            onOpen={(f) => {
+              setShowMap(false);
+              onOpen(f);
+            }}
+          />
+        </View>
+        <Text style={[styles.note, { color: p.mute, marginBottom: 10 }]}>{t('col.mapHint')}</Text>
+      </View>
+    );
+  }
+
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
       {/* Kopf mit Zählern */}
       <View style={[styles.hx, { paddingTop: insets.top + 30 }]}>
         <HeaderBackground />
-        <Text style={styles.h2}>{t('col.title')}</Text>
+        <View style={styles.titleRow}>
+          <Text style={styles.h2}>{t('col.title')}</Text>
+          {finds.some((f) => f.coords) && (
+            <Pressable
+              onPress={() => setShowMap(true)}
+              accessibilityRole="button"
+              hitSlop={8}
+              style={({ pressed }) => [styles.mapBtn, { opacity: pressed ? 0.7 : 1 }]}
+            >
+              <PinIcon />
+              <Text style={styles.mapBtnText}>{t('col.map')}</Text>
+            </Pressable>
+          )}
+        </View>
         <View style={styles.stats}>
           <Stat value={String(finds.length)} label={t('col.photos')} />
           <Stat value={String(speciesKeys.size)} label={t('col.species')} />
@@ -81,23 +121,6 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
         </View>
       ) : (
         <>
-          {/* Umschalter Fotos / Karte */}
-          <View style={[styles.seg, { backgroundColor: p.card, borderColor: p.line }]}>
-            {(['photos', 'map'] as const).map((m) => (
-              <Pressable
-                key={m}
-                onPress={() => setMode(m)}
-                accessibilityRole="tab"
-                accessibilityState={{ selected: mode === m }}
-                style={[styles.segBtn, mode === m && styles.segOn]}
-              >
-                <Text style={[styles.segText, { color: mode === m ? colors.accentLight : p.ink }]}>
-                  {t(m === 'photos' ? 'col.photos' : 'col.map')}
-                </Text>
-              </Pressable>
-            ))}
-          </View>
-
           {/* Gruppen-Filter als kleine Chips */}
           <ScrollView
             horizontal
@@ -118,31 +141,18 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
             ))}
           </ScrollView>
 
-          {mode === 'photos' ? (
-            <View style={styles.grid}>
-              {photos.map((f) => (
-                <PhotoTile
-                  key={f.id}
-                  find={f}
-                  locale={locale}
-                  width={tileW}
-                  onPress={() => onOpen(f)}
-                  onLongPress={() => askDelete(f)}
-                />
-              ))}
-            </View>
-          ) : photos.some((f) => f.coords) ? (
-            <>
-              <View style={styles.map}>
-                <FindsMap finds={photos} locale={locale} onOpen={onOpen} />
-              </View>
-              <Text style={[styles.note, { color: p.mute }]}>{t('col.mapHint')}</Text>
-            </>
-          ) : (
-            <View style={[styles.empty, { backgroundColor: p.card, borderColor: p.line }]}>
-              <Text style={[styles.emptyText, { color: p.mute }]}>{t('col.noPlaces')}</Text>
-            </View>
-          )}
+          <View style={styles.grid}>
+            {photos.map((f) => (
+              <PhotoTile
+                key={f.id}
+                find={f}
+                locale={locale}
+                width={tileW}
+                onPress={() => onOpen(f)}
+                onLongPress={() => askDelete(f)}
+              />
+            ))}
+          </View>
 
           {/* Danach: Arten nach Gruppen */}
           <View style={styles.section}>
@@ -187,6 +197,16 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
         </>
       )}
     </ScrollView>
+  );
+}
+
+// kleines Ortssymbol für den Karten-Knopf
+function PinIcon() {
+  return (
+    <Svg width={14} height={16} viewBox="0 0 14 16">
+      <Path d="M7 15.5C7 15.5 1 9.6 1 6a6 6 0 0 1 12 0c0 3.6-6 9.5-6 9.5Z" fill={colors.accent} />
+      <Circle cx={7} cy={6} r={2.2} fill="#123826" />
+    </Svg>
   );
 }
 
@@ -285,7 +305,30 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: spacing.radiusHero,
     overflow: 'hidden',
   },
-  h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 12 },
+  h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white },
+  titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
+  mapBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(255,210,168,0.35)',
+    backgroundColor: 'rgba(255,255,255,0.07)',
+    borderRadius: 99,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+  },
+  mapBtnText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.accentLight },
+  mapHead: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    paddingHorizontal: spacing.gutter,
+    paddingBottom: 12,
+    overflow: 'hidden',
+  },
+  backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.accentLight },
+  mapTitle: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.white },
   stats: { flexDirection: 'row', gap: 8 },
   stat: {
     flex: 1,
@@ -298,17 +341,6 @@ const styles = StyleSheet.create({
   },
   statValue: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.accentLight },
   statLabel: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8 },
-  seg: {
-    flexDirection: 'row',
-    borderRadius: 99,
-    borderWidth: 1,
-    padding: 3,
-    marginTop: 14,
-    marginHorizontal: spacing.gutter,
-  },
-  segBtn: { flex: 1, borderRadius: 99, paddingVertical: 8, alignItems: 'center' },
-  segOn: { backgroundColor: '#1F5639' },
-  segText: { fontFamily: fonts.sansBold, fontSize: 14 },
   chipRow: { flexGrow: 0 },
   chips: { gap: 8, paddingHorizontal: spacing.gutter, paddingTop: 12, paddingBottom: 2 },
   chip: {
@@ -357,13 +389,6 @@ const styles = StyleSheet.create({
   captionName: { fontFamily: fonts.serifBold, fontSize: 14.5, lineHeight: 17, color: colors.white },
   captionDate: { fontFamily: fonts.sans, fontSize: 11.5, color: colors.white, opacity: 0.85 },
   tileLine: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 3, backgroundColor: colors.accent },
-  map: {
-    height: 420,
-    marginTop: 12,
-    marginHorizontal: spacing.gutter,
-    borderRadius: 22,
-    overflow: 'hidden',
-  },
   section: { marginTop: 28, marginHorizontal: spacing.gutter },
   h3: { fontFamily: fonts.serifBold, fontSize: 20 },
   sub: { fontFamily: fonts.sans, fontSize: 13.5, marginTop: 2 },
