@@ -7,6 +7,7 @@ import { View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
+import { AppLogo } from './src/components/AppLogo';
 import { Tab, TabBar } from './src/components/TabBar';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
@@ -78,9 +79,13 @@ function Main() {
     setAvatar(id);
   };
 
-  // Solange Schriften oder Name laden, nur den dunkelgrünen Hintergrund zeigen.
+  // Solange Schriften oder Name laden: Startbild mit dem Findimal-Symbol.
   if (!fontsLoaded || name === undefined || region === undefined) {
-    return <View style={{ flex: 1, backgroundColor: colors.skyMid }} />;
+    return (
+      <View style={{ flex: 1, backgroundColor: colors.skyMid, alignItems: 'center', justifyContent: 'center' }}>
+        <AppLogo size={140} />
+      </View>
+    );
   }
 
   if (!name) {
