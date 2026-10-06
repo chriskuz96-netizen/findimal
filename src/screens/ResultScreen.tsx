@@ -1,6 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  Animated,
+  Easing,
   Image,
   Pressable,
   ScrollView,
@@ -12,137 +14,270 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Photo } from '../camera';
-import { HeaderBackground } from '../components/HeaderBackground';
-import { Find, useFindPhoto } from '../finds';
 import { Explorer } from '../components/Explorer';
+import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
 import { Animal, identify, IdentifyResult } from '../identify';
+import { Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props =
   // Neues Foto: wird bestimmt und (wenn ein Tier drauf ist) gespeichert
-  | { photo: Photo; saved?: undefined; onIdentified: (animal: Animal) => Promise<{ isNew: boolean; reward: string | null }>; onBack: () => void }
+  | {
+      photo: Photo;
+      saved?: undefined;
+      // replaceId: Fund, der mit einer neuen Bestimmung (z. B. nach zweitem Foto) ersetzt wird
+      onIdentified: (animal: Animal, replaceId: string | null) => Promise<{ id: string; reward: Reward }>;
+      morePhoto: (kind: 'camera' | 'library') => Promise<Photo | null>;
+      onBack: () => void;
+    }
   // Fund aus der Sammlung: wird nur angezeigt
-  | { photo?: undefined; saved: Find; onIdentified?: undefined; onBack: () => void };
+  | { photo?: undefined; saved: Find; onIdentified?: undefined; morePhoto?: undefined; onBack: () => void };
 
-// Ergebnisseite: bestimmt ein neues Foto oder zeigt einen gespeicherten Fund.
-export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
+const MAX_PHOTOS = 3;
+
+// Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
+export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
-  const [result, setResult] = useState<IdentifyResult | null>(
-    saved ? { ok: true, animal: saved.animal } : null,
-  );
-  const [isNew, setIsNew] = useState(false);
-  const [reward, setReward] = useState<string | null>(null);
+  const [photos, setPhotos] = useState<Photo[]>(photo ? [photo] : []);
+  const [result, setResult] = useState<IdentifyResult | null>(saved ? { ok: true, animal: saved.animal } : null);
+  const [reward, setReward] = useState<Reward | null>(null);
+  const [details, setDetails] = useState(false);
+  const findId = useRef<string | null>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
-  const run = useCallback(() => {
-    if (!photo) return;
-    setResult(null);
-    identify(photo, t, lang).then(async (r) => {
-      setResult(r);
-      if (r.ok && r.animal.tier_gefunden) {
-        const res = await onIdentified(r.animal);
-        setIsNew(res.isNew);
-        setReward(res.reward);
-      }
-    });
-    // onIdentified absichtlich nicht als Abhängigkeit: nur einmal pro Foto bestimmen
+  const run = useCallback(
+    (list: Photo[]) => {
+      if (!onIdentified) return;
+      setResult(null);
+      identify(list, t, lang).then(async (r) => {
+        setResult(r);
+        if (r.ok && r.animal.tier_gefunden) {
+          const res = await onIdentified(r.animal, findId.current);
+          findId.current = res.id;
+          setReward(res.reward);
+        }
+      });
+    },
+    // nur einmal pro Fotoliste bestimmen
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [photo]);
+    [],
+  );
 
-  useEffect(run, [run]);
+  useEffect(() => {
+    if (photo) run([photo]);
+  }, [photo, run]);
+
+  const addPhoto = async (kind: 'camera' | 'library') => {
+    const extra = await morePhoto?.(kind);
+    if (!extra) return;
+    const list = [...photos, extra];
+    setPhotos(list);
+    run(list);
+  };
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
-
-  // Kurzer Text in der Sprechblase des Forschers (lange Texte stehen unten in der Karte)
-  let title = t('res.wait');
-  let sub = t('res.looking');
-  if (result && !result.ok) {
-    title = t('res.oops');
-    sub = t('res.failed');
-  } else if (result?.ok && !animal) {
-    title = t('res.noAnimal');
-    sub = t('res.tryAgainSoon');
-  } else if (animal) {
-    title = animal.name;
-    sub = animal.wissenschaftlicher_name;
-  }
+  const mainUri = photo ? photo.uri : savedPhoto;
+  const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
+  const canAddPhoto = !!morePhoto && !!animal && animal.sicherheit !== 'sicher' && photos.length < MAX_PHOTOS;
 
   return (
-    <ScrollView
-      style={{ flex: 1, backgroundColor: p.bg }}
-      contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
-    >
-      {/* Grün auch oberhalb, falls man über den oberen Rand hinaus zieht */}
-      <View style={styles.overscroll} />
-      {/* Dunkler Kopfbereich mit dem Forscher und seiner Sprechblase */}
-      <View style={[styles.top, { paddingTop: insets.top + 20 }]}>
-        <HeaderBackground />
-        <View style={styles.guide}>
-          <Explorer size={60} />
-          <View style={styles.bubble}>
-            <Text style={styles.bubbleTitle}>{title}</Text>
-            {!!sub && <Text style={styles.bubbleSub}>{sub}</Text>}
-            {animal && <Certainty value={animal.sicherheit} />}
-            {!result && <ActivityIndicator color={colors.accentLight} style={styles.spinner} />}
-          </View>
-        </View>
-      </View>
-
-      <View style={styles.photo}>
-        {(photo || savedPhoto) && (
+    <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
+      {/* Großes Foto oben */}
+      <View style={[styles.hero, { height: 300 + insets.top }]}>
+        {mainUri && (
           <Image
-            source={{ uri: photo ? photo.uri : savedPhoto! }}
+            source={{ uri: mainUri }}
             style={StyleSheet.absoluteFill}
             resizeMode="cover"
             accessibilityLabel={t('res.yourPhoto')}
           />
         )}
-        {isNew && <Text style={styles.stamp}>{t('res.new')}</Text>}
-        {!!reward && <Text style={styles.reward}>{reward}</Text>}
+        {!result && (
+          <View style={styles.loading}>
+            <Explorer size={64} />
+            <Text style={styles.loadingTitle}>{t('res.wait')}</Text>
+            <Text style={styles.loadingText}>{t('res.looking')}</Text>
+            <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
+          </View>
+        )}
+        {isNew && result && <Text style={[styles.stamp, { top: insets.top + 14 }]}>{t('res.new')}</Text>}
+        {photos.length > 1 && (
+          <View style={styles.thumbs}>
+            {photos.slice(1).map((ph) => (
+              <Image key={ph.uri} source={{ uri: ph.uri }} style={styles.thumb} />
+            ))}
+          </View>
+        )}
       </View>
-      {saved && (
-        <Text style={[styles.foundOn, { color: p.mute }]}>
-          {t('res.foundOn', { date: new Date(saved.date).toLocaleDateString(locale) })}
-        </Text>
-      )}
 
-      {animal && <Profile animal={animal} p={p} />}
-
-      {result && !animal && (
-        <View style={[styles.sheet, { backgroundColor: p.card, borderColor: p.line }]}>
-          <Text style={[styles.p, { color: p.ink }]}>
-            {!result.ok
-              ? result.message
-              : result.animal.hinweis || t('res.noAnimalHint')}
+      {/* Name und kurze Beschreibung */}
+      <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
+        {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
+        {result && !result.ok && (
+          <>
+            <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
+            <Text style={[styles.body, { color: p.mute }]}>{result.message}</Text>
+          </>
+        )}
+        {result?.ok && !animal && (
+          <>
+            <Text style={[styles.name, { color: p.ink }]}>{t('res.noAnimal')}</Text>
+            <Text style={[styles.body, { color: p.mute }]}>{result.animal.hinweis || t('res.noAnimalHint')}</Text>
+          </>
+        )}
+        {animal && (
+          <>
+            <Text style={[styles.name, { color: p.ink }]}>{animal.name}</Text>
+            {!!animal.wissenschaftlicher_name && (
+              <Text style={[styles.sci, { color: p.mute }]}>{animal.wissenschaftlicher_name}</Text>
+            )}
+            <Certainty value={animal.sicherheit} />
+            {!!animal.kurzbeschreibung && (
+              <Text style={[styles.body, { color: p.ink }]}>{animal.kurzbeschreibung}</Text>
+            )}
+          </>
+        )}
+        {saved && (
+          <Text style={[styles.foundOn, { color: p.mute }]}>
+            {t('res.foundOn', { date: new Date(saved.date).toLocaleDateString(locale) })}
           </Text>
+        )}
+      </View>
+
+      {result && !result.ok && <Button label={t('res.retry')} onPress={() => run(photos)} p={p} filled />}
+
+      {/* Belohnung */}
+      {reward && animal && <RewardCard reward={reward} photos={photos.length} p={p} />}
+
+      {/* Zweites Foto, wenn die KI nicht sicher ist */}
+      {canAddPhoto && (
+        <View style={[styles.card, styles.second, { backgroundColor: p.card }]}>
+          <Text style={[styles.cardTitle, { color: p.ink }]}>{t('res.secondTitle')}</Text>
+          <Text style={[styles.body, { color: p.mute }]}>{t('res.secondText')}</Text>
+          <View style={styles.row}>
+            <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera')} filled p={p} />
+            <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library')} p={p} />
+          </View>
         </View>
       )}
 
-      {result && !result.ok && (
-        <Button label={t('res.retry')} onPress={run} filled color={p.moss} />
+      {/* Wusstest du? */}
+      {animal && !!animal.wusstest_du && (
+        <View style={[styles.card, styles.fun, { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
+          <Explorer size={40} />
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.cardTitle, { color: p.ink }]}>{t('f.fun')}</Text>
+            <Text style={[styles.body, { color: p.ink, marginTop: 2 }]}>{animal.wusstest_du}</Text>
+          </View>
+        </View>
       )}
-      <Button label={t('res.continue')} onPress={onBack} filled={!result || result.ok} color={p.moss} p={p} />
+
+      {/* Steckbrief zum Aufklappen */}
+      {animal && (
+        <>
+          <Pressable
+            onPress={() => setDetails(!details)}
+            style={[styles.toggle, { borderColor: p.line }]}
+            accessibilityRole="button"
+          >
+            <Text style={[styles.toggleText, { color: p.moss }]}>
+              {details ? t('res.hideDetails') : t('res.showDetails')} {details ? '▴' : '▾'}
+            </Text>
+          </Pressable>
+          {details && <Details animal={animal} p={p} />}
+        </>
+      )}
+
+      <Button label={t('res.continue')} onPress={onBack} p={p} filled={!!result} />
     </ScrollView>
   );
 }
 
-// Kleines Schild in der Sprechblase: wie sicher die Bestimmung ist
+// Schild: wie sicher die Bestimmung ist
 function Certainty({ value }: { value: Animal['sicherheit'] }) {
   const { t } = useI18n();
+  const color = value === 'sicher' ? '#3E9A63' : value === 'wahrscheinlich' ? '#C9A24B' : colors.accent;
   const label = t(value === 'sicher' ? 'res.sure' : value === 'wahrscheinlich' ? 'res.likely' : 'res.unsure');
   return (
-    <View style={styles.certainty}>
-      <View style={[styles.dot, { backgroundColor: value === 'unsicher' ? colors.accent : '#6FBF8A' }]} />
-      <Text style={styles.certaintyText}>{label}</Text>
+    <View style={[styles.certainty, { backgroundColor: `${color}22` }]}>
+      <View style={[styles.dot, { backgroundColor: color }]} />
+      <Text style={[styles.certaintyText, { color }]}>{label}</Text>
     </View>
   );
 }
 
-// Steckbrief-Karte wie im Entwurf
-function Profile({ animal, p }: { animal: Animal; p: Palette }) {
+// Belohnungs-Karte: XP mit Aufschlüsselung und Stufenbalken, der sich füllt
+function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: Palette }) {
+  const { t } = useI18n();
+  const pop = useRef(new Animated.Value(0)).current;
+  const bar = useRef(new Animated.Value(0)).current;
+  const share = (pr: Progress) => (pr.nextLevelXp ? (pr.xp - pr.levelStart) / (pr.nextLevelXp - pr.levelStart) : 1);
+  const from = reward.levelUp ? 0 : share(reward.before);
+  const to = share(reward.after);
+
+  useEffect(() => {
+    pop.setValue(0);
+    bar.setValue(from);
+    Animated.sequence([
+      Animated.spring(pop, { toValue: 1, friction: 5, useNativeDriver: true }),
+      Animated.timing(bar, { toValue: to, duration: 900, easing: Easing.out(Easing.cubic), useNativeDriver: false }),
+    ]).start();
+  }, [reward, from, to, pop, bar]);
+
+  const labels = {
+    find: t('rew.find'),
+    newSpecies: t('rew.newSpecies'),
+    daily: t('rew.dailyShort'),
+    weekly: t('rew.weeklyShort'),
+  };
+  const lvl = reward.after.level;
+  const lvlName = t(`level.${lvl - 1}` as 'level.0');
+
+  return (
+    <View style={[styles.card, styles.reward, { backgroundColor: p.card }]}>
+      <View style={styles.rewardHead}>
+        <Text style={[styles.cardTitle, { color: p.ink }]}>{t('rew.title')}</Text>
+        <Animated.Text
+          style={[
+            styles.rewardXp,
+            { opacity: pop, transform: [{ scale: pop.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }) }] },
+          ]}
+        >
+          +{reward.total} XP
+        </Animated.Text>
+      </View>
+      <View style={styles.chips}>
+        {reward.items.map((i) => (
+          <View key={i.id} style={styles.chip}>
+            <Text style={styles.chipText}>
+              {labels[i.id]} +{i.xp}
+            </Text>
+          </View>
+        ))}
+      </View>
+      {reward.levelUp && <Text style={styles.levelUp}>{t('rew.levelUp', { n: lvl, name: lvlName })}</Text>}
+      <View style={styles.levelRow}>
+        <Text style={[styles.levelText, { color: p.ink }]}>{t('ch.levelLine', { n: lvl, name: lvlName })}</Text>
+        <Text style={[styles.levelXp, { color: p.mute }]}>
+          {reward.after.xp}
+          {reward.after.nextLevelXp ? ` / ${reward.after.nextLevelXp}` : ''} XP
+        </Text>
+      </View>
+      <View style={[styles.bar, { backgroundColor: p.line }]}>
+        <Animated.View
+          style={[styles.barFill, { width: bar.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
+        />
+      </View>
+      {photos > 1 && <Text style={[styles.small, { color: p.mute }]}>{t('rew.updated', { n: photos })}</Text>}
+    </View>
+  );
+}
+
+// Ausführlicher Steckbrief
+function Details({ animal, p }: { animal: Animal; p: Palette }) {
   const { t } = useI18n();
   const rows: [string, string][] = [
     [t('f.class'), animal.klasse],
@@ -153,20 +288,12 @@ function Profile({ animal, p }: { animal: Animal; p: Palette }) {
     [t('f.range'), animal.verbreitung],
   ];
   const sections: [string, string][] = [
-    [t('f.fun'), animal.wusstest_du],
     [t('f.role'), animal.rolle_in_der_natur],
     [t('f.food'), animal.nahrung],
     [t('f.predators'), animal.fressfeinde],
   ];
-
   return (
-    <View style={[styles.sheet, { backgroundColor: p.card, borderColor: p.line }]}>
-      {!!animal.kurzbeschreibung && (
-        <Text style={[styles.p, styles.intro, { color: p.ink }]}>{animal.kurzbeschreibung}</Text>
-      )}
-      {animal.sicherheit === 'unsicher' && (
-        <Text style={[styles.tip, { color: colors.accent }]}>{t('res.tip')}</Text>
-      )}
+    <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line, borderWidth: 1 }]}>
       {rows
         .filter(([, v]) => v)
         .map(([k, v]) => (
@@ -176,9 +303,9 @@ function Profile({ animal, p }: { animal: Animal; p: Palette }) {
           </View>
         ))}
       {!!animal.gefaehrdung && (
-        <View style={[styles.status, { backgroundColor: 'rgba(47,107,71,0.14)' }]}>
+        <View style={[styles.certainty, { backgroundColor: 'rgba(47,107,71,0.14)', marginTop: 10 }]}>
           <View style={[styles.dot, { backgroundColor: p.moss }]} />
-          <Text style={[styles.statusText, { color: p.moss }]}>{animal.gefaehrdung}</Text>
+          <Text style={[styles.certaintyText, { color: p.moss }]}>{animal.gefaehrdung}</Text>
         </View>
       )}
       {sections
@@ -186,132 +313,69 @@ function Profile({ animal, p }: { animal: Animal; p: Palette }) {
         .map(([h, v]) => (
           <View key={h}>
             <Text style={[styles.h4, { color: p.ink }]}>{h}</Text>
-            <Text style={[styles.p, { color: p.ink }]}>{v}</Text>
+            <Text style={[styles.body, { color: p.ink, marginTop: 0 }]}>{v}</Text>
           </View>
         ))}
-      <Text style={[styles.ai, { color: p.mute }]}>{t('res.ai')}</Text>
+      <Text style={[styles.small, { color: p.mute, marginTop: 12 }]}>{t('res.ai')}</Text>
     </View>
   );
 }
 
-function Button({
-  label,
-  onPress,
-  filled,
-  color,
-  p,
-}: {
-  label: string;
-  onPress: () => void;
-  filled: boolean;
-  color: string;
-  p?: Palette;
-}) {
+function Button({ label, onPress, filled, p }: { label: string; onPress: () => void; filled: boolean; p: Palette }) {
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
       style={({ pressed }) => [
         styles.btn,
-        filled
-          ? { backgroundColor: color }
-          : { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: p?.line },
+        filled ? { backgroundColor: p.moss } : { borderWidth: 1.5, borderColor: p.line },
         { opacity: pressed ? 0.85 : 1 },
       ]}
     >
-      <Text style={[styles.btnText, { color: filled ? colors.white : p?.ink }]}>{label}</Text>
+      <Text style={[styles.btnText, { color: filled ? colors.white : p.ink }]}>{label}</Text>
+    </Pressable>
+  );
+}
+
+function SmallButton({ label, onPress, filled, p }: { label: string; onPress: () => void; filled?: boolean; p: Palette }) {
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      style={({ pressed }) => [
+        styles.smallBtn,
+        filled ? { backgroundColor: colors.accent, borderColor: colors.accent } : { borderColor: p.line },
+        { opacity: pressed ? 0.85 : 1 },
+      ]}
+    >
+      <Text style={[styles.smallBtnText, { color: filled ? colors.ink : p.ink }]}>{label}</Text>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  top: {
-    overflow: 'hidden',
+  hero: {
     backgroundColor: '#17462F',
-    paddingHorizontal: spacing.gutter,
-    paddingBottom: 22,
     borderBottomLeftRadius: spacing.radiusHero,
     borderBottomRightRadius: spacing.radiusHero,
+    overflow: 'hidden',
   },
-  guide: {
-    flexDirection: 'row',
-    gap: 12,
-    alignItems: 'flex-start',
-  },
-  bubble: {
-    flex: 1,
-    backgroundColor: 'rgba(255,255,255,0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.18)',
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 18,
-    borderBottomLeftRadius: 18,
-    borderBottomRightRadius: 18,
-    paddingVertical: 12,
-    paddingHorizontal: 14,
-  },
-  bubbleTitle: {
-    fontFamily: fonts.serifBold,
-    fontSize: 21,
-    lineHeight: 24,
-    color: colors.white,
-  },
-  bubbleSub: {
-    fontFamily: fonts.sans,
-    fontStyle: 'italic',
-    fontSize: 15,
-    color: colors.accentLight,
-    marginTop: 2,
-    marginBottom: 6,
-  },
-  overscroll: {
+  loading: {
     position: 'absolute',
-    top: -1000,
+    top: 0,
     left: 0,
     right: 0,
-    height: 1000,
-    backgroundColor: '#17462F',
-  },
-  spinner: {
-    alignSelf: 'flex-start',
-    marginTop: 4,
-  },
-  certainty: {
-    flexDirection: 'row',
+    bottom: 0,
+    backgroundColor: 'rgba(12,42,28,0.72)',
     alignItems: 'center',
-    alignSelf: 'flex-start',
-    gap: 6,
-    marginTop: 2,
-    paddingVertical: 3,
-    paddingHorizontal: 9,
-    borderRadius: 99,
-    backgroundColor: 'rgba(255,255,255,0.1)',
+    justifyContent: 'center',
+    paddingTop: 30,
   },
-  certaintyText: {
-    fontFamily: fonts.sansBold,
-    fontSize: 12,
-    color: colors.white,
-  },
-  intro: {
-    marginBottom: 12,
-  },
-  tip: {
-    fontFamily: fonts.sansBold,
-    fontSize: 13,
-    marginTop: -6,
-    marginBottom: 12,
-  },
-  photo: {
-    margin: spacing.gutter,
-    height: 240,
-    borderRadius: 22,
-    overflow: 'hidden',
-    backgroundColor: '#5a4a33',
-  },
+  loadingTitle: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.white, marginTop: 10 },
+  loadingText: { fontFamily: fonts.sans, fontSize: 15, color: colors.accentLight, marginTop: 2 },
   stamp: {
     position: 'absolute',
-    right: 12,
-    top: 12,
+    right: 14,
     borderWidth: 2,
     borderColor: colors.coral,
     borderRadius: 8,
@@ -320,95 +384,73 @@ const styles = StyleSheet.create({
     fontFamily: fonts.serifBold,
     fontSize: 17,
     paddingHorizontal: 10,
+    overflow: 'hidden',
     transform: [{ rotate: '7deg' }],
   },
-  reward: {
-    position: 'absolute',
-    left: 12,
-    bottom: 12,
-    backgroundColor: colors.accent,
-    color: colors.ink,
-    fontFamily: fonts.sansBold,
-    fontSize: 13,
-    borderRadius: 99,
-    overflow: 'hidden',
-    paddingVertical: 4,
-    paddingHorizontal: 10,
-  },
-  foundOn: {
-    marginTop: -8,
-    marginBottom: 10,
+  thumbs: { position: 'absolute', left: 14, bottom: 46, flexDirection: 'row', gap: 6 },
+  thumb: { width: 46, height: 46, borderRadius: 10, borderWidth: 2, borderColor: colors.white },
+  card: {
     marginHorizontal: spacing.gutter,
-    fontFamily: fonts.sans,
-    fontSize: 13,
+    marginTop: 12,
+    borderRadius: 20,
+    padding: 16,
   },
-  sheet: {
-    marginHorizontal: spacing.gutter,
+  nameCard: {
+    marginTop: -34,
     borderWidth: 1,
-    borderRadius: 18,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
   },
-  kv: {
+  name: { fontFamily: fonts.serifBold, fontSize: 25, lineHeight: 29 },
+  sci: { fontFamily: fonts.sans, fontStyle: 'italic', fontSize: 14, marginTop: 1 },
+  body: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, marginTop: 8 },
+  foundOn: { fontFamily: fonts.sans, fontSize: 13, marginTop: 10 },
+  certainty: {
     flexDirection: 'row',
-    gap: 14,
-    marginBottom: 5,
-  },
-  k: {
-    width: 92,
-    fontFamily: fonts.sans,
-    fontSize: 14,
-  },
-  v: {
-    flex: 1,
-    fontFamily: fonts.sansBold,
-    fontSize: 14,
-  },
-  status: {
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     gap: 6,
-    marginTop: 12,
-    marginBottom: 2,
+    marginTop: 8,
     paddingVertical: 4,
     paddingHorizontal: 10,
     borderRadius: 99,
   },
-  dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-  },
-  statusText: {
-    fontFamily: fonts.sansBold,
-    fontSize: 13,
-  },
-  h4: {
-    fontFamily: fonts.serifBold,
-    fontSize: 15,
-    marginTop: 12,
-    marginBottom: 2,
-  },
-  p: {
-    fontFamily: fonts.sans,
-    fontSize: 14.5,
-    lineHeight: 21,
-  },
-  ai: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    marginTop: 12,
-  },
-  btn: {
+  dot: { width: 8, height: 8, borderRadius: 4 },
+  certaintyText: { fontFamily: fonts.sansBold, fontSize: 13 },
+  second: { borderWidth: 2, borderStyle: 'dashed', borderColor: colors.accent },
+  cardTitle: { fontFamily: fonts.serifBold, fontSize: 18 },
+  row: { flexDirection: 'row', gap: 8, marginTop: 12 },
+  smallBtn: { flex: 1, borderWidth: 1.5, borderRadius: 14, paddingVertical: 11, alignItems: 'center' },
+  smallBtnText: { fontFamily: fonts.sansBold, fontSize: 15 },
+  reward: { borderWidth: 2, borderColor: colors.accent },
+  rewardHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  rewardXp: { fontFamily: fonts.serifBold, fontSize: 30, color: colors.accent },
+  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8 },
+  chip: { backgroundColor: 'rgba(232,131,58,0.16)', borderRadius: 99, paddingVertical: 4, paddingHorizontal: 10 },
+  chipText: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.accentDark },
+  levelUp: { fontFamily: fonts.serifBold, fontSize: 17, color: colors.accent, marginTop: 12 },
+  levelRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginTop: 14 },
+  levelText: { fontFamily: fonts.sansBold, fontSize: 14 },
+  levelXp: { fontFamily: fonts.sans, fontSize: 13 },
+  bar: { height: 10, borderRadius: 9, marginTop: 6, overflow: 'hidden' },
+  barFill: { height: '100%', backgroundColor: colors.accent, borderRadius: 9 },
+  small: { fontFamily: fonts.sans, fontSize: 12, marginTop: 8 },
+  fun: { flexDirection: 'row', gap: 12, alignItems: 'flex-start' },
+  toggle: {
     marginHorizontal: spacing.gutter,
     marginTop: 12,
-    borderRadius: 16,
-    padding: 14,
+    borderWidth: 1.5,
+    borderRadius: 14,
+    paddingVertical: 12,
     alignItems: 'center',
   },
-  btnText: {
-    fontFamily: fonts.sansBold,
-    fontSize: 17,
-  },
+  toggleText: { fontFamily: fonts.sansBold, fontSize: 15 },
+  kv: { flexDirection: 'row', gap: 14, marginBottom: 6 },
+  k: { width: 96, fontFamily: fonts.sans, fontSize: 14 },
+  v: { flex: 1, fontFamily: fonts.sansBold, fontSize: 14 },
+  h4: { fontFamily: fonts.serifBold, fontSize: 15, marginTop: 12 },
+  btn: { marginHorizontal: spacing.gutter, marginTop: 14, borderRadius: 16, padding: 14, alignItems: 'center' },
+  btnText: { fontFamily: fonts.sansBold, fontSize: 17 },
 });

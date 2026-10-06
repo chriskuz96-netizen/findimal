@@ -65,24 +65,24 @@ function askForAppKey(t: Translate): Promise<string | null> {
   });
 }
 
-async function send(photo: Photo, appKey: string, lang: Lang): Promise<Response> {
+async function send(photos: Photo[], appKey: string, lang: Lang): Promise<Response> {
   return fetch(SERVER_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': appKey },
-    body: JSON.stringify({ image: photo.base64, lang }),
+    body: JSON.stringify({ images: photos.map((p) => p.base64), lang }),
   });
 }
 
-// Schickt das Foto an den Findimal-Server und liefert den Steckbrief.
-export async function identify(photo: Photo, t: Translate, lang: Lang): Promise<IdentifyResult> {
+// Schickt ein oder mehrere Fotos desselben Tieres an den Findimal-Server und liefert den Steckbrief.
+export async function identify(photos: Photo[], t: Translate, lang: Lang): Promise<IdentifyResult> {
   if (!SERVER_URL) return { ok: false, message: t('id.noServer') };
-  if (!photo.base64) return { ok: false, message: t('id.noPhoto') };
+  if (photos.some((p) => !p.base64)) return { ok: false, message: t('id.noPhoto') };
   try {
-    let res = await send(photo, await getAppKey(), lang);
+    let res = await send(photos, await getAppKey(), lang);
     if (res.status === 401) {
       const key = await askForAppKey(t);
       if (!key) return { ok: false, message: t('id.noCode') };
-      res = await send(photo, key, lang);
+      res = await send(photos, key, lang);
       if (res.status === 401) return { ok: false, message: t('id.wrongCode') };
     }
     if (res.status === 400) return { ok: false, message: t('id.badPhoto') };

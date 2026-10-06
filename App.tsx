@@ -8,9 +8,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { Tab, TabBar } from './src/components/TabBar';
-import { addFind, Find, loadFinds, removeFind } from './src/finds';
+import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
-import { BadgeId, computeProgress, dayKey } from './src/progress';
+import { BadgeId, computeProgress, computeReward, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog, questionFor } from './src/quiz';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
@@ -153,18 +153,26 @@ function Main() {
         <StatusBar style="light" />
         <ResultScreen
           photo={photo}
-          onIdentified={async (animal) => {
-            const before = computeProgress(findsRef.current, correctAnswers(quizRef.current));
-            const { finds: next, isNew } = await addFind(findsRef.current, photo, animal);
+          onIdentified={async (animal, replaceId) => {
+            const quizXp = correctAnswers(quizRef.current);
+            // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
+            const others = findsRef.current.filter((f) => f.id !== replaceId);
+            const before = computeProgress(others, quizXp);
+            const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
+            let id = replaceId;
+            let next: Find[];
+            if (replaceId) {
+              next = await updateFind(findsRef.current, replaceId, animal);
+            } else {
+              const added = await addFind(findsRef.current, photo, animal);
+              next = added.finds;
+              id = added.id;
+            }
             setFinds(next);
-            const after = computeProgress(next, correctAnswers(quizRef.current));
-            // Belohnung als kurzer Text auf dem Foto, z. B. "+50 XP · Tageschallenge geschafft!"
-            const parts = [`+${after.xp - before.xp} XP`];
-            if (after.daily.done && !before.daily.done) parts.push(t('rew.daily'));
-            else if (after.weekly.done && !before.weekly.done) parts.push(t('rew.weekly'));
-            else if (after.level > before.level) parts.push(t('rew.level', { n: after.level }));
-            return { isNew, reward: parts.join(' · ') };
+            const after = computeProgress(next, quizXp);
+            return { id: id!, reward: computeReward(before, after, isNew) };
           }}
+          morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
           onBack={() => setPhoto(null)}
         />
       </>

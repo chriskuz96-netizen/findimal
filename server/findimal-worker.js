@@ -186,13 +186,20 @@ export default {
       ]);
     }
 
-    const image = typeof body.image === 'string' ? body.image : '';
-    if (!image || image.length > 7_000_000) {
+    // Ein Foto ("image") oder bis zu drei Fotos desselben Tieres ("images")
+    const images = (Array.isArray(body.images) ? body.images : [body.image])
+      .filter((i) => typeof i === 'string' && i)
+      .slice(0, 3);
+    if (!images.length || images.some((i) => i.length > 7_000_000)) {
       return json({ fehler: 'Kein oder zu großes Foto.' }, 400);
     }
+    const question =
+      images.length > 1
+        ? 'Diese Fotos zeigen dasselbe Tier aus verschiedenen Blickwinkeln. Welches Tier ist es?'
+        : 'Welches Tier ist auf diesem Foto?';
     return askClaude(env, SYSTEM + languageRule(body.lang), SCHEMA, [
-      { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: image } },
-      { type: 'text', text: 'Welches Tier ist auf diesem Foto?' },
+      ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
+      { type: 'text', text: question },
     ]);
   },
 };

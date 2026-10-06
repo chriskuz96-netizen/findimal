@@ -71,14 +71,21 @@ export async function addFind(
   finds: Find[],
   photo: Photo,
   animal: Animal,
-): Promise<{ finds: Find[]; isNew: boolean }> {
+): Promise<{ finds: Find[]; isNew: boolean; id: string }> {
   const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
   await storePhoto(id, photo);
   const find: Find = { id, date: new Date().toISOString(), animal };
   const next = [...finds, find];
   await storeFinds(next);
-  return { finds: next, isNew };
+  return { finds: next, isNew, id };
+}
+
+// Ersetzt die Bestimmung eines Fundes (z. B. nach einem zweiten Foto).
+export async function updateFind(finds: Find[], id: string, animal: Animal): Promise<Find[]> {
+  const next = finds.map((f) => (f.id === id ? { ...f, animal } : f));
+  await storeFinds(next);
+  return next;
 }
 
 export async function removeFind(finds: Find[], id: string): Promise<Find[]> {

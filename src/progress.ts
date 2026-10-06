@@ -176,3 +176,23 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
     ],
   };
 }
+
+// ---------- Belohnung für einen Fund (für die Ergebnisseite) ----------
+
+export type RewardItem = 'find' | 'newSpecies' | 'daily' | 'weekly';
+
+export type Reward = {
+  total: number;
+  items: { id: RewardItem; xp: number }[];
+  levelUp: boolean;
+  after: Progress; // Stand nach dem Fund
+  before: Progress; // Stand vorher (für den Balken)
+};
+
+export function computeReward(before: Progress, after: Progress, isNew: boolean): Reward {
+  const items: Reward['items'] = [{ id: 'find', xp: XP.find }];
+  if (isNew) items.push({ id: 'newSpecies', xp: XP.newSpecies });
+  if (after.daily.done && !before.daily.done) items.push({ id: 'daily', xp: XP.daily });
+  if (after.weekly.done && !before.weekly.done) items.push({ id: 'weekly', xp: XP.weekly });
+  return { total: after.xp - before.xp, items, levelUp: after.level > before.level, after, before };
+}
