@@ -1,13 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Directory, File, Paths } from 'expo-file-system';
+import { useEffect, useState } from 'react';
 
+import { Photo } from './camera';
 import { Animal } from './identify';
 
 // Ein gespeicherter Fund in der Sammlung.
 export type Find = {
   id: string;
   date: string; // ISO-Datum
-  photoUri: string;
   animal: Animal;
 };
 
@@ -35,41 +35,58 @@ export function speciesKey(a: Animal): string {
   return (a.wissenschaftlicher_name || a.name).trim().toLowerCase();
 }
 
-// Fotos liegen sonst nur im Zwischenspeicher; hier kopieren wir sie dauerhaft weg.
-function keepPhoto(uri: string, id: string): string {
+// Fotos werden einzeln gespeichert (als Text), damit die Fundliste klein bleibt.
+const photoKey = (id: string) => `findimal-photo-${id}`;
+const photoCache = new Map<string, string>();
+
+async function storePhoto(id: string, photo: Photo): Promise<void> {
+  const uri = photo.base64 ? `data:image/jpeg;base64,${photo.base64}` : photo.uri;
+  photoCache.set(id, uri);
   try {
-    const dir = new Directory(Paths.document, 'funde');
-    if (!dir.exists) dir.create();
-    const dest = new File(dir, `${id}.jpg`);
-    new File(uri).copy(dest);
-    return dest.uri;
+    await AsyncStorage.setItem(photoKey(id), uri);
   } catch {
-    return uri;
+    // ignorieren: Foto ist dann nur bis zum nächsten Start da
   }
+}
+
+// Lädt das Foto eines Fundes (für <Image source={{ uri }} />).
+export function useFindPhoto(id: string): string | null {
+  const [uri, setUri] = useState<string | null>(photoCache.get(id) ?? null);
+  useEffect(() => {
+    if (photoCache.has(id)) return;
+    AsyncStorage.getItem(photoKey(id))
+      .then((v) => {
+        if (v) {
+          photoCache.set(id, v);
+          setUri(v);
+        }
+      })
+      .catch(() => {});
+  }, [id]);
+  return uri;
 }
 
 // Speichert einen neuen Fund. Liefert die neue Liste und ob die Art neu ist.
 export async function addFind(
   finds: Find[],
-  photoUri: string,
+  photo: Photo,
   animal: Animal,
 ): Promise<{ finds: Find[]; isNew: boolean }> {
   const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
-  const find: Find = { id, date: new Date().toISOString(), photoUri: keepPhoto(photoUri, id), animal };
+  await storePhoto(id, photo);
+  const find: Find = { id, date: new Date().toISOString(), animal };
   const next = [...finds, find];
   await storeFinds(next);
   return { finds: next, isNew };
 }
 
 export async function removeFind(finds: Find[], id: string): Promise<Find[]> {
-  const find = finds.find((f) => f.id === id);
-  if (find) {
-    try {
-      new File(find.photoUri).delete();
-    } catch {
-      // Foto schon weg: egal
-    }
+  photoCache.delete(id);
+  try {
+    await AsyncStorage.removeItem(photoKey(id));
+  } catch {
+    // ignorieren
   }
   const next = finds.filter((f) => f.id !== id);
   await storeFinds(next);

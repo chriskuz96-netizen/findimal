@@ -13,7 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Photo } from '../camera';
 import { HeaderBackground } from '../components/HeaderBackground';
-import { Find } from '../finds';
+import { Find, useFindPhoto } from '../finds';
 import { Explorer } from '../components/Explorer';
 import { Animal, identify, IdentifyResult } from '../identify';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
@@ -32,6 +32,7 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
     saved ? { ok: true, animal: saved.animal } : null,
   );
   const [isNew, setIsNew] = useState(false);
+  const savedPhoto = useFindPhoto(saved?.id ?? '');
 
   const run = useCallback(() => {
     if (!photo) return;
@@ -86,11 +87,13 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
       </View>
 
       <View style={styles.photo}>
-        <Image
-          source={{ uri: photo ? photo.uri : saved.photoUri }}
-          style={StyleSheet.absoluteFill}
-          accessibilityLabel="Dein Foto"
-        />
+        {(photo || savedPhoto) && (
+          <Image
+            source={{ uri: photo ? photo.uri : savedPhoto! }}
+            style={StyleSheet.absoluteFill}
+            accessibilityLabel="Dein Foto"
+          />
+        )}
         {isNew && <Text style={styles.stamp}>Neu entdeckt</Text>}
       </View>
       {saved && (

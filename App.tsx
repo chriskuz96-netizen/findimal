@@ -74,7 +74,7 @@ function Main() {
         <ResultScreen
           photo={photo}
           onIdentified={async (animal) => {
-            const { finds: next, isNew } = await addFind(findsRef.current, photo.uri, animal);
+            const { finds: next, isNew } = await addFind(findsRef.current, photo, animal);
             setFinds(next);
             return isNew;
           }}

@@ -12,7 +12,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { HeaderBackground } from '../components/HeaderBackground';
-import { Find, speciesKey } from '../finds';
+import { Find, speciesKey, useFindPhoto } from '../finds';
 import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -162,6 +162,7 @@ function Card({
   onLongPress: () => void;
 }) {
   const g = groupOf(find.animal.gruppe);
+  const photoUri = useFindPhoto(find.id);
   return (
     <Pressable
       onPress={onPress}
@@ -173,7 +174,9 @@ function Card({
       ]}
     >
       <View style={[styles.ph, { backgroundColor: g?.c1 ?? '#2F6B47' }]}>
-        <Image source={{ uri: find.photoUri }} style={StyleSheet.absoluteFill} resizeMode="cover" />
+        {photoUri && (
+          <Image source={{ uri: photoUri }} style={StyleSheet.absoluteFill} resizeMode="cover" />
+        )}
         <Text style={styles.no}>#{String(no).padStart(3, '0')}</Text>
         <View style={styles.badge}>
           <GroupIcon id={g?.id ?? null} size={16} color={colors.accentLight} />
