@@ -1,4 +1,4 @@
-import { Alert, Pressable, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { Pressable, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { CameraButton } from '../components/CameraButton';
@@ -7,23 +7,12 @@ import { NearbyList } from '../components/NearbyList';
 import { GroupIcon, GroupId } from '../groups';
 import { BadgeId, XP } from '../progress';
 import { Medal } from '../components/Medal';
+import { nickname } from '../nickname';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
 import { Ladybug } from '../components/animals/Ladybug';
 import { Squirrel } from '../components/animals/Squirrel';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
-
-// Spitznamen aus dem Entwurf; einer wird zufällig gewählt.
-const NICKNAMES = [
-  'Naturbursche',
-  'Moosflüsterer',
-  'Spürnase',
-  'Pfützenforscher',
-  'Fährtenleser',
-  'Blätterdetektiv',
-  'Wurzelwanderer',
-];
-const nickname = NICKNAMES[Math.floor(Math.random() * NICKNAMES.length)];
 
 function greeting(name: string | null): string {
   if (!name) return 'Was entdeckst du heute?';
@@ -33,8 +22,7 @@ function greeting(name: string | null): string {
 type Props = {
   name: string | null;
   region: string;
-  onChangeName: () => void;
-  onChangeRegion: () => void;
+  onOpenProfile: () => void;
   xp: number;
   avatar: BadgeId | null; // Abzeichen als Profilbild
   daily: { text: string; icon: GroupId | null; done: boolean };
@@ -46,8 +34,7 @@ type Props = {
 export function StartScreen({
   name,
   region,
-  onChangeName,
-  onChangeRegion,
+  onOpenProfile,
   xp,
   avatar,
   daily,
@@ -80,15 +67,9 @@ export function StartScreen({
           <Hedgehog width={58} />
         </View>
 
-        {/* Kreis mit dem Anfangsbuchstaben (später: Profil) */}
+        {/* Profilbild: Anfangsbuchstabe oder Abzeichen, öffnet das Profil */}
         <Pressable
-          onPress={() =>
-            Alert.alert(`Hallo, ${name ?? 'Forscher'}!`, `Deine Region: ${region || 'noch keine'}`, [
-              { text: 'Namen ändern', onPress: onChangeName },
-              { text: 'Region ändern', onPress: onChangeRegion },
-              { text: 'Abbrechen', style: 'cancel' },
-            ])
-          }
+          onPress={onOpenProfile}
           accessibilityRole="button"
           accessibilityLabel="Profil"
           style={[avatar ? styles.avatarMedal : styles.avatar, { top: insets.top + (avatar ? 6 : 12) }]}

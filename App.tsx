@@ -13,12 +13,13 @@ import { BadgeId, computeProgress, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog, questionFor } from './src/quiz';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
-import { ComingSoonScreen } from './src/screens/ComingSoonScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
+import { ProfileScreen } from './src/screens/ProfileScreen';
+import { SeasonScreen } from './src/screens/SeasonScreen';
 import { RegionScreen } from './src/screens/RegionScreen';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
-import { clearName, loadAvatar, loadName, loadRegion, saveAvatar, saveName, saveRegion } from './src/storage';
+import { loadAvatar, loadName, loadRegion, resetAll, saveAvatar, saveName, saveRegion } from './src/storage';
 import { colors } from './src/theme';
 
 export default function App() {
@@ -51,6 +52,7 @@ function Main() {
   findsRef.current = finds;
   const [quiz, setQuiz] = useState<QuizLog>({});
   const [avatar, setAvatar] = useState('');
+  const [showProfile, setShowProfile] = useState(false);
   const quizRef = useRef<QuizLog>({});
   quizRef.current = quiz;
 
@@ -109,6 +111,38 @@ function Main() {
     );
   }
 
+  if (showProfile) {
+    return (
+      <>
+        <StatusBar style="light" />
+        <ProfileScreen
+          name={name}
+          region={region}
+          avatar={avatarBadge as BadgeId | null}
+          progress={progress}
+          finds={finds}
+          onBack={() => setShowProfile(false)}
+          onRename={(n) => {
+            saveName(n);
+            setName(n);
+          }}
+          onChangeRegion={() => setAskRegion(true)}
+          onSelectAvatar={chooseAvatar}
+          onReset={async () => {
+            await resetAll();
+            setFinds([]);
+            setQuiz({});
+            setAvatar('');
+            setRegion(null);
+            setShowProfile(false);
+            setTab('start');
+            setName(null);
+          }}
+        />
+      </>
+    );
+  }
+
   if (photo) {
     return (
       <>
@@ -150,15 +184,11 @@ function Main() {
           <StartScreen
             name={name}
             region={region}
-            onChangeRegion={() => setAskRegion(true)}
+            onOpenProfile={() => setShowProfile(true)}
             xp={progress.xp}
             avatar={avatarBadge as BadgeId | null}
             daily={progress.daily}
             onOpenChallenges={() => setTab('challenges')}
-            onChangeName={() => {
-              clearName();
-              setName(null);
-            }}
             onTakePhoto={() => takePhoto().then((p) => p && setPhoto(p))}
             onPickPhoto={() => pickPhoto().then((p) => p && setPhoto(p))}
           />
@@ -182,10 +212,7 @@ function Main() {
           />
         )}
         {tab === 'season' && (
-          <ComingSoonScreen
-            title="Saison"
-            text="Hier erfährst du bald, welche Tiere gerade unterwegs sind und wie du ihnen helfen kannst."
-          />
+          <SeasonScreen finds={finds} />
         )}
       </View>
       <TabBar active={tab} onSelect={setTab} />

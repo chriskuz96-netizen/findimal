@@ -64,3 +64,15 @@ export async function saveAvatar(id: string): Promise<void> {
     // ignorieren
   }
 }
+
+// Löscht alle Findimal-Daten auf dem Handy (außer dem Findimal-Code für den Server).
+export async function resetAll(): Promise<void> {
+  try {
+    const keys = await AsyncStorage.getAllKeys();
+    await AsyncStorage.multiRemove(
+      keys.filter((k) => k.startsWith('findimal-') && k !== 'findimal-app-key'),
+    );
+  } catch {
+    // ignorieren
+  }
+}
