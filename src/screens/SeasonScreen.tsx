@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { HeaderBackground } from '../components/HeaderBackground';
@@ -63,9 +63,6 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
   const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / DAY));
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
-  const [open, setOpen] = useState<number | null>(null);
-  // Kartenbreite fest ausrechnen (zwei Spalten), wie in der Sammlung
-  const cardW = Math.floor((useWindowDimensions().width - spacing.gutter * 2 - 10) / 2);
 
   // Erledigte Tipps merken (z. B. "autumn-2026": [0, 2])
   const helpKey = `${seasonId(now)}-${start.getFullYear()}`;
@@ -119,34 +116,17 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           </Text>
         </View>
         <Text style={[styles.sub, { color: p.mute }]}>{t('sea.nowSub')}</Text>
-        <View style={styles.grid}>
-          {season.phenomena.map((ph, i) => (
-            <SeasonCard
-              key={ph.title}
-              ph={ph}
-              found={matches[i]}
-              selected={open === i}
-              width={cardW}
-              onPress={() => setOpen(open === i ? null : i)}
-              p={p}
-            />
-          ))}
-        </View>
-        {open !== null && (
-          <View style={[styles.detail, { backgroundColor: p.card, borderColor: p.line }]}>
-            <Text style={[styles.detailTitle, { color: p.ink }]}>{season.phenomena[open].title}</Text>
-            <Text style={[styles.sci, { color: p.mute }]}>{season.phenomena[open].sci}</Text>
-            <Text style={[styles.detailText, { color: p.ink }]}>{season.phenomena[open].text}</Text>
-            <Text style={[styles.where, { color: dark ? colors.accent : colors.accentDark }]}>
-              {season.phenomena[open].where}
-            </Text>
-            {matches[open] && (
-              <Pressable onPress={() => onOpen(matches[open]!)} hitSlop={8} style={{ marginTop: 10 }}>
-                <Text style={[styles.link, { color: p.moss }]}>{t('sea.openFind')}</Text>
-              </Pressable>
-            )}
-          </View>
-        )}
+        {season.phenomena.map((ph, i) => (
+          <SeasonRow
+            key={ph.title}
+            ph={ph}
+            found={matches[i]}
+            last={i === season.phenomena.length - 1}
+            onOpen={onOpen}
+            dark={dark}
+            p={p}
+          />
+        ))}
       </View>
 
       {/* Deine Funde in dieser Jahreszeit */}
@@ -200,51 +180,50 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   );
 }
 
-// Karte eines Saison-Tiers: eigenes Foto, wenn schon gefunden, sonst Symbol
-function SeasonCard({
+// Ein Saison-Tier mit ganzem Text; schon entdeckt = eigenes Foto und Haken
+function SeasonRow({
   ph,
   found,
-  selected,
-  width,
-  onPress,
+  last,
+  onOpen,
+  dark,
   p,
 }: {
   ph: Phenomenon;
   found: Find | null;
-  selected: boolean;
-  width: number;
-  onPress: () => void;
+  last: boolean;
+  onOpen: (f: Find) => void;
+  dark: boolean;
   p: typeof lightPalette;
 }) {
   const { t } = useI18n();
   const uri = useFindPhoto(found?.id ?? '');
-  const g = groupOf(found?.animal.gruppe ?? '');
   return (
-    <Pressable
-      onPress={onPress}
-      accessibilityRole="button"
-      accessibilityState={{ expanded: selected }}
-      style={[
-        styles.card,
-        { width, backgroundColor: found ? (g?.c1 ?? '#2F6B47') : p.card, borderColor: selected ? colors.accent : p.line },
-      ]}
-    >
-      {found && uri ? (
-        <Image source={{ uri }} style={styles.cardImg} resizeMode="cover" />
-      ) : (
-        <View style={styles.cardIcon}>
-          <GroupIcon id={ph.icon} size={30} color={found ? colors.accentLight : colors.accent} />
+    <View style={[styles.zi, { borderBottomColor: p.line }, last && { borderBottomWidth: 0 }]}>
+      <Pressable onPress={found ? () => onOpen(found) : undefined} disabled={!found} style={{ alignSelf: 'flex-start' }}>
+        <View style={[styles.zIcon, found && styles.zIconFound]}>
+          {found && uri ? (
+            <Image source={{ uri }} style={styles.zImg} resizeMode="cover" />
+          ) : (
+            <GroupIcon id={ph.icon} size={24} color={colors.accentLight} />
+          )}
         </View>
-      )}
-      <View style={[styles.cardFoot, found ? { backgroundColor: 'rgba(0,0,0,0.45)' } : null]}>
-        <Text style={[styles.cardTitle, { color: found ? colors.white : p.ink }]} numberOfLines={2}>
-          {ph.title}
-        </Text>
-        <Text style={[styles.cardState, { color: found ? colors.accentLight : p.mute }]}>
-          {found ? `✓ ${t('sea.found')}` : t('sea.open')}
-        </Text>
+        {found && (
+          <View style={styles.tick}>
+            <Text style={styles.tickText}>✓</Text>
+          </View>
+        )}
+      </Pressable>
+      <View style={{ flex: 1 }}>
+        <Text style={[styles.ziTitle, { color: p.ink }]}>{ph.title}</Text>
+        <Text style={[styles.sci, { color: p.mute }]}>{ph.sci}</Text>
+        <Text style={[styles.ziText, { color: p.ink }]}>{ph.text}</Text>
+        <View style={styles.tags}>
+          <Text style={[styles.where, { color: dark ? colors.accent : colors.accentDark }]}>{ph.where}</Text>
+          {found && <Text style={styles.foundTag}>✓ {t('sea.found')}</Text>}
+        </View>
       </View>
-    </Pressable>
+    </View>
   );
 }
 
@@ -314,34 +293,45 @@ const styles = StyleSheet.create({
   h3: { fontFamily: fonts.serifBold, fontSize: 20 },
   count: { fontFamily: fonts.sansBold, fontSize: 14 },
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 4, marginBottom: 4 },
-  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 8 },
-  card: {
-    height: 132,
-    borderRadius: 18,
-    borderWidth: 1.5,
-    overflow: 'hidden',
-  },
-  cardImg: { position: 'absolute', left: 0, top: 0, right: 0, bottom: 0 },
-  cardIcon: {
-    marginTop: 14,
-    marginLeft: 12,
+  sci: { fontFamily: fonts.sans, fontStyle: 'italic', fontSize: 12 },
+  zi: { flexDirection: 'row', gap: 12, paddingVertical: 14, borderBottomWidth: 1 },
+  zIcon: {
     width: 48,
     height: 48,
     borderRadius: 24,
     backgroundColor: '#123826',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
-  cardFoot: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 12, paddingVertical: 8 },
-  cardTitle: { fontFamily: fonts.serifBold, fontSize: 15, lineHeight: 18 },
-  cardState: { fontFamily: fonts.sansBold, fontSize: 11.5, marginTop: 2 },
-  detail: { marginTop: 10, borderWidth: 1, borderRadius: 18, padding: 14 },
-  detailTitle: { fontFamily: fonts.serifBold, fontSize: 18 },
-  sci: { fontFamily: fonts.sans, fontStyle: 'italic', fontSize: 12 },
-  detailText: { fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 21, marginTop: 6 },
+  zIconFound: { borderWidth: 2, borderColor: '#6FBF8A' },
+  zImg: { position: 'absolute', left: 0, top: 0, width: 48, height: 48 },
+  tick: {
+    position: 'absolute',
+    right: -3,
+    bottom: -3,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: '#6FBF8A',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tickText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
+  ziTitle: { fontFamily: fonts.serifBold, fontSize: 17 },
+  ziText: { fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 21, marginTop: 4 },
+  tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 6 },
+  foundTag: {
+    backgroundColor: 'rgba(111,191,138,0.25)',
+    color: '#2E7A4C',
+    fontFamily: fonts.sansBold,
+    fontSize: 12,
+    borderRadius: 99,
+    overflow: 'hidden',
+    paddingVertical: 3,
+    paddingHorizontal: 9,
+  },
   where: {
-    alignSelf: 'flex-start',
-    marginTop: 8,
     backgroundColor: 'rgba(232,131,58,0.16)',
     fontFamily: fonts.sansBold,
     fontSize: 12,
@@ -350,7 +340,6 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     paddingHorizontal: 9,
   },
-  link: { fontFamily: fonts.sansBold, fontSize: 14, textDecorationLine: 'underline' },
   stripBox: { marginHorizontal: -spacing.gutter, marginTop: 8 },
   strip: { gap: 10, paddingHorizontal: spacing.gutter },
   thumb: {
