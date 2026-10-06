@@ -4,6 +4,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
+import { GroupIcon, GroupId } from '../groups';
+import { XP } from '../progress';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
 import { Ladybug } from '../components/animals/Ladybug';
@@ -32,11 +34,24 @@ type Props = {
   region: string;
   onChangeName: () => void;
   onChangeRegion: () => void;
+  xp: number;
+  daily: { text: string; icon: GroupId | null; done: boolean };
+  onOpenChallenges: () => void;
   onTakePhoto: () => void;
   onPickPhoto: () => void;
 };
 
-export function StartScreen({ name, region, onChangeName, onChangeRegion, onTakePhoto, onPickPhoto }: Props) {
+export function StartScreen({
+  name,
+  region,
+  onChangeName,
+  onChangeRegion,
+  xp,
+  daily,
+  onOpenChallenges,
+  onTakePhoto,
+  onPickPhoto,
+}: Props) {
   const insets = useSafeAreaInsets();
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const { width, height } = useWindowDimensions();
@@ -77,6 +92,7 @@ export function StartScreen({ name, region, onChangeName, onChangeRegion, onTake
         >
           <Text style={styles.avatarText}>{name ? name[0].toUpperCase() : '?'}</Text>
         </Pressable>
+        <Text style={[styles.avatarXp, { top: insets.top + 60 }]}>{xp} XP</Text>
 
         <View style={[styles.center, { paddingTop: insets.top }]}>
           <Text style={styles.title}>Findimal</Text>
@@ -90,6 +106,26 @@ export function StartScreen({ name, region, onChangeName, onChangeRegion, onTake
           <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting(name)}</Text>
         </View>
       </View>
+      {/* Tageschallenge (öffnet die Challenges) */}
+      <Pressable
+        onPress={onOpenChallenges}
+        accessibilityRole="button"
+        style={({ pressed }) => [
+          styles.tease,
+          { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.85 : 1 },
+        ]}
+      >
+        <View style={styles.teaseIcon}>
+          <GroupIcon id={daily.icon} size={22} color={colors.accentLight} />
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text style={[styles.teaseSmall, { color: p.mute }]}>Tageschallenge</Text>
+          <Text style={[styles.teaseText, { color: p.ink }]}>{daily.text}</Text>
+        </View>
+        <Text style={[styles.teaseXp, daily.done && { backgroundColor: '#6FBF8A' }]}>
+          {daily.done ? '✓ Geschafft' : `+${XP.daily} XP`}
+        </Text>
+      </Pressable>
       <NearbyList region={region} />
     </View>
   );
@@ -121,6 +157,61 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  avatarXp: {
+    position: 'absolute',
+    left: 7,
+    width: 56,
+    zIndex: 2,
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0.35)',
+    color: colors.accentLight,
+    fontFamily: fonts.sansBold,
+    fontSize: 11,
+    borderRadius: 99,
+    overflow: 'hidden',
+    paddingVertical: 2,
+  },
+  tease: {
+    marginTop: 10,
+    marginHorizontal: spacing.gutter,
+    borderWidth: 1,
+    borderRadius: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+  },
+  teaseIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: '#123826',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  teaseXp: {
+    backgroundColor: colors.accent,
+    color: colors.ink,
+    fontFamily: fonts.sansBold,
+    fontSize: 12,
+    borderRadius: 99,
+    overflow: 'hidden',
+    paddingVertical: 4,
+    paddingHorizontal: 9,
+  },
+  teaseSmall: {
+    fontFamily: fonts.sans,
+    fontSize: 12,
+  },
+  teaseText: {
+    fontFamily: fonts.serifBold,
+    fontSize: 15,
   },
   avatarText: {
     fontFamily: fonts.serifBold,

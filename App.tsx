@@ -9,6 +9,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { Tab, TabBar } from './src/components/TabBar';
 import { addFind, Find, loadFinds, removeFind } from './src/finds';
+import { computeProgress, dayKey } from './src/progress';
+import { answerQuiz, correctAnswers, loadQuiz, QuizLog, questionFor } from './src/quiz';
+import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
 import { ComingSoonScreen } from './src/screens/ComingSoonScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
@@ -46,12 +49,20 @@ function Main() {
   // Aktuelle Liste auch in Rückrufen, die später fertig werden
   const findsRef = useRef<Find[]>([]);
   findsRef.current = finds;
+  const [quiz, setQuiz] = useState<QuizLog>({});
+  const quizRef = useRef<QuizLog>({});
+  quizRef.current = quiz;
 
   useEffect(() => {
     loadName().then(setName);
     loadRegion().then(setRegion);
     loadFinds().then(setFinds);
+    loadQuiz().then(setQuiz);
   }, []);
+
+  // Punkte, Stufe, Serie und Challenges – immer frisch berechnet
+  const now = new Date();
+  const progress = computeProgress(finds, correctAnswers(quiz), now);
 
   // Solange Schriften oder Name laden, nur den dunkelgrünen Hintergrund zeigen.
   if (!fontsLoaded || name === undefined || region === undefined) {
@@ -97,9 +108,16 @@ function Main() {
         <ResultScreen
           photo={photo}
           onIdentified={async (animal) => {
+            const before = computeProgress(findsRef.current, correctAnswers(quizRef.current));
             const { finds: next, isNew } = await addFind(findsRef.current, photo, animal);
             setFinds(next);
-            return isNew;
+            const after = computeProgress(next, correctAnswers(quizRef.current));
+            // Belohnung als kurzer Text auf dem Foto, z. B. "+50 XP · Tageschallenge geschafft!"
+            const parts = [`+${after.xp - before.xp} XP`];
+            if (after.daily.done && !before.daily.done) parts.push('Tageschallenge geschafft!');
+            else if (after.weekly.done && !before.weekly.done) parts.push('Wochenchallenge geschafft!');
+            else if (after.level > before.level) parts.push(`Stufe ${after.level}!`);
+            return { isNew, reward: parts.join(' · ') };
           }}
           onBack={() => setPhoto(null)}
         />
@@ -125,6 +143,9 @@ function Main() {
             name={name}
             region={region}
             onChangeRegion={() => setAskRegion(true)}
+            xp={progress.xp}
+            daily={progress.daily}
+            onOpenChallenges={() => setTab('challenges')}
             onChangeName={() => {
               clearName();
               setName(null);
@@ -142,9 +163,11 @@ function Main() {
           />
         )}
         {tab === 'challenges' && (
-          <ComingSoonScreen
-            title="Challenges"
-            text="Tages-Challenges, Serien, Erfahrungspunkte und Abzeichen bauen wir als Nächstes ein."
+          <ChallengesScreen
+            progress={progress}
+            question={questionFor(now)}
+            answer={quiz[dayKey(now)]}
+            onAnswer={(i) => answerQuiz(quizRef.current, now, i).then(setQuiz)}
           />
         )}
         {tab === 'season' && (

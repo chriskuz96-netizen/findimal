@@ -20,7 +20,7 @@ import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../t
 
 type Props =
   // Neues Foto: wird bestimmt und (wenn ein Tier drauf ist) gespeichert
-  | { photo: Photo; saved?: undefined; onIdentified: (animal: Animal) => Promise<boolean>; onBack: () => void }
+  | { photo: Photo; saved?: undefined; onIdentified: (animal: Animal) => Promise<{ isNew: boolean; reward: string | null }>; onBack: () => void }
   // Fund aus der Sammlung: wird nur angezeigt
   | { photo?: undefined; saved: Find; onIdentified?: undefined; onBack: () => void };
 
@@ -32,6 +32,7 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
     saved ? { ok: true, animal: saved.animal } : null,
   );
   const [isNew, setIsNew] = useState(false);
+  const [reward, setReward] = useState<string | null>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
   const run = useCallback(() => {
@@ -39,7 +40,11 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
     setResult(null);
     identify(photo).then(async (r) => {
       setResult(r);
-      if (r.ok && r.animal.tier_gefunden) setIsNew(await onIdentified(r.animal));
+      if (r.ok && r.animal.tier_gefunden) {
+        const res = await onIdentified(r.animal);
+        setIsNew(res.isNew);
+        setReward(res.reward);
+      }
     });
     // onIdentified absichtlich nicht als Abhängigkeit: nur einmal pro Foto bestimmen
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,6 +99,7 @@ export function ResultScreen({ photo, saved, onIdentified, onBack }: Props) {
           />
         )}
         {isNew && <Text style={styles.stamp}>Neu entdeckt</Text>}
+        {!!reward && <Text style={styles.reward}>{reward}</Text>}
       </View>
       {saved && (
         <Text style={[styles.foundOn, { color: p.mute }]}>
@@ -312,6 +318,19 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingHorizontal: 10,
     transform: [{ rotate: '7deg' }],
+  },
+  reward: {
+    position: 'absolute',
+    left: 12,
+    bottom: 12,
+    backgroundColor: colors.accent,
+    color: colors.ink,
+    fontFamily: fonts.sansBold,
+    fontSize: 13,
+    borderRadius: 99,
+    overflow: 'hidden',
+    paddingVertical: 4,
+    paddingHorizontal: 10,
   },
   foundOn: {
     marginTop: -8,
