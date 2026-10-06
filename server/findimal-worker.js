@@ -1,8 +1,11 @@
-// Findimal-Tierbestimmung als Cloudflare Worker.
+// Findimal-Server als Cloudflare Worker.
 //
-// Die App schickt ein Foto hierher; der Worker fragt Claude, welches Tier es ist,
-// und gibt einen deutschen Steckbrief zurück. Der Claude-API-Schlüssel liegt nur
-// hier im Worker (als geheime Variable), nie in der App oder auf GitHub.
+// 1. Tierbestimmung: Die App schickt ein Foto; der Worker fragt Claude, welches Tier es ist,
+//    und gibt einen deutschen Steckbrief zurück.
+// 2. "Jetzt in deiner Nähe": drei Tiere, die man gerade in der Region entdecken kann.
+//
+// Der Claude-API-Schlüssel liegt nur hier im Worker (als geheime Variable), nie in der App
+// oder auf GitHub.
 //
 // Geheime Variablen in Cloudflare (Settings -> Variables and Secrets):
 //   ANTHROPIC_API_KEY  dein Claude-API-Schlüssel (sk-ant-...)
@@ -13,6 +16,14 @@
 
 const MODEL = 'claude-sonnet-5-5';
 
+const TEXT = { type: 'string' };
+const GRUPPE = {
+  type: 'string',
+  enum: ['saeugetier', 'vogel', 'insekt', 'amphibie', 'reptil', 'fisch', 'weichtier', 'spinnentier', 'andere'],
+};
+
+// ---------- 1. Tierbestimmung ----------
+
 const SYSTEM = `Du bist der Tierexperte der App Findimal, einer freundlichen App zum Bestimmen und Sammeln von Tieren.
 Du bekommst ein Foto und bestimmst das Tier darauf so genau wie möglich (am liebsten bis zur Art).
 Antworte auf Deutsch, freundlich und gut verständlich für Kinder und Erwachsene.
@@ -21,8 +32,6 @@ Gib nur Fakten an, bei denen du dir sicher bist. Wenn die Art unsicher ist, nenn
 Wenn kein Tier zu sehen ist, setze "tier_gefunden" auf false, lass die Tierfelder leer und erkläre in
 "hinweis" kurz und freundlich, was du siehst und wie ein besseres Foto gelingt.
 Gefährdungsstatus bitte mit IUCN-Kürzel, z. B. "Nicht gefährdet (IUCN: LC)".`;
-
-const TEXT = { type: 'string' };
 
 const SCHEMA = {
   type: 'object',
@@ -36,10 +45,7 @@ const SCHEMA = {
     tier_gefunden: { type: 'boolean' },
     name: TEXT,
     wissenschaftlicher_name: TEXT,
-    gruppe: {
-      type: 'string',
-      enum: ['saeugetier', 'vogel', 'insekt', 'amphibie', 'reptil', 'fisch', 'weichtier', 'spinnentier', 'andere'],
-    },
+    gruppe: GRUPPE,
     sicherheit: { type: 'string', enum: ['sicher', 'wahrscheinlich', 'unsicher'] },
     kurzbeschreibung: TEXT,
     klasse: TEXT,
@@ -57,6 +63,39 @@ const SCHEMA = {
   },
 };
 
+// ---------- 2. Jetzt in deiner Nähe ----------
+
+const NEARBY_SYSTEM = `Du bist der Tierexperte der App Findimal.
+Schlage drei häufige, wild lebende Tiere vor, die man in der genannten Region zur genannten Jahres- und
+Tageszeit mit etwas Glück selbst entdecken kann (keine Haustiere, keine seltenen oder gefährlichen Arten).
+Wähle möglichst verschiedene Tiergruppen. Antworte auf Deutsch, kurz und freundlich.
+"wo" sind höchstens fünf Wörter (z. B. "Hecken und Laubhaufen"), "tipp" ist ein kurzer Satz.`;
+
+const NEARBY_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['tiere'],
+  properties: {
+    tiere: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['name', 'wissenschaftlicher_name', 'gruppe', 'wo', 'tipp'],
+        properties: {
+          name: TEXT,
+          wissenschaftlicher_name: TEXT,
+          gruppe: GRUPPE,
+          wo: TEXT,
+          tipp: TEXT,
+        },
+      },
+    },
+  },
+};
+
+// ---------- Hilfsfunktionen ----------
+
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -69,6 +108,49 @@ function json(body, status = 200) {
     headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS },
   });
 }
+
+// Fragt Claude und gibt die (per Schema garantierte) JSON-Antwort an die App weiter.
+async function askClaude(env, system, schema, content) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'x-api-key': env.ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01',
+      // Falls Claude eine Anfrage aus Sicherheitsgründen ablehnt, übernimmt automatisch ein anderes Modell.
+      'anthropic-beta': 'server-side-fallback-2026-07-01',
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: 16000,
+      fallbacks: 'default',
+      system,
+      output_config: {
+        effort: 'low', // einfache Fragen: wenig Nachdenken reicht und spart Kosten
+        format: { type: 'json_schema', schema },
+      },
+      messages: [{ role: 'user', content }],
+    }),
+  });
+
+  const data = await res.json().catch(() => null);
+  if (!res.ok || !data) {
+    console.log('Claude-Fehler', res.status, JSON.stringify(data));
+    return json({ fehler: 'Die Tierbestimmung ist gerade nicht erreichbar.' }, 502);
+  }
+  if (data.stop_reason === 'refusal') {
+    return json({ fehler: 'Dieses Foto kann ich leider nicht bestimmen.' }, 422);
+  }
+  const text = (data.content || []).find((b) => b.type === 'text');
+  try {
+    return json(JSON.parse(text.text));
+  } catch {
+    console.log('Antwort nicht lesbar', data.stop_reason);
+    return json({ fehler: 'Die Antwort war unvollständig. Bitte nochmal versuchen.' }, 502);
+  }
+}
+
+// ---------- Eingang ----------
 
 export default {
   async fetch(request, env) {
@@ -85,55 +167,22 @@ export default {
     } catch {
       return json({ fehler: 'Ungültige Anfrage.' }, 400);
     }
+
+    if (body.mode === 'nearby') {
+      const region = String(body.region || 'Deutschland').slice(0, 60);
+      const zeit = String(body.zeit || '').slice(0, 60);
+      return askClaude(env, NEARBY_SYSTEM, NEARBY_SCHEMA, [
+        { type: 'text', text: `Region: ${region}\nZeit: ${zeit}` },
+      ]);
+    }
+
     const image = typeof body.image === 'string' ? body.image : '';
     if (!image || image.length > 7_000_000) {
       return json({ fehler: 'Kein oder zu großes Foto.' }, 400);
     }
-
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-        // Falls Claude eine Anfrage aus Sicherheitsgründen ablehnt, übernimmt automatisch ein anderes Modell.
-        'anthropic-beta': 'server-side-fallback-2026-07-01',
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 16000,
-        fallbacks: 'default',
-        system: SYSTEM,
-        output_config: {
-          effort: 'low', // einfache Frage: wenig Nachdenken reicht und spart Kosten
-          format: { type: 'json_schema', schema: SCHEMA },
-        },
-        messages: [
-          {
-            role: 'user',
-            content: [
-              { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: image } },
-              { type: 'text', text: 'Welches Tier ist auf diesem Foto?' },
-            ],
-          },
-        ],
-      }),
-    });
-
-    const data = await res.json().catch(() => null);
-    if (!res.ok || !data) {
-      console.log('Claude-Fehler', res.status, JSON.stringify(data));
-      return json({ fehler: 'Die Tierbestimmung ist gerade nicht erreichbar.' }, 502);
-    }
-    if (data.stop_reason === 'refusal') {
-      return json({ fehler: 'Dieses Foto kann ich leider nicht bestimmen.' }, 422);
-    }
-    const text = (data.content || []).find((b) => b.type === 'text');
-    try {
-      return json(JSON.parse(text.text));
-    } catch {
-      console.log('Antwort nicht lesbar', data.stop_reason);
-      return json({ fehler: 'Die Antwort war unvollständig. Bitte nochmal versuchen.' }, 502);
-    }
+    return askClaude(env, SYSTEM, SCHEMA, [
+      { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: image } },
+      { type: 'text', text: 'Welches Tier ist auf diesem Foto?' },
+    ]);
   },
 };

@@ -1,13 +1,14 @@
-import { Alert, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
+import { NearbyList } from '../components/NearbyList';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
 import { Ladybug } from '../components/animals/Ladybug';
 import { Squirrel } from '../components/animals/Squirrel';
-import { colors, fonts, spacing } from '../theme';
+import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 // Spitznamen aus dem Entwurf; einer wird zufällig gewählt.
 const NICKNAMES = [
@@ -28,19 +29,22 @@ function greeting(name: string | null): string {
 
 type Props = {
   name: string | null;
+  region: string;
   onChangeName: () => void;
+  onChangeRegion: () => void;
   onTakePhoto: () => void;
   onPickPhoto: () => void;
 };
 
-export function StartScreen({ name, onChangeName, onTakePhoto, onPickPhoto }: Props) {
+export function StartScreen({ name, region, onChangeName, onChangeRegion, onTakePhoto, onPickPhoto }: Props) {
   const insets = useSafeAreaInsets();
+  const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const { width, height } = useWindowDimensions();
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
   const camSize = Math.min(168, Math.max(120, height * 0.21));
 
   return (
-    <View style={styles.screen}>
+    <View style={[styles.screen, { backgroundColor: p.bg }]}>
       <View style={styles.hero}>
         <JungleBackground />
 
@@ -61,9 +65,10 @@ export function StartScreen({ name, onChangeName, onTakePhoto, onPickPhoto }: Pr
         {/* Kreis mit dem Anfangsbuchstaben (später: Profil) */}
         <Pressable
           onPress={() =>
-            Alert.alert(`Hallo, ${name ?? 'Forscher'}!`, 'Möchtest du deinen Namen ändern?', [
-              { text: 'Abbrechen', style: 'cancel' },
+            Alert.alert(`Hallo, ${name ?? 'Forscher'}!`, `Deine Region: ${region || 'noch keine'}`, [
               { text: 'Namen ändern', onPress: onChangeName },
+              { text: 'Region ändern', onPress: onChangeRegion },
+              { text: 'Abbrechen', style: 'cancel' },
             ])
           }
           accessibilityRole="button"
@@ -85,6 +90,7 @@ export function StartScreen({ name, onChangeName, onTakePhoto, onPickPhoto }: Pr
           <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting(name)}</Text>
         </View>
       </View>
+      <NearbyList region={region} />
     </View>
   );
 }
@@ -92,7 +98,6 @@ export function StartScreen({ name, onChangeName, onTakePhoto, onPickPhoto }: Pr
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: colors.bg,
   },
   hero: {
     flex: 1,

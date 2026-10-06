@@ -12,9 +12,10 @@ import { addFind, Find, loadFinds, removeFind } from './src/finds';
 import { CollectionScreen } from './src/screens/CollectionScreen';
 import { ComingSoonScreen } from './src/screens/ComingSoonScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
+import { RegionScreen } from './src/screens/RegionScreen';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
-import { clearName, loadName, saveName } from './src/storage';
+import { clearName, loadName, loadRegion, saveName, saveRegion } from './src/storage';
 import { colors } from './src/theme';
 
 export default function App() {
@@ -34,6 +35,9 @@ function Main() {
   });
   // undefined = wird noch geladen, null = noch kein Name gespeichert
   const [name, setName] = useState<string | null | undefined>(undefined);
+  // undefined = wird geladen, null = noch nicht gefragt, '' = übersprungen
+  const [region, setRegion] = useState<string | null | undefined>(undefined);
+  const [askRegion, setAskRegion] = useState(false);
   const [finds, setFinds] = useState<Find[]>([]);
   const [tab, setTab] = useState<Tab>('start');
   // Neues Foto (wird bestimmt) oder geöffneter Fund aus der Sammlung
@@ -45,11 +49,12 @@ function Main() {
 
   useEffect(() => {
     loadName().then(setName);
+    loadRegion().then(setRegion);
     loadFinds().then(setFinds);
   }, []);
 
   // Solange Schriften oder Name laden, nur den dunkelgrünen Hintergrund zeigen.
-  if (!fontsLoaded || name === undefined) {
+  if (!fontsLoaded || name === undefined || region === undefined) {
     return <View style={{ flex: 1, backgroundColor: colors.skyMid }} />;
   }
 
@@ -61,6 +66,24 @@ function Main() {
           onDone={(newName) => {
             saveName(newName);
             setName(newName);
+          }}
+        />
+      </>
+    );
+  }
+
+  // Nach dem Namen einmal nach der Region fragen (oder wenn sie geändert werden soll)
+  if (region === null || askRegion) {
+    return (
+      <>
+        <StatusBar style="auto" />
+        <RegionScreen
+          onDone={(r) => {
+            // "Später" beim Ändern behält die alte Region
+            const next = askRegion && !r ? region ?? '' : r;
+            saveRegion(next);
+            setRegion(next);
+            setAskRegion(false);
           }}
         />
       </>
@@ -100,6 +123,8 @@ function Main() {
         {tab === 'start' && (
           <StartScreen
             name={name}
+            region={region}
+            onChangeRegion={() => setAskRegion(true)}
             onChangeName={() => {
               clearName();
               setName(null);

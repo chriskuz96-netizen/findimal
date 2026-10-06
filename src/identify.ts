@@ -30,7 +30,7 @@ export type IdentifyResult = { ok: true; animal: Animal } | { ok: false; message
 
 const KEY_STORAGE = 'findimal-app-key';
 
-async function getAppKey(): Promise<string> {
+export async function getAppKey(): Promise<string> {
   try {
     return (await AsyncStorage.getItem(KEY_STORAGE)) ?? '';
   } catch {

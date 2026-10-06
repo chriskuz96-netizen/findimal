@@ -26,3 +26,22 @@ export async function clearName(): Promise<void> {
     // ignorieren
   }
 }
+
+// Region: null = noch nicht gefragt, '' = übersprungen, sonst Ortsname
+const REGION_KEY = 'findimal-region';
+
+export async function loadRegion(): Promise<string | null> {
+  try {
+    return await AsyncStorage.getItem(REGION_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export async function saveRegion(region: string): Promise<void> {
+  try {
+    await AsyncStorage.setItem(REGION_KEY, region);
+  } catch {
+    // ignorieren
+  }
+}
