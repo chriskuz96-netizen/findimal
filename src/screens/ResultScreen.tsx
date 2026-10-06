@@ -103,6 +103,15 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onBack }: 
             <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
           </View>
         )}
+        {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss */}
+        <Pressable
+          onPress={onBack}
+          accessibilityRole="button"
+          hitSlop={10}
+          style={({ pressed }) => [styles.back, { top: insets.top + 10, opacity: pressed ? 0.7 : 1 }]}
+        >
+          <Text style={styles.backText}>{t('pro.back')}</Text>
+        </Pressable>
         {isNew && result && <Text style={[styles.stamp, { top: insets.top + 14 }]}>{t('res.new')}</Text>}
         {photos.length > 1 && (
           <View style={styles.thumbs}>
@@ -373,6 +382,18 @@ const styles = StyleSheet.create({
   },
   loadingTitle: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.white, marginTop: 10 },
   loadingText: { fontFamily: fonts.sans, fontSize: 15, color: colors.accentLight, marginTop: 2 },
+  back: {
+    position: 'absolute',
+    left: 14,
+    zIndex: 3,
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.35)',
+    borderRadius: 99,
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+  },
+  backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
   stamp: {
     position: 'absolute',
     right: 14,
