@@ -11,7 +11,7 @@
 // Dieser Code wird direkt im Cloudflare-Editor eingefügt. Dort gibt es kein npm,
 // deshalb ruft er die Claude-API mit fetch auf statt mit dem Anthropic-SDK.
 
-const MODEL = 'claude-opus-5-5';
+const MODEL = 'claude-sonnet-5-5';
 
 const SYSTEM = `Du bist der Tierexperte der App Findimal, einer freundlichen App zum Bestimmen und Sammeln von Tieren.
 Du bekommst ein Foto und bestimmst das Tier darauf so genau wie möglich (am liebsten bis zur Art).
@@ -105,7 +105,7 @@ export default {
         fallbacks: 'default',
         system: SYSTEM,
         output_config: {
-          effort: 'medium',
+          effort: 'low', // einfache Frage: wenig Nachdenken reicht und spart Kosten
           format: { type: 'json_schema', schema: SCHEMA },
         },
         messages: [

@@ -7,7 +7,7 @@ const OPTIONS: ImagePicker.ImagePickerOptions = {
   quality: 1,
 };
 
-const MAX_SIDE = 1280; // größer braucht die Tierbestimmung nicht
+const MAX_SIDE = 1024; // größer braucht die Tierbestimmung nicht
 
 export type Photo = { uri: string; base64: string | null };
 
