@@ -27,12 +27,11 @@ type Props = {
   onDiscover: () => void;
 };
 
-// Sammlung als Fotoalbum: zuerst die eigenen Fotos, danach die Arten nach Gruppen.
+// Sammlung als Fotoalbum: alle eigenen Fotos, filterbar nach Tiergruppe.
 export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, locale } = useI18n();
-  const fmt = (n: number) => n.toLocaleString(locale);
   const [filter, setFilter] = useState<GroupId | null>(null);
   const [showMap, setShowMap] = useState(false);
   // Kachelbreite fest ausrechnen (zwei Spalten) – Prozentwerte zeigt das iPhone hier nicht zuverlässig an
@@ -132,7 +131,7 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
             {GROUPS.filter((g) => finds.some((f) => groupOf(f.animal.gruppe)?.id === g.id)).map((g) => (
               <Chip
                 key={g.id}
-                label={t(`g.${g.id}`)}
+                label={`${t(`g.${g.id}`)} ${finds.filter((f) => groupOf(f.animal.gruppe)?.id === g.id).length}`}
                 icon={g.id}
                 on={filter === g.id}
                 onPress={() => setFilter(filter === g.id ? null : g.id)}
@@ -154,46 +153,6 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
             ))}
           </View>
 
-          {/* Danach: Arten nach Gruppen */}
-          <View style={styles.section}>
-            <Text style={[styles.h3, { color: p.ink }]}>{t('col.byGroup')}</Text>
-            <Text style={[styles.sub, { color: p.mute }]}>{t('col.byGroupSub')}</Text>
-          </View>
-          <View style={styles.groups}>
-            {GROUPS.map((g) => {
-              const n = speciesFinds.filter((f) => groupOf(f.animal.gruppe)?.id === g.id).length;
-              const on = filter === g.id;
-              const share = Math.min(1, n / Math.min(g.total, 50)); // Balken: sichtbar wachsen, auch bei vielen Arten
-              return (
-                <Pressable
-                  key={g.id}
-                  onPress={() => setFilter(on ? null : g.id)}
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: on }}
-                  style={[
-                    styles.group,
-                    { backgroundColor: p.card, borderColor: on ? colors.accent : p.line },
-                  ]}
-                >
-                  <View style={[styles.groupIcon, { backgroundColor: g.c1 }]}>
-                    <GroupIcon id={g.id} size={22} color={colors.accentLight} />
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <View style={styles.groupHead}>
-                      <Text style={[styles.groupName, { color: p.ink }]}>{t(`g.${g.id}`)}</Text>
-                      <Text style={[styles.groupCount, { color: p.mute }]}>
-                        {n} / {fmt(g.total)}
-                      </Text>
-                    </View>
-                    <View style={[styles.groupBar, { backgroundColor: p.line }]}>
-                      <View style={[styles.groupFill, { width: `${Math.max(n ? 6 : 0, share * 100)}%` }]} />
-                    </View>
-                  </View>
-                </Pressable>
-              );
-            })}
-          </View>
-          <Text style={[styles.note, { color: p.mute }]}>{t('col.note')}</Text>
         </>
       )}
     </ScrollView>
@@ -389,25 +348,7 @@ const styles = StyleSheet.create({
   captionName: { fontFamily: fonts.serifBold, fontSize: 14.5, lineHeight: 17, color: colors.white },
   captionDate: { fontFamily: fonts.sans, fontSize: 11.5, color: colors.white, opacity: 0.85 },
   tileLine: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 3, backgroundColor: colors.accent },
-  section: { marginTop: 28, marginHorizontal: spacing.gutter },
   h3: { fontFamily: fonts.serifBold, fontSize: 20 },
-  sub: { fontFamily: fonts.sans, fontSize: 13.5, marginTop: 2 },
-  groups: { marginTop: 10, marginHorizontal: spacing.gutter, gap: 8 },
-  group: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    borderWidth: 1.5,
-    borderRadius: 16,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
-  groupIcon: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' },
-  groupHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' },
-  groupName: { fontFamily: fonts.sansBold, fontSize: 15 },
-  groupBar: { height: 6, borderRadius: 6, marginTop: 6, overflow: 'hidden' },
-  groupFill: { height: '100%', backgroundColor: colors.accent },
-  groupCount: { fontFamily: fonts.sansBold, fontSize: 13 },
   empty: {
     marginTop: 14,
     marginHorizontal: spacing.gutter,
