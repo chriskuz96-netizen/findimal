@@ -301,9 +301,9 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
           {!!error && <Text style={styles.error}>{error}</Text>}
 
           <View style={styles.footer}>
-            <Text style={[styles.small, { color: p.mute, flex: 1 }]}>{t('lb.hint')}</Text>
+            <Text style={[styles.tiny, { color: p.mute, flex: 1 }]}>{t('lb.hint')}</Text>
             <Pressable onPress={onLeave} hitSlop={8}>
-              <Text style={[styles.small, { color: p.mute, textDecorationLine: 'underline' }]}>{t('lb.leave')}</Text>
+              <Text style={[styles.tiny, { color: p.mute, textDecorationLine: 'underline' }]}>{t('lb.leave')}</Text>
             </Pressable>
           </View>
         </>
@@ -385,7 +385,8 @@ const styles = StyleSheet.create({
   smallBtn: { borderRadius: 10, paddingVertical: 7, paddingHorizontal: 12 },
   smallBtnText: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.white },
   link: { fontFamily: fonts.sansBold, fontSize: 13.5 },
-  footer: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12 },
+  footer: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10, opacity: 0.8 },
+  tiny: { fontFamily: fonts.sans, fontSize: 10 },
   addRow: { flexDirection: 'row', gap: 8, marginTop: 10 },
   input: {
     flex: 1,
