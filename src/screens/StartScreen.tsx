@@ -1,0 +1,120 @@
+import { Alert, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { CameraButton } from '../components/CameraButton';
+import { JungleBackground } from '../components/JungleBackground';
+import { Frog } from '../components/animals/Frog';
+import { Hedgehog } from '../components/animals/Hedgehog';
+import { Ladybug } from '../components/animals/Ladybug';
+import { Squirrel } from '../components/animals/Squirrel';
+import { colors, fonts, spacing } from '../theme';
+
+// Spitznamen aus dem Entwurf; einer wird zufällig gewählt.
+const NICKNAMES = [
+  'Naturbursche',
+  'Moosflüsterer',
+  'Spürnase',
+  'Pfützenforscher',
+  'Fährtenleser',
+  'Blätterdetektiv',
+  'Wurzelwanderer',
+];
+const nickname = NICKNAMES[Math.floor(Math.random() * NICKNAMES.length)];
+
+function greeting(name: string | null): string {
+  if (!name) return 'Was entdeckst du heute?';
+  return `Willkommen zurück, ${name}, du ${nickname}!`;
+}
+
+type Props = { name: string | null };
+
+export function StartScreen({ name }: Props) {
+  const insets = useSafeAreaInsets();
+  const { width, height } = useWindowDimensions();
+  // Wie im Entwurf: clamp(120px, 21vh, 168px)
+  const camSize = Math.min(168, Math.max(120, height * 0.21));
+
+  return (
+    <View style={[styles.screen, { paddingBottom: insets.bottom }]}>
+      <View style={styles.hero}>
+        <JungleBackground />
+
+        {/* Die vier Tiere in den Ecken */}
+        <View style={[styles.animal, { left: width * 0.05, top: insets.top + 96 }]}>
+          <Ladybug width={60} />
+        </View>
+        <View style={[styles.animal, { right: 0, top: insets.top + 82 }]}>
+          <Squirrel width={74} />
+        </View>
+        <View style={[styles.animal, { right: width * 0.06, bottom: '8%' }]}>
+          <Frog width={60} />
+        </View>
+        <View style={[styles.animal, { left: width * 0.05, bottom: '7%' }]}>
+          <Hedgehog width={58} />
+        </View>
+
+        <View style={[styles.center, { paddingTop: insets.top }]}>
+          <Text style={styles.title}>Findimal</Text>
+          <CameraButton
+            size={camSize}
+            onPress={() => Alert.alert('Gleich geht’s los', 'Die Kamera bauen wir im nächsten Schritt ein.')}
+          />
+        </View>
+
+        <View style={styles.greetingWrap} pointerEvents="none">
+          <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting(name)}</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: colors.bg,
+  },
+  hero: {
+    flex: 1,
+    overflow: 'hidden',
+    borderBottomLeftRadius: spacing.radiusHero,
+    borderBottomRightRadius: spacing.radiusHero,
+    backgroundColor: colors.skyMid,
+  },
+  animal: {
+    position: 'absolute',
+  },
+  center: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 18,
+  },
+  title: {
+    fontFamily: fonts.serifBold,
+    fontSize: 36,
+    letterSpacing: 0.5,
+    color: colors.white,
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 18,
+  },
+  greetingWrap: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 18,
+    alignItems: 'center',
+  },
+  greeting: {
+    textAlign: 'center',
+    fontFamily: fonts.sansBold,
+    fontSize: 11.5,
+    lineHeight: 15.5,
+    color: colors.white,
+    opacity: 0.92,
+    textShadowColor: 'rgba(0,0,0,0.45)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 8,
+  },
+});
