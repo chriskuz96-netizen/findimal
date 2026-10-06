@@ -1,6 +1,7 @@
 import { Fraunces_600SemiBold, Fraunces_700Bold } from '@expo-google-fonts/fraunces';
 import { NunitoSans_500Medium, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans';
 import { useFonts } from 'expo-font';
+import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
@@ -9,6 +10,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
 import { Tab, TabBar } from './src/components/TabBar';
+import { codeFromUrl } from './src/board';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updateNote } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { BadgeId, computeProgress, computeReward, dayKey } from './src/progress';
@@ -67,6 +69,22 @@ function Main() {
     loadFinds().then(setFinds);
     loadQuiz().then(setQuiz);
     loadAvatar().then(setAvatar);
+  }, []);
+
+  // Einladungslink eines Freundes: Code merken und zur Rangliste (Challenges) wechseln
+  const [invite, setInvite] = useState<string | null>(null);
+  useEffect(() => {
+    const handle = (url: string | null) => {
+      const code = codeFromUrl(url);
+      if (!code) return;
+      setInvite(code);
+      setOpenFind(null);
+      setShowProfile(false);
+      setTab('challenges');
+    };
+    Linking.getInitialURL().then(handle);
+    const sub = Linking.addEventListener('url', (e) => handle(e.url));
+    return () => sub.remove();
   }, []);
 
   // Punkte, Stufe, Serie und Challenges – immer frisch berechnet
@@ -232,6 +250,8 @@ function Main() {
             onSelectAvatar={chooseAvatar}
             name={name}
             species={new Set(finds.map((f) => speciesKey(f.animal))).size}
+            invite={invite}
+            onInviteDone={() => setInvite(null)}
           />
         )}
         {tab === 'season' && (

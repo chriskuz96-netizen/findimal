@@ -128,29 +128,48 @@ async function sha256(text) {
 async function board(env, body) {
   if (!env.DB) return json({ fehler: 'keine_datenbank' }, 503);
 
-  // Eigene Werte speichern (nur wer das Geheimnis kennt, darf seinen Eintrag ändern)
-  if (body.mode === 'board_save' || body.mode === 'board_delete') {
+  // Alles außer "board_get" braucht Code + Geheimnis (nur der Besitzer darf seinen Eintrag ändern)
+  if (body.mode !== 'board_get') {
     const id = String(body.id || '');
     const secret = String(body.secret || '');
     if (!CODE.test(id) || secret.length < 16 || secret.length > 64) return json({ fehler: 'Ungültig.' }, 400);
     const hash = await sha256(secret);
     const old = await env.DB.get('p:' + id, 'json');
     if (old && old.hash !== hash) return json({ fehler: 'Code vergeben.' }, 403);
-    if (body.mode === 'board_delete') {
-      await env.DB.delete('p:' + id);
+
+    if (body.mode === 'board_save') {
+      const entry = {
+        hash,
+        name: String(body.name || '?').trim().slice(0, 20) || '?',
+        xp: int(body.xp, 1_000_000),
+        level: int(body.level, 100),
+        species: int(body.species, 100_000),
+        avatar: String(body.avatar || '').slice(0, 20),
+        updated: Date.now(),
+      };
+      await env.DB.put('p:' + id, JSON.stringify(entry));
       return json({ ok: true });
     }
-    const entry = {
-      hash,
-      name: String(body.name || '?').trim().slice(0, 20) || '?',
-      xp: int(body.xp, 1_000_000),
-      level: int(body.level, 100),
-      species: int(body.species, 100_000),
-      avatar: String(body.avatar || '').slice(0, 20),
-      updated: Date.now(),
-    };
-    await env.DB.put('p:' + id, JSON.stringify(entry));
-    return json({ ok: true });
+    if (!old) return json({ fehler: 'Unbekannt.' }, 404);
+
+    if (body.mode === 'board_delete') {
+      await env.DB.delete('p:' + id);
+      await env.DB.delete('f:' + id);
+      return json({ ok: true });
+    }
+    // Freund hinzugefügt: beim Freund vermerken, damit er einen auch sieht
+    if (body.mode === 'board_link') {
+      const friend = String(body.friend || '');
+      if (!CODE.test(friend) || friend === id) return json({ fehler: 'Ungültig.' }, 400);
+      const list = (await env.DB.get('f:' + friend, 'json')) || [];
+      if (!list.includes(id)) await env.DB.put('f:' + friend, JSON.stringify([...list, id].slice(-200)));
+      return json({ ok: true });
+    }
+    // Wer hat mich hinzugefügt?
+    if (body.mode === 'board_inbox') {
+      return json({ ids: (await env.DB.get('f:' + id, 'json')) || [] });
+    }
+    return json({ fehler: 'Ungültig.' }, 400);
   }
 
   // Einträge zu einer Liste von Freundescodes holen
@@ -161,6 +180,36 @@ async function board(env, body) {
     if (e) people.push({ id: ids[i], name: e.name, xp: e.xp, level: e.level, species: e.species, avatar: e.avatar });
   });
   return json({ people });
+}
+
+// Einladungsseite: https-Link aus WhatsApp & Co. -> öffnet Findimal (Expo Go) mit dem Freundescode
+const INVITE_TEXT = {
+  de: ['lädt dich zu Findimal ein!', 'Sammelt zusammen Tiere und vergleicht eure Punkte.', 'Findimal öffnen', 'Du brauchst die App „Expo Go“:', 'Expo Go im App Store', 'Freundescode'],
+  en: ['invites you to Findimal!', 'Collect animals together and compare your points.', 'Open Findimal', 'You need the “Expo Go” app:', 'Expo Go on the App Store', 'Friend code'],
+  fr: ['t’invite sur Findimal !', 'Collectionnez des animaux ensemble et comparez vos points.', 'Ouvrir Findimal', 'Il te faut l’app « Expo Go » :', 'Expo Go sur l’App Store', 'Code ami'],
+  es: ['te invita a Findimal!', 'Coleccionad animales juntos y comparad vuestros puntos.', 'Abrir Findimal', 'Necesitas la app «Expo Go»:', 'Expo Go en la App Store', 'Código de amigo'],
+};
+const esc = (v) => String(v).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+
+function invitePage(url) {
+  const code = (url.searchParams.get('c') || '').toUpperCase();
+  const name = (url.searchParams.get('n') || 'Jemand').slice(0, 20);
+  const app = url.searchParams.get('u') || '';
+  const tx = INVITE_TEXT[url.searchParams.get('l')] || INVITE_TEXT.de;
+  // nur Links in die Expo-Go-App erlauben (keine Weiterleitung auf fremde Seiten)
+  const ok = CODE.test(code) && /^exps?:\/\//.test(app);
+  const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Findimal</title><style>
+body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#143F2A;color:#fff;text-align:center;padding:48px 20px}
+h1{font-size:26px;margin:0 0 8px}p{opacity:.85;line-height:1.4}
+a.b{display:inline-block;margin:22px 0;background:#E8833A;color:#13261C;font-weight:700;font-size:18px;padding:15px 28px;border-radius:16px;text-decoration:none}
+.c{font-size:26px;letter-spacing:3px;font-weight:700;color:#FFD2A8}small a{color:#FFD2A8}</style></head><body>
+<h1>🦊 ${esc(name)} ${esc(tx[0])}</h1><p>${esc(tx[1])}</p>
+${ok ? `<a class="b" href="${esc(app)}">${esc(tx[2])}</a>` : ''}
+<p>${esc(tx[5])}</p><div class="c">${esc(code.slice(0, 3))} ${esc(code.slice(3, 6))}</div>
+<p><small>${esc(tx[3])} <a href="https://apps.apple.com/app/expo-go/id982107779">${esc(tx[4])}</a></small></p>
+</body></html>`;
+  return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 
 // ---------- Hilfsfunktionen ----------
@@ -224,6 +273,10 @@ async function askClaude(env, system, schema, content) {
 export default {
   async fetch(request, env) {
     if (request.method === 'OPTIONS') return new Response(null, { headers: CORS });
+    if (request.method === 'GET') {
+      const url = new URL(request.url);
+      if (url.pathname === '/einladung') return invitePage(url);
+    }
     if (request.method !== 'POST') return json({ fehler: 'Findimal-Server läuft.' });
 
     if (env.APP_KEY && request.headers.get('X-Findimal-Key') !== env.APP_KEY) {

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Linking from 'expo-linking';
 
 import { SERVER_URL } from './config';
 import { getAppKey } from './identify';
@@ -13,6 +14,7 @@ export type MyStats = { name: string; xp: number; level: number; species: number
 const ME_KEY = 'findimal-board';
 const FRIENDS_KEY = 'findimal-friends';
 const SENT_KEY = 'findimal-board-sent';
+const REMOVED_KEY = 'findimal-friends-removed'; // entfernte Freunde nicht wieder automatisch aufnehmen
 const LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // ohne 0/O und 1/I (leicht zu verwechseln)
 
 const random = (n: number, chars: string) =>
@@ -52,6 +54,19 @@ export async function saveFriends(ids: string[]): Promise<void> {
   await AsyncStorage.setItem(FRIENDS_KEY, JSON.stringify(ids)).catch(() => {});
 }
 
+export async function loadRemoved(): Promise<string[]> {
+  try {
+    const raw = await AsyncStorage.getItem(REMOVED_KEY);
+    return raw ? (JSON.parse(raw) as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function saveRemoved(ids: string[]): Promise<void> {
+  await AsyncStorage.setItem(REMOVED_KEY, JSON.stringify(ids)).catch(() => {});
+}
+
 // Mitmachen: eigenen Freundescode anlegen und die eigenen Werte hochladen.
 // Liefert eine Fehlermeldung-ID oder null bei Erfolg.
 export async function join(stats: MyStats): Promise<{ me: Me | null; error: 'offline' | 'nodb' | null }> {
@@ -84,7 +99,24 @@ export async function syncMe(me: Me, stats: MyStats): Promise<void> {
 // Aussteigen: Eintrag auf dem Server löschen und alles lokal vergessen.
 export async function leave(me: Me): Promise<void> {
   await call({ mode: 'board_delete', ...me }).catch(() => null);
-  await AsyncStorage.multiRemove([ME_KEY, FRIENDS_KEY, SENT_KEY]).catch(() => {});
+  await AsyncStorage.multiRemove([ME_KEY, FRIENDS_KEY, SENT_KEY, REMOVED_KEY]).catch(() => {});
+}
+
+// Beim Freund vermerken, dass man ihn hinzugefügt hat (dann sieht er einen auch)
+export async function link(me: Me, friend: string): Promise<void> {
+  await call({ mode: 'board_link', ...me, friend }).catch(() => null);
+}
+
+// Codes von allen, die einen selbst hinzugefügt haben
+export async function inbox(me: Me): Promise<string[]> {
+  try {
+    const res = await call({ mode: 'board_inbox', ...me });
+    if (!res.ok) return [];
+    const data = (await res.json()) as { ids?: string[] };
+    return (data.ids ?? []).filter(isCode);
+  } catch {
+    return [];
+  }
 }
 
 export async function fetchPeople(ids: string[]): Promise<Person[] | null> {
@@ -94,6 +126,26 @@ export async function fetchPeople(ids: string[]): Promise<Person[] | null> {
     if (!res.ok) return null;
     const data = (await res.json()) as { people?: Person[] };
     return data.people ?? [];
+  } catch {
+    return null;
+  }
+}
+
+// Einladungslink: zeigt eine kleine Webseite des Findimal-Servers, die Findimal (in Expo Go)
+// mit dem Freundescode öffnet. Ein normaler https-Link ist in WhatsApp & Co. anklickbar.
+export function inviteLink(code: string, name: string, lang: string): string {
+  const app = Linking.createURL('invite', { queryParams: { code } });
+  const q = [`c=${code}`, `n=${encodeURIComponent(name)}`, `l=${lang}`, `u=${encodeURIComponent(app)}`];
+  return `${SERVER_URL.replace(/\/$/, '')}/einladung?${q.join('&')}`;
+}
+
+// Freundescode aus einem Link, mit dem die App geöffnet wurde (oder null)
+export function codeFromUrl(url: string | null): string | null {
+  if (!url) return null;
+  try {
+    const code = Linking.parse(url).queryParams?.code;
+    const id = typeof code === 'string' ? cleanCode(code) : '';
+    return isCode(id) ? id : null;
   } catch {
     return null;
   }

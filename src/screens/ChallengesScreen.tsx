@@ -20,9 +20,11 @@ type Props = {
   onSelectAvatar: (id: string) => void;
   name: string;
   species: number; // Anzahl verschiedener Arten (für die Rangliste)
+  invite: string | null; // Freundescode aus einem Einladungslink
+  onInviteDone: () => void;
 };
 
-export function ChallengesScreen({ progress, question, answer, onAnswer, avatar, onSelectAvatar, name, species }: Props) {
+export function ChallengesScreen({ progress, question, answer, onAnswer, avatar, onSelectAvatar, name, species, invite, onInviteDone }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, locale } = useI18n();
@@ -72,7 +74,12 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
       </View>
 
       {/* Rangliste mit Freunden */}
-      <Leaderboard stats={{ name, xp: progress.xp, level: progress.level, species, avatar }} p={p} />
+      <Leaderboard
+        stats={{ name, xp: progress.xp, level: progress.level, species, avatar }}
+        invite={invite}
+        onInviteDone={onInviteDone}
+        p={p}
+      />
 
       {/* Wochenchallenge */}
       <View style={styles.blk}>

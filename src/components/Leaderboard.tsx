@@ -4,15 +4,20 @@ import { ActivityIndicator, Alert, Pressable, Share, StyleSheet, Text, TextInput
 import {
   cleanCode,
   fetchPeople,
+  inbox,
+  inviteLink,
   isCode,
   join,
   leave,
+  link,
   loadFriends,
   loadMe,
+  loadRemoved,
   Me,
   MyStats,
   Person,
   saveFriends,
+  saveRemoved,
   syncMe,
 } from '../board';
 import { useI18n } from '../i18n';
@@ -20,25 +25,27 @@ import { BadgeId } from '../progress';
 import { colors, fonts, Palette, spacing } from '../theme';
 import { BADGE_TIER, Medal } from './Medal';
 
-type Props = { stats: MyStats; p: Palette };
+type Props = { stats: MyStats; invite: string | null; onInviteDone: () => void; p: Palette };
 
 // "K7QX2M" -> "K7Q X2M" (leichter vorzulesen)
 const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 
 // Rangliste mit Freunden: eigener Freundescode, Freunde hinzufügen, nach XP sortiert.
-export function Leaderboard({ stats, p }: Props) {
-  const { t, locale } = useI18n();
+export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
+  const { t, locale, lang } = useI18n();
   const [me, setMe] = useState<Me | null | undefined>(undefined); // undefined = lädt noch
   const [friends, setFriends] = useState<string[]>([]);
+  const [removed, setRemoved] = useState<string[]>([]);
   const [people, setPeople] = useState<Person[] | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [code, setCode] = useState('');
 
   useEffect(() => {
-    Promise.all([loadMe(), loadFriends()]).then(([m, f]) => {
+    Promise.all([loadMe(), loadFriends(), loadRemoved()]).then(([m, f, r]) => {
       setMe(m);
       setFriends(f);
+      setRemoved(r);
     });
   }, []);
 
@@ -47,15 +54,46 @@ export function Leaderboard({ stats, p }: Props) {
   const refresh = useCallback(async () => {
     if (!me) return;
     await syncMe(me, stats);
+    // Wer mich hinzugefügt hat, landet auch in meiner Liste
+    const incoming = (await inbox(me)).filter(
+      (id) => id !== me.id && !friends.includes(id) && !removed.includes(id),
+    );
+    if (incoming.length) {
+      const next = [...friends, ...incoming];
+      setFriends(next);
+      saveFriends(next);
+      return; // refresh läuft mit der neuen Liste nochmal
+    }
     const list = await fetchPeople(friends);
     setPeople(list);
     setError(list ? null : t('lb.offline'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [me, friends, statsKey]);
+  }, [me, friends, removed, statsKey]);
 
   useEffect(() => {
     refresh();
   }, [refresh]);
+
+  // Einladung eines Freundes: nach dem Mitmachen automatisch hinzufügen
+  useEffect(() => {
+    if (!invite || !me) return;
+    onInviteDone();
+    if (invite === me.id || friends.includes(invite)) return;
+    fetchPeople([invite]).then((found) => {
+      if (!found?.length) return setError(t(found ? 'lb.badCode' : 'lb.offline'));
+      const next = [...friends, invite];
+      setFriends(next);
+      saveFriends(next);
+      link(me, invite);
+      if (removed.includes(invite)) {
+        const back = removed.filter((r) => r !== invite);
+        setRemoved(back);
+        saveRemoved(back);
+      }
+      Alert.alert(t('lb.title'), t('lb.added', { name: found[0].name }));
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [invite, me]);
 
   if (me === undefined) return null;
 
@@ -85,6 +123,12 @@ export function Leaderboard({ stats, p }: Props) {
     const next = [...friends, id];
     setFriends(next);
     saveFriends(next);
+    link(me, id);
+    if (removed.includes(id)) {
+      const back = removed.filter((r) => r !== id);
+      setRemoved(back);
+      saveRemoved(back);
+    }
     setCode('');
     setError(null);
   };
@@ -99,6 +143,9 @@ export function Leaderboard({ stats, p }: Props) {
           const next = friends.filter((f) => f !== person.id);
           setFriends(next);
           saveFriends(next);
+          const gone = [...removed, person.id];
+          setRemoved(gone);
+          saveRemoved(gone);
         },
       },
     ]);
@@ -124,6 +171,7 @@ export function Leaderboard({ stats, p }: Props) {
       <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
         <Text style={[styles.h3, { color: p.ink }]}>{t('lb.title')}</Text>
         <Text style={[styles.sub, { color: p.mute }]}>{t('lb.intro')}</Text>
+        {!!invite && <Text style={[styles.sub, { color: colors.accent }]}>{t('lb.invited')}</Text>}
         {!!error && <Text style={styles.error}>{error}</Text>}
         <Pressable onPress={onJoin} disabled={busy} style={[styles.btn, { backgroundColor: p.moss }]} accessibilityRole="button">
           {busy ? <ActivityIndicator color={colors.white} /> : <Text style={styles.btnText}>{t('lb.join')}</Text>}
@@ -185,11 +233,13 @@ export function Leaderboard({ stats, p }: Props) {
           </Text>
         </View>
         <Pressable
-          onPress={() => Share.share({ message: t('lb.shareText', { code: pretty(me.id) }) })}
+          onPress={() =>
+            Share.share({ message: t('lb.shareText', { code: pretty(me.id), link: inviteLink(me.id, stats.name, lang) }) })
+          }
           style={[styles.smallBtn, { backgroundColor: p.moss }]}
           accessibilityRole="button"
         >
-          <Text style={styles.smallBtnText}>{t('lb.share')}</Text>
+          <Text style={styles.smallBtnText}>{t('lb.invite')}</Text>
         </Pressable>
       </View>
 
