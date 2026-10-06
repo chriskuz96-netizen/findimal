@@ -3,7 +3,8 @@
 Eine freundliche App, mit der man Tiere per Foto bestimmt und sammelt.
 Expo / React Native mit TypeScript – läuft in **Expo Go** (kein eigener nativer Code).
 
-Design-Vorlage: `findimal-design.html`
+Design-Vorlage: `findimal-design.html` im Branch `design-vorlage`
+(nicht in `main`, weil Expo Snack HTML-Dateien nicht importieren kann)
 
 ## Ordner
 
