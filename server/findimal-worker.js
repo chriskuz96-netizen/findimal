@@ -3,7 +3,7 @@
 // 1. Tierbestimmung: Die App schickt ein Foto; der Worker fragt Claude, welches Tier es ist,
 //    und gibt einen deutschen Steckbrief zurück.
 // 2. "Jetzt in deiner Nähe": drei Tiere, die man gerade in der Region entdecken kann.
-// 3. Rangliste mit Freunden (Spitzname und Punkte, gespeichert im Cloudflare-KV-Speicher).
+// 3. Rangliste mit Freunden und weltweit (Spitzname und Punkte, gespeichert im Cloudflare-KV-Speicher).
 //
 // Der Claude-API-Schlüssel liegt nur hier im Worker (als geheime Variable), nie in der App
 // oder auf GitHub.
@@ -125,8 +125,26 @@ async function sha256(text) {
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
+const TOP_SIZE = 50;
+const publicEntry = (id, e) => ({ id, name: e.name, xp: e.xp, level: e.level, species: e.species, avatar: e.avatar });
+
+// Weltweite Bestenliste als eine Liste (KV kann nicht sortieren). entry = null entfernt den Eintrag.
+async function updateTop(env, id, entry) {
+  const top = (await env.DB.get('top', 'json')) || [];
+  const was = top.some((x) => x.id === id);
+  const rest = top.filter((x) => x.id !== id);
+  const fits = entry && (rest.length < TOP_SIZE || entry.xp > rest[rest.length - 1].xp);
+  if (!was && !fits) return; // nichts zu ändern (spart Schreibzugriffe)
+  const next = fits ? [...rest, publicEntry(id, entry)].sort((a, b) => b.xp - a.xp).slice(0, TOP_SIZE) : rest;
+  await env.DB.put('top', JSON.stringify(next));
+}
+
 async function board(env, body) {
   if (!env.DB) return json({ fehler: 'keine_datenbank' }, 503);
+
+  if (body.mode === 'board_top') {
+    return json({ people: (await env.DB.get('top', 'json')) || [] });
+  }
 
   // Alles außer "board_get" braucht Code + Geheimnis (nur der Besitzer darf seinen Eintrag ändern)
   if (body.mode !== 'board_get') {
@@ -148,6 +166,7 @@ async function board(env, body) {
         updated: Date.now(),
       };
       await env.DB.put('p:' + id, JSON.stringify(entry));
+      await updateTop(env, id, entry);
       return json({ ok: true });
     }
     if (!old) return json({ fehler: 'Unbekannt.' }, 404);
@@ -155,6 +174,7 @@ async function board(env, body) {
     if (body.mode === 'board_delete') {
       await env.DB.delete('p:' + id);
       await env.DB.delete('f:' + id);
+      await updateTop(env, id, null);
       return json({ ok: true });
     }
     // Freund hinzugefügt: beim Freund vermerken, damit er einen auch sieht
@@ -177,7 +197,7 @@ async function board(env, body) {
   const entries = await Promise.all(ids.map((id) => env.DB.get('p:' + id, 'json')));
   const people = [];
   entries.forEach((e, i) => {
-    if (e) people.push({ id: ids[i], name: e.name, xp: e.xp, level: e.level, species: e.species, avatar: e.avatar });
+    if (e) people.push(publicEntry(ids[i], e));
   });
   return json({ people });
 }

@@ -4,6 +4,7 @@ import { ActivityIndicator, Alert, Pressable, Share, StyleSheet, Text, TextInput
 import {
   cleanCode,
   fetchPeople,
+  fetchTop,
   inbox,
   inviteLink,
   isCode,
@@ -40,6 +41,9 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [code, setCode] = useState('');
+  const [adding, setAdding] = useState(false);
+  const [view, setView] = useState<'friends' | 'world'>('friends');
+  const [top, setTop] = useState<Person[] | null>(null);
 
   useEffect(() => {
     Promise.all([loadMe(), loadFriends(), loadRemoved()]).then(([m, f, r]) => {
@@ -95,6 +99,14 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [invite, me]);
 
+  // Weltweite Rangliste laden, sobald sie angeschaut wird
+  useEffect(() => {
+    if (view !== 'world') return;
+    if (me) syncMe(me, stats).then(() => fetchTop().then(setTop));
+    else fetchTop().then(setTop);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, me, statsKey]);
+
   if (me === undefined) return null;
 
   const onJoin = async () => {
@@ -130,6 +142,7 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
       saveRemoved(back);
     }
     setCode('');
+    setAdding(false);
     setError(null);
   };
 
@@ -165,113 +178,174 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
       },
     ]);
 
-  // Noch nicht dabei: kurze Erklärung und "Mitmachen"
-  if (!me) {
-    return (
-      <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
-        <Text style={[styles.h3, { color: p.ink }]}>{t('lb.title')}</Text>
-        <Text style={[styles.sub, { color: p.mute }]}>{t('lb.intro')}</Text>
-        {!!invite && <Text style={[styles.sub, { color: colors.accent }]}>{t('lb.invited')}</Text>}
-        {!!error && <Text style={styles.error}>{error}</Text>}
-        <Pressable onPress={onJoin} disabled={busy} style={[styles.btn, { backgroundColor: p.moss }]} accessibilityRole="button">
-          {busy ? <ActivityIndicator color={colors.white} /> : <Text style={styles.btnText}>{t('lb.join')}</Text>}
-        </Pressable>
-      </View>
-    );
-  }
+  const invitePress = () =>
+    me &&
+    Share.share({ message: t('lb.shareText', { code: pretty(me.id), link: inviteLink(me.id, stats.name, lang) }) });
 
-  const self: Person = { id: me.id, ...stats };
-  const rows = [self, ...(people ?? []).filter((x) => x.id !== me.id)].sort((a, b) => b.xp - a.xp);
+  // Freunde: ich + Freunde nach XP; Weltweit: Top 50 vom Server (ich ggf. unten angehängt)
+  const self: Person | null = me ? { id: me.id, ...stats } : null;
+  const friendRows = self ? [self, ...(people ?? []).filter((x) => x.id !== self.id)].sort((a, b) => b.xp - a.xp) : [];
+  const worldRows = (top ?? []).map((x) => (self && x.id === self.id ? self : x));
+  const meInWorld = !!self && worldRows.some((x) => x.id === self.id);
+  const rows = view === 'friends' ? friendRows : worldRows;
 
   return (
     <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
       <Text style={[styles.h3, { color: p.ink }]}>{t('lb.title')}</Text>
 
+      {/* Umschalter Freunde / Weltweit */}
+      <View style={[styles.seg, { borderColor: p.line }]}>
+        {(['friends', 'world'] as const).map((v) => (
+          <Pressable
+            key={v}
+            onPress={() => setView(v)}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: view === v }}
+            style={[styles.segBtn, view === v && { backgroundColor: p.moss }]}
+          >
+            <Text style={[styles.segText, { color: view === v ? colors.white : p.ink }]}>
+              {t(v === 'friends' ? 'lb.friends' : 'lb.world')}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+
+      {/* Noch nicht dabei: kurze Erklärung und "Mitmachen" */}
+      {!me && view === 'friends' && (
+        <>
+          <Text style={[styles.sub, { color: p.mute }]}>{t('lb.intro')}</Text>
+          {!!invite && <Text style={[styles.sub, { color: colors.accent }]}>{t('lb.invited')}</Text>}
+          {!!error && <Text style={styles.error}>{error}</Text>}
+          <Pressable onPress={onJoin} disabled={busy} style={[styles.btn, { backgroundColor: p.moss }]} accessibilityRole="button">
+            {busy ? <ActivityIndicator color={colors.white} /> : <Text style={styles.btnText}>{t('lb.join')}</Text>}
+          </Pressable>
+        </>
+      )}
+
       {/* Liste */}
-      <View style={{ marginTop: 8 }}>
-        {rows.map((x, i) => {
-          const isMe = x.id === me.id;
-          return (
-            <Pressable
+      {(me || view === 'world') && (
+        <View style={{ marginTop: 6 }}>
+          {rows.map((x, i) => (
+            <Row
               key={x.id}
-              onLongPress={isMe ? undefined : () => onRemove(x)}
-              style={[styles.row, isMe && { backgroundColor: 'rgba(232,131,58,0.12)' }]}
-            >
-              <Text style={[styles.rank, { color: i === 0 ? colors.accent : p.mute }]}>{i + 1}</Text>
-              {x.avatar in BADGE_TIER ? (
-                <Medal id={x.avatar as BadgeId} size={34} />
-              ) : (
-                <View style={styles.letter}>
-                  <Text style={styles.letterText}>{x.name[0]?.toUpperCase() ?? '?'}</Text>
-                </View>
-              )}
-              <View style={{ flex: 1 }}>
-                <Text style={[styles.name, { color: p.ink }]} numberOfLines={1}>
-                  {x.name}
-                  {isMe ? ` (${t('lb.you')})` : ''}
-                </Text>
-                <Text style={[styles.small, { color: p.mute }]}>
-                  {t('lb.line', { level: x.level, species: x.species })}
-                </Text>
-              </View>
-              <Text style={[styles.xp, { color: p.ink }]}>{x.xp.toLocaleString(locale)} XP</Text>
-            </Pressable>
-          );
-        })}
-        {people === null && !error && <ActivityIndicator color={colors.accent} style={{ marginTop: 6 }} />}
-        {people !== null && friends.length === 0 && (
-          <Text style={[styles.sub, { color: p.mute }]}>{t('lb.empty')}</Text>
-        )}
-      </View>
-
-      {/* Eigener Code zum Weitergeben */}
-      <View style={[styles.codeBox, { borderColor: p.line }]}>
-        <View style={{ flex: 1 }}>
-          <Text style={[styles.small, { color: p.mute }]}>{t('lb.yourCode')}</Text>
-          <Text style={[styles.code, { color: p.ink }]} selectable>
-            {pretty(me.id)}
-          </Text>
+              person={x}
+              rank={String(i + 1)}
+              isMe={x.id === me?.id}
+              onLongPress={view === 'friends' && x.id !== me?.id ? () => onRemove(x) : undefined}
+              p={p}
+            />
+          ))}
+          {view === 'world' && self && top && !meInWorld && (
+            <>
+              <Text style={[styles.small, { color: p.mute, textAlign: 'center' }]}>···</Text>
+              <Row person={self} rank="–" isMe p={p} />
+            </>
+          )}
+          {((view === 'friends' && people === null) || (view === 'world' && top === null)) && !error && (
+            <ActivityIndicator color={colors.accent} style={{ marginTop: 6 }} />
+          )}
+          {view === 'friends' && people !== null && friends.length === 0 && (
+            <Text style={[styles.sub, { color: p.mute }]}>{t('lb.empty')}</Text>
+          )}
+          {view === 'world' && top !== null && top.length === 0 && (
+            <Text style={[styles.sub, { color: p.mute }]}>{t('lb.worldEmpty')}</Text>
+          )}
+          {view === 'world' && !me && (
+            <Text style={[styles.small, { color: p.mute, marginTop: 6 }]}>{t('lb.worldHint')}</Text>
+          )}
         </View>
-        <Pressable
-          onPress={() =>
-            Share.share({ message: t('lb.shareText', { code: pretty(me.id), link: inviteLink(me.id, stats.name, lang) }) })
-          }
-          style={[styles.smallBtn, { backgroundColor: p.moss }]}
-          accessibilityRole="button"
-        >
-          <Text style={styles.smallBtnText}>{t('lb.invite')}</Text>
-        </Pressable>
-      </View>
+      )}
 
-      {/* Freund hinzufügen */}
-      <View style={styles.addRow}>
-        <TextInput
-          value={code}
-          onChangeText={setCode}
-          placeholder={t('lb.addPlaceholder')}
-          placeholderTextColor={p.mute}
-          autoCapitalize="characters"
-          autoCorrect={false}
-          maxLength={8}
-          onSubmitEditing={onAdd}
-          style={[styles.input, { color: p.ink, borderColor: p.line }]}
-        />
-        <Pressable
-          onPress={onAdd}
-          disabled={busy || !code.trim()}
-          style={[styles.smallBtn, { backgroundColor: colors.accent, opacity: code.trim() ? 1 : 0.5 }]}
-          accessibilityRole="button"
-        >
-          <Text style={[styles.smallBtnText, { color: colors.ink }]}>{t('lb.add')}</Text>
-        </Pressable>
-      </View>
-      {!!error && <Text style={styles.error}>{error}</Text>}
+      {/* Kompakt: eigener Code, einladen, Code eingeben */}
+      {me && view === 'friends' && (
+        <>
+          <View style={[styles.codeRow, { borderColor: p.line }]}>
+            <Text style={[styles.small, { color: p.mute }]}>{t('lb.yourCode')}</Text>
+            <Text style={[styles.code, { color: p.ink }]} selectable>
+              {pretty(me.id)}
+            </Text>
+            <View style={{ flex: 1 }} />
+            <Pressable onPress={invitePress} style={[styles.smallBtn, { backgroundColor: p.moss }]} accessibilityRole="button">
+              <Text style={styles.smallBtnText}>{t('lb.invite')}</Text>
+            </Pressable>
+          </View>
 
-      <Text style={[styles.small, { color: p.mute, marginTop: 10 }]}>{t('lb.hint')}</Text>
-      <Pressable onPress={onLeave} hitSlop={8} style={{ alignSelf: 'flex-start', marginTop: 8 }}>
-        <Text style={[styles.small, { color: p.mute, textDecorationLine: 'underline' }]}>{t('lb.leave')}</Text>
-      </Pressable>
+          {adding ? (
+            <View style={styles.addRow}>
+              <TextInput
+                value={code}
+                onChangeText={setCode}
+                placeholder={t('lb.addPlaceholder')}
+                placeholderTextColor={p.mute}
+                autoCapitalize="characters"
+                autoCorrect={false}
+                autoFocus
+                maxLength={8}
+                onSubmitEditing={onAdd}
+                style={[styles.input, { color: p.ink, borderColor: p.line }]}
+              />
+              <Pressable
+                onPress={onAdd}
+                disabled={busy || !code.trim()}
+                style={[styles.smallBtn, { backgroundColor: colors.accent, opacity: code.trim() ? 1 : 0.5 }]}
+                accessibilityRole="button"
+              >
+                <Text style={[styles.smallBtnText, { color: colors.ink }]}>{t('lb.add')}</Text>
+              </Pressable>
+            </View>
+          ) : (
+            <Pressable onPress={() => setAdding(true)} hitSlop={8} style={{ alignSelf: 'flex-start', marginTop: 10 }}>
+              <Text style={[styles.link, { color: p.moss }]}>{t('lb.enterCode')}</Text>
+            </Pressable>
+          )}
+          {!!error && <Text style={styles.error}>{error}</Text>}
+
+          <View style={styles.footer}>
+            <Text style={[styles.small, { color: p.mute, flex: 1 }]}>{t('lb.hint')}</Text>
+            <Pressable onPress={onLeave} hitSlop={8}>
+              <Text style={[styles.small, { color: p.mute, textDecorationLine: 'underline' }]}>{t('lb.leave')}</Text>
+            </Pressable>
+          </View>
+        </>
+      )}
     </View>
+  );
+}
+
+// Eine Zeile der Rangliste
+function Row({
+  person: x,
+  rank,
+  isMe,
+  onLongPress,
+  p,
+}: {
+  person: Person;
+  rank: string;
+  isMe: boolean;
+  onLongPress?: () => void;
+  p: Palette;
+}) {
+  const { t, locale } = useI18n();
+  return (
+    <Pressable onLongPress={onLongPress} style={[styles.row, isMe && { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
+      <Text style={[styles.rank, { color: rank === '1' ? colors.accent : p.mute }]}>{rank}</Text>
+      {x.avatar in BADGE_TIER ? (
+        <Medal id={x.avatar as BadgeId} size={32} />
+      ) : (
+        <View style={styles.letter}>
+          <Text style={styles.letterText}>{x.name[0]?.toUpperCase() ?? '?'}</Text>
+        </View>
+      )}
+      <View style={{ flex: 1 }}>
+        <Text style={[styles.name, { color: p.ink }]} numberOfLines={1}>
+          {x.name}
+          {isMe ? ` (${t('lb.you')})` : ''}
+        </Text>
+        <Text style={[styles.small, { color: p.mute }]}>{t('lb.line', { level: x.level, species: x.species })}</Text>
+      </View>
+      <Text style={[styles.xp, { color: p.ink }]}>{x.xp.toLocaleString(locale)} XP</Text>
+    </Pressable>
   );
 }
 
@@ -286,9 +360,9 @@ const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 7, paddingHorizontal: 6, borderRadius: 12 },
   rank: { width: 18, textAlign: 'center', fontFamily: fonts.serifBold, fontSize: 16 },
   letter: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
     backgroundColor: colors.accent,
     alignItems: 'center',
     justifyContent: 'center',
@@ -296,17 +370,22 @@ const styles = StyleSheet.create({
   letterText: { fontFamily: fonts.serifBold, fontSize: 16, color: colors.ink },
   name: { fontFamily: fonts.sansBold, fontSize: 15 },
   xp: { fontFamily: fonts.sansBold, fontSize: 14 },
-  codeBox: {
+  seg: { flexDirection: 'row', borderWidth: 1, borderRadius: 99, padding: 3, marginTop: 10 },
+  segBtn: { flex: 1, borderRadius: 99, paddingVertical: 7, alignItems: 'center' },
+  segText: { fontFamily: fonts.sansBold, fontSize: 14 },
+  codeRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    marginTop: 12,
+    gap: 8,
+    marginTop: 10,
     borderTopWidth: 1,
-    paddingTop: 12,
+    paddingTop: 10,
   },
-  code: { fontFamily: fonts.serifBold, fontSize: 22, letterSpacing: 2 },
-  smallBtn: { borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
-  smallBtnText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
+  code: { fontFamily: fonts.sansBold, fontSize: 15, letterSpacing: 1.5 },
+  smallBtn: { borderRadius: 10, paddingVertical: 7, paddingHorizontal: 12 },
+  smallBtnText: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.white },
+  link: { fontFamily: fonts.sansBold, fontSize: 13.5 },
+  footer: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12 },
   addRow: { flexDirection: 'row', gap: 8, marginTop: 10 },
   input: {
     flex: 1,

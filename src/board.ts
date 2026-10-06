@@ -150,3 +150,15 @@ export function codeFromUrl(url: string | null): string | null {
     return null;
   }
 }
+
+// Weltweite Rangliste: die 50 Entdecker mit den meisten XP
+export async function fetchTop(): Promise<Person[] | null> {
+  try {
+    const res = await call({ mode: 'board_top' });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { people?: Person[] };
+    return data.people ?? [];
+  } catch {
+    return null;
+  }
+}
