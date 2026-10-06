@@ -10,13 +10,11 @@ import { BadgeId, DailyId, XP } from '../progress';
 import { Medal } from '../components/Medal';
 import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
-import { Butterfly } from '../components/animals/Butterfly';
 import { Deer } from '../components/animals/Deer';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
 import { Ladybug } from '../components/animals/Ladybug';
 import { Robin } from '../components/animals/Robin';
-import { Snake } from '../components/animals/Snake';
 import { Squirrel } from '../components/animals/Squirrel';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
@@ -59,29 +57,23 @@ export function StartScreen({
 
         {/* Die vier Tiere in den Ecken */}
         <View style={[styles.animal, { left: width * 0.05, top: insets.top + 96 }]}>
-          <Ladybug width={60} />
+          <Ladybug width={46} />
         </View>
         <View style={[styles.animal, { right: 0, top: insets.top + 82 }]}>
-          <Squirrel width={74} />
+          <Squirrel width={58} />
         </View>
         <View style={[styles.animal, { right: width * 0.06, bottom: '8%' }]}>
-          <Frog width={60} />
+          <Frog width={46} />
         </View>
         <View style={[styles.animal, { left: width * 0.05, bottom: '7%' }]}>
-          <Hedgehog width={58} />
+          <Hedgehog width={46} />
         </View>
         {/* weitere kleine Tiere, die man draußen finden kann */}
         <View style={[styles.animal, { left: width * 0.03, top: '36%' }]}>
-          <Robin width={52} />
+          <Robin width={40} />
         </View>
         <View style={[styles.animal, { right: width * 0.03, top: '52%' }]}>
-          <Deer width={62} />
-        </View>
-        <View style={[styles.animal, { left: width * 0.04, bottom: '22%' }]}>
-          <Snake width={70} />
-        </View>
-        <View style={[styles.animal, { right: width * 0.28, top: insets.top + 78 }]}>
-          <Butterfly width={30} />
+          <Deer width={48} />
         </View>
 
         {/* Profilbild: Anfangsbuchstabe oder Abzeichen, öffnet das Profil */}
