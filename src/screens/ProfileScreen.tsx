@@ -103,7 +103,7 @@ export function ProfileScreen(props: Props) {
             accessibilityRole="button"
             accessibilityLabel={t('pro.avatar')}
           >
-            <Avatar id={avatar} name={name} size={124} />
+            <Avatar id={avatar} name={name} size={108} />
             <View style={styles.avatarEdit}>
               <Svg width={16} height={16} viewBox="0 0 24 24">
                 <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.ink} strokeWidth={2.4} strokeLinejoin="round" />
@@ -174,19 +174,55 @@ export function ProfileScreen(props: Props) {
       </View>
 
       {/* Stufe und Statistik */}
-      <Card p={p} style={{ marginTop: -24 }}>
-        <View style={[styles.prog, { backgroundColor: p.line, marginTop: 4 }]}>
-          <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
-        </View>
-        <Text style={[styles.sub, { color: p.mute }]}>
-          {progress.nextLevelXp ? `${progress.xp} / ${progress.nextLevelXp} XP` : `${progress.xp} XP`}
-        </Text>
+      <Card p={p} style={{ marginTop: -24, paddingVertical: 12 }}>
         <View style={styles.stats}>
           <Stat p={p} value={finds.length} label={t('pro.finds')} />
           <Stat p={p} value={species} label={t('col.species')} />
           <Stat p={p} value={earned.length} label={t('ch.badges')} />
         </View>
+        <View style={styles.xpRow}>
+          <View style={[styles.prog, { backgroundColor: p.line }]}>
+            <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
+          </View>
+          <Text style={[styles.xpText, { color: p.mute }]}>
+            {progress.nextLevelXp ? `${progress.xp} / ${progress.nextLevelXp} XP` : `${progress.xp} XP`}
+          </Text>
+        </View>
       </Card>
+
+      {/* Findimal Plus: was dazugehört */}
+      <View style={[styles.card, styles.plusCard]}>
+        <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
+        <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
+        {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
+          <View key={k} style={styles.plusRow}>
+            <Text style={styles.plusCheck}>✓</Text>
+            <Text style={styles.plusText}>{t(k)}</Text>
+          </View>
+        ))}
+        {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
+        <View style={styles.plusPreview}>
+          {PLUS_AVATARS.slice(0, 5).map((a) => (
+            <Avatar key={a.id} id={a.id} name={name} size={44} />
+          ))}
+        </View>
+        {plus ? (
+          <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
+            <Text style={styles.plusEndText}>{t('plus.end')}</Text>
+          </Pressable>
+        ) : (
+          <>
+            <Pressable
+              onPress={() => askForPlus(t, setPlus)}
+              style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
+              accessibilityRole="button"
+            >
+              <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
+            </Pressable>
+            <Text style={styles.plusPrice}>{t('plus.price')}</Text>
+          </>
+        )}
+      </View>
 
       {/* Profilbild */}
       <Card p={p} onLayout={(y) => (pickerY.current = y)}>
@@ -227,40 +263,6 @@ export function ProfileScreen(props: Props) {
           ))}
         </ScrollView>
       </Card>
-
-      {/* Findimal Plus: was dazugehört */}
-      <View style={[styles.card, styles.plusCard]}>
-        <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
-        <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
-        {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
-          <View key={k} style={styles.plusRow}>
-            <Text style={styles.plusCheck}>✓</Text>
-            <Text style={styles.plusText}>{t(k)}</Text>
-          </View>
-        ))}
-        {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
-        <View style={styles.plusPreview}>
-          {PLUS_AVATARS.slice(0, 5).map((a) => (
-            <Avatar key={a.id} id={a.id} name={name} size={44} />
-          ))}
-        </View>
-        {plus ? (
-          <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
-            <Text style={styles.plusEndText}>{t('plus.end')}</Text>
-          </Pressable>
-        ) : (
-          <>
-            <Pressable
-              onPress={() => askForPlus(t, setPlus)}
-              style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
-              accessibilityRole="button"
-            >
-              <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
-            </Pressable>
-            <Text style={styles.plusPrice}>{t('plus.price')}</Text>
-          </>
-        )}
-      </View>
 
       {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
       <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
@@ -341,15 +343,15 @@ function Stat({ p, value, label }: { p: Palette; value: number; label: string })
 const styles = StyleSheet.create({
   hx: {
     paddingHorizontal: spacing.gutter,
-    paddingBottom: 44,
+    paddingBottom: 40,
     borderBottomLeftRadius: spacing.radiusHero,
     borderBottomRightRadius: spacing.radiusHero,
     overflow: 'hidden',
   },
   back: { alignSelf: 'flex-start', paddingVertical: 6, marginBottom: 10 },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.accentLight },
-  pr: { alignItems: 'center', gap: 12 },
-  prText: { alignSelf: 'stretch', alignItems: 'center' },
+  pr: { flexDirection: 'row', alignItems: 'center', gap: 14 },
+  prText: { flex: 1, minWidth: 0, alignItems: 'flex-start' },
   avatarEdit: {
     position: 'absolute',
     right: 2,
@@ -375,12 +377,12 @@ const styles = StyleSheet.create({
   },
   letterText: { fontFamily: fonts.serifBold, fontSize: 34, color: colors.ink },
   name: { flexShrink: 1, fontFamily: fonts.serifBold, fontSize: 26, color: colors.white },
-  nameRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, maxWidth: '100%' },
+  nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8, maxWidth: '100%' },
   place: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
     marginTop: 8,
     paddingVertical: 4,
     paddingHorizontal: 10,
@@ -388,10 +390,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.10)',
   },
   placeText: { flexShrink: 1, fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
-  nameEdit: { alignSelf: 'stretch', paddingLeft: 42 },
+  nameEdit: { alignSelf: 'stretch' },
   nameInput: {
     flex: 1,
-    textAlign: 'center',
     minWidth: 0,
     fontFamily: fonts.serifBold,
     fontSize: 22,
@@ -433,12 +434,14 @@ const styles = StyleSheet.create({
   plusEnd: { marginTop: 12, alignSelf: 'center', paddingVertical: 6 },
   plusEndText: { fontFamily: fonts.sans, fontSize: 13, color: colors.accentLight, textDecorationLine: 'underline' },
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 2 },
-  prog: { height: 8, borderRadius: 9, marginTop: 10, marginBottom: 4, overflow: 'hidden' },
+  prog: { flex: 1, height: 8, borderRadius: 9, overflow: 'hidden' },
+  xpRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10 },
+  xpText: { fontFamily: fonts.sansBold, fontSize: 12.5 },
   progFill: { height: '100%', backgroundColor: colors.accent },
-  stats: { flexDirection: 'row', marginTop: 14 },
-  stat: { flex: 1, alignItems: 'center' },
-  statValue: { fontFamily: fonts.serifBold, fontSize: 24 },
-  statLabel: { fontFamily: fonts.sans, fontSize: 12 },
+  stats: { flexDirection: 'row' },
+  stat: { flex: 1, flexDirection: 'row', alignItems: 'baseline', justifyContent: 'center', gap: 5 },
+  statValue: { fontFamily: fonts.serifBold, fontSize: 20 },
+  statLabel: { fontFamily: fonts.sans, fontSize: 12.5 },
   pick: { gap: 10, paddingTop: 12, paddingRight: 4 },
   pickItem: { padding: 3, borderRadius: 40, borderWidth: 2.5, borderColor: 'transparent' },
   pickOn: { borderColor: colors.accent },
