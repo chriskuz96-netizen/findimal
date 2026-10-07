@@ -1,6 +1,7 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AdSlot } from '../components/AdSlot';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Find, useFindPhoto } from '../finds';
 import { GroupIcon } from '../groups';
@@ -92,6 +93,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           ))}
         </View>
       </View>
+
+      {/* Anzeigen-Platz unter den Saison-Tieren */}
+      <AdSlot p={p} placement='season' />
 
       {/* So hilfst du */}
       <View style={[styles.help, { backgroundColor: 'rgba(31,110,71,0.09)' }]}>
