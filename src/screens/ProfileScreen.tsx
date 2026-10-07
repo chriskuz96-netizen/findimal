@@ -170,7 +170,8 @@ export function ProfileScreen(props: Props) {
         {/* Plus-Profilbilder: ohne Plus mit Schloss */}
         <Text style={[styles.h4, { color: p.ink }]}>★ {t('pro.plusAvatars')}</Text>
         <Text style={[styles.sub, { color: p.mute }]}>{t('pro.plusAvatarsHint')}</Text>
-        <View style={styles.grid}>
+        {/* eine Reihe zum Wischen statt eines großen Rasters */}
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pick}>
           {PLUS_AVATARS.map((a) => (
             <Pressable
               key={a.id}
@@ -179,12 +180,12 @@ export function ProfileScreen(props: Props) {
               accessibilityRole="button"
             >
               <View style={{ opacity: plus ? 1 : 0.45 }}>
-                <Avatar id={a.id} name={name} size={54} />
+                <Avatar id={a.id} name={name} size={56} />
               </View>
               {!plus && <Text style={styles.lock}>🔒</Text>}
             </Pressable>
           ))}
-        </View>
+        </ScrollView>
       </Card>
 
       {/* Name */}
@@ -333,7 +334,6 @@ const styles = StyleSheet.create({
   },
   h3: { fontFamily: fonts.serifBold, fontSize: 18 },
   h4: { fontFamily: fonts.serifBold, fontSize: 16, marginTop: 16 },
-  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, marginTop: 8, justifyContent: 'center' },
   lock: { position: 'absolute', right: 2, bottom: 2, fontSize: 14 },
   plusCard: { backgroundColor: '#123826', borderColor: '#E8B53A', borderWidth: 1.5 },
   plusTitle: { fontFamily: fonts.serifBold, fontSize: 20, color: '#FFD45E' },
