@@ -161,7 +161,9 @@ export function ProfileScreen(props: Props) {
                 accessibilityRole="button"
                 accessibilityLabel={t('pro.name')}
               >
-                <Text style={styles.name} numberOfLines={1}>{name}</Text>
+                <Text style={styles.name} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+                  {name}
+                </Text>
                 <Svg width={20} height={20} viewBox="0 0 24 24">
                   <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
                   <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
