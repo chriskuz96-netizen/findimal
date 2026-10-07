@@ -137,9 +137,16 @@ export async function fetchPeople(ids: string[]): Promise<Person[] | null> {
 
 // Einladungslink: zeigt eine kleine Webseite des Findimal-Servers, die Findimal (in Expo Go)
 // mit dem Freundescode öffnet. Ein normaler https-Link ist in WhatsApp & Co. anklickbar.
+// Kann die App keinen Link auf sich selbst bauen (z. B. in Expo Go/Snack), zeigt die Seite nur Name und Code.
 export function inviteLink(code: string, name: string, lang: string): string {
-  const app = Linking.createURL('invite', { queryParams: { code } });
-  const q = [`c=${code}`, `n=${encodeURIComponent(name)}`, `l=${lang}`, `u=${encodeURIComponent(app)}`];
+  let app = '';
+  try {
+    app = Linking.createURL('invite', { queryParams: { code } });
+  } catch {
+    app = '';
+  }
+  const q = [`c=${code}`, `n=${encodeURIComponent(name)}`, `l=${lang}`];
+  if (app) q.push(`u=${encodeURIComponent(app)}`);
   return `${SERVER_URL.replace(/\/$/, '')}/einladung?${q.join('&')}`;
 }
 
