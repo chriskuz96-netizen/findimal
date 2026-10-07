@@ -13,6 +13,9 @@ const has = (file) => {
 
 module.exports = ({ config }) => ({
   ...config,
+  // Expo-Konto und -Projekt für den App-Bau (EAS)
+  owner: 'christianfindimal',
+  extra: { ...config.extra, eas: { projectId: 'd01f3c01-05fb-435f-b41f-842cf6583f72' } },
   ...(has('./assets/icon.png') ? { icon: './assets/icon.png' } : {}),
   splash: {
     ...config.splash,
