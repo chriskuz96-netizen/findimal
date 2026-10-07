@@ -20,6 +20,11 @@ export const BADGE_TIER: Record<BadgeId, keyof typeof TIERS> = {
   streak7: 'gold',
   species25: 'gold',
   allgroups: 'gold',
+  fish: 'bronze',
+  reptile: 'bronze',
+  early: 'silver',
+  notes5: 'silver',
+  species50: 'gold',
 };
 
 type Props = { id: BadgeId; size: number; earned?: boolean };
@@ -140,7 +145,8 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
         </G>
       );
     case 'species10':
-    case 'species25': // Schmetterling mit Zahl
+    case 'species25':
+    case 'species50': // Schmetterling mit Zahl
       return (
         <G>
           <Path d="M0 -2 C-4 -12 -14 -12 -13 -5 C-12 1 -5 1 0 0 Z" fill={c('#E8833A')} />
@@ -152,8 +158,52 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Ellipse cx={0} cy={0} rx={1.4} ry={6} fill={c('#13261C')} />
           <Path d="M0 -6 L-3 -11 M0 -6 L3 -11" stroke={c('#13261C')} strokeWidth={1} />
           <SvgText x={0} y={13.5} fontSize={6.5} fontWeight="bold" fill={c('#FFE9A3')} textAnchor="middle">
-            {id === 'species10' ? '10' : '25'}
+            {id === 'species10' ? '10' : id === 'species25' ? '25' : '50'}
           </SvgText>
+        </G>
+      );
+    case 'fish': // Fisch mit Luftblasen
+      return (
+        <G>
+          <Path d="M-9 0 C-5 -8 5 -9 10 0 C5 9 -5 8 -9 0 Z" fill={c('#3A8FA5')} />
+          <Path d="M-9 0 L-14 -6 L-13 0 L-14 6 Z" fill={c('#1F4F5E')} />
+          <Path d="M-1 -6 C1 -9 4 -9 5 -7" stroke={c('#1F4F5E')} strokeWidth={1.6} fill="none" strokeLinecap="round" />
+          <Path d="M0 -5 C-2 -1 -2 2 0 5" stroke={c('#BFE6F2')} strokeWidth={1.2} fill="none" />
+          <Circle cx={5} cy={-1.5} r={1.6} fill="#fff" />
+          <Circle cx={5.4} cy={-1.5} r={0.8} fill="#13261C" />
+          <Circle cx={11} cy={-8} r={1.6} fill="none" stroke={c('#BFE6F2')} strokeWidth={0.9} />
+          <Circle cx={8} cy={-12} r={1.1} fill="none" stroke={c('#BFE6F2')} strokeWidth={0.8} />
+        </G>
+      );
+    case 'reptile': // Eidechse von oben
+      return (
+        <G>
+          <Path d="M1 6 C2 10 -1 13 -6 13" stroke={c('#7A8A3E')} strokeWidth={3} fill="none" strokeLinecap="round" />
+          <Path d="M-3 -4 L-9 -8 M3 -4 L9 -7 M-3 4 L-9 7 M3 4 L9 8" stroke={c('#7A8A3E')} strokeWidth={2.2} strokeLinecap="round" />
+          <Ellipse cx={0} cy={0} rx={4} ry={8} fill={c('#9DB35A')} />
+          <Ellipse cx={0} cy={-10} rx={3.4} ry={4} fill={c('#9DB35A')} />
+          <Path d="M0 -5 V6" stroke={c('#5E6E2B')} strokeWidth={1} strokeDasharray="1.5 1.5" />
+          <Circle cx={-1.5} cy={-11} r={0.9} fill={c('#13261C')} />
+          <Circle cx={1.5} cy={-11} r={0.9} fill={c('#13261C')} />
+        </G>
+      );
+    case 'early': // Sonnenaufgang
+      return (
+        <G>
+          <Path d="M-11 4 A11 11 0 0 1 11 4 Z" fill={c('#FFD45E')} />
+          <Path d="M0 -12 V-9 M-9 -8 L-7 -6 M9 -8 L7 -6 M-13 -2 H-10 M13 -2 H10" stroke={c('#FFE9A3')} strokeWidth={1.8} strokeLinecap="round" />
+          <Path d="M-14 4 H14" stroke={c('#FFD2A8')} strokeWidth={2} strokeLinecap="round" />
+          <Path d="M-9 8 H9 M-5 11 H5" stroke={c('#BFE6F2')} strokeWidth={1.6} strokeLinecap="round" opacity={0.8} />
+        </G>
+      );
+    case 'notes5': // Forschertagebuch mit Stift
+      return (
+        <G>
+          <Path d="M-9 -11 H7 V11 H-9 Z" fill={c('#F3E7D3')} stroke={c('#8E5E3C')} strokeWidth={1.2} />
+          <Path d="M-9 -11 H-6 V11 H-9 Z" fill={c('#C9533B')} />
+          <Path d="M-3 -6 H4 M-3 -2 H4 M-3 2 H2" stroke={c('#8E5E3C')} strokeWidth={1.2} strokeLinecap="round" />
+          <Path d="M3 9 L12 -4 L14 -2 L5 11 L2 12 Z" fill={c('#FFD45E')} stroke={c('#9A6B12')} strokeWidth={0.8} />
+          <Path d="M12 -4 L14 -2" stroke={c('#E8833A')} strokeWidth={2} />
         </G>
       );
     case 'allgroups': // Krone mit sechs Edelsteinen

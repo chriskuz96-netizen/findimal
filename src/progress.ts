@@ -36,13 +36,25 @@ function weekKey(d: Date): string {
 
 type DayFinds = { finds: Find[]; newSpecies: number };
 
-export type DailyId = 'ins' | 'bird' | 'ara' | 'new' | 'mam' | 'three' | 'mol';
+export type DailyId =
+  | 'ins'
+  | 'bird'
+  | 'ara'
+  | 'new'
+  | 'mam'
+  | 'three'
+  | 'mol'
+  | 'two'
+  | 'water'
+  | 'note'
+  | 'morning';
 type Daily = { id: DailyId; icon: GroupId | null; check: (day: DayFinds) => boolean };
 
 const hasGroup = (id: GroupId) => (day: DayFinds) =>
   day.finds.some((f) => groupOf(f.animal.gruppe)?.id === id);
 
-const DAILIES: Daily[] = [
+// Bis 7.10.2026 galt diese Reihenfolge – bleibt für alte Tage gleich, damit sich keine XP nachträglich ändern
+const DAILIES_OLD: Daily[] = [
   { id: 'ins', icon: 'ins', check: hasGroup('ins') },
   { id: 'bird', icon: 'bird', check: hasGroup('bird') },
   { id: 'ara', icon: 'ara', check: hasGroup('ara') },
@@ -52,8 +64,27 @@ const DAILIES: Daily[] = [
   { id: 'mol', icon: 'mol', check: hasGroup('mol') },
 ];
 
+const groupsOfDay = (d: DayFinds) => new Set(d.finds.map((f) => groupOf(f.animal.gruppe)?.id).filter(Boolean)).size;
+
+// Ab 8.10.2026: mehr Abwechslung
+const DAILIES: Daily[] = [
+  { id: 'bird', icon: 'bird', check: hasGroup('bird') },
+  { id: 'two', icon: null, check: (d) => groupsOfDay(d) >= 2 },
+  { id: 'ins', icon: 'ins', check: hasGroup('ins') },
+  { id: 'note', icon: null, check: (d) => d.finds.some((f) => !!f.note) },
+  { id: 'water', icon: 'fish', check: (d) => hasGroup('fish')(d) || hasGroup('amp')(d) },
+  { id: 'new', icon: null, check: (d) => d.newSpecies > 0 },
+  { id: 'mam', icon: 'mam', check: hasGroup('mam') },
+  { id: 'morning', icon: null, check: (d) => d.finds.some((f) => new Date(f.date).getHours() < 10) },
+  { id: 'ara', icon: 'ara', check: hasGroup('ara') },
+  { id: 'three', icon: null, check: (d) => d.finds.length >= 3 },
+  { id: 'mol', icon: 'mol', check: hasGroup('mol') },
+];
+const NEW_DAILIES_FROM = dayNumber(new Date(2026, 9, 8));
+
 export function dailyFor(date: Date): Daily {
-  return DAILIES[dayNumber(date) % DAILIES.length];
+  const n = dayNumber(date);
+  return n < NEW_DAILIES_FROM ? DAILIES_OLD[n % DAILIES_OLD.length] : DAILIES[n % DAILIES.length];
 }
 
 // ---------- Abzeichen ----------
@@ -67,7 +98,12 @@ export type BadgeId =
   | 'species10'
   | 'streak7'
   | 'species25'
-  | 'allgroups';
+  | 'allgroups'
+  | 'fish'
+  | 'reptile'
+  | 'early'
+  | 'notes5'
+  | 'species50';
 
 // Name und Hinweis: Texte 'badge.<id>' und 'badge.<id>.hint'
 export type Badge = { id: BadgeId; earned: boolean };
@@ -154,6 +190,10 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
     return h >= 20 || h < 5;
   });
   const groupsEver = new Set(finds.map((f) => groupOf(f.animal.gruppe)?.id).filter(Boolean));
+  const earlyFind = finds.some((f) => {
+    const h = new Date(f.date).getHours();
+    return h >= 5 && h < 7;
+  });
 
   return {
     xp,
@@ -173,6 +213,11 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
       { id: 'streak7', earned: best >= 7 },
       { id: 'species25', earned: seen.size >= 25 },
       { id: 'allgroups', earned: groupsEver.size >= 6 },
+      { id: 'fish', earned: countGroup('fish') >= 1 },
+      { id: 'reptile', earned: countGroup('rep') >= 1 },
+      { id: 'early', earned: earlyFind },
+      { id: 'notes5', earned: finds.filter((f) => !!f.note).length >= 5 },
+      { id: 'species50', earned: seen.size >= 50 },
     ],
   };
 }
