@@ -12,7 +12,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Path } from 'react-native-svg';
+import Svg, { Circle, Path } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Avatar } from '../components/Avatar';
@@ -136,6 +136,25 @@ export function ProfileScreen(props: Props) {
             <Text style={styles.nick}>
               {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
             </Text>
+            {/* Ort: antippen zum Ändern */}
+            <Pressable
+              onPress={onChangeRegion}
+              hitSlop={8}
+              style={styles.place}
+              accessibilityRole="button"
+              accessibilityLabel={`${t('pro.region')}: ${region || t('pro.noRegion')}`}
+            >
+              <Svg width={14} height={14} viewBox="0 0 24 24">
+                <Path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z" fill={colors.accent} />
+                <Circle cx={12} cy={10} r={2.6} fill="#123826" />
+              </Svg>
+              <Text style={styles.placeText} numberOfLines={1}>
+                {region || t('pro.setPlace')}
+              </Text>
+              <Svg width={13} height={13} viewBox="0 0 24 24">
+                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2.2} strokeLinejoin="round" />
+              </Svg>
+            </Pressable>
           </View>
         </View>
       </View>
@@ -229,15 +248,6 @@ export function ProfileScreen(props: Props) {
         </ScrollView>
       </Card>
 
-      {/* Region */}
-      <Card p={p}>
-        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.region')}</Text>
-        <View style={styles.row}>
-          <Text style={[styles.region, { color: region ? p.ink : p.mute }]}>{region || t('pro.noRegion')}</Text>
-          <SmallButton label={t('pro.change')} onPress={onChangeRegion} p={p} />
-        </View>
-      </Card>
-
       {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
       <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
         <View style={styles.tipsHead}>
@@ -307,18 +317,6 @@ function Stat({ p, value, label }: { p: Palette; value: number; label: string })
   );
 }
 
-function SmallButton({ label, onPress, disabled, p }: { label: string; onPress: () => void; disabled?: boolean; p: Palette }) {
-  return (
-    <Pressable
-      onPress={onPress}
-      disabled={disabled}
-      style={({ pressed }) => [styles.small, { backgroundColor: p.button, opacity: disabled ? 0.5 : pressed ? 0.85 : 1 }]}
-    >
-      <Text style={styles.smallText}>{label}</Text>
-    </Pressable>
-  );
-}
-
 const styles = StyleSheet.create({
   hx: {
     paddingHorizontal: spacing.gutter,
@@ -343,6 +341,18 @@ const styles = StyleSheet.create({
   letterText: { fontFamily: fonts.serifBold, fontSize: 34, color: colors.ink },
   name: { flexShrink: 1, fontFamily: fonts.serifBold, fontSize: 26, color: colors.white },
   nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  place: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    alignSelf: 'flex-start',
+    marginTop: 6,
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    borderRadius: 99,
+    backgroundColor: 'rgba(255,255,255,0.10)',
+  },
+  placeText: { flexShrink: 1, fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
   nameInput: {
     flex: 1,
     minWidth: 0,
@@ -395,7 +405,6 @@ const styles = StyleSheet.create({
   pick: { gap: 10, paddingTop: 12, paddingRight: 4 },
   pickItem: { padding: 3, borderRadius: 40, borderWidth: 2.5, borderColor: 'transparent' },
   pickOn: { borderColor: colors.accent },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },
   tipsCard: { borderWidth: 2, borderColor: colors.accent, marginTop: 20 },
   tipsHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   bell: {
@@ -407,9 +416,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tipsKind: { fontFamily: fonts.sansBold, fontSize: 11, letterSpacing: 0.8, textTransform: 'uppercase' },
-  region: { flex: 1, fontFamily: fonts.sansBold, fontSize: 15 },
-  small: { borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
-  smallText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white },
   reset: {
     marginTop: 20,
     marginHorizontal: spacing.gutter,
