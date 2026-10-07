@@ -17,13 +17,16 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 ```
 
 **Werbetext** (max. 170, jederzeit ohne Prüfung änderbar – passend zur Jahreszeit):
-> Neu im Herbst: Igel, Kraniche und Kreuzspinnen entdecken! Foto machen, Tier erkennen, Abzeichen sammeln – und Tipps, wie du Tieren durch den Winter hilfst.
+> Neu im Herbst: Igel, Eichhörnchen und Kreuzspinnen entdecken! Foto machen, Tier erkennen, Abzeichen sammeln – und Tipps, wie du Tieren durch den Winter hilfst.
 
 **Beschreibung:**
 
 > Was krabbelt da im Beet? Welcher Vogel singt im Baum? Mit Findimal machst du ein Foto – und erfährst sofort, welches Tier du gefunden hast.
 >
 > Findimal macht aus jedem Spaziergang eine kleine Entdeckungsreise. Für Familien, Kinder und alle, die Natur neugierig macht.
+>
+> WARUM ES FINDIMAL GIBT
+> Uns liegen Tiere am Herzen. Wer genau hinschaut, entdeckt, wie viel Leben direkt vor der Haustür steckt – und was man kennt und mag, das schützt man auch. Mit Findimal wollen wir mehr Menschen für Tiere begeistern und sie wieder öfter nach draußen in die Natur bringen. Also: Handy raus, Augen auf – und dann viel Zeit draußen!
 >
 > FOTOGRAFIEREN UND ERKENNEN
 > • Foto machen oder aus deinen Bildern wählen – Findimal sagt dir, welches Tier es ist
@@ -43,6 +46,8 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 > SAISON UND TIERSCHUTZ
 > • Saison-Tiere: Was jetzt draußen los ist
 > • Einfache Tipps, wie du Tieren in Garten und Natur hilfst
+> • Natur-Tipp der Woche als Mitteilung – freiwillig und höchstens einmal pro Woche
+> • Das Findimal-Ehrenwort: Tiere beobachten, ohne sie zu stören
 >
 > CHALLENGES MIT FREUNDEN
 > • Erfahrungspunkte, Stufen und Abzeichen
@@ -86,13 +91,16 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 ```
 
 **Promotional text:**
-> New this autumn: spot hedgehogs, cranes and garden spiders! Snap a photo, identify the animal, earn badges – and learn how to help wildlife through winter.
+> New this autumn: spot hedgehogs, squirrels and garden spiders! Snap a photo, identify the animal, earn badges – and learn how to help wildlife through winter.
 
 **Description:**
 
 > What's crawling in the flower bed? Which bird is singing in the tree? Snap a photo with Findimal – and find out right away which animal you've found.
 >
 > Findimal turns every walk into a little expedition. For families, kids and anyone curious about nature.
+>
+> WHY FINDIMAL EXISTS
+> Animals are close to our hearts. Look closely and you'll discover how much life there is right outside your door – and what we know and love, we protect. With Findimal we want to get more people excited about animals and bring them back outside into nature more often. So: phone out, eyes open – and then lots of time outdoors!
 >
 > SNAP AND IDENTIFY
 > • Take a photo or pick one from your library – Findimal tells you which animal it is
@@ -112,6 +120,8 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 > SEASONS AND WILDLIFE CARE
 > • Seasonal animals: what's happening outside right now
 > • Simple tips to help animals in your garden and in nature
+> • Nature tip of the week as a notification – optional and at most once a week
+> • The Findimal promise: watch animals without disturbing them
 >
 > CHALLENGES WITH FRIENDS
 > • Experience points, levels and badges
@@ -152,13 +162,16 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 ```
 
 **Texte promotionnel :**
-> Nouveau cet automne : hérissons, grues et araignées ! Photographie un animal, découvre son nom, gagne des badges – et aide les animaux à passer l’hiver.
+> Nouveau cet automne : hérissons, écureuils et araignées ! Photographie un animal, découvre son nom, gagne des badges – et aide les animaux à passer l’hiver.
 
 **Description :**
 
 > Qu’est-ce qui rampe dans le potager ? Quel oiseau chante dans l’arbre ? Avec Findimal, prends une photo – et découvre aussitôt quel animal tu as trouvé.
 >
 > Findimal transforme chaque promenade en petite expédition. Pour les familles, les enfants et tous les curieux de nature.
+>
+> POURQUOI FINDIMAL
+> Les animaux nous tiennent à cœur. En regardant de près, on découvre combien la vie foisonne juste devant sa porte – et ce que l’on connaît et aime, on le protège. Avec Findimal, nous voulons passionner davantage de monde pour les animaux et donner envie de sortir plus souvent dans la nature. Alors : téléphone en main, yeux grands ouverts – et beaucoup de temps dehors !
 >
 > PHOTOGRAPHIER ET IDENTIFIER
 > • Prends une photo ou choisis-en une dans ta galerie – Findimal te dit de quel animal il s’agit
@@ -178,6 +191,8 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 > SAISONS ET PROTECTION DES ANIMAUX
 > • Les animaux de la saison : ce qui se passe dehors en ce moment
 > • Des conseils simples pour aider les animaux au jardin et dans la nature
+> • L’astuce nature de la semaine en notification – facultative et au maximum une fois par semaine
+> • La promesse Findimal : observer les animaux sans les déranger
 >
 > DÉFIS ENTRE AMIS
 > • Points d’expérience, niveaux et badges
@@ -220,13 +235,16 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 ```
 
 **Texto promocional:**
-> Nuevo este otoño: ¡erizos, grullas y arañas de jardín! Haz una foto, descubre el animal, gana insignias y aprende a ayudar a los animales en invierno.
+> Nuevo este otoño: ¡erizos, ardillas y arañas de jardín! Haz una foto, descubre el animal, gana insignias y aprende a ayudar a los animales en invierno.
 
 **Descripción:**
 
 > ¿Qué se arrastra por el huerto? ¿Qué pájaro canta en el árbol? Con Findimal haces una foto – y descubres al instante qué animal has encontrado.
 >
 > Findimal convierte cada paseo en una pequeña expedición. Para familias, niños y cualquiera con curiosidad por la naturaleza.
+>
+> POR QUÉ EXISTE FINDIMAL
+> Los animales nos importan de corazón. Si miras con atención, descubres cuánta vida hay justo delante de tu puerta, y lo que conocemos y queremos, lo protegemos. Con Findimal queremos que más gente se entusiasme con los animales y salga más a menudo a la naturaleza. Así que: móvil en mano, ojos bien abiertos… ¡y mucho tiempo al aire libre!
 >
 > FOTOGRAFIAR E IDENTIFICAR
 > • Haz una foto o elige una de tu galería – Findimal te dice qué animal es
@@ -246,6 +264,8 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 > TEMPORADAS Y CUIDADO DE LOS ANIMALES
 > • Animales de temporada: lo que pasa ahí fuera ahora mismo
 > • Consejos sencillos para ayudar a los animales en el jardín y en la naturaleza
+> • Consejo de naturaleza de la semana como notificación: opcional y como mucho una vez por semana
+> • La promesa Findimal: observar a los animales sin molestarlos
 >
 > RETOS CON AMIGOS
 > • Puntos de experiencia, niveles e insignias
