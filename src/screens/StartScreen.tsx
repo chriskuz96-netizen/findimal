@@ -6,7 +6,7 @@ import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
 import { GroupIcon, GroupId } from '../groups';
-import { BadgeId, DailyId, XP } from '../progress';
+import { BadgeId, XP } from '../progress';
 import { Medal } from '../components/Medal';
 import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
@@ -25,7 +25,7 @@ type Props = {
   onOpenProfile: () => void;
   xp: number;
   avatar: BadgeId | null; // Abzeichen als Profilbild
-  daily: { id: DailyId; icon: GroupId | null; done: boolean };
+  seasonGoal: { groups: GroupId[]; done: boolean }; // Saison-Ziel: Tiere aus 3 Gruppen
   onOpenChallenges: () => void;
   onTakePhoto: () => void;
   onPickPhoto: () => void;
@@ -37,7 +37,7 @@ export function StartScreen({
   onOpenProfile,
   xp,
   avatar,
-  daily,
+  seasonGoal,
   onOpenChallenges,
   onTakePhoto,
   onPickPhoto,
@@ -109,7 +109,7 @@ export function StartScreen({
           <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting}</Text>
         </View>
       </View>
-      {/* Tageschallenge (öffnet die Challenges) */}
+      {/* Saison-Ziel (öffnet die Challenges) */}
       <Pressable
         onPress={onOpenChallenges}
         accessibilityRole="button"
@@ -119,14 +119,16 @@ export function StartScreen({
         ]}
       >
         <View style={styles.teaseIcon}>
-          <GroupIcon id={daily.icon} size={22} color={colors.accentLight} />
+          <GroupIcon id={seasonGoal.groups[seasonGoal.groups.length - 1] ?? null} size={22} color={colors.accentLight} />
         </View>
         <View style={{ flex: 1 }}>
-          <Text style={[styles.teaseSmall, { color: p.mute }]}>{t('start.daily')}</Text>
-          <Text style={[styles.teaseText, { color: p.ink }]}>{t(`daily.${daily.id}`)}</Text>
+          <Text style={[styles.teaseSmall, { color: p.mute }]}>{t('goal.title')}</Text>
+          <Text style={[styles.teaseText, { color: p.ink }]}>
+            {t('goal.short', { n: Math.min(3, seasonGoal.groups.length) })}
+          </Text>
         </View>
-        <Text style={[styles.teaseXp, daily.done && { backgroundColor: '#6FBF8A' }]}>
-          {daily.done ? t('start.done') : `+${XP.daily} XP`}
+        <Text style={[styles.teaseXp, seasonGoal.done && { backgroundColor: '#6FBF8A' }]}>
+          {seasonGoal.done ? t('start.done') : `+${XP.season} XP`}
         </Text>
       </Pressable>
       <NearbyList region={region} />

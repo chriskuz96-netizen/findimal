@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -8,14 +9,13 @@ import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
 import { Badge, Progress, XP } from '../progress';
-import { Question } from '../quiz';
+import { nextQuestion, question as questionAt, QuizLog } from '../quiz';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
   progress: Progress;
-  question: Question;
-  answer: number | undefined; // heute gewählte Antwort
-  onAnswer: (i: number) => void;
+  quiz: QuizLog; // bisherige Antworten
+  onAnswer: (question: number, answer: number) => void;
   avatar: string; // Abzeichen als Profilbild ('' = keins)
   onSelectAvatar: (id: string) => void;
   name: string;
@@ -24,11 +24,15 @@ type Props = {
   onInviteDone: () => void;
 };
 
-export function ChallengesScreen({ progress, question, answer, onAnswer, avatar, onSelectAvatar, name, species, invite, onInviteDone }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAvatar, name, species, invite, onInviteDone }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
-  const { t, locale } = useI18n();
-  const { daily, weekly } = progress;
+  const { t, locale, lang } = useI18n();
+  const goal = progress.season;
+  // Quiz: die gerade gezeigte Frage bleibt nach dem Antworten stehen, bis man "Nächste Frage" tippt
+  const [shown, setShown] = useState<number | null>(() => nextQuestion(quiz));
+  const question = shown === null ? null : questionAt(shown, lang);
+  const answer = shown === null ? undefined : quiz[`q${shown}`];
   const badgeName = (b: Badge) => t(`badge.${b.id}`);
   const badgeHint = (b: Badge) => t(`badge.${b.id}.hint`);
   const span = (progress.nextLevelXp ?? progress.xp) - progress.levelStart;
@@ -40,22 +44,36 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
         <HeaderBackground />
         <Text style={styles.h2}>{t('ch.title')}</Text>
         <View style={styles.stats}>
-          <Stat value={String(progress.streak)} label={t(progress.streak === 1 ? 'ch.streakOne' : 'ch.streak')} />
           <Stat value={progress.xp.toLocaleString(locale)} label="XP" />
           <Stat value={String(progress.level)} label={t('ch.level')} />
+          <Stat value={String(progress.badges.filter((b) => b.earned).length)} label={t('ch.badges')} />
         </View>
       </View>
 
-      {/* Tageschallenge */}
+      {/* Saison-Ziel: Tiere aus 3 Gruppen in dieser Jahreszeit */}
       <View style={[styles.mis, { backgroundColor: p.card }]}>
-        <View style={styles.mi}>
-          <GroupIcon id={daily.icon} size={30} color={colors.accentLight} />
+        <View style={styles.misHead}>
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.small, { color: p.mute }]}>{t('goal.title')}</Text>
+            <Text style={[styles.misText, { color: p.ink }]}>{t('goal.text')}</Text>
+          </View>
+          <XpPill text={goal.done ? t('ch.done') : `+${XP.season} XP`} done={goal.done} />
         </View>
-        <View style={{ flex: 1 }}>
-          <Text style={[styles.small, { color: p.mute }]}>{t('ch.daily')}</Text>
-          <Text style={[styles.misText, { color: p.ink }]}>{t(`daily.${daily.id}`)}</Text>
+        <View style={styles.slots}>
+          {[0, 1, 2].map((i) => {
+            const g = GROUPS.find((x) => x.id === goal.groups[i]);
+            return (
+              <View key={i} style={styles.slot}>
+                <View style={[styles.slotDot, g ? { backgroundColor: '#123826', borderColor: colors.accent, borderStyle: 'solid' } : { borderColor: p.line }]}>
+                  {g && <GroupIcon id={g.id} size={20} color={colors.accentLight} />}
+                </View>
+                <Text style={[styles.small, { color: g ? p.ink : p.mute }]} numberOfLines={1}>
+                  {g ? t(`g.${g.id}`) : t('ch.open')}
+                </Text>
+              </View>
+            );
+          })}
         </View>
-        <XpPill text={daily.done ? t('ch.done') : `+${XP.daily} XP`} done={daily.done} />
       </View>
 
       {/* Stufe */}
@@ -81,75 +99,55 @@ export function ChallengesScreen({ progress, question, answer, onAnswer, avatar,
         p={p}
       />
 
-      {/* Wochenchallenge */}
-      <View style={styles.blk}>
-        <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>{t('ch.weekly')}</Text>
-          <XpPill text={weekly.done ? t('ch.done') : `+${XP.weekly} XP`} done={weekly.done} />
-        </View>
-        <Text style={[styles.sub, { color: p.mute }]}>{t('ch.weeklyText')}</Text>
-        <View style={styles.trail}>
-          {[0, 1, 2].map((i) => {
-            const g = GROUPS.find((x) => x.id === weekly.groups[i]);
-            return (
-              <View key={i} style={styles.st}>
-                {i < 2 && <View style={[styles.stLine, { borderColor: p.line }]} />}
-                <View
-                  style={[
-                    styles.stDot,
-                    { borderColor: colors.accent, backgroundColor: g ? colors.accent : p.bg },
-                  ]}
-                />
-                <View>
-                  <Text style={[styles.stName, { color: g ? p.ink : p.mute }]}>{g ? t(`g.${g.id}`) : t('ch.open')}</Text>
-                  <Text style={[styles.small, { color: p.mute }]}>{g ? t('ch.found') : t('ch.groupN', { i: i + 1 })}</Text>
-                </View>
-              </View>
-            );
-          })}
-        </View>
-      </View>
-
-      {/* Frage des Forschers */}
+      {/* Frage des Forschers: eine nach der anderen */}
       <View style={styles.blk}>
         <View style={styles.bh}>
           <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
-          <XpPill text={`+${XP.quiz} XP`} done={answer === question.right} />
+          {question && <XpPill text={`+${XP.quiz} XP`} done={answer === question.right} />}
         </View>
-        <View style={styles.qrow}>
-          <Explorer size={46} />
-          <Text style={[styles.question, { color: p.ink }]}>{question.q}</Text>
-        </View>
-        <View style={styles.answers}>
-          {question.answers.map((a, i) => {
-            const answered = answer !== undefined;
-            const isRight = i === question.right;
-            const style = !answered
-              ? { borderColor: p.line }
-              : isRight
-                ? { backgroundColor: p.moss, borderColor: p.moss }
-                : { borderColor: p.line, opacity: i === answer ? 1 : 0.5 };
-            return (
-              <Pressable
-                key={a}
-                disabled={answered}
-                onPress={() => onAnswer(i)}
-                style={[styles.answer, style]}
-                accessibilityRole="button"
-              >
-                <Text style={[styles.answerText, { color: answered && isRight ? colors.white : p.ink }]}>
-                  {answered && i === answer && !isRight ? `✗ ${a}` : a}
+        {!question ? (
+          <Text style={[styles.sub, { color: p.mute }]}>{t('ch.quizAll')}</Text>
+        ) : (
+          <>
+            <View style={styles.qrow}>
+              <Explorer size={46} />
+              <Text style={[styles.question, { color: p.ink }]}>{question.q}</Text>
+            </View>
+            <View style={styles.answers}>
+              {question.answers.map((a, i) => {
+                const answered = answer !== undefined;
+                const isRight = i === question.right;
+                const style = !answered
+                  ? { borderColor: p.line }
+                  : isRight
+                    ? { backgroundColor: p.moss, borderColor: p.moss }
+                    : { borderColor: p.line, opacity: i === answer ? 1 : 0.5 };
+                return (
+                  <Pressable
+                    key={a}
+                    disabled={answered}
+                    onPress={() => onAnswer(shown!, i)}
+                    style={[styles.answer, style]}
+                    accessibilityRole="button"
+                  >
+                    <Text style={[styles.answerText, { color: answered && isRight ? colors.white : p.ink }]}>
+                      {answered && i === answer && !isRight ? `✗ ${a}` : a}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            {answer !== undefined && (
+              <>
+                <Text style={[styles.sub, { color: p.mute, marginTop: 8 }]}>
+                  {answer === question.right ? question.explain : t('ch.wrong', { a: question.answers[question.right] })}
                 </Text>
-              </Pressable>
-            );
-          })}
-        </View>
-        {answer !== undefined && (
-          <Text style={[styles.sub, { color: p.mute, marginTop: 8 }]}>
-            {answer === question.right
-              ? question.explain
-              : t('ch.wrong', { a: question.answers[question.right] })}
-          </Text>
+                <Pressable onPress={() => setShown(nextQuestion(quiz))} hitSlop={8} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
+                  <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+                </Pressable>
+              </>
+            )}
+          </>
         )}
       </View>
 
@@ -264,9 +262,6 @@ const styles = StyleSheet.create({
     borderColor: colors.accent,
     borderRadius: 20,
     padding: 14,
-    flexDirection: 'row',
-    gap: 12,
-    alignItems: 'center',
     shadowColor: '#000',
     shadowOpacity: 0.18,
     shadowRadius: 12,
@@ -281,6 +276,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   small: { fontFamily: fonts.sans, fontSize: 12 },
+  misHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  slots: { flexDirection: 'row', gap: 8, marginTop: 12 },
+  slot: { flex: 1, alignItems: 'center', gap: 4 },
+  slotDot: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderStyle: 'dashed',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  next: { fontFamily: fonts.sansBold, fontSize: 14 },
   misText: { fontFamily: fonts.serifBold, fontSize: 17, lineHeight: 20 },
   xp: { backgroundColor: colors.accent, borderRadius: 99, paddingVertical: 4, paddingHorizontal: 9 },
   xpText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },

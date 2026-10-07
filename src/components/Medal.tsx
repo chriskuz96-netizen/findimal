@@ -12,12 +12,10 @@ const GREY = { light: '#C9CFC9', mid: '#9AA29B', dark: '#6B736C' };
 
 export const BADGE_TIER: Record<BadgeId, keyof typeof TIERS> = {
   first: 'bronze',
-  streak3: 'bronze',
   insects5: 'bronze',
   night: 'silver',
   birds5: 'silver',
   species10: 'silver',
-  streak7: 'gold',
   species25: 'gold',
   allgroups: 'gold',
   fish: 'bronze',
@@ -94,20 +92,6 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Path d="M3.5 3.5 L10 10" stroke={c('#FFD2A8')} strokeWidth={3.6} strokeLinecap="round" />
           <Path d="M-4 -6 Q-2 -5 -1 -7" stroke="#fff" strokeOpacity={0.8} strokeWidth={1.4} fill="none" strokeLinecap="round" />
           <Star x={9} y={-9} r={3.4} fill={c('#FFE07A')} />
-        </G>
-      );
-    case 'streak3':
-    case 'streak7': // Flamme mit Zahl
-      return (
-        <G>
-          <Path
-            d="M0 13 C-8 13 -11 7 -10 2 C-9 -3 -5 -5 -4 -11 C-1 -8 1 -6 1 -3 C3 -6 4 -9 3 -13 C9 -9 11 -3 10 3 C9 9 6 13 0 13 Z"
-            fill={`url(#flame-${g})`}
-          />
-          <Path d="M0 12 C-4 12 -5 8 -4 5 C-3 2 -1 1 0 -2 C2 1 4 3 4 6 C4 9 3 12 0 12 Z" fill={c('#FFF1B8')} />
-          <SvgText x={0} y={11} fontSize={10} fontWeight="bold" fill={c('#7A3B10')} textAnchor="middle">
-            {id === 'streak3' ? '3' : '7'}
-          </SvgText>
         </G>
       );
     case 'insects5': // Marienkäfer

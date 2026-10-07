@@ -14,7 +14,7 @@ import { codeFromUrl } from './src/board';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updateNote } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { BadgeId, computeProgress, computeReward, dayKey } from './src/progress';
-import { answerQuiz, correctAnswers, loadQuiz, QuizLog, questionFor } from './src/quiz';
+import { answerQuiz, correctAnswers, loadQuiz, QuizLog } from './src/quiz';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
@@ -226,7 +226,7 @@ function Main() {
             onOpenProfile={() => setShowProfile(true)}
             xp={progress.xp}
             avatar={avatarBadge as BadgeId | null}
-            daily={progress.daily}
+            seasonGoal={progress.season}
             onOpenChallenges={() => setTab('challenges')}
             onTakePhoto={() => takePhoto(t).then((p) => p && setPhoto(p))}
             onPickPhoto={() => pickPhoto().then((p) => p && setPhoto(p))}
@@ -243,9 +243,8 @@ function Main() {
         {tab === 'challenges' && (
           <ChallengesScreen
             progress={progress}
-            question={questionFor(now, lang)}
-            answer={quiz[dayKey(now)]}
-            onAnswer={(i) => answerQuiz(quizRef.current, now, i).then(setQuiz)}
+            quiz={quiz}
+            onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}
             avatar={avatarBadge ?? ''}
             onSelectAvatar={chooseAvatar}
             name={name}

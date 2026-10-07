@@ -93,7 +93,6 @@ export function ProfileScreen(props: Props) {
         <View style={styles.stats}>
           <Stat p={p} value={finds.length} label={t('pro.finds')} />
           <Stat p={p} value={species} label={t('col.species')} />
-          <Stat p={p} value={progress.streak} label={t('ch.streak')} />
           <Stat p={p} value={earned.length} label={t('ch.badges')} />
         </View>
       </Card>

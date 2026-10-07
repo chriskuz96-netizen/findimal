@@ -302,8 +302,7 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
   const labels = {
     find: t('rew.find'),
     newSpecies: t('rew.newSpecies'),
-    daily: t('rew.dailyShort'),
-    weekly: t('rew.weeklyShort'),
+    season: t('rew.seasonShort'),
   };
   const lvl = reward.after.level;
   const lvlName = t(`level.${lvl - 1}` as 'level.0');

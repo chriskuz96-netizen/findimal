@@ -1,9 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Lang } from './i18n';
-import { dayKey } from './progress';
 
-// "Frage des Forschers": jeden Tag eine Frage, richtige Antwort gibt XP.
+// "Frage des Forschers": eine Frage nach der anderen, richtige Antwort gibt XP.
 export type Question = { q: string; answers: string[]; right: number; explain: string };
 
 // Gleiche Reihenfolge und gleiche richtige Antwort in allen Sprachen.
@@ -74,31 +73,55 @@ const QUESTIONS: Record<Lang, Question[]> = {
   ],
 };
 
-export function questionFor(date: Date, lang: Lang = 'de'): Question {
-  const n = Math.floor(new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() / 86400000);
-  const list = QUESTIONS[lang];
-  return list[n % list.length];
-}
+export const QUESTION_COUNT = QUESTIONS.de.length;
 
-// Antworten pro Tag: { "2026-10-06": 1 } (Index der gewählten Antwort)
+// Antworten pro Frage: { "q3": 1 } (Frage 3, gewählte Antwort 1)
 const QUIZ_KEY = 'findimal-quiz';
 export type QuizLog = Record<string, number>;
+
+// Früher gab es eine Frage pro Tag ({ "2026-10-06": 1 }). Solche Einträge werden umgerechnet.
+function migrate(log: QuizLog): QuizLog {
+  const next: QuizLog = {};
+  for (const [key, answer] of Object.entries(log)) {
+    if (key.startsWith('q')) next[key] = answer;
+    else {
+      const [y, m, d] = key.split('-').map(Number);
+      const n = Math.floor(new Date(y, m - 1, d).getTime() / 86400000);
+      const q = `q${n % QUESTION_COUNT}`;
+      if (!(q in next)) next[q] = answer;
+    }
+  }
+  return next;
+}
 
 export async function loadQuiz(): Promise<QuizLog> {
   try {
     const raw = await AsyncStorage.getItem(QUIZ_KEY);
-    return raw ? (JSON.parse(raw) as QuizLog) : {};
+    return raw ? migrate(JSON.parse(raw) as QuizLog) : {};
   } catch {
     return {};
   }
 }
 
-export async function answerQuiz(log: QuizLog, date: Date, answer: number): Promise<QuizLog> {
-  const next = { ...log, [dayKey(date)]: answer };
+export function question(index: number, lang: Lang): Question {
+  return QUESTIONS[lang][index];
+}
+
+// Nächste noch nicht beantwortete Frage (oder null, wenn alle beantwortet sind)
+export function nextQuestion(log: QuizLog): number | null {
+  for (let i = 0; i < QUESTION_COUNT; i++) if (!(`q${i}` in log)) return i;
+  return null;
+}
+
+export async function answerQuiz(log: QuizLog, index: number, answer: number): Promise<QuizLog> {
+  const next = { ...log, [`q${index}`]: answer };
   await AsyncStorage.setItem(QUIZ_KEY, JSON.stringify(next)).catch(() => {});
   return next;
 }
 
 export function correctAnswers(log: QuizLog): number {
-  return Object.entries(log).filter(([day, a]) => questionFor(new Date(`${day}T12:00:00`)).right === a).length;
+  return Object.entries(log).filter(([key, a]) => {
+    const q = QUESTIONS.de[Number(key.slice(1))];
+    return key.startsWith('q') && !!q && q.right === a;
+  }).length;
 }
