@@ -306,7 +306,7 @@ ${ok ? `<a class="b" href="${esc(app)}">${esc(tx[2])}</a>` : ''}
 const OPERATOR = {
   name: '[Vor- und Nachname]',
   address: '[Straße und Hausnummer], [PLZ Ort], Deutschland',
-  email: '[E-Mail-Adresse]',
+  email: 'findimal26@gmail.com',
 };
 const PRIVACY_DATE = { de: 'Stand: Oktober 2026', en: 'Last updated: October 2026' };
 

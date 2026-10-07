@@ -170,5 +170,5 @@ Mit AdMob kommen weitere Angaben dazu (Google stellt dafür eine Anleitung berei
 - Rangliste (von Nutzern erstellte Inhalte): Namensfilter, Melden und Ausblenden sind eingebaut. Im Feld
   „Notizen für die Prüfung“ erwähnen: „Lange auf einen Eintrag drücken → Melden/Ausblenden; Namen werden gefiltert;
   Kontakt über die Support-Seite.“
-- Kontakt-E-Mail auf der Support-Seite eintragen (Platzhalter OPERATOR im Server-Code).
+- Kontakt-E-Mail: findimal26@gmail.com (eingetragen). Name und Anschrift im Impressum noch Platzhalter.
 - **Bildschirmfotos** in der Größe für 6,9-Zoll-iPhones (z. B. iPhone 17 Pro Max).
