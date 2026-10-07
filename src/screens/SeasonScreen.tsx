@@ -152,23 +152,6 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         ))}
       </View>
 
-      {/* Deine Funde in dieser Jahreszeit */}
-      <View style={styles.blk}>
-        <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>{t('sea.yourFinds')}</Text>
-          <Text style={[styles.count, { color: p.mute }]}>{recent.length}</Text>
-        </View>
-        {recent.length ? (
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.strip} style={styles.stripBox}>
-            {recent.slice(0, 20).map((f) => (
-              <Thumb key={f.id} find={f} onPress={() => onOpen(f)} color={p.mute} />
-            ))}
-          </ScrollView>
-        ) : (
-          <Text style={[styles.sub, { color: p.mute }]}>{t('sea.noFinds')}</Text>
-        )}
-      </View>
-
       {/* So hilfst du – zum Abhaken */}
       <View style={[styles.help, { backgroundColor: 'rgba(31,110,71,0.09)' }]}>
         <View style={styles.bh}>
@@ -249,27 +232,6 @@ function SeasonRow({
     </View>
   );
 }
-
-function Thumb({ find, onPress, color }: { find: Find; onPress: () => void; color: string }) {
-  const uri = useFindPhoto(find.id);
-  const g = groupOf(find.animal.gruppe);
-  return (
-    <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel={find.animal.name}>
-      <View style={[styles.thumb, { backgroundColor: g?.c1 ?? '#2F6B47' }]}>
-        {uri ? (
-          <Image source={{ uri }} style={styles.thumbImg} resizeMode="cover" />
-        ) : (
-          <GroupIcon id={g?.id ?? null} size={26} color={colors.accentLight} />
-        )}
-      </View>
-      <Text style={[styles.thumbName, { color }]} numberOfLines={1}>
-        {find.animal.rasse || find.animal.name}
-      </Text>
-    </Pressable>
-  );
-}
-
-const THUMB = 84;
 
 const styles = StyleSheet.create({
   hx: {
@@ -367,18 +329,6 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     paddingHorizontal: 9,
   },
-  stripBox: { marginHorizontal: -spacing.gutter, marginTop: 8 },
-  strip: { gap: 10, paddingHorizontal: spacing.gutter },
-  thumb: {
-    width: THUMB,
-    height: THUMB,
-    borderRadius: 16,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  thumbImg: { position: 'absolute', left: 0, top: 0, width: THUMB, height: THUMB },
-  thumbName: { width: THUMB, fontFamily: fonts.sans, fontSize: 11.5, marginTop: 4 },
   help: {
     marginTop: 26,
     marginHorizontal: spacing.gutter,
