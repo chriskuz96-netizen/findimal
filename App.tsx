@@ -17,6 +17,7 @@ import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
+import { loadZone } from './src/zone';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { computeProgress, computeReward, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog } from './src/quiz';
@@ -102,7 +103,7 @@ function Main() {
   // Tippen auf einen Tipp öffnet die Saison-Seite
   useEffect(() => {
     planTips(lang);
-  }, [lang]);
+  }, [lang, region]);
   useEffect(
     () =>
       onTipOpened(() => {
@@ -114,7 +115,7 @@ function Main() {
   );
   // Nach dem ersten Fund einmal fragen, ob man Natur-Tipps möchte
   const askTips = async () => {
-    if (findsRef.current.length < 1 || (await loadTips()) !== null) return;
+    if (findsRef.current.length < 1 || (await loadTips()) !== null || (await loadZone()) === 'other') return;
     Alert.alert(t('tips.askTitle'), t('tips.askText'), [
       { text: t('tips.no'), style: 'cancel', onPress: () => disableTips() },
       { text: t('tips.yes'), onPress: () => enableTips(lang) },

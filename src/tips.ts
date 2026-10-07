@@ -18,6 +18,35 @@ export const TIP_MONTHS: Record<string, number[]> = {
   'autumn.protect.4': [10, 11], // zu kleiner Igel
 };
 
+// Mittelmeerraum: statt Schnee und Eis die Wintergäste, die man dort wirklich sieht.
+// Gleiche Schlüssel wie bei TIP_MONTHS; ersetzt den Tipp an dieser Stelle.
+export const TIPS_MED: Record<Lang, Record<string, Tip>> = {
+  de: {
+    'winter.find.1': { title: '🐦 Der Vogel mit dem Zitterschwanz', text: 'Der Hausrotschwanz verbringt den Winter gern im Süden. Er sitzt auf Dächern und Mauern und zittert ständig mit seinem roten Schwanz – wie ein kleiner Motor.' },
+    'winter.find.2': { title: '🦆 Urlaub im Süden', text: 'Viele Enten aus dem Norden machen hier Winterurlaub. An Seen, Flüssen und Lagunen kommst du ihnen jetzt nah – Handy bereithalten!' },
+    'winter.find.3': { title: '🦎 Sonnenpause im Winter', text: 'Mauereidechsen kommen an sonnigen Wintertagen kurz heraus und tanken Wärme. Schau mittags an warmen Mauern – und schleich dich langsam an.' },
+    'winter.protect.1': { title: '💧 Held im Vogelviertel', text: 'Auch im Winter freuen sich Vögel über eine flache Schale frisches Wasser zum Trinken und Baden. Täglich wechseln – und du bist der Held der Nachbarschaft.' },
+  },
+  en: {
+    'winter.find.1': { title: '🐦 The bird with the shivering tail', text: 'Black redstarts like to spend the winter in the south. They sit on roofs and walls, constantly quivering their red tail – like a tiny engine.' },
+    'winter.find.2': { title: '🦆 Holidays in the south', text: 'Many ducks from the north spend their winter holidays here. At lakes, rivers and lagoons you can get close – phone ready!' },
+    'winter.find.3': { title: '🦎 A winter sun break', text: 'Wall lizards pop out on sunny winter days to soak up some warmth. Check warm walls around midday – and sneak up slowly.' },
+    'winter.protect.1': { title: '💧 Hero of the bird street', text: 'Birds love a shallow dish of fresh water to drink and bathe in, even in winter. Change it daily – and you’re the hero of the neighbourhood.' },
+  },
+  fr: {
+    'winter.find.1': { title: '🐦 L’oiseau à la queue qui tremble', text: 'Le rougequeue noir aime passer l’hiver dans le Sud. Il se pose sur les toits et les murs en faisant trembler sa queue rousse – comme un petit moteur.' },
+    'winter.find.2': { title: '🦆 Vacances dans le Sud', text: 'Beaucoup de canards du Nord passent ici leurs vacances d’hiver. Près des lacs, rivières et lagunes, tu peux les approcher – téléphone prêt !' },
+    'winter.find.3': { title: '🦎 Pause soleil en hiver', text: 'Les lézards des murailles sortent les jours d’hiver ensoleillés pour faire le plein de chaleur. Regarde vers midi sur les murs chauds – et approche doucement.' },
+    'winter.protect.1': { title: '💧 Héros du quartier des oiseaux', text: 'Même en hiver, les oiseaux adorent une coupelle d’eau fraîche pour boire et se baigner. Change-la chaque jour – et tu deviens le héros du voisinage.' },
+  },
+  es: {
+    'winter.find.1': { title: '🐦 El pájaro de la cola temblona', text: 'Al colirrojo tizón le encanta pasar el invierno en el sur. Se posa en tejados y muros y no para de temblar su cola roja, como un pequeño motor.' },
+    'winter.find.2': { title: '🦆 Vacaciones en el sur', text: 'Muchos patos del norte pasan aquí sus vacaciones de invierno. En lagos, ríos y lagunas puedes acercarte: ¡móvil preparado!' },
+    'winter.find.3': { title: '🦎 Pausa de sol en invierno', text: 'Las lagartijas salen los días soleados de invierno a cargar calor. Mira al mediodía en muros cálidos… y acércate despacio.' },
+    'winter.protect.1': { title: '💧 Héroe del barrio pajarero', text: 'También en invierno a los pájaros les encanta un plato llano con agua fresca para beber y bañarse. Cámbiala cada día y serás el héroe del vecindario.' },
+  },
+};
+
 export const TIPS: Record<Lang, Record<SeasonId, SeasonTips>> = {
   de: {
     spring: {
@@ -34,7 +63,7 @@ export const TIPS: Record<Lang, Record<SeasonId, SeasonTips>> = {
         { title: '🐝 Energieriegel für Hummeln', text: 'Liegt eine Hummel erschöpft am Boden? Ein Tropfen Zuckerwasser auf einem Löffel bringt sie wieder in Schwung. Bitte keinen Honig!' },
         { title: '🌼 Ein Sterne-Restaurant für Bienen', text: 'So sehen Wildbienen eine Löwenzahnwiese. Lass ruhig ein Stück blühen – die perfekte Ausrede, weniger Rasen zu mähen.' },
         { title: '🐣 Kein Grund zur Sorge', text: 'Junge Vögel mit Federn, die am Boden herumhüpfen, sind nicht verlassen – Mama und Papa füttern weiter. Einfach in Ruhe lassen und weitergehen.' },
-        { title: '🌿 Psst, hier wird gebrütet', text: 'In Hecken sitzen jetzt Vogeleltern auf ihren Eiern. Große Schnitte warten bis Oktober – von März bis September ist das sogar Gesetz.' },
+        { title: '🌿 Psst, hier wird gebrütet', text: 'In Hecken sitzen jetzt Vogeleltern auf ihren Eiern. Große Schnitte warten bis Oktober – in Deutschland ist das von März bis September sogar Gesetz.' },
         { title: '🪵 Ein Hotel für Wildbienen', text: 'Bohr Löcher (3–8 mm) in ein Stück Hartholz und häng es in die Sonne. Wildbienen stechen fast nie – du kannst ihnen beim Einziehen zusehen.' },
         { title: '🐸 Achtung, Krötenwanderung', text: 'Im Frühling wandern Kröten nachts zu ihren Teichen, oft über Straßen. Wer abends an Teichen vorbeifährt: bitte langsam, da hüpft vielleicht jemand.' },
         { title: '🏠 Traumwohnung für Meisen', text: 'Ein Nistkasten am Balkon oder Baum ist für Meisen ein echter Glücksfall. In 2–3 Metern Höhe aufhängen, nicht in die pralle Sonne.' },
@@ -86,7 +115,7 @@ export const TIPS: Record<Lang, Record<SeasonId, SeasonTips>> = {
         { title: '🐾 Detektiv im Schnee', text: 'Nach frischem Schnee steht im Garten, wer nachts da war: Vögel, Katzen, vielleicht ein Eichhörnchen? Folge einer Spur – wer steckt dahinter?' },
         { title: '🦆 Warme Füße auf dem Eis', text: 'Enten stehen auf dem Eis, ohne zu frieren – ein cleverer Blutkreislauf hält ihre Füße warm. An eisfreien Stellen im Park sammeln sie sich jetzt.' },
         { title: '🐿️ Schnee auf der Nase', text: 'Eichhörnchen halten keinen Winterschlaf. An sonnigen Tagen graben sie im Park ihre Nüsse aus – oft mit Schnee auf der Nase.' },
-        { title: '🎶 Ein Sänger im Winter', text: 'Das Rotkehlchen singt sogar bei Frost. Folge dem Gesang – oft sitzt es ganz offen auf einem Zweig und plustert sich zur runden Kugel auf.' },
+        { title: '🎶 Ein Sänger im Winter', text: 'Das Rotkehlchen singt sogar mitten im Winter. Folge dem Gesang – oft sitzt es ganz offen auf einem Zweig und plustert sich zur runden Kugel auf.' },
         { title: '🐦‍⬛ Kluge Köpfe', text: 'Krähen und Elstern gehören zu den klügsten Vögeln und erkennen sogar Gesichter wieder. Sei also nett zu ihnen – und mach ein Porträt!' },
         { title: '🦢 Teenager am Teich', text: 'Am Wasser ist im Winter viel los: Schwäne, Möwen, Blässhühner. Möwen mit braunen Flecken sind übrigens Jugendliche.' },
       ],
@@ -168,7 +197,7 @@ export const TIPS: Record<Lang, Record<SeasonId, SeasonTips>> = {
         { title: '🐾 Detective in the snow', text: 'After fresh snow, the garden shows who visited at night: birds, cats, maybe a squirrel? Follow a trail – who’s behind it?' },
         { title: '🦆 Warm feet on the ice', text: 'Ducks stand on ice without freezing – clever blood circulation keeps their feet warm. They gather on ice-free spots in the park now.' },
         { title: '🐿️ Snow on the nose', text: 'Squirrels don’t hibernate. On sunny days they dig up their nuts in the park – often with snow on their nose.' },
-        { title: '🎶 A winter singer', text: 'The robin sings even in frost. Follow the song – it often sits in the open on a twig, puffed up into a round ball.' },
+        { title: '🎶 A winter singer', text: 'The robin sings even in the middle of winter. Follow the song – it often sits in the open on a twig, puffed up into a round ball.' },
         { title: '🐦‍⬛ Clever heads', text: 'Crows and magpies are among the cleverest birds and even recognise faces. So be nice to them – and take a portrait!' },
         { title: '🦢 Teenagers at the pond', text: 'There’s a lot going on at the water in winter: swans, gulls, coots. By the way, gulls with brown spots are teenagers.' },
       ],
@@ -250,7 +279,7 @@ export const TIPS: Record<Lang, Record<SeasonId, SeasonTips>> = {
         { title: '🐾 Détective dans la neige', text: 'Après la neige fraîche, le jardin révèle qui est passé la nuit : oiseaux, chats, peut-être un écureuil ? Suis une trace – qui se cache derrière ?' },
         { title: '🦆 Pieds au chaud sur la glace', text: 'Les canards tiennent sur la glace sans geler grâce à une circulation sanguine astucieuse. Ils se regroupent aux endroits non gelés du parc.' },
         { title: '🐿️ De la neige sur le nez', text: 'Les écureuils n’hibernent pas. Les jours de soleil, ils déterrent leurs noix au parc – souvent avec de la neige sur le nez.' },
-        { title: '🎶 Un chanteur d’hiver', text: 'Le rouge-gorge chante même quand il gèle. Suis son chant – il se pose souvent à découvert sur une branche, gonflé comme une boule.' },
+        { title: '🎶 Un chanteur d’hiver', text: 'Le rouge-gorge chante même en plein hiver. Suis son chant – il se pose souvent à découvert sur une branche, gonflé comme une boule.' },
         { title: '🐦‍⬛ Têtes bien faites', text: 'Corneilles et pies sont parmi les oiseaux les plus intelligents et reconnaissent même les visages. Sois gentil avec elles – et fais leur portrait !' },
         { title: '🦢 Ados à l’étang', text: 'En hiver, il y a du monde au bord de l’eau : cygnes, mouettes, foulques. Au fait, les mouettes tachetées de brun sont des ados.' },
       ],
@@ -332,7 +361,7 @@ export const TIPS: Record<Lang, Record<SeasonId, SeasonTips>> = {
         { title: '🐾 Detective en la nieve', text: 'Tras una nevada, el jardín revela quién pasó por la noche: pájaros, gatos, ¿quizá una ardilla? Sigue una huella: ¿quién está detrás?' },
         { title: '🦆 Pies calentitos sobre el hielo', text: 'Los patos están sobre el hielo sin congelarse gracias a una circulación muy lista. Ahora se juntan en las zonas sin hielo del parque.' },
         { title: '🐿️ Nieve en la nariz', text: 'Las ardillas no hibernan. En días de sol desentierran sus frutos en el parque, a menudo con nieve en la nariz.' },
-        { title: '🎶 Un cantante de invierno', text: 'El petirrojo canta incluso con helada. Sigue el canto: suele posarse a la vista en una rama, inflado como una bolita.' },
+        { title: '🎶 Un cantante de invierno', text: 'El petirrojo canta incluso en pleno invierno. Sigue el canto: suele posarse a la vista en una rama, inflado como una bolita.' },
         { title: '🐦‍⬛ Cabezas listas', text: 'Cuervos y urracas están entre las aves más inteligentes y hasta reconocen caras. Así que sé amable… ¡y hazles un retrato!' },
         { title: '🦢 Adolescentes en el estanque', text: 'En invierno hay mucha vida junto al agua: cisnes, gaviotas, fochas. Por cierto, las gaviotas con manchas marrones son adolescentes.' },
       ],

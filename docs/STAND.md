@@ -35,6 +35,7 @@ Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
 ## Natur-Tipps (Mitteilungen)
 - `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
 - Kein Push-Server, kein Token. Frage nach dem ersten Fund, Schalter im Profil, Test-Knopf nur in `__DEV__`.
+- Naturraum (`src/zone.ts`): Mitteleuropa / Mittelmeer (eigene Wintertipps) / außerhalb Europas (keine Tipps). Aus dem Land beim Standort-Erkennen, sonst aus den iPhone-Einstellungen.
 - Im TestFlight-Bau prüfen: Mitteilung kommt, Tippen öffnet die Saison-Seite.
 
 ## Kontrollzentrum-Knopf (nach dem ersten TestFlight-Bau)

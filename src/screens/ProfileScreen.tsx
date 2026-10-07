@@ -21,6 +21,7 @@ import { LanguageChips } from '../components/LanguageButton';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
+import { loadZone } from '../zone';
 import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { Progress } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
@@ -47,9 +48,11 @@ export function ProfileScreen(props: Props) {
   const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
   const [tips, setTips] = useState(false);
+  const [europe, setEurope] = useState(true); // Natur-Tipps gibt es nur für Europa
   useEffect(() => {
     loadTips().then((on) => setTips(!!on));
-  }, []);
+    loadZone().then((z) => setEurope(z !== 'other'));
+  }, [region]);
   const toggleTips = async (on: boolean) => {
     setTips(on);
     if (!on) return disableTips();
@@ -225,11 +228,11 @@ export function ProfileScreen(props: Props) {
       <Card p={p}>
         <View style={styles.row}>
           <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>{t('tips.title')}</Text>
-          <Switch value={tips} onValueChange={toggleTips} trackColor={{ true: p.button }} />
+          {europe && <Switch value={tips} onValueChange={toggleTips} trackColor={{ true: p.button }} />}
         </View>
-        <Text style={[styles.sub, { color: p.mute }]}>{t('tips.hint')}</Text>
+        <Text style={[styles.sub, { color: p.mute }]}>{t(europe ? 'tips.hint' : 'tips.europe')}</Text>
         {/* nur beim Ausprobieren in Expo Go sichtbar */}
-        {__DEV__ && tips && (
+        {__DEV__ && tips && europe && (
           <Pressable onPress={() => testTip(lang)} hitSlop={8} style={{ marginTop: 8 }} accessibilityRole="button">
             <Text style={[styles.sub, { color: p.moss, fontFamily: fonts.sansBold }]}>{t('tips.test')} ›</Text>
           </Pressable>

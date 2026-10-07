@@ -4,8 +4,9 @@ import { Platform } from 'react-native';
 
 import { Lang } from './i18n';
 import { seasonId } from './season';
-import { Tip, TIP_MONTHS, TIPS } from './tips';
+import { Tip, TIP_MONTHS, TIPS, TIPS_MED } from './tips';
 import { weekStart } from './weekly';
+import { loadZone, Zone } from './zone';
 
 // Natur-Tipps: höchstens eine Mitteilung pro Woche (sonntags 10 Uhr), abwechselnd ein Fund-Tipp und
 // ein Schutz-Tipp zur Jahreszeit. Alles wird auf dem Handy eingeplant – kein Server, keine Daten nach außen.
@@ -59,7 +60,7 @@ function sundayOf(date: Date): Date {
 
 // Tipp für die Woche eines Datums. Wochen wechseln sich ab (Schutz-Tipp, Fund-Tipp). Innerhalb einer
 // Jahreszeit kommt jeder Tipp nur einmal dran, der Reihe nach; Monats-Tipps nur in ihrem Monat.
-export function tipFor(date: Date, lang: Lang): Tip {
+export function tipFor(date: Date, lang: Lang, zone: Zone = 'central'): Tip {
   const target = sundayOf(date);
   const season = seasonId(target);
   // Erster Sonntag der Jahreszeit (1. März, 1. Juni, 1. September, 1. Dezember)
@@ -81,7 +82,7 @@ export function tipFor(date: Date, lang: Lang): Tip {
     // Monats-Tipps zuerst, damit sie nicht verpasst werden
     const i = open.find((k) => months(k)) ?? open[0];
     used[kind].add(i);
-    pick = list[i];
+    pick = (zone === 'med' && TIPS_MED[lang][`${season}.${kind}.${i}`]) || list[i];
   }
   return pick;
 }
@@ -94,6 +95,8 @@ export async function planTips(lang: Lang): Promise<void> {
   try {
     if (!(await Notifications.getPermissionsAsync()).granted) return;
     await Notifications.cancelAllScheduledNotificationsAsync();
+    const zone = await loadZone();
+    if (zone === 'other') return; // außerhalb Europas passen die Tipps nicht
     const now = new Date();
     const d = new Date(now);
     d.setHours(10, 0, 0, 0);
@@ -103,7 +106,7 @@ export async function planTips(lang: Lang): Promise<void> {
       const when = new Date(d);
       when.setDate(d.getDate() + i * 7);
       await Notifications.scheduleNotificationAsync({
-        content: content(tipFor(when, lang)),
+        content: content(tipFor(when, lang, zone)),
         trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: when },
       });
     }
@@ -135,7 +138,7 @@ export async function disableTips(): Promise<void> {
 export async function testTip(lang: Lang): Promise<void> {
   if (!supported) return;
   await Notifications.scheduleNotificationAsync({
-    content: content(tipFor(new Date(), lang)),
+    content: content(tipFor(new Date(), lang, await loadZone())),
     trigger: { type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL, seconds: 10 },
   }).catch(() => {});
 }
