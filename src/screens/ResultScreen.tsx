@@ -19,7 +19,7 @@ import { Explorer } from '../components/Explorer';
 import { LimitCard } from '../components/LimitCard';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
-import { Animal, identify, IdentifyResult } from '../identify';
+import { Animal, hasDetails, identify, IdentifyResult, loadDetails } from '../identify';
 import { Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -32,6 +32,7 @@ type Props =
       onIdentified: (animal: Animal, replaceId: string | null) => Promise<{ id: string; reward: Reward }>;
       morePhoto: (kind: 'camera' | 'library') => Promise<Photo | null>;
       onNote?: undefined;
+      onDetails: (id: string, animal: Animal) => void; // ausführlicher Steckbrief nachgeladen
       onBack: () => void;
     }
   // Fund aus der Sammlung: wird nur angezeigt
@@ -41,13 +42,14 @@ type Props =
       onIdentified?: undefined;
       morePhoto?: undefined;
       onNote: (note: string) => void;
+      onDetails: (id: string, animal: Animal) => void;
       onBack: () => void;
     };
 
 const MAX_PHOTOS = 3;
 
 // Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
-export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, onBack }: Props) {
+export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, onDetails, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
@@ -55,6 +57,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
   const [result, setResult] = useState<IdentifyResult | null>(saved ? { ok: true, animal: saved.animal } : null);
   const [reward, setReward] = useState<Reward | null>(null);
   const [details, setDetails] = useState(false);
+  const [loadingDetails, setLoadingDetails] = useState(false);
   const [note, setNote] = useState(saved?.note ?? '');
   const findId = useRef<string | null>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
@@ -97,6 +100,21 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
   };
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
+
+  // Ausführlicher Steckbrief erst beim Aufklappen laden und beim Fund speichern
+  const openDetails = async () => {
+    const open = !details;
+    setDetails(open);
+    if (!open || !animal || hasDetails(animal) || loadingDetails) return;
+    setLoadingDetails(true);
+    const d = await loadDetails(animal, lang);
+    setLoadingDetails(false);
+    if (!d) return;
+    const full = { ...animal, ...d };
+    setResult({ ok: true, animal: full });
+    const id = saved?.id ?? findId.current;
+    if (id) onDetails?.(id, full);
+  };
   const limited = !!result && !result.ok && !!result.limit; // Gratis-Fotos für heute aufgebraucht
   const mainUri = photo ? photo.uri : savedPhoto;
   const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
@@ -258,7 +276,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
       {animal && (
         <>
           <Pressable
-            onPress={() => setDetails(!details)}
+            onPress={openDetails}
             style={[styles.toggle, { borderColor: p.line }]}
             accessibilityRole="button"
           >
@@ -266,7 +284,13 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
               {details ? t('res.hideDetails') : t('res.showDetails')} {details ? '▴' : '▾'}
             </Text>
           </Pressable>
-          {details && <Details animal={animal} p={p} />}
+          {details && loadingDetails && <ActivityIndicator color={colors.accent} style={{ marginTop: 12 }} />}
+          {details && !loadingDetails && hasDetails(animal) && <Details animal={animal} p={p} />}
+          {details && !loadingDetails && !hasDetails(animal) && (
+            <Text style={[styles.body, { color: p.mute, marginHorizontal: spacing.gutter, marginTop: 10 }]}>
+              {t('res.detailsFailed')}
+            </Text>
+          )}
         </>
       )}
 
@@ -357,7 +381,7 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
 // Ausführlicher Steckbrief
 function Details({ animal, p }: { animal: Animal; p: Palette }) {
   const { t } = useI18n();
-  const rows: [string, string][] = [
+  const rows: [string, string | undefined][] = [
     [t('f.class'), animal.klasse],
     [t('f.family'), animal.familie],
     [t('f.size'), animal.groesse],
@@ -365,7 +389,7 @@ function Details({ animal, p }: { animal: Animal; p: Palette }) {
     [t('f.habitat'), animal.lebensraum],
     [t('f.range'), animal.verbreitung],
   ];
-  const sections: [string, string][] = [
+  const sections: [string, string | undefined][] = [
     [t('f.role'), animal.rolle_in_der_natur],
     [t('f.food'), animal.nahrung],
     [t('f.predators'), animal.fressfeinde],

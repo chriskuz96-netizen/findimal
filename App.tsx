@@ -210,6 +210,7 @@ function Main() {
             return { id: id!, reward: computeReward(before, after, isNew) };
           }}
           morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
+          onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
           onBack={() => {
             setPhoto(null);
             refreshFreeLeft();
@@ -226,6 +227,7 @@ function Main() {
         <ResultScreen
           saved={openFind}
           onNote={(note) => updateNote(findsRef.current, openFind.id, note).then(setFinds)}
+          onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
           onBack={() => setOpenFind(null)}
         />
       </>

@@ -1,7 +1,8 @@
 // Findimal-Server als Cloudflare Worker.
 //
 // 1. Tierbestimmung: Die App schickt ein Foto; der Worker fragt Claude, welches Tier es ist,
-//    und gibt einen deutschen Steckbrief zurück.
+//    und gibt einen kurzen Steckbrief zurück (den ausführlichen erst auf Wunsch).
+//    Erst fragt das günstige Modell (Haiku); ist es unsicher, übernimmt das genauere (Sonnet).
 // 2. "Jetzt in deiner Nähe": drei Tiere, die man gerade in der Region entdecken kann.
 // 3. Rangliste mit Freunden und weltweit (Spitzname und Punkte, gespeichert im Cloudflare-KV-Speicher).
 //
@@ -21,6 +22,8 @@
 // Dieser Code wird direkt im Cloudflare-Editor eingefügt. Dort gibt es kein npm,
 // deshalb ruft er die Claude-API mit fetch auf statt mit dem Anthropic-SDK.
 
+// Erst das günstige Modell fragen; ist es unsicher oder klappt etwas nicht, übernimmt das genauere.
+const CHEAP_MODEL = 'claude-haiku-4-5';
 const MODEL = 'claude-sonnet-5-5';
 
 // Gratis-Fotos pro Handy und Tag (zählt nur, wenn der Speicher DB verbunden ist).
@@ -43,20 +46,19 @@ Gib nur Fakten an, bei denen du dir sicher bist. Wenn die Art unsicher ist, nenn
 (z. B. "Eine Schwebfliege") und setze "sicherheit" auf "unsicher".
 Wenn kein Tier zu sehen ist, setze "tier_gefunden" auf false, lass die Tierfelder leer und erkläre in
 "hinweis" kurz und freundlich, was du siehst und wie ein besseres Foto gelingt.
-Gefährdungsstatus bitte mit IUCN-Kürzel, z. B. "Nicht gefährdet (IUCN: LC)".
 Bei Haus- und Nutztieren (z. B. Hund, Katze, Huhn, Pferd, Rind, Schaf, Ziege, Kaninchen, Meerschweinchen)
 bestimme zusätzlich die Rasse so genau wie möglich und schreibe sie in "rasse" (z. B. "Golden Retriever",
 "Brahma", "Haflinger"). Sieht das Tier nach einer Mischung aus, schreibe z. B. "Mischling (vermutlich mit
 Labrador)". Bist du dir bei der Rasse nicht sicher, schreibe "vermutlich ..." davor. "name" bleibt die Tierart
 (z. B. "Haushund", "Haushuhn"). Bei Wildtieren bleibt "rasse" leer.`;
 
+// Kurzer Steckbrief direkt nach dem Foto
 const SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: [
     'tier_gefunden', 'name', 'rasse', 'wissenschaftlicher_name', 'gruppe', 'sicherheit', 'kurzbeschreibung',
-    'klasse', 'familie', 'groesse', 'aktiv', 'lebensraum', 'verbreitung', 'gefaehrdung',
-    'wusstest_du', 'rolle_in_der_natur', 'nahrung', 'fressfeinde', 'hinweis',
+    'wusstest_du', 'hinweis',
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
@@ -66,19 +68,26 @@ const SCHEMA = {
     gruppe: GRUPPE,
     sicherheit: { type: 'string', enum: ['sicher', 'wahrscheinlich', 'unsicher'] },
     kurzbeschreibung: TEXT,
-    klasse: TEXT,
-    familie: TEXT,
-    groesse: TEXT,
-    aktiv: TEXT,
-    lebensraum: TEXT,
-    verbreitung: TEXT,
-    gefaehrdung: TEXT,
     wusstest_du: TEXT,
-    rolle_in_der_natur: TEXT,
-    nahrung: TEXT,
-    fressfeinde: TEXT,
     hinweis: TEXT,
   },
+};
+
+// Ausführlicher Steckbrief – erst, wenn jemand "Steckbrief anzeigen" tippt (ohne Foto, sehr günstig)
+const DETAILS_SYSTEM = `Du bist der Tierexperte der App Findimal. Du bekommst den Namen eines Tieres und schreibst
+einen kurzen Steckbrief, freundlich und gut verständlich für Kinder und Erwachsene. Jedes Feld nur ein bis zwei
+kurze Sätze oder Stichworte. Gib nur Fakten an, bei denen du dir sicher bist.
+Gefährdungsstatus bitte mit IUCN-Kürzel, z. B. "Nicht gefährdet (IUCN: LC)". Bei Haustieren passt "Haustier" o. Ä.`;
+
+const DETAILS_FIELDS = [
+  'klasse', 'familie', 'groesse', 'aktiv', 'lebensraum', 'verbreitung', 'gefaehrdung',
+  'rolle_in_der_natur', 'nahrung', 'fressfeinde',
+];
+const DETAILS_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: DETAILS_FIELDS,
+  properties: Object.fromEntries(DETAILS_FIELDS.map((f) => [f, TEXT])),
 };
 
 // ---------- 2. Jetzt in deiner Nähe ----------
@@ -253,24 +262,25 @@ function json(body, status = 200) {
   });
 }
 
-// Fragt Claude und gibt die (per Schema garantierte) JSON-Antwort an die App weiter.
-async function askClaude(env, system, schema, content) {
+// Fragt Claude und liefert { data } (per Schema garantiertes JSON) oder { error } (fertige Antwort an die App).
+async function claude(env, model, system, schema, content) {
+  const cheap = model === CHEAP_MODEL;
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       'x-api-key': env.ANTHROPIC_API_KEY,
       'anthropic-version': '2023-06-01',
-      // Falls Claude eine Anfrage aus Sicherheitsgründen ablehnt, übernimmt automatisch ein anderes Modell.
-      'anthropic-beta': 'server-side-fallback-2026-07-01',
+      // Beim genauen Modell: lehnt es aus Sicherheitsgründen ab, übernimmt automatisch ein anderes.
+      ...(cheap ? {} : { 'anthropic-beta': 'server-side-fallback-2026-07-01' }),
     },
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 16000,
-      fallbacks: 'default',
+      model,
+      max_tokens: cheap ? 4000 : 16000,
+      ...(cheap ? {} : { fallbacks: 'default' }),
       system,
       output_config: {
-        effort: 'low', // einfache Fragen: wenig Nachdenken reicht und spart Kosten
+        ...(cheap ? {} : { effort: 'low' }), // einfache Fragen: wenig Nachdenken reicht und spart Kosten
         format: { type: 'json_schema', schema },
       },
       messages: [{ role: 'user', content }],
@@ -279,19 +289,35 @@ async function askClaude(env, system, schema, content) {
 
   const data = await res.json().catch(() => null);
   if (!res.ok || !data) {
-    console.log('Claude-Fehler', res.status, JSON.stringify(data));
-    return json({ fehler: 'Die Tierbestimmung ist gerade nicht erreichbar.' }, 502);
+    console.log('Claude-Fehler', model, res.status, JSON.stringify(data));
+    return { error: json({ fehler: 'Die Tierbestimmung ist gerade nicht erreichbar.' }, 502) };
   }
   if (data.stop_reason === 'refusal') {
-    return json({ fehler: 'Dieses Foto kann ich leider nicht bestimmen.' }, 422);
+    return { error: json({ fehler: 'Dieses Foto kann ich leider nicht bestimmen.' }, 422) };
   }
   const text = (data.content || []).find((b) => b.type === 'text');
   try {
-    return json(JSON.parse(text.text));
+    return { data: JSON.parse(text.text) };
   } catch {
-    console.log('Antwort nicht lesbar', data.stop_reason);
-    return json({ fehler: 'Die Antwort war unvollständig. Bitte nochmal versuchen.' }, 502);
+    console.log('Antwort nicht lesbar', model, data.stop_reason);
+    return { error: json({ fehler: 'Die Antwort war unvollständig. Bitte nochmal versuchen.' }, 502) };
   }
+}
+
+// Erst günstig fragen, bei Problemen das genaue Modell. good(data) sagt, ob die günstige Antwort reicht.
+async function ask(env, system, schema, content, good = () => true) {
+  const first = await claude(env, CHEAP_MODEL, system, schema, content);
+  if (first.data && good(first.data)) return json(first.data);
+  const second = await claude(env, MODEL, system, schema, content);
+  if (second.data) return json(second.data);
+  return first.data ? json(first.data) : second.error;
+}
+
+// Kleiner Tageszähler pro Handy im Speicher DB (null = kein Speicher verbunden)
+function deviceKey(request, kind) {
+  const device = String(request.headers.get('X-Findimal-Device') || '');
+  const who = /^[a-z0-9]{16,64}$/.test(device) ? device : 'ip-' + (request.headers.get('CF-Connecting-IP') || '?');
+  return `u:${new Date().toISOString().slice(0, 10)}:${who}:${kind}`;
 }
 
 // ---------- Eingang ----------
@@ -321,8 +347,33 @@ export default {
     if (body.mode === 'nearby') {
       const region = String(body.region || 'Deutschland').slice(0, 60);
       const zeit = String(body.zeit || '').slice(0, 60);
-      return askClaude(env, NEARBY_SYSTEM + languageRule(body.lang), NEARBY_SCHEMA, [
+      const lang = String(body.lang || 'de').slice(0, 5);
+      // gleiche Region, Sprache und Tageszeit -> für alle Nutzer nur einmal am Tag fragen
+      const cacheKey = `near:${new Date().toISOString().slice(0, 10)}:${lang}:${zeit}:${region.toLowerCase()}`;
+      if (env.DB) {
+        const cached = await env.DB.get(cacheKey);
+        if (cached) return new Response(cached, { headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS } });
+      }
+      const res = await ask(env, NEARBY_SYSTEM + languageRule(lang), NEARBY_SCHEMA, [
         { type: 'text', text: `Region: ${region}\nZeit: ${zeit}` },
+      ]);
+      if (env.DB && res.ok) await env.DB.put(cacheKey, await res.clone().text(), { expirationTtl: 60 * 60 * 26 });
+      return res;
+    }
+
+    // Ausführlicher Steckbrief zu einem schon bestimmten Tier (Text, kein Foto)
+    if (body.mode === 'details') {
+      const name = String(body.name || '').slice(0, 120);
+      const sci = String(body.wissenschaftlicher_name || '').slice(0, 120);
+      if (!name && !sci) return json({ fehler: 'Ungültige Anfrage.' }, 400);
+      if (env.DB) {
+        const key = deviceKey(request, 'd');
+        const used = Number(await env.DB.get(key)) || 0;
+        if (used >= 30) return json({ fehler: 'limit' }, 429);
+        await env.DB.put(key, String(used + 1), { expirationTtl: 60 * 60 * 48 });
+      }
+      return ask(env, DETAILS_SYSTEM + languageRule(body.lang), DETAILS_SCHEMA, [
+        { type: 'text', text: `Tier: ${name}${sci ? ` (${sci})` : ''}` },
       ]);
     }
 
@@ -341,17 +392,22 @@ export default {
     const extra = body.extra === true;
     let counter = null;
     if (env.DB) {
-      const device = String(request.headers.get('X-Findimal-Device') || '');
-      const who = /^[a-z0-9]{16,64}$/.test(device) ? device : 'ip-' + (request.headers.get('CF-Connecting-IP') || '?');
-      const key = `u:${new Date().toISOString().slice(0, 10)}:${who}:${extra ? 'x' : 'n'}`;
+      const key = deviceKey(request, extra ? 'x' : 'n');
       const used = Number(await env.DB.get(key)) || 0;
       if (used >= (extra ? DAILY_EXTRA : DAILY_PHOTOS)) return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
       counter = { key, used };
     }
-    const res = await askClaude(env, SYSTEM + languageRule(body.lang), SCHEMA, [
-      ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
-      { type: 'text', text: question },
-    ]);
+    // Günstiges Modell reicht, wenn es ein Tier gefunden hat und nicht unsicher ist
+    const res = await ask(
+      env,
+      SYSTEM + languageRule(body.lang),
+      SCHEMA,
+      [
+        ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
+        { type: 'text', text: question },
+      ],
+      (a) => a.tier_gefunden && a.sicherheit !== 'unsicher',
+    );
     // nur erfolgreiche Bestimmungen zählen
     if (counter && res.ok) {
       await env.DB.put(counter.key, String(counter.used + 1), { expirationTtl: 60 * 60 * 48 });

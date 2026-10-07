@@ -15,19 +15,45 @@ export type Animal = {
   gruppe: string;
   sicherheit: 'sicher' | 'wahrscheinlich' | 'unsicher';
   kurzbeschreibung: string;
-  klasse: string;
-  familie: string;
-  groesse: string;
-  aktiv: string;
-  lebensraum: string;
-  verbreitung: string;
-  gefaehrdung: string;
+  klasse?: string;
+  familie?: string;
+  groesse?: string;
+  aktiv?: string;
+  lebensraum?: string;
+  verbreitung?: string;
+  gefaehrdung?: string;
   wusstest_du: string;
-  rolle_in_der_natur: string;
-  nahrung: string;
-  fressfeinde: string;
+  rolle_in_der_natur?: string;
+  nahrung?: string;
+  fressfeinde?: string;
   hinweis: string;
 };
+
+// Ausführlicher Steckbrief: wird erst geladen, wenn jemand "Steckbrief anzeigen" tippt (spart KI-Kosten).
+export type Details = Pick<
+  Animal,
+  'klasse' | 'familie' | 'groesse' | 'aktiv' | 'lebensraum' | 'verbreitung' | 'gefaehrdung' | 'rolle_in_der_natur' | 'nahrung' | 'fressfeinde'
+>;
+
+export const hasDetails = (a: Animal) => !!(a.klasse || a.lebensraum || a.nahrung);
+
+export async function loadDetails(a: Animal, lang: Lang): Promise<Details | null> {
+  if (!SERVER_URL) return null;
+  try {
+    const res = await fetch(SERVER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Findimal-Key': await getAppKey(),
+        'X-Findimal-Device': await getDeviceId(),
+      },
+      body: JSON.stringify({ mode: 'details', name: a.name, wissenschaftlicher_name: a.wissenschaftlicher_name, lang }),
+    });
+    return res.ok ? ((await res.json()) as Details) : null;
+  } catch {
+    return null;
+  }
+}
 
 export type IdentifyResult =
   | { ok: true; animal: Animal }
