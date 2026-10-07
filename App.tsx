@@ -13,7 +13,7 @@ import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
 import { showLimit } from './src/components/LimitCard';
 import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
-import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updateNote } from './src/finds';
+import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { BadgeId, computeProgress, computeReward, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog } from './src/quiz';
@@ -226,7 +226,6 @@ function Main() {
         <StatusBar style="light" />
         <ResultScreen
           saved={openFind}
-          onNote={(note) => updateNote(findsRef.current, openFind.id, note).then(setFinds)}
           onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
           onBack={() => setOpenFind(null)}
         />

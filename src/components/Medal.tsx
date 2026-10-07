@@ -21,7 +21,6 @@ export const BADGE_TIER: Record<BadgeId, keyof typeof TIERS> = {
   fish: 'bronze',
   reptile: 'bronze',
   early: 'silver',
-  notes5: 'silver',
   species50: 'gold',
 };
 
@@ -178,16 +177,6 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Path d="M0 -12 V-9 M-9 -8 L-7 -6 M9 -8 L7 -6 M-13 -2 H-10 M13 -2 H10" stroke={c('#FFE9A3')} strokeWidth={1.8} strokeLinecap="round" />
           <Path d="M-14 4 H14" stroke={c('#FFD2A8')} strokeWidth={2} strokeLinecap="round" />
           <Path d="M-9 8 H9 M-5 11 H5" stroke={c('#BFE6F2')} strokeWidth={1.6} strokeLinecap="round" opacity={0.8} />
-        </G>
-      );
-    case 'notes5': // Forschertagebuch mit Stift
-      return (
-        <G>
-          <Path d="M-9 -11 H7 V11 H-9 Z" fill={c('#F3E7D3')} stroke={c('#8E5E3C')} strokeWidth={1.2} />
-          <Path d="M-9 -11 H-6 V11 H-9 Z" fill={c('#C9533B')} />
-          <Path d="M-3 -6 H4 M-3 -2 H4 M-3 2 H2" stroke={c('#8E5E3C')} strokeWidth={1.2} strokeLinecap="round" />
-          <Path d="M3 9 L12 -4 L14 -2 L5 11 L2 12 Z" fill={c('#FFD45E')} stroke={c('#9A6B12')} strokeWidth={0.8} />
-          <Path d="M12 -4 L14 -2" stroke={c('#E8833A')} strokeWidth={2} />
         </G>
       );
     case 'allgroups': // Krone mit sechs Edelsteinen

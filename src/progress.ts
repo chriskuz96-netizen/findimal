@@ -43,7 +43,6 @@ export type BadgeId =
   | 'fish'
   | 'reptile'
   | 'early'
-  | 'notes5'
   | 'species50';
 
 // Name und Hinweis: Texte 'badge.<id>' und 'badge.<id>.hint'
@@ -119,7 +118,6 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
       { id: 'fish', earned: countGroup('fish') >= 1 },
       { id: 'reptile', earned: countGroup('rep') >= 1 },
       { id: 'early', earned: earlyFind },
-      { id: 'notes5', earned: finds.filter((f) => !!f.note).length >= 5 },
       { id: 'species50', earned: seen.size >= 50 },
     ],
   };
