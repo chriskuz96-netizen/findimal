@@ -12,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Path } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Avatar } from '../components/Avatar';
@@ -218,25 +219,34 @@ export function ProfileScreen(props: Props) {
         </View>
       </Card>
 
-      {/* Sprache */}
-      <Card p={p}>
-        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.language')}</Text>
-        <LanguageChips />
-      </Card>
-
-      {/* Natur-Tipps als Mitteilung (einmal pro Woche) */}
-      <Card p={p}>
-        <View style={styles.row}>
-          <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>{t('tips.title')}</Text>
+      {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
+      <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
+        <View style={styles.tipsHead}>
+          <View style={styles.bell}>
+            <Svg width={24} height={24} viewBox="0 0 24 24">
+              <Path d="M12 3a6 6 0 0 0-6 6v4.2L4.2 16.5h15.6L18 13.2V9a6 6 0 0 0-6-6Z" fill={colors.accentLight} />
+              <Path d="M9.8 18.5a2.2 2.2 0 0 0 4.4 0Z" fill={colors.accentLight} />
+            </Svg>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.tipsKind, { color: colors.accent }]}>{t('tips.kind')}</Text>
+            <Text style={[styles.h3, { color: p.ink }]}>{t('tips.title')}</Text>
+          </View>
           {europe && <Switch value={tips} onValueChange={toggleTips} trackColor={{ true: p.button }} />}
         </View>
-        <Text style={[styles.sub, { color: p.mute }]}>{t(europe ? 'tips.hint' : 'tips.europe')}</Text>
+        <Text style={[styles.sub, { color: p.mute, marginTop: 10 }]}>{t(europe ? 'tips.hint' : 'tips.europe')}</Text>
         {/* nur beim Ausprobieren in Expo Go sichtbar */}
         {__DEV__ && tips && europe && (
           <Pressable onPress={() => testTip(lang)} hitSlop={8} style={{ marginTop: 8 }} accessibilityRole="button">
             <Text style={[styles.sub, { color: p.moss, fontFamily: fonts.sansBold }]}>{t('tips.test')} ›</Text>
           </Pressable>
         )}
+      </View>
+
+      {/* Sprache */}
+      <Card p={p}>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.language')}</Text>
+        <LanguageChips />
       </Card>
 
       <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
@@ -348,6 +358,17 @@ const styles = StyleSheet.create({
   pickItem: { padding: 3, borderRadius: 40, borderWidth: 2.5, borderColor: 'transparent' },
   pickOn: { borderColor: colors.accent },
   row: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },
+  tipsCard: { borderWidth: 2, borderColor: colors.accent, marginTop: 20 },
+  tipsHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  bell: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#123826',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tipsKind: { fontFamily: fonts.sansBold, fontSize: 11, letterSpacing: 0.8, textTransform: 'uppercase' },
   input: {
     flex: 1,
     minWidth: 0,
