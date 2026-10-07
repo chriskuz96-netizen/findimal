@@ -58,6 +58,8 @@ export function AvatarSheet({ visible, name, avatar, earned, onSelect, onClose }
         </View>
         <ScrollView contentContainerStyle={{ paddingBottom: 8 }}>
           {/* Buchstabe und verdiente Abzeichen */}
+          <Text style={[styles.h4, { color: p.ink }]}>🏅 {t('pro.badgesTitle')}</Text>
+          <Text style={[styles.hint, { color: p.mute }]}>{t('pro.badgesHint')}</Text>
           <View style={styles.grid}>
             <Item id="" />
             {earned.map((b) => (
@@ -104,5 +106,6 @@ const styles = StyleSheet.create({
   lock: { position: 'absolute', right: 2, bottom: 2, fontSize: 13 },
   plusHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 16, marginBottom: 6 },
   h4: { fontFamily: fonts.serifBold, fontSize: 17 },
+  hint: { fontFamily: fonts.sans, fontSize: 13, marginTop: 2, marginBottom: 6 },
   unlock: { fontFamily: fonts.sansBold, fontSize: 14 },
 });
