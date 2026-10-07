@@ -117,7 +117,7 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
       setMe(res.me);
       setError(null);
     } else {
-      setError(t(res.error === 'nodb' ? 'lb.nodb' : 'lb.offline'));
+      setError(t(({ nodb: 'lb.nodb', old: 'lb.oldServer', key: 'lb.badKey', offline: 'lb.offline' } as const)[res.error ?? 'offline']));
     }
   };
 

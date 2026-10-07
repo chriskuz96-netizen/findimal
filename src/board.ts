@@ -68,14 +68,18 @@ export async function saveRemoved(ids: string[]): Promise<void> {
 }
 
 // Mitmachen: eigenen Freundescode anlegen und die eigenen Werte hochladen.
-// Liefert eine Fehlermeldung-ID oder null bei Erfolg.
-export async function join(stats: MyStats): Promise<{ me: Me | null; error: 'offline' | 'nodb' | null }> {
+// Liefert einen Fehlergrund oder null bei Erfolg.
+export type JoinError = 'offline' | 'nodb' | 'old' | 'key';
+
+export async function join(stats: MyStats): Promise<{ me: Me | null; error: JoinError | null }> {
   for (let attempt = 0; attempt < 3; attempt++) {
     const me = { id: random(6, LETTERS), secret: random(32, LETTERS) };
     const res = await call({ mode: 'board_save', ...me, ...stats }).catch(() => null);
     if (!res) return { me: null, error: 'offline' };
     if (res.status === 503) return { me: null, error: 'nodb' };
     if (res.status === 403) continue; // Code schon vergeben: neuen würfeln
+    if (res.status === 400) return { me: null, error: 'old' }; // alter Server-Code ohne Rangliste
+    if (res.status === 401) return { me: null, error: 'key' }; // falscher Findimal-Code
     if (!res.ok) return { me: null, error: 'offline' };
     await AsyncStorage.setItem(ME_KEY, JSON.stringify(me)).catch(() => {});
     await AsyncStorage.setItem(SENT_KEY, JSON.stringify(stats)).catch(() => {});
