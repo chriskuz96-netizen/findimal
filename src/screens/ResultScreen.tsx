@@ -354,6 +354,7 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
     find: t('rew.find'),
     newSpecies: t('rew.newSpecies'),
     season: t('rew.seasonShort'),
+    badge: t('rew.badge'),
   };
   const lvl = reward.after.level;
   const lvlName = t(`level.${lvl - 1}` as 'level.0');
@@ -383,9 +384,9 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
       </View>
       <View style={styles.chips}>
         {reward.items.map((i) => (
-          <View key={i.id} style={styles.chip}>
+          <View key={i.badge ?? i.id} style={styles.chip}>
             <Text style={styles.chipText}>
-              {labels[i.id]} +{i.xp}
+              {i.badge ? `${labels.badge}: ${t(`badge.${i.badge}` as 'badge.first')}` : labels[i.id]} +{i.xp}
             </Text>
           </View>
         ))}

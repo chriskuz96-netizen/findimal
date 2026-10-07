@@ -67,6 +67,21 @@ export async function saveAvatar(id: string): Promise<void> {
   }
 }
 
+// Abzeichen "Top 100": einmal erreicht, bleibt es
+const TOP100_KEY = 'findimal-top100';
+
+export async function loadTop100(): Promise<boolean> {
+  try {
+    return (await AsyncStorage.getItem(TOP100_KEY)) === '1';
+  } catch {
+    return false;
+  }
+}
+
+export async function saveTop100(): Promise<void> {
+  await AsyncStorage.setItem(TOP100_KEY, '1').catch(() => {});
+}
+
 // Löscht alle Findimal-Daten auf dem Handy (außer dem Findimal-Code für den Server).
 export async function resetAll(): Promise<void> {
   try {

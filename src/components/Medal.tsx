@@ -1,6 +1,6 @@
 import Svg, { Circle, Defs, Ellipse, G, LinearGradient, Path, RadialGradient, Stop, Text as SvgText } from 'react-native-svg';
 
-import { BadgeId } from '../progress';
+import { BADGE_TIER, BadgeId } from '../progress';
 
 // Medaillen-Farben: Bronze, Silber, Gold
 const TIERS = {
@@ -10,19 +10,7 @@ const TIERS = {
 };
 const GREY = { light: '#C9CFC9', mid: '#9AA29B', dark: '#6B736C' };
 
-export const BADGE_TIER: Record<BadgeId, keyof typeof TIERS> = {
-  first: 'bronze',
-  insects5: 'bronze',
-  night: 'silver',
-  birds5: 'silver',
-  species10: 'silver',
-  species25: 'gold',
-  allgroups: 'gold',
-  fish: 'bronze',
-  reptile: 'bronze',
-  early: 'silver',
-  species50: 'gold',
-};
+export { BADGE_TIER };
 
 type Props = { id: BadgeId; size: number; earned?: boolean };
 
@@ -177,6 +165,73 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Path d="M0 -12 V-9 M-9 -8 L-7 -6 M9 -8 L7 -6 M-13 -2 H-10 M13 -2 H10" stroke={c('#FFE9A3')} strokeWidth={1.8} strokeLinecap="round" />
           <Path d="M-14 4 H14" stroke={c('#FFD2A8')} strokeWidth={2} strokeLinecap="round" />
           <Path d="M-9 8 H9 M-5 11 H5" stroke={c('#BFE6F2')} strokeWidth={1.6} strokeLinecap="round" opacity={0.8} />
+        </G>
+      );
+    case 'streak7': // Flamme mit 7
+      return (
+        <G>
+          <Path d="M0 -13 C4 -7 10 -4 10 4 C10 10 5 13 0 13 C-5 13 -10 10 -10 4 C-10 -1 -6 -3 -5 -8 C-2 -5 -1 -3 0 -13 Z" fill={c('#E8833A')} />
+          <Path d="M0 -3 C2 0 5 2 5 6 C5 9 3 11 0 11 C-3 11 -5 9 -5 6 C-5 3 -2 1 0 -3 Z" fill={c('#FFD45E')} />
+          <SvgText x={0} y={10} fontSize={9} fontWeight="bold" fill={c('#7A3E17')} textAnchor="middle">
+            7
+          </SvgText>
+        </G>
+      );
+    case 'mam5': // Fuchskopf
+      return (
+        <G>
+          <Path d="M-11 -2 L-9 -13 L-3 -7 Z M11 -2 L9 -13 L3 -7 Z" fill={c('#E8833A')} />
+          <Path d="M-11 -3 Q-11 -8 -5 -8 L5 -8 Q11 -8 11 -3 Q11 4 0 12 Q-11 4 -11 -3 Z" fill={c('#E8833A')} />
+          <Path d="M-11 -3 Q-6 2 -2 3 Q-1 7 0 12 Q-9 6 -11 -3 Z M11 -3 Q6 2 2 3 Q1 7 0 12 Q9 6 11 -3 Z" fill={c('#FFF3E6')} />
+          <Circle cx={-4} cy={-2} r={1.4} fill={c('#13261C')} />
+          <Circle cx={4} cy={-2} r={1.4} fill={c('#13261C')} />
+          <Ellipse cx={0} cy={10} rx={1.8} ry={1.3} fill={c('#13261C')} />
+        </G>
+      );
+    case 'amp5': // Frosch mit Krone
+      return (
+        <G>
+          <Path d="M-6 -12 L-6 -8 L6 -8 L6 -12 L3 -9.5 L0 -13 L-3 -9.5 Z" fill={c('#FFD45E')} />
+          <Ellipse cx={0} cy={4} rx={12} ry={8} fill={c('#5FA24A')} />
+          <Circle cx={-6} cy={-4} r={4.5} fill={c('#5FA24A')} />
+          <Circle cx={6} cy={-4} r={4.5} fill={c('#5FA24A')} />
+          <Circle cx={-6} cy={-4.5} r={2.6} fill="#fff" />
+          <Circle cx={6} cy={-4.5} r={2.6} fill="#fff" />
+          <Circle cx={-6} cy={-4.5} r={1.3} fill={c('#13261C')} />
+          <Circle cx={6} cy={-4.5} r={1.3} fill={c('#13261C')} />
+          <Path d="M-5 6 Q0 9 5 6" stroke={c('#2F5E2A')} strokeWidth={1.4} fill="none" strokeLinecap="round" />
+        </G>
+      );
+    case 'mol5': // Schnecke
+      return (
+        <G>
+          <Path d="M-13 9 L10 9 Q13 9 13 6 L13 2 Q11 4 9 4 L-10 4 Q-13 4 -13 9 Z" fill={c('#C9B48A')} />
+          <Path d="M10 4 L12 -4 M12 4 L15 -3" stroke={c('#C9B48A')} strokeWidth={1.4} strokeLinecap="round" />
+          <Circle cx={-2} cy={-2} r={9} fill={c('#B7832F')} />
+          <Path d="M-2 -2 m-6 0 a6 6 0 1 0 6 -6 a4 4 0 1 0 4 4 a2 2 0 1 0 -2 2" stroke={c('#7A4A1E')} strokeWidth={1.4} fill="none" />
+        </G>
+      );
+    case 'ara5': // Spinne im Netz
+      return (
+        <G>
+          <Path d="M0 -14 V14 M-14 0 H14 M-10 -10 L10 10 M10 -10 L-10 10" stroke={c('#E9EEF0')} strokeWidth={0.6} opacity={0.8} />
+          <Circle cx={0} cy={0} r={6} fill="none" stroke={c('#E9EEF0')} strokeWidth={0.6} opacity={0.8} />
+          <Circle cx={0} cy={0} r={11} fill="none" stroke={c('#E9EEF0')} strokeWidth={0.6} opacity={0.8} />
+          <Path d="M-3 -1 L-9 -6 M-3 1 L-10 0 M-3 3 L-9 7 M-2 4 L-6 10 M3 -1 L9 -6 M3 1 L10 0 M3 3 L9 7 M2 4 L6 10" stroke={c('#3A2F4A')} strokeWidth={1.4} strokeLinecap="round" />
+          <Ellipse cx={0} cy={2} rx={3.6} ry={4.6} fill={c('#5E4E78')} />
+          <Circle cx={0} cy={-3.5} r={2.4} fill={c('#3A2F4A')} />
+          <Path d="M0 0 L0 4 M-1.6 2 L1.6 2" stroke={c('#FFE9A3')} strokeWidth={0.9} />
+        </G>
+      );
+    case 'top100': // Pokal mit 100
+      return (
+        <G>
+          <Path d="M-8 -11 H8 V-3 Q8 5 0 6 Q-8 5 -8 -3 Z" fill={c('#FFD45E')} stroke={c('#9A6B12')} strokeWidth={0.8} />
+          <Path d="M-8 -9 Q-13 -9 -12 -4 Q-11 0 -7 0 M8 -9 Q13 -9 12 -4 Q11 0 7 0" stroke={c('#FFD45E')} strokeWidth={1.8} fill="none" />
+          <Path d="M-2 6 H2 V9 H-2 Z M-6 9 H6 V12 H-6 Z" fill={c('#E8B53A')} />
+          <SvgText x={0} y={-1.5} fontSize={6.5} fontWeight="bold" fill={c('#7A4A1E')} textAnchor="middle">
+            100
+          </SvgText>
         </G>
       );
     case 'allgroups': // Krone mit sechs Edelsteinen

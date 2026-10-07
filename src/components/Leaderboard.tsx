@@ -26,13 +26,13 @@ import { useI18n } from '../i18n';
 import { colors, fonts, Palette, spacing } from '../theme';
 import { Avatar } from './Avatar';
 
-type Props = { stats: MyStats; invite: string | null; onInviteDone: () => void; p: Palette };
+type Props = { stats: MyStats; invite: string | null; onInviteDone: () => void; onTop100: () => void; p: Palette };
 
 // "K7QX2M" -> "K7Q X2M" (leichter vorzulesen)
 const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 
 // Rangliste mit Freunden: eigener Freundescode, Freunde hinzufügen, nach XP sortiert.
-export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
+export function Leaderboard({ stats, invite, onInviteDone, onTop100, p }: Props) {
   const { t, locale, lang } = useI18n();
   const [me, setMe] = useState<Me | null | undefined>(undefined); // undefined = lädt noch
   const [friends, setFriends] = useState<string[]>([]);
@@ -102,8 +102,13 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
   // Weltweite Rangliste laden, sobald sie angeschaut wird
   useEffect(() => {
     if (view !== 'world') return;
-    if (me) syncMe(me, stats).then(() => fetchTop().then(setTop));
-    else fetchTop().then(setTop);
+    // Weltweite Liste laden; steht man selbst darin (Top 100), gibt es das Abzeichen
+    const showTop = (list: Person[] | null) => {
+      setTop(list);
+      if (me && list?.some((x) => x.id === me.id)) onTop100();
+    };
+    if (me) syncMe(me, stats).then(() => fetchTop().then(showTop));
+    else fetchTop().then(showTop);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, me, statsKey]);
 

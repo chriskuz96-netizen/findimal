@@ -43,7 +43,35 @@ export type BadgeId =
   | 'fish'
   | 'reptile'
   | 'early'
-  | 'species50';
+  | 'species50'
+  | 'streak7'
+  | 'mam5'
+  | 'amp5'
+  | 'mol5'
+  | 'ara5'
+  | 'top100';
+
+// Medaillen-Stufe je Abzeichen. Jedes verdiente Abzeichen gibt XP: Bronze 25, Silber 50, Gold 100.
+export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
+  first: 'bronze',
+  insects5: 'bronze',
+  night: 'silver',
+  birds5: 'silver',
+  species10: 'silver',
+  species25: 'gold',
+  allgroups: 'gold',
+  fish: 'bronze',
+  reptile: 'bronze',
+  early: 'silver',
+  species50: 'gold',
+  streak7: 'silver',
+  mam5: 'bronze',
+  amp5: 'silver',
+  mol5: 'bronze',
+  ara5: 'bronze',
+  top100: 'gold',
+};
+export const BADGE_XP = { bronze: 25, silver: 50, gold: 100 };
 
 // Name und Hinweis: Texte 'badge.<id>' und 'badge.<id>.hint'
 export type Badge = { id: BadgeId; earned: boolean };
@@ -59,7 +87,28 @@ export type Progress = {
   badges: Badge[];
 };
 
-export function computeProgress(finds: Find[], quizCorrect: number, now = new Date()): Progress {
+// An wie vielen Tagen hintereinander (höchstens) wurde etwas gefunden?
+function longestStreak(finds: Find[]): number {
+  const days = [...new Set(finds.map((f) => dayKey(new Date(f.date))))].sort();
+  let best = 0;
+  let run = 0;
+  let prev: Date | null = null;
+  for (const d of days) {
+    const cur = new Date(`${d}T12:00:00`);
+    run = prev && Math.round((cur.getTime() - prev.getTime()) / 86400000) === 1 ? run + 1 : 1;
+    best = Math.max(best, run);
+    prev = cur;
+  }
+  return best;
+}
+
+// extra.top100: war schon einmal unter den 100 besten der weltweiten Rangliste
+export function computeProgress(
+  finds: Find[],
+  quizCorrect: number,
+  now = new Date(),
+  extra: { top100?: boolean } = {},
+): Progress {
   // Jeder Fund und jede neue Art gibt XP
   const seen = new Set<string>();
   let xp = quizCorrect * XP.quiz;
@@ -84,10 +133,6 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
   }
   for (const set of seasons.values()) if (set.size >= 3) xp += XP.season;
 
-  // Stufe
-  let level = 0;
-  while (level + 1 < LEVELS.length && xp >= LEVELS[level + 1]) level++;
-
   const thisSeason = [...(seasons.get(seasonKey(now)) ?? [])];
 
   const countGroup = (id: GroupId) => finds.filter((f) => groupOf(f.animal.gruppe)?.id === id).length;
@@ -101,35 +146,49 @@ export function computeProgress(finds: Find[], quizCorrect: number, now = new Da
     return h >= 5 && h < 7;
   });
 
+  const badges: Badge[] = [
+    { id: 'first', earned: finds.length >= 1 },
+    { id: 'insects5', earned: countGroup('ins') >= 5 },
+    { id: 'night', earned: nightFind },
+    { id: 'birds5', earned: countGroup('bird') >= 5 },
+    { id: 'mam5', earned: countGroup('mam') >= 5 },
+    { id: 'amp5', earned: countGroup('amp') >= 5 },
+    { id: 'mol5', earned: countGroup('mol') >= 5 },
+    { id: 'ara5', earned: countGroup('ara') >= 5 },
+    { id: 'species10', earned: seen.size >= 10 },
+    { id: 'species25', earned: seen.size >= 25 },
+    { id: 'allgroups', earned: groupsEver.size >= 6 },
+    { id: 'fish', earned: countGroup('fish') >= 1 },
+    { id: 'reptile', earned: countGroup('rep') >= 1 },
+    { id: 'early', earned: earlyFind },
+    { id: 'streak7', earned: longestStreak(finds) >= 7 },
+    { id: 'species50', earned: seen.size >= 50 },
+    { id: 'top100', earned: !!extra.top100 },
+  ];
+  // XP für verdiente Abzeichen
+  for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];
+
+  // Stufe
+  let level = 0;
+  while (level + 1 < LEVELS.length && xp >= LEVELS[level + 1]) level++;
+
   return {
     xp,
     level: level + 1,
     levelStart: LEVELS[level],
     nextLevelXp: LEVELS[level + 1] ?? null,
     season: { groups: thisSeason, done: thisSeason.length >= 3 },
-    badges: [
-      { id: 'first', earned: finds.length >= 1 },
-      { id: 'insects5', earned: countGroup('ins') >= 5 },
-      { id: 'night', earned: nightFind },
-      { id: 'birds5', earned: countGroup('bird') >= 5 },
-      { id: 'species10', earned: seen.size >= 10 },
-      { id: 'species25', earned: seen.size >= 25 },
-      { id: 'allgroups', earned: groupsEver.size >= 6 },
-      { id: 'fish', earned: countGroup('fish') >= 1 },
-      { id: 'reptile', earned: countGroup('rep') >= 1 },
-      { id: 'early', earned: earlyFind },
-      { id: 'species50', earned: seen.size >= 50 },
-    ],
+    badges,
   };
 }
 
 // ---------- Belohnung für einen Fund (für die Ergebnisseite) ----------
 
-export type RewardItem = 'find' | 'newSpecies' | 'season';
+export type RewardItem = 'find' | 'newSpecies' | 'season' | 'badge';
 
 export type Reward = {
   total: number;
-  items: { id: RewardItem; xp: number }[];
+  items: { id: RewardItem; xp: number; badge?: BadgeId }[];
   levelUp: boolean;
   after: Progress; // Stand nach dem Fund
   before: Progress; // Stand vorher (für den Balken)
@@ -139,5 +198,11 @@ export function computeReward(before: Progress, after: Progress, isNew: boolean)
   const items: Reward['items'] = [{ id: 'find', xp: XP.find }];
   if (isNew) items.push({ id: 'newSpecies', xp: XP.newSpecies });
   if (after.season.done && !before.season.done) items.push({ id: 'season', xp: XP.season });
+  // Neue Abzeichen durch diesen Fund
+  for (const b of after.badges) {
+    if (b.earned && !before.badges.find((x) => x.id === b.id)?.earned) {
+      items.push({ id: 'badge', xp: BADGE_XP[BADGE_TIER[b.id]], badge: b.id });
+    }
+  }
   return { total: after.xp - before.xp, items, levelUp: after.level > before.level, after, before };
 }
