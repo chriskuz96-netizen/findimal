@@ -5,6 +5,7 @@ import {
   cleanCode,
   fetchPeople,
   fetchTop,
+  report,
   inbox,
   inviteLink,
   isCode,
@@ -145,21 +146,35 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
     setError(null);
   };
 
-  const onRemove = (person: Person) =>
-    Alert.alert(t('lb.removeTitle', { name: person.name }), undefined, [
+  // Lange drücken auf einen anderen Eintrag: entfernen/ausblenden oder melden.
+  // Ausgeblendete Einträge sieht man weder bei den Freunden noch weltweit.
+  const hide = (person: Person) => {
+    const next = friends.filter((f) => f !== person.id);
+    if (next.length !== friends.length) {
+      setFriends(next);
+      saveFriends(next);
+    }
+    const gone = [...removed, person.id];
+    setRemoved(gone);
+    saveRemoved(gone);
+  };
+  const onPerson = (person: Person) =>
+    Alert.alert(person.name, undefined, [
       { text: t('common.cancel'), style: 'cancel' },
-      {
-        text: t('lb.remove'),
-        style: 'destructive',
-        onPress: () => {
-          const next = friends.filter((f) => f !== person.id);
-          setFriends(next);
-          saveFriends(next);
-          const gone = [...removed, person.id];
-          setRemoved(gone);
-          saveRemoved(gone);
-        },
-      },
+      { text: view === 'friends' ? t('lb.remove') : t('lb.hide'), onPress: () => hide(person) },
+      ...(me
+        ? [
+            {
+              text: t('lb.report'),
+              style: 'destructive' as const,
+              onPress: () => {
+                report(me, person.id);
+                hide(person);
+                Alert.alert(t('lb.report'), t('lb.reported'));
+              },
+            },
+          ]
+        : []),
     ]);
 
   const onLeave = () =>
@@ -199,7 +214,7 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
   // Freunde: ich + Freunde nach XP; Weltweit: Top 50 vom Server (ich ggf. unten angehängt)
   const self: Person | null = me ? { id: me.id, ...stats } : null;
   const friendRows = self ? [self, ...(people ?? []).filter((x) => x.id !== self.id)].sort((a, b) => b.xp - a.xp) : [];
-  const worldRows = (top ?? []).map((x) => (self && x.id === self.id ? self : x));
+  const worldRows = (top ?? []).filter((x) => !removed.includes(x.id)).map((x) => (self && x.id === self.id ? self : x));
   const meInWorld = !!self && worldRows.some((x) => x.id === self.id);
   const rows = view === 'friends' ? friendRows : worldRows;
 
@@ -245,7 +260,7 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
               person={x}
               rank={String(i + 1)}
               isMe={x.id === me?.id}
-              onLongPress={view === 'friends' && x.id !== me?.id ? () => onRemove(x) : undefined}
+              onLongPress={x.id !== me?.id ? () => onPerson(x) : undefined}
               p={p}
             />
           ))}

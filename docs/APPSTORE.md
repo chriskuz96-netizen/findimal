@@ -151,7 +151,7 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 | Altersfreigabe | Fragebogen ehrlich ausfüllen; voraussichtlich 4+ (keine Gewalt, keine Glücksspiele, kein freier Internetzugang) |
 | Kategorie „Kinder“ | **nein** (sonst kaum Werbung erlaubt) |
 | Datenschutz-URL | https://findimal.chriskuz96.workers.dev/datenschutz |
-| Support-URL | Pflichtfeld – eine einfache Hilfe-/Kontaktseite auf dem Server (noch anlegen) |
+| Support-URL | https://findimal.chriskuz96.workers.dev/hilfe (englisch: …/hilfe?l=en) |
 | Copyright | 2026 [Name] |
 
 ### App-Datenschutz („Datenschutzangaben“) – Entwurf für TestFlight/ohne Werbung
@@ -167,7 +167,8 @@ Für alle Punkte: **nicht mit der Identität verknüpft**, **kein Tracking**.
 Mit AdMob kommen weitere Angaben dazu (Google stellt dafür eine Anleitung bereit).
 
 ## Noch zu erledigen vor der Einreichung
-- **Rangliste = von Nutzern erstellte Inhalte (Spitznamen):** Apple verlangt dafür einen Filter für anstößige
-  Namen und eine Möglichkeit, Einträge zu melden oder auszublenden. Sonst droht eine Ablehnung.
-- **Support-Seite** auf dem Server anlegen (Kontakt-E-Mail, kurze Hilfe).
+- Rangliste (von Nutzern erstellte Inhalte): Namensfilter, Melden und Ausblenden sind eingebaut. Im Feld
+  „Notizen für die Prüfung“ erwähnen: „Lange auf einen Eintrag drücken → Melden/Ausblenden; Namen werden gefiltert;
+  Kontakt über die Support-Seite.“
+- Kontakt-E-Mail auf der Support-Seite eintragen (Platzhalter OPERATOR im Server-Code).
 - **Bildschirmfotos** in der Größe für 6,9-Zoll-iPhones (z. B. iPhone 17 Pro Max).

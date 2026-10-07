@@ -208,14 +208,24 @@ export function ProfileScreen(props: Props) {
         <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
       </Pressable>
 
-      {/* Datenschutz und Impressum (Webseite des Findimal-Servers) */}
-      <Pressable
-        onPress={() => Linking.openURL(`${SERVER_URL.replace(/\/$/, '')}/datenschutz${lang === 'de' ? '' : '?l=en'}`)}
-        accessibilityRole="link"
-        style={styles.privacy}
-      >
-        <Text style={[styles.privacyText, { color: p.mute }]}>{t('pro.privacy')}</Text>
-      </Pressable>
+      {/* Hilfe sowie Datenschutz und Impressum (Webseiten des Findimal-Servers) */}
+      <View style={styles.links}>
+        {(
+          [
+            ['hilfe', 'pro.help'],
+            ['datenschutz', 'pro.privacy'],
+          ] as const
+        ).map(([page, label]) => (
+          <Pressable
+            key={page}
+            onPress={() => Linking.openURL(`${SERVER_URL.replace(/\/$/, '')}/${page}${lang === 'de' ? '' : '?l=en'}`)}
+            accessibilityRole="link"
+            style={styles.privacy}
+          >
+            <Text style={[styles.privacyText, { color: p.mute }]}>{t(label)}</Text>
+          </Pressable>
+        ))}
+      </View>
     </ScrollView>
   );
 }
@@ -324,6 +334,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   resetText: { fontFamily: fonts.sansBold, fontSize: 16 },
-  privacy: { alignSelf: 'center', marginTop: 14, padding: 6 },
+  links: { flexDirection: 'row', justifyContent: 'center', gap: 18, marginTop: 14 },
+  privacy: { padding: 6 },
   privacyText: { fontFamily: fonts.sans, fontSize: 13.5, textDecorationLine: 'underline' },
 });

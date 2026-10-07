@@ -111,6 +111,11 @@ export async function link(me: Me, friend: string): Promise<void> {
   await call({ mode: 'board_link', ...me, friend }).catch(() => null);
 }
 
+// Eintrag eines anderen melden (z. B. anstößiger Name)
+export async function report(me: Me, target: string): Promise<void> {
+  await call({ mode: 'board_report', ...me, target }).catch(() => null);
+}
+
 // Codes von allen, die einen selbst hinzugefügt haben
 export async function inbox(me: Me): Promise<string[]> {
   try {
