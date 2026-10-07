@@ -1,5 +1,5 @@
 import * as Linking from 'expo-linking';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Alert,
   Pressable,
@@ -16,7 +16,7 @@ import Svg, { Circle, Path } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Avatar } from '../components/Avatar';
-import { Medal } from '../components/Medal';
+import { AvatarSheet } from '../components/AvatarSheet';
 import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
@@ -48,8 +48,7 @@ export function ProfileScreen(props: Props) {
   const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
-  const scrollRef = useRef<ScrollView>(null);
-  const pickerY = useRef(0); // Position der Profilbild-Auswahl
+  const [picking, setPicking] = useState(false); // Auswahlfenster fürs Profilbild
   const saveName = () => {
     const n = newName.trim();
     setEditing(false);
@@ -89,16 +88,25 @@ export function ProfileScreen(props: Props) {
     );
 
   return (
-    <ScrollView ref={scrollRef} style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
+    <>
+    <AvatarSheet
+      visible={picking}
+      name={name}
+      avatar={avatar}
+      earned={earned}
+      onSelect={onSelectAvatar}
+      onClose={() => setPicking(false)}
+    />
+    <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
       <View style={[styles.hx, { paddingTop: insets.top + 10 }]}>
         <HeaderBackground />
         <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" style={styles.back}>
           <Text style={styles.backText}>{t('pro.back')}</Text>
         </Pressable>
         <View style={styles.pr}>
-          {/* großes Profilbild; Antippen springt zur Auswahl */}
+          {/* großes Profilbild; Antippen öffnet die Auswahl */}
           <Pressable
-            onPress={() => scrollRef.current?.scrollTo({ y: Math.max(0, pickerY.current - 12), animated: true })}
+            onPress={() => setPicking(true)}
             accessibilityRole="button"
             accessibilityLabel={t('pro.avatar')}
           >
@@ -223,46 +231,6 @@ export function ProfileScreen(props: Props) {
         )}
       </View>
 
-      {/* Profilbild */}
-      <Card p={p} onLayout={(y) => (pickerY.current = y)}>
-        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.avatar')}</Text>
-        <Text style={[styles.sub, { color: p.mute }]}>
-          {earned.length ? t('pro.avatarHint') : t('pro.avatarNone')}
-        </Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pick}>
-          <Pressable onPress={() => onSelectAvatar('')} style={[styles.pickItem, !avatar && styles.pickOn]}>
-            <View style={[styles.letter, { width: 56, height: 56, borderRadius: 28 }]}>
-              <Text style={[styles.letterText, { fontSize: 24 }]}>{name[0]?.toUpperCase()}</Text>
-            </View>
-          </Pressable>
-          {earned.map((b) => (
-            <Pressable key={b.id} onPress={() => onSelectAvatar(b.id)} style={[styles.pickItem, avatar === b.id && styles.pickOn]}>
-              <Medal id={b.id} size={60} />
-            </Pressable>
-          ))}
-        </ScrollView>
-
-        {/* Plus-Profilbilder: ohne Plus mit Schloss */}
-        <Text style={[styles.h4, { color: p.ink }]}>★ {t('pro.plusAvatars')}</Text>
-        <Text style={[styles.sub, { color: p.mute }]}>{t('pro.plusAvatarsHint')}</Text>
-        {/* eine Reihe zum Wischen statt eines großen Rasters */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pick}>
-          {PLUS_AVATARS.map((a) => (
-            <Pressable
-              key={a.id}
-              onPress={() => (plus ? onSelectAvatar(a.id) : askForPlus(t, setPlus))}
-              style={[styles.pickItem, avatar === a.id && styles.pickOn]}
-              accessibilityRole="button"
-            >
-              <View style={{ opacity: plus ? 1 : 0.45 }}>
-                <Avatar id={a.id} name={name} size={56} />
-              </View>
-              {!plus && <Text style={styles.lock}>🔒</Text>}
-            </Pressable>
-          ))}
-        </ScrollView>
-      </Card>
-
       {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
       <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
         <View style={styles.tipsHead}>
@@ -310,18 +278,12 @@ export function ProfileScreen(props: Props) {
         ))}
       </View>
     </ScrollView>
+    </>
   );
 }
 
-function Card({ p, style, children, onLayout }: { p: Palette; style?: object; children: React.ReactNode; onLayout?: (y: number) => void }) {
-  return (
-    <View
-      style={[styles.card, { backgroundColor: p.card, borderColor: p.line }, style]}
-      onLayout={onLayout && ((e) => onLayout(e.nativeEvent.layout.y))}
-    >
-      {children}
-    </View>
-  );
+function Card({ p, style, children }: { p: Palette; style?: object; children: React.ReactNode }) {
+  return <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }, style]}>{children}</View>;
 }
 
 function Stat({ p, value, label }: { p: Palette; value: number; label: string }) {
@@ -347,8 +309,8 @@ const styles = StyleSheet.create({
   prText: { flex: 1, minWidth: 0, alignItems: 'flex-start' },
   avatarEdit: {
     position: 'absolute',
-    right: 2,
-    bottom: 2,
+    right: -2,
+    top: -2,
     width: 34,
     height: 34,
     borderRadius: 17,
@@ -358,17 +320,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  letter: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    borderWidth: 2,
-    borderColor: colors.accentLight,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  letterText: { fontFamily: fonts.serifBold, fontSize: 34, color: colors.ink },
   name: { flexShrink: 1, fontFamily: fonts.serifBold, fontSize: 26, color: colors.white },
   nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8, maxWidth: '100%' },
   place: {
@@ -412,8 +363,6 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   h3: { fontFamily: fonts.serifBold, fontSize: 18 },
-  h4: { fontFamily: fonts.serifBold, fontSize: 16, marginTop: 16 },
-  lock: { position: 'absolute', right: 2, bottom: 2, fontSize: 14 },
   plusCard: { backgroundColor: '#123826', borderColor: '#E8B53A', borderWidth: 1.5 },
   plusTitle: { fontFamily: fonts.serifBold, fontSize: 20, color: '#FFD45E' },
   plusSub: { fontFamily: fonts.sans, fontSize: 14, color: colors.accentLight, marginTop: 2, marginBottom: 8 },
@@ -435,9 +384,6 @@ const styles = StyleSheet.create({
   stat: { flex: 1, flexDirection: 'row', alignItems: 'baseline', justifyContent: 'center', gap: 5 },
   statValue: { fontFamily: fonts.serifBold, fontSize: 20 },
   statLabel: { fontFamily: fonts.sans, fontSize: 12.5 },
-  pick: { gap: 10, paddingTop: 12, paddingRight: 4 },
-  pickItem: { padding: 3, borderRadius: 40, borderWidth: 2.5, borderColor: 'transparent' },
-  pickOn: { borderColor: colors.accent },
   tipsCard: { borderWidth: 2, borderColor: colors.accent, marginTop: 20 },
   tipsHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   bell: {
