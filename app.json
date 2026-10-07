@@ -6,7 +6,16 @@
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.chriskuz.findimal",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.chriskuz.findimal",
+      "versionCode": 1
     },
     "splash": {
       "backgroundColor": "#143F2A"

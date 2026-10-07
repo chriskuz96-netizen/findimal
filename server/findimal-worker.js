@@ -13,7 +13,14 @@
 //   ANTHROPIC_API_KEY  dein Claude-API-Schlüssel (sk-ant-...)
 //   (Sprachen: Die App schickt "lang" mit, Claude antwortet dann auf Deutsch, Englisch,
 //    Französisch oder Spanisch.)
-//   APP_KEY            ein selbst ausgedachtes Passwort; die App fragt einmal danach
+//   APP_KEY            ein selbst ausgedachtes Passwort ("Findimal-Code"); die App fragt einmal danach
+//
+// Normale Variablen (Settings -> Variables and Secrets, Typ "Text"):
+//   OFFEN              "ja" = die App funktioniert auch ohne Findimal-Code (für TestFlight und
+//                      App Store). Dann schützen Grenzen pro Handy, pro Internetanschluss und
+//                      pro Tag vor Missbrauch. Wer den Findimal-Code kennt, darf Plus testen.
+//   TAGES_GRENZE       höchstens so viele KI-Anfragen am Tag für alle ohne Code zusammen
+//                      (Standard 300, etwa 2 € am Tag)
 //
 // Rangliste: braucht einen KV-Speicher (Storage & Databases -> KV), der im Worker unter
 // Bindings mit dem Variablennamen DB verbunden ist. Gespeichert werden nur Spitzname,
@@ -33,6 +40,10 @@ const DAILY_EXTRA = 6;
 // Findimal Plus (Testphase, bis es das echte Abo gibt): "unbegrenzt", zur Sicherheit aber
 // höchstens 30 Fotos pro Handy und Tag. Geht nur mit dem richtigen APP_KEY.
 const DAILY_PLUS = 30;
+// Ohne Findimal-Code (OFFEN = "ja"): KI-Anfragen pro Internetanschluss und Tag
+// (großzügig, weil sich Familien und Schulklassen einen Anschluss teilen)
+const DAILY_PER_IP = 80;
+const DAILY_TOTAL = 300;
 
 const TEXT = { type: 'string' };
 const GRUPPE = {
@@ -412,6 +423,25 @@ function deviceKey(request, kind) {
   return `u:${new Date().toISOString().slice(0, 10)}:${who}:${kind}`;
 }
 
+// Grenzen für Anfragen ohne Findimal-Code: pro Internetanschluss und für alle zusammen pro Tag.
+// Liefert eine Fehlerantwort oder null.
+async function publicBudget(env, request) {
+  if (!env.DB) return json({ fehler: 'Server nicht eingerichtet.' }, 503); // ohne Speicher keine Grenzen
+  const day = new Date().toISOString().slice(0, 10);
+  const ipKey = `g:${day}:ip-${request.headers.get('CF-Connecting-IP') || '?'}`;
+  const allKey = `g:${day}:alle`;
+  const [ip, all] = await Promise.all([env.DB.get(ipKey), env.DB.get(allKey)]);
+  const maxAll = Number(env.TAGES_GRENZE) || DAILY_TOTAL;
+  if ((Number(ip) || 0) >= DAILY_PER_IP || (Number(all) || 0) >= maxAll) {
+    return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
+  }
+  await Promise.all([
+    env.DB.put(ipKey, String((Number(ip) || 0) + 1), { expirationTtl: 60 * 60 * 48 }),
+    env.DB.put(allKey, String((Number(all) || 0) + 1), { expirationTtl: 60 * 60 * 48 }),
+  ]);
+  return null;
+}
+
 // ---------- Eingang ----------
 
 export default {
@@ -424,9 +454,12 @@ export default {
     }
     if (request.method !== 'POST') return json({ fehler: 'Findimal-Server läuft.' });
 
-    if (env.APP_KEY && request.headers.get('X-Findimal-Key') !== env.APP_KEY) {
-      return json({ fehler: 'falscher_code' }, 401);
-    }
+    // Mit dem richtigen Findimal-Code ist man "Tester" (darf z. B. Plus testen).
+    // Ohne Code geht es nur, wenn der Server für alle offen ist (OFFEN = "ja").
+    const tester = !env.APP_KEY || request.headers.get('X-Findimal-Key') === env.APP_KEY;
+    if (!tester && env.OFFEN !== 'ja') return json({ fehler: 'falscher_code' }, 401);
+    // Vor jeder KI-Anfrage: Grenzen für alle ohne Code
+    const budget = () => (tester ? null : publicBudget(env, request));
 
     let body;
     try {
@@ -447,6 +480,8 @@ export default {
         const cached = await env.DB.get(cacheKey);
         if (cached) return new Response(cached, { headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS } });
       }
+      const stop = await budget();
+      if (stop) return stop;
       const res = await ask(env, NEARBY_SYSTEM + languageRule(lang), NEARBY_SCHEMA, [
         { type: 'text', text: `Region: ${region}\nZeit: ${zeit}` },
       ]);
@@ -465,6 +500,8 @@ export default {
         if (used >= 30) return json({ fehler: 'limit' }, 429);
         await env.DB.put(key, String(used + 1), { expirationTtl: 60 * 60 * 48 });
       }
+      const stop = await budget();
+      if (stop) return stop;
       return ask(env, DETAILS_SYSTEM + languageRule(body.lang), DETAILS_SCHEMA, [
         { type: 'text', text: `Tier: ${name}${sci ? ` (${sci})` : ''}` },
       ]);
@@ -487,11 +524,13 @@ export default {
     if (env.DB) {
       const key = deviceKey(request, extra ? 'x' : 'n');
       const used = Number(await env.DB.get(key)) || 0;
-      const plus = request.headers.get('X-Findimal-Plus') === '1';
+      const plus = tester && request.headers.get('X-Findimal-Plus') === '1'; // Plus testen nur mit Code
       const max = plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
       if (used >= max) return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
       counter = { key, used };
     }
+    const stop = await budget();
+    if (stop) return stop;
     // Günstiges Modell reicht, wenn es ein Tier gefunden hat und nicht unsicher ist
     const res = await ask(
       env,
