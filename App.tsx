@@ -27,7 +27,7 @@ import { SeasonScreen } from './src/screens/SeasonScreen';
 import { RegionScreen } from './src/screens/RegionScreen';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
-import { loadAvatar, loadName, loadRegion, loadBestRank, resetAll, saveAvatar, saveBestRank, saveName, saveRegion } from './src/storage';
+import { loadAvatar, loadBestRank, loadMaxFriends, loadName, loadRegion, resetAll, saveAvatar, saveBestRank, saveMaxFriends, saveName, saveRegion } from './src/storage';
 import { colors } from './src/theme';
 
 export default function App() {
@@ -83,6 +83,7 @@ function Main() {
   const [showProfile, setShowProfile] = useState(false);
   // Bester Platz in der weltweiten Rangliste (Abzeichen Top 100/50/10/Nr. 1 bleiben)
   const [bestRank, setBestRank] = useState<number | null>(null);
+  const [maxFriends, setMaxFriends] = useState(0);
   const quizRef = useRef<QuizLog>({});
   quizRef.current = quiz;
 
@@ -93,6 +94,7 @@ function Main() {
     loadQuiz().then(setQuiz);
     loadAvatar().then(setAvatar);
     loadBestRank().then(setBestRank);
+    loadMaxFriends().then(setMaxFriends);
   }, []);
 
   // Einladungslink eines Freundes: Code merken und zur Rangliste (Challenges) wechseln.
@@ -130,7 +132,7 @@ function Main() {
 
   // Punkte, Stufe, Serie und Challenges – immer frisch berechnet
   const now = new Date();
-  const progress = computeProgress(finds, correctAnswers(quiz), now, { bestRank });
+  const progress = computeProgress(finds, correctAnswers(quiz), now, { bestRank, maxFriends });
   // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
   // Plus-Tiere nur, solange Plus aktiv ist
   const avatarBadge =
@@ -206,6 +208,7 @@ function Main() {
             setQuiz({});
             setAvatar('');
             setBestRank(null);
+            setMaxFriends(0);
             setRegion(null);
             setShowProfile(false);
             setTab('start');
@@ -226,7 +229,7 @@ function Main() {
             const quizXp = correctAnswers(quizRef.current);
             // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
             const others = findsRef.current.filter((f) => f.id !== replaceId);
-            const before = computeProgress(others, quizXp, new Date(), { bestRank });
+            const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
             const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
             let id = replaceId;
             let next: Find[];
@@ -238,7 +241,7 @@ function Main() {
               id = added.id;
             }
             setFinds(next);
-            const after = computeProgress(next, quizXp, new Date(), { bestRank });
+            const after = computeProgress(next, quizXp, new Date(), { bestRank, maxFriends });
             return { id: id!, reward: computeReward(before, after, isNew) };
           }}
           morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
@@ -302,6 +305,11 @@ function Main() {
               if (bestRank && bestRank <= rank) return;
               setBestRank(rank);
               saveBestRank(rank);
+            }}
+            onFriends={(n) => {
+              if (n <= maxFriends) return;
+              setMaxFriends(n);
+              saveMaxFriends(n);
             }}
             onInviteDone={() => setInvite(null)}
           />

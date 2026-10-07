@@ -238,6 +238,72 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           {id === 'top1' && <Star x={0} y={-15} r={3.2} fill={c('#FFF4C2')} />}
         </G>
       );
+    case 'seasons4': // Kreis in vier Jahreszeiten-Farben
+      return (
+        <G>
+          <Path d="M0 0 L0 -12 A12 12 0 0 1 12 0 Z" fill={c('#8FD16A')} />
+          <Path d="M0 0 L12 0 A12 12 0 0 1 0 12 Z" fill={c('#FFD45E')} />
+          <Path d="M0 0 L0 12 A12 12 0 0 1 -12 0 Z" fill={c('#E8833A')} />
+          <Path d="M0 0 L-12 0 A12 12 0 0 1 0 -12 Z" fill={c('#CFE6F5')} />
+          <Circle cx={0} cy={0} r={4} fill={c('#123826')} stroke={c('#FFF4C2')} strokeWidth={1} />
+        </G>
+      );
+    case 'seasonAll': // Blatt mit Haken
+      return (
+        <G>
+          <Path d="M-10 10 Q-12 -10 11 -12 Q12 9 -10 10 Z" fill={c('#6FBF8A')} />
+          <Path d="M-10 10 L6 -6" stroke={c('#2E7D52')} strokeWidth={1.2} />
+          <Path d="M-3 1 L1 5 L8 -3" stroke={c('#FFF4C2')} strokeWidth={2.6} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </G>
+      );
+    case 'rare': // Diamant
+      return (
+        <G>
+          <Path d="M-11 -4 L-6 -10 H6 L11 -4 L0 11 Z" fill={c('#7FD3E8')} stroke={c('#2C6E86')} strokeWidth={0.8} strokeLinejoin="round" />
+          <Path d="M-11 -4 H11 M-6 -10 L-3 -4 L0 11 L3 -4 L6 -10" stroke={c('#2C6E86')} strokeWidth={0.7} fill="none" />
+          <Path d="M-4 -8 L-6 -5" stroke="#fff" strokeWidth={1.2} strokeLinecap="round" />
+        </G>
+      );
+    case 'quiz25': // Sprechblase mit Fragezeichen
+      return (
+        <G>
+          <Path d="M-11 -10 H11 Q13 -10 13 -8 V4 Q13 6 11 6 H-2 L-7 11 V6 H-11 Q-13 6 -13 4 V-8 Q-13 -10 -11 -10 Z" fill={c('#FFF4C2')} />
+          <SvgText x={0} y={3} fontSize={13} fontWeight="bold" fill={c('#7A4A1E')} textAnchor="middle">
+            ?
+          </SvgText>
+        </G>
+      );
+    case 'team3': // drei Köpfe
+      return (
+        <G>
+          <Circle cx={-8} cy={-3} r={3.5} fill={c('#CFE6F5')} />
+          <Path d="M-14 9 Q-14 1 -8 1 Q-2 1 -2 9 Z" fill={c('#CFE6F5')} />
+          <Circle cx={8} cy={-3} r={3.5} fill={c('#CFE6F5')} />
+          <Path d="M2 9 Q2 1 8 1 Q14 1 14 9 Z" fill={c('#CFE6F5')} />
+          <Circle cx={0} cy={-6} r={4.2} fill={c('#FFD45E')} />
+          <Path d="M-7 10 Q-7 0 0 0 Q7 0 7 10 Z" fill={c('#FFD45E')} />
+        </G>
+      );
+    case 'streak30': // große Flamme mit 30
+      return (
+        <G>
+          <Path d="M0 -14 C5 -8 11 -4 11 4 C11 10 6 13 0 13 C-6 13 -11 10 -11 4 C-11 -2 -7 -4 -6 -9 C-3 -6 -1 -4 0 -14 Z" fill={c('#D9433A')} />
+          <Path d="M0 -6 C3 -2 7 1 7 6 C7 10 4 12 0 12 C-4 12 -7 10 -7 6 C-7 2 -3 0 0 -6 Z" fill={c('#FFD45E')} />
+          <SvgText x={0} y={10} fontSize={8} fontWeight="bold" fill={c('#7A3E17')} textAnchor="middle">
+            30
+          </SvgText>
+        </G>
+      );
+    case 'breeds5': // Pfote
+      return (
+        <G fill={c('#FFF3E6')}>
+          <Ellipse cx={0} cy={5} rx={7} ry={6} />
+          <Ellipse cx={-9} cy={-3} rx={2.8} ry={3.6} />
+          <Ellipse cx={-3.5} cy={-9} rx={2.8} ry={3.6} />
+          <Ellipse cx={3.5} cy={-9} rx={2.8} ry={3.6} />
+          <Ellipse cx={9} cy={-3} rx={2.8} ry={3.6} />
+        </G>
+      );
     case 'allgroups': // Krone mit sechs Edelsteinen
       return (
         <G>

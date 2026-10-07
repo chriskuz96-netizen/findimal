@@ -12,6 +12,7 @@ export type Animal = {
   tier_gefunden: boolean;
   name: string;
   rasse?: string; // nur bei Haus- und Nutztieren, z. B. "Golden Retriever"
+  gefaehrdet?: boolean; // auf der Roten Liste (mind. gefährdet) – für das Abzeichen "Seltener Fund"
   wissenschaftlicher_name: string;
   gruppe: string;
   sicherheit: 'sicher' | 'wahrscheinlich' | 'unsicher';

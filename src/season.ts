@@ -3,7 +3,7 @@ import { Lang } from './i18n';
 
 // Inhalte der Saison-Seite für die vier Jahreszeiten (Mitteleuropa), in vier Sprachen.
 
-type SeasonId = 'spring' | 'summer' | 'autumn' | 'winter';
+export type SeasonId = 'spring' | 'summer' | 'autumn' | 'winter';
 
 // Teile, die in allen Sprachen gleich sind
 const BASE: Record<SeasonId, { icons: GroupId[]; sci: string[]; eventIcon: GroupId; eventMatch: string[] }> = {
@@ -315,6 +315,11 @@ export type Season = {
   phenomena: Phenomenon[];
   help: { title: string; text: string }[];
 };
+
+// Wissenschaftliche Namen der vier Saison-Tiere einer Jahreszeit (für das Abzeichen "Saison komplett")
+export function seasonAnimals(id: SeasonId): string[] {
+  return BASE[id].sci;
+}
 
 export function seasonId(date: Date): SeasonId {
   const m = date.getMonth(); // 0 = Januar

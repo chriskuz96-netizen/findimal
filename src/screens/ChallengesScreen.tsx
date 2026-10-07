@@ -23,13 +23,15 @@ type Props = {
   invite: string | null; // Freundescode aus einem Einladungslink
   onInviteDone: () => void;
   onRank: (rank: number) => void; // eigener Platz in der weltweiten Rangliste
+  onFriends: (n: number) => void; // Zahl der Freunde in der Rangliste
 };
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
   const goal = progress.season;
+  const week = progress.week;
   // Quiz: die gerade gezeigte Frage bleibt nach dem Antworten stehen, bis man "Nächste Frage" tippt
   // höchstens 3 Fragen pro Tag
   const canAsk = (log: QuizLog) => answeredToday(log) < QUESTIONS_PER_DAY;
@@ -75,6 +77,21 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </View>
       </View>
 
+      {/* Wochen-Aufgabe: jede Woche eine neue */}
+      <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
+        <View style={styles.misHead}>
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.small, { color: p.mute }]}>
+              {t('week.title')} ·{' '}
+              {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
+            </Text>
+            <Text style={[styles.misText, { color: p.ink }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
+          </View>
+          <XpPill text={week.done ? t('ch.done') : `+${XP.week} XP`} done={week.done} />
+        </View>
+        {week.done && <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>{t('week.done')}</Text>}
+      </View>
+
       {/* Stufe */}
       <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
         <Text style={[styles.h3, { color: p.ink }]}>
@@ -96,6 +113,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         invite={invite}
         onInviteDone={onInviteDone}
         onRank={onRank}
+        onFriends={onFriends}
         p={p}
       />
 

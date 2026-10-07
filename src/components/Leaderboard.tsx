@@ -26,13 +26,13 @@ import { useI18n } from '../i18n';
 import { colors, fonts, Palette, spacing } from '../theme';
 import { Avatar } from './Avatar';
 
-type Props = { stats: MyStats; invite: string | null; onInviteDone: () => void; onRank: (rank: number) => void; p: Palette };
+type Props = { stats: MyStats; invite: string | null; onInviteDone: () => void; onRank: (rank: number) => void; onFriends: (n: number) => void; p: Palette };
 
 // "K7QX2M" -> "K7Q X2M" (leichter vorzulesen)
 const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 
 // Rangliste mit Freunden: eigener Freundescode, Freunde hinzufügen, nach XP sortiert.
-export function Leaderboard({ stats, invite, onInviteDone, onRank, p }: Props) {
+export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, p }: Props) {
   const { t, locale, lang } = useI18n();
   const [me, setMe] = useState<Me | null | undefined>(undefined); // undefined = lädt noch
   const [friends, setFriends] = useState<string[]>([]);
@@ -52,6 +52,12 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, p }: Props) {
       setRemoved(r);
     });
   }, []);
+
+  // Zahl der Freunde melden (für das Abzeichen "Teamplayer")
+  useEffect(() => {
+    if (me) onFriends(friends.length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [me, friends.length]);
 
   // Eigene Werte hochladen (nur bei Änderungen) und Freunde neu laden
   const statsKey = JSON.stringify(stats);

@@ -1,6 +1,7 @@
 import { Find, speciesKey } from './finds';
 import { GroupId, groupOf } from './groups';
-import { seasonId } from './season';
+import { seasonAnimals, seasonId, SeasonId } from './season';
+import { thisWeek, WeekTask, weeksDone } from './weekly';
 
 // Alles rund um Erfahrungspunkte (XP), Stufen, Saison-Ziel und Abzeichen.
 // Wird immer frisch aus den Funden (und Quiz-Antworten) berechnet, damit nichts
@@ -11,10 +12,11 @@ export const XP = {
   newSpecies: 20, // zusätzlich für eine neue Art
   season: 100, // Saison-Ziel geschafft
   quiz: 10, // Quizfrage richtig beantwortet
+  week: 30, // Wochen-Aufgabe geschafft
 };
 
-// XP ab der jeweiligen Stufe (Namen: Texte 'level.0' bis 'level.6')
-const LEVELS = [0, 100, 200, 400, 700, 1100, 1600];
+// XP ab der jeweiligen Stufe (Namen: Texte 'level.0' bis 'level.11')
+const LEVELS = [0, 100, 200, 400, 700, 1100, 1600, 2200, 3000, 4000, 5200, 6600];
 
 // ---------- Datum-Helfer (lokale Zeit) ----------
 
@@ -52,7 +54,14 @@ export type BadgeId =
   | 'top100'
   | 'top50'
   | 'top10'
-  | 'top1';
+  | 'top1'
+  | 'seasons4'
+  | 'seasonAll'
+  | 'rare'
+  | 'quiz25'
+  | 'team3'
+  | 'streak30'
+  | 'breeds5';
 
 // Medaillen-Stufe je Abzeichen. Jedes verdiente Abzeichen gibt XP: Bronze 25, Silber 50, Gold 100.
 export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
@@ -76,6 +85,13 @@ export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
   top50: 'gold',
   top10: 'gold',
   top1: 'gold',
+  seasons4: 'silver',
+  seasonAll: 'gold',
+  rare: 'silver',
+  quiz25: 'bronze',
+  team3: 'bronze',
+  streak30: 'gold',
+  breeds5: 'bronze',
 };
 export const BADGE_XP = { bronze: 25, silver: 50, gold: 100 };
 
@@ -90,6 +106,7 @@ export type Progress = {
   levelStart: number;
   nextLevelXp: number | null;
   season: { groups: GroupId[]; done: boolean }; // Saison-Ziel: Tiere aus 3 Gruppen in dieser Jahreszeit
+  week: { task: WeekTask; done: boolean; daysLeft: number }; // Wochen-Aufgabe
   badges: Badge[];
 };
 
@@ -110,12 +127,33 @@ function longestStreak(finds: Find[]): number {
   return best;
 }
 
+// Alle vier Saison-Tiere einer Jahreszeit gefunden (Gattung reicht, wie auf der Saison-Seite)?
+function seasonComplete(finds: Find[]): boolean {
+  const ids: SeasonId[] = ['spring', 'summer', 'autumn', 'winter'];
+  return ids.some((id) => {
+    const inSeason = finds.filter((f) => seasonId(new Date(f.date)) === id);
+    return seasonAnimals(id).every((sci) => {
+      const genus = sci.split(' ')[0].toLowerCase();
+      return inSeason.some((f) => (f.animal.wissenschaftlicher_name || '').toLowerCase().startsWith(genus));
+    });
+  });
+}
+
+// Verschiedene Rassen (Haus- und Nutztiere), ohne unsichere ("vermutlich ...")
+function breedCount(finds: Find[]): number {
+  const names = finds
+    .map((f) => (f.animal.rasse || '').trim().toLowerCase())
+    .filter((r) => r && !r.includes('vermutlich'));
+  return new Set(names).size;
+}
+
 // extra.bestRank: bester Platz, den man in der weltweiten Rangliste je hatte (null = nie dabei)
+// extra.maxFriends: höchste Zahl an Freunden in der Rangliste
 export function computeProgress(
   finds: Find[],
   quizCorrect: number,
   now = new Date(),
-  extra: { bestRank?: number | null } = {},
+  extra: { bestRank?: number | null; maxFriends?: number } = {},
 ): Progress {
   // Jeder Fund und jede neue Art gibt XP
   const seen = new Set<string>();
@@ -140,6 +178,9 @@ export function computeProgress(
     seasons.set(k, set);
   }
   for (const set of seasons.values()) if (set.size >= 3) xp += XP.season;
+
+  // Wochen-Aufgaben
+  xp += weeksDone(finds) * XP.week;
 
   const thisSeason = [...(seasons.get(seasonKey(now)) ?? [])];
 
@@ -175,6 +216,13 @@ export function computeProgress(
     { id: 'top50', earned: rankAtMost(extra.bestRank, 50) },
     { id: 'top10', earned: rankAtMost(extra.bestRank, 10) },
     { id: 'top1', earned: rankAtMost(extra.bestRank, 1) },
+    { id: 'seasons4', earned: new Set(finds.map((f) => seasonId(new Date(f.date)))).size >= 4 },
+    { id: 'seasonAll', earned: seasonComplete(finds) },
+    { id: 'rare', earned: finds.some((f) => f.animal.gefaehrdet) },
+    { id: 'quiz25', earned: quizCorrect >= 25 },
+    { id: 'team3', earned: (extra.maxFriends ?? 0) >= 3 },
+    { id: 'streak30', earned: longestStreak(finds) >= 30 },
+    { id: 'breeds5', earned: breedCount(finds) >= 5 },
   ];
   // XP für verdiente Abzeichen
   for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];
@@ -189,13 +237,14 @@ export function computeProgress(
     levelStart: LEVELS[level],
     nextLevelXp: LEVELS[level + 1] ?? null,
     season: { groups: thisSeason, done: thisSeason.length >= 3 },
+    week: thisWeek(finds, now),
     badges,
   };
 }
 
 // ---------- Belohnung für einen Fund (für die Ergebnisseite) ----------
 
-export type RewardItem = 'find' | 'newSpecies' | 'season' | 'badge';
+export type RewardItem = 'find' | 'newSpecies' | 'season' | 'week' | 'badge';
 
 export type Reward = {
   total: number;
@@ -209,6 +258,7 @@ export function computeReward(before: Progress, after: Progress, isNew: boolean)
   const items: Reward['items'] = [{ id: 'find', xp: XP.find }];
   if (isNew) items.push({ id: 'newSpecies', xp: XP.newSpecies });
   if (after.season.done && !before.season.done) items.push({ id: 'season', xp: XP.season });
+  if (after.week.done && !before.week.done) items.push({ id: 'week', xp: XP.week });
   // Neue Abzeichen durch diesen Fund
   for (const b of after.badges) {
     if (b.earned && !before.badges.find((x) => x.id === b.id)?.earned) {

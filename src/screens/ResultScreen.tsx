@@ -354,6 +354,7 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
     find: t('rew.find'),
     newSpecies: t('rew.newSpecies'),
     season: t('rew.seasonShort'),
+    week: t('rew.week'),
     badge: t('rew.badge'),
   };
   const lvl = reward.after.level;

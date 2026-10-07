@@ -85,6 +85,19 @@ export async function saveBestRank(rank: number): Promise<void> {
   await AsyncStorage.setItem(RANK_KEY, String(rank)).catch(() => {});
 }
 
+// Höchste Zahl an Freunden in der Rangliste (Abzeichen "Teamplayer" bleibt)
+export async function loadMaxFriends(): Promise<number> {
+  try {
+    return Number(await AsyncStorage.getItem('findimal-max-friends')) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+export async function saveMaxFriends(n: number): Promise<void> {
+  await AsyncStorage.setItem('findimal-max-friends', String(n)).catch(() => {});
+}
+
 // Löscht alle Findimal-Daten auf dem Handy (außer dem Findimal-Code für den Server).
 export async function resetAll(): Promise<void> {
   try {

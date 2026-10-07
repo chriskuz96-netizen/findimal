@@ -64,7 +64,9 @@ Bei Haus- und Nutztieren (z. B. Hund, Katze, Huhn, Pferd, Rind, Schaf, Ziege, Ka
 bestimme zusätzlich die Rasse so genau wie möglich und schreibe sie in "rasse" (z. B. "Golden Retriever",
 "Brahma", "Haflinger"). Sieht das Tier nach einer Mischung aus, schreibe z. B. "Mischling (vermutlich mit
 Labrador)". Bist du dir bei der Rasse nicht sicher, schreibe "vermutlich ..." davor. "name" bleibt die Tierart
-(z. B. "Haushund", "Haushuhn"). Bei Wildtieren bleibt "rasse" leer.`;
+(z. B. "Haushund", "Haushuhn"). Bei Wildtieren bleibt "rasse" leer.
+Setze "gefaehrdet" auf true, wenn die Art auf der Roten Liste Deutschlands oder weltweit (IUCN) mindestens als
+"gefährdet" eingestuft ist. Bei Haus- und Nutztieren, häufigen Arten oder wenn du unsicher bist: false.`;
 
 // Kurzer Steckbrief direkt nach dem Foto
 const SCHEMA = {
@@ -72,12 +74,13 @@ const SCHEMA = {
   additionalProperties: false,
   required: [
     'tier_gefunden', 'name', 'rasse', 'wissenschaftlicher_name', 'gruppe', 'sicherheit', 'kurzbeschreibung',
-    'wusstest_du', 'hinweis',
+    'wusstest_du', 'hinweis', 'gefaehrdet',
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
     name: TEXT,
     rasse: TEXT,
+    gefaehrdet: { type: 'boolean' },
     wissenschaftlicher_name: TEXT,
     gruppe: GRUPPE,
     sicherheit: { type: 'string', enum: ['sicher', 'wahrscheinlich', 'unsicher'] },
