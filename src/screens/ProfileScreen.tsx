@@ -1,5 +1,5 @@
 import * as Linking from 'expo-linking';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Alert,
   Pressable,
@@ -49,6 +49,8 @@ export function ProfileScreen(props: Props) {
   const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
+  const scrollRef = useRef<ScrollView>(null);
+  const pickerY = useRef(0); // Position der Profilbild-Auswahl
   const saveName = () => {
     const n = newName.trim();
     setEditing(false);
@@ -88,18 +90,30 @@ export function ProfileScreen(props: Props) {
     );
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
+    <ScrollView ref={scrollRef} style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
       <View style={[styles.hx, { paddingTop: insets.top + 10 }]}>
         <HeaderBackground />
         <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" style={styles.back}>
           <Text style={styles.backText}>{t('pro.back')}</Text>
         </Pressable>
         <View style={styles.pr}>
-          <Avatar id={avatar} name={name} size={84} />
-          <View style={{ flex: 1 }}>
+          {/* großes Profilbild; Antippen springt zur Auswahl */}
+          <Pressable
+            onPress={() => scrollRef.current?.scrollTo({ y: Math.max(0, pickerY.current - 12), animated: true })}
+            accessibilityRole="button"
+            accessibilityLabel={t('pro.avatar')}
+          >
+            <Avatar id={avatar} name={name} size={124} />
+            <View style={styles.avatarEdit}>
+              <Svg width={16} height={16} viewBox="0 0 24 24">
+                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.ink} strokeWidth={2.4} strokeLinejoin="round" />
+              </Svg>
+            </View>
+          </Pressable>
+          <View style={styles.prText}>
             {/* Name: Stift antippen zum Ändern */}
             {editing ? (
-              <View style={styles.nameRow}>
+              <View style={[styles.nameRow, styles.nameEdit]}>
                 <TextInput
                   value={newName}
                   onChangeText={setNewName}
@@ -174,42 +188,8 @@ export function ProfileScreen(props: Props) {
         </View>
       </Card>
 
-      {/* Findimal Plus: was dazugehört */}
-      <View style={[styles.card, styles.plusCard]}>
-        <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
-        <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
-        {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
-          <View key={k} style={styles.plusRow}>
-            <Text style={styles.plusCheck}>✓</Text>
-            <Text style={styles.plusText}>{t(k)}</Text>
-          </View>
-        ))}
-        {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
-        <View style={styles.plusPreview}>
-          {PLUS_AVATARS.slice(0, 5).map((a) => (
-            <Avatar key={a.id} id={a.id} name={name} size={44} />
-          ))}
-        </View>
-        {plus ? (
-          <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
-            <Text style={styles.plusEndText}>{t('plus.end')}</Text>
-          </Pressable>
-        ) : (
-          <>
-            <Pressable
-              onPress={() => askForPlus(t, setPlus)}
-              style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
-              accessibilityRole="button"
-            >
-              <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
-            </Pressable>
-            <Text style={styles.plusPrice}>{t('plus.price')}</Text>
-          </>
-        )}
-      </View>
-
       {/* Profilbild */}
-      <Card p={p}>
+      <Card p={p} onLayout={(y) => (pickerY.current = y)}>
         <Text style={[styles.h3, { color: p.ink }]}>{t('pro.avatar')}</Text>
         <Text style={[styles.sub, { color: p.mute }]}>
           {earned.length ? t('pro.avatarHint') : t('pro.avatarNone')}
@@ -247,6 +227,40 @@ export function ProfileScreen(props: Props) {
           ))}
         </ScrollView>
       </Card>
+
+      {/* Findimal Plus: was dazugehört */}
+      <View style={[styles.card, styles.plusCard]}>
+        <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
+        <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
+        {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
+          <View key={k} style={styles.plusRow}>
+            <Text style={styles.plusCheck}>✓</Text>
+            <Text style={styles.plusText}>{t(k)}</Text>
+          </View>
+        ))}
+        {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
+        <View style={styles.plusPreview}>
+          {PLUS_AVATARS.slice(0, 5).map((a) => (
+            <Avatar key={a.id} id={a.id} name={name} size={44} />
+          ))}
+        </View>
+        {plus ? (
+          <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
+            <Text style={styles.plusEndText}>{t('plus.end')}</Text>
+          </Pressable>
+        ) : (
+          <>
+            <Pressable
+              onPress={() => askForPlus(t, setPlus)}
+              style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
+              accessibilityRole="button"
+            >
+              <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
+            </Pressable>
+            <Text style={styles.plusPrice}>{t('plus.price')}</Text>
+          </>
+        )}
+      </View>
 
       {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
       <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
@@ -304,8 +318,15 @@ export function ProfileScreen(props: Props) {
   );
 }
 
-function Card({ p, style, children }: { p: Palette; style?: object; children: React.ReactNode }) {
-  return <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }, style]}>{children}</View>;
+function Card({ p, style, children, onLayout }: { p: Palette; style?: object; children: React.ReactNode; onLayout?: (y: number) => void }) {
+  return (
+    <View
+      style={[styles.card, { backgroundColor: p.card, borderColor: p.line }, style]}
+      onLayout={onLayout && ((e) => onLayout(e.nativeEvent.layout.y))}
+    >
+      {children}
+    </View>
+  );
 }
 
 function Stat({ p, value, label }: { p: Palette; value: number; label: string }) {
@@ -327,7 +348,21 @@ const styles = StyleSheet.create({
   },
   back: { alignSelf: 'flex-start', paddingVertical: 6, marginBottom: 10 },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.accentLight },
-  pr: { flexDirection: 'row', alignItems: 'center', gap: 14 },
+  pr: { alignItems: 'center', gap: 12 },
+  prText: { alignSelf: 'stretch', alignItems: 'center' },
+  avatarEdit: {
+    position: 'absolute',
+    right: 2,
+    bottom: 2,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    backgroundColor: colors.accent,
+    borderWidth: 3,
+    borderColor: '#123826',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   letter: {
     width: 80,
     height: 80,
@@ -340,21 +375,23 @@ const styles = StyleSheet.create({
   },
   letterText: { fontFamily: fonts.serifBold, fontSize: 34, color: colors.ink },
   name: { flexShrink: 1, fontFamily: fonts.serifBold, fontSize: 26, color: colors.white },
-  nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  nameRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, maxWidth: '100%' },
   place: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
-    alignSelf: 'flex-start',
-    marginTop: 6,
+    alignSelf: 'center',
+    marginTop: 8,
     paddingVertical: 4,
     paddingHorizontal: 10,
     borderRadius: 99,
     backgroundColor: 'rgba(255,255,255,0.10)',
   },
   placeText: { flexShrink: 1, fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
+  nameEdit: { alignSelf: 'stretch', paddingLeft: 42 },
   nameInput: {
     flex: 1,
+    textAlign: 'center',
     minWidth: 0,
     fontFamily: fonts.serifBold,
     fontSize: 22,
