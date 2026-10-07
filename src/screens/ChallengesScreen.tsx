@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AdSlot } from '../components/AdSlot';
 import { Explorer } from '../components/Explorer';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Leaderboard } from '../components/Leaderboard';
@@ -95,6 +96,9 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         onInviteDone={onInviteDone}
         p={p}
       />
+
+      {/* Anzeigen-Platz zwischen Rangliste und Quiz */}
+      <AdSlot p={p} placement='challenges' />
 
       {/* Frage des Forschers: eine nach der anderen */}
       <View style={styles.blk}>
