@@ -218,7 +218,7 @@ export function ProfileScreen(props: Props) {
         ).map(([page, label]) => (
           <Pressable
             key={page}
-            onPress={() => Linking.openURL(`${SERVER_URL.replace(/\/$/, '')}/${page}${lang === 'de' ? '' : '?l=en'}`)}
+            onPress={() => Linking.openURL(`${SERVER_URL.replace(/\/$/, '')}/${page}${lang === 'de' ? '' : `?l=${lang}`}`)}
             accessibilityRole="link"
             style={styles.privacy}
           >
