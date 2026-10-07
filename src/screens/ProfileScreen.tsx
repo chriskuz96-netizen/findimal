@@ -1,3 +1,4 @@
+import * as Linking from 'expo-linking';
 import { useState } from 'react';
 import {
   Alert,
@@ -16,6 +17,7 @@ import { Avatar } from '../components/Avatar';
 import { Medal } from '../components/Medal';
 import { Find, speciesKey } from '../finds';
 import { LanguageChips } from '../components/LanguageButton';
+import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
 import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { Progress } from '../progress';
@@ -39,7 +41,7 @@ export function ProfileScreen(props: Props) {
   const { name, region, avatar, progress, finds, onBack, onRename, onChangeRegion, onSelectAvatar, onReset } = props;
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
   const earned = progress.badges.filter((b) => b.earned);
@@ -205,6 +207,15 @@ export function ProfileScreen(props: Props) {
       <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
         <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
       </Pressable>
+
+      {/* Datenschutz und Impressum (Webseite des Findimal-Servers) */}
+      <Pressable
+        onPress={() => Linking.openURL(`${SERVER_URL.replace(/\/$/, '')}/datenschutz${lang === 'de' ? '' : '?l=en'}`)}
+        accessibilityRole="link"
+        style={styles.privacy}
+      >
+        <Text style={[styles.privacyText, { color: p.mute }]}>{t('pro.privacy')}</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -313,4 +324,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   resetText: { fontFamily: fonts.sansBold, fontSize: 16 },
+  privacy: { alignSelf: 'center', marginTop: 14, padding: 6 },
+  privacyText: { fontFamily: fonts.sans, fontSize: 13.5, textDecorationLine: 'underline' },
 });

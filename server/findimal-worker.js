@@ -249,6 +249,95 @@ ${ok ? `<a class="b" href="${esc(app)}">${esc(tx[2])}</a>` : ''}
   return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 
+// ---------- Datenschutz und Impressum ----------
+// Erreichbar unter /datenschutz (Deutsch) und /datenschutz?l=en (Englisch).
+// Hier die eigenen Angaben eintragen (werden auf der Seite öffentlich angezeigt):
+const OPERATOR = {
+  name: '[Vor- und Nachname]',
+  address: '[Straße und Hausnummer], [PLZ Ort], Deutschland',
+  email: '[E-Mail-Adresse]',
+};
+const PRIVACY_DATE = { de: 'Stand: Oktober 2026', en: 'Last updated: October 2026' };
+
+const PRIVACY = {
+  de: {
+    title: 'Datenschutz und Impressum',
+    other: ['English version', '?l=en'],
+    sections: [
+      ['Kurz gesagt', `<ul>
+<li>Für Findimal brauchst du kein Konto, keine E-Mail-Adresse und keinen echten Namen.</li>
+<li>Deine Funde, Fotos und Fundorte bleiben auf deinem Handy.</li>
+<li>Nur das Foto, das du bestimmen lässt, geht kurz an unseren Server und an den KI-Dienst Anthropic. Wir speichern es dort nicht.</li>
+<li>Die Rangliste ist freiwillig. Dort stehen nur Spitzname, Punkte und Profilbild – keine Fotos und keine Orte.</li>
+</ul>`],
+      ['Verantwortlich', `<p>{OPERATOR}</p>`],
+      ['Fotos zur Tierbestimmung', `<p>Wenn du ein Foto bestimmen lässt, schickt die App eine verkleinerte Kopie des Fotos – ohne Ortsangaben – an den Findimal-Server. Er leitet das Foto an die KI von Anthropic PBC (USA) weiter und schickt das Ergebnis zurück. Der Findimal-Server speichert das Foto nicht. Anthropic verarbeitet die Daten nach seinen Geschäftsbedingungen für Unternehmenskunden: Sie werden nicht zum Training der KI verwendet und nur für begrenzte Zeit gespeichert, z. B. zur Erkennung von Missbrauch. Die Übermittlung in die USA erfolgt auf Grundlage geeigneter Garantien (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).</p>
+<p>Zweck: die Bestimmung, die du anforderst. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzung der App-Funktion).</p>
+<p>Bitte fotografiere keine Menschen, Gesichter oder Autokennzeichen.</p>`],
+      ['Was auf deinem Handy bleibt', `<p>Deine Sammlung (Fotos, Tiernamen, Datum, Fundort), dein Name, deine Quiz-Antworten, Einstellungen und Abzeichen werden nur auf deinem Handy gespeichert. Mit „Alles zurücksetzen“ im Profil oder durch Löschen der App sind sie weg.</p>
+<p><b>Standort:</b> Nur wenn du es erlaubst, merkt sich die App beim Fotografieren den Fundort, auf etwa 100 Meter gerundet. Bei Fotos aus der Mediathek wird der Aufnahmeort aus dem Foto übernommen, falls vorhanden. Der Fundort bleibt auf dem Handy.</p>
+<p><b>Region:</b> Wenn du deine Region per Standort bestimmen lässt, ermittelt das iPhone den Ortsnamen über den Ortsdienst von Apple. Gespeichert wird nur der Ortsname, auf deinem Handy.</p>
+<p><b>Karte:</b> Die Karte deiner Funde lädt Kartenbilder von OpenStreetMap (OpenStreetMap Foundation, Großbritannien). Dabei werden deine IP-Adresse und der angezeigte Kartenausschnitt übertragen, nicht aber deine Funde. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>`],
+      ['„Jetzt in deiner Nähe“', `<p>Für die Tipps auf der Startseite schickt die App die Region, die du selbst eingetragen hast (z. B. „München“), die Tageszeit und die Sprache an den Server. Das Ergebnis wird bis zu 26 Stunden zwischengespeichert und für alle Nutzer derselben Region verwendet. Ein Bezug zu dir wird nicht gespeichert.</p>`],
+      ['Tageslimit für Gratis-Fotos', `<p>Damit Gratis-Fotos begrenzt werden können, erzeugt die App eine zufällige Kennung für dein Handy. Der Server zählt damit, wie viele Fotos am Tag bestimmt wurden. Ohne Kennung wird ersatzweise die IP-Adresse verwendet. Die Zähler werden nach 48 Stunden automatisch gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Schutz vor Missbrauch und unbegrenzten Kosten).</p>`],
+      ['Rangliste (freiwillig)', `<p>Wenn du bei der Rangliste mitmachst, speichert der Server deinen Spitznamen, deine Punkte (XP), Stufe, Zahl der Arten, dein Profilbild, deinen Freundescode und mit wem du befreundet bist. Freunde sehen diese Angaben; die 50 Entdecker mit den meisten Punkten erscheinen in der weltweiten Rangliste. Mit „Rangliste verlassen“ wird dein Eintrag gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (deine Einwilligung durch das Mitmachen).</p>`],
+      ['Server bei Cloudflare', `<p>Der Findimal-Server läuft bei Cloudflare, Inc. (USA) als Auftragsverarbeiter. Dabei wird technisch bedingt deine IP-Adresse verarbeitet. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert.</p>`],
+      ['Werbung', `<p>In der kostenlosen Version zeigt Findimal einige kleine, als „Anzeige“ gekennzeichnete Werbeplätze. In der Testversion sind das nur Platzhalter. In der fertigen App kommen die Anzeigen von Google AdMob (Google Ireland Ltd.) und sind <b>nicht personalisiert</b> und familiengeeignet eingestellt. Google verarbeitet dabei technische Daten wie IP-Adresse und Gerätetyp, um die Anzeige auszuliefern und Betrug zu verhindern. Mit Findimal Plus gibt es keine Werbung. Diese Erklärung wird ergänzt, sobald die Werbung eingebaut ist.</p>`],
+      ['Käufe (Findimal Plus)', `<p>Das Abo wird über Apple abgeschlossen und bezahlt. Wir erhalten keine Zahlungsdaten, sondern nur die Bestätigung, dass ein Abo besteht.</p>`],
+      ['Kinder', `<p>Findimal ist für Familien gedacht. Die App verlangt keine persönlichen Angaben; als Spitzname reicht ein Fantasiename. Wir empfehlen, dass Eltern Kinder unter 16 Jahren bei der Nutzung der Rangliste begleiten.</p>`],
+      ['Deine Rechte', `<p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung, auf Datenübertragbarkeit, auf Widerspruch und auf Widerruf einer Einwilligung. Schreib uns dazu an die oben genannte E-Mail-Adresse. Du kannst dich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren, z. B. beim Bayerischen Landesamt für Datenschutzaufsicht.</p>
+<p>Weil fast alles nur auf deinem Handy liegt, kannst du die meisten Daten selbst löschen: „Alles zurücksetzen“ im Profil, „Rangliste verlassen“ in den Challenges oder die App löschen.</p>`],
+      ['Impressum', `<p>Angaben gemäß § 5 DDG:<br>{OPERATOR}</p>`],
+    ],
+  },
+  en: {
+    title: 'Privacy policy and legal notice',
+    other: ['Deutsche Version', '?l=de'],
+    sections: [
+      ['In short', `<ul>
+<li>Findimal needs no account, no email address and no real name.</li>
+<li>Your finds, photos and locations stay on your phone.</li>
+<li>Only the photo you want identified is sent briefly to our server and to the AI service Anthropic. We do not store it there.</li>
+<li>The leaderboard is optional. It only shows nickname, points and profile picture – no photos and no locations.</li>
+</ul>`],
+      ['Controller', `<p>{OPERATOR}</p>`],
+      ['Photos for identification', `<p>When you identify a photo, the app sends a reduced copy – without location data – to the Findimal server. It forwards the photo to the AI of Anthropic PBC (USA) and returns the result. The Findimal server does not store the photo. Anthropic processes the data under its commercial terms: it is not used to train the AI and is kept only for a limited time, e.g. to detect abuse. Transfers to the USA are based on appropriate safeguards (EU standard contractual clauses or the EU-US Data Privacy Framework).</p>
+<p>Purpose: the identification you request. Legal basis: Art. 6(1)(b) GDPR (use of the app feature).</p>
+<p>Please do not photograph people, faces or licence plates.</p>`],
+      ['What stays on your phone', `<p>Your collection (photos, animal names, date, place), your name, quiz answers, settings and badges are stored only on your phone. “Reset everything” in your profile or deleting the app removes them.</p>
+<p><b>Location:</b> Only if you allow it, the app remembers where you took a photo, rounded to about 100 metres. For photos from your library, the location stored in the photo is used if available. The location stays on your phone.</p>
+<p><b>Region:</b> If you let the app detect your region, the iPhone looks up the place name using Apple's location service. Only the place name is stored, on your phone.</p>
+<p><b>Map:</b> The map of your finds loads map images from OpenStreetMap (OpenStreetMap Foundation, UK). Your IP address and the visible map area are transmitted, but not your finds. Legal basis: Art. 6(1)(b) GDPR.</p>`],
+      ['“Near you now”', `<p>For the tips on the home screen, the app sends the region you entered yourself (e.g. “Munich”), the time of day and the language to the server. The result is cached for up to 26 hours and shared by all users of that region. Nothing linking it to you is stored.</p>`],
+      ['Daily limit for free photos', `<p>To limit free photos, the app creates a random identifier for your phone. The server uses it to count how many photos were identified per day; without it, the IP address is used instead. The counters are deleted automatically after 48 hours. Legal basis: Art. 6(1)(f) GDPR (protection against abuse and unlimited costs).</p>`],
+      ['Leaderboard (optional)', `<p>If you join the leaderboard, the server stores your nickname, points (XP), level, number of species, profile picture, friend code and who your friends are. Friends can see this; the top 50 explorers appear on the worldwide leaderboard. “Leave leaderboard” deletes your entry. Legal basis: Art. 6(1)(a) GDPR (your consent by joining).</p>`],
+      ['Server at Cloudflare', `<p>The Findimal server runs at Cloudflare, Inc. (USA) as a processor. Your IP address is processed for technical reasons. Cloudflare is certified under the EU-US Data Privacy Framework.</p>`],
+      ['Advertising', `<p>The free version shows a few small spaces marked “Ad”. In the test version these are placeholders only. In the finished app, ads come from Google AdMob (Google Ireland Ltd.) and are set to <b>non-personalised</b> and family-friendly. Google processes technical data such as IP address and device type to deliver ads and prevent fraud. Findimal Plus has no ads. This policy will be updated once ads are added.</p>`],
+      ['Purchases (Findimal Plus)', `<p>The subscription is purchased and paid through Apple. We receive no payment data, only confirmation that a subscription exists.</p>`],
+      ['Children', `<p>Findimal is made for families. The app asks for no personal data; a made-up nickname is enough. We recommend that parents accompany children under 16 when using the leaderboard.</p>`],
+      ['Your rights', `<p>You have the right of access, rectification, erasure, restriction of processing, data portability, objection and withdrawal of consent. Write to the email address above. You may also lodge a complaint with a data protection supervisory authority.</p>
+<p>As almost everything is stored only on your phone, you can delete most data yourself: “Reset everything” in your profile, “Leave leaderboard” in Challenges, or delete the app.</p>`],
+      ['Legal notice', `<p>{OPERATOR}</p>`],
+    ],
+  },
+};
+
+function privacyPage(url) {
+  const lang = url.searchParams.get('l') === 'en' ? 'en' : 'de';
+  const p = PRIVACY[lang];
+  const op = `${esc(OPERATOR.name)}<br>${esc(OPERATOR.address)}<br>E-Mail: ${esc(OPERATOR.email)}`;
+  const body = p.sections.map(([h, html]) => `<h2>${esc(h)}</h2>${html.split('{OPERATOR}').join(op)}`).join('\n');
+  const html = `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Findimal – ${esc(p.title)}</title><style>
+body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#F6F4EE;color:#13261C;line-height:1.55}
+header{background:#143F2A;color:#fff;padding:32px 20px 28px}header h1{margin:0;font-size:24px}header a{color:#FFD2A8;font-size:14px}
+main{max-width:720px;margin:0 auto;padding:8px 20px 40px}h2{font-size:18px;margin:28px 0 6px;color:#1F6E47}
+ul{padding-left:20px}li{margin:4px 0}small{color:#5B6B60}</style></head><body>
+<header><h1>🦊 Findimal – ${esc(p.title)}</h1><a href="${p.other[1]}">${esc(p.other[0])}</a></header>
+<main>${body}<p><small>${esc(PRIVACY_DATE[lang])}</small></p></main></body></html>`;
+  return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+}
+
 // ---------- Hilfsfunktionen ----------
 
 const CORS = {
@@ -331,6 +420,7 @@ export default {
     if (request.method === 'GET') {
       const url = new URL(request.url);
       if (url.pathname === '/einladung') return invitePage(url);
+      if (url.pathname === '/datenschutz' || url.pathname === '/impressum') return privacyPage(url);
     }
     if (request.method !== 'POST') return json({ fehler: 'Findimal-Server läuft.' });
 
