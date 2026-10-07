@@ -78,15 +78,11 @@ export function StartScreen({
           onPress={onOpenProfile}
           accessibilityRole="button"
           accessibilityLabel={t('a11y.profile')}
-          style={[avatar ? styles.avatarMedal : styles.avatar, { top: insets.top + (avatar ? 6 : 12) }]}
+          style={[styles.avatarMedal, { top: insets.top + 4 }]}
         >
-          {avatar ? (
-            <Avatar id={avatar} name={name ?? ''} size={54} />
-          ) : (
-            <Text style={styles.avatarText}>{name ? name[0].toUpperCase() : '?'}</Text>
-          )}
+          <Avatar id={avatar} name={name ?? '?'} size={AVATAR} />
         </Pressable>
-        <Text style={[styles.avatarXp, { top: insets.top + 60 }]}>{xp} XP</Text>
+        <Text style={[styles.avatarXp, { top: insets.top + AVATAR + 4 }]}>{xp} XP</Text>
 
         {/* Schriftzug klein oben in der Mitte, mit dem Fuchs-Symbol */}
         <View style={[styles.brand, { top: insets.top + 18 }]} pointerEvents="none">
@@ -117,6 +113,9 @@ export function StartScreen({
   );
 }
 
+// Größe des Profilbilds oben links
+const AVATAR = 74;
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -131,19 +130,6 @@ const styles = StyleSheet.create({
   animal: {
     position: 'absolute',
   },
-  avatar: {
-    position: 'absolute',
-    left: 14,
-    zIndex: 2,
-    width: 42,
-    height: 42,
-    borderRadius: 21,
-    borderWidth: 2,
-    borderColor: colors.accentLight,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   avatarMedal: {
     position: 'absolute',
     left: 8,
@@ -151,8 +137,8 @@ const styles = StyleSheet.create({
   },
   avatarXp: {
     position: 'absolute',
-    left: 7,
-    width: 56,
+    left: 8 + (AVATAR - 60) / 2,
+    width: 60,
     zIndex: 2,
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0.35)',
@@ -162,11 +148,6 @@ const styles = StyleSheet.create({
     borderRadius: 99,
     overflow: 'hidden',
     paddingVertical: 2,
-  },
-  avatarText: {
-    fontFamily: fonts.serifBold,
-    fontSize: 19,
-    color: colors.ink,
   },
   center: {
     flex: 1,
