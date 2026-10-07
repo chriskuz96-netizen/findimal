@@ -3,6 +3,7 @@ import { Alert } from 'react-native';
 
 import { Photo } from './camera';
 import { SERVER_URL } from './config';
+import { FREE_PHOTOS_PER_DAY, getDeviceId, setUsedToday, usedToday } from './usage';
 import { Lang, Translate } from './i18n';
 
 // Steckbrief, wie ihn der Server zurückgibt (Felder siehe server/findimal-worker.js).
@@ -28,7 +29,9 @@ export type Animal = {
   hinweis: string;
 };
 
-export type IdentifyResult = { ok: true; animal: Animal } | { ok: false; message: string };
+export type IdentifyResult =
+  | { ok: true; animal: Animal }
+  | { ok: false; message: string; limit?: boolean }; // limit: Gratis-Fotos für heute aufgebraucht
 
 const KEY_STORAGE = 'findimal-app-key';
 
@@ -66,11 +69,16 @@ function askForAppKey(t: Translate): Promise<string | null> {
   });
 }
 
+// extra = weiteres Foto zu einem Tier, das gerade bestimmt wird (zählt nicht als neues Gratis-Foto)
 async function send(photos: Photo[], appKey: string, lang: Lang): Promise<Response> {
   return fetch(SERVER_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': appKey },
-    body: JSON.stringify({ images: photos.map((p) => p.base64), lang }),
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Findimal-Key': appKey,
+      'X-Findimal-Device': await getDeviceId(),
+    },
+    body: JSON.stringify({ images: photos.map((p) => p.base64), lang, extra: photos.length > 1 }),
   });
 }
 
@@ -86,10 +94,17 @@ export async function identify(photos: Photo[], t: Translate, lang: Lang): Promi
       res = await send(photos, key, lang);
       if (res.status === 401) return { ok: false, message: t('id.wrongCode') };
     }
+    if (res.status === 429) {
+      await setUsedToday(FREE_PHOTOS_PER_DAY);
+      return { ok: false, message: t('lim.text', { n: FREE_PHOTOS_PER_DAY }), limit: true };
+    }
     if (res.status === 400) return { ok: false, message: t('id.badPhoto') };
     if (res.status === 422) return { ok: false, message: t('id.refused') };
     if (res.status >= 500) return { ok: false, message: t('id.unavailable') };
     if (!res.ok) return { ok: false, message: t('id.error') };
+    // Gratis-Fotos mitzählen (der Server meldet, wie viele heute schon genutzt sind)
+    const used = Number(res.headers.get('X-Findimal-Used'));
+    if (photos.length === 1) await setUsedToday(Number.isFinite(used) && used > 0 ? used : (await usedToday()) + 1);
     return { ok: true, animal: (await res.json()) as Animal };
   } catch {
     return { ok: false, message: t('id.offline') };

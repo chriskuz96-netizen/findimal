@@ -23,6 +23,11 @@
 
 const MODEL = 'claude-sonnet-5-5';
 
+// Gratis-Fotos pro Handy und Tag (zählt nur, wenn der Speicher DB verbunden ist).
+// Weitere Fotos zum selben Tier ("extra") haben ein eigenes, großzügigeres Limit.
+const DAILY_PHOTOS = 3;
+const DAILY_EXTRA = 6;
+
 const TEXT = { type: 'string' };
 const GRUPPE = {
   type: 'string',
@@ -237,7 +242,8 @@ ${ok ? `<a class="b" href="${esc(app)}">${esc(tx[2])}</a>` : ''}
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, X-Findimal-Key',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Findimal-Key, X-Findimal-Device',
+  'Access-Control-Expose-Headers': 'X-Findimal-Used',
 };
 
 function json(body, status = 200) {
@@ -331,9 +337,26 @@ export default {
       images.length > 1
         ? 'Diese Fotos zeigen dasselbe Tier aus verschiedenen Blickwinkeln. Welches Tier ist es?'
         : 'Welches Tier ist auf diesem Foto?';
-    return askClaude(env, SYSTEM + languageRule(body.lang), SCHEMA, [
+    // Tageslimit: pro Handy (Kennung aus der App, sonst die IP-Adresse) und Tag
+    const extra = body.extra === true;
+    let counter = null;
+    if (env.DB) {
+      const device = String(request.headers.get('X-Findimal-Device') || '');
+      const who = /^[a-z0-9]{16,64}$/.test(device) ? device : 'ip-' + (request.headers.get('CF-Connecting-IP') || '?');
+      const key = `u:${new Date().toISOString().slice(0, 10)}:${who}:${extra ? 'x' : 'n'}`;
+      const used = Number(await env.DB.get(key)) || 0;
+      if (used >= (extra ? DAILY_EXTRA : DAILY_PHOTOS)) return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
+      counter = { key, used };
+    }
+    const res = await askClaude(env, SYSTEM + languageRule(body.lang), SCHEMA, [
       ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
       { type: 'text', text: question },
     ]);
+    // nur erfolgreiche Bestimmungen zählen
+    if (counter && res.ok) {
+      await env.DB.put(counter.key, String(counter.used + 1), { expirationTtl: 60 * 60 * 48 });
+      if (!extra) res.headers.set('X-Findimal-Used', String(counter.used + 1));
+    }
+    return res;
   },
 };

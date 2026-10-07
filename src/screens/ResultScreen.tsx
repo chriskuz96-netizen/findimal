@@ -16,6 +16,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Photo } from '../camera';
 import { Explorer } from '../components/Explorer';
+import { LimitCard } from '../components/LimitCard';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
 import { Animal, identify, IdentifyResult } from '../identify';
@@ -96,6 +97,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
   };
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
+  const limited = !!result && !result.ok && !!result.limit; // Gratis-Fotos für heute aufgebraucht
   const mainUri = photo ? photo.uri : savedPhoto;
   const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
   const canAddPhoto = !!morePhoto && !!animal && photos.length < MAX_PHOTOS;
@@ -147,9 +149,10 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
       </View>
 
       {/* Name und kurze Beschreibung */}
+      {!limited && (
       <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
         {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
-        {result && !result.ok && (
+        {result && !result.ok && !result.limit && (
           <>
             <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
             <Text style={[styles.body, { color: p.mute }]}>{result.message}</Text>
@@ -184,8 +187,12 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
           </Text>
         )}
       </View>
+      )}
 
-      {result && !result.ok && <Button label={t('res.retry')} onPress={() => run(photos)} p={p} filled />}
+      {result && !result.ok && !result.limit && <Button label={t('res.retry')} onPress={() => run(photos)} p={p} filled />}
+
+      {/* Gratis-Fotos für heute aufgebraucht */}
+      {limited && <LimitCard p={p} style={{ marginTop: -34 }} />}
 
       {/* Kein Tier erkannt: gleich ein neues Foto machen */}
       {noAnimal && (

@@ -11,6 +11,8 @@ import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
 import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
+import { showLimit } from './src/components/LimitCard';
+import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updateNote } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { BadgeId, computeProgress, computeReward, dayKey } from './src/progress';
@@ -53,6 +55,18 @@ function Main() {
   const [tab, setTab] = useState<Tab>('start');
   // Neues Foto (wird bestimmt) oder geöffneter Fund aus der Sammlung
   const [photo, setPhoto] = useState<Photo | null>(null);
+  // Gratis-Fotos, die heute noch übrig sind (der Server zählt verbindlich)
+  const [freeLeft, setFreeLeft] = useState(FREE_PHOTOS_PER_DAY);
+  const refreshFreeLeft = () => usedToday().then((u) => setFreeLeft(Math.max(0, FREE_PHOTOS_PER_DAY - u)));
+  useEffect(() => {
+    refreshFreeLeft();
+  }, []);
+  // Vor dem Fotografieren prüfen, damit niemand umsonst ein Foto macht
+  const startPhoto = async (get: () => Promise<Photo | null>) => {
+    if ((await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
+    const p = await get();
+    if (p) setPhoto(p);
+  };
   const [openFind, setOpenFind] = useState<Find | null>(null);
   // Aktuelle Liste auch in Rückrufen, die später fertig werden
   const findsRef = useRef<Find[]>([]);
@@ -196,7 +210,10 @@ function Main() {
             return { id: id!, reward: computeReward(before, after, isNew) };
           }}
           morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
-          onBack={() => setPhoto(null)}
+          onBack={() => {
+            setPhoto(null);
+            refreshFreeLeft();
+          }}
         />
       </>
     );
@@ -226,8 +243,9 @@ function Main() {
             onOpenProfile={() => setShowProfile(true)}
             xp={progress.xp}
             avatar={avatarBadge as BadgeId | null}
-            onTakePhoto={() => takePhoto(t).then((p) => p && setPhoto(p))}
-            onPickPhoto={() => pickPhoto().then((p) => p && setPhoto(p))}
+            freeLeft={freeLeft}
+            onTakePhoto={() => startPhoto(() => takePhoto(t))}
+            onPickPhoto={() => startPhoto(pickPhoto)}
           />
         )}
         {tab === 'collection' && (

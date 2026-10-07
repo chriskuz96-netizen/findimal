@@ -23,6 +23,7 @@ type Props = {
   onOpenProfile: () => void;
   xp: number;
   avatar: BadgeId | null; // Abzeichen als Profilbild
+  freeLeft: number; // Gratis-Fotos, die heute noch übrig sind
   onTakePhoto: () => void;
   onPickPhoto: () => void;
 };
@@ -33,6 +34,7 @@ export function StartScreen({
   onOpenProfile,
   xp,
   avatar,
+  freeLeft,
   onTakePhoto,
   onPickPhoto,
 }: Props) {
@@ -96,6 +98,9 @@ export function StartScreen({
           <Pressable onPress={onPickPhoto} accessibilityRole="button" hitSlop={10}>
             <Text style={styles.pickLink}>{t('start.pick')}</Text>
           </Pressable>
+          <Text style={styles.freeLeft}>
+            {freeLeft === 0 ? t('start.freeNone') : t(freeLeft === 1 ? 'start.freeOne' : 'start.free', { n: freeLeft })}
+          </Text>
         </View>
 
         <View style={styles.greetingWrap} pointerEvents="none">
@@ -181,6 +186,16 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 10,
+  },
+  freeLeft: {
+    marginTop: -6,
+    fontFamily: fonts.sans,
+    fontSize: 12.5,
+    color: colors.white,
+    opacity: 0.75,
+    textShadowColor: 'rgba(0,0,0,0.45)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 8,
   },
   pickLink: {
     marginTop: 10,
