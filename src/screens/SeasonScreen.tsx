@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Find, useFindPhoto } from '../finds';
@@ -11,9 +9,7 @@ import { Phenomenon, Season, seasonFor } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 const DAY = 86400000;
-const RING = 0.34; // Radius des Kreises im Verhältnis zur Breite
-const NODE = 56; // Größe der runden Symbole
-const NODE_W = 104; // Breite inkl. Titel
+const GAP = 8;
 
 // Beginn und Ende der aktuellen Jahreszeit (Winter geht über den Jahreswechsel)
 function seasonRange(now: Date): { start: Date; end: Date } {
@@ -65,9 +61,8 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
   const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / DAY));
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
-  const [sel, setSel] = useState(0);
-  // Kreis so groß wie möglich, aber nicht riesig
-  const size = Math.min(useWindowDimensions().width - spacing.gutter * 2, 300);
+  // Breite eines Viertels (zwei nebeneinander ergeben den Kreis)
+  const quarter = Math.floor((Math.min(useWindowDimensions().width, 520) - spacing.gutter * 2 - GAP) / 2);
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
@@ -98,49 +93,30 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         )}
       </View>
 
-      {/* Saison-Tiere im Kreis: alle auf einen Blick, angetipptes Tier darunter mit Text */}
+      {/* Saison-Tiere als Kreis aus vier Vierteln – alles auf einen Blick */}
       <View style={styles.blk}>
-        <Text style={[styles.h3, { color: p.ink }]}>{t('sea.now')}</Text>
-        <Text style={[styles.sub, { color: p.mute }]}>{t('sea.nowSub')}</Text>
-        <View style={{ alignItems: 'center', marginTop: 4 }}>
-          <View style={{ width: size, height: size + 26 }}>
-            <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
-              <Circle
-                cx={size / 2}
-                cy={size / 2}
-                r={size * RING}
-                stroke={p.line}
-                strokeWidth={2}
-                strokeDasharray="6 7"
-                fill="none"
-              />
-            </Svg>
-            {/* Mitte: wie viele schon entdeckt */}
-            <View style={[styles.center, { left: size / 2 - 60, top: size / 2 - 22 }]}>
-              <Text style={[styles.centerCount, { color: colors.accent }]}>
-                {matches.filter(Boolean).length} / {matches.length}
-              </Text>
-              <Text style={[styles.small, { color: p.mute }]}>{t('sea.found')}</Text>
-            </View>
-            {season.phenomena.map((ph, i) => {
-              const a = -Math.PI / 2 + (i * Math.PI * 2) / season.phenomena.length;
-              const x = size / 2 + Math.cos(a) * size * RING;
-              const y = size / 2 + Math.sin(a) * size * RING;
-              return (
-                <Node
-                  key={ph.title}
-                  ph={ph}
-                  found={matches[i]}
-                  selected={sel === i}
-                  onPress={() => setSel(i)}
-                  style={{ left: x - NODE_W / 2, top: y - NODE / 2 }}
-                  p={p}
-                />
-              );
-            })}
-          </View>
+        <View style={styles.bh}>
+          <Text style={[styles.h3, { color: p.ink }]}>{t('sea.now')}</Text>
+          <Text style={[styles.count, { color: p.mute }]}>
+            {matches.filter(Boolean).length} / {matches.length} {t('sea.found')}
+          </Text>
         </View>
-        <SeasonRow ph={season.phenomena[sel]} found={matches[sel]} onOpen={onOpen} dark={dark} p={p} />
+        <Text style={[styles.sub, { color: p.mute }]}>{t('sea.nowSub')}</Text>
+        <View style={[styles.circle, { width: quarter * 2 + GAP }]}>
+          {/* Reihenfolge im Uhrzeigersinn: oben links, oben rechts, unten rechts, unten links */}
+          {[0, 1, 3, 2].map((i) => (
+            <Quarter
+              key={season.phenomena[i].title}
+              ph={season.phenomena[i]}
+              found={matches[i]}
+              corner={(['tl', 'tr', 'br', 'bl'] as const)[i]}
+              width={quarter}
+              onOpen={onOpen}
+              dark={dark}
+              p={p}
+            />
+          ))}
+        </View>
       </View>
 
       {/* So hilfst du */}
@@ -163,98 +139,57 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   );
 }
 
-// Ein Tier auf dem Kreis: rundes Symbol (oder eigenes Foto) mit kurzem Titel
-function Node({
+// Ein Viertel des Kreises: Saison-Tier mit Titel, Text und Ort.
+// Die äußere Ecke ist stark abgerundet, zusammen ergeben die vier Viertel einen Kreis.
+function Quarter({
   ph,
   found,
-  selected,
-  onPress,
-  style,
-  p,
-}: {
-  ph: Phenomenon;
-  found: Find | null;
-  selected: boolean;
-  onPress: () => void;
-  style: { left: number; top: number };
-  p: typeof lightPalette;
-}) {
-  const uri = useFindPhoto(found?.id ?? '');
-  return (
-    <Pressable
-      onPress={onPress}
-      accessibilityRole="button"
-      accessibilityState={{ selected }}
-      accessibilityLabel={ph.title}
-      style={[styles.node, style]}
-    >
-      <View
-        style={[
-          styles.nodeDot,
-          { borderColor: selected ? colors.accent : found ? '#6FBF8A' : p.bg },
-          selected && styles.nodeSel,
-        ]}
-      >
-        {found && uri ? (
-          <Image source={{ uri }} style={styles.nodeImg} resizeMode="cover" />
-        ) : (
-          <GroupIcon id={ph.icon} size={24} color={colors.accentLight} />
-        )}
-      </View>
-      {found && (
-        <View style={styles.nodeTick}>
-          <Text style={styles.tickText}>✓</Text>
-        </View>
-      )}
-      <Text style={[styles.nodeTitle, { color: selected ? p.ink : p.mute }]} numberOfLines={2}>
-        {ph.title}
-      </Text>
-    </Pressable>
-  );
-}
-
-// Text zum angetippten Saison-Tier; schon entdeckt = eigenes Foto und Haken
-function SeasonRow({
-  ph,
-  found,
+  corner,
+  width,
   onOpen,
   dark,
   p,
 }: {
   ph: Phenomenon;
   found: Find | null;
+  corner: 'tl' | 'tr' | 'br' | 'bl';
+  width: number;
   onOpen: (f: Find) => void;
   dark: boolean;
   p: typeof lightPalette;
 }) {
-  const { t } = useI18n();
   const uri = useFindPhoto(found?.id ?? '');
+  const R = Math.round(width * 0.45);
+  const round = {
+    tl: { borderTopLeftRadius: R, paddingLeft: 20, paddingTop: 24 },
+    tr: { borderTopRightRadius: R, paddingRight: 20, paddingTop: 24 },
+    br: { borderBottomRightRadius: R, paddingRight: 20, paddingBottom: 24 },
+    bl: { borderBottomLeftRadius: R, paddingLeft: 20, paddingBottom: 24 },
+  }[corner];
   return (
-    <View style={[styles.zi, { marginTop: 6, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line }]}>
-      <Pressable onPress={found ? () => onOpen(found) : undefined} disabled={!found} style={{ alignSelf: 'flex-start' }}>
-        <View style={[styles.zIcon, found && styles.zIconFound]}>
+    <Pressable
+      onPress={found ? () => onOpen(found) : undefined}
+      disabled={!found}
+      style={[
+        styles.quarter,
+        { width, minHeight: width * 1.05, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line },
+        round,
+      ]}
+    >
+      <View style={styles.qHead}>
+        <View style={[styles.qIcon, found && { borderWidth: 2, borderColor: '#6FBF8A' }]}>
           {found && uri ? (
-            <Image source={{ uri }} style={styles.zImg} resizeMode="cover" />
+            <Image source={{ uri }} style={styles.qImg} resizeMode="cover" />
           ) : (
-            <GroupIcon id={ph.icon} size={24} color={colors.accentLight} />
+            <GroupIcon id={ph.icon} size={18} color={colors.accentLight} />
           )}
         </View>
-        {found && (
-          <View style={styles.tick}>
-            <Text style={styles.tickText}>✓</Text>
-          </View>
-        )}
-      </Pressable>
-      <View style={{ flex: 1 }}>
-        <Text style={[styles.ziTitle, { color: p.ink }]}>{ph.title}</Text>
-        <Text style={[styles.sci, { color: p.mute }]}>{ph.sci}</Text>
-        <Text style={[styles.ziText, { color: p.ink }]}>{ph.text}</Text>
-        <View style={styles.tags}>
-          <Text style={[styles.where, { color: dark ? colors.accent : colors.accentDark }]}>{ph.where}</Text>
-          {found && <Text style={styles.foundTag}>✓ {t('sea.found')}</Text>}
-        </View>
+        {found && <Text style={styles.qTick}>✓</Text>}
       </View>
-    </View>
+      <Text style={[styles.qTitle, { color: p.ink }]}>{ph.title}</Text>
+      <Text style={[styles.qText, { color: p.ink }]}>{ph.text}</Text>
+      <Text style={[styles.qWhere, { color: dark ? colors.accent : colors.accentDark }]}>{ph.where}</Text>
+    </Pressable>
   );
 }
 
@@ -303,80 +238,23 @@ const styles = StyleSheet.create({
   h3: { fontFamily: fonts.serifBold, fontSize: 20 },
   count: { fontFamily: fonts.sansBold, fontSize: 14 },
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 4, marginBottom: 4 },
-  sci: { fontFamily: fonts.sans, fontStyle: 'italic', fontSize: 12 },
-  zi: { flexDirection: 'row', gap: 12, padding: 14, borderWidth: 1.5, borderRadius: 20 },
-  center: { position: 'absolute', width: 120, alignItems: 'center' },
-  centerCount: { fontFamily: fonts.serifBold, fontSize: 26, lineHeight: 30 },
-  node: { position: 'absolute', width: NODE_W, alignItems: 'center' },
-  nodeDot: {
-    width: NODE,
-    height: NODE,
-    borderRadius: NODE / 2,
-    backgroundColor: '#123826',
-    borderWidth: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  nodeSel: { transform: [{ scale: 1.08 }] },
-  nodeImg: { position: 'absolute', left: 0, top: 0, width: NODE, height: NODE },
-  nodeTick: {
-    position: 'absolute',
-    top: 0,
-    left: NODE_W / 2 + NODE / 2 - 16,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: '#6FBF8A',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  nodeTitle: { fontFamily: fonts.sansBold, fontSize: 12, lineHeight: 15, textAlign: 'center', marginTop: 4 },
-  zIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+  circle: { flexDirection: 'row', flexWrap: 'wrap', gap: GAP, marginTop: 10, alignSelf: 'center' },
+  quarter: { borderWidth: 1.5, borderRadius: 16, padding: 12 },
+  qHead: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  qIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
     backgroundColor: '#123826',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
   },
-  zIconFound: { borderWidth: 2, borderColor: '#6FBF8A' },
-  zImg: { position: 'absolute', left: 0, top: 0, width: 48, height: 48 },
-  tick: {
-    position: 'absolute',
-    right: -3,
-    bottom: -3,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: '#6FBF8A',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tickText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
-  ziTitle: { fontFamily: fonts.serifBold, fontSize: 17 },
-  ziText: { fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 21, marginTop: 4 },
-  tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 6 },
-  foundTag: {
-    backgroundColor: 'rgba(111,191,138,0.25)',
-    color: '#2E7A4C',
-    fontFamily: fonts.sansBold,
-    fontSize: 12,
-    borderRadius: 99,
-    overflow: 'hidden',
-    paddingVertical: 3,
-    paddingHorizontal: 9,
-  },
-  where: {
-    backgroundColor: 'rgba(232,131,58,0.16)',
-    fontFamily: fonts.sansBold,
-    fontSize: 12,
-    borderRadius: 99,
-    overflow: 'hidden',
-    paddingVertical: 3,
-    paddingHorizontal: 9,
-  },
+  qImg: { position: 'absolute', left: 0, top: 0, width: 32, height: 32 },
+  qTick: { fontFamily: fonts.sansBold, fontSize: 13, color: '#2E7A4C' },
+  qTitle: { fontFamily: fonts.serifBold, fontSize: 15, lineHeight: 18, marginTop: 6 },
+  qText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 3 },
+  qWhere: { fontFamily: fonts.sansBold, fontSize: 11.5, lineHeight: 15, marginTop: 5 },
   help: {
     marginTop: 26,
     marginHorizontal: spacing.gutter,
