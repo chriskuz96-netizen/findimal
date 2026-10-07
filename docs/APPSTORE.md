@@ -38,7 +38,6 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 >
 > SAMMELN UND ENTDECKEN
 > • Deine eigene Sammlung mit allen Funden – nach Tiergruppen sortiert
-> • Fundkarte: Sieh, wo du welches Tier entdeckt hast
 > • „Jetzt in deiner Nähe“: Tiere, die du gerade in deiner Gegend finden kannst
 >
 > SAISON UND TIERSCHUTZ
@@ -51,7 +50,7 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 > • Rangliste mit Freunden – lade sie per Link ein
 >
 > DEINE DATEN BLEIBEN BEI DIR
-> Kein Konto nötig. Deine Sammlung, Fotos und Fundorte bleiben auf deinem iPhone.
+> Kein Konto nötig. Deine Sammlung und deine Fotos bleiben auf deinem iPhone.
 >
 > FINDIMAL PLUS
 > Kostenlos kannst du jeden Tag 3 Tiere bestimmen. Mit Findimal Plus gibt es unbegrenzt Fotos, keine Werbung und 24 exklusive Tier-Profilbilder mit goldenem Rahmen.
@@ -65,7 +64,7 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 **Texte für die Bildschirmfotos** (6 Stück, je ein kurzer Satz oben auf dem Bild):
 1. Foto machen – Tier erkennen
 2. Steckbrief und „Wusstest du?“
-3. Deine Sammlung mit Fundkarte
+3. Deine Sammlung – nach Tiergruppen sortiert
 4. Saison: Was jetzt draußen los ist
 5. Quiz, Challenges und Abzeichen
 6. Mit Freunden um die Wette entdecken
@@ -108,7 +107,6 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 >
 > COLLECT AND EXPLORE
 > • Your own collection of every find, sorted by animal group
-> • Find map: see where you spotted each animal
 > • "Near you now": animals you can find in your area right now
 >
 > SEASONS AND WILDLIFE CARE
@@ -121,7 +119,7 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 > • Leaderboard with friends – invite them with a link
 >
 > YOUR DATA STAYS WITH YOU
-> No account needed. Your collection, photos and locations stay on your iPhone.
+> No account needed. Your collection and your photos stay on your iPhone.
 >
 > FINDIMAL PLUS
 > Identify 3 animals a day for free. Findimal Plus gives you unlimited photos, no ads and 24 exclusive animal profile pictures with a golden frame.
@@ -135,7 +133,7 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 **Screenshot captions:**
 1. Snap a photo – identify the animal
 2. Fact sheet and "Did you know?"
-3. Your collection with a find map
+3. Your collection, sorted by animal group
 4. Seasons: what's happening outside
 5. Quiz, challenges and badges
 6. Explore and compete with friends

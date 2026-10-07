@@ -3,14 +3,12 @@ import { useEffect, useState } from 'react';
 
 import { Photo } from './camera';
 import { Animal } from './identify';
-import { Coords } from './location';
 
 // Ein gespeicherter Fund in der Sammlung.
 export type Find = {
   id: string;
   date: string; // ISO-Datum
   animal: Animal;
-  coords?: Coords | null; // Fundort (nur auf dem Handy gespeichert)
 };
 
 const FINDS_KEY = 'findimal-finds';
@@ -77,7 +75,7 @@ export async function addFind(
   const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
   await storePhoto(id, photo);
-  const find: Find = { id, date: new Date().toISOString(), animal, coords: photo.coords };
+  const find: Find = { id, date: new Date().toISOString(), animal };
   const next = [...finds, find];
   await storeFinds(next);
   return { finds: next, isNew, id };

@@ -1,5 +1,5 @@
 {
   "NSCameraUsageDescription": "Findimal braucht die Kamera, damit du Tiere fotografieren und bestimmen lassen kannst.",
   "NSPhotoLibraryUsageDescription": "Findimal braucht Zugriff auf deine Fotos, damit du ein Tierfoto zum Bestimmen auswählen kannst.",
-  "NSLocationWhenInUseUsageDescription": "Findimal merkt sich auf dem Handy, wo du ein Tier gefunden hast (für deine Fundkarte), und schlägt Tiere aus deiner Gegend vor. Der Ort bleibt auf deinem Handy."
+  "NSLocationWhenInUseUsageDescription": "Damit Findimal dir Tiere aus deiner Gegend vorschlagen kann, wird aus deinem Standort einmal der Ortsname bestimmt. Gespeichert wird nur der Name, auf deinem Handy."
 }

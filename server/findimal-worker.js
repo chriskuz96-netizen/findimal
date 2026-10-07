@@ -317,7 +317,7 @@ const PRIVACY = {
     sections: [
       ['Kurz gesagt', `<ul>
 <li>Für Findimal brauchst du kein Konto, keine E-Mail-Adresse und keinen echten Namen.</li>
-<li>Deine Funde, Fotos und Fundorte bleiben auf deinem Handy.</li>
+<li>Deine Funde und Fotos bleiben auf deinem Handy.</li>
 <li>Nur das Foto, das du bestimmen lässt, geht kurz an unseren Server und an den KI-Dienst Anthropic. Wir speichern es dort nicht.</li>
 <li>Die Rangliste ist freiwillig. Dort stehen nur Spitzname, Punkte und Profilbild – keine Fotos und keine Orte.</li>
 </ul>`],
@@ -325,10 +325,8 @@ const PRIVACY = {
       ['Fotos zur Tierbestimmung', `<p>Wenn du ein Foto bestimmen lässt, schickt die App eine verkleinerte Kopie des Fotos – ohne Ortsangaben – an den Findimal-Server. Er leitet das Foto an die KI von Anthropic PBC (USA) weiter und schickt das Ergebnis zurück. Der Findimal-Server speichert das Foto nicht. Anthropic verarbeitet die Daten nach seinen Geschäftsbedingungen für Unternehmenskunden: Sie werden nicht zum Training der KI verwendet und nur für begrenzte Zeit gespeichert, z. B. zur Erkennung von Missbrauch. Die Übermittlung in die USA erfolgt auf Grundlage geeigneter Garantien (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).</p>
 <p>Zweck: die Bestimmung, die du anforderst. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzung der App-Funktion).</p>
 <p>Bitte fotografiere keine Menschen, Gesichter oder Autokennzeichen.</p>`],
-      ['Was auf deinem Handy bleibt', `<p>Deine Sammlung (Fotos, Tiernamen, Datum, Fundort), dein Name, deine Quiz-Antworten, Einstellungen und Abzeichen werden nur auf deinem Handy gespeichert. Mit „Profil zurücksetzen“ im Profil oder durch Löschen der App sind sie weg.</p>
-<p><b>Standort:</b> Nur wenn du es erlaubst, merkt sich die App beim Fotografieren den Fundort, auf etwa 100 Meter gerundet. Bei Fotos aus der Mediathek wird der Aufnahmeort aus dem Foto übernommen, falls vorhanden. Der Fundort bleibt auf dem Handy.</p>
-<p><b>Region:</b> Wenn du deine Region per Standort bestimmen lässt, ermittelt das iPhone den Ortsnamen über den Ortsdienst von Apple. Gespeichert wird nur der Ortsname, auf deinem Handy.</p>
-<p><b>Karte:</b> Die Karte deiner Funde lädt Kartenbilder von OpenStreetMap (OpenStreetMap Foundation, Großbritannien). Dabei werden deine IP-Adresse und der angezeigte Kartenausschnitt übertragen, nicht aber deine Funde. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>`],
+      ['Was auf deinem Handy bleibt', `<p>Deine Sammlung (Fotos, Tiernamen, Datum), dein Name, deine Quiz-Antworten, Einstellungen und Abzeichen werden nur auf deinem Handy gespeichert. Mit „Profil zurücksetzen“ im Profil oder durch Löschen der App sind sie weg.</p>
+<p><b>Region:</b> Für „Jetzt in deiner Nähe“ gibst du deine Region selbst ein. Wenn du sie per Standort bestimmen lässt, ermittelt das iPhone den Ortsnamen über den Ortsdienst von Apple. Gespeichert wird nur der Ortsname, auf deinem Handy. Fundorte deiner Tiere werden nicht gespeichert.</p>`],
       ['„Jetzt in deiner Nähe“', `<p>Für die Tipps auf der Startseite schickt die App die Region, die du selbst eingetragen hast (z. B. „München“), die Tageszeit und die Sprache an den Server. Das Ergebnis wird bis zu 26 Stunden zwischengespeichert und für alle Nutzer derselben Region verwendet. Ein Bezug zu dir wird nicht gespeichert.</p>`],
       ['Tageslimit für Gratis-Fotos', `<p>Damit Gratis-Fotos begrenzt werden können, erzeugt die App eine zufällige Kennung für dein Handy. Der Server zählt damit, wie viele Fotos am Tag bestimmt wurden. Ohne Kennung wird ersatzweise die IP-Adresse verwendet. Die Zähler werden nach 48 Stunden automatisch gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Schutz vor Missbrauch und unbegrenzten Kosten).</p>`],
       ['Rangliste (freiwillig)', `<p>Wenn du bei der Rangliste mitmachst, speichert der Server deinen Spitznamen, deine Punkte (XP), Stufe, Zahl der Arten, dein Profilbild, deinen Freundescode und mit wem du befreundet bist. Freunde sehen diese Angaben; die 50 Entdecker mit den meisten Punkten erscheinen in der weltweiten Rangliste. Spitznamen mit Schimpfwörtern, Links oder Telefonnummern werden automatisch durch „Entdecker“ ersetzt. Meldest du einen Eintrag, speichern wir deinen Freundescode beim gemeldeten Eintrag; nach mehreren Meldungen wird er ausgeblendet. Mit „Rangliste verlassen“ wird dein Eintrag gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (deine Einwilligung durch das Mitmachen).</p>`],
@@ -347,7 +345,7 @@ const PRIVACY = {
     sections: [
       ['In short', `<ul>
 <li>Findimal needs no account, no email address and no real name.</li>
-<li>Your finds, photos and locations stay on your phone.</li>
+<li>Your finds and photos stay on your phone.</li>
 <li>Only the photo you want identified is sent briefly to our server and to the AI service Anthropic. We do not store it there.</li>
 <li>The leaderboard is optional. It only shows nickname, points and profile picture – no photos and no locations.</li>
 </ul>`],
@@ -355,10 +353,8 @@ const PRIVACY = {
       ['Photos for identification', `<p>When you identify a photo, the app sends a reduced copy – without location data – to the Findimal server. It forwards the photo to the AI of Anthropic PBC (USA) and returns the result. The Findimal server does not store the photo. Anthropic processes the data under its commercial terms: it is not used to train the AI and is kept only for a limited time, e.g. to detect abuse. Transfers to the USA are based on appropriate safeguards (EU standard contractual clauses or the EU-US Data Privacy Framework).</p>
 <p>Purpose: the identification you request. Legal basis: Art. 6(1)(b) GDPR (use of the app feature).</p>
 <p>Please do not photograph people, faces or licence plates.</p>`],
-      ['What stays on your phone', `<p>Your collection (photos, animal names, date, place), your name, quiz answers, settings and badges are stored only on your phone. “Reset profile” in your profile or deleting the app removes them.</p>
-<p><b>Location:</b> Only if you allow it, the app remembers where you took a photo, rounded to about 100 metres. For photos from your library, the location stored in the photo is used if available. The location stays on your phone.</p>
-<p><b>Region:</b> If you let the app detect your region, the iPhone looks up the place name using Apple's location service. Only the place name is stored, on your phone.</p>
-<p><b>Map:</b> The map of your finds loads map images from OpenStreetMap (OpenStreetMap Foundation, UK). Your IP address and the visible map area are transmitted, but not your finds. Legal basis: Art. 6(1)(b) GDPR.</p>`],
+      ['What stays on your phone', `<p>Your collection (photos, animal names, date), your name, quiz answers, settings and badges are stored only on your phone. “Reset profile” in your profile or deleting the app removes them.</p>
+<p><b>Region:</b> For “Near you now” you enter your region yourself. If you let the app detect it, the iPhone looks up the place name using Apple's location service. Only the place name is stored, on your phone. The places where you found animals are not stored.</p>`],
       ['“Near you now”', `<p>For the tips on the home screen, the app sends the region you entered yourself (e.g. “Munich”), the time of day and the language to the server. The result is cached for up to 26 hours and shared by all users of that region. Nothing linking it to you is stored.</p>`],
       ['Daily limit for free photos', `<p>To limit free photos, the app creates a random identifier for your phone. The server uses it to count how many photos were identified per day; without it, the IP address is used instead. The counters are deleted automatically after 48 hours. Legal basis: Art. 6(1)(f) GDPR (protection against abuse and unlimited costs).</p>`],
       ['Leaderboard (optional)', `<p>If you join the leaderboard, the server stores your nickname, points (XP), level, number of species, profile picture, friend code and who your friends are. Friends can see this; the top 50 explorers appear on the worldwide leaderboard. Nicknames with swear words, links or phone numbers are automatically replaced with “Entdecker”. If you report an entry, we store your friend code with the reported entry; after several reports it is hidden. “Leave leaderboard” deletes your entry. Legal basis: Art. 6(1)(a) GDPR (your consent by joining).</p>`],

@@ -26,8 +26,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
 3. Ersten Bau mit EAS (`eas build -p ios --profile production`) und Upload zu TestFlight (`eas submit`).
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
    80 pro Anschluss, 300 pro Tag gesamt; `TAGES_GRENZE` änderbar).
-5. Später: Expo Updates (kleine Updates ohne Apple-Prüfung), AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf),
-   Karte auf einen Kartendienst mit Kontingent umstellen (OpenStreetMap-Server nur für wenig Nutzung).
+5. Später: Expo Updates (kleine Updates ohne Apple-Prüfung), AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf).
+   (Die Fundkarte wurde entfernt – keine Kartendienst-Kosten.)
 
 ## Vor dem öffentlichen App-Store-Start
 - Impressum: Platzhalter in `server/findimal-worker.js` (OPERATOR) durch echte Angaben ersetzen
