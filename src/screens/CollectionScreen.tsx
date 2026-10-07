@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
+import { AdSlot } from '../components/AdSlot';
 import { FindsMap } from '../components/map/FindsMap';
 import { Find, speciesKey, useFindPhoto } from '../finds';
 import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
@@ -85,7 +86,8 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
   }
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
+    <View style={{ flex: 1, backgroundColor: p.bg }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 24 }}>
       {/* Kopf mit Zählern */}
       <View style={[styles.hx, { paddingTop: insets.top + 30 }]}>
         <HeaderBackground />
@@ -155,7 +157,10 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
 
         </>
       )}
-    </ScrollView>
+      </ScrollView>
+      {/* Feste Anzeigen-Leiste unten: bleibt stehen, die Fotos scrollen darüber */}
+      {finds.length > 0 && <AdSlot p={p} placement='collection' compact />}
+    </View>
   );
 }
 
