@@ -32,9 +32,16 @@ Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
 6. Später: AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf).
    (Die Fundkarte wurde entfernt – keine Kartendienst-Kosten.)
 
+## Kontrollzentrum-Knopf (nach dem ersten TestFlight-Bau)
+- App versteht schon `findimal://kamera` (öffnet die Kamera); `scheme: findimal` steht in `app.json`.
+- Swift-Code und Einstellungen liegen im Zweig `app-assets` unter `targets/kamera-knopf/` (README dort).
+  Zum Einschalten: `targets/` kopieren, `@bacons/apple-targets` installieren und als Plugin eintragen, neu bauen.
+- Einladungsseite des Servers erlaubt jetzt auch `findimal://`-Links. Text „Du brauchst Expo Go“ später auf
+  App-Store-Link umstellen.
+
 ## Vor dem öffentlichen App-Store-Start
 - Impressum: Platzhalter in `server/findimal-worker.js` (OPERATOR) durch echte Angaben ersetzen
-  (Wunsch: keine Privatadresse, evtl. Impressums-Service).
+  (Entscheidung: eigene Wohnadresse; E-Mail findimal26@gmail.com ist schon eingetragen).
 - Gewerbe anmelden, Fragebogen Finanzamt (Kleinunternehmer), ggf. USt-IdNr. für AdMob.
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen.

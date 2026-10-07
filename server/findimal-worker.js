@@ -284,8 +284,8 @@ function invitePage(url) {
   const name = (url.searchParams.get('n') || 'Jemand').slice(0, 20);
   const app = url.searchParams.get('u') || '';
   const tx = INVITE_TEXT[url.searchParams.get('l')] || INVITE_TEXT.de;
-  // nur Links in die Expo-Go-App erlauben (keine Weiterleitung auf fremde Seiten)
-  const ok = CODE.test(code) && /^exps?:\/\//.test(app);
+  // nur Links in Findimal bzw. Expo Go erlauben (keine Weiterleitung auf fremde Seiten)
+  const ok = CODE.test(code) && /^(exps?|findimal):\/\//.test(app);
   const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Findimal</title><style>
 body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#143F2A;color:#fff;text-align:center;padding:48px 20px}

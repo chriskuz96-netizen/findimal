@@ -92,10 +92,16 @@ function Main() {
     loadAvatar().then(setAvatar);
   }, []);
 
-  // Einladungslink eines Freundes: Code merken und zur Rangliste (Challenges) wechseln
+  // Einladungslink eines Freundes: Code merken und zur Rangliste (Challenges) wechseln.
+  // findimal://kamera (z. B. vom Knopf im Kontrollzentrum): direkt die Kamera öffnen.
   const [invite, setInvite] = useState<string | null>(null);
+  const [wantCamera, setWantCamera] = useState(false);
   useEffect(() => {
     const handle = (url: string | null) => {
+      if (url) {
+        const { hostname, path } = Linking.parse(url);
+        if (hostname === 'kamera' || path === 'kamera') return setWantCamera(true);
+      }
       const code = codeFromUrl(url);
       if (!code) return;
       setInvite(code);
@@ -107,6 +113,17 @@ function Main() {
     const sub = Linking.addEventListener('url', (e) => handle(e.url));
     return () => sub.remove();
   }, []);
+
+  // Kamera öffnen, sobald die App fertig geladen ist (Name und Region bekannt)
+  useEffect(() => {
+    if (!wantCamera || !fontsLoaded || !name || region === null || region === undefined || photo) return;
+    setWantCamera(false);
+    setOpenFind(null);
+    setShowProfile(false);
+    setTab('start');
+    startPhoto(() => takePhoto(t));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wantCamera, fontsLoaded, name, region, photo]);
 
   // Punkte, Stufe, Serie und Challenges – immer frisch berechnet
   const now = new Date();

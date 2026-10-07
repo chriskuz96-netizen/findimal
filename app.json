@@ -19,6 +19,7 @@
     },
     "splash": {
       "backgroundColor": "#143F2A"
-    }
+    },
+    "scheme": "findimal"
   }
 }
