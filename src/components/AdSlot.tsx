@@ -1,4 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Animated, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useI18n } from '../i18n';
 import { colors, fonts, Palette, spacing } from '../theme';
@@ -38,8 +40,119 @@ export function AdSlot({ p, compact }: { p: Palette; placement: Placement; compa
   );
 }
 
+// Halbseitige Anzeige: schiebt sich von unten über die halbe Seite (ab dem 3. Foto des Tages,
+// höchstens einmal am Tag). Das Ergebnis bleibt oben sichtbar; nach ein paar Sekunden mit ✕ schließen.
+const CLOSE_AFTER = 3; // Sekunden
+
+export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
+  const { t } = useI18n();
+  const insets = useSafeAreaInsets();
+  const height = Math.round(useWindowDimensions().height * 0.5);
+  const slide = useRef(new Animated.Value(height)).current;
+  const [wait, setWait] = useState(CLOSE_AFTER);
+
+  useEffect(() => {
+    Animated.timing(slide, {
+      toValue: 0,
+      duration: 350,
+      useNativeDriver: true,
+    }).start();
+    const timer = setInterval(() => setWait((w) => (w > 0 ? w - 1 : 0)), 1000);
+    return () => clearInterval(timer);
+  }, [slide]);
+
+  const close = () => {
+    Animated.timing(slide, {
+      toValue: height,
+      duration: 250,
+      useNativeDriver: true,
+    }).start(onClose);
+  };
+
+  return (
+    <Animated.View
+      style={[
+        styles.sheet,
+        {
+          height,
+          paddingBottom: insets.bottom + 12,
+          backgroundColor: p.card,
+          borderColor: p.line,
+          transform: [{ translateY: slide }],
+        },
+      ]}
+      accessibilityLabel={t('ad.label')}
+    >
+      <View style={styles.sheetHead}>
+        <Text style={[styles.label, { color: p.mute, marginBottom: 0 }]}>{t('ad.label')}</Text>
+        <Pressable
+          onPress={close}
+          disabled={wait > 0}
+          hitSlop={12}
+          style={[styles.close, { backgroundColor: p.line }]}
+          accessibilityRole="button"
+          accessibilityLabel={wait > 0 ? t('ad.closeIn', { n: wait }) : t('ad.close')}
+        >
+          <Text style={[styles.closeText, { color: p.ink }]}>{wait > 0 ? wait : '✕'}</Text>
+        </Pressable>
+      </View>
+      {/* Platzhalter für Bild oder kurzes Video ohne Ton */}
+      <View style={[styles.sheetMedia, { backgroundColor: p.line }]}>
+        <Text style={{ fontSize: 30, color: colors.accent }}>▶</Text>
+      </View>
+      <Text style={[styles.title, { color: p.ink, marginTop: 12 }]}>{t('ad.placeholderTitle')}</Text>
+      <Text style={[styles.text, { color: p.mute }]}>{t('ad.placeholderText')}</Text>
+    </Animated.View>
+  );
+}
+
 const styles = StyleSheet.create({
-  card: { marginTop: 14, marginHorizontal: spacing.gutter, borderWidth: 1, borderRadius: 16, padding: 12 },
+  sheet: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    borderWidth: 1,
+    paddingHorizontal: spacing.gutter,
+    paddingTop: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: -4 },
+    elevation: 12,
+  },
+  sheetHead: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  close: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  closeText: { fontFamily: fonts.sansBold, fontSize: 14 },
+  sheetMedia: {
+    flex: 1,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    borderStyle: 'dashed',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  card: {
+    marginTop: 14,
+    marginHorizontal: spacing.gutter,
+    borderWidth: 1,
+    borderRadius: 16,
+    padding: 12,
+  },
   label: {
     alignSelf: 'flex-start',
     fontFamily: fonts.sansBold,
@@ -57,8 +170,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.gutter,
     paddingVertical: 8,
   },
-  mediaSmall: { width: 40, height: 40, borderRadius: 10, borderWidth: 1, borderColor: colors.accent, borderStyle: 'dashed' },
-  media: { width: 64, height: 64, borderRadius: 12, borderWidth: 1, borderColor: colors.accent, borderStyle: 'dashed' },
+  mediaSmall: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    borderStyle: 'dashed',
+  },
+  media: {
+    width: 64,
+    height: 64,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    borderStyle: 'dashed',
+  },
   title: { fontFamily: fonts.sansBold, fontSize: 14 },
-  text: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 2 },
+  text: {
+    fontFamily: fonts.sans,
+    fontSize: 12.5,
+    lineHeight: 17,
+    marginTop: 2,
+  },
 });

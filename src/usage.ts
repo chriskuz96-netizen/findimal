@@ -36,3 +36,18 @@ export async function usedToday(): Promise<number> {
 export async function setUsedToday(count: number): Promise<void> {
   await AsyncStorage.setItem(USAGE_KEY, JSON.stringify({ day: today(), count })).catch(() => {});
 }
+
+// Halbseitige Anzeige: ab dem dritten Foto des Tages, höchstens einmal am Tag
+const BIG_AD_KEY = 'findimal-big-ad';
+export const BIG_AD_FROM_PHOTO = 3;
+
+export async function takeBigAd(): Promise<boolean> {
+  try {
+    if ((await usedToday()) < BIG_AD_FROM_PHOTO) return false;
+    if ((await AsyncStorage.getItem(BIG_AD_KEY)) === today()) return false;
+    await AsyncStorage.setItem(BIG_AD_KEY, today());
+    return true;
+  } catch {
+    return false;
+  }
+}
