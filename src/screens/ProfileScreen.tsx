@@ -48,6 +48,12 @@ export function ProfileScreen(props: Props) {
   const { t, lang } = useI18n();
   const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
+  const [editing, setEditing] = useState(false);
+  const saveName = () => {
+    const n = newName.trim();
+    setEditing(false);
+    if (n && n !== name) onRename(n);
+  };
   const [tips, setTips] = useState(false);
   const [europe, setEurope] = useState(true); // Natur-Tipps gibt es nur für Europa
   useEffect(() => {
@@ -91,7 +97,42 @@ export function ProfileScreen(props: Props) {
         <View style={styles.pr}>
           <Avatar id={avatar} name={name} size={84} />
           <View style={{ flex: 1 }}>
-            <Text style={styles.name}>{name}</Text>
+            {/* Name: Stift antippen zum Ändern */}
+            {editing ? (
+              <View style={styles.nameRow}>
+                <TextInput
+                  value={newName}
+                  onChangeText={setNewName}
+                  maxLength={24}
+                  autoCapitalize="words"
+                  autoFocus
+                  returnKeyType="done"
+                  onSubmitEditing={saveName}
+                  style={styles.nameInput}
+                  accessibilityLabel={t('pro.name')}
+                />
+                <Pressable onPress={saveName} hitSlop={10} accessibilityRole="button" accessibilityLabel={t('common.save')} style={styles.nameOk}>
+                  <Text style={styles.nameOkText}>✓</Text>
+                </Pressable>
+              </View>
+            ) : (
+              <Pressable
+                onPress={() => {
+                  setNewName(name);
+                  setEditing(true);
+                }}
+                hitSlop={8}
+                style={styles.nameRow}
+                accessibilityRole="button"
+                accessibilityLabel={t('pro.name')}
+              >
+                <Text style={styles.name} numberOfLines={1}>{name}</Text>
+                <Svg width={20} height={20} viewBox="0 0 24 24">
+                  <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
+                  <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
+                </Svg>
+              </Pressable>
+            )}
             <Text style={styles.nick}>
               {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
             </Text>
@@ -186,29 +227,6 @@ export function ProfileScreen(props: Props) {
             </Pressable>
           ))}
         </ScrollView>
-      </Card>
-
-      {/* Name */}
-      <Card p={p}>
-        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.name')}</Text>
-        <View style={styles.row}>
-          <TextInput
-            value={newName}
-            onChangeText={setNewName}
-            maxLength={24}
-            autoCapitalize="words"
-            style={[styles.input, { borderColor: p.line, backgroundColor: p.bg, color: p.ink }]}
-          />
-          <SmallButton
-            label={t('common.save')}
-            disabled={!newName.trim() || newName.trim() === name}
-            onPress={() => {
-              onRename(newName.trim());
-              Alert.alert(t('pro.saved'), t('pro.hello', { name: newName.trim() }));
-            }}
-            p={p}
-          />
-        </View>
       </Card>
 
       {/* Region */}
@@ -323,7 +341,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   letterText: { fontFamily: fonts.serifBold, fontSize: 34, color: colors.ink },
-  name: { fontFamily: fonts.serifBold, fontSize: 26, color: colors.white },
+  name: { flexShrink: 1, fontFamily: fonts.serifBold, fontSize: 26, color: colors.white },
+  nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  nameInput: {
+    flex: 1,
+    minWidth: 0,
+    fontFamily: fonts.serifBold,
+    fontSize: 22,
+    color: colors.white,
+    borderBottomWidth: 2,
+    borderBottomColor: colors.accent,
+    paddingVertical: 2,
+  },
+  nameOk: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nameOkText: { fontFamily: fonts.sansBold, fontSize: 18, color: colors.ink },
   nick: { fontFamily: fonts.sans, fontSize: 14, color: colors.accentLight, marginTop: 2 },
   card: {
     marginTop: 12,
@@ -369,15 +407,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tipsKind: { fontFamily: fonts.sansBold, fontSize: 11, letterSpacing: 0.8, textTransform: 'uppercase' },
-  input: {
-    flex: 1,
-    minWidth: 0,
-    padding: 10,
-    borderRadius: 12,
-    borderWidth: 1.5,
-    fontFamily: fonts.sansBold,
-    fontSize: 15,
-  },
   region: { flex: 1, fontFamily: fonts.sansBold, fontSize: 15 },
   small: { borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14 },
   smallText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white },
