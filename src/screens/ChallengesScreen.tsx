@@ -17,17 +17,16 @@ type Props = {
   quiz: QuizLog; // bisherige Antworten
   onAnswer: (question: number, answer: number) => void;
   avatar: string; // Abzeichen als Profilbild ('' = keins)
-  onSelectAvatar: (id: string) => void;
   name: string;
   species: number; // Anzahl verschiedener Arten (für die Rangliste)
   invite: string | null; // Freundescode aus einem Einladungslink
   onInviteDone: () => void;
 };
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAvatar, name, species, invite, onInviteDone }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
-  const { t, locale, lang } = useI18n();
+  const { t, lang } = useI18n();
   const goal = progress.season;
   // Quiz: die gerade gezeigte Frage bleibt nach dem Antworten stehen, bis man "Nächste Frage" tippt
   // höchstens 3 Fragen pro Tag
@@ -46,11 +45,6 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAva
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
         <HeaderBackground />
         <Text style={styles.h2}>{t('ch.title')}</Text>
-        <View style={styles.stats}>
-          <Stat value={progress.xp.toLocaleString(locale)} label="XP" />
-          <Stat value={String(progress.level)} label={t('ch.level')} />
-          <Stat value={String(progress.badges.filter((b) => b.earned).length)} label={t('ch.badges')} />
-        </View>
       </View>
 
       {/* Saison-Ziel: Tiere aus 3 Gruppen in dieser Jahreszeit */}
@@ -176,21 +170,9 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAva
               badge={b}
               p={p}
               selected={avatar === b.id}
-              onPress={() => {
-                if (!b.earned) {
-                  Alert.alert(badgeName(b), t('ch.notYet', { hint: badgeHint(b) }));
-                } else if (avatar === b.id) {
-                  Alert.alert(badgeName(b), t('ch.isAvatar'), [
-                    { text: t('ch.showLetter'), onPress: () => onSelectAvatar('') },
-                    { text: t('ch.keep'), style: 'cancel' },
-                  ]);
-                } else {
-                  Alert.alert(badgeName(b), t('ch.useAsAvatar', { hint: badgeHint(b) }), [
-                    { text: t('common.cancel'), style: 'cancel' },
-                    { text: t('ch.yes'), onPress: () => onSelectAvatar(b.id) },
-                  ]);
-                }
-              }}
+              onPress={() =>
+                Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }))
+              }
             />
           ))}
         </View>
@@ -200,15 +182,6 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAva
         {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
       </Text>
     </ScrollView>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <View style={styles.stat}>
-      <Text style={styles.statValue}>{value}</Text>
-      <Text style={styles.statLabel}>{label}</Text>
-    </View>
   );
 }
 
@@ -252,18 +225,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 14 },
-  stats: { flexDirection: 'row', gap: 10 },
-  stat: {
-    flex: 1,
-    backgroundColor: 'rgba(255,255,255,0.07)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,210,168,0.25)',
-    borderRadius: 14,
-    padding: 10,
-    alignItems: 'center',
-  },
-  statValue: { fontFamily: fonts.serifBold, fontSize: 26, color: colors.accentLight },
-  statLabel: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8 },
   mis: {
     marginTop: -24,
     marginHorizontal: spacing.gutter,

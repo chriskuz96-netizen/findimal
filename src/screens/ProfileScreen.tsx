@@ -37,7 +37,7 @@ export function ProfileScreen(props: Props) {
   const { name, region, avatar, progress, finds, onBack, onRename, onChangeRegion, onSelectAvatar, onReset } = props;
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
-  const { t, nickname } = useI18n();
+  const { t } = useI18n();
   const [newName, setNewName] = useState(name);
   const earned = progress.badges.filter((b) => b.earned);
   const species = new Set(finds.map((f) => speciesKey(f.animal))).size;
@@ -73,7 +73,7 @@ export function ProfileScreen(props: Props) {
           <View style={{ flex: 1 }}>
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.nick}>
-              {nickname} · {t('ch.level')} {progress.level}
+              {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
             </Text>
           </View>
         </View>
@@ -81,10 +81,7 @@ export function ProfileScreen(props: Props) {
 
       {/* Stufe und Statistik */}
       <Card p={p} style={{ marginTop: -24 }}>
-        <Text style={[styles.h3, { color: p.ink }]}>
-          {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
-        </Text>
-        <View style={[styles.prog, { backgroundColor: p.line }]}>
+        <View style={[styles.prog, { backgroundColor: p.line, marginTop: 4 }]}>
           <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
         </View>
         <Text style={[styles.sub, { color: p.mute }]}>

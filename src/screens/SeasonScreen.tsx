@@ -3,9 +3,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Find, useFindPhoto } from '../finds';
-import { GroupIcon, groupOf } from '../groups';
+import { GroupIcon } from '../groups';
 import { useI18n } from '../i18n';
-import { Phenomenon, Season, seasonFor } from '../season';
+import { Phenomenon, seasonFor } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 const DAY = 86400000;
@@ -38,16 +38,7 @@ function findFor(ph: Phenomenon, finds: Find[]): Find | null {
   return finds.find((f) => (f.animal.wissenschaftlicher_name || '').toLowerCase().startsWith(genus)) ?? null;
 }
 
-// Hat man das Tier der Saison-Aktion in dieser Jahreszeit schon gefunden?
-function eventDone(season: Season, finds: Find[]): boolean {
-  return finds.some((f) => {
-    const a = f.animal;
-    const text = `${a.name} ${a.wissenschaftlicher_name} ${a.familie} ${a.klasse}`.toLowerCase();
-    return season.event.match.some((w) => text.includes(w));
-  });
-}
-
-// Saison: was gerade draußen los ist – zum Entdecken, Abhaken und Mithelfen.
+// Saison: was gerade draußen los ist und wie man Tieren helfen kann.
 export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Find) => void }) {
   const dark = useColorScheme() === 'dark';
   const p = dark ? darkPalette : lightPalette;
@@ -57,7 +48,6 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const season = seasonFor(now, lang);
   const { start, end } = seasonRange(now);
   const recent = seasonFinds(finds, now);
-  const done = eventDone(season, recent);
   const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
   const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / DAY));
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
@@ -75,22 +65,6 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           <View style={[styles.barFill, { width: `${Math.round(share * 100)}%` }]} />
         </View>
         <Text style={styles.barText}>{t('sea.daysLeft', { n: daysLeft })}</Text>
-      </View>
-
-      {/* Saison-Aktion */}
-      <View style={[styles.mis, { backgroundColor: p.card }]}>
-        <View style={styles.mi}>
-          <GroupIcon id={season.event.icon} size={30} color={colors.accentLight} />
-        </View>
-        <View style={{ flex: 1 }}>
-          <Text style={[styles.small, { color: p.mute }]}>{t('sea.event')}</Text>
-          <Text style={[styles.misText, { color: p.ink }]}>{season.event.title}</Text>
-        </View>
-        {done && (
-          <View style={styles.done}>
-            <Text style={styles.doneText}>✓ {t('ch.done')}</Text>
-          </View>
-        )}
       </View>
 
       {/* Saison-Tiere als Kreis aus vier Vierteln – alles auf einen Blick */}
@@ -196,7 +170,7 @@ function Quarter({
 const styles = StyleSheet.create({
   hx: {
     paddingHorizontal: spacing.gutter,
-    paddingBottom: 40,
+    paddingBottom: 24,
     borderBottomLeftRadius: spacing.radiusHero,
     borderBottomRightRadius: spacing.radiusHero,
     overflow: 'hidden',
@@ -206,33 +180,7 @@ const styles = StyleSheet.create({
   bar: { height: 6, borderRadius: 6, backgroundColor: 'rgba(255,255,255,0.15)', marginTop: 12, overflow: 'hidden' },
   barFill: { height: '100%', backgroundColor: colors.accent },
   barText: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 5 },
-  mis: {
-    marginTop: -24,
-    marginHorizontal: spacing.gutter,
-    borderWidth: 2,
-    borderColor: colors.accent,
-    borderRadius: 20,
-    padding: 14,
-    flexDirection: 'row',
-    gap: 12,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.18,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 10 },
-  },
-  mi: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: '#123826',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   small: { fontFamily: fonts.sans, fontSize: 12 },
-  misText: { fontFamily: fonts.serifBold, fontSize: 17, lineHeight: 21 },
-  done: { backgroundColor: '#6FBF8A', borderRadius: 99, paddingVertical: 4, paddingHorizontal: 9 },
-  doneText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
   blk: { marginTop: 26, marginHorizontal: spacing.gutter },
   bh: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', gap: 10 },
   h3: { fontFamily: fonts.serifBold, fontSize: 20 },

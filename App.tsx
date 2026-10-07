@@ -226,8 +226,6 @@ function Main() {
             onOpenProfile={() => setShowProfile(true)}
             xp={progress.xp}
             avatar={avatarBadge as BadgeId | null}
-            seasonGoal={progress.season}
-            onOpenChallenges={() => setTab('challenges')}
             onTakePhoto={() => takePhoto(t).then((p) => p && setPhoto(p))}
             onPickPhoto={() => pickPhoto().then((p) => p && setPhoto(p))}
           />
@@ -246,7 +244,6 @@ function Main() {
             quiz={quiz}
             onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}
             avatar={avatarBadge ?? ''}
-            onSelectAvatar={chooseAvatar}
             name={name}
             species={new Set(finds.map((f) => speciesKey(f.animal))).size}
             invite={invite}

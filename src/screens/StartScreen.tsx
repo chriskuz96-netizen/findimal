@@ -5,10 +5,8 @@ import { AppLogo } from '../components/AppLogo';
 import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
-import { GroupIcon, GroupId } from '../groups';
-import { BadgeId, XP } from '../progress';
+import { BadgeId } from '../progress';
 import { Medal } from '../components/Medal';
-import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
 import { Snail } from '../components/animals/Snail';
 import { Frog } from '../components/animals/Frog';
@@ -25,8 +23,6 @@ type Props = {
   onOpenProfile: () => void;
   xp: number;
   avatar: BadgeId | null; // Abzeichen als Profilbild
-  seasonGoal: { groups: GroupId[]; done: boolean }; // Saison-Ziel: Tiere aus 3 Gruppen
-  onOpenChallenges: () => void;
   onTakePhoto: () => void;
   onPickPhoto: () => void;
 };
@@ -37,8 +33,6 @@ export function StartScreen({
   onOpenProfile,
   xp,
   avatar,
-  seasonGoal,
-  onOpenChallenges,
   onTakePhoto,
   onPickPhoto,
 }: Props) {
@@ -90,7 +84,6 @@ export function StartScreen({
           )}
         </Pressable>
         <Text style={[styles.avatarXp, { top: insets.top + 60 }]}>{xp} XP</Text>
-        <LanguageButton top={insets.top + 14} />
 
         {/* Schriftzug klein oben in der Mitte, mit dem Fuchs-Symbol */}
         <View style={[styles.brand, { top: insets.top + 18 }]} pointerEvents="none">
@@ -109,28 +102,6 @@ export function StartScreen({
           <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting}</Text>
         </View>
       </View>
-      {/* Saison-Ziel (öffnet die Challenges) */}
-      <Pressable
-        onPress={onOpenChallenges}
-        accessibilityRole="button"
-        style={({ pressed }) => [
-          styles.tease,
-          { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.85 : 1 },
-        ]}
-      >
-        <View style={styles.teaseIcon}>
-          <GroupIcon id={seasonGoal.groups[seasonGoal.groups.length - 1] ?? null} size={22} color={colors.accentLight} />
-        </View>
-        <View style={{ flex: 1 }}>
-          <Text style={[styles.teaseSmall, { color: p.mute }]}>{t('goal.title')}</Text>
-          <Text style={[styles.teaseText, { color: p.ink }]}>
-            {t('goal.short', { n: Math.min(3, seasonGoal.groups.length) })}
-          </Text>
-        </View>
-        <Text style={[styles.teaseXp, seasonGoal.done && { backgroundColor: '#6FBF8A' }]}>
-          {seasonGoal.done ? t('start.done') : `+${XP.season} XP`}
-        </Text>
-      </Pressable>
       <NearbyList region={region} />
     </View>
   );
@@ -181,47 +152,6 @@ const styles = StyleSheet.create({
     borderRadius: 99,
     overflow: 'hidden',
     paddingVertical: 2,
-  },
-  tease: {
-    marginTop: 10,
-    marginHorizontal: spacing.gutter,
-    borderWidth: 1,
-    borderRadius: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    shadowColor: '#000',
-    shadowOpacity: 0.12,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 8 },
-  },
-  teaseIcon: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-    backgroundColor: '#123826',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  teaseXp: {
-    backgroundColor: colors.accent,
-    color: colors.ink,
-    fontFamily: fonts.sansBold,
-    fontSize: 12,
-    borderRadius: 99,
-    overflow: 'hidden',
-    paddingVertical: 4,
-    paddingHorizontal: 9,
-  },
-  teaseSmall: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-  },
-  teaseText: {
-    fontFamily: fonts.serifBold,
-    fontSize: 15,
   },
   avatarText: {
     fontFamily: fonts.serifBold,
