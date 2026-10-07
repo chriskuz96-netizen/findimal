@@ -125,8 +125,9 @@ export function ProfileScreen(props: Props) {
           >
             <Avatar id={avatar} name={name} size={108} />
             <View style={styles.avatarEdit}>
-              <Svg width={16} height={16} viewBox="0 0 24 24">
-                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.ink} strokeWidth={2.4} strokeLinejoin="round" />
+              <Svg width={17} height={17} viewBox="0 0 24 24">
+                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
+                <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
               </Svg>
             </View>
           </Pressable>
@@ -186,7 +187,8 @@ export function ProfileScreen(props: Props) {
                 {region || t('pro.setPlace')}
               </Text>
               <Svg width={13} height={13} viewBox="0 0 24 24">
-                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2.2} strokeLinejoin="round" />
+                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
+                <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
               </Svg>
             </Pressable>
           </View>
@@ -347,12 +349,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -2,
     top: -2,
-    width: 34,
-    height: 34,
-    borderRadius: 17,
-    backgroundColor: colors.accent,
-    borderWidth: 3,
-    borderColor: '#123826',
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#123826',
+    borderWidth: 1.5,
+    borderColor: 'rgba(255,210,168,0.6)',
     alignItems: 'center',
     justifyContent: 'center',
   },
