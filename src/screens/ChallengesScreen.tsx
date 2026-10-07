@@ -9,7 +9,7 @@ import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
 import { Badge, Progress, XP } from '../progress';
-import { nextQuestion, question as questionAt, QuizLog } from '../quiz';
+import { answeredToday, nextQuestion, question as questionAt, QUESTIONS_PER_DAY, QuizLog } from '../quiz';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
@@ -30,7 +30,10 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAva
   const { t, locale, lang } = useI18n();
   const goal = progress.season;
   // Quiz: die gerade gezeigte Frage bleibt nach dem Antworten stehen, bis man "Nächste Frage" tippt
-  const [shown, setShown] = useState<number | null>(() => nextQuestion(quiz));
+  // höchstens 3 Fragen pro Tag
+  const canAsk = (log: QuizLog) => answeredToday(log) < QUESTIONS_PER_DAY;
+  const [shown, setShown] = useState<number | null>(() => (canAsk(quiz) ? nextQuestion(quiz) : null));
+  const allDone = nextQuestion(quiz) === null;
   const question = shown === null ? null : questionAt(shown, lang);
   const answer = shown === null ? undefined : quiz[`q${shown}`];
   const badgeName = (b: Badge) => t(`badge.${b.id}`);
@@ -106,7 +109,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAva
           {question && <XpPill text={`+${XP.quiz} XP`} done={answer === question.right} />}
         </View>
         {!question ? (
-          <Text style={[styles.sub, { color: p.mute }]}>{t('ch.quizAll')}</Text>
+          <Text style={[styles.sub, { color: p.mute }]}>{t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')}</Text>
         ) : (
           <>
             <View style={styles.qrow}>
@@ -142,9 +145,15 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, onSelectAva
                 <Text style={[styles.sub, { color: p.mute, marginTop: 8 }]}>
                   {answer === question.right ? question.explain : t('ch.wrong', { a: question.answers[question.right] })}
                 </Text>
-                <Pressable onPress={() => setShown(nextQuestion(quiz))} hitSlop={8} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
-                  <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-                </Pressable>
+                {canAsk(quiz) && !allDone ? (
+                  <Pressable onPress={() => setShown(nextQuestion(quiz))} hitSlop={8} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
+                    <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+                  </Pressable>
+                ) : (
+                  <Text style={[styles.small, { color: p.mute, marginTop: 10 }]}>
+                    {t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')}
+                  </Text>
+                )}
               </>
             )}
           </>

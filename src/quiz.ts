@@ -75,7 +75,7 @@ const QUESTIONS: Record<Lang, Question[]> = {
 
 export const QUESTION_COUNT = QUESTIONS.de.length;
 
-// Antworten pro Frage: { "q3": 1 } (Frage 3, gewählte Antwort 1)
+// Antworten pro Frage: { "q3": 1, "t3": 20733 } (Frage 3, Antwort 1, beantwortet an Tag Nr. 20733)
 const QUIZ_KEY = 'findimal-quiz';
 export type QuizLog = Record<string, number>;
 
@@ -83,8 +83,8 @@ export type QuizLog = Record<string, number>;
 function migrate(log: QuizLog): QuizLog {
   const next: QuizLog = {};
   for (const [key, answer] of Object.entries(log)) {
-    if (key.startsWith('q')) next[key] = answer;
-    else {
+    if (key.startsWith('q') || key.startsWith('t')) next[key] = answer;
+    else if (/^\d{4}-\d{2}-\d{2}$/.test(key)) {
       const [y, m, d] = key.split('-').map(Number);
       const n = Math.floor(new Date(y, m - 1, d).getTime() / 86400000);
       const q = `q${n % QUESTION_COUNT}`;
@@ -113,8 +113,17 @@ export function nextQuestion(log: QuizLog): number | null {
   return null;
 }
 
+export const QUESTIONS_PER_DAY = 3;
+const dayNumber = (d: Date) => Math.floor(new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime() / 86400000);
+
+// Wie viele Fragen wurden heute schon beantwortet?
+export function answeredToday(log: QuizLog, now = new Date()): number {
+  const today = dayNumber(now);
+  return Object.entries(log).filter(([key, day]) => key.startsWith('t') && day === today).length;
+}
+
 export async function answerQuiz(log: QuizLog, index: number, answer: number): Promise<QuizLog> {
-  const next = { ...log, [`q${index}`]: answer };
+  const next = { ...log, [`q${index}`]: answer, [`t${index}`]: dayNumber(new Date()) };
   await AsyncStorage.setItem(QUIZ_KEY, JSON.stringify(next)).catch(() => {});
   return next;
 }
