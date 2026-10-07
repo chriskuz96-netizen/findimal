@@ -6,7 +6,7 @@ import { Translate } from './i18n';
 
 // Findimal Plus. Einen echten Kauf (In-App-Abo) gibt es erst in der fertigen App.
 // Bis dahin kann man Plus in der Testversion kostenlos einschalten – nur auf diesem Handy.
-// Das Foto-Limit prüft der Server; das bleibt in der Testversion bei 3 am Tag.
+// Der Server lässt Plus-Handys dann bis zu 30 Fotos am Tag bestimmen.
 
 const PLUS_KEY = 'findimal-plus-test';
 
@@ -32,6 +32,15 @@ export function PlusProvider({ children }: { children: ReactNode }) {
 }
 
 export const usePlus = () => useContext(Ctx);
+
+// Für Stellen ohne React (z. B. beim Senden der Fotos)
+export async function hasPlus(): Promise<boolean> {
+  try {
+    return (await AsyncStorage.getItem(PLUS_KEY)) === '1';
+  } catch {
+    return false;
+  }
+}
 
 // "Plus holen": in der Testversion zum Ausprobieren einschalten
 export function askForPlus(t: Translate, setPlus: (on: boolean) => void) {

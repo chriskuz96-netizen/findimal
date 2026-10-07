@@ -3,6 +3,7 @@ import { Alert } from 'react-native';
 
 import { Photo } from './camera';
 import { SERVER_URL } from './config';
+import { hasPlus } from './plus';
 import { FREE_PHOTOS_PER_DAY, getDeviceId, setUsedToday, usedToday } from './usage';
 import { Lang, Translate } from './i18n';
 
@@ -103,6 +104,7 @@ async function send(photos: Photo[], appKey: string, lang: Lang): Promise<Respon
       'Content-Type': 'application/json',
       'X-Findimal-Key': appKey,
       'X-Findimal-Device': await getDeviceId(),
+      ...((await hasPlus()) ? { 'X-Findimal-Plus': '1' } : {}),
     },
     body: JSON.stringify({ images: photos.map((p) => p.base64), lang, extra: photos.length > 1 }),
   });

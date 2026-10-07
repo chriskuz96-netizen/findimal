@@ -30,6 +30,9 @@ const MODEL = 'claude-sonnet-5-5';
 // Weitere Fotos zum selben Tier ("extra") haben ein eigenes, großzügigeres Limit.
 const DAILY_PHOTOS = 3;
 const DAILY_EXTRA = 6;
+// Findimal Plus (Testphase, bis es das echte Abo gibt): "unbegrenzt", zur Sicherheit aber
+// höchstens 30 Fotos pro Handy und Tag. Geht nur mit dem richtigen APP_KEY.
+const DAILY_PLUS = 30;
 
 const TEXT = { type: 'string' };
 const GRUPPE = {
@@ -251,7 +254,7 @@ ${ok ? `<a class="b" href="${esc(app)}">${esc(tx[2])}</a>` : ''}
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, X-Findimal-Key, X-Findimal-Device',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Findimal-Key, X-Findimal-Device, X-Findimal-Plus',
   'Access-Control-Expose-Headers': 'X-Findimal-Used',
 };
 
@@ -394,7 +397,9 @@ export default {
     if (env.DB) {
       const key = deviceKey(request, extra ? 'x' : 'n');
       const used = Number(await env.DB.get(key)) || 0;
-      if (used >= (extra ? DAILY_EXTRA : DAILY_PHOTOS)) return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
+      const plus = request.headers.get('X-Findimal-Plus') === '1';
+      const max = plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
+      if (used >= max) return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
       counter = { key, used };
     }
     // Günstiges Modell reicht, wenn es ein Tier gefunden hat und nicht unsicher ist

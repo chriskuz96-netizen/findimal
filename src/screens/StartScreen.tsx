@@ -7,6 +7,7 @@ import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
 import { Avatar } from '../components/Avatar';
 import { useI18n } from '../i18n';
+import { usePlus } from '../plus';
 import { Snail } from '../components/animals/Snail';
 import { Frog } from '../components/animals/Frog';
 import { Hedgehog } from '../components/animals/Hedgehog';
@@ -40,6 +41,7 @@ export function StartScreen({
   const insets = useSafeAreaInsets();
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const { t, nickname } = useI18n();
+  const { plus } = usePlus();
   const greeting = name ? t('start.welcome', { name, nick: nickname }) : t('start.hello');
   const { width, height } = useWindowDimensions();
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
@@ -98,7 +100,11 @@ export function StartScreen({
             <Text style={styles.pickLink}>{t('start.pick')}</Text>
           </Pressable>
           <Text style={styles.freeLeft}>
-            {freeLeft === 0 ? t('start.freeNone') : t(freeLeft === 1 ? 'start.freeOne' : 'start.free', { n: freeLeft })}
+            {plus
+              ? t('start.plus')
+              : freeLeft === 0
+                ? t('start.freeNone')
+                : t(freeLeft === 1 ? 'start.freeOne' : 'start.free', { n: freeLeft })}
           </Text>
         </View>
 

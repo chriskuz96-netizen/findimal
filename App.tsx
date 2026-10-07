@@ -67,7 +67,7 @@ function Main() {
   }, []);
   // Vor dem Fotografieren prüfen, damit niemand umsonst ein Foto macht
   const startPhoto = async (get: () => Promise<Photo | null>) => {
-    if ((await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
+    if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
     const p = await get();
     if (p) setPhoto(p);
   };
