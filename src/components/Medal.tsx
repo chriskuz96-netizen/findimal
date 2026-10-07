@@ -223,15 +223,19 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Path d="M0 0 L0 4 M-1.6 2 L1.6 2" stroke={c('#FFE9A3')} strokeWidth={0.9} />
         </G>
       );
-    case 'top100': // Pokal mit 100
+    case 'top100':
+    case 'top50':
+    case 'top10':
+    case 'top1': // Pokal mit Platz
       return (
         <G>
           <Path d="M-8 -11 H8 V-3 Q8 5 0 6 Q-8 5 -8 -3 Z" fill={c('#FFD45E')} stroke={c('#9A6B12')} strokeWidth={0.8} />
           <Path d="M-8 -9 Q-13 -9 -12 -4 Q-11 0 -7 0 M8 -9 Q13 -9 12 -4 Q11 0 7 0" stroke={c('#FFD45E')} strokeWidth={1.8} fill="none" />
           <Path d="M-2 6 H2 V9 H-2 Z M-6 9 H6 V12 H-6 Z" fill={c('#E8B53A')} />
-          <SvgText x={0} y={-1.5} fontSize={6.5} fontWeight="bold" fill={c('#7A4A1E')} textAnchor="middle">
-            100
+          <SvgText x={0} y={id === 'top1' ? -0.5 : -1.5} fontSize={id === 'top1' ? 9 : 6.5} fontWeight="bold" fill={c('#7A4A1E')} textAnchor="middle">
+            {id === 'top100' ? '100' : id === 'top50' ? '50' : id === 'top10' ? '10' : '1'}
           </SvgText>
+          {id === 'top1' && <Star x={0} y={-15} r={3.2} fill={c('#FFF4C2')} />}
         </G>
       );
     case 'allgroups': // Krone mit sechs Edelsteinen

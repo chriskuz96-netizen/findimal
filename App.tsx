@@ -27,7 +27,7 @@ import { SeasonScreen } from './src/screens/SeasonScreen';
 import { RegionScreen } from './src/screens/RegionScreen';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
-import { loadAvatar, loadName, loadRegion, loadTop100, resetAll, saveAvatar, saveName, saveRegion, saveTop100 } from './src/storage';
+import { loadAvatar, loadName, loadRegion, loadBestRank, resetAll, saveAvatar, saveBestRank, saveName, saveRegion } from './src/storage';
 import { colors } from './src/theme';
 
 export default function App() {
@@ -81,8 +81,8 @@ function Main() {
   const [quiz, setQuiz] = useState<QuizLog>({});
   const [avatar, setAvatar] = useState('');
   const [showProfile, setShowProfile] = useState(false);
-  // Schon einmal unter den 100 besten der weltweiten Rangliste gewesen? (Abzeichen bleibt)
-  const [top100, setTop100] = useState(false);
+  // Bester Platz in der weltweiten Rangliste (Abzeichen Top 100/50/10/Nr. 1 bleiben)
+  const [bestRank, setBestRank] = useState<number | null>(null);
   const quizRef = useRef<QuizLog>({});
   quizRef.current = quiz;
 
@@ -92,7 +92,7 @@ function Main() {
     loadFinds().then(setFinds);
     loadQuiz().then(setQuiz);
     loadAvatar().then(setAvatar);
-    loadTop100().then(setTop100);
+    loadBestRank().then(setBestRank);
   }, []);
 
   // Einladungslink eines Freundes: Code merken und zur Rangliste (Challenges) wechseln.
@@ -130,7 +130,7 @@ function Main() {
 
   // Punkte, Stufe, Serie und Challenges – immer frisch berechnet
   const now = new Date();
-  const progress = computeProgress(finds, correctAnswers(quiz), now, { top100 });
+  const progress = computeProgress(finds, correctAnswers(quiz), now, { bestRank });
   // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
   // Plus-Tiere nur, solange Plus aktiv ist
   const avatarBadge =
@@ -205,7 +205,7 @@ function Main() {
             setFinds([]);
             setQuiz({});
             setAvatar('');
-            setTop100(false);
+            setBestRank(null);
             setRegion(null);
             setShowProfile(false);
             setTab('start');
@@ -226,7 +226,7 @@ function Main() {
             const quizXp = correctAnswers(quizRef.current);
             // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
             const others = findsRef.current.filter((f) => f.id !== replaceId);
-            const before = computeProgress(others, quizXp, new Date(), { top100 });
+            const before = computeProgress(others, quizXp, new Date(), { bestRank });
             const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
             let id = replaceId;
             let next: Find[];
@@ -238,7 +238,7 @@ function Main() {
               id = added.id;
             }
             setFinds(next);
-            const after = computeProgress(next, quizXp, new Date(), { top100 });
+            const after = computeProgress(next, quizXp, new Date(), { bestRank });
             return { id: id!, reward: computeReward(before, after, isNew) };
           }}
           morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
@@ -298,10 +298,10 @@ function Main() {
             name={name}
             species={new Set(finds.map((f) => speciesKey(f.animal))).size}
             invite={invite}
-            onTop100={() => {
-              if (top100) return;
-              setTop100(true);
-              saveTop100();
+            onRank={(rank) => {
+              if (bestRank && bestRank <= rank) return;
+              setBestRank(rank);
+              saveBestRank(rank);
             }}
             onInviteDone={() => setInvite(null)}
           />

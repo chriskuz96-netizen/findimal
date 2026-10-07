@@ -22,10 +22,10 @@ type Props = {
   species: number; // Anzahl verschiedener Arten (für die Rangliste)
   invite: string | null; // Freundescode aus einem Einladungslink
   onInviteDone: () => void;
-  onTop100: () => void; // unter den 100 besten der weltweiten Rangliste
+  onRank: (rank: number) => void; // eigener Platz in der weltweiten Rangliste
 };
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onTop100 }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
@@ -95,7 +95,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         stats={{ name, xp: progress.xp, level: progress.level, species, avatar }}
         invite={invite}
         onInviteDone={onInviteDone}
-        onTop100={onTop100}
+        onRank={onRank}
         p={p}
       />
 

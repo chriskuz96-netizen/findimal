@@ -67,19 +67,22 @@ export async function saveAvatar(id: string): Promise<void> {
   }
 }
 
-// Abzeichen "Top 100": einmal erreicht, bleibt es
-const TOP100_KEY = 'findimal-top100';
+// Bester Platz in der weltweiten Rangliste (für die Abzeichen Top 100/50/10/Nr. 1). Bleibt erhalten.
+const RANK_KEY = 'findimal-best-rank';
 
-export async function loadTop100(): Promise<boolean> {
+export async function loadBestRank(): Promise<number | null> {
   try {
-    return (await AsyncStorage.getItem(TOP100_KEY)) === '1';
+    const v = Number(await AsyncStorage.getItem(RANK_KEY));
+    if (v > 0) return v;
+    // ältere Version: nur "war in den Top 100"
+    return (await AsyncStorage.getItem('findimal-top100')) === '1' ? 100 : null;
   } catch {
-    return false;
+    return null;
   }
 }
 
-export async function saveTop100(): Promise<void> {
-  await AsyncStorage.setItem(TOP100_KEY, '1').catch(() => {});
+export async function saveBestRank(rank: number): Promise<void> {
+  await AsyncStorage.setItem(RANK_KEY, String(rank)).catch(() => {});
 }
 
 // Löscht alle Findimal-Daten auf dem Handy (außer dem Findimal-Code für den Server).

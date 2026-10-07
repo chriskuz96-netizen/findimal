@@ -49,7 +49,10 @@ export type BadgeId =
   | 'amp5'
   | 'mol5'
   | 'ara5'
-  | 'top100';
+  | 'top100'
+  | 'top50'
+  | 'top10'
+  | 'top1';
 
 // Medaillen-Stufe je Abzeichen. Jedes verdiente Abzeichen gibt XP: Bronze 25, Silber 50, Gold 100.
 export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
@@ -70,6 +73,9 @@ export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
   mol5: 'bronze',
   ara5: 'bronze',
   top100: 'gold',
+  top50: 'gold',
+  top10: 'gold',
+  top1: 'gold',
 };
 export const BADGE_XP = { bronze: 25, silver: 50, gold: 100 };
 
@@ -87,6 +93,8 @@ export type Progress = {
   badges: Badge[];
 };
 
+const rankAtMost = (rank: number | null | undefined, max: number) => !!rank && rank <= max;
+
 // An wie vielen Tagen hintereinander (höchstens) wurde etwas gefunden?
 function longestStreak(finds: Find[]): number {
   const days = [...new Set(finds.map((f) => dayKey(new Date(f.date))))].sort();
@@ -102,12 +110,12 @@ function longestStreak(finds: Find[]): number {
   return best;
 }
 
-// extra.top100: war schon einmal unter den 100 besten der weltweiten Rangliste
+// extra.bestRank: bester Platz, den man in der weltweiten Rangliste je hatte (null = nie dabei)
 export function computeProgress(
   finds: Find[],
   quizCorrect: number,
   now = new Date(),
-  extra: { top100?: boolean } = {},
+  extra: { bestRank?: number | null } = {},
 ): Progress {
   // Jeder Fund und jede neue Art gibt XP
   const seen = new Set<string>();
@@ -163,7 +171,10 @@ export function computeProgress(
     { id: 'early', earned: earlyFind },
     { id: 'streak7', earned: longestStreak(finds) >= 7 },
     { id: 'species50', earned: seen.size >= 50 },
-    { id: 'top100', earned: !!extra.top100 },
+    { id: 'top100', earned: rankAtMost(extra.bestRank, 100) },
+    { id: 'top50', earned: rankAtMost(extra.bestRank, 50) },
+    { id: 'top10', earned: rankAtMost(extra.bestRank, 10) },
+    { id: 'top1', earned: rankAtMost(extra.bestRank, 1) },
   ];
   // XP für verdiente Abzeichen
   for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];
