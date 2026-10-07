@@ -268,22 +268,27 @@ export function ProfileScreen(props: Props) {
         )}
       </View>
 
-      {/* Schnellzugriff für alle, die den Stift oben übersehen */}
+      {/* Schnellzugriff als drei Kacheln, für alle, die die Stifte oben übersehen */}
       <View style={styles.quick}>
-        <Pressable
-          onPress={() => setPicking(true)}
-          style={({ pressed }) => [styles.quickBtn, { borderColor: p.line, backgroundColor: p.card, opacity: pressed ? 0.7 : 1 }]}
-          accessibilityRole="button"
-        >
-          <Text style={[styles.quickText, { color: p.ink }]}>🖼️ {t('pro.editAvatar')}</Text>
-        </Pressable>
-        <Pressable
-          onPress={() => setChoosingLang(true)}
-          style={({ pressed }) => [styles.quickBtn, { borderColor: p.line, backgroundColor: p.card, opacity: pressed ? 0.7 : 1 }]}
-          accessibilityRole="button"
-        >
-          <Text style={[styles.quickText, { color: p.ink }]}>🌐 {t('pro.editLanguage')}</Text>
-        </Pressable>
+        {(
+          [
+            ['🖼️', t('pro.avatar'), () => setPicking(true)],
+            ['📍', t('pro.place'), onChangeRegion],
+            ['🌐', t('pro.language'), () => setChoosingLang(true)],
+          ] as const
+        ).map(([icon, label, onPress]) => (
+          <Pressable
+            key={label}
+            onPress={onPress}
+            style={({ pressed }) => [styles.quickBtn, { borderColor: p.line, backgroundColor: p.card, opacity: pressed ? 0.7 : 1 }]}
+            accessibilityRole="button"
+          >
+            <Text style={styles.quickIcon}>{icon}</Text>
+            <Text style={[styles.quickText, { color: p.ink }]} numberOfLines={1}>
+              {label}
+            </Text>
+          </Pressable>
+        ))}
       </View>
 
       <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
@@ -436,8 +441,9 @@ const styles = StyleSheet.create({
   },
   resetText: { fontFamily: fonts.sansBold, fontSize: 16 },
   quick: { flexDirection: 'row', gap: 10, marginTop: 16, marginHorizontal: spacing.gutter },
-  quickBtn: { flex: 1, borderWidth: 1, borderRadius: 14, paddingVertical: 10, alignItems: 'center' },
-  quickText: { fontFamily: fonts.sansBold, fontSize: 13.5 },
+  quickBtn: { flex: 1, borderWidth: 1, borderRadius: 16, paddingVertical: 12, paddingHorizontal: 4, alignItems: 'center', gap: 4 },
+  quickIcon: { fontSize: 22 },
+  quickText: { fontFamily: fonts.sansBold, fontSize: 13 },
   langDim: { flex: 1, backgroundColor: 'rgba(0,0,0,0.45)', alignItems: 'center', justifyContent: 'center', padding: 24 },
   langBox: { width: '100%', maxWidth: 380, borderRadius: 20, padding: 18 },
   links: { flexDirection: 'row', justifyContent: 'center', gap: 18, marginTop: 14 },
