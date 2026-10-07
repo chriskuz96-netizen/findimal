@@ -2,6 +2,7 @@ import * as Linking from 'expo-linking';
 import { useEffect, useState } from 'react';
 import {
   Alert,
+  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -17,6 +18,7 @@ import Svg, { Circle, Path } from 'react-native-svg';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Avatar } from '../components/Avatar';
 import { AvatarSheet } from '../components/AvatarSheet';
+import { LanguageChips } from '../components/LanguageButton';
 import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
@@ -49,6 +51,7 @@ export function ProfileScreen(props: Props) {
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
   const [picking, setPicking] = useState(false); // Auswahlfenster fürs Profilbild
+  const [choosingLang, setChoosingLang] = useState(false); // Sprachauswahl
   const saveName = () => {
     const n = newName.trim();
     setEditing(false);
@@ -97,6 +100,16 @@ export function ProfileScreen(props: Props) {
       onSelect={onSelectAvatar}
       onClose={() => setPicking(false)}
     />
+    {/* Sprache wählen (wie oben rechts auf der Startseite) */}
+    <Modal visible={choosingLang} transparent animationType="fade" onRequestClose={() => setChoosingLang(false)}>
+      <Pressable style={styles.langDim} onPress={() => setChoosingLang(false)}>
+        {/* Tippen in die Box schließt sie nicht */}
+        <Pressable style={[styles.langBox, { backgroundColor: p.card }]} onPress={() => {}}>
+          <Text style={[styles.h3, { color: p.ink, marginBottom: 6 }]}>{t('pro.language')}</Text>
+          <LanguageChips onPick={() => setChoosingLang(false)} />
+        </Pressable>
+      </Pressable>
+    </Modal>
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
       <View style={[styles.hx, { paddingTop: insets.top + 10 }]}>
         <HeaderBackground />
@@ -255,6 +268,24 @@ export function ProfileScreen(props: Props) {
         )}
       </View>
 
+      {/* Schnellzugriff für alle, die den Stift oben übersehen */}
+      <View style={styles.quick}>
+        <Pressable
+          onPress={() => setPicking(true)}
+          style={({ pressed }) => [styles.quickBtn, { borderColor: p.line, backgroundColor: p.card, opacity: pressed ? 0.7 : 1 }]}
+          accessibilityRole="button"
+        >
+          <Text style={[styles.quickText, { color: p.ink }]}>🖼️ {t('pro.editAvatar')}</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setChoosingLang(true)}
+          style={({ pressed }) => [styles.quickBtn, { borderColor: p.line, backgroundColor: p.card, opacity: pressed ? 0.7 : 1 }]}
+          accessibilityRole="button"
+        >
+          <Text style={[styles.quickText, { color: p.ink }]}>🌐 {t('pro.editLanguage')}</Text>
+        </Pressable>
+      </View>
+
       <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
         <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
       </Pressable>
@@ -404,6 +435,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   resetText: { fontFamily: fonts.sansBold, fontSize: 16 },
+  quick: { flexDirection: 'row', gap: 10, marginTop: 16, marginHorizontal: spacing.gutter },
+  quickBtn: { flex: 1, borderWidth: 1, borderRadius: 14, paddingVertical: 10, alignItems: 'center' },
+  quickText: { fontFamily: fonts.sansBold, fontSize: 13.5 },
+  langDim: { flex: 1, backgroundColor: 'rgba(0,0,0,0.45)', alignItems: 'center', justifyContent: 'center', padding: 24 },
+  langBox: { width: '100%', maxWidth: 380, borderRadius: 20, padding: 18 },
   links: { flexDirection: 'row', justifyContent: 'center', gap: 18, marginTop: 14 },
   privacy: { padding: 6 },
   privacyText: { fontFamily: fonts.sans, fontSize: 13.5, textDecorationLine: 'underline' },

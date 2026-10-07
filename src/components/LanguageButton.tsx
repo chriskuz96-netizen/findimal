@@ -42,7 +42,7 @@ export function LanguageButton({ top }: { top: number }) {
 }
 
 // Auswahl als Reihe von Knöpfen (für das Profil)
-export function LanguageChips() {
+export function LanguageChips({ onPick }: { onPick?: () => void } = {}) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const { lang, setLang } = useI18n();
   return (
@@ -52,7 +52,10 @@ export function LanguageChips() {
         return (
           <Pressable
             key={l.id}
-            onPress={() => setLang(l.id)}
+            onPress={() => {
+              setLang(l.id);
+              onPick?.();
+            }}
             style={[styles.chip, on ? { backgroundColor: p.button, borderColor: p.button } : { borderColor: p.line }]}
           >
             <Text style={[styles.chipText, { color: on ? colors.white : p.ink }]}>{l.label}</Text>
