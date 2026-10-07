@@ -5,8 +5,7 @@ import { AppLogo } from '../components/AppLogo';
 import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
-import { BadgeId } from '../progress';
-import { Medal } from '../components/Medal';
+import { Avatar } from '../components/Avatar';
 import { useI18n } from '../i18n';
 import { Snail } from '../components/animals/Snail';
 import { Frog } from '../components/animals/Frog';
@@ -22,7 +21,7 @@ type Props = {
   region: string;
   onOpenProfile: () => void;
   xp: number;
-  avatar: BadgeId | null; // Abzeichen als Profilbild
+  avatar: string | null; // Abzeichen oder Plus-Tier als Profilbild
   freeLeft: number; // Gratis-Fotos, die heute noch übrig sind
   onTakePhoto: () => void;
   onPickPhoto: () => void;
@@ -80,7 +79,7 @@ export function StartScreen({
           style={[avatar ? styles.avatarMedal : styles.avatar, { top: insets.top + (avatar ? 6 : 12) }]}
         >
           {avatar ? (
-            <Medal id={avatar} size={54} />
+            <Avatar id={avatar} name={name ?? ''} size={54} />
           ) : (
             <Text style={styles.avatarText}>{name ? name[0].toUpperCase() : '?'}</Text>
           )}

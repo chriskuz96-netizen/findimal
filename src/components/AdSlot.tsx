@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Alert, Animated, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Animated, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useI18n } from '../i18n';
+import { askForPlus, usePlus } from '../plus';
 import { colors, fonts, Palette, spacing } from '../theme';
 
 // Platz für eine native Anzeige (AdMob), gut als "Anzeige" gekennzeichnet.
@@ -13,6 +14,8 @@ type Placement = 'result' | 'details' | 'season' | 'challenges' | 'collection';
 // compact: schmale Leiste (fest am unteren Rand der Sammlung)
 export function AdSlot({ p, compact }: { p: Palette; placement: Placement; compact?: boolean }) {
   const { t } = useI18n();
+  const { plus } = usePlus();
+  if (plus) return null; // Plus: keine Werbung
   if (compact) {
     return (
       <View style={[styles.bar, { backgroundColor: p.card, borderColor: p.line }]} accessibilityLabel={t('ad.label')}>
@@ -46,6 +49,7 @@ const CLOSE_AFTER = 2; // Sekunden
 
 export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
   const { t } = useI18n();
+  const { setPlus } = usePlus();
   const insets = useSafeAreaInsets();
   const height = Math.round(useWindowDimensions().height * 0.5);
   const slide = useRef(new Animated.Value(height)).current;
@@ -107,7 +111,7 @@ export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
         <Text style={[styles.text, { color: p.mute }]}>{t('ad.placeholderText')}</Text>
         {/* Ansporn für Plus */}
         <Pressable
-          onPress={() => Alert.alert(t('lim.plus'), t('ad.plusSoon'))}
+          onPress={() => askForPlus(t, setPlus)}
           accessibilityRole="button"
           style={styles.plus}
         >

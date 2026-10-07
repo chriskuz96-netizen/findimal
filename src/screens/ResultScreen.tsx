@@ -22,6 +22,7 @@ import { useI18n } from '../i18n';
 import { Animal, hasDetails, identify, IdentifyResult, loadDetails } from '../identify';
 import { Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
+import { usePlus } from '../plus';
 import { bigAdDue, markBigAdShown } from '../usage';
 
 type Props =
@@ -52,6 +53,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
+  const { plus } = usePlus();
   const [photos, setPhotos] = useState<Photo[]>(photo ? [photo] : []);
   const [result, setResult] = useState<IdentifyResult | null>(saved ? { ok: true, animal: saved.animal } : null);
   const [reward, setReward] = useState<Reward | null>(null);
@@ -96,7 +98,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
 
   // Zurück/Weiter: ab dem 3. Foto des Tages kommt vorher einmal die halbseitige Anzeige
   const leave = () => {
-    if (bigAd === 'due') {
+    if (bigAd === 'due' && !plus) {
       markBigAdShown();
       setBigAd('open');
       return;

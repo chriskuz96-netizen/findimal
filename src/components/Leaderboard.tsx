@@ -22,9 +22,8 @@ import {
   syncMe,
 } from '../board';
 import { useI18n } from '../i18n';
-import { BadgeId } from '../progress';
 import { colors, fonts, Palette, spacing } from '../theme';
-import { BADGE_TIER, Medal } from './Medal';
+import { Avatar } from './Avatar';
 
 type Props = { stats: MyStats; invite: string | null; onInviteDone: () => void; p: Palette };
 
@@ -350,13 +349,7 @@ function Row({
   return (
     <Pressable onLongPress={onLongPress} style={[styles.row, isMe && { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
       <Text style={[styles.rank, { color: rank === '1' ? colors.accent : p.mute }]}>{rank}</Text>
-      {x.avatar in BADGE_TIER ? (
-        <Medal id={x.avatar as BadgeId} size={32} />
-      ) : (
-        <View style={styles.letter}>
-          <Text style={styles.letterText}>{x.name[0]?.toUpperCase() ?? '?'}</Text>
-        </View>
-      )}
+      <Avatar id={x.avatar || null} name={x.name} size={32} />
       <View style={{ flex: 1 }}>
         <Text style={[styles.name, { color: p.ink }]} numberOfLines={1}>
           {x.name}

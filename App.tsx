@@ -15,7 +15,8 @@ import { showLimit } from './src/components/LimitCard';
 import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
-import { BadgeId, computeProgress, computeReward, dayKey } from './src/progress';
+import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
+import { computeProgress, computeReward, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog } from './src/quiz';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
@@ -32,7 +33,9 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <LangProvider>
-        <Main />
+        <PlusProvider>
+          <Main />
+        </PlusProvider>
       </LangProvider>
     </SafeAreaProvider>
   );
@@ -46,6 +49,7 @@ function Main() {
     NunitoSans_700Bold,
   });
   const { t, lang } = useI18n();
+  const { plus } = usePlus();
   // undefined = wird noch geladen, null = noch kein Name gespeichert
   const [name, setName] = useState<string | null | undefined>(undefined);
   // undefined = wird geladen, null = noch nicht gefragt, '' = übersprungen
@@ -105,7 +109,11 @@ function Main() {
   const now = new Date();
   const progress = computeProgress(finds, correctAnswers(quiz), now);
   // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
-  const avatarBadge = progress.badges.find((b) => b.id === avatar && b.earned)?.id ?? null;
+  // Plus-Tiere nur, solange Plus aktiv ist
+  const avatarBadge =
+    (plus && isPlusAvatar(avatar) ? avatar : null) ??
+    progress.badges.find((b) => b.id === avatar && b.earned)?.id ??
+    null;
   const chooseAvatar = (id: string) => {
     saveAvatar(id);
     setAvatar(id);
@@ -159,7 +167,7 @@ function Main() {
         <ProfileScreen
           name={name}
           region={region}
-          avatar={avatarBadge as BadgeId | null}
+          avatar={avatarBadge}
           progress={progress}
           finds={finds}
           onBack={() => setShowProfile(false)}
@@ -243,7 +251,7 @@ function Main() {
             region={region}
             onOpenProfile={() => setShowProfile(true)}
             xp={progress.xp}
-            avatar={avatarBadge as BadgeId | null}
+            avatar={avatarBadge}
             freeLeft={freeLeft}
             onTakePhoto={() => startPhoto(() => takePhoto(t))}
             onPickPhoto={() => startPhoto(pickPhoto)}

@@ -12,17 +12,19 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { HeaderBackground } from '../components/HeaderBackground';
+import { Avatar } from '../components/Avatar';
 import { Medal } from '../components/Medal';
 import { Find, speciesKey } from '../finds';
 import { LanguageChips } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
-import { BadgeId, Progress } from '../progress';
+import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
+import { Progress } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
   name: string;
   region: string;
-  avatar: BadgeId | null;
+  avatar: string | null; // Abzeichen oder Plus-Tier
   progress: Progress;
   finds: Find[];
   onBack: () => void;
@@ -38,6 +40,7 @@ export function ProfileScreen(props: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
+  const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
   const earned = progress.badges.filter((b) => b.earned);
   const species = new Set(finds.map((f) => speciesKey(f.animal))).size;
@@ -63,13 +66,7 @@ export function ProfileScreen(props: Props) {
           <Text style={styles.backText}>{t('pro.back')}</Text>
         </Pressable>
         <View style={styles.pr}>
-          {avatar ? (
-            <Medal id={avatar} size={84} />
-          ) : (
-            <View style={styles.letter}>
-              <Text style={styles.letterText}>{name[0]?.toUpperCase()}</Text>
-            </View>
-          )}
+          <Avatar id={avatar} name={name} size={84} />
           <View style={{ flex: 1 }}>
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.nick}>
@@ -94,6 +91,40 @@ export function ProfileScreen(props: Props) {
         </View>
       </Card>
 
+      {/* Findimal Plus: was dazugehört */}
+      <View style={[styles.card, styles.plusCard]}>
+        <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
+        <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
+        {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
+          <View key={k} style={styles.plusRow}>
+            <Text style={styles.plusCheck}>✓</Text>
+            <Text style={styles.plusText}>{t(k)}</Text>
+          </View>
+        ))}
+        {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
+        <View style={styles.plusPreview}>
+          {PLUS_AVATARS.slice(0, 5).map((a) => (
+            <Avatar key={a.id} id={a.id} name={name} size={44} />
+          ))}
+        </View>
+        {plus ? (
+          <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
+            <Text style={styles.plusEndText}>{t('plus.end')}</Text>
+          </Pressable>
+        ) : (
+          <>
+            <Pressable
+              onPress={() => askForPlus(t, setPlus)}
+              style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
+              accessibilityRole="button"
+            >
+              <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
+            </Pressable>
+            <Text style={styles.plusPrice}>{t('plus.price')}</Text>
+          </>
+        )}
+      </View>
+
       {/* Profilbild */}
       <Card p={p}>
         <Text style={[styles.h3, { color: p.ink }]}>{t('pro.avatar')}</Text>
@@ -112,6 +143,25 @@ export function ProfileScreen(props: Props) {
             </Pressable>
           ))}
         </ScrollView>
+
+        {/* Plus-Profilbilder: ohne Plus mit Schloss */}
+        <Text style={[styles.h4, { color: p.ink }]}>★ {t('pro.plusAvatars')}</Text>
+        <Text style={[styles.sub, { color: p.mute }]}>{t('pro.plusAvatarsHint')}</Text>
+        <View style={styles.grid}>
+          {PLUS_AVATARS.map((a) => (
+            <Pressable
+              key={a.id}
+              onPress={() => (plus ? onSelectAvatar(a.id) : askForPlus(t, setPlus))}
+              style={[styles.pickItem, avatar === a.id && styles.pickOn]}
+              accessibilityRole="button"
+            >
+              <View style={{ opacity: plus ? 1 : 0.45 }}>
+                <Avatar id={a.id} name={name} size={54} />
+              </View>
+              {!plus && <Text style={styles.lock}>🔒</Text>}
+            </Pressable>
+          ))}
+        </View>
       </Card>
 
       {/* Name */}
@@ -216,6 +266,21 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   h3: { fontFamily: fonts.serifBold, fontSize: 18 },
+  h4: { fontFamily: fonts.serifBold, fontSize: 16, marginTop: 16 },
+  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, marginTop: 8, justifyContent: 'center' },
+  lock: { position: 'absolute', right: 2, bottom: 2, fontSize: 14 },
+  plusCard: { backgroundColor: '#123826', borderColor: '#E8B53A', borderWidth: 1.5 },
+  plusTitle: { fontFamily: fonts.serifBold, fontSize: 20, color: '#FFD45E' },
+  plusSub: { fontFamily: fonts.sans, fontSize: 14, color: colors.accentLight, marginTop: 2, marginBottom: 8 },
+  plusRow: { flexDirection: 'row', gap: 8, marginTop: 5 },
+  plusCheck: { fontFamily: fonts.sansBold, fontSize: 15, color: '#FFD45E' },
+  plusText: { flex: 1, fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 20, color: colors.white },
+  plusPreview: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 14 },
+  plusBtn: { marginTop: 14, backgroundColor: '#E8B53A', borderRadius: 14, paddingVertical: 12, alignItems: 'center' },
+  plusBtnText: { fontFamily: fonts.sansBold, fontSize: 16, color: '#13261C' },
+  plusPrice: { fontFamily: fonts.sans, fontSize: 12.5, color: colors.accentLight, textAlign: 'center', marginTop: 6 },
+  plusEnd: { marginTop: 12, alignSelf: 'center', paddingVertical: 6 },
+  plusEndText: { fontFamily: fonts.sans, fontSize: 13, color: colors.accentLight, textDecorationLine: 'underline' },
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 2 },
   prog: { height: 8, borderRadius: 9, marginTop: 10, marginBottom: 4, overflow: 'hidden' },
   progFill: { height: '100%', backgroundColor: colors.accent },
