@@ -22,7 +22,7 @@ import { useI18n } from '../i18n';
 import { Animal, hasDetails, identify, IdentifyResult, loadDetails } from '../identify';
 import { Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
-import { takeBigAd } from '../usage';
+import { bigAdDue, markBigAdShown } from '../usage';
 
 type Props =
   // Neues Foto: wird bestimmt und (wenn ein Tier drauf ist) gespeichert
@@ -57,7 +57,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const [reward, setReward] = useState<Reward | null>(null);
   const [details, setDetails] = useState(false);
   const [loadingDetails, setLoadingDetails] = useState(false);
-  const [bigAd, setBigAd] = useState<'open' | 'closed' | null>(null); // halbseitige Anzeige (ab 3. Foto)
+  // halbseitige Anzeige ab dem 3. Foto des Tages: kommt beim Tippen auf „Weiter“
+  const [bigAd, setBigAd] = useState<'due' | 'open' | null>(null);
   const findId = useRef<string | null>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
@@ -71,7 +72,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           const res = await onIdentified(r.animal, findId.current);
           findId.current = res.id;
           setReward(res.reward);
-          if (list.length === 1 && (await takeBigAd())) setBigAd('open');
+          if (list.length === 1 && (await bigAdDue())) setBigAd('due');
         }
       });
     },
@@ -93,8 +94,13 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
     run(list);
   };
 
-  // Beim Verlassen eine geänderte Notiz noch speichern
+  // Zurück/Weiter: ab dem 3. Foto des Tages kommt vorher einmal die halbseitige Anzeige
   const leave = () => {
+    if (bigAd === 'due') {
+      markBigAdShown();
+      setBigAd('open');
+      return;
+    }
     onBack();
   };
 
@@ -258,8 +264,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         )}
 
         {/* Anzeigen-Platz 1: nach dem Ergebnis */}
-        {/* (entfällt, wenn heute die halbseitige Anzeige kam – nie zwei Anzeigen auf einmal) */}
-        {animal && !bigAd && <AdSlot p={p} placement="result" />}
+        {animal && <AdSlot p={p} placement="result" />}
 
         {/* Steckbrief zum Aufklappen */}
         {animal && (
@@ -301,8 +306,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         <Button label={t('res.continue')} onPress={leave} p={p} filled={!!result} />
       </ScrollView>
 
-      {/* Halbseitige Anzeige ab dem 3. Foto des Tages */}
-      {bigAd === 'open' && <AdSheet p={p} onClose={() => setBigAd('closed')} />}
+      {/* Halbseitige Anzeige ab dem 3. Foto des Tages, nach „Weiter“ – danach geht es zurück */}
+      {bigAd === 'open' && <AdSheet p={p} onClose={onBack} />}
     </View>
   );
 }

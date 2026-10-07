@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Animated, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Animated, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useI18n } from '../i18n';
@@ -41,8 +41,8 @@ export function AdSlot({ p, compact }: { p: Palette; placement: Placement; compa
 }
 
 // Halbseitige Anzeige: schiebt sich von unten über die halbe Seite (ab dem 3. Foto des Tages,
-// höchstens einmal am Tag). Das Ergebnis bleibt oben sichtbar; nach ein paar Sekunden mit ✕ schließen.
-const CLOSE_AFTER = 3; // Sekunden
+// höchstens einmal am Tag, beim Tippen auf „Weiter“). Nach 2 Sekunden mit ✕ schließen.
+const CLOSE_AFTER = 2; // Sekunden
 
 export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
   const { t } = useI18n();
@@ -70,39 +70,51 @@ export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
   };
 
   return (
-    <Animated.View
-      style={[
-        styles.sheet,
-        {
-          height,
-          paddingBottom: insets.bottom + 12,
-          backgroundColor: p.card,
-          borderColor: p.line,
-          transform: [{ translateY: slide }],
-        },
-      ]}
-      accessibilityLabel={t('ad.label')}
-    >
-      <View style={styles.sheetHead}>
-        <Text style={[styles.label, { color: p.mute, marginBottom: 0 }]}>{t('ad.label')}</Text>
+    <View style={StyleSheet.absoluteFill}>
+      {/* abgedunkelter Hintergrund, fängt Tipps ab */}
+      <View style={[StyleSheet.absoluteFill, styles.dim]} />
+      <Animated.View
+        style={[
+          styles.sheet,
+          {
+            height,
+            paddingBottom: insets.bottom + 12,
+            backgroundColor: p.card,
+            borderColor: p.line,
+            transform: [{ translateY: slide }],
+          },
+        ]}
+        accessibilityLabel={t('ad.label')}
+      >
+        <View style={styles.sheetHead}>
+          <Text style={[styles.label, { color: p.mute, marginBottom: 0 }]}>{t('ad.label')}</Text>
+          <Pressable
+            onPress={close}
+            disabled={wait > 0}
+            hitSlop={12}
+            style={[styles.close, { backgroundColor: p.line }]}
+            accessibilityRole="button"
+            accessibilityLabel={wait > 0 ? t('ad.closeIn', { n: wait }) : t('ad.close')}
+          >
+            <Text style={[styles.closeText, { color: p.ink }]}>{wait > 0 ? wait : '✕'}</Text>
+          </Pressable>
+        </View>
+        {/* Platzhalter für Bild oder kurzes Video ohne Ton */}
+        <View style={[styles.sheetMedia, { backgroundColor: p.line }]}>
+          <Text style={{ fontSize: 30, color: colors.accent }}>▶</Text>
+        </View>
+        <Text style={[styles.title, { color: p.ink, marginTop: 12 }]}>{t('ad.placeholderTitle')}</Text>
+        <Text style={[styles.text, { color: p.mute }]}>{t('ad.placeholderText')}</Text>
+        {/* Ansporn für Plus */}
         <Pressable
-          onPress={close}
-          disabled={wait > 0}
-          hitSlop={12}
-          style={[styles.close, { backgroundColor: p.line }]}
+          onPress={() => Alert.alert(t('lim.plus'), t('ad.plusSoon'))}
           accessibilityRole="button"
-          accessibilityLabel={wait > 0 ? t('ad.closeIn', { n: wait }) : t('ad.close')}
+          style={styles.plus}
         >
-          <Text style={[styles.closeText, { color: p.ink }]}>{wait > 0 ? wait : '✕'}</Text>
+          <Text style={[styles.plusText, { color: p.moss }]}>{t('ad.noAds')}</Text>
         </Pressable>
-      </View>
-      {/* Platzhalter für Bild oder kurzes Video ohne Ton */}
-      <View style={[styles.sheetMedia, { backgroundColor: p.line }]}>
-        <Text style={{ fontSize: 30, color: colors.accent }}>▶</Text>
-      </View>
-      <Text style={[styles.title, { color: p.ink, marginTop: 12 }]}>{t('ad.placeholderTitle')}</Text>
-      <Text style={[styles.text, { color: p.mute }]}>{t('ad.placeholderText')}</Text>
-    </Animated.View>
+      </Animated.View>
+    </View>
   );
 }
 
@@ -136,7 +148,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  closeText: { fontFamily: fonts.sansBold, fontSize: 14 },
+  closeText: { fontFamily: fonts.sansBold, fontSize: 17 },
+  dim: { backgroundColor: 'rgba(0,0,0,0.35)' },
+  plus: { alignSelf: 'center', marginTop: 10, paddingVertical: 6 },
+  plusText: { fontFamily: fonts.sansBold, fontSize: 14 },
   sheetMedia: {
     flex: 1,
     borderRadius: 16,

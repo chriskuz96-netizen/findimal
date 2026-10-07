@@ -41,13 +41,15 @@ export async function setUsedToday(count: number): Promise<void> {
 const BIG_AD_KEY = 'findimal-big-ad';
 export const BIG_AD_FROM_PHOTO = 3;
 
-export async function takeBigAd(): Promise<boolean> {
+export async function bigAdDue(): Promise<boolean> {
   try {
     if ((await usedToday()) < BIG_AD_FROM_PHOTO) return false;
-    if ((await AsyncStorage.getItem(BIG_AD_KEY)) === today()) return false;
-    await AsyncStorage.setItem(BIG_AD_KEY, today());
-    return true;
+    return (await AsyncStorage.getItem(BIG_AD_KEY)) !== today();
   } catch {
     return false;
   }
+}
+
+export async function markBigAdShown(): Promise<void> {
+  await AsyncStorage.setItem(BIG_AD_KEY, today()).catch(() => {});
 }
