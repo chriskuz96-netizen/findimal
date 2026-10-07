@@ -54,9 +54,6 @@ export function StartScreen({
         <JungleBackground />
 
         {/* Die vier Tiere in den Ecken */}
-        <View style={[styles.animal, { left: width * 0.05, top: insets.top + 96 }]}>
-          <Ladybug width={46} />
-        </View>
         <View style={[styles.animal, { right: 0, top: insets.top + 82 }]}>
           <Squirrel width={58} />
         </View>
@@ -96,9 +93,15 @@ export function StartScreen({
 
         <View style={[styles.center, { paddingTop: insets.top }]}>
           <CameraButton size={camSize} onPress={onTakePhoto} label={t('a11y.takePhoto')} />
-          <Pressable onPress={onPickPhoto} accessibilityRole="button" hitSlop={10}>
-            <Text style={styles.pickLink}>{t('start.pick')}</Text>
-          </Pressable>
+          {/* "oder Foto auswählen", links daneben der Marienkäfer */}
+          <View style={styles.pickRow}>
+            <View style={[styles.animal, { left: width * 0.06, top: 4 }]} pointerEvents="none">
+              <Ladybug width={46} />
+            </View>
+            <Pressable onPress={onPickPhoto} accessibilityRole="button" hitSlop={10}>
+              <Text style={styles.pickLink}>{t('start.pick')}</Text>
+            </Pressable>
+          </View>
           <Text style={styles.freeLeft}>
             {plus
               ? t('start.plus')
@@ -118,9 +121,10 @@ export function StartScreen({
 }
 
 // Größe des Profilbilds oben links
-const AVATAR = 84;
+const AVATAR = 78;
 
 const styles = StyleSheet.create({
+  pickRow: { alignSelf: 'stretch', alignItems: 'center' },
   screen: {
     flex: 1,
   },
