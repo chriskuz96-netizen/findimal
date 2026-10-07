@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Circle } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Find, useFindPhoto } from '../finds';
@@ -10,7 +11,9 @@ import { Phenomenon, Season, seasonFor } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 const DAY = 86400000;
-const GAP = 10;
+const RING = 0.34; // Radius des Kreises im Verhältnis zur Breite
+const NODE = 56; // Größe der runden Symbole
+const NODE_W = 104; // Breite inkl. Titel
 
 // Beginn und Ende der aktuellen Jahreszeit (Winter geht über den Jahreswechsel)
 function seasonRange(now: Date): { start: Date; end: Date } {
@@ -62,9 +65,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
   const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / DAY));
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
-  const [page, setPage] = useState(0);
-  // Kartenbreite: etwas schmaler als der Bildschirm, damit die nächste Karte hervorschaut
-  const cardW = useWindowDimensions().width - spacing.gutter * 2 - 24;
+  const [sel, setSel] = useState(0);
+  // Kreis so groß wie möglich, aber nicht riesig
+  const size = Math.min(useWindowDimensions().width - spacing.gutter * 2, 300);
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
@@ -95,45 +98,49 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         )}
       </View>
 
-      {/* Saison-Tiere: vier Karten zum Abhaken */}
+      {/* Saison-Tiere im Kreis: alle auf einen Blick, angetipptes Tier darunter mit Text */}
       <View style={styles.blk}>
-        <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>{t('sea.now')}</Text>
-          <Text style={[styles.count, { color: p.mute }]}>
-            {matches.filter(Boolean).length} / {matches.length}
-          </Text>
-        </View>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('sea.now')}</Text>
         <Text style={[styles.sub, { color: p.mute }]}>{t('sea.nowSub')}</Text>
-      </View>
-      {/* Karussell: zur Seite wischen statt langer Liste */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        snapToInterval={cardW + GAP}
-        decelerationRate="fast"
-        contentContainerStyle={styles.carousel}
-        onScroll={(e) => setPage(Math.round(e.nativeEvent.contentOffset.x / (cardW + GAP)))}
-        scrollEventThrottle={32}
-      >
-        {season.phenomena.map((ph, i) => (
-          <SeasonRow
-            key={ph.title}
-            ph={ph}
-            found={matches[i]}
-            width={cardW}
-            onOpen={onOpen}
-            dark={dark}
-            p={p}
-          />
-        ))}
-      </ScrollView>
-      <View style={styles.dots}>
-        {season.phenomena.map((ph, i) => (
-          <View
-            key={ph.title}
-            style={[styles.dot, { backgroundColor: i === page ? colors.accent : p.line }, i === page && styles.dotOn]}
-          />
-        ))}
+        <View style={{ alignItems: 'center', marginTop: 4 }}>
+          <View style={{ width: size, height: size + 26 }}>
+            <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
+              <Circle
+                cx={size / 2}
+                cy={size / 2}
+                r={size * RING}
+                stroke={p.line}
+                strokeWidth={2}
+                strokeDasharray="6 7"
+                fill="none"
+              />
+            </Svg>
+            {/* Mitte: wie viele schon entdeckt */}
+            <View style={[styles.center, { left: size / 2 - 60, top: size / 2 - 22 }]}>
+              <Text style={[styles.centerCount, { color: colors.accent }]}>
+                {matches.filter(Boolean).length} / {matches.length}
+              </Text>
+              <Text style={[styles.small, { color: p.mute }]}>{t('sea.found')}</Text>
+            </View>
+            {season.phenomena.map((ph, i) => {
+              const a = -Math.PI / 2 + (i * Math.PI * 2) / season.phenomena.length;
+              const x = size / 2 + Math.cos(a) * size * RING;
+              const y = size / 2 + Math.sin(a) * size * RING;
+              return (
+                <Node
+                  key={ph.title}
+                  ph={ph}
+                  found={matches[i]}
+                  selected={sel === i}
+                  onPress={() => setSel(i)}
+                  style={{ left: x - NODE_W / 2, top: y - NODE / 2 }}
+                  p={p}
+                />
+              );
+            })}
+          </View>
+        </View>
+        <SeasonRow ph={season.phenomena[sel]} found={matches[sel]} onOpen={onOpen} dark={dark} p={p} />
       </View>
 
       {/* So hilfst du */}
@@ -156,18 +163,66 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   );
 }
 
-// Karte eines Saison-Tiers mit ganzem Text; schon entdeckt = eigenes Foto und Haken
+// Ein Tier auf dem Kreis: rundes Symbol (oder eigenes Foto) mit kurzem Titel
+function Node({
+  ph,
+  found,
+  selected,
+  onPress,
+  style,
+  p,
+}: {
+  ph: Phenomenon;
+  found: Find | null;
+  selected: boolean;
+  onPress: () => void;
+  style: { left: number; top: number };
+  p: typeof lightPalette;
+}) {
+  const uri = useFindPhoto(found?.id ?? '');
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityState={{ selected }}
+      accessibilityLabel={ph.title}
+      style={[styles.node, style]}
+    >
+      <View
+        style={[
+          styles.nodeDot,
+          { borderColor: selected ? colors.accent : found ? '#6FBF8A' : p.bg },
+          selected && styles.nodeSel,
+        ]}
+      >
+        {found && uri ? (
+          <Image source={{ uri }} style={styles.nodeImg} resizeMode="cover" />
+        ) : (
+          <GroupIcon id={ph.icon} size={24} color={colors.accentLight} />
+        )}
+      </View>
+      {found && (
+        <View style={styles.nodeTick}>
+          <Text style={styles.tickText}>✓</Text>
+        </View>
+      )}
+      <Text style={[styles.nodeTitle, { color: selected ? p.ink : p.mute }]} numberOfLines={2}>
+        {ph.title}
+      </Text>
+    </Pressable>
+  );
+}
+
+// Text zum angetippten Saison-Tier; schon entdeckt = eigenes Foto und Haken
 function SeasonRow({
   ph,
   found,
-  width,
   onOpen,
   dark,
   p,
 }: {
   ph: Phenomenon;
   found: Find | null;
-  width: number;
   onOpen: (f: Find) => void;
   dark: boolean;
   p: typeof lightPalette;
@@ -175,7 +230,7 @@ function SeasonRow({
   const { t } = useI18n();
   const uri = useFindPhoto(found?.id ?? '');
   return (
-    <View style={[styles.zi, { width, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line }]}>
+    <View style={[styles.zi, { marginTop: 6, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line }]}>
       <Pressable onPress={found ? () => onOpen(found) : undefined} disabled={!found} style={{ alignSelf: 'flex-start' }}>
         <View style={[styles.zIcon, found && styles.zIconFound]}>
           {found && uri ? (
@@ -250,10 +305,33 @@ const styles = StyleSheet.create({
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 4, marginBottom: 4 },
   sci: { fontFamily: fonts.sans, fontStyle: 'italic', fontSize: 12 },
   zi: { flexDirection: 'row', gap: 12, padding: 14, borderWidth: 1.5, borderRadius: 20 },
-  carousel: { gap: GAP, paddingHorizontal: spacing.gutter, paddingTop: 10 },
-  dots: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 10 },
-  dot: { width: 7, height: 7, borderRadius: 4 },
-  dotOn: { width: 18 },
+  center: { position: 'absolute', width: 120, alignItems: 'center' },
+  centerCount: { fontFamily: fonts.serifBold, fontSize: 26, lineHeight: 30 },
+  node: { position: 'absolute', width: NODE_W, alignItems: 'center' },
+  nodeDot: {
+    width: NODE,
+    height: NODE,
+    borderRadius: NODE / 2,
+    backgroundColor: '#123826',
+    borderWidth: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  nodeSel: { transform: [{ scale: 1.08 }] },
+  nodeImg: { position: 'absolute', left: 0, top: 0, width: NODE, height: NODE },
+  nodeTick: {
+    position: 'absolute',
+    top: 0,
+    left: NODE_W / 2 + NODE / 2 - 16,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: '#6FBF8A',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nodeTitle: { fontFamily: fonts.sansBold, fontSize: 12, lineHeight: 15, textAlign: 'center', marginTop: 4 },
   zIcon: {
     width: 48,
     height: 48,
