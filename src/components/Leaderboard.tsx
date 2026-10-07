@@ -178,9 +178,24 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
       },
     ]);
 
-  const invitePress = () =>
-    me &&
-    Share.share({ message: t('lb.shareText', { code: pretty(me.id), link: inviteLink(me.id, stats.name, lang) }) });
+  // Einladung teilen. Klappt der Link nicht, wird nur der Code geteilt; Fehler werden angezeigt statt verschluckt.
+  const invitePress = async () => {
+    if (!me) return;
+    let link = '';
+    try {
+      link = inviteLink(me.id, stats.name, lang);
+    } catch {
+      link = '';
+    }
+    const message = link
+      ? t('lb.shareText', { code: pretty(me.id), link })
+      : t('lb.shareCode', { code: pretty(me.id) });
+    try {
+      await Share.share({ message });
+    } catch (e) {
+      Alert.alert(t('lb.invite'), `${t('lb.shareFailed')}\n\n${pretty(me.id)}`);
+    }
+  };
 
   // Freunde: ich + Freunde nach XP; Weltweit: Top 50 vom Server (ich ggf. unten angehängt)
   const self: Person | null = me ? { id: me.id, ...stats } : null;
@@ -265,7 +280,12 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
               {pretty(me.id)}
             </Text>
             <View style={{ flex: 1 }} />
-            <Pressable onPress={invitePress} style={[styles.smallBtn, { backgroundColor: p.moss }]} accessibilityRole="button">
+            <Pressable
+              onPress={invitePress}
+              hitSlop={10}
+              style={({ pressed }) => [styles.smallBtn, { backgroundColor: p.moss, opacity: pressed ? 0.6 : 1 }]}
+              accessibilityRole="button"
+            >
               <Text style={styles.smallBtnText}>{t('lb.invite')}</Text>
             </Pressable>
           </View>
