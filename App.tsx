@@ -4,11 +4,13 @@ import { useFonts } from 'expo-font';
 import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
+import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
@@ -71,8 +73,17 @@ function Main() {
     refreshFreeLeft();
   }, []);
   // Vor dem Fotografieren prüfen, damit niemand umsonst ein Foto macht
+  // Vor dem ersten Foto einmal das Findimal-Ehrenwort (Tiere nicht stören)
+  const [promised, setPromised] = useState(true);
+  const [promiseNext, setPromiseNext] = useState<(() => Promise<Photo | null>) | null>(null);
+  useEffect(() => {
+    AsyncStorage.getItem('findimal-promise')
+      .then((v) => setPromised(v === '1'))
+      .catch(() => {});
+  }, []);
   const startPhoto = async (get: () => Promise<Photo | null>) => {
     if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
+    if (!promised) return setPromiseNext(() => get);
     const p = await get();
     if (p) setPhoto(p);
   };
@@ -345,6 +356,18 @@ function Main() {
         )}
       </View>
       <TabBar active={tab} onSelect={setTab} />
+      {promiseNext && (
+        <PromiseSheet
+          onDone={async () => {
+            const get = promiseNext;
+            setPromiseNext(null);
+            setPromised(true);
+            AsyncStorage.setItem('findimal-promise', '1').catch(() => {});
+            const p = await get();
+            if (p) setPhoto(p);
+          }}
+        />
+      )}
     </>
   );
 }

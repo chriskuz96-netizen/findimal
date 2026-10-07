@@ -439,8 +439,14 @@ const HELP = {
     title: 'Hilfe und Kontakt',
     sections: [
       ['Kontakt', `<p>Fragen, Fehler oder Ideen? Schreib uns: <a href="mailto:{EMAIL}">{EMAIL}</a><br>Wir antworten meist innerhalb weniger Tage.</p>`],
+      ['Das Findimal-Ehrenwort: Tiere nicht stören', `<ul>
+<li>Abstand halten – lieber zoomen als näher rangehen.</li>
+<li>Tiere nicht anfassen, nicht füttern und nicht einfangen.</li>
+<li>Nester, Baue und Tierkinder in Ruhe lassen.</li>
+<li>Leise sein und auf den Wegen bleiben. In Naturschutzgebieten gelten oft besondere Regeln.</li>
+</ul>`],
       ['Findimal erkennt mein Tier nicht', `<ul>
-<li>Geh möglichst nah heran und achte darauf, dass das Tier scharf und gut beleuchtet ist.</li>
+<li>Zoome heran, statt näher zu gehen, und achte darauf, dass das Tier scharf und gut beleuchtet ist.</li>
 <li>Ist sich Findimal unsicher, mach ein zweites Foto aus einem anderen Blickwinkel – das hilft oft.</li>
 <li>Findimal nutzt künstliche Intelligenz und kann sich irren. Fass keine Tiere an, die du nicht sicher kennst.</li>
 </ul>`],
@@ -455,8 +461,14 @@ const HELP = {
     title: 'Help and contact',
     sections: [
       ['Contact', `<p>Questions, bugs or ideas? Write to us: <a href="mailto:{EMAIL}">{EMAIL}</a><br>We usually reply within a few days.</p>`],
+      ['The Findimal promise: don’t disturb animals', `<ul>
+<li>Keep your distance – zoom in rather than getting closer.</li>
+<li>Don’t touch, feed or catch animals.</li>
+<li>Leave nests, burrows and baby animals alone.</li>
+<li>Be quiet and stay on the paths. Nature reserves often have special rules.</li>
+</ul>`],
       ['Findimal doesn’t recognise my animal', `<ul>
-<li>Get as close as you can and make sure the animal is sharp and well lit.</li>
+<li>Zoom in rather than getting closer, and make sure the animal is sharp and well lit.</li>
 <li>If Findimal isn’t sure, take a second photo from another angle – that often helps.</li>
 <li>Findimal uses artificial intelligence and can make mistakes. Don’t touch animals you don’t know for sure.</li>
 </ul>`],
@@ -471,8 +483,14 @@ const HELP = {
     title: 'Aide et contact',
     sections: [
       ['Contact', `<p>Des questions, des bugs ou des idées ? Écris-nous : <a href="mailto:{EMAIL}">{EMAIL}</a><br>Nous répondons généralement en quelques jours.</p>`],
+      ['La promesse Findimal : ne pas déranger les animaux', `<ul>
+<li>Garde tes distances – zoome plutôt que de t’approcher.</li>
+<li>Ne touche pas, ne nourris pas et n’attrape pas les animaux.</li>
+<li>Laisse tranquilles les nids, les terriers et les petits.</li>
+<li>Reste silencieux et sur les chemins. Les réserves naturelles ont souvent des règles particulières.</li>
+</ul>`],
       ['Findimal ne reconnaît pas mon animal', `<ul>
-<li>Approche-toi le plus possible et vérifie que l’animal est net et bien éclairé.</li>
+<li>Zoome plutôt que de t’approcher, et vérifie que l’animal est net et bien éclairé.</li>
 <li>Si Findimal n’est pas sûr, prends une deuxième photo sous un autre angle – cela aide souvent.</li>
 <li>Findimal utilise l’intelligence artificielle et peut se tromper. Ne touche pas les animaux que tu ne connais pas avec certitude.</li>
 </ul>`],
@@ -487,8 +505,14 @@ const HELP = {
     title: 'Ayuda y contacto',
     sections: [
       ['Contacto', `<p>¿Preguntas, errores o ideas? Escríbenos: <a href="mailto:{EMAIL}">{EMAIL}</a><br>Solemos responder en pocos días.</p>`],
+      ['La promesa Findimal: no molestar a los animales', `<ul>
+<li>Mantén la distancia: mejor haz zoom que acercarte.</li>
+<li>No toques, no des de comer ni atrapes a los animales.</li>
+<li>Deja en paz nidos, madrigueras y crías.</li>
+<li>Haz silencio y quédate en los caminos. En los espacios protegidos suele haber normas especiales.</li>
+</ul>`],
       ['Findimal no reconoce mi animal', `<ul>
-<li>Acércate todo lo posible y asegúrate de que el animal esté nítido y bien iluminado.</li>
+<li>Haz zoom en lugar de acercarte y asegúrate de que el animal esté nítido y bien iluminado.</li>
 <li>Si Findimal no está seguro, haz una segunda foto desde otro ángulo – suele ayudar.</li>
 <li>Findimal usa inteligencia artificial y puede equivocarse. No toques animales que no conozcas con seguridad.</li>
 </ul>`],
