@@ -29,7 +29,7 @@ export function LimitCard({ p, style }: { p: Palette; style?: ViewStyle }) {
         <Pressable onPress={() => soon(t)} style={[styles.btn, { backgroundColor: colors.accent }]} accessibilityRole="button">
           <Text style={[styles.btnText, { color: colors.ink }]}>{t('lim.video')}</Text>
         </Pressable>
-        <Pressable onPress={() => soon(t)} style={[styles.btn, { backgroundColor: p.moss }]} accessibilityRole="button">
+        <Pressable onPress={() => soon(t)} style={[styles.btn, { backgroundColor: p.button }]} accessibilityRole="button">
           <Text style={[styles.btnText, { color: colors.white }]}>{t('lim.plus')}</Text>
         </Pressable>
       </View>

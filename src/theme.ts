@@ -33,7 +33,8 @@ export type Palette = {
   mute: string;
   line: string;
   card: string;
-  moss: string;
+  moss: string; // Grün für Text und Symbole
+  button: string; // Grün für Knöpfe mit weißer Schrift (im Dunkelmodus dunkler, damit sie lesbar bleibt)
 };
 
 export const lightPalette: Palette = {
@@ -43,6 +44,7 @@ export const lightPalette: Palette = {
   line: colors.line,
   card: colors.card,
   moss: colors.moss,
+  button: colors.moss,
 };
 
 export const darkPalette: Palette = {
@@ -52,6 +54,7 @@ export const darkPalette: Palette = {
   line: '#22392C',
   card: '#12241A',
   moss: '#6FBF8A',
+  button: '#2E7D52',
 };
 
 export const fonts = {

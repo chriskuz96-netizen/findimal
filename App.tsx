@@ -9,6 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
+import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
 import { showLimit } from './src/components/LimitCard';
@@ -34,7 +35,9 @@ export default function App() {
     <SafeAreaProvider>
       <LangProvider>
         <PlusProvider>
-          <Main />
+          <ErrorBoundary>
+            <Main />
+          </ErrorBoundary>
         </PlusProvider>
       </LangProvider>
     </SafeAreaProvider>

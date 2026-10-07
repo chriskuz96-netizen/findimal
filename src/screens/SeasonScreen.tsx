@@ -103,7 +103,7 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         <Text style={[styles.sub, { color: p.mute }]}>{t('sea.helpSub')}</Text>
         {season.help.map((h, i) => (
           <View key={h.title} style={[styles.hi, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}>
-            <View style={[styles.num, { backgroundColor: p.moss }]}>
+            <View style={[styles.num, { backgroundColor: p.button }]}>
               <Text style={styles.numText}>{i + 1}</Text>
             </View>
             <View style={{ flex: 1 }}>

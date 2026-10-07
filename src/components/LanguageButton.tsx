@@ -53,7 +53,7 @@ export function LanguageChips() {
           <Pressable
             key={l.id}
             onPress={() => setLang(l.id)}
-            style={[styles.chip, on ? { backgroundColor: p.moss, borderColor: p.moss } : { borderColor: p.line }]}
+            style={[styles.chip, on ? { backgroundColor: p.button, borderColor: p.button } : { borderColor: p.line }]}
           >
             <Text style={[styles.chipText, { color: on ? colors.white : p.ink }]}>{l.label}</Text>
           </Pressable>

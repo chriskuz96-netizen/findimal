@@ -230,7 +230,7 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
             onPress={() => setView(v)}
             accessibilityRole="tab"
             accessibilityState={{ selected: view === v }}
-            style={[styles.segBtn, view === v && { backgroundColor: p.moss }]}
+            style={[styles.segBtn, view === v && { backgroundColor: p.button }]}
           >
             <Text style={[styles.segText, { color: view === v ? colors.white : p.ink }]}>
               {t(v === 'friends' ? 'lb.friends' : 'lb.world')}
@@ -245,7 +245,7 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
           <Text style={[styles.sub, { color: p.mute }]}>{t('lb.intro')}</Text>
           {!!invite && <Text style={[styles.sub, { color: colors.accent }]}>{t('lb.invited')}</Text>}
           {!!error && <Text style={styles.error}>{error}</Text>}
-          <Pressable onPress={onJoin} disabled={busy} style={[styles.btn, { backgroundColor: p.moss }]} accessibilityRole="button">
+          <Pressable onPress={onJoin} disabled={busy} style={[styles.btn, { backgroundColor: p.button }]} accessibilityRole="button">
             {busy ? <ActivityIndicator color={colors.white} /> : <Text style={styles.btnText}>{t('lb.join')}</Text>}
           </Pressable>
         </>
@@ -297,7 +297,7 @@ export function Leaderboard({ stats, invite, onInviteDone, p }: Props) {
             <Pressable
               onPress={invitePress}
               hitSlop={10}
-              style={({ pressed }) => [styles.smallBtn, { backgroundColor: p.moss, opacity: pressed ? 0.6 : 1 }]}
+              style={({ pressed }) => [styles.smallBtn, { backgroundColor: p.button, opacity: pressed ? 0.6 : 1 }]}
               accessibilityRole="button"
             >
               <Text style={styles.smallBtnText}>{t('lb.invite')}</Text>

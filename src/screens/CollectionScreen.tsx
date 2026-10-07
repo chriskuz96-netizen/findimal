@@ -76,7 +76,7 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
         <View style={[styles.empty, { backgroundColor: p.card, borderColor: p.line }]}>
           <Text style={[styles.h3, { color: p.ink }]}>{t('col.emptyTitle')}</Text>
           <Text style={[styles.emptyText, { color: p.mute }]}>{t('col.emptyText')}</Text>
-          <Pressable onPress={onDiscover} style={[styles.btn, { backgroundColor: p.moss }]}>
+          <Pressable onPress={onDiscover} style={[styles.btn, { backgroundColor: p.button }]}>
             <Text style={styles.btnText}>{t('col.go')}</Text>
           </Pressable>
         </View>

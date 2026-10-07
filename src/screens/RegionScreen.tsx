@@ -56,7 +56,7 @@ export function RegionScreen({ onDone }: Props) {
           accessibilityRole="button"
           style={({ pressed }) => [
             styles.button,
-            { backgroundColor: p.moss, marginTop: 20, opacity: pressed ? 0.85 : 1 },
+            { backgroundColor: p.button, marginTop: 20, opacity: pressed ? 0.85 : 1 },
           ]}
         >
           {locating ? (

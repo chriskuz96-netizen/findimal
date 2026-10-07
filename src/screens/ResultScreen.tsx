@@ -468,7 +468,7 @@ function Button({ label, onPress, filled, p }: { label: string; onPress: () => v
       accessibilityRole="button"
       style={({ pressed }) => [
         styles.btn,
-        filled ? { backgroundColor: p.moss } : { borderWidth: 1.5, borderColor: p.line },
+        filled ? { backgroundColor: p.button } : { borderWidth: 1.5, borderColor: p.line },
         { opacity: pressed ? 0.85 : 1 },
       ]}
     >

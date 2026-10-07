@@ -158,7 +158,7 @@ function AskName({ onDone }: Props) {
           accessibilityRole="button"
           style={({ pressed }) => [
             styles.button,
-            { backgroundColor: p.moss, opacity: !trimmed ? 0.5 : pressed ? 0.85 : 1 },
+            { backgroundColor: p.button, opacity: !trimmed ? 0.5 : pressed ? 0.85 : 1 },
           ]}
         >
           <Text style={styles.buttonText}>{t('onb.start')}</Text>

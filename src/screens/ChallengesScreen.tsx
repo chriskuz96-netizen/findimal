@@ -121,7 +121,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
                 const style = !answered
                   ? { borderColor: p.line }
                   : isRight
-                    ? { backgroundColor: p.moss, borderColor: p.moss }
+                    ? { backgroundColor: p.button, borderColor: p.button }
                     : { borderColor: p.line, opacity: i === answer ? 1 : 0.5 };
                 return (
                   <Pressable

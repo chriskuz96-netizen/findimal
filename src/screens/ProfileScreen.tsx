@@ -248,7 +248,7 @@ function SmallButton({ label, onPress, disabled, p }: { label: string; onPress: 
     <Pressable
       onPress={onPress}
       disabled={disabled}
-      style={({ pressed }) => [styles.small, { backgroundColor: p.moss, opacity: disabled ? 0.5 : pressed ? 0.85 : 1 }]}
+      style={({ pressed }) => [styles.small, { backgroundColor: p.button, opacity: disabled ? 0.5 : pressed ? 0.85 : 1 }]}
     >
       <Text style={styles.smallText}>{label}</Text>
     </Pressable>
