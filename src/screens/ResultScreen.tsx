@@ -15,6 +15,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Photo } from '../camera';
+import { AdSlot } from '../components/AdSlot';
 import { Explorer } from '../components/Explorer';
 import { LimitCard } from '../components/LimitCard';
 import { Find, useFindPhoto } from '../finds';
@@ -272,6 +273,9 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
         </View>
       )}
 
+      {/* Anzeigen-Platz 1: nach dem Ergebnis */}
+      {animal && <AdSlot p={p} placement='result' />}
+
       {/* Steckbrief zum Aufklappen */}
       {animal && (
         <>
@@ -285,7 +289,13 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onNote, on
             </Text>
           </Pressable>
           {details && loadingDetails && <ActivityIndicator color={colors.accent} style={{ marginTop: 12 }} />}
-          {details && !loadingDetails && hasDetails(animal) && <Details animal={animal} p={p} />}
+          {details && !loadingDetails && hasDetails(animal) && (
+            <>
+              <Details animal={animal} p={p} />
+              {/* Anzeigen-Platz 2: im aufgeklappten Steckbrief */}
+              <AdSlot p={p} placement='details' />
+            </>
+          )}
           {details && !loadingDetails && !hasDetails(animal) && (
             <Text style={[styles.body, { color: p.mute, marginHorizontal: spacing.gutter, marginTop: 10 }]}>
               {t('res.detailsFailed')}
