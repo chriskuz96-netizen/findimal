@@ -6,6 +6,7 @@ import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
 import { Avatar } from '../components/Avatar';
+import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
 import { usePlus } from '../plus';
 import { Snail } from '../components/animals/Snail';
@@ -84,6 +85,9 @@ export function StartScreen({
         </Pressable>
         <Text style={[styles.avatarXp, { top: insets.top + AVATAR + 4 }]}>{xp} XP</Text>
 
+        {/* Sprache oben rechts zum Aufklappen */}
+        <LanguageButton top={insets.top + 18} />
+
         {/* Schriftzug klein oben in der Mitte, mit dem Fuchs-Symbol */}
         <View style={[styles.brand, { top: insets.top + 18 }]} pointerEvents="none">
           <AppLogo size={30} />
@@ -114,7 +118,7 @@ export function StartScreen({
 }
 
 // Größe des Profilbilds oben links
-const AVATAR = 74;
+const AVATAR = 84;
 
 const styles = StyleSheet.create({
   screen: {

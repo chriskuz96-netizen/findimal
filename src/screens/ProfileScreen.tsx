@@ -18,7 +18,6 @@ import { HeaderBackground } from '../components/HeaderBackground';
 import { Avatar } from '../components/Avatar';
 import { Medal } from '../components/Medal';
 import { Find, speciesKey } from '../finds';
-import { LanguageChips } from '../components/LanguageButton';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
@@ -287,12 +286,6 @@ export function ProfileScreen(props: Props) {
           </Pressable>
         )}
       </View>
-
-      {/* Sprache */}
-      <Card p={p}>
-        <Text style={[styles.h3, { color: p.ink }]}>{t('pro.language')}</Text>
-        <LanguageChips />
-      </Card>
 
       <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
         <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
