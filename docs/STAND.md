@@ -32,6 +32,11 @@ Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
 6. Später: AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf).
    (Die Fundkarte wurde entfernt – keine Kartendienst-Kosten.)
 
+## Natur-Tipps (Mitteilungen)
+- `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
+- Kein Push-Server, kein Token. Frage nach dem ersten Fund, Schalter im Profil, Test-Knopf nur in `__DEV__`.
+- Im TestFlight-Bau prüfen: Mitteilung kommt, Tippen öffnet die Saison-Seite.
+
 ## Kontrollzentrum-Knopf (nach dem ersten TestFlight-Bau)
 - App versteht schon `findimal://kamera` (öffnet die Kamera); `scheme: findimal` steht in `app.json`.
 - Swift-Code und Einstellungen liegen im Zweig `app-assets` unter `targets/kamera-knopf/` (README dort).

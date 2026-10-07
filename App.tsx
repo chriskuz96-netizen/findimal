@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
@@ -16,6 +16,7 @@ import { showLimit } from './src/components/LimitCard';
 import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
+import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { computeProgress, computeReward, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog } from './src/quiz';
@@ -96,6 +97,29 @@ function Main() {
     loadBestRank().then(setBestRank);
     loadMaxFriends().then(setMaxFriends);
   }, []);
+
+  // Natur-Tipps: bei jedem Start (und Sprachwechsel) die nächsten Wochen neu einplanen;
+  // Tippen auf einen Tipp öffnet die Saison-Seite
+  useEffect(() => {
+    planTips(lang);
+  }, [lang]);
+  useEffect(
+    () =>
+      onTipOpened(() => {
+        setOpenFind(null);
+        setShowProfile(false);
+        setTab('season');
+      }),
+    [],
+  );
+  // Nach dem ersten Fund einmal fragen, ob man Natur-Tipps möchte
+  const askTips = async () => {
+    if (findsRef.current.length < 1 || (await loadTips()) !== null) return;
+    Alert.alert(t('tips.askTitle'), t('tips.askText'), [
+      { text: t('tips.no'), style: 'cancel', onPress: () => disableTips() },
+      { text: t('tips.yes'), onPress: () => enableTips(lang) },
+    ]);
+  };
 
   // Einladungslink eines Freundes: Code merken und zur Rangliste (Challenges) wechseln.
   // findimal://kamera (z. B. vom Knopf im Kontrollzentrum): direkt die Kamera öffnen.
@@ -249,6 +273,7 @@ function Main() {
           onBack={() => {
             setPhoto(null);
             refreshFreeLeft();
+            setTimeout(askTips, 600);
           }}
         />
       </>

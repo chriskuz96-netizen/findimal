@@ -29,7 +29,8 @@ export function weekStart(d: Date): Date {
 export function weekTask(d: Date): WeekTask {
   const start = weekStart(d);
   const list = TASKS[seasonId(start)];
-  const n = Math.floor((start.getTime() + 4 * DAY) / (7 * DAY)); // fortlaufende Wochennummer
+  // fortlaufende Wochennummer (unabhängig von Sommer-/Winterzeit)
+  const n = Math.floor((Date.UTC(start.getFullYear(), start.getMonth(), start.getDate()) / DAY + 3) / 7);
   return list[n % list.length];
 }
 

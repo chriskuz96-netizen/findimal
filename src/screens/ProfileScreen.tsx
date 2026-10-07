@@ -1,10 +1,11 @@
 import * as Linking from 'expo-linking';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Alert,
   Pressable,
   ScrollView,
   StyleSheet,
+  Switch,
   Text,
   TextInput,
   useColorScheme,
@@ -19,6 +20,7 @@ import { Find, speciesKey } from '../finds';
 import { LanguageChips } from '../components/LanguageButton';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
+import { disableTips, enableTips, loadTips, testTip } from '../notify';
 import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { Progress } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
@@ -44,6 +46,21 @@ export function ProfileScreen(props: Props) {
   const { t, lang } = useI18n();
   const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
+  const [tips, setTips] = useState(false);
+  useEffect(() => {
+    loadTips().then((on) => setTips(!!on));
+  }, []);
+  const toggleTips = async (on: boolean) => {
+    setTips(on);
+    if (!on) return disableTips();
+    if (await enableTips(lang)) return;
+    // iOS erlaubt keine Mitteilungen: in den Einstellungen einschalten
+    setTips(false);
+    Alert.alert(t('tips.title'), t('tips.denied'), [
+      { text: t('common.cancel'), style: 'cancel' },
+      { text: t('tips.settings'), onPress: () => Linking.openSettings() },
+    ]);
+  };
   const earned = progress.badges.filter((b) => b.earned);
   const species = new Set(finds.map((f) => speciesKey(f.animal))).size;
   const share = progress.nextLevelXp
@@ -202,6 +219,21 @@ export function ProfileScreen(props: Props) {
       <Card p={p}>
         <Text style={[styles.h3, { color: p.ink }]}>{t('pro.language')}</Text>
         <LanguageChips />
+      </Card>
+
+      {/* Natur-Tipps als Mitteilung (einmal pro Woche) */}
+      <Card p={p}>
+        <View style={styles.row}>
+          <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>{t('tips.title')}</Text>
+          <Switch value={tips} onValueChange={toggleTips} trackColor={{ true: p.button }} />
+        </View>
+        <Text style={[styles.sub, { color: p.mute }]}>{t('tips.hint')}</Text>
+        {/* nur beim Ausprobieren in Expo Go sichtbar */}
+        {__DEV__ && tips && (
+          <Pressable onPress={() => testTip(lang)} hitSlop={8} style={{ marginTop: 8 }} accessibilityRole="button">
+            <Text style={[styles.sub, { color: p.moss, fontFamily: fonts.sansBold }]}>{t('tips.test')} ›</Text>
+          </Pressable>
+        )}
       </Card>
 
       <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
