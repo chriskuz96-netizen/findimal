@@ -1,5 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -7,12 +6,11 @@ import { HeaderBackground } from '../components/HeaderBackground';
 import { Find, useFindPhoto } from '../finds';
 import { GroupIcon, groupOf } from '../groups';
 import { useI18n } from '../i18n';
-import { Phenomenon, Season, seasonFor, seasonId } from '../season';
+import { Phenomenon, Season, seasonFor } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 const DAY = 86400000;
 const GAP = 10;
-const HELP_KEY = 'findimal-help'; // erledigte Tipps, pro Saison und Jahr
 
 // Beginn und Ende der aktuellen Jahreszeit (Winter geht über den Jahreswechsel)
 function seasonRange(now: Date): { start: Date; end: Date } {
@@ -67,20 +65,6 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const [page, setPage] = useState(0);
   // Kartenbreite: etwas schmaler als der Bildschirm, damit die nächste Karte hervorschaut
   const cardW = useWindowDimensions().width - spacing.gutter * 2 - 24;
-
-  // Erledigte Tipps merken (z. B. "autumn-2026": [0, 2])
-  const helpKey = `${seasonId(now)}-${start.getFullYear()}`;
-  const [helped, setHelped] = useState<number[]>([]);
-  useEffect(() => {
-    AsyncStorage.getItem(HELP_KEY)
-      .then((raw) => setHelped((raw ? JSON.parse(raw)[helpKey] : null) ?? []))
-      .catch(() => {});
-  }, [helpKey]);
-  const toggleHelp = (i: number) => {
-    const next = helped.includes(i) ? helped.filter((x) => x !== i) : [...helped, i];
-    setHelped(next);
-    AsyncStorage.setItem(HELP_KEY, JSON.stringify({ [helpKey]: next })).catch(() => {});
-  };
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
@@ -152,35 +136,21 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         ))}
       </View>
 
-      {/* So hilfst du – zum Abhaken */}
+      {/* So hilfst du */}
       <View style={[styles.help, { backgroundColor: 'rgba(31,110,71,0.09)' }]}>
-        <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>{t('sea.help')}</Text>
-          <Text style={[styles.count, { color: p.mute }]}>
-            {helped.length} / {season.help.length}
-          </Text>
-        </View>
+        <Text style={[styles.h3, { color: p.ink }]}>{t('sea.help')}</Text>
         <Text style={[styles.sub, { color: p.mute }]}>{t('sea.helpSub')}</Text>
-        {season.help.map((h, i) => {
-          const on = helped.includes(i);
-          return (
-            <Pressable
-              key={h.title}
-              onPress={() => toggleHelp(i)}
-              accessibilityRole="checkbox"
-              accessibilityState={{ checked: on }}
-              style={[styles.hi, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}
-            >
-              <View style={[styles.check, on ? { backgroundColor: p.moss, borderColor: p.moss } : { borderColor: p.mute }]}>
-                {on && <Text style={styles.checkMark}>✓</Text>}
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={[styles.hiTitle, { color: p.ink }, on && styles.hiDone]}>{h.title}</Text>
-                <Text style={[styles.hiText, { color: p.mute }]}>{h.text}</Text>
-              </View>
-            </Pressable>
-          );
-        })}
+        {season.help.map((h, i) => (
+          <View key={h.title} style={[styles.hi, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}>
+            <View style={[styles.num, { backgroundColor: p.moss }]}>
+              <Text style={styles.numText}>{i + 1}</Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={[styles.hiTitle, { color: p.ink }]}>{h.title}</Text>
+              <Text style={[styles.hiText, { color: p.mute }]}>{h.text}</Text>
+            </View>
+          </View>
+        ))}
       </View>
     </ScrollView>
   );
@@ -338,16 +308,8 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   hi: { flexDirection: 'row', gap: 12, paddingVertical: 11 },
-  check: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkMark: { color: colors.white, fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 16 },
+  num: { width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
+  numText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
   hiTitle: { fontFamily: fonts.sansBold, fontSize: 15 },
-  hiDone: { textDecorationLine: 'line-through', opacity: 0.6 },
   hiText: { fontFamily: fonts.sans, fontSize: 13.5, lineHeight: 19, marginTop: 2 },
 });
