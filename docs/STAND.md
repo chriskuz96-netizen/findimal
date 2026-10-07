@@ -26,7 +26,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
 3. Ersten Bau mit EAS (`eas build -p ios --profile production`) und Upload zu TestFlight (`eas submit`).
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
    80 pro Anschluss, 300 pro Tag gesamt; `TAGES_GRENZE` änderbar).
-5. Später: Expo Updates (kleine Updates ohne Apple-Prüfung), AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf).
+5. Kleine Updates ohne Apple-Prüfung sind eingerichtet (expo-updates, Kanal `production`):
+   `eas update --channel production --message "…"`. Nur für reine JS-/Text-Änderungen; neue native
+   Bausteine brauchen einen neuen Bau.
+6. Später: AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf).
    (Die Fundkarte wurde entfernt – keine Kartendienst-Kosten.)
 
 ## Vor dem öffentlichen App-Store-Start

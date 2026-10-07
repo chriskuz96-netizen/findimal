@@ -16,6 +16,11 @@ module.exports = ({ config }) => ({
   // Expo-Konto und -Projekt für den App-Bau (EAS)
   owner: 'christianfindimal',
   extra: { ...config.extra, eas: { projectId: 'd01f3c01-05fb-435f-b41f-842cf6583f72' } },
+  // Kleine Updates ohne Apple-Prüfung (Expo Updates): die App lädt sie beim Start und nutzt sie
+  // ab dem nächsten Start. "fingerprint" sorgt dafür, dass ein Update nur auf passende App-Bauten geht
+  // (nach neuen Bausteinen wie Werbung braucht es einen neuen Bau über Apple).
+  updates: { url: 'https://u.expo.dev/d01f3c01-05fb-435f-b41f-842cf6583f72' },
+  runtimeVersion: { policy: 'fingerprint' },
   ...(has('./assets/icon.png') ? { icon: './assets/icon.png' } : {}),
   splash: {
     ...config.splash,
