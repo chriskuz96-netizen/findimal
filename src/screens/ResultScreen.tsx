@@ -254,7 +254,6 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             {!result && (
               <View style={styles.loading}>
                 <Explorer size={64} />
-                <Text style={styles.loadingTitle}>{t('res.wait')}</Text>
                 <Text style={styles.loadingText}>{t('res.looking')}</Text>
                 <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
                 {busy && (
@@ -705,17 +704,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 30,
   },
-  loadingTitle: {
-    fontFamily: fonts.serifBold,
-    fontSize: 22,
-    color: colors.white,
-    marginTop: 10,
-  },
   loadingText: {
     fontFamily: fonts.sans,
-    fontSize: 15,
+    fontSize: 16,
     color: colors.accentLight,
-    marginTop: 2,
+    marginTop: 12,
   },
   back: {
     position: 'absolute',
