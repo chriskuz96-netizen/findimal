@@ -210,18 +210,15 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           {/* Stufe und XP direkt im Kopf (wie im Profil), mit schmalem hellem Balken */}
           <View style={styles.levelHead}>
             <Pressable onPress={onOpenProfile} accessibilityRole="button" accessibilityLabel={t('a11y.profile')} hitSlop={8}>
-              <Avatar id={avatar || null} name={name} size={58} />
+              <Avatar id={avatar || null} name={name} size={50} />
             </Pressable>
             <View style={{ flex: 1 }}>
-              {/* Name ganz oben; zu lange Namen werden kleiner statt abgeschnitten */}
-              {name ? (
-                <Text style={styles.levelUser} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
-                  {name}
-                </Text>
-              ) : null}
-              <Text style={styles.levelSmall}>{t('ch.level', { n: shownLevel })}</Text>
-              <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
-                {t(`level.${shownLevel - 1}` as 'level.0')}
+              <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+                {name}
+              </Text>
+              <Text style={[styles.levelSmall, { marginTop: 2 }]}>
+                {t('ch.level', { n: shownLevel })} ·{' '}
+                <Text style={{ color: colors.white }}>{t(`level.${shownLevel - 1}` as 'level.0')}</Text>
               </Text>
             </View>
             <View style={{ alignItems: 'flex-end' }}>
