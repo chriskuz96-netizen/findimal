@@ -9,10 +9,9 @@ import { SeasonTop } from '../components/SeasonTop';
 import { Find, useFindPhoto } from '../finds';
 import { GroupIcon } from '../groups';
 import { useI18n } from '../i18n';
-import { matchesAnimal, Phenomenon, seasonFor } from '../season';
+import { matchesAnimal, Phenomenon, seasonDaysLeft, seasonFor, seasonRange } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
-const DAY = 86400000;
 
 // Zählt die App-Starts (einmal pro Start hochgezählt), damit das Naturschauspiel jedes Mal wechselt
 const LAUNCH_KEY = 'findimal-launch';
@@ -32,16 +31,6 @@ function useLaunchNumber(): number {
   return n;
 }
 const GAP = 8;
-
-// Beginn und Ende der aktuellen Jahreszeit (Winter geht über den Jahreswechsel)
-function seasonRange(now: Date): { start: Date; end: Date } {
-  const y = now.getFullYear();
-  const m = now.getMonth();
-  const startMonth = m === 0 || m === 1 ? -1 : Math.floor((m - 2) / 3) * 3 + 2; // 2, 5, 8, 11 (Dezember = 11)
-  const start = new Date(y, startMonth, 1);
-  const end = new Date(y, startMonth + 3, 1);
-  return { start, end };
-}
 
 // Funde aus der aktuellen Jahreszeit (neueste zuerst)
 function seasonFinds(finds: Find[], now: Date): Find[] {
@@ -70,7 +59,7 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const { start, end } = seasonRange(now);
   const recent = seasonFinds(finds, now);
   const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
-  const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / DAY));
+  const daysLeft = seasonDaysLeft(now);
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
   // Breite eines Viertels (zwei nebeneinander ergeben den Kreis)
   const launch = useLaunchNumber();

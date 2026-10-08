@@ -391,6 +391,19 @@ export function matchesAnimal(sci: string | undefined, match: string[]): boolean
   return !!s && match.some((m) => s.startsWith(m));
 }
 
+// Beginn und Ende der aktuellen Jahreszeit (Winter geht über den Jahreswechsel)
+export function seasonRange(now: Date): { start: Date; end: Date } {
+  const y = now.getFullYear();
+  const m = now.getMonth();
+  const startMonth = m === 0 || m === 1 ? -1 : Math.floor((m - 2) / 3) * 3 + 2; // 2, 5, 8, 11 (Dezember = 11)
+  return { start: new Date(y, startMonth, 1), end: new Date(y, startMonth + 3, 1) };
+}
+
+// Wie viele Tage dauert die Jahreszeit noch? (mindestens 1)
+export function seasonDaysLeft(now: Date): number {
+  return Math.max(1, Math.ceil((seasonRange(now).end.getTime() - now.getTime()) / 86400000));
+}
+
 export function seasonId(date: Date): SeasonId {
   const m = date.getMonth(); // 0 = Januar
   if (m >= 2 && m <= 4) return 'spring';

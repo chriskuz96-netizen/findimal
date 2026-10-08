@@ -10,6 +10,8 @@ import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
 import { Badge, Progress, XP } from '../progress';
+import { seasonDaysLeft } from '../season';
+import { WeekTask } from '../weekly';
 import { answeredToday, nextQuestion, question as questionAt, QUESTIONS_PER_DAY, QuizLog } from '../quiz';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -35,6 +37,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const { t, lang } = useI18n();
   const goal = progress.season;
   const week = progress.week;
+  const seasonLeft = seasonDaysLeft(new Date());
   // Quiz: die gerade gezeigte Frage bleibt nach dem Antworten stehen, bis man "Nächste Frage" tippt
   // höchstens 3 Fragen pro Tag
   const canAsk = (log: QuizLog) => answeredToday(log) < QUESTIONS_PER_DAY;
@@ -81,7 +84,9 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft */}
       <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
         <View style={styles.misHead}>
-          <Text style={[styles.small, { color: p.mute, flex: 1 }]}>{t('goal.title')}</Text>
+          <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
+            {t('goal.title')} · {seasonLeft === 1 ? t('week.leftOne') : t('week.left', { n: seasonLeft })}
+          </Text>
           <XpPill text={goal.done ? t('ch.done') : `+${XP.season} XP`} done={goal.done} />
         </View>
         {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
@@ -108,16 +113,18 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       {/* Wochen-Aufgabe: jede Woche eine neue */}
       <View style={[styles.card, { backgroundColor: p.card, borderColor: week.done ? DONE : p.line }, week.done && styles.doneCard]}>
         <View style={styles.misHead}>
-          <View style={{ flex: 1 }}>
-            <Text style={[styles.small, { color: p.mute }]}>
-              {t('week.title')} ·{' '}
-              {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
-            </Text>
-            <Text style={[styles.misText, { color: p.ink }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
-          </View>
+          <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
+            {t('week.title')} · {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
+          </Text>
           <XpPill text={week.done ? t('ch.done') : `+${XP.week} XP`} done={week.done} />
         </View>
-        {week.done && <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>{t('week.done')}</Text>}
+        {/* Aufgabe mit passendem Symbol */}
+        <View style={styles.weekRow}>
+          <View style={[styles.weekIcon, { backgroundColor: week.done ? 'rgba(111,191,138,0.18)' : 'rgba(232,131,58,0.14)' }]}>
+            <Text style={styles.weekEmoji}>{WEEK_ICON[week.task]}</Text>
+          </View>
+          <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
+        </View>
       </View>
 
       {/* Rangliste mit Freunden */}
@@ -222,6 +229,22 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   );
 }
 
+// Symbol je Wochen-Aufgabe
+const WEEK_ICON: Record<WeekTask, string> = {
+  bird: '🐦',
+  ins: '🐞',
+  mam: '🦊',
+  amp: '🐸',
+  mol: '🐌',
+  ara: '🕷️',
+  fish: '🐟',
+  rep: '🦎',
+  species3: '🔍',
+  days2: '📅',
+  morning: '🌅',
+  evening: '🌙',
+};
+
 // Grün für "geschafft" (Rahmen und Marke)
 const DONE = '#6FBF8A';
 
@@ -295,6 +318,9 @@ const styles = StyleSheet.create({
   levelBar: { height: 8, borderRadius: 9, marginTop: 14, marginBottom: 6, overflow: 'hidden', backgroundColor: 'rgba(232,131,58,0.2)' },
   levelSub: { fontFamily: fonts.sans, fontSize: 13 },
   doneCard: { borderWidth: 2 },
+  weekRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6 },
+  weekIcon: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center' },
+  weekEmoji: { fontSize: 20 },
   goalRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
   goalSlot: { width: 56, alignItems: 'center', gap: 3 },
   goalLabel: { fontFamily: fonts.sans, fontSize: 10.5 },
