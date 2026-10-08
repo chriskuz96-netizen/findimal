@@ -90,6 +90,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         <Text style={styles.barText}>{t('sea.daysLeft', { n: daysLeft })}</Text>
       </View>
 
+      {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
+      <SeasonTop finds={recent} p={p} first />
+
       {/* Saison-Tiere als Kreis aus vier Vierteln – alles auf einen Blick */}
       <View style={styles.blk}>
         <View style={styles.bh}>
@@ -115,9 +118,6 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           ))}
         </View>
       </View>
-
-      {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
-      <SeasonTop finds={recent} p={p} />
 
       {/* Naturschauspiel: eins pro App-Start, wechselt beim nächsten Öffnen */}
       <View style={[styles.spec, { backgroundColor: p.card, borderColor: p.line }]}>

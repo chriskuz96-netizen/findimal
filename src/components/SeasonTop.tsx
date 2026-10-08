@@ -13,7 +13,7 @@ const SHOW = 3;
 
 // Die beliebtesten Tiere der Saison bei allen Findimal-Entdeckern (anonym gezählt auf dem Server).
 // Schon selbst gefundene Arten bekommen ein Häkchen.
-export function SeasonTop({ finds, p }: { finds: Find[]; p: Palette }) {
+export function SeasonTop({ finds, p, first }: { finds: Find[]; p: Palette; first?: boolean }) {
   const { t, lang } = useI18n();
   const [data, setData] = useState<Top | null>(null);
 
@@ -32,7 +32,7 @@ export function SeasonTop({ finds, p }: { finds: Find[]; p: Palette }) {
   const mine = new Set(finds.map((f) => (f.animal.wissenschaftlicher_name || f.animal.name).trim().toLowerCase()));
 
   return (
-    <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
+    <View style={[styles.card, first && { marginTop: 22 }, { backgroundColor: p.card, borderColor: p.line }]}>
       <Text style={[styles.h3, { color: p.ink }]}>🏆 {t('sea.top')}</Text>
       <Text style={[styles.sub, { color: p.mute }]}>{t('sea.topSub')}</Text>
       {data.top.slice(0, SHOW).map((a, i) => {
