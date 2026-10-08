@@ -35,7 +35,8 @@ type Props =
       photo: Photo;
       saved?: undefined;
       // replaceId: Fund, der mit einer neuen Bestimmung (z. B. nach zweitem Foto) ersetzt wird
-      onIdentified: (animal: Animal, replaceId: string | null) => Promise<{ id: string; reward: Reward }>;
+      // shot: das Foto, das bestimmt wurde (wird beim neuen Fund gespeichert)
+      onIdentified: (animal: Animal, replaceId: string | null, shot: Photo) => Promise<{ id: string; reward: Reward }>;
       morePhoto: (kind: 'camera' | 'library') => Promise<Photo | null>;
       onDetails: (id: string, animal: Animal) => void; // ausführlicher Steckbrief nachgeladen
       onPlace?: undefined;
@@ -139,7 +140,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
       identify(list, t, lang).then(async (r) => {
         setResult(r);
         if (r.ok && r.animal.tier_gefunden) {
-          const res = await onIdentified(r.animal, findId.current);
+          const res = await onIdentified(r.animal, findId.current, list[0]);
           findId.current = res.id;
           setReward(res.reward);
           if (list.length === 1 && (await bigAdDue())) setBigAd('due');
@@ -194,7 +195,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
     if (id) onDetails?.(id, full);
   };
   const limited = !!result && !result.ok && !!result.limit; // Gratis-Fotos für heute aufgebraucht
-  const mainUri = photo ? photo.uri : savedPhoto;
+  const mainUri = photo ? (photos[0]?.uri ?? photo.uri) : savedPhoto; // nach "neues Foto" das neue zeigen
   const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
   const canAddPhoto = !!morePhoto && !!animal && photos.length < MAX_PHOTOS;
   const unsure = canAddPhoto && animal.sicherheit !== 'sicher';

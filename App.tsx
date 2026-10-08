@@ -289,7 +289,7 @@ function Main() {
     <ResultScreen
       key={photo.uri}
       photo={photo}
-      onIdentified={async (animal, replaceId) => {
+      onIdentified={async (animal, replaceId, shot) => {
         const quizXp = correctAnswers(quizRef.current);
         // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
         const others = findsRef.current.filter((f) => f.id !== replaceId);
@@ -300,7 +300,7 @@ function Main() {
         if (replaceId) {
           next = await updateFind(findsRef.current, replaceId, animal);
         } else {
-          const added = await addFind(findsRef.current, photo, animal, region || undefined);
+          const added = await addFind(findsRef.current, shot, animal, region || undefined);
           next = added.finds;
           id = added.id;
         }
