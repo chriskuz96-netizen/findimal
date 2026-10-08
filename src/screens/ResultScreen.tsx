@@ -407,6 +407,7 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
   const pop = useRef(new Animated.Value(0)).current;
   const bar = useRef(new Animated.Value(0)).current;
   const count = useRef(new Animated.Value(0)).current;
+  const glow = useRef(new Animated.Value(1)).current;
   const share = (pr: Progress) => (pr.nextLevelXp ? (pr.xp - pr.levelStart) / (pr.nextLevelXp - pr.levelStart) : 1);
   const from = share(reward.before);
   const to = share(reward.after);
@@ -414,6 +415,8 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
   const [shownLevel, setShownLevel] = useState(reward.levelUp ? reward.before.level : reward.after.level);
   const [shownXp, setShownXp] = useState(reward.before.xp);
   const [leveled, setLeveled] = useState(false);
+  // alter Stand im Balken (bei neuer Stufe: 0); alles darüber ist neu und leuchtet hell
+  const [base, setBase] = useState(reward.levelUp ? 0 : share(reward.before));
   // Ein- und Ausblenden von unten
   const slide = useRef(new Animated.Value(0)).current;
   const [gone, setGone] = useState(false);
@@ -425,7 +428,7 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
   useEffect(() => {
     slide.setValue(0);
     Animated.timing(slide, { toValue: 1, duration: 350, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
-    const away = setTimeout(hide, reward.levelUp ? 5200 : 3800);
+    const away = setTimeout(hide, reward.levelUp ? 6000 : 4800);
     return () => clearTimeout(away);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reward]);
@@ -442,34 +445,49 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
     // XP zählen hoch, während sich der Balken füllt
     const counting = Animated.timing(count, {
       toValue: reward.after.xp,
-      duration: reward.levelUp ? 1800 : 1300,
+      duration: reward.levelUp ? 2400 : 2000,
       easing: Easing.out(Easing.cubic),
       useNativeDriver: false,
     });
     const filling = reward.levelUp
       ? Animated.sequence([
-          fill(1, 800),
+          fill(1, 1100),
           Animated.timing(bar, { toValue: 0, duration: 0, useNativeDriver: false }),
-          fill(to, 900),
+          fill(to, 1200),
         ])
-      : fill(to, 1300);
+      : fill(to, 2000);
+    // das neue Stück pulsiert zweimal, damit man sieht, was dazugekommen ist
+    glow.setValue(0.6);
+    Animated.sequence([
+      Animated.delay(900),
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(glow, { toValue: 1, duration: 380, useNativeDriver: false }),
+          Animated.timing(glow, { toValue: 0.55, duration: 380, useNativeDriver: false }),
+        ]),
+        { iterations: 3 },
+      ),
+      Animated.timing(glow, { toValue: 1, duration: 300, useNativeDriver: false }),
+    ]).start();
     Animated.sequence([
       Animated.spring(pop, { toValue: 1, friction: 5, useNativeDriver: true }),
       Animated.delay(250),
       Animated.parallel([counting, filling]),
     ]).start();
     // Stufenwechsel ungefähr dann, wenn der Balken voll ist
+    setBase(from);
     const timer = reward.levelUp
       ? setTimeout(() => {
           setShownLevel(reward.after.level);
           setLeveled(true);
-        }, 1500)
+          setBase(0);
+        }, 1700)
       : null;
     return () => {
       count.removeListener(id);
       if (timer) clearTimeout(timer);
     };
-  }, [reward, from, to, pop, bar, count]);
+  }, [reward, from, to, pop, bar, count, glow]);
 
   const labels = {
     find: t('rew.find'),
@@ -513,9 +531,14 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
             <Text style={styles.tDotText}>{shownLevel}</Text>
           </View>
           <View style={styles.tBar}>
+            {/* hinten: hell leuchtend bis zum neuen Stand – vorne: der alte Stand in Orange */}
             <Animated.View
-              style={[styles.barFill, { width: bar.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
+              style={[
+                styles.tGlow,
+                { opacity: glow, width: bar.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) },
+              ]}
             />
+            <View style={[styles.barFill, styles.tBase, { width: `${Math.round(base * 100)}%` }]} />
           </View>
           {!maxLevel && (
             <View style={[styles.tDot, styles.tDotNext]}>
@@ -787,7 +810,9 @@ const styles = StyleSheet.create({
   tDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
   tDotNext: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.45)' },
   tDotText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
-  tBar: { flex: 1, height: 6, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
+  tBar: { flex: 1, height: 8, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
+  tGlow: { position: 'absolute', left: 0, top: 0, bottom: 0, borderRadius: 6, backgroundColor: '#FFD97A' },
+  tBase: { position: 'absolute', left: 0, top: 0, bottom: 0 },
   tSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 6 },
   bar: { flex: 1, height: 10, borderRadius: 9, overflow: 'hidden' },
   barFill: { height: '100%', backgroundColor: colors.accent, borderRadius: 9 },
