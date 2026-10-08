@@ -368,6 +368,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             </>
           )}
 
+          {/* dezente Erinnerung ans Findimal-Ehrenwort */}
+          <Text style={[styles.respect, { color: p.mute }]}>🐾 {t('res.respect')}</Text>
           <Button label={t('res.continue')} onPress={leave} p={p} filled={!!result} />
         </ScrollView>
 
@@ -668,6 +670,7 @@ const styles = StyleSheet.create({
   },
   body: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, marginTop: 8 },
   foundOn: { fontFamily: fonts.sans, fontSize: 13, marginTop: 10 },
+  respect: { fontFamily: fonts.sans, fontSize: 12.5, textAlign: 'center', marginTop: 16, marginHorizontal: spacing.gutter },
   placeRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginTop: 10 },
   placeAdd: { fontFamily: fonts.sansBold, fontSize: 13 },
   placeEdit: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },

@@ -11,7 +11,7 @@ const RULES = [
   ['🤫', 'promise.r4'],
 ] as const;
 
-// Das Findimal-Ehrenwort: erscheint einmal vor dem ersten Foto. Tiere sollen nicht gestört werden.
+// Das Findimal-Ehrenwort: erscheint einmal beim ersten Öffnen der App. Tiere sollen nicht gestört werden.
 export function PromiseSheet({ onDone }: { onDone: () => void }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const { t } = useI18n();

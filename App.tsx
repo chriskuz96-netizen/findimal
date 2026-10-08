@@ -72,18 +72,16 @@ function Main() {
   useEffect(() => {
     refreshFreeLeft();
   }, []);
-  // Vor dem Fotografieren prüfen, damit niemand umsonst ein Foto macht
-  // Vor dem ersten Foto einmal das Findimal-Ehrenwort (Tiere nicht stören)
+  // Beim ersten Öffnen der App (nach Name und Ort) einmal das Findimal-Ehrenwort (Tiere nicht stören)
   const [promised, setPromised] = useState(true);
-  const [promiseNext, setPromiseNext] = useState<(() => Promise<Photo | null>) | null>(null);
   useEffect(() => {
     AsyncStorage.getItem('findimal-promise')
       .then((v) => setPromised(v === '1'))
       .catch(() => {});
   }, []);
+  // Vor dem Fotografieren prüfen, damit niemand umsonst ein Foto macht
   const startPhoto = async (get: () => Promise<Photo | null>) => {
     if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
-    if (!promised) return setPromiseNext(() => get);
     const p = await get();
     if (p) setPhoto(p);
   };
@@ -357,15 +355,11 @@ function Main() {
         )}
       </View>
       <TabBar active={tab} onSelect={setTab} />
-      {promiseNext && (
+      {!promised && (
         <PromiseSheet
-          onDone={async () => {
-            const get = promiseNext;
-            setPromiseNext(null);
+          onDone={() => {
             setPromised(true);
             AsyncStorage.setItem('findimal-promise', '1').catch(() => {});
-            const p = await get();
-            if (p) setPhoto(p);
           }}
         />
       )}
