@@ -153,13 +153,15 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           <View style={{ flex: 1 }}>
             <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
             <Text style={[styles.small, { color: p.mute }]}>
-              {quizDone ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow') : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
+              {quizDone
+                ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')
+                : today.length
+                  ? t('ch.quizProgress', { n: today.length, max: QUESTIONS_PER_DAY })
+                  : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
             </Text>
           </View>
-          <XpPill
-            text={quizDone ? (todayXp > 0 ? `+${todayXp} XP` : `${today.length}/${QUESTIONS_PER_DAY}`) : `${today.length}/${QUESTIONS_PER_DAY}`}
-            done={quizDone}
-          />
+          {/* wie bei den Zielen: orange = noch zu holen, grün = verdient */}
+          <XpPill text={`+${quizDone ? todayXp : QUESTIONS_PER_DAY * XP.quiz} XP`} done={quizDone} />
         </View>
         {cur !== null &&
           (() => {
