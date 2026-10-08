@@ -174,8 +174,10 @@ export function ProfileScreen(props: Props) {
                   </Svg>
                 </Pressable>
               )}
+              {/* wie auf der Challenges-Seite: STUFE orange, Stufenname weiß */}
               <Text style={styles.nick}>
-                {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
+                <Text style={styles.nickCaps}>{t('ch.level', { n: progress.level })}</Text> ·{' '}
+                <Text style={{ color: colors.white }}>{t(`level.${progress.level - 1}` as 'level.0')}</Text>
               </Text>
               {/* Ort: antippen zum Ändern */}
               <Pressable
@@ -402,7 +404,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   nameOkText: { fontFamily: fonts.sansBold, fontSize: 18, color: colors.ink },
-  nick: { fontFamily: fonts.sans, fontSize: 14, color: colors.accentLight, marginTop: 2 },
+  nick: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.accentLight, marginTop: 2 },
+  nickCaps: { fontSize: 12, textTransform: 'uppercase', letterSpacing: 0.6 },
   card: {
     marginTop: 12,
     marginHorizontal: spacing.gutter,
