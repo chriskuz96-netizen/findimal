@@ -1,5 +1,5 @@
 import { ReactNode, useRef } from 'react';
-import { Animated, PanResponder, useWindowDimensions } from 'react-native';
+import { Animated, Easing, PanResponder, StyleSheet, useWindowDimensions } from 'react-native';
 
 // Nach rechts wischen = zurück, irgendwo auf dem Bildschirm (nicht nur am Rand).
 // Die Seite folgt dem Finger ein Stück; weit genug oder schnell genug gewischt -> onBack.
@@ -10,7 +10,7 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
   const state = useRef({ onBack, enabled, width });
   state.current = { onBack, enabled, width };
 
-  const reset = () => Animated.spring(x, { toValue: 0, useNativeDriver: true, bounciness: 4 }).start();
+  const reset = () => Animated.spring(x, { toValue: 0, useNativeDriver: true, bounciness: 0, speed: 18 }).start();
 
   const pan = useRef(
     PanResponder.create({
@@ -19,10 +19,15 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
       onMoveShouldSetPanResponderCapture: (_, g) =>
         state.current.enabled && g.dx > 18 && Math.abs(g.dx) > Math.abs(g.dy) * 2,
       onPanResponderTerminationRequest: () => false,
-      onPanResponderMove: (_, g) => x.setValue(Math.max(0, g.dx) * 0.6),
+      // die Seite folgt dem Finger genau
+      onPanResponderMove: (_, g) => x.setValue(Math.max(0, g.dx)),
       onPanResponderRelease: (_, g) => {
-        if (g.dx > state.current.width * 0.28 || (g.dx > 40 && g.vx > 0.6)) {
-          Animated.timing(x, { toValue: state.current.width, duration: 160, useNativeDriver: true }).start(() => {
+        const w = state.current.width;
+        if (g.dx > w * 0.33 || (g.dx > 30 && g.vx > 0.5)) {
+          // Rest der Strecke weich weggleiten (schneller gewischt = schneller weg)
+          const left = w - Math.max(0, g.dx);
+          const duration = Math.max(90, Math.min(260, left / Math.max(g.vx, 1.2)));
+          Animated.timing(x, { toValue: w, duration, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start(() => {
             state.current.onBack();
             x.setValue(0); // falls die Seite bleibt (z. B. wegen einer Anzeige)
           });
@@ -35,8 +40,19 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
   ).current;
 
   return (
-    <Animated.View style={{ flex: 1, transform: [{ translateX: x }] }} {...pan.panHandlers}>
+    <Animated.View style={[styles.page, { transform: [{ translateX: x }] }]} {...pan.panHandlers}>
       {children}
     </Animated.View>
   );
 }
+
+const styles = StyleSheet.create({
+  // leichter Schatten an der linken Kante, während die Seite zur Seite gleitet
+  page: {
+    flex: 1,
+    shadowColor: '#000',
+    shadowOpacity: 0.18,
+    shadowRadius: 12,
+    shadowOffset: { width: -4, height: 0 },
+  },
+});

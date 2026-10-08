@@ -5,7 +5,7 @@ import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
@@ -219,90 +219,73 @@ function Main() {
     );
   }
 
-  if (showProfile) {
-    return (
-      <>
-        <StatusBar style="light" />
-        <ProfileScreen
-          name={name}
-          region={region}
-          avatar={avatarBadge}
-          progress={progress}
-          finds={finds}
-          onBack={() => setShowProfile(false)}
-          onRename={(n) => {
-            saveName(n);
-            setName(n);
-          }}
-          onChangeRegion={() => setAskRegion(true)}
-          onSelectAvatar={chooseAvatar}
-          onReset={async () => {
-            await resetAll();
-            setFinds([]);
-            setQuiz({});
-            setAvatar('');
-            setBestRank(null);
-            setMaxFriends(0);
-            setRegion(null);
-            setShowProfile(false);
-            setTab('start');
-            setName(null);
-          }}
-        />
-      </>
-    );
-  }
-
-  if (photo) {
-    return (
-      <>
-        <StatusBar style="light" />
-        <ResultScreen
-          photo={photo}
-          onIdentified={async (animal, replaceId) => {
-            const quizXp = correctAnswers(quizRef.current);
-            // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
-            const others = findsRef.current.filter((f) => f.id !== replaceId);
-            const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
-            const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
-            let id = replaceId;
-            let next: Find[];
-            if (replaceId) {
-              next = await updateFind(findsRef.current, replaceId, animal);
-            } else {
-              const added = await addFind(findsRef.current, photo, animal, region || undefined);
-              next = added.finds;
-              id = added.id;
-            }
-            setFinds(next);
-            const after = computeProgress(next, quizXp, new Date(), { bestRank, maxFriends });
-            return { id: id!, reward: computeReward(before, after, isNew) };
-          }}
-          morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
-          onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
-          onBack={() => {
-            setPhoto(null);
-            refreshFreeLeft();
-            setTimeout(askTips, 600);
-          }}
-        />
-      </>
-    );
-  }
-
-  if (openFind) {
-    return (
-      <>
-        <StatusBar style="light" />
-        <ResultScreen
-          saved={openFind}
-          onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
-          onPlace={(id, place) => updatePlace(findsRef.current, id, place).then(setFinds)}
-          onBack={() => setOpenFind(null)}
-        />
-      </>
-    );
-  }
+  // Profil und Ergebnis liegen ÜBER den Tabs (die darunter gezeichnet bleiben).
+  // So sieht man beim Zurückwischen die richtige Seite darunter statt einer weißen Fläche.
+  const overlay = showProfile ? (
+    <ProfileScreen
+      name={name}
+      region={region}
+      avatar={avatarBadge}
+      progress={progress}
+      finds={finds}
+      onBack={() => setShowProfile(false)}
+      onRename={(n) => {
+        saveName(n);
+        setName(n);
+      }}
+      onChangeRegion={() => setAskRegion(true)}
+      onSelectAvatar={chooseAvatar}
+      onReset={async () => {
+        await resetAll();
+        setFinds([]);
+        setQuiz({});
+        setAvatar('');
+        setBestRank(null);
+        setMaxFriends(0);
+        setRegion(null);
+        setShowProfile(false);
+        setTab('start');
+        setName(null);
+      }}
+    />
+  ) : photo ? (
+    <ResultScreen
+      photo={photo}
+      onIdentified={async (animal, replaceId) => {
+        const quizXp = correctAnswers(quizRef.current);
+        // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
+        const others = findsRef.current.filter((f) => f.id !== replaceId);
+        const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
+        const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
+        let id = replaceId;
+        let next: Find[];
+        if (replaceId) {
+          next = await updateFind(findsRef.current, replaceId, animal);
+        } else {
+          const added = await addFind(findsRef.current, photo, animal, region || undefined);
+          next = added.finds;
+          id = added.id;
+        }
+        setFinds(next);
+        const after = computeProgress(next, quizXp, new Date(), { bestRank, maxFriends });
+        return { id: id!, reward: computeReward(before, after, isNew) };
+      }}
+      morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
+      onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
+      onBack={() => {
+        setPhoto(null);
+        refreshFreeLeft();
+        setTimeout(askTips, 600);
+      }}
+    />
+  ) : openFind ? (
+    <ResultScreen
+      saved={openFind}
+      onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
+      onPlace={(id, place) => updatePlace(findsRef.current, id, place).then(setFinds)}
+      onBack={() => setOpenFind(null)}
+    />
+  ) : null;
 
   return (
     <>
@@ -355,7 +338,8 @@ function Main() {
         )}
       </View>
       <TabBar active={tab} onSelect={setTab} />
-      {!promised && (
+      {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
+      {!promised && !overlay && (
         <PromiseSheet
           onDone={() => {
             setPromised(true);

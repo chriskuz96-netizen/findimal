@@ -196,7 +196,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const noAnimal = !!morePhoto && !!result?.ok && !animal;
 
   return (
-    <View style={{ flex: 1, backgroundColor: p.bg }}>
+    // ohne eigene Hintergrundfarbe: beim Zurückwischen soll die Seite darunter sichtbar werden
+    <View style={{ flex: 1 }}>
       {/* nach rechts wischen = zurück (nicht, solange die halbseitige Anzeige offen ist) */}
       <SwipeBack onBack={leave} enabled={bigAd !== 'open'}>
         <ScrollView
