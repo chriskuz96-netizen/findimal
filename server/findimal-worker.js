@@ -598,32 +598,39 @@ function json(body, status = 200) {
 }
 
 // Fragt Claude und liefert { data } (per Schema garantiertes JSON) oder { error } (fertige Antwort an die App).
-async function claude(env, model, system, schema, content) {
+async function claude(env, model, system, schema, content, timeoutMs) {
   const cheap = model === CHEAP_MODEL;
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-api-key': env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-      // Beim genauen Modell: lehnt es aus Sicherheitsgründen ab, übernimmt automatisch ein anderes.
-      ...(cheap ? {} : { 'anthropic-beta': 'server-side-fallback-2026-07-01' }),
-    },
-    body: JSON.stringify({
-      model,
-      max_tokens: cheap ? 4000 : 16000,
-      ...(cheap ? {} : { fallbacks: 'default' }),
-      // Schnelles Modell: ohne Nachdenken antworten – am schnellsten, für das Erkennen reicht es.
-      ...(cheap ? { thinking: { type: 'disabled' } } : {}),
-      // Anweisungen werden zwischengespeichert: spart Zeit und Kosten bei jeder weiteren Anfrage
-      system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }],
-      output_config: {
-        effort: 'low', // einfache Fragen: wenig Nachdenken reicht, spart Zeit und Kosten
-        format: { type: 'json_schema', schema },
+  let res;
+  try {
+    res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      signal: AbortSignal.timeout(timeoutMs), // nicht ewig warten
+      headers: {
+        'content-type': 'application/json',
+        'x-api-key': env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        // Beim genauen Modell: lehnt es aus Sicherheitsgründen ab, übernimmt automatisch ein anderes.
+        ...(cheap ? {} : { 'anthropic-beta': 'server-side-fallback-2026-07-01' }),
       },
-      messages: [{ role: 'user', content }],
-    }),
-  });
+      body: JSON.stringify({
+        model,
+        max_tokens: cheap ? 4000 : 16000,
+        ...(cheap ? {} : { fallbacks: 'default' }),
+        // Schnelles Modell: ohne Nachdenken antworten – am schnellsten, für das Erkennen reicht es.
+        ...(cheap ? { thinking: { type: 'disabled' } } : {}),
+        // Anweisungen werden zwischengespeichert: spart Zeit und Kosten bei jeder weiteren Anfrage
+        system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }],
+        output_config: {
+          effort: 'low', // einfache Fragen: wenig Nachdenken reicht, spart Zeit und Kosten
+          format: { type: 'json_schema', schema },
+        },
+        messages: [{ role: 'user', content }],
+      }),
+    });
+  } catch {
+    console.log('Claude-Zeitgrenze', model, timeoutMs);
+    return { error: json({ fehler: 'Das dauert gerade zu lange. Bitte nochmal versuchen.' }, 504) };
+  }
 
   const data = await res.json().catch(() => null);
   if (!res.ok || !data) {
@@ -644,9 +651,10 @@ async function claude(env, model, system, schema, content) {
 
 // Erst günstig fragen, bei Problemen das genaue Modell. good(data) sagt, ob die günstige Antwort reicht.
 async function ask(env, system, schema, content, good = () => true) {
-  const first = await claude(env, CHEAP_MODEL, system, schema, content);
+  // Zeitgrenzen: die schnelle KI höchstens 10 s, die genaue höchstens 25 s (die App wartet höchstens 40 s)
+  const first = await claude(env, CHEAP_MODEL, system, schema, content, 10_000);
   if (first.data && good(first.data)) return json(first.data);
-  const second = await claude(env, MODEL, system, schema, content);
+  const second = await claude(env, MODEL, system, schema, content, 25_000);
   if (second.data) return json(second.data);
   return first.data ? json(first.data) : second.error;
 }
