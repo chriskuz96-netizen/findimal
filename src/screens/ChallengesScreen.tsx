@@ -13,7 +13,7 @@ import { useI18n } from '../i18n';
 import { Badge, Progress, XP } from '../progress';
 import { seasonDaysLeft } from '../season';
 import { WeekTask } from '../weekly';
-import { answeredToday, nextQuestion, question as questionAt, QUESTIONS_PER_DAY, QuizLog } from '../quiz';
+import { answeredToday, nextQuestion, question as questionAt, QUESTIONS_PER_DAY, QuizLog, todayAnswered } from '../quiz';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
@@ -44,8 +44,11 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const canAsk = (log: QuizLog) => answeredToday(log) < QUESTIONS_PER_DAY;
   const [shown, setShown] = useState<number | null>(() => (canAsk(quiz) ? nextQuestion(quiz) : null));
   const allDone = nextQuestion(quiz) === null;
-  const question = shown === null ? null : questionAt(shown, lang);
-  const answer = shown === null ? undefined : quiz[`q${shown}`];
+  // heute beantwortete Fragen + die gerade offene Frage
+  const today = todayAnswered(quiz);
+  const items = shown !== null && !today.includes(shown) ? [...today, shown] : today;
+  const quizDone = !canAsk(quiz) || allDone; // für heute fertig
+  const todayXp = today.filter((i) => quiz[`q${i}`] === questionAt(i, lang).right).length * XP.quiz;
   const badgeName = (b: Badge) => t(`badge.${b.id}`);
   const badgeHint = (b: Badge) => t(`badge.${b.id}.hint`);
   const span = (progress.nextLevelXp ?? progress.xp) - progress.levelStart;
@@ -139,61 +142,72 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       {/* Anzeigen-Platz zwischen Rangliste und Quiz */}
       <AdSlot p={p} placement='challenges' />
 
-      {/* Frage des Forschers: eine nach der anderen */}
+      {/* Frage des Forschers: drei am Tag; die heutigen bleiben sichtbar */}
       <View style={styles.blk}>
-        <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
-          {question && <XpPill text={`+${XP.quiz} XP`} done={answer === question.right} />}
+        <View style={styles.quizHead}>
+          <Explorer size={44} />
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
+            <Text style={[styles.small, { color: p.mute }]}>
+              {quizDone ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow') : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
+            </Text>
+          </View>
+          <XpPill
+            text={quizDone ? (todayXp > 0 ? `+${todayXp} XP` : `${today.length}/${QUESTIONS_PER_DAY}`) : `${today.length}/${QUESTIONS_PER_DAY}`}
+            done={quizDone}
+          />
         </View>
-        {!question ? (
-          <Text style={[styles.sub, { color: p.mute }]}>{t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')}</Text>
-        ) : (
-          <>
-            <View style={styles.qrow}>
-              <Explorer size={46} />
-              <Text style={[styles.question, { color: p.ink }]}>{question.q}</Text>
-            </View>
-            <View style={styles.answers}>
-              {question.answers.map((a, i) => {
-                const answered = answer !== undefined;
-                const isRight = i === question.right;
-                const style = !answered
-                  ? { borderColor: p.line }
-                  : isRight
-                    ? { backgroundColor: p.button, borderColor: p.button }
-                    : { borderColor: p.line, opacity: i === answer ? 1 : 0.5 };
-                return (
-                  <Pressable
-                    key={a}
-                    disabled={answered}
-                    onPress={() => onAnswer(shown!, i)}
-                    style={[styles.answer, style]}
-                    accessibilityRole="button"
-                  >
-                    <Text style={[styles.answerText, { color: answered && isRight ? colors.white : p.ink }]}>
-                      {answered && i === answer && !isRight ? `✗ ${a}` : a}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-            {answer !== undefined && (
-              <>
+        {items.map((idx) => {
+          const q = questionAt(idx, lang);
+          const given = quiz[`q${idx}`];
+          const answered = given !== undefined;
+          return (
+            <View key={idx} style={[styles.qCard, { backgroundColor: p.card, borderColor: p.line }]}>
+              <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
+              <View style={styles.answers}>
+                {q.answers.map((a, i) => {
+                  const isRight = i === q.right;
+                  const mine = i === given;
+                  const look = !answered
+                    ? { borderColor: p.line }
+                    : isRight
+                      ? { backgroundColor: p.button, borderColor: p.button }
+                      : mine
+                        ? { borderColor: colors.coral }
+                        : { borderColor: p.line, opacity: 0.5 };
+                  const textColor = answered && isRight ? colors.white : p.ink;
+                  return (
+                    <Pressable
+                      key={a}
+                      disabled={answered}
+                      onPress={() => onAnswer(idx, i)}
+                      style={[styles.answer, look]}
+                      accessibilityRole="button"
+                    >
+                      <View style={[styles.letter, { borderColor: textColor }]}>
+                        <Text style={[styles.letterText, { color: textColor }]}>{String.fromCharCode(65 + i)}</Text>
+                      </View>
+                      <Text style={[styles.answerText, { color: textColor }]}>
+                        {a}
+                        {answered && isRight ? '  ✓' : answered && mine ? '  ✗' : ''}
+                      </Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+              {answered && (
                 <Text style={[styles.sub, { color: p.mute, marginTop: 8 }]}>
-                  {answer === question.right ? question.explain : t('ch.wrong', { a: question.answers[question.right] })}
+                  {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
                 </Text>
-                {canAsk(quiz) && !allDone ? (
-                  <Pressable onPress={() => setShown(nextQuestion(quiz))} hitSlop={8} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
-                    <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-                  </Pressable>
-                ) : (
-                  <Text style={[styles.small, { color: p.mute, marginTop: 10 }]}>
-                    {t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')}
-                  </Text>
-                )}
-              </>
-            )}
-          </>
+              )}
+            </View>
+          );
+        })}
+        {/* nächste Frage, solange heute noch welche offen sind */}
+        {shown !== null && quiz[`q${shown}`] !== undefined && canAsk(quiz) && !allDone && (
+          <Pressable onPress={() => setShown(nextQuestion(quiz))} hitSlop={8} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
+            <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+          </Pressable>
         )}
       </View>
 
@@ -384,10 +398,13 @@ const styles = StyleSheet.create({
   stLine: { position: 'absolute', left: 13, top: 38, bottom: -10, borderLeftWidth: 2, borderStyle: 'dashed' },
   stDot: { width: 28, height: 28, borderRadius: 14, borderWidth: 2 },
   stName: { fontFamily: fonts.sansBold, fontSize: 16 },
-  qrow: { flexDirection: 'row', gap: 10, alignItems: 'center', marginTop: 10 },
-  question: { flex: 1, fontFamily: fonts.serifBold, fontSize: 17 },
+  quizHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  qCard: { marginTop: 10, borderWidth: 1, borderRadius: 16, padding: 12 },
+  letter: { width: 20, height: 20, borderRadius: 10, borderWidth: 1.5, alignItems: 'center', justifyContent: 'center' },
+  letterText: { fontFamily: fonts.sansBold, fontSize: 11 },
+  question: { fontFamily: fonts.serifBold, fontSize: 16, lineHeight: 20 },
   answers: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 10 },
-  answer: { borderWidth: 1.5, borderRadius: 99, paddingVertical: 8, paddingHorizontal: 14 },
+  answer: { flexDirection: 'row', alignItems: 'center', gap: 8, borderWidth: 1.5, borderRadius: 99, paddingVertical: 7, paddingLeft: 7, paddingRight: 14 },
   answerText: { fontFamily: fonts.sansBold, fontSize: 15 },
   badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 12, rowGap: 16 },
   badge: { width: '33.3%', alignItems: 'center' },

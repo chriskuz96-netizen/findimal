@@ -122,6 +122,15 @@ export function answeredToday(log: QuizLog, now = new Date()): number {
   return Object.entries(log).filter(([key, day]) => key.startsWith('t') && day === today).length;
 }
 
+// Heute beantwortete Fragen (Nummern, in der Reihenfolge der Fragen)
+export function todayAnswered(log: QuizLog, now = new Date()): number[] {
+  const today = dayNumber(now);
+  return Object.entries(log)
+    .filter(([key, day]) => key.startsWith('t') && day === today)
+    .map(([key]) => Number(key.slice(1)))
+    .sort((a, b) => a - b);
+}
+
 export async function answerQuiz(log: QuizLog, index: number, answer: number): Promise<QuizLog> {
   const next = { ...log, [`q${index}`]: answer, [`t${index}`]: dayNumber(new Date()) };
   await AsyncStorage.setItem(QUIZ_KEY, JSON.stringify(next)).catch(() => {});
