@@ -29,8 +29,8 @@
 // Dieser Code wird direkt im Cloudflare-Editor eingefügt. Dort gibt es kein npm,
 // deshalb ruft er die Claude-API mit fetch auf statt mit dem Anthropic-SDK.
 
-// Erst das günstige Modell fragen; ist es unsicher oder klappt etwas nicht, übernimmt das genauere.
-const CHEAP_MODEL = 'claude-haiku-4-5';
+// Erst das schnelle, günstige Modell fragen; ist es unsicher oder klappt etwas nicht, übernimmt das genauere.
+const CHEAP_MODEL = 'claude-haiku-5-5';
 const MODEL = 'claude-sonnet-5-5';
 
 // Gratis-Fotos pro Handy und Tag (zählt nur, wenn der Speicher DB verbunden ist).
@@ -60,6 +60,8 @@ Gib nur Fakten an, bei denen du dir sicher bist. Wenn die Art unsicher ist, nenn
 (z. B. "Eine Schwebfliege") und setze "sicherheit" auf "unsicher".
 Wenn kein Tier zu sehen ist, setze "tier_gefunden" auf false, lass die Tierfelder leer und erkläre in
 "hinweis" kurz und freundlich, was du siehst und wie ein besseres Foto gelingt.
+Halte die Texte kurz: "kurzbeschreibung" höchstens zwei kurze Sätze, "wusstest_du" ein kurzer, überraschender
+Satz. "hinweis" nur, wenn kein Tier zu sehen ist oder das Foto die Bestimmung schwer macht, sonst leer.
 Bei Haus- und Nutztieren (z. B. Hund, Katze, Huhn, Pferd, Rind, Schaf, Ziege, Kaninchen, Meerschweinchen)
 bestimme zusätzlich die Rasse und schreibe sie kurz in "rasse" (höchstens drei Wörter, z. B. "Golden Retriever",
 "Brahma", "Haflinger"). Sieht das Tier nach einer Mischung aus, schreibe z. B. "Labrador-Mischling" oder nur
@@ -611,9 +613,12 @@ async function claude(env, model, system, schema, content) {
       model,
       max_tokens: cheap ? 4000 : 16000,
       ...(cheap ? {} : { fallbacks: 'default' }),
-      system,
+      // Schnelles Modell: ohne Nachdenken antworten – am schnellsten, für das Erkennen reicht es.
+      ...(cheap ? { thinking: { type: 'disabled' } } : {}),
+      // Anweisungen werden zwischengespeichert: spart Zeit und Kosten bei jeder weiteren Anfrage
+      system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }],
       output_config: {
-        ...(cheap ? {} : { effort: 'low' }), // einfache Fragen: wenig Nachdenken reicht und spart Kosten
+        effort: 'low', // einfache Fragen: wenig Nachdenken reicht, spart Zeit und Kosten
         format: { type: 'json_schema', schema },
       },
       messages: [{ role: 'user', content }],
