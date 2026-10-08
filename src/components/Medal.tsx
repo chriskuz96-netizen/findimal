@@ -407,6 +407,33 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           </SvgText>
         </G>
       );
+    case 'water5': // Wellen mit Fisch-Flosse
+      return (
+        <G>
+          <Path d="M-9 -3 Q-2 -12 6 -4 L10 -8 L9 -1 L12 2 L6 0 Q-2 6 -9 -3 Z" fill={c('#5C9BD1')} />
+          <Circle cx={-4} cy={-4} r={1} fill={c('#13261C')} />
+          <Path d="M-13 6 Q-9 3 -5 6 Q-1 9 3 6 Q7 3 11 6 M-13 11 Q-9 8 -5 11 Q-1 14 3 11 Q7 8 11 11" stroke={c('#9FD3F0')} strokeWidth={1.8} fill="none" strokeLinecap="round" />
+        </G>
+      );
+    case 'pets3': // Häuschen mit Herz
+      return (
+        <G>
+          <Path d="M-11 -1 L0 -11 L11 -1" stroke={c('#E88A5A')} strokeWidth={2.4} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <Path d="M-8 -2 L8 -2 L8 11 L-8 11 Z" fill={c('#F3E2C8')} />
+          <Path d="M0 8 Q-6 3 -5 0 Q-3.5 -2.5 0 0.5 Q3.5 -2.5 5 0 Q6 3 0 8 Z" fill={c('#E05A5A')} />
+        </G>
+      );
+    case 'tiny': // Ameise unter der Lupe
+      return (
+        <G>
+          <Circle cx={-2} cy={-2} r={9} fill={c('#E6F2FA')} stroke={c('#FFD45E')} strokeWidth={2} />
+          <Path d="M4.5 4.5 L11 11" stroke={c('#FFD45E')} strokeWidth={3} strokeLinecap="round" />
+          <Circle cx={-6} cy={-1} r={1.6} fill={c('#5A3A28')} />
+          <Circle cx={-2.5} cy={-1.5} r={1.3} fill={c('#5A3A28')} />
+          <Ellipse cx={1.5} cy={-1} rx={2.3} ry={1.8} fill={c('#5A3A28')} />
+          <Path d="M-3 -1 L-5 -5 M-3 -1 L-4 3 M-2 -1 L0 -5 M-2 -1 L0 3 M-7 -2 L-9 -5" stroke={c('#5A3A28')} strokeWidth={0.7} />
+        </G>
+      );
     case 'allgroups': // Krone mit sechs Edelsteinen
       return (
         <G>

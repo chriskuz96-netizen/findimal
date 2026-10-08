@@ -72,7 +72,11 @@ Setze "giftig" auf true, wenn das Tier giftig ist oder mit Gift stechen oder bei
 Kreuzotter, Feuersalamander), sonst false.
 Setze "gross" auf true, wenn ein ausgewachsenes Tier dieser Art größer oder länger als 1 Meter ist (z. B. Reh,
 Pferd, Rind, Schwan, Wildschwein), sonst false.
-Setze "schmetterling" auf true bei Schmetterlingen und Faltern (auch Nachtfalter und Raupen), sonst false.`;
+Setze "schmetterling" auf true bei Schmetterlingen und Faltern (auch Nachtfalter und Raupen), sonst false.
+Setze "wasser" auf true, wenn die Art im oder direkt am Wasser lebt (z. B. Fisch, Ente, Schwan, Frosch, Libelle,
+Graureiher), sonst false.
+Setze "winzig" auf true, wenn ein ausgewachsenes Tier dieser Art kleiner als 1 Zentimeter ist (z. B. Blattlaus,
+Ameise, Springspinne), sonst false.`;
 
 // Kurzer Steckbrief direkt nach dem Foto
 const SCHEMA = {
@@ -81,6 +85,7 @@ const SCHEMA = {
   required: [
     'tier_gefunden', 'name', 'rasse', 'rasse_sicher', 'wissenschaftlicher_name', 'gruppe', 'sicherheit',
     'kurzbeschreibung', 'wusstest_du', 'hinweis', 'gefaehrdet', 'giftig', 'gross', 'schmetterling',
+    'wasser', 'winzig',
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
@@ -91,6 +96,8 @@ const SCHEMA = {
     giftig: { type: 'boolean' },
     gross: { type: 'boolean' },
     schmetterling: { type: 'boolean' },
+    wasser: { type: 'boolean' },
+    winzig: { type: 'boolean' },
     wissenschaftlicher_name: TEXT,
     gruppe: GRUPPE,
     sicherheit: { type: 'string', enum: ['sicher', 'wahrscheinlich', 'unsicher'] },

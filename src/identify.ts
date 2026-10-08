@@ -16,7 +16,9 @@ export type Animal = {
   gefaehrdet?: boolean;
   giftig?: boolean; // giftig oder sticht/beißt mit Gift
   gross?: boolean; // ausgewachsen über 1 Meter
-  schmetterling?: boolean; // Schmetterling oder Falter (auch Raupe) // auf der Roten Liste (mind. gefährdet) – für das Abzeichen "Seltener Fund"
+  schmetterling?: boolean; // Schmetterling oder Falter (auch Raupe)
+  wasser?: boolean; // lebt im oder am Wasser
+  winzig?: boolean; // ausgewachsen kleiner als 1 cm // auf der Roten Liste (mind. gefährdet) – für das Abzeichen "Seltener Fund"
   wissenschaftlicher_name: string;
   gruppe: string;
   sicherheit: 'sicher' | 'wahrscheinlich' | 'unsicher';

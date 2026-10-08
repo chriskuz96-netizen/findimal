@@ -71,7 +71,10 @@ export type BadgeId =
   | 'butterfly3'
   | 'spiders5'
   | 'birds10'
-  | 'insects10';
+  | 'insects10'
+  | 'water5'
+  | 'pets3'
+  | 'tiny';
 
 // Medaillen-Stufe je Abzeichen. Jedes verdiente Abzeichen gibt XP: Bronze 25, Silber 50, Gold 100.
 export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
@@ -111,6 +114,9 @@ export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
   spiders5: 'silver',
   birds10: 'gold',
   insects10: 'gold',
+  water5: 'silver',
+  pets3: 'bronze',
+  tiny: 'silver',
 };
 export const BADGE_XP = { bronze: 25, silver: 50, gold: 100 };
 
@@ -183,6 +189,22 @@ function farmKinds(finds: Find[]): number {
   for (const f of finds) {
     const k = FARM.find((x) => sci(f).startsWith(x));
     if (k) kinds.add(k.split(' ').slice(0, 2).join(' '));
+  }
+  return kinds.size;
+}
+
+// Haustiere (Gattung + Art), für "Haustier-Zoo"
+const PETS = [
+  'canis lupus familiaris', 'canis familiaris', 'felis catus', 'felis silvestris catus', 'oryctolagus cuniculus',
+  'cavia porcellus', 'mesocricetus auratus', 'phodopus', 'meriones unguiculatus', 'rattus norvegicus domestica',
+  'mus musculus domesticus', 'melopsittacus undulatus', 'nymphicus hollandicus', 'serinus canaria', 'carassius auratus',
+  'testudo', 'chinchilla', 'mustela furo', 'pogona vitticeps', 'poecilia reticulata',
+];
+function petKinds(finds: Find[]): number {
+  const kinds = new Set<string>();
+  for (const f of finds) {
+    const k = PETS.find((x) => sci(f).startsWith(x));
+    if (k) kinds.add(k.startsWith('canis') ? 'hund' : k.startsWith('felis') ? 'katze' : k);
   }
   return kinds.size;
 }
@@ -275,6 +297,9 @@ export function computeProgress(
     { id: 'spiders5', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'ara') >= 5 },
     { id: 'birds10', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'bird') >= 10 },
     { id: 'insects10', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'ins') >= 10 },
+    { id: 'water5', earned: kinds(finds, (f) => !!f.animal.wasser || groupOf(f.animal.gruppe)?.id === 'fish') >= 5 },
+    { id: 'pets3', earned: petKinds(finds) >= 3 },
+    { id: 'tiny', earned: finds.some((f) => f.animal.winzig) },
   ];
   // XP für verdiente Abzeichen
   for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];
