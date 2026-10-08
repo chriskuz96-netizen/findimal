@@ -344,6 +344,7 @@ function Main() {
             active={!overlay}
             freshBadges={freshBadges}
             onSeeBadges={seeBadges}
+            onOpenProfile={() => setShowProfile(true)}
             progress={progress}
             quiz={quiz}
             onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}

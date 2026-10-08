@@ -32,9 +32,10 @@ type Props = {
   active?: boolean; // false, solange eine andere Seite (z. B. Ergebnis) darüber liegt
   freshBadges?: string[]; // neu verdiente, noch nicht angesehene Abzeichen
   onSeeBadges?: (ids: string[]) => void;
+  onOpenProfile?: () => void;
 };
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges, onOpenProfile }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
@@ -208,7 +209,9 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           <Text style={styles.h2}>{t('ch.title')}</Text>
           {/* Stufe und XP direkt im Kopf (wie im Profil), mit schmalem hellem Balken */}
           <View style={styles.levelHead}>
-            <Avatar id={avatar || null} name={name} size={50} />
+            <Pressable onPress={onOpenProfile} accessibilityRole="button" accessibilityLabel={t('a11y.profile')} hitSlop={8}>
+              <Avatar id={avatar || null} name={name} size={50} />
+            </Pressable>
             <View style={{ flex: 1 }}>
               <Text style={styles.levelSmall}>{t('ch.level', { n: shownLevel })}</Text>
               <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
