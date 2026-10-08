@@ -483,64 +483,54 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
   const maxLevel = !reward.after.nextLevelXp && shownLevel === lvl;
 
   if (gone) return null;
+  // gleiches Aussehen wie der Kopf der Challenges-Seite
   return (
     <Animated.View
       style={[
         styles.toast,
         {
           bottom: bottom + 14,
-          backgroundColor: p.card,
           opacity: slide,
           transform: [{ translateY: slide.interpolate({ inputRange: [0, 1], outputRange: [140, 0] }) }],
         },
       ]}
     >
       <Pressable onPress={hide} accessibilityRole="button">
-      <View style={styles.rewardHead}>
-        <Text style={[styles.cardTitle, { color: p.ink }]}>{t('rew.title')}</Text>
-        <Animated.Text
-          style={[
-            styles.rewardXp,
-            {
-              opacity: pop,
-              transform: [{ scale: pop.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }) }],
-            },
-          ]}
-        >
-          +{reward.total} XP
-        </Animated.Text>
-      </View>
-      <View style={styles.chips}>
-        {reward.items.map((i) => (
-          <View key={i.badge ?? i.id} style={styles.chip}>
-            <Text style={styles.chipText}>
-              {i.badge ? `${labels.badge}: ${t(`badge.${i.badge}` as 'badge.first')}` : labels[i.id]} +{i.xp}
+        <View style={styles.tHead}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.tSmall}>{t('ch.level', { n: shownLevel })}</Text>
+            <Text style={styles.tName} numberOfLines={1}>
+              {lvlName}
             </Text>
           </View>
-        ))}
-      </View>
-      {leveled && <Text style={styles.levelUp}>{t('rew.levelUp', { n: lvl, name: lvlName })}</Text>}
-      <View style={styles.levelRow}>
-        <Text style={[styles.levelText, { color: p.ink }]}>{t('ch.levelLine', { n: shownLevel, name: lvlName })}</Text>
-        <Text style={[styles.levelXp, { color: p.mute }]}>{shownXp} XP</Text>
-      </View>
-      {/* Balken von der Stufe zur nächsten – füllt sich sichtbar */}
-      <View style={styles.barRow}>
-        <View style={styles.lvlDot}>
-          <Text style={styles.lvlDotText}>{shownLevel}</Text>
-        </View>
-        <View style={[styles.bar, { backgroundColor: p.line }]}>
-          <Animated.View
-            style={[styles.barFill, { width: bar.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
-          />
-        </View>
-        {!maxLevel && (
-          <View style={[styles.lvlDot, styles.lvlDotNext, { borderColor: p.line }]}>
-            <Text style={[styles.lvlDotText, { color: p.mute }]}>{shownLevel + 1}</Text>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={styles.tXp}>{shownXp} XP</Text>
+            <Animated.Text style={[styles.tGain, { opacity: pop }]}>+{reward.total} XP</Animated.Text>
           </View>
-        )}
-      </View>
-      {photos > 1 && <Text style={[styles.small, { color: p.mute }]}>{t('rew.updated', { n: photos })}</Text>}
+        </View>
+        <View style={styles.tRow}>
+          <View style={styles.tDot}>
+            <Text style={styles.tDotText}>{shownLevel}</Text>
+          </View>
+          <View style={styles.tBar}>
+            <Animated.View
+              style={[styles.barFill, { width: bar.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
+            />
+          </View>
+          {!maxLevel && (
+            <View style={[styles.tDot, styles.tDotNext]}>
+              <Text style={[styles.tDotText, { color: colors.white }]}>{shownLevel + 1}</Text>
+            </View>
+          )}
+        </View>
+        <Text style={styles.tSub}>
+          {leveled
+            ? t('rew.levelUp', { n: lvl, name: lvlName })
+            : reward.items
+                .map((i) => `${i.badge ? `${labels.badge}: ${t(`badge.${i.badge}` as 'badge.first')}` : labels[i.id]} +${i.xp}`)
+                .join(' · ')}
+        </Text>
+        {photos > 1 && <Text style={[styles.tSub, { marginTop: 2 }]}>{t('rew.updated', { n: photos })}</Text>}
       </Pressable>
     </Animated.View>
   );
@@ -780,52 +770,26 @@ const styles = StyleSheet.create({
     left: spacing.gutter,
     right: spacing.gutter,
     borderRadius: 20,
-    borderWidth: 2,
-    borderColor: colors.accent,
-    padding: 14,
+    backgroundColor: '#123826',
+    padding: 16,
     shadowColor: '#000',
     shadowOpacity: 0.25,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 8 },
     elevation: 8,
   },
-  rewardHead: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  rewardXp: { fontFamily: fonts.serifBold, fontSize: 26, color: colors.accent },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8 },
-  chip: {
-    backgroundColor: 'rgba(232,131,58,0.16)',
-    borderRadius: 99,
-    paddingVertical: 4,
-    paddingHorizontal: 10,
-  },
-  chipText: {
-    fontFamily: fonts.sansBold,
-    fontSize: 13,
-    color: colors.accentDark,
-  },
-  levelUp: {
-    fontFamily: fonts.serifBold,
-    fontSize: 17,
-    color: colors.accent,
-    marginTop: 12,
-  },
-  levelRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
-    marginTop: 14,
-  },
-  levelText: { fontFamily: fonts.sansBold, fontSize: 14 },
-  levelXp: { fontFamily: fonts.sans, fontSize: 13 },
+  tHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  tSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
+  tName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
+  tXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
+  tGain: { fontFamily: fonts.sansBold, fontSize: 12.5, color: '#9FE0B4' },
+  tRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12 },
+  tDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
+  tDotNext: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.45)' },
+  tDotText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
+  tBar: { flex: 1, height: 6, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
+  tSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 6 },
   bar: { flex: 1, height: 10, borderRadius: 9, overflow: 'hidden' },
-  barRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8 },
-  lvlDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
-  lvlDotNext: { backgroundColor: 'transparent', borderWidth: 1.5 },
-  lvlDotText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
   barFill: { height: '100%', backgroundColor: colors.accent, borderRadius: 9 },
   small: { fontFamily: fonts.sans, fontSize: 12, marginTop: 8 },
   fun: { flexDirection: 'row', gap: 12, alignItems: 'flex-start' },
