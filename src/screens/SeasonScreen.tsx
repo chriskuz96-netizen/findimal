@@ -116,6 +116,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         </View>
       </View>
 
+      {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
+      <SeasonTop finds={recent} p={p} />
+
       {/* Naturschauspiel: eins pro App-Start, wechselt beim nächsten Öffnen */}
       <View style={[styles.spec, { backgroundColor: p.card, borderColor: p.line }]}>
         <Text style={[styles.specTitle, { color: p.ink }]}>🔭 {t('sea.spectacle')}</Text>
@@ -127,9 +130,6 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           </View>
         )}
       </View>
-
-      {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
-      <SeasonTop finds={recent} p={p} />
 
       {/* Anzeigen-Platz unter den Saison-Tieren */}
       <AdSlot p={p} placement='season' />
