@@ -210,9 +210,15 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           {/* Stufe und XP direkt im Kopf (wie im Profil), mit schmalem hellem Balken */}
           <View style={styles.levelHead}>
             <Pressable onPress={onOpenProfile} accessibilityRole="button" accessibilityLabel={t('a11y.profile')} hitSlop={8}>
-              <Avatar id={avatar || null} name={name} size={50} />
+              <Avatar id={avatar || null} name={name} size={58} />
             </Pressable>
             <View style={{ flex: 1 }}>
+              {/* Name ganz oben; zu lange Namen werden kleiner statt abgeschnitten */}
+              {name ? (
+                <Text style={styles.levelUser} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+                  {name}
+                </Text>
+              ) : null}
               <Text style={styles.levelSmall}>{t('ch.level', { n: shownLevel })}</Text>
               <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
                 {t(`level.${shownLevel - 1}` as 'level.0')}
@@ -593,6 +599,7 @@ const styles = StyleSheet.create({
   },
   levelBadgeNext: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.45)' },
   levelBadgeText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
+  levelUser: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white, marginBottom: 2 },
   levelSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
   levelName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
   levelXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
