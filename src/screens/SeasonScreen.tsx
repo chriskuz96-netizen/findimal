@@ -96,11 +96,7 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
 
       {/* Naturschauspiel: zum Staunen und Hinhören, ohne Foto-Aufgabe */}
       <View style={[styles.spec, { backgroundColor: p.card, borderColor: p.line }]}>
-        {/* Überschrift mit kurzem Satz rechts daneben */}
-        <View style={styles.specHead}>
-          <Text style={[styles.specTitle, { color: p.ink }]}>🔭 {t('sea.spectacle')}</Text>
-          <Text style={[styles.specSub, { color: p.mute }]}>{t('sea.spectacleSub')}</Text>
-        </View>
+        <Text style={[styles.specTitle, { color: p.ink }]}>🔭 {t('sea.spectacle')}</Text>
         {season.spectacle.map((s, i) => (
           <View key={s.title} style={[styles.specItem, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}>
             <Text style={[styles.specItemTitle, { color: p.ink }]}>{s.title}</Text>
@@ -231,9 +227,7 @@ const styles = StyleSheet.create({
   qText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 6 },
   qWhere: { fontFamily: fonts.sansBold, fontSize: 11.5, lineHeight: 15, marginTop: 5 },
   spec: { marginTop: 16, marginHorizontal: spacing.gutter, borderWidth: 1, borderRadius: 18, padding: 14, paddingBottom: 4 },
-  specHead: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 2 },
-  specTitle: { fontFamily: fonts.serifBold, fontSize: 17 },
-  specSub: { flex: 1, fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 16 },
+  specTitle: { fontFamily: fonts.serifBold, fontSize: 17, marginBottom: 2 },
   specItem: { paddingVertical: 7 },
   specItemTitle: { fontFamily: fonts.sansBold, fontSize: 14 },
   specText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 1 },
