@@ -14,7 +14,7 @@ import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
-import { showLimit } from './src/components/LimitCard';
+import { LimitSheet } from './src/components/LimitCard';
 import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updatePlace } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
@@ -84,12 +84,13 @@ function Main() {
   // Solange ein Foto ausgewählt und vorbereitet wird, startet kein zweites (sonst überholen
   // sich zwei Fotos und das alte Ergebnis platzt später ins neue). Bis es fertig ist, läuft ein Ladekreis.
   const photoBusy = useRef(false);
+  const [limitOpen, setLimitOpen] = useState(false); // Fenster „Gratis-Fotos aufgebraucht“
   const [preparing, setPreparing] = useState(false);
   const startPhoto = async (get: (onPicked: (b: boolean) => void) => Promise<Photo | null>) => {
     if (photoBusy.current) return;
     photoBusy.current = true;
     try {
-      if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
+      if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return setLimitOpen(true);
       const p = await get(setPreparing);
       if (p) setPhoto(p);
     } finally {
@@ -384,6 +385,7 @@ function Main() {
       </View>
       <TabBar active={tab} onSelect={setTab} dot={freshBadges.length ? 'challenges' : null} />
       {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
+      <LimitSheet visible={limitOpen} onClose={() => setLimitOpen(false)} />
       {/* Foto ist gewählt und wird noch vorbereitet (z. B. aus iCloud geladen) */}
       {preparing && (
         <View style={[StyleSheet.absoluteFill, styles.preparing]}>
