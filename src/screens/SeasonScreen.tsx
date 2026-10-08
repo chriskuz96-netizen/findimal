@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -11,6 +13,24 @@ import { matchesAnimal, Phenomenon, seasonFor } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 const DAY = 86400000;
+
+// Zählt die App-Starts (einmal pro Start hochgezählt), damit das Naturschauspiel jedes Mal wechselt
+const LAUNCH_KEY = 'findimal-launch';
+let launchNumber: Promise<number> | null = null;
+function useLaunchNumber(): number {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    launchNumber ??= AsyncStorage.getItem(LAUNCH_KEY)
+      .then((v) => {
+        const next = (Number(v) || 0) + 1;
+        AsyncStorage.setItem(LAUNCH_KEY, String(next)).catch(() => {});
+        return next;
+      })
+      .catch(() => 0);
+    launchNumber.then(setN);
+  }, []);
+  return n;
+}
 const GAP = 8;
 
 // Beginn und Ende der aktuellen Jahreszeit (Winter geht über den Jahreswechsel)
@@ -53,6 +73,8 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / DAY));
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
   // Breite eines Viertels (zwei nebeneinander ergeben den Kreis)
+  const launch = useLaunchNumber();
+  const spec = season.spectacle.length ? season.spectacle[launch % season.spectacle.length] : null;
   const quarter = Math.floor((Math.min(useWindowDimensions().width, 520) - spacing.gutter * 2 - GAP) / 2);
 
   return (
@@ -94,16 +116,16 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
         </View>
       </View>
 
-      {/* Naturschauspiel: zum Staunen und Hinhören, ohne Foto-Aufgabe */}
+      {/* Naturschauspiel: eins pro App-Start, wechselt beim nächsten Öffnen */}
       <View style={[styles.spec, { backgroundColor: p.card, borderColor: p.line }]}>
         <Text style={[styles.specTitle, { color: p.ink }]}>🔭 {t('sea.spectacle')}</Text>
-        {season.spectacle.map((s, i) => (
-          <View key={s.title} style={[styles.specItem, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}>
-            <Text style={[styles.specItemTitle, { color: p.ink }]}>{s.title}</Text>
-            <Text style={[styles.specText, { color: p.mute }]}>{s.text}</Text>
-            <Text style={[styles.specWhere, { color: dark ? colors.accent : colors.accentDark }]}>{s.where}</Text>
+        {spec && (
+          <View style={styles.specItem}>
+            <Text style={[styles.specItemTitle, { color: p.ink }]}>{spec.title}</Text>
+            <Text style={[styles.specText, { color: p.mute }]}>{spec.text}</Text>
+            <Text style={[styles.specWhere, { color: dark ? colors.accent : colors.accentDark }]}>{spec.where}</Text>
           </View>
-        ))}
+        )}
       </View>
 
       {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
