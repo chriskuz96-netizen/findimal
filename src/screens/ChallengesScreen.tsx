@@ -216,7 +216,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
               <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
                 {name}
               </Text>
-              <Text style={[styles.levelSmall, { marginTop: 2 }]}>
+              <Text style={styles.levelSmall}>
                 {t('ch.level', { n: shownLevel })} ·{' '}
                 <Text style={{ color: colors.white }}>{t(`level.${shownLevel - 1}` as 'level.0')}</Text>
               </Text>
@@ -597,7 +597,7 @@ const styles = StyleSheet.create({
   levelBadgeNext: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.45)' },
   levelBadgeText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
   levelUser: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white, marginBottom: 2 },
-  levelSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
+  levelSmall: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.accentLight, marginTop: 2 },
   levelName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
   levelXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
   levelGain: { position: 'absolute', top: 24, right: 0, fontFamily: fonts.sansBold, fontSize: 12.5, color: '#9FE0B4' },
