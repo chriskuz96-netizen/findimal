@@ -70,6 +70,9 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const [shownLevel, setShownLevel] = useState(progress.level);
   const [base, setBase] = useState(share); // alter Stand; alles darüber ist neu
   const lastXp = useRef<number | null>(null);
+  // Scrollstand und Höhe des großen Kopfs (für die schmale Leiste)
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const [headH, setHeadH] = useState(1000);
   useEffect(() => {
     if (!active) return; // erst animieren, wenn man die Seite wirklich sieht
     let alive = true;
@@ -154,227 +157,257 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress.xp, active]);
 
-  return (
-    <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
-      <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
-        <HeaderBackground />
-        <Text style={styles.h2}>{t('ch.title')}</Text>
-        {/* Stufe und XP direkt im Kopf (wie im Profil), mit schmalem hellem Balken */}
-        <View style={styles.levelHead}>
-          <Avatar id={avatar || null} name={name} size={50} />
-          <View style={{ flex: 1 }}>
-            <Text style={styles.levelSmall}>{t('ch.level', { n: shownLevel })}</Text>
-            <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
-              {t(`level.${shownLevel - 1}` as 'level.0')}
-            </Text>
-          </View>
-          <View style={{ alignItems: 'flex-end' }}>
-            <Text style={styles.levelXp}>{shownXp} XP</Text>
-            {/* kurz eingeblendet: so viele XP sind dazugekommen */}
-            <Animated.Text style={[styles.levelGain, { opacity: gainFade }]}>+{gain} XP</Animated.Text>
-          </View>
-        </View>
-        {/* Balken von der aktuellen zur nächsten Stufe */}
-        <View style={styles.levelRow}>
-          <View style={styles.levelBadge}>
-            <Text style={styles.levelBadgeText}>{shownLevel}</Text>
-          </View>
-          <View style={styles.levelBar}>
-            {/* hinten: das neue Stück leuchtet hell; vorne: der alte Stand in Orange */}
-            <Animated.View
-              style={[styles.levelGlow, { opacity: glow, width: fill.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
-            />
-            <View style={[styles.progFill, styles.levelBase, { width: `${Math.round(base * 100)}%` }]} />
-          </View>
-          {levelAt(shownXp).nextLevelXp || shownLevel < progress.level ? (
-            <View style={[styles.levelBadge, styles.levelBadgeNext]}>
-              <Text style={[styles.levelBadgeText, { color: colors.white }]}>{shownLevel + 1}</Text>
-            </View>
-          ) : null}
-        </View>
-        <Text style={styles.levelSub}>
-          {progress.nextLevelXp
-            ? t('ch.toNextShort', { n: progress.nextLevelXp - progress.xp })
-            : t('ch.max', { xp: progress.xp })}
-        </Text>
-      </View>
-
-      {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft */}
-      <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
-        <View style={styles.misHead}>
-          <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
-            {t('goal.title')} · {seasonLeft === 1 ? t('week.leftOne') : t('week.left', { n: seasonLeft })}
-          </Text>
-          <XpPill text={`+${XP.season} XP`} done={goal.done} />
-        </View>
-        {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
-        <View style={styles.goalRow}>
-          <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t('goal.short')}</Text>
-          {[0, 1, 2].map((i) => {
-            const g = GROUPS.find((x) => x.id === goal.groups[i]);
-            return (
-              <View key={i} style={styles.goalSlot}>
-                <View
-                  style={[styles.goalDot, g ? { backgroundColor: '#123826', borderColor: DONE, borderStyle: 'solid' } : { borderColor: p.line }]}
-                >
-                  {g && <GroupIcon id={g.id} size={17} color={colors.accentLight} />}
-                </View>
-                <Text style={[styles.goalLabel, { color: g ? p.ink : p.mute }]} numberOfLines={1}>
-                  {g ? t(`g.${g.id}`) : t('ch.open')}
-                </Text>
-              </View>
-            );
-          })}
-        </View>
-      </View>
-
-      {/* Wochen-Aufgabe: jede Woche eine neue */}
-      <View style={[styles.card, { backgroundColor: p.card, borderColor: week.done ? DONE : p.line }, week.done && styles.doneCard]}>
-        <View style={styles.misHead}>
-          <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
-            {t('week.title')} · {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
-          </Text>
-          <XpPill text={`+${XP.week} XP`} done={week.done} />
-        </View>
-        {/* Aufgabe mit passendem Symbol (wie beim Saison-Ziel) */}
-        <View style={styles.weekRow}>
-          <TaskIcon task={week.task} done={week.done} />
-          <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
-        </View>
-      </View>
-
-      {/* Rangliste mit Freunden */}
-      <Leaderboard
-        stats={{ name, xp: progress.xp, level: progress.level, species, avatar }}
-        invite={invite}
-        onInviteDone={onInviteDone}
-        onRank={onRank}
-        onFriends={onFriends}
-        p={p}
+  // Balken von der aktuellen zur nächsten Stufe (im Kopf und in der schmalen Leiste)
+  const levelBar = (
+    <View style={styles.levelBar}>
+      {/* hinten: das neue Stück leuchtet hell; vorne: der alte Stand in Orange */}
+      <Animated.View
+        style={[styles.levelGlow, { opacity: glow, width: fill.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
       />
+      <View style={[styles.progFill, styles.levelBase, { width: `${Math.round(base * 100)}%` }]} />
+    </View>
+  );
 
-      {/* Anzeigen-Platz zwischen Rangliste und Quiz */}
-      <AdSlot p={p} placement='challenges' />
-
-      {/* Frage des Forschers: drei am Tag; die heutigen bleiben sichtbar */}
-      <View style={styles.blk}>
-        <View style={styles.quizHead}>
-          <Explorer size={44} />
-          <View style={{ flex: 1 }}>
-            <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
-            <Text style={[styles.small, { color: p.mute }]}>
-              {quizDone
-                ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')
-                : today.length
-                  ? t('ch.quizProgress', { n: today.length, max: QUESTIONS_PER_DAY })
-                  : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
-            </Text>
+  return (
+    <View style={{ flex: 1, backgroundColor: p.bg }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ paddingBottom: 24 }}
+        scrollEventThrottle={16}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
+      >
+        <View style={[styles.hx, { paddingTop: insets.top + 34 }]} onLayout={(e) => setHeadH(e.nativeEvent.layout.height)}>
+          <HeaderBackground />
+          <Text style={styles.h2}>{t('ch.title')}</Text>
+          {/* Stufe und XP direkt im Kopf (wie im Profil), mit schmalem hellem Balken */}
+          <View style={styles.levelHead}>
+            <Avatar id={avatar || null} name={name} size={50} />
+            <View style={{ flex: 1 }}>
+              <Text style={styles.levelSmall}>{t('ch.level', { n: shownLevel })}</Text>
+              <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
+                {t(`level.${shownLevel - 1}` as 'level.0')}
+              </Text>
+            </View>
+            <View style={{ alignItems: 'flex-end' }}>
+              <Text style={styles.levelXp}>{shownXp} XP</Text>
+              {/* kurz eingeblendet: so viele XP sind dazugekommen */}
+              <Animated.Text style={[styles.levelGain, { opacity: gainFade }]}>+{gain} XP</Animated.Text>
+            </View>
           </View>
-          {/* wie bei den Zielen: orange = noch zu holen, grün = verdient */}
-          <XpPill text={`+${quizDone ? todayXp : QUESTIONS_PER_DAY * XP.quiz} XP`} done={quizDone} />
-        </View>
-        {cur !== null &&
-          (() => {
-            const q = questionAt(cur, lang);
-            const given = quiz[`q${cur}`];
-            const answered = given !== undefined;
-            return (
-              <>
-                <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
-                {/* Antworten in einer Reihe (bei langen Antworten umgebrochen) */}
-                <View style={styles.answers}>
-                  {q.answers.map((a, i) => {
-                    const isRight = i === q.right;
-                    const mine = i === given;
-                    const look = !answered
-                      ? { borderColor: p.line }
-                      : isRight
-                        ? { backgroundColor: p.button, borderColor: p.button }
-                        : mine
-                          ? { borderColor: colors.coral }
-                          : { borderColor: p.line, opacity: 0.5 };
-                    const textColor = answered && isRight ? colors.white : p.ink;
-                    return (
-                      <Pressable
-                        key={a}
-                        disabled={answered}
-                        onPress={() => onAnswer(cur, i)}
-                        style={[styles.answer, look]}
-                        accessibilityRole="button"
-                      >
-                        <Text style={[styles.letterText, { color: textColor }]}>{String.fromCharCode(65 + i)}</Text>
-                        <Text style={[styles.answerText, { color: textColor }]}>
-                          {a}
-                          {answered && isRight ? ' ✓' : answered && mine ? ' ✗' : ''}
-                        </Text>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-                {answered && (
-                  <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>
-                    {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
-                  </Text>
-                )}
-              </>
-            );
-          })()}
-        {/* Blättern: zurück zu früheren Fragen von heute, weiter zur nächsten */}
-        <View style={styles.quizNav}>
-          {pos > 0 ? (
-            <Pressable onPress={() => setPos(pos - 1)} hitSlop={8} accessibilityRole="button">
-              <Text style={[styles.next, { color: p.moss }]}>‹ {t('ch.prevQuestion')}</Text>
-            </Pressable>
-          ) : (
-            <View />
-          )}
-          {pos < items.length - 1 ? (
-            <Pressable onPress={() => setPos(pos + 1)} hitSlop={8} accessibilityRole="button">
-              <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-            </Pressable>
-          ) : cur !== null && quiz[`q${cur}`] !== undefined && canAsk(quiz) && !allDone ? (
-            <Pressable
-              onPress={() => {
-                setShown(nextQuestion(quiz));
-                setPos(items.length); // zur neuen Frage
-              }}
-              hitSlop={8}
-              accessibilityRole="button"
-            >
-              <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-            </Pressable>
-          ) : null}
-        </View>
-      </View>
-
-      {/* Abzeichen */}
-      <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}>
-        <View style={styles.bh}>
-          <Text style={[styles.h3, { color: p.ink }]}>{t('ch.badges')}</Text>
-          <Text style={[styles.small, { color: p.mute }]}>
-            {progress.badges.filter((b) => b.earned).length} / {progress.badges.length}
+          {/* Balken von der aktuellen zur nächsten Stufe */}
+          <View style={styles.levelRow}>
+            <View style={styles.levelBadge}>
+              <Text style={styles.levelBadgeText}>{shownLevel}</Text>
+            </View>
+            {levelBar}
+            {levelAt(shownXp).nextLevelXp || shownLevel < progress.level ? (
+              <View style={[styles.levelBadge, styles.levelBadgeNext]}>
+                <Text style={[styles.levelBadgeText, { color: colors.white }]}>{shownLevel + 1}</Text>
+              </View>
+            ) : null}
+          </View>
+          <Text style={styles.levelSub}>
+            {progress.nextLevelXp
+              ? t('ch.toNextShort', { n: progress.nextLevelXp - progress.xp })
+              : t('ch.max', { xp: progress.xp })}
           </Text>
         </View>
-        <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
-        <View style={styles.badges}>
-          {progress.badges.map((b) => (
-            <BadgeView
-              key={b.id}
-              badge={b}
-              p={p}
-              selected={avatar === b.id}
-              onPress={() =>
-                Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }))
-              }
-            />
-          ))}
-        </View>
-      </View>
 
-      <Text style={[styles.note, { color: p.mute }]}>
-        {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
-      </Text>
-    </ScrollView>
+        {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft */}
+        <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
+          <View style={styles.misHead}>
+            <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
+              {t('goal.title')} · {seasonLeft === 1 ? t('week.leftOne') : t('week.left', { n: seasonLeft })}
+            </Text>
+            <XpPill text={`+${XP.season} XP`} done={goal.done} />
+          </View>
+          {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
+          <View style={styles.goalRow}>
+            <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t('goal.short')}</Text>
+            {[0, 1, 2].map((i) => {
+              const g = GROUPS.find((x) => x.id === goal.groups[i]);
+              return (
+                <View key={i} style={styles.goalSlot}>
+                  <View
+                    style={[styles.goalDot, g ? { backgroundColor: '#123826', borderColor: DONE, borderStyle: 'solid' } : { borderColor: p.line }]}
+                  >
+                    {g && <GroupIcon id={g.id} size={17} color={colors.accentLight} />}
+                  </View>
+                  <Text style={[styles.goalLabel, { color: g ? p.ink : p.mute }]} numberOfLines={1}>
+                    {g ? t(`g.${g.id}`) : t('ch.open')}
+                  </Text>
+                </View>
+              );
+            })}
+          </View>
+        </View>
+
+        {/* Wochen-Aufgabe: jede Woche eine neue */}
+        <View style={[styles.card, { backgroundColor: p.card, borderColor: week.done ? DONE : p.line }, week.done && styles.doneCard]}>
+          <View style={styles.misHead}>
+            <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
+              {t('week.title')} · {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
+            </Text>
+            <XpPill text={`+${XP.week} XP`} done={week.done} />
+          </View>
+          {/* Aufgabe mit passendem Symbol (wie beim Saison-Ziel) */}
+          <View style={styles.weekRow}>
+            <TaskIcon task={week.task} done={week.done} />
+            <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
+          </View>
+        </View>
+
+        {/* Rangliste mit Freunden */}
+        <Leaderboard
+          stats={{ name, xp: progress.xp, level: progress.level, species, avatar }}
+          invite={invite}
+          onInviteDone={onInviteDone}
+          onRank={onRank}
+          onFriends={onFriends}
+          p={p}
+        />
+
+        {/* Anzeigen-Platz zwischen Rangliste und Quiz */}
+        <AdSlot p={p} placement='challenges' />
+
+        {/* Frage des Forschers: drei am Tag; die heutigen bleiben sichtbar */}
+        <View style={styles.blk}>
+          <View style={styles.quizHead}>
+            <Explorer size={44} />
+            <View style={{ flex: 1 }}>
+              <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
+              <Text style={[styles.small, { color: p.mute }]}>
+                {quizDone
+                  ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')
+                  : today.length
+                    ? t('ch.quizProgress', { n: today.length, max: QUESTIONS_PER_DAY })
+                    : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
+              </Text>
+            </View>
+            {/* wie bei den Zielen: orange = noch zu holen, grün = verdient */}
+            <XpPill text={`+${quizDone ? todayXp : QUESTIONS_PER_DAY * XP.quiz} XP`} done={quizDone} />
+          </View>
+          {cur !== null &&
+            (() => {
+              const q = questionAt(cur, lang);
+              const given = quiz[`q${cur}`];
+              const answered = given !== undefined;
+              return (
+                <>
+                  <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
+                  {/* Antworten in einer Reihe (bei langen Antworten umgebrochen) */}
+                  <View style={styles.answers}>
+                    {q.answers.map((a, i) => {
+                      const isRight = i === q.right;
+                      const mine = i === given;
+                      const look = !answered
+                        ? { borderColor: p.line }
+                        : isRight
+                          ? { backgroundColor: p.button, borderColor: p.button }
+                          : mine
+                            ? { borderColor: colors.coral }
+                            : { borderColor: p.line, opacity: 0.5 };
+                      const textColor = answered && isRight ? colors.white : p.ink;
+                      return (
+                        <Pressable
+                          key={a}
+                          disabled={answered}
+                          onPress={() => onAnswer(cur, i)}
+                          style={[styles.answer, look]}
+                          accessibilityRole="button"
+                        >
+                          <Text style={[styles.letterText, { color: textColor }]}>{String.fromCharCode(65 + i)}</Text>
+                          <Text style={[styles.answerText, { color: textColor }]}>
+                            {a}
+                            {answered && isRight ? ' ✓' : answered && mine ? ' ✗' : ''}
+                          </Text>
+                        </Pressable>
+                      );
+                    })}
+                  </View>
+                  {answered && (
+                    <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>
+                      {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
+                    </Text>
+                  )}
+                </>
+              );
+            })()}
+          {/* Blättern: zurück zu früheren Fragen von heute, weiter zur nächsten */}
+          <View style={styles.quizNav}>
+            {pos > 0 ? (
+              <Pressable onPress={() => setPos(pos - 1)} hitSlop={8} accessibilityRole="button">
+                <Text style={[styles.next, { color: p.moss }]}>‹ {t('ch.prevQuestion')}</Text>
+              </Pressable>
+            ) : (
+              <View />
+            )}
+            {pos < items.length - 1 ? (
+              <Pressable onPress={() => setPos(pos + 1)} hitSlop={8} accessibilityRole="button">
+                <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+              </Pressable>
+            ) : cur !== null && quiz[`q${cur}`] !== undefined && canAsk(quiz) && !allDone ? (
+              <Pressable
+                onPress={() => {
+                  setShown(nextQuestion(quiz));
+                  setPos(items.length); // zur neuen Frage
+                }}
+                hitSlop={8}
+                accessibilityRole="button"
+              >
+                <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+              </Pressable>
+            ) : null}
+          </View>
+        </View>
+
+        {/* Abzeichen */}
+        <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}>
+          <View style={styles.bh}>
+            <Text style={[styles.h3, { color: p.ink }]}>{t('ch.badges')}</Text>
+            <Text style={[styles.small, { color: p.mute }]}>
+              {progress.badges.filter((b) => b.earned).length} / {progress.badges.length}
+            </Text>
+          </View>
+          <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
+          <View style={styles.badges}>
+            {progress.badges.map((b) => (
+              <BadgeView
+                key={b.id}
+                badge={b}
+                p={p}
+                selected={avatar === b.id}
+                onPress={() =>
+                  Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }))
+                }
+              />
+            ))}
+          </View>
+        </View>
+
+        <Text style={[styles.note, { color: p.mute }]}>
+          {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
+        </Text>
+      </ScrollView>
+      {/* Schmale Leiste: erscheint, sobald der große Kopf weggescrollt ist, und bleibt oben stehen */}
+      <Animated.View
+        pointerEvents="none"
+        style={[
+          styles.slim,
+          {
+            paddingTop: insets.top + 8,
+            opacity: scrollY.interpolate({ inputRange: [headH - 70, headH - 30], outputRange: [0, 1], extrapolate: 'clamp' }),
+            transform: [{ translateY: scrollY.interpolate({ inputRange: [headH - 70, headH - 30], outputRange: [-16, 0], extrapolate: 'clamp' }) }],
+          },
+        ]}
+      >
+        <View style={styles.levelBadge}>
+          <Text style={styles.levelBadgeText}>{shownLevel}</Text>
+        </View>
+        {levelBar}
+        <Text style={styles.slimXp}>{shownXp} XP</Text>
+      </Animated.View>
+    </View>
   );
 }
 
@@ -462,6 +495,26 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 16 },
+  slim: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingHorizontal: spacing.gutter,
+    paddingBottom: 12,
+    backgroundColor: '#17462F',
+    borderBottomLeftRadius: 18,
+    borderBottomRightRadius: 18,
+    shadowColor: '#000',
+    shadowOpacity: 0.18,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 4,
+  },
+  slimXp: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.accentLight },
   levelHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   levelRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12 },
   levelBadge: {
