@@ -403,23 +403,55 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
   const { t } = useI18n();
   const pop = useRef(new Animated.Value(0)).current;
   const bar = useRef(new Animated.Value(0)).current;
+  const count = useRef(new Animated.Value(0)).current;
   const share = (pr: Progress) => (pr.nextLevelXp ? (pr.xp - pr.levelStart) / (pr.nextLevelXp - pr.levelStart) : 1);
-  const from = reward.levelUp ? 0 : share(reward.before);
+  const from = share(reward.before);
   const to = share(reward.after);
+  // Beim Stufenaufstieg zeigt der Balken erst die alte Stufe, dann die neue
+  const [shownLevel, setShownLevel] = useState(reward.levelUp ? reward.before.level : reward.after.level);
+  const [shownXp, setShownXp] = useState(reward.before.xp);
+  const [leveled, setLeveled] = useState(false);
 
   useEffect(() => {
     pop.setValue(0);
     bar.setValue(from);
+    count.setValue(reward.before.xp);
+    setShownLevel(reward.levelUp ? reward.before.level : reward.after.level);
+    setLeveled(false);
+    const id = count.addListener(({ value }) => setShownXp(Math.round(value)));
+    const fill = (toValue: number, duration: number) =>
+      Animated.timing(bar, { toValue, duration, easing: Easing.out(Easing.cubic), useNativeDriver: false });
+    // XP zählen hoch, während sich der Balken füllt
+    const counting = Animated.timing(count, {
+      toValue: reward.after.xp,
+      duration: reward.levelUp ? 1800 : 1300,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: false,
+    });
+    const filling = reward.levelUp
+      ? Animated.sequence([
+          fill(1, 800),
+          Animated.timing(bar, { toValue: 0, duration: 0, useNativeDriver: false }),
+          fill(to, 900),
+        ])
+      : fill(to, 1300);
     Animated.sequence([
       Animated.spring(pop, { toValue: 1, friction: 5, useNativeDriver: true }),
-      Animated.timing(bar, {
-        toValue: to,
-        duration: 900,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: false,
-      }),
+      Animated.delay(250),
+      Animated.parallel([counting, filling]),
     ]).start();
-  }, [reward, from, to, pop, bar]);
+    // Stufenwechsel ungefähr dann, wenn der Balken voll ist
+    const timer = reward.levelUp
+      ? setTimeout(() => {
+          setShownLevel(reward.after.level);
+          setLeveled(true);
+        }, 1500)
+      : null;
+    return () => {
+      count.removeListener(id);
+      if (timer) clearTimeout(timer);
+    };
+  }, [reward, from, to, pop, bar, count]);
 
   const labels = {
     find: t('rew.find'),
@@ -429,7 +461,8 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
     badge: t('rew.badge'),
   };
   const lvl = reward.after.level;
-  const lvlName = t(`level.${lvl - 1}` as 'level.0');
+  const lvlName = t(`level.${shownLevel - 1}` as 'level.0');
+  const maxLevel = !reward.after.nextLevelXp && shownLevel === lvl;
 
   return (
     <View style={[styles.card, styles.reward, { backgroundColor: p.card }]}>
@@ -440,14 +473,7 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
             styles.rewardXp,
             {
               opacity: pop,
-              transform: [
-                {
-                  scale: pop.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0.4, 1],
-                  }),
-                },
-              ],
+              transform: [{ scale: pop.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }) }],
             },
           ]}
         >
@@ -463,26 +489,26 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
           </View>
         ))}
       </View>
-      {reward.levelUp && <Text style={styles.levelUp}>{t('rew.levelUp', { n: lvl, name: lvlName })}</Text>}
+      {leveled && <Text style={styles.levelUp}>{t('rew.levelUp', { n: lvl, name: lvlName })}</Text>}
       <View style={styles.levelRow}>
-        <Text style={[styles.levelText, { color: p.ink }]}>{t('ch.levelLine', { n: lvl, name: lvlName })}</Text>
-        <Text style={[styles.levelXp, { color: p.mute }]}>
-          {reward.after.xp}
-          {reward.after.nextLevelXp ? ` / ${reward.after.nextLevelXp}` : ''} XP
-        </Text>
+        <Text style={[styles.levelText, { color: p.ink }]}>{t('ch.levelLine', { n: shownLevel, name: lvlName })}</Text>
+        <Text style={[styles.levelXp, { color: p.mute }]}>{shownXp} XP</Text>
       </View>
-      <View style={[styles.bar, { backgroundColor: p.line }]}>
-        <Animated.View
-          style={[
-            styles.barFill,
-            {
-              width: bar.interpolate({
-                inputRange: [0, 1],
-                outputRange: ['0%', '100%'],
-              }),
-            },
-          ]}
-        />
+      {/* Balken von der Stufe zur nächsten – füllt sich sichtbar */}
+      <View style={styles.barRow}>
+        <View style={styles.lvlDot}>
+          <Text style={styles.lvlDotText}>{shownLevel}</Text>
+        </View>
+        <View style={[styles.bar, { backgroundColor: p.line }]}>
+          <Animated.View
+            style={[styles.barFill, { width: bar.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
+          />
+        </View>
+        {!maxLevel && (
+          <View style={[styles.lvlDot, styles.lvlDotNext, { borderColor: p.line }]}>
+            <Text style={[styles.lvlDotText, { color: p.mute }]}>{shownLevel + 1}</Text>
+          </View>
+        )}
       </View>
       {photos > 1 && <Text style={[styles.small, { color: p.mute }]}>{t('rew.updated', { n: photos })}</Text>}
     </View>
@@ -751,7 +777,11 @@ const styles = StyleSheet.create({
   },
   levelText: { fontFamily: fonts.sansBold, fontSize: 14 },
   levelXp: { fontFamily: fonts.sans, fontSize: 13 },
-  bar: { height: 10, borderRadius: 9, marginTop: 6, overflow: 'hidden' },
+  bar: { flex: 1, height: 10, borderRadius: 9, overflow: 'hidden' },
+  barRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8 },
+  lvlDot: { width: 24, height: 24, borderRadius: 12, backgroundColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
+  lvlDotNext: { backgroundColor: 'transparent', borderWidth: 1.5 },
+  lvlDotText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
   barFill: { height: '100%', backgroundColor: colors.accent, borderRadius: 9 },
   small: { fontFamily: fonts.sans, fontSize: 12, marginTop: 8 },
   fun: { flexDirection: 'row', gap: 12, alignItems: 'flex-start' },

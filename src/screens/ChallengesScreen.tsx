@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useRef, useState } from 'react';
+import { Alert, Animated, Easing, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 
@@ -56,6 +57,48 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const span = (progress.nextLevelXp ?? progress.xp) - progress.levelStart;
   const share = progress.nextLevelXp ? (progress.xp - progress.levelStart) / span : 1;
 
+  // Belohnung: sind seit dem letzten Besuch XP dazugekommen (Foto, Saison-Ziel, Quiz …),
+  // füllt sich der Balken sichtbar vom alten zum neuen Stand und "+N XP" erscheint kurz.
+  const fill = useRef(new Animated.Value(share)).current;
+  const gainFade = useRef(new Animated.Value(0)).current;
+  const [gain, setGain] = useState(0);
+  const lastXp = useRef<number | null>(null);
+  useEffect(() => {
+    let alive = true;
+    const shareOf = (xp: number) =>
+      progress.nextLevelXp ? Math.max(0, Math.min(1, (xp - progress.levelStart) / span)) : 1;
+    const run = (before: number) => {
+      if (!alive) return;
+      lastXp.current = progress.xp;
+      AsyncStorage.setItem(SEEN_XP_KEY, String(progress.xp)).catch(() => {});
+      if (before >= progress.xp) {
+        fill.setValue(share);
+        return;
+      }
+      setGain(progress.xp - before);
+      fill.setValue(shareOf(before)); // bei neuer Stufe: von vorn
+      gainFade.setValue(0);
+      Animated.sequence([
+        Animated.delay(350),
+        Animated.parallel([
+          Animated.timing(fill, { toValue: share, duration: 1300, easing: Easing.out(Easing.cubic), useNativeDriver: false }),
+          Animated.timing(gainFade, { toValue: 1, duration: 300, useNativeDriver: true }),
+        ]),
+        Animated.delay(1400),
+        Animated.timing(gainFade, { toValue: 0, duration: 500, useNativeDriver: true }),
+      ]).start();
+    };
+    if (lastXp.current !== null) run(lastXp.current);
+    else
+      AsyncStorage.getItem(SEEN_XP_KEY)
+        .then((v) => run(v === null ? progress.xp : Number(v) || 0))
+        .catch(() => run(progress.xp));
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress.xp]);
+
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
@@ -70,7 +113,11 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
               {t(`level.${progress.level - 1}` as 'level.0')}
             </Text>
           </View>
-          <Text style={styles.levelXp}>{progress.xp} XP</Text>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={styles.levelXp}>{progress.xp} XP</Text>
+            {/* kurz eingeblendet: so viele XP sind dazugekommen */}
+            <Animated.Text style={[styles.levelGain, { opacity: gainFade }]}>+{gain} XP</Animated.Text>
+          </View>
         </View>
         {/* Balken von der aktuellen zur nächsten Stufe */}
         <View style={styles.levelRow}>
@@ -78,7 +125,9 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
             <Text style={styles.levelBadgeText}>{progress.level}</Text>
           </View>
           <View style={styles.levelBar}>
-            <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
+            <Animated.View
+              style={[styles.progFill, { width: fill.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
+            />
           </View>
           {progress.nextLevelXp ? (
             <View style={[styles.levelBadge, styles.levelBadgeNext]}>
@@ -310,6 +359,9 @@ function TaskIcon({ task, done }: { task: WeekTask; done: boolean }) {
   );
 }
 
+// Zuletzt gesehener XP-Stand (für die Balken-Animation)
+const SEEN_XP_KEY = 'findimal-seen-xp';
+
 // Grün für "geschafft" (Rahmen und Marke)
 const DONE = '#6FBF8A';
 
@@ -368,6 +420,7 @@ const styles = StyleSheet.create({
   levelSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
   levelName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
   levelXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
+  levelGain: { position: 'absolute', top: 24, right: 0, fontFamily: fonts.sansBold, fontSize: 12.5, color: '#9FE0B4' },
   levelBar: { flex: 1, height: 6, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
   levelSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 6 },
   doneCard: { borderWidth: 2 },
