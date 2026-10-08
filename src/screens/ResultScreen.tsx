@@ -289,7 +289,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {!limited && (
             <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
               {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
-              {busy && !plus && <Text style={[styles.body, { color: p.mute }]}>{t('res.cancelHint')}</Text>}
+              {busy && !plus && <Text style={[styles.cancelHint, { color: p.mute }]}>{t('res.cancelHint')}</Text>}
               {result && !result.ok && !result.limit && (
                 <>
                   <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
@@ -736,6 +736,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: 'rgba(255,255,255,0.7)',
   },
+  cancelHint: { fontFamily: fonts.sans, fontSize: 12, opacity: 0.7, marginTop: 2 },
   cancelText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
   stamp: {

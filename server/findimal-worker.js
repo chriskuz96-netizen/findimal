@@ -66,6 +66,8 @@ bestimme zusätzlich die Rasse und schreibe sie kurz in "rasse" (höchstens drei
 "Mischling". Schreibe nie "vermutlich" in "rasse"; bist du dir bei der Rasse nicht sicher, setze stattdessen
 "rasse_sicher" auf false. "name" bleibt die Tierart (z. B. "Haushund", "Haushuhn").
 Bei Wildtieren bleibt "rasse" leer und "rasse_sicher" ist true.
+"sicherheit" bezieht sich nur auf die Tierart, nie auf die Rasse: Ein klar erkennbares Huhn, ein Hund oder eine
+Katze ist "sicher", auch wenn die Rasse unklar ist (dafür gibt es "rasse_sicher").
 Setze "gefaehrdet" auf true, wenn die Art auf der Roten Liste Deutschlands oder weltweit (IUCN) mindestens als
 "gefährdet" eingestuft ist. Bei Haus- und Nutztieren, häufigen Arten oder wenn du unsicher bist: false.
 Setze "giftig" auf true, wenn das Tier giftig ist oder mit Gift stechen oder beißen kann (z. B. Wespe, Biene,
