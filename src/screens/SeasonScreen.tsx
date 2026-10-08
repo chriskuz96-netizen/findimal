@@ -96,13 +96,16 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
 
       {/* Naturschauspiel: zum Staunen und Hinhören, ohne Foto-Aufgabe */}
       <View style={[styles.spec, { backgroundColor: p.card, borderColor: p.line }]}>
-        <Text style={[styles.h3, { color: p.ink }]}>🔭 {t('sea.spectacle')}</Text>
-        <Text style={[styles.sub, { color: p.mute }]}>{t('sea.spectacleSub')}</Text>
+        {/* Überschrift mit kurzem Satz rechts daneben */}
+        <View style={styles.specHead}>
+          <Text style={[styles.specTitle, { color: p.ink }]}>🔭 {t('sea.spectacle')}</Text>
+          <Text style={[styles.specSub, { color: p.mute }]}>{t('sea.spectacleSub')}</Text>
+        </View>
         {season.spectacle.map((s, i) => (
           <View key={s.title} style={[styles.specItem, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}>
-            <Text style={[styles.hiTitle, { color: p.ink }]}>{s.title}</Text>
-            <Text style={[styles.hiText, { color: p.mute }]}>{s.text}</Text>
-            <Text style={[styles.qWhere, { color: dark ? colors.accent : colors.accentDark }]}>{s.where}</Text>
+            <Text style={[styles.specItemTitle, { color: p.ink }]}>{s.title}</Text>
+            <Text style={[styles.specText, { color: p.mute }]}>{s.text}</Text>
+            <Text style={[styles.specWhere, { color: dark ? colors.accent : colors.accentDark }]}>{s.where}</Text>
           </View>
         ))}
       </View>
@@ -227,8 +230,14 @@ const styles = StyleSheet.create({
   qTitle: { flex: 1, fontFamily: fonts.serifBold, fontSize: 14.5, lineHeight: 17 },
   qText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 6 },
   qWhere: { fontFamily: fonts.sansBold, fontSize: 11.5, lineHeight: 15, marginTop: 5 },
-  spec: { marginTop: 18, marginHorizontal: spacing.gutter, borderWidth: 1, borderRadius: 20, padding: 16, paddingBottom: 6 },
-  specItem: { paddingVertical: 10 },
+  spec: { marginTop: 16, marginHorizontal: spacing.gutter, borderWidth: 1, borderRadius: 18, padding: 14, paddingBottom: 4 },
+  specHead: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 2 },
+  specTitle: { fontFamily: fonts.serifBold, fontSize: 17 },
+  specSub: { flex: 1, fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 16 },
+  specItem: { paddingVertical: 7 },
+  specItemTitle: { fontFamily: fonts.sansBold, fontSize: 14 },
+  specText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 1 },
+  specWhere: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 3 },
   help: {
     marginTop: 26,
     marginHorizontal: spacing.gutter,
