@@ -9,7 +9,7 @@ import { colors, fonts, Palette, spacing } from '../theme';
 // Platz für eine native Anzeige (AdMob), gut als "Anzeige" gekennzeichnet.
 // In Expo Go/Snack gibt es noch keine echte Werbung – dann steht hier ein Platzhalter.
 // Später: nur für Gratis-Nutzer, familiengeeignet und nicht personalisiert.
-type Placement = 'result' | 'details' | 'season' | 'challenges' | 'collection';
+type Placement = 'result' | 'details' | 'season' | 'challenges' | 'collection' | 'profile';
 
 // compact: schmale Leiste (fest am unteren Rand der Sammlung)
 export function AdSlot({ p, compact }: { p: Palette; placement: Placement; compact?: boolean }) {

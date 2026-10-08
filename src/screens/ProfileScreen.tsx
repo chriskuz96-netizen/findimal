@@ -16,6 +16,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
+import { AdSlot } from '../components/AdSlot';
 import { Avatar } from '../components/Avatar';
 import { AvatarSheet } from '../components/AvatarSheet';
 import { LanguageChips } from '../components/LanguageButton';
@@ -271,6 +272,9 @@ export function ProfileScreen(props: Props) {
           </Pressable>
         )}
       </View>
+
+      {/* Anzeigen-Platz unter den Natur-Tipps (nicht mit Plus) */}
+      <AdSlot p={p} placement='profile' />
 
       {/* Schnellzugriff als drei Kacheln, für alle, die die Stifte oben übersehen */}
       <View style={styles.quick}>
