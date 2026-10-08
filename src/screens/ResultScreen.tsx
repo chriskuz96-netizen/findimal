@@ -19,6 +19,7 @@ import { Photo } from '../camera';
 import { AdSheet, AdSlot } from '../components/AdSlot';
 import { Explorer } from '../components/Explorer';
 import { LimitCard } from '../components/LimitCard';
+import { SwipeBack } from '../components/SwipeBack';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
 import { Animal, breedGuessed, displayName, hasDetails, identify, IdentifyResult, loadDetails } from '../identify';
@@ -195,179 +196,182 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
 
   return (
     <View style={{ flex: 1, backgroundColor: p.bg }}>
-      <ScrollView
-        style={{ flex: 1, backgroundColor: p.bg }}
-        contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
-        keyboardShouldPersistTaps="handled"
-        automaticallyAdjustKeyboardInsets
-      >
-        {/* Großes Foto oben */}
-        <View style={[styles.hero, { height: 300 + insets.top }]}>
-          {mainUri && (
-            <Image
-              source={{ uri: mainUri }}
-              style={StyleSheet.absoluteFill}
-              resizeMode="cover"
-              accessibilityLabel={t('res.yourPhoto')}
-            />
-          )}
-          {!result && (
-            <View style={styles.loading}>
-              <Explorer size={64} />
-              <Text style={styles.loadingTitle}>{t('res.wait')}</Text>
-              <Text style={styles.loadingText}>{t('res.looking')}</Text>
-              <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
-            </View>
-          )}
-          {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss */}
-          <Pressable
-            onPress={leave}
-            accessibilityRole="button"
-            hitSlop={10}
-            style={({ pressed }) => [styles.back, { top: insets.top + 10, opacity: pressed ? 0.7 : 1 }]}
-          >
-            <Text style={styles.backText}>{t('pro.back')}</Text>
-          </Pressable>
-          {isNew && result && <Text style={[styles.stamp, { top: insets.top + 14 }]}>{t('res.new')}</Text>}
-          {photos.length > 1 && (
-            <View style={styles.thumbs}>
-              {photos.slice(1).map((ph) => (
-                <Image key={ph.uri} source={{ uri: ph.uri }} style={styles.thumb} />
-              ))}
-            </View>
-          )}
-        </View>
-
-        {/* Name und kurze Beschreibung */}
-        {!limited && (
-          <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
-            {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
-            {result && !result.ok && !result.limit && (
-              <>
-                <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
-                <Text style={[styles.body, { color: p.mute }]}>{result.message}</Text>
-              </>
+      {/* nach rechts wischen = zurück (nicht, solange die halbseitige Anzeige offen ist) */}
+      <SwipeBack onBack={leave} enabled={bigAd !== 'open'}>
+        <ScrollView
+          style={{ flex: 1, backgroundColor: p.bg }}
+          contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
+          keyboardShouldPersistTaps="handled"
+          automaticallyAdjustKeyboardInsets
+        >
+          {/* Großes Foto oben */}
+          <View style={[styles.hero, { height: 300 + insets.top }]}>
+            {mainUri && (
+              <Image
+                source={{ uri: mainUri }}
+                style={StyleSheet.absoluteFill}
+                resizeMode="cover"
+                accessibilityLabel={t('res.yourPhoto')}
+              />
             )}
-            {result?.ok && !animal && (
-              <>
-                <Text style={[styles.name, { color: p.ink }]}>{t('res.noAnimal')}</Text>
-                <Text style={[styles.body, { color: p.mute }]}>{result.animal.hinweis || t('res.noAnimalHint')}</Text>
-              </>
+            {!result && (
+              <View style={styles.loading}>
+                <Explorer size={64} />
+                <Text style={styles.loadingTitle}>{t('res.wait')}</Text>
+                <Text style={styles.loadingText}>{t('res.looking')}</Text>
+                <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
+              </View>
             )}
-            {animal && (
-              <>
-                {/* Haustiere: Rasse groß, Tierart klein darunter */}
-                <Text style={[styles.name, { color: p.ink }]}>{displayName(animal)}</Text>
-                {!!animal.rasse && (
-                  <Text style={styles.breed}>
-                    {animal.name}
-                    {breedGuessed(animal) ? ` · ${t('res.breedGuess')}` : ''}
-                  </Text>
-                )}
-                {!!animal.wissenschaftlicher_name && (
-                  <Text style={[styles.sci, { color: p.mute }]}>{animal.wissenschaftlicher_name}</Text>
-                )}
-                <Certainty value={animal.sicherheit} />
-                {!!animal.kurzbeschreibung && (
-                  <Text style={[styles.body, { color: p.ink }]}>{animal.kurzbeschreibung}</Text>
-                )}
-              </>
-            )}
-            {saved && <FoundOn find={saved} p={p} onPlace={(place) => onPlace?.(saved.id, place)} />}
-          </View>
-        )}
-
-        {result && !result.ok && !result.limit && (
-          <Button label={t('res.retry')} onPress={() => run(photos)} p={p} filled />
-        )}
-
-        {/* Gratis-Fotos für heute aufgebraucht */}
-        {limited && <LimitCard p={p} style={{ marginTop: -34 }} />}
-
-        {/* Kein Tier erkannt: gleich ein neues Foto machen */}
-        {noAnimal && (
-          <View style={[styles.row, { marginHorizontal: spacing.gutter, marginTop: 12 }]}>
-            <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera', true)} filled p={p} />
-            <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library', true)} p={p} />
-          </View>
-        )}
-
-        {/* KI nicht ganz sicher: zweites Foto direkt unter dem Ergebnis anbieten */}
-        {unsure && (
-          <View style={[styles.card, styles.second, { backgroundColor: p.card }]}>
-            <Text style={[styles.cardTitle, { color: p.ink }]}>{t('res.secondTitle')}</Text>
-            <Text style={[styles.body, { color: p.mute }]}>{t('res.secondText')}</Text>
-            <View style={styles.row}>
-              <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera')} filled p={p} />
-              <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library')} p={p} />
-            </View>
-          </View>
-        )}
-
-        {/* KI sicher: trotzdem leise die Möglichkeit für ein weiteres Foto */}
-        {canAddPhoto && !unsure && (
-          <Pressable onPress={() => addPhoto('camera')} accessibilityRole="button" hitSlop={8} style={styles.notRight}>
-            <Text style={[styles.notRightText, { color: p.moss }]}>{t('res.notRight')}</Text>
-          </Pressable>
-        )}
-
-        {/* Belohnung */}
-        {reward && animal && <RewardCard reward={reward} photos={photos.length} p={p} />}
-
-        {/* Wusstest du? */}
-        {animal && !!animal.wusstest_du && (
-          <View style={[styles.card, styles.fun, { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
-            <Explorer size={40} />
-            <View style={{ flex: 1 }}>
-              <Text style={[styles.cardTitle, { color: p.ink }]}>{t('f.fun')}</Text>
-              <Text style={[styles.body, { color: p.ink, marginTop: 2 }]}>{animal.wusstest_du}</Text>
-            </View>
-          </View>
-        )}
-
-        {/* Anzeigen-Platz 1: nach dem Ergebnis */}
-        {animal && <AdSlot p={p} placement="result" />}
-
-        {/* Steckbrief zum Aufklappen */}
-        {animal && (
-          <>
+            {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss */}
             <Pressable
-              onPress={openDetails}
-              style={[styles.toggle, { borderColor: p.line }]}
+              onPress={leave}
               accessibilityRole="button"
+              hitSlop={10}
+              style={({ pressed }) => [styles.back, { top: insets.top + 10, opacity: pressed ? 0.7 : 1 }]}
             >
-              <Text style={[styles.toggleText, { color: p.moss }]}>
-                {details ? t('res.hideDetails') : t('res.showDetails')} {details ? '▴' : '▾'}
-              </Text>
+              <Text style={styles.backText}>{t('pro.back')}</Text>
             </Pressable>
-            {details && loadingDetails && <ActivityIndicator color={colors.accent} style={{ marginTop: 12 }} />}
-            {details && !loadingDetails && hasDetails(animal) && (
-              <>
-                <Details animal={animal} p={p} />
-                {/* Anzeigen-Platz 2: im aufgeklappten Steckbrief */}
-                <AdSlot p={p} placement="details" />
-              </>
+            {isNew && result && <Text style={[styles.stamp, { top: insets.top + 14 }]}>{t('res.new')}</Text>}
+            {photos.length > 1 && (
+              <View style={styles.thumbs}>
+                {photos.slice(1).map((ph) => (
+                  <Image key={ph.uri} source={{ uri: ph.uri }} style={styles.thumb} />
+                ))}
+              </View>
             )}
-            {details && !loadingDetails && !hasDetails(animal) && (
-              <Text
-                style={[
-                  styles.body,
-                  {
-                    color: p.mute,
-                    marginHorizontal: spacing.gutter,
-                    marginTop: 10,
-                  },
-                ]}
+          </View>
+
+          {/* Name und kurze Beschreibung */}
+          {!limited && (
+            <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
+              {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
+              {result && !result.ok && !result.limit && (
+                <>
+                  <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
+                  <Text style={[styles.body, { color: p.mute }]}>{result.message}</Text>
+                </>
+              )}
+              {result?.ok && !animal && (
+                <>
+                  <Text style={[styles.name, { color: p.ink }]}>{t('res.noAnimal')}</Text>
+                  <Text style={[styles.body, { color: p.mute }]}>{result.animal.hinweis || t('res.noAnimalHint')}</Text>
+                </>
+              )}
+              {animal && (
+                <>
+                  {/* Haustiere: Rasse groß, Tierart klein darunter */}
+                  <Text style={[styles.name, { color: p.ink }]}>{displayName(animal)}</Text>
+                  {!!animal.rasse && (
+                    <Text style={styles.breed}>
+                      {animal.name}
+                      {breedGuessed(animal) ? ` · ${t('res.breedGuess')}` : ''}
+                    </Text>
+                  )}
+                  {!!animal.wissenschaftlicher_name && (
+                    <Text style={[styles.sci, { color: p.mute }]}>{animal.wissenschaftlicher_name}</Text>
+                  )}
+                  <Certainty value={animal.sicherheit} />
+                  {!!animal.kurzbeschreibung && (
+                    <Text style={[styles.body, { color: p.ink }]}>{animal.kurzbeschreibung}</Text>
+                  )}
+                </>
+              )}
+              {saved && <FoundOn find={saved} p={p} onPlace={(place) => onPlace?.(saved.id, place)} />}
+            </View>
+          )}
+
+          {result && !result.ok && !result.limit && (
+            <Button label={t('res.retry')} onPress={() => run(photos)} p={p} filled />
+          )}
+
+          {/* Gratis-Fotos für heute aufgebraucht */}
+          {limited && <LimitCard p={p} style={{ marginTop: -34 }} />}
+
+          {/* Kein Tier erkannt: gleich ein neues Foto machen */}
+          {noAnimal && (
+            <View style={[styles.row, { marginHorizontal: spacing.gutter, marginTop: 12 }]}>
+              <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera', true)} filled p={p} />
+              <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library', true)} p={p} />
+            </View>
+          )}
+
+          {/* KI nicht ganz sicher: zweites Foto direkt unter dem Ergebnis anbieten */}
+          {unsure && (
+            <View style={[styles.card, styles.second, { backgroundColor: p.card }]}>
+              <Text style={[styles.cardTitle, { color: p.ink }]}>{t('res.secondTitle')}</Text>
+              <Text style={[styles.body, { color: p.mute }]}>{t('res.secondText')}</Text>
+              <View style={styles.row}>
+                <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera')} filled p={p} />
+                <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library')} p={p} />
+              </View>
+            </View>
+          )}
+
+          {/* KI sicher: trotzdem leise die Möglichkeit für ein weiteres Foto */}
+          {canAddPhoto && !unsure && (
+            <Pressable onPress={() => addPhoto('camera')} accessibilityRole="button" hitSlop={8} style={styles.notRight}>
+              <Text style={[styles.notRightText, { color: p.moss }]}>{t('res.notRight')}</Text>
+            </Pressable>
+          )}
+
+          {/* Belohnung */}
+          {reward && animal && <RewardCard reward={reward} photos={photos.length} p={p} />}
+
+          {/* Wusstest du? */}
+          {animal && !!animal.wusstest_du && (
+            <View style={[styles.card, styles.fun, { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
+              <Explorer size={40} />
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.cardTitle, { color: p.ink }]}>{t('f.fun')}</Text>
+                <Text style={[styles.body, { color: p.ink, marginTop: 2 }]}>{animal.wusstest_du}</Text>
+              </View>
+            </View>
+          )}
+
+          {/* Anzeigen-Platz 1: nach dem Ergebnis */}
+          {animal && <AdSlot p={p} placement="result" />}
+
+          {/* Steckbrief zum Aufklappen */}
+          {animal && (
+            <>
+              <Pressable
+                onPress={openDetails}
+                style={[styles.toggle, { borderColor: p.line }]}
+                accessibilityRole="button"
               >
-                {t('res.detailsFailed')}
-              </Text>
-            )}
-          </>
-        )}
+                <Text style={[styles.toggleText, { color: p.moss }]}>
+                  {details ? t('res.hideDetails') : t('res.showDetails')} {details ? '▴' : '▾'}
+                </Text>
+              </Pressable>
+              {details && loadingDetails && <ActivityIndicator color={colors.accent} style={{ marginTop: 12 }} />}
+              {details && !loadingDetails && hasDetails(animal) && (
+                <>
+                  <Details animal={animal} p={p} />
+                  {/* Anzeigen-Platz 2: im aufgeklappten Steckbrief */}
+                  <AdSlot p={p} placement="details" />
+                </>
+              )}
+              {details && !loadingDetails && !hasDetails(animal) && (
+                <Text
+                  style={[
+                    styles.body,
+                    {
+                      color: p.mute,
+                      marginHorizontal: spacing.gutter,
+                      marginTop: 10,
+                    },
+                  ]}
+                >
+                  {t('res.detailsFailed')}
+                </Text>
+              )}
+            </>
+          )}
 
-        <Button label={t('res.continue')} onPress={leave} p={p} filled={!!result} />
-      </ScrollView>
+          <Button label={t('res.continue')} onPress={leave} p={p} filled={!!result} />
+        </ScrollView>
 
+      </SwipeBack>
       {/* Halbseitige Anzeige ab dem 3. Foto des Tages, nach „Weiter“ – danach geht es zurück */}
       {bigAd === 'open' && <AdSheet p={p} onClose={onBack} />}
     </View>

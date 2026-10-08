@@ -20,6 +20,7 @@ import { AdSlot } from '../components/AdSlot';
 import { Avatar } from '../components/Avatar';
 import { AvatarSheet } from '../components/AvatarSheet';
 import { LanguageChips } from '../components/LanguageButton';
+import { SwipeBack } from '../components/SwipeBack';
 import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
@@ -111,217 +112,220 @@ export function ProfileScreen(props: Props) {
         </Pressable>
       </Pressable>
     </Modal>
-    <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
-      <View style={[styles.hx, { paddingTop: insets.top + 10 }]}>
-        <HeaderBackground />
-        <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" style={styles.back}>
-          <Text style={styles.backText}>{t('pro.back')}</Text>
-        </Pressable>
-        <View style={styles.pr}>
-          {/* großes Profilbild; Antippen öffnet die Auswahl */}
-          <Pressable
-            onPress={() => setPicking(true)}
-            accessibilityRole="button"
-            accessibilityLabel={t('pro.avatar')}
-          >
-            <Avatar id={avatar} name={name} size={108} />
-            <View style={styles.avatarEdit}>
-              <Svg width={17} height={17} viewBox="0 0 24 24">
-                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
-                <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
-              </Svg>
-            </View>
+    {/* nach rechts wischen = zurück */}
+    <SwipeBack onBack={onBack}>
+      <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
+        <View style={[styles.hx, { paddingTop: insets.top + 10 }]}>
+          <HeaderBackground />
+          <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" style={styles.back}>
+            <Text style={styles.backText}>{t('pro.back')}</Text>
           </Pressable>
-          <View style={styles.prText}>
-            {/* Name: Stift antippen zum Ändern */}
-            {editing ? (
-              <View style={[styles.nameRow, styles.nameEdit]}>
-                <TextInput
-                  value={newName}
-                  onChangeText={setNewName}
-                  maxLength={24}
-                  autoCapitalize="words"
-                  autoFocus
-                  returnKeyType="done"
-                  onSubmitEditing={saveName}
-                  style={styles.nameInput}
-                  accessibilityLabel={t('pro.name')}
-                />
-                <Pressable onPress={saveName} hitSlop={10} accessibilityRole="button" accessibilityLabel={t('common.save')} style={styles.nameOk}>
-                  <Text style={styles.nameOkText}>✓</Text>
-                </Pressable>
+          <View style={styles.pr}>
+            {/* großes Profilbild; Antippen öffnet die Auswahl */}
+            <Pressable
+              onPress={() => setPicking(true)}
+              accessibilityRole="button"
+              accessibilityLabel={t('pro.avatar')}
+            >
+              <Avatar id={avatar} name={name} size={108} />
+              <View style={styles.avatarEdit}>
+                <Svg width={17} height={17} viewBox="0 0 24 24">
+                  <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
+                  <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
+                </Svg>
               </View>
-            ) : (
+            </Pressable>
+            <View style={styles.prText}>
+              {/* Name: Stift antippen zum Ändern */}
+              {editing ? (
+                <View style={[styles.nameRow, styles.nameEdit]}>
+                  <TextInput
+                    value={newName}
+                    onChangeText={setNewName}
+                    maxLength={24}
+                    autoCapitalize="words"
+                    autoFocus
+                    returnKeyType="done"
+                    onSubmitEditing={saveName}
+                    style={styles.nameInput}
+                    accessibilityLabel={t('pro.name')}
+                  />
+                  <Pressable onPress={saveName} hitSlop={10} accessibilityRole="button" accessibilityLabel={t('common.save')} style={styles.nameOk}>
+                    <Text style={styles.nameOkText}>✓</Text>
+                  </Pressable>
+                </View>
+              ) : (
+                <Pressable
+                  onPress={() => {
+                    setNewName(name);
+                    setEditing(true);
+                  }}
+                  hitSlop={8}
+                  style={styles.nameRow}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('pro.name')}
+                >
+                  <Text style={styles.name} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+                    {name}
+                  </Text>
+                  <Svg width={20} height={20} viewBox="0 0 24 24">
+                    <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
+                    <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
+                  </Svg>
+                </Pressable>
+              )}
+              <Text style={styles.nick}>
+                {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
+              </Text>
+              {/* Ort: antippen zum Ändern */}
               <Pressable
-                onPress={() => {
-                  setNewName(name);
-                  setEditing(true);
-                }}
+                onPress={onChangeRegion}
                 hitSlop={8}
-                style={styles.nameRow}
+                style={styles.place}
                 accessibilityRole="button"
-                accessibilityLabel={t('pro.name')}
+                accessibilityLabel={`${t('pro.region')}: ${region || t('pro.noRegion')}`}
               >
-                <Text style={styles.name} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
-                  {name}
+                <Svg width={14} height={14} viewBox="0 0 24 24">
+                  <Path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z" fill={colors.accent} />
+                  <Circle cx={12} cy={10} r={2.6} fill="#123826" />
+                </Svg>
+                <Text style={styles.placeText} numberOfLines={1}>
+                  {region || t('pro.setPlace')}
                 </Text>
-                <Svg width={20} height={20} viewBox="0 0 24 24">
+                <Svg width={13} height={13} viewBox="0 0 24 24">
                   <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
                   <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
                 </Svg>
               </Pressable>
-            )}
-            <Text style={styles.nick}>
-              {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
+            </View>
+          </View>
+        </View>
+
+        {/* Stufe und Statistik */}
+        <Card p={p} style={{ marginTop: -24, paddingVertical: 12 }}>
+          <View style={styles.stats}>
+            <Stat p={p} value={finds.length} label={t('pro.finds')} />
+            <Stat p={p} value={species} label={t('col.species')} />
+            <Stat p={p} value={earned.length} label={t('ch.badges')} />
+          </View>
+          <View style={styles.xpRow}>
+            <View style={[styles.prog, { backgroundColor: p.line }]}>
+              <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
+            </View>
+            <Text style={[styles.xpText, { color: p.mute }]}>
+              {progress.nextLevelXp ? `${progress.xp} / ${progress.nextLevelXp} XP` : `${progress.xp} XP`}
             </Text>
-            {/* Ort: antippen zum Ändern */}
-            <Pressable
-              onPress={onChangeRegion}
-              hitSlop={8}
-              style={styles.place}
-              accessibilityRole="button"
-              accessibilityLabel={`${t('pro.region')}: ${region || t('pro.noRegion')}`}
-            >
-              <Svg width={14} height={14} viewBox="0 0 24 24">
-                <Path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z" fill={colors.accent} />
-                <Circle cx={12} cy={10} r={2.6} fill="#123826" />
-              </Svg>
-              <Text style={styles.placeText} numberOfLines={1}>
-                {region || t('pro.setPlace')}
-              </Text>
-              <Svg width={13} height={13} viewBox="0 0 24 24">
-                <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
-                <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
-              </Svg>
+          </View>
+        </Card>
+
+        {/* Findimal Plus: was dazugehört */}
+        <View style={[styles.card, styles.plusCard]}>
+          <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
+          <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
+          {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
+            <View key={k} style={styles.plusRow}>
+              <Text style={styles.plusCheck}>✓</Text>
+              <Text style={styles.plusText}>{t(k)}</Text>
+            </View>
+          ))}
+          {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
+          <View style={styles.plusPreview}>
+            {PLUS_AVATARS.slice(0, 5).map((a) => (
+              <Avatar key={a.id} id={a.id} name={name} size={44} />
+            ))}
+          </View>
+          {plus ? (
+            <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
+              <Text style={styles.plusEndText}>{t('plus.end')}</Text>
             </Pressable>
-          </View>
+          ) : (
+            <>
+              <Pressable
+                onPress={() => askForPlus(t, setPlus)}
+                style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
+                accessibilityRole="button"
+              >
+                <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
+              </Pressable>
+              <Text style={styles.plusPrice}>{t('plus.price')}</Text>
+            </>
+          )}
         </View>
-      </View>
 
-      {/* Stufe und Statistik */}
-      <Card p={p} style={{ marginTop: -24, paddingVertical: 12 }}>
-        <View style={styles.stats}>
-          <Stat p={p} value={finds.length} label={t('pro.finds')} />
-          <Stat p={p} value={species} label={t('col.species')} />
-          <Stat p={p} value={earned.length} label={t('ch.badges')} />
-        </View>
-        <View style={styles.xpRow}>
-          <View style={[styles.prog, { backgroundColor: p.line }]}>
-            <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
+        {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
+        <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
+          <View style={styles.tipsHead}>
+            <View style={styles.bell}>
+              <Svg width={24} height={24} viewBox="0 0 24 24">
+                <Path d="M12 3a6 6 0 0 0-6 6v4.2L4.2 16.5h15.6L18 13.2V9a6 6 0 0 0-6-6Z" fill={colors.accentLight} />
+                <Path d="M9.8 18.5a2.2 2.2 0 0 0 4.4 0Z" fill={colors.accentLight} />
+              </Svg>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={[styles.tipsKind, { color: colors.accent }]}>{t('tips.kind')}</Text>
+              <Text style={[styles.h3, { color: p.ink }]}>{t('tips.title')}</Text>
+            </View>
+            {europe && <Switch value={tips} onValueChange={toggleTips} trackColor={{ true: p.button }} />}
           </View>
-          <Text style={[styles.xpText, { color: p.mute }]}>
-            {progress.nextLevelXp ? `${progress.xp} / ${progress.nextLevelXp} XP` : `${progress.xp} XP`}
-          </Text>
+          <Text style={[styles.sub, { color: p.mute, marginTop: 10 }]}>{t(europe ? 'tips.hint' : 'tips.europe')}</Text>
+          {/* nur beim Ausprobieren in Expo Go sichtbar */}
+          {__DEV__ && tips && europe && (
+            <Pressable onPress={() => testTip(lang)} hitSlop={8} style={{ marginTop: 8 }} accessibilityRole="button">
+              <Text style={[styles.sub, { color: p.moss, fontFamily: fonts.sansBold }]}>{t('tips.test')} ›</Text>
+            </Pressable>
+          )}
         </View>
-      </Card>
 
-      {/* Findimal Plus: was dazugehört */}
-      <View style={[styles.card, styles.plusCard]}>
-        <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
-        <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
-        {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
-          <View key={k} style={styles.plusRow}>
-            <Text style={styles.plusCheck}>✓</Text>
-            <Text style={styles.plusText}>{t(k)}</Text>
-          </View>
-        ))}
-        {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
-        <View style={styles.plusPreview}>
-          {PLUS_AVATARS.slice(0, 5).map((a) => (
-            <Avatar key={a.id} id={a.id} name={name} size={44} />
+        {/* Anzeigen-Platz unter den Natur-Tipps (nicht mit Plus) */}
+        <AdSlot p={p} placement='profile' />
+
+        {/* Schnellzugriff als drei Kacheln, für alle, die die Stifte oben übersehen */}
+        <View style={styles.quick}>
+          {(
+            [
+              ['🖼️', t('pro.avatar'), () => setPicking(true)],
+              ['📍', t('pro.place'), onChangeRegion],
+              ['🌐', t('pro.language'), () => setChoosingLang(true)],
+            ] as const
+          ).map(([icon, label, onPress]) => (
+            <Pressable
+              key={label}
+              onPress={onPress}
+              style={({ pressed }) => [styles.quickBtn, { borderColor: p.line, backgroundColor: p.card, opacity: pressed ? 0.7 : 1 }]}
+              accessibilityRole="button"
+            >
+              <Text style={styles.quickIcon}>{icon}</Text>
+              <Text style={[styles.quickText, { color: p.ink }]} numberOfLines={1}>
+                {label}
+              </Text>
+            </Pressable>
           ))}
         </View>
-        {plus ? (
-          <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
-            <Text style={styles.plusEndText}>{t('plus.end')}</Text>
-          </Pressable>
-        ) : (
-          <>
+
+        <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
+          <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
+        </Pressable>
+
+        {/* Hilfe sowie Datenschutz und Impressum (Webseiten des Findimal-Servers) */}
+        <View style={styles.links}>
+          {(
+            [
+              ['hilfe', 'pro.help'],
+              ['datenschutz', 'pro.privacy'],
+            ] as const
+          ).map(([page, label]) => (
             <Pressable
-              onPress={() => askForPlus(t, setPlus)}
-              style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
-              accessibilityRole="button"
+              key={page}
+              onPress={() => Linking.openURL(`${SERVER_URL.replace(/\/$/, '')}/${page}${lang === 'de' ? '' : `?l=${lang}`}`)}
+              accessibilityRole="link"
+              style={styles.privacy}
             >
-              <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
+              <Text style={[styles.privacyText, { color: p.mute }]}>{t(label)}</Text>
             </Pressable>
-            <Text style={styles.plusPrice}>{t('plus.price')}</Text>
-          </>
-        )}
-      </View>
-
-      {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
-      <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
-        <View style={styles.tipsHead}>
-          <View style={styles.bell}>
-            <Svg width={24} height={24} viewBox="0 0 24 24">
-              <Path d="M12 3a6 6 0 0 0-6 6v4.2L4.2 16.5h15.6L18 13.2V9a6 6 0 0 0-6-6Z" fill={colors.accentLight} />
-              <Path d="M9.8 18.5a2.2 2.2 0 0 0 4.4 0Z" fill={colors.accentLight} />
-            </Svg>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={[styles.tipsKind, { color: colors.accent }]}>{t('tips.kind')}</Text>
-            <Text style={[styles.h3, { color: p.ink }]}>{t('tips.title')}</Text>
-          </View>
-          {europe && <Switch value={tips} onValueChange={toggleTips} trackColor={{ true: p.button }} />}
+          ))}
         </View>
-        <Text style={[styles.sub, { color: p.mute, marginTop: 10 }]}>{t(europe ? 'tips.hint' : 'tips.europe')}</Text>
-        {/* nur beim Ausprobieren in Expo Go sichtbar */}
-        {__DEV__ && tips && europe && (
-          <Pressable onPress={() => testTip(lang)} hitSlop={8} style={{ marginTop: 8 }} accessibilityRole="button">
-            <Text style={[styles.sub, { color: p.moss, fontFamily: fonts.sansBold }]}>{t('tips.test')} ›</Text>
-          </Pressable>
-        )}
-      </View>
-
-      {/* Anzeigen-Platz unter den Natur-Tipps (nicht mit Plus) */}
-      <AdSlot p={p} placement='profile' />
-
-      {/* Schnellzugriff als drei Kacheln, für alle, die die Stifte oben übersehen */}
-      <View style={styles.quick}>
-        {(
-          [
-            ['🖼️', t('pro.avatar'), () => setPicking(true)],
-            ['📍', t('pro.place'), onChangeRegion],
-            ['🌐', t('pro.language'), () => setChoosingLang(true)],
-          ] as const
-        ).map(([icon, label, onPress]) => (
-          <Pressable
-            key={label}
-            onPress={onPress}
-            style={({ pressed }) => [styles.quickBtn, { borderColor: p.line, backgroundColor: p.card, opacity: pressed ? 0.7 : 1 }]}
-            accessibilityRole="button"
-          >
-            <Text style={styles.quickIcon}>{icon}</Text>
-            <Text style={[styles.quickText, { color: p.ink }]} numberOfLines={1}>
-              {label}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
-
-      <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
-        <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
-      </Pressable>
-
-      {/* Hilfe sowie Datenschutz und Impressum (Webseiten des Findimal-Servers) */}
-      <View style={styles.links}>
-        {(
-          [
-            ['hilfe', 'pro.help'],
-            ['datenschutz', 'pro.privacy'],
-          ] as const
-        ).map(([page, label]) => (
-          <Pressable
-            key={page}
-            onPress={() => Linking.openURL(`${SERVER_URL.replace(/\/$/, '')}/${page}${lang === 'de' ? '' : `?l=${lang}`}`)}
-            accessibilityRole="link"
-            style={styles.privacy}
-          >
-            <Text style={[styles.privacyText, { color: p.mute }]}>{t(label)}</Text>
-          </Pressable>
-        ))}
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SwipeBack>
     </>
   );
 }
