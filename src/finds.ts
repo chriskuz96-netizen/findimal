@@ -72,6 +72,7 @@ export async function addFind(
   finds: Find[],
   photo: Photo,
   animal: Animal,
+  homePlace?: string, // eigener Ort aus dem Profil: für Kamera-Fotos ohne Standort
 ): Promise<{ finds: Find[]; isNew: boolean; id: string }> {
   const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
@@ -80,10 +81,22 @@ export async function addFind(
   const place = photo.place
     ? await Promise.race([photo.place, new Promise<null>((r) => setTimeout(() => r(null), 3000))])
     : null;
-  const find: Find = { id, date: new Date().toISOString(), ...(place ? { place } : {}), animal };
+  const where = place || (photo.fromCamera && homePlace) || null;
+  const find: Find = { id, date: new Date().toISOString(), ...(where ? { place: where } : {}), animal };
   const next = [...finds, find];
   await storeFinds(next);
   return { finds: next, isNew, id };
+}
+
+// Fundort nachträglich ändern ('' = entfernen)
+export async function updatePlace(finds: Find[], id: string, place: string): Promise<Find[]> {
+  const next = finds.map((f) => {
+    if (f.id !== id) return f;
+    const { place: _old, ...rest } = f;
+    return place ? { ...rest, place } : rest;
+  });
+  await storeFinds(next);
+  return next;
 }
 
 // Ersetzt die Bestimmung eines Fundes (z. B. nach einem zweiten Foto).

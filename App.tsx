@@ -16,7 +16,7 @@ import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
 import { showLimit } from './src/components/LimitCard';
 import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
-import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind } from './src/finds';
+import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updatePlace } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { loadZone } from './src/zone';
@@ -272,7 +272,7 @@ function Main() {
             if (replaceId) {
               next = await updateFind(findsRef.current, replaceId, animal);
             } else {
-              const added = await addFind(findsRef.current, photo, animal);
+              const added = await addFind(findsRef.current, photo, animal, region || undefined);
               next = added.finds;
               id = added.id;
             }
@@ -299,6 +299,7 @@ function Main() {
         <ResultScreen
           saved={openFind}
           onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
+          onPlace={(id, place) => updatePlace(findsRef.current, id, place).then(setFinds)}
           onBack={() => setOpenFind(null)}
         />
       </>

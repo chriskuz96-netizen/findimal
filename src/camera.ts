@@ -14,7 +14,7 @@ const OPTIONS: ImagePicker.ImagePickerOptions = {
 const MAX_SIDE = 1024; // größer braucht die Tierbestimmung nicht
 
 // place: Ortsname, wo das Foto gemacht wurde (wird nebenbei ermittelt, nur der Name wird gespeichert)
-export type Photo = { uri: string; base64: string | null; place?: Promise<string | null> };
+export type Photo = { uri: string; base64: string | null; place?: Promise<string | null>; fromCamera?: boolean };
 
 // GPS aus den Bilddaten (iOS: "{GPS}"-Bereich, Android: GPSLatitude usw.)
 function gpsOf(exif: Record<string, any> | null | undefined): { lat: number; lon: number } | null {
@@ -36,7 +36,7 @@ async function toPhoto(result: ImagePicker.ImagePickerResult, fromCamera: boolea
   // Ort: aus dem Foto selbst, bei der Kamera sonst der aktuelle Standort
   const place = placeOf(gpsOf(a.exif), fromCamera);
   const photo = await shrink(a);
-  return { ...photo, place };
+  return { ...photo, place, fromCamera };
 }
 
 async function shrink(a: ImagePicker.ImagePickerAsset): Promise<Photo> {

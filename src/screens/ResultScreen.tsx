@@ -8,10 +8,12 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Path } from 'react-native-svg';
 
 import { Photo } from '../camera';
 import { AdSheet, AdSlot } from '../components/AdSlot';
@@ -34,6 +36,7 @@ type Props =
       onIdentified: (animal: Animal, replaceId: string | null) => Promise<{ id: string; reward: Reward }>;
       morePhoto: (kind: 'camera' | 'library') => Promise<Photo | null>;
       onDetails: (id: string, animal: Animal) => void; // ausführlicher Steckbrief nachgeladen
+      onPlace?: undefined;
       onBack: () => void;
     }
   // Fund aus der Sammlung: wird nur angezeigt
@@ -43,13 +46,74 @@ type Props =
       onIdentified?: undefined;
       morePhoto?: undefined;
       onDetails: (id: string, animal: Animal) => void;
+      onPlace: (id: string, place: string) => void; // Fundort nachträglich ändern
       onBack: () => void;
     };
 
 const MAX_PHOTOS = 3;
 
+// "Gefunden am … in …" – der Ort lässt sich mit dem Stift ändern oder nachtragen
+function FoundOn({ find, p, onPlace }: { find: Find; p: Palette; onPlace: (place: string) => void }) {
+  const { t, locale } = useI18n();
+  const [place, setPlace] = useState(find.place ?? '');
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(place);
+  const save = () => {
+    const v = draft.trim();
+    setEditing(false);
+    if (v === place) return;
+    setPlace(v);
+    onPlace(v);
+  };
+  const date = new Date(find.date).toLocaleDateString(locale);
+  if (editing) {
+    return (
+      <View style={styles.placeEdit}>
+        <TextInput
+          value={draft}
+          onChangeText={setDraft}
+          placeholder={t('res.placeHint')}
+          placeholderTextColor={p.mute}
+          maxLength={40}
+          autoFocus
+          returnKeyType="done"
+          onSubmitEditing={save}
+          style={[styles.placeInput, { color: p.ink, borderColor: colors.accent }]}
+          accessibilityLabel={t('res.placeHint')}
+        />
+        <Pressable onPress={save} hitSlop={10} style={styles.placeOk} accessibilityRole="button" accessibilityLabel={t('common.save')}>
+          <Text style={styles.placeOkText}>✓</Text>
+        </Pressable>
+      </View>
+    );
+  }
+  return (
+    <Pressable
+      onPress={() => {
+        setDraft(place);
+        setEditing(true);
+      }}
+      hitSlop={8}
+      accessibilityRole="button"
+      style={styles.placeRow}
+    >
+      <Text style={[styles.foundOn, { color: p.mute, marginTop: 0 }]}>
+        {place ? t('res.foundOnIn', { date, place }) : t('res.foundOn', { date })}
+      </Text>
+      {place ? (
+        <Svg width={15} height={15} viewBox="0 0 24 24">
+          <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={p.moss} strokeWidth={2} strokeLinejoin="round" />
+          <Path d="M13.5 6.5l4 4" stroke={p.moss} strokeWidth={2} />
+        </Svg>
+      ) : (
+        <Text style={[styles.placeAdd, { color: p.moss }]}>+ {t('res.placeAdd')}</Text>
+      )}
+    </Pressable>
+  );
+}
+
 // Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
-export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails, onBack }: Props) {
+export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails, onPlace, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
@@ -207,14 +271,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
                 )}
               </>
             )}
-            {saved && (
-              <Text style={[styles.foundOn, { color: p.mute }]}>
-                {t(saved.place ? 'res.foundOnIn' : 'res.foundOn', {
-                  date: new Date(saved.date).toLocaleDateString(locale),
-                  place: saved.place ?? '',
-                })}
-              </Text>
-            )}
+            {saved && <FoundOn find={saved} p={p} onPlace={(place) => onPlace?.(saved.id, place)} />}
           </View>
         )}
 
@@ -605,6 +662,19 @@ const styles = StyleSheet.create({
   },
   body: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, marginTop: 8 },
   foundOn: { fontFamily: fonts.sans, fontSize: 13, marginTop: 10 },
+  placeRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginTop: 10 },
+  placeAdd: { fontFamily: fonts.sansBold, fontSize: 13 },
+  placeEdit: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },
+  placeInput: { flex: 1, fontFamily: fonts.sans, fontSize: 14, borderBottomWidth: 2, paddingVertical: 4 },
+  placeOk: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  placeOkText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.ink },
   certainty: {
     flexDirection: 'row',
     alignItems: 'center',
