@@ -3,7 +3,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { useI18n } from '../i18n';
-import { darkPalette, fonts, lightPalette } from '../theme';
+import { colors, darkPalette, fonts, lightPalette } from '../theme';
 
 export type Tab = 'start' | 'collection' | 'challenges' | 'season';
 
@@ -42,7 +42,8 @@ function TabIcon({ id, color }: { id: Tab; color: string }) {
 }
 
 // Menüleiste unten
-export function TabBar({ active, onSelect }: { active: Tab; onSelect: (t: Tab) => void }) {
+// dot: kleiner oranger Punkt an einem Menüpunkt (z. B. neues Abzeichen in den Challenges)
+export function TabBar({ active, onSelect, dot }: { active: Tab; onSelect: (t: Tab) => void; dot?: Tab | null }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
@@ -59,7 +60,10 @@ export function TabBar({ active, onSelect }: { active: Tab; onSelect: (t: Tab) =
             accessibilityState={{ selected: on }}
             style={styles.btn}
           >
-            <TabIcon id={id} color={color} />
+            <View>
+              <TabIcon id={id} color={color} />
+              {dot === id && <View style={[styles.dot, { borderColor: p.card }]} />}
+            </View>
             <Text style={[styles.label, { color }]}>{t(`tab.${id}`)}</Text>
           </Pressable>
         );
@@ -69,6 +73,16 @@ export function TabBar({ active, onSelect }: { active: Tab; onSelect: (t: Tab) =
 }
 
 const styles = StyleSheet.create({
+  dot: {
+    position: 'absolute',
+    top: 0,
+    right: -2,
+    width: 11,
+    height: 11,
+    borderRadius: 6,
+    borderWidth: 2,
+    backgroundColor: colors.accent,
+  },
   bar: {
     flexDirection: 'row',
     borderTopWidth: 1,

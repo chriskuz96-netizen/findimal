@@ -21,6 +21,7 @@ import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { loadZone } from './src/zone';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
+import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
 import { computeProgress, computeReward, dayKey } from './src/progress';
 import { answerQuiz, correctAnswers, loadQuiz, QuizLog } from './src/quiz';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
@@ -98,14 +99,18 @@ function Main() {
   const quizRef = useRef<QuizLog>({});
   quizRef.current = quiz;
 
+  // true, sobald Funde, Quiz und Rangliste geladen sind
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     loadName().then(setName);
     loadRegion().then(setRegion);
-    loadFinds().then(setFinds);
-    loadQuiz().then(setQuiz);
     loadAvatar().then(setAvatar);
-    loadBestRank().then(setBestRank);
-    loadMaxFriends().then(setMaxFriends);
+    Promise.all([
+      loadFinds().then(setFinds),
+      loadQuiz().then(setQuiz),
+      loadBestRank().then(setBestRank),
+      loadMaxFriends().then(setMaxFriends),
+    ]).finally(() => setLoaded(true));
   }, []);
 
   // Natur-Tipps: bei jedem Start (und Sprachwechsel) die nächsten Wochen neu einplanen;
@@ -173,6 +178,26 @@ function Main() {
     (plus && isPlusAvatar(avatar) ? avatar : null) ??
     progress.badges.find((b) => b.id === avatar && b.earned)?.id ??
     null;
+  // Neue Abzeichen: verdient, aber noch nicht angesehen (Punkt im Menü, "NEU" in den Challenges)
+  const earnedIds = progress.badges.filter((b) => b.earned).map((b) => b.id);
+  const [seenBadges, setSeenBadges] = useState<string[] | null>(null);
+  useEffect(() => {
+    if (!loaded) return;
+    loadSeenBadges().then((v) => {
+      if (v) return setSeenBadges(v);
+      // erstes Mal: alles bisher Verdiente gilt als gesehen
+      saveSeenBadges(earnedIds);
+      setSeenBadges(earnedIds);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
+  const freshBadges = seenBadges ? earnedIds.filter((id) => !seenBadges.includes(id)) : [];
+  const seeBadges = (ids: string[]) => {
+    if (!seenBadges || ids.every((id) => seenBadges.includes(id))) return;
+    const next = [...seenBadges, ...ids.filter((id) => !seenBadges.includes(id))];
+    saveSeenBadges(next);
+    setSeenBadges(next);
+  };
   const chooseAvatar = (id: string) => {
     saveAvatar(id);
     setAvatar(id);
@@ -317,6 +342,8 @@ function Main() {
         {tab === 'challenges' && (
           <ChallengesScreen
             active={!overlay}
+            freshBadges={freshBadges}
+            onSeeBadges={seeBadges}
             progress={progress}
             quiz={quiz}
             onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}
@@ -341,7 +368,7 @@ function Main() {
           <SeasonScreen finds={finds} onOpen={setOpenFind} />
         )}
       </View>
-      <TabBar active={tab} onSelect={setTab} />
+      <TabBar active={tab} onSelect={setTab} dot={freshBadges.length ? 'challenges' : null} />
       {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
       {!promised && !overlay && (
         <PromiseSheet

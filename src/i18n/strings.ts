@@ -221,6 +221,8 @@ const de = {
   'ch.badges': 'Abzeichen',
   'ch.badgesHint': 'Tippe ein Abzeichen an, um zu sehen, wie du es bekommst. Als Profilbild wählst du es im Profil.',
   'ch.notYet': 'Noch nicht geschafft. {hint}',
+  'ch.new': 'NEU',
+  'ch.newBadges': '{n} neu',
   'ch.profilePic': 'Profilbild',
   'ch.note':
     'Punkte gibt es für jeden Fund (+{find}), neue Arten (+{fresh}), geschaffte Challenges und Abzeichen (+25 bis +100).',
@@ -624,6 +626,8 @@ const en: Strings = {
   'ch.badges': 'Badges',
   'ch.badgesHint': 'Tap a badge to see how to earn it. Choose it as your profile picture in your profile.',
   'ch.notYet': 'Not earned yet. {hint}',
+  'ch.new': 'NEW',
+  'ch.newBadges': '{n} new',
   'ch.profilePic': 'Profile picture',
   'ch.note':
     'You get points for every find (+{find}), new species (+{fresh}), completed challenges and badges (+25 to +100).',
@@ -1015,6 +1019,8 @@ const fr: Strings = {
   'ch.badges': 'Badges',
   'ch.badgesHint': 'Touche un badge pour voir comment l’obtenir. Choisis-le comme photo de profil dans ton profil.',
   'ch.notYet': 'Pas encore obtenu. {hint}',
+  'ch.new': 'NOUVEAU',
+  'ch.newBadges': '{n} nouveau(x)',
   'ch.profilePic': 'Photo de profil',
   'ch.note':
     'Tu gagnes des points pour chaque trouvaille (+{find}), les nouvelles espèces (+{fresh}), les défis réussis et les badges (+25 à +100).',
@@ -1405,6 +1411,8 @@ const es: Strings = {
   'ch.badges': 'Insignias',
   'ch.badgesHint': 'Toca una insignia para ver cómo conseguirla. Elígela como foto de perfil en tu perfil.',
   'ch.notYet': 'Aún no conseguida. {hint}',
+  'ch.new': 'NUEVA',
+  'ch.newBadges': '{n} nueva(s)',
   'ch.profilePic': 'Foto de perfil',
   'ch.note':
     'Ganas puntos por cada hallazgo (+{find}), especies nuevas (+{fresh}), retos superados e insignias (+25 a +100).',

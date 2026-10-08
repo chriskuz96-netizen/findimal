@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useRef, useState } from 'react';
-import { Alert, Animated, Easing, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Alert, Animated, Easing, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 
@@ -30,9 +30,11 @@ type Props = {
   onRank: (rank: number) => void; // eigener Platz in der weltweiten Rangliste
   onFriends: (n: number) => void; // Zahl der Freunde in der Rangliste
   active?: boolean; // false, solange eine andere Seite (z. B. Ergebnis) darüber liegt
+  freshBadges?: string[]; // neu verdiente, noch nicht angesehene Abzeichen
+  onSeeBadges?: (ids: string[]) => void;
 };
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
@@ -73,6 +75,31 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   // Scrollstand und Höhe des großen Kopfs (für die schmale Leiste)
   const scrollY = useRef(new Animated.Value(0)).current;
   const [headH, setHeadH] = useState(1000);
+
+  // Neue Abzeichen: stehen vorne mit "NEU"; gelten als gesehen, sobald man sie antippt
+  // oder die Abzeichen auf dem Bildschirm hatte und die Seite wieder verlässt
+  const { height: winH } = useWindowDimensions();
+  const badgesY = useRef(Infinity);
+  const sawBadges = useRef(false);
+  const freshRef = useRef(freshBadges);
+  freshRef.current = freshBadges;
+  const seeRef = useRef(onSeeBadges);
+  seeRef.current = onSeeBadges;
+  useEffect(() => {
+    const id = scrollY.addListener(({ value }) => {
+      if (active && value + winH > badgesY.current + 120) sawBadges.current = true;
+    });
+    return () => scrollY.removeListener(id);
+  }, [scrollY, winH, active]);
+  useEffect(
+    () => () => {
+      if (sawBadges.current && freshRef.current.length) seeRef.current?.(freshRef.current);
+    },
+    [],
+  );
+  const badgeList = [...progress.badges].sort(
+    (a, b) => Number(freshBadges.includes(b.id)) - Number(freshBadges.includes(a.id)),
+  );
   useEffect(() => {
     if (!active) return; // erst animieren, wenn man die Seite wirklich sieht
     let alive = true;
@@ -362,24 +389,34 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </View>
 
         {/* Abzeichen */}
-        <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}>
+        <View
+          style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}
+          onLayout={(e) => (badgesY.current = e.nativeEvent.layout.y)}
+        >
           <View style={styles.bh}>
-            <Text style={[styles.h3, { color: p.ink }]}>{t('ch.badges')}</Text>
-            <Text style={[styles.small, { color: p.mute }]}>
+            <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>{t('ch.badges')}</Text>
+            {freshBadges.length > 0 && (
+              <View style={styles.newPill}>
+                <Text style={styles.newPillText}>{t('ch.newBadges', { n: freshBadges.length })}</Text>
+              </View>
+            )}
+            <Text style={[styles.small, { color: p.mute, marginLeft: 8 }]}>
               {progress.badges.filter((b) => b.earned).length} / {progress.badges.length}
             </Text>
           </View>
           <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
           <View style={styles.badges}>
-            {progress.badges.map((b) => (
+            {badgeList.map((b) => (
               <BadgeView
                 key={b.id}
                 badge={b}
                 p={p}
                 selected={avatar === b.id}
-                onPress={() =>
-                  Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }))
-                }
+                fresh={freshBadges.includes(b.id)}
+                onPress={() => {
+                  if (freshBadges.includes(b.id)) onSeeBadges?.([b.id]);
+                  Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }));
+                }}
               />
             ))}
           </View>
@@ -467,19 +504,45 @@ function BadgeView({
   badge,
   p,
   selected,
+  fresh,
   onPress,
 }: {
   badge: Badge;
   p: Palette;
   selected: boolean;
+  fresh: boolean;
   onPress: () => void;
 }) {
   const { t } = useI18n();
+  // neues Abzeichen: pulsiert sanft, bis man es angesehen hat
+  const pulse = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    if (!fresh) return pulse.setValue(1);
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulse, { toValue: 1.08, duration: 700, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+        Animated.timing(pulse, { toValue: 1, duration: 700, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [fresh, pulse]);
   return (
     <Pressable onPress={onPress} accessibilityRole="button" style={styles.badge}>
-      <View style={[styles.medalWrap, selected && { borderColor: colors.accent }]}>
+      <Animated.View
+        style={[
+          styles.medalWrap,
+          (selected || fresh) && { borderColor: colors.accent },
+          { transform: [{ scale: pulse }] },
+        ]}
+      >
         <Medal id={badge.id} size={64} earned={badge.earned} />
-      </View>
+        {fresh && (
+          <View style={styles.newTag}>
+            <Text style={styles.newTagText}>{t('ch.new')}</Text>
+          </View>
+        )}
+      </Animated.View>
       <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{t(`badge.${badge.id}`)}</Text>
       {selected && <Text style={[styles.badgeSel, { color: colors.accent }]}>{t('ch.profilePic')}</Text>}
     </Pressable>
@@ -598,6 +661,18 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   badgeName: { fontFamily: fonts.sansBold, fontSize: 12.5, textAlign: 'center' },
+  newTag: {
+    position: 'absolute',
+    top: -6,
+    right: -10,
+    backgroundColor: colors.accent,
+    borderRadius: 8,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  newTagText: { fontFamily: fonts.sansBold, fontSize: 10, color: colors.white, letterSpacing: 0.5 },
+  newPill: { backgroundColor: colors.accent, borderRadius: 10, paddingHorizontal: 8, paddingVertical: 3 },
+  newPillText: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.white },
   badgeSel: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 1 },
   note: { marginTop: 14, marginHorizontal: spacing.gutter, fontFamily: fonts.sans, fontSize: 12 },
 });
