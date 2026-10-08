@@ -95,6 +95,7 @@ const de = {
 
   // Ergebnisseite
   'res.wait': 'Moment …',
+  'res.preparing': 'Foto wird vorbereitet …',
   'res.looking': 'Ich schaue genau hin',
   'res.oops': 'Hoppla!',
   'res.breedGuess': 'Rasse geschätzt',
@@ -506,6 +507,7 @@ const en: Strings = {
   'id.error': 'Something went wrong.',
   'id.offline': 'No connection. Are you online?',
   'res.wait': 'One moment …',
+  'res.preparing': 'Preparing photo …',
   'res.looking': 'Taking a close look',
   'res.oops': 'Oops!',
   'res.breedGuess': 'breed estimated',
@@ -899,6 +901,7 @@ const fr: Strings = {
   'id.error': 'Une erreur s’est produite.',
   'id.offline': 'Pas de connexion. Es-tu en ligne ?',
   'res.wait': 'Un instant …',
+  'res.preparing': 'Préparation de la photo …',
   'res.looking': 'Je regarde de près',
   'res.oops': 'Oups !',
   'res.breedGuess': 'race estimée',
@@ -1291,6 +1294,7 @@ const es: Strings = {
   'id.error': 'Algo salió mal.',
   'id.offline': 'Sin conexión. ¿Estás en línea?',
   'res.wait': 'Un momento …',
+  'res.preparing': 'Preparando la foto …',
   'res.looking': 'Estoy mirando de cerca',
   'res.oops': '¡Vaya!',
   'res.breedGuess': 'raza estimada',

@@ -5,7 +5,7 @@ import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Alert, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
@@ -33,7 +33,7 @@ import { RegionScreen } from './src/screens/RegionScreen';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
 import { loadAvatar, loadBestRank, loadMaxFriends, loadName, loadRegion, resetAll, saveAvatar, saveBestRank, saveMaxFriends, saveName, saveRegion } from './src/storage';
-import { colors } from './src/theme';
+import { colors, fonts } from './src/theme';
 
 export default function App() {
   return (
@@ -81,10 +81,21 @@ function Main() {
       .catch(() => {});
   }, []);
   // Vor dem Fotografieren prüfen, damit niemand umsonst ein Foto macht
-  const startPhoto = async (get: () => Promise<Photo | null>) => {
-    if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
-    const p = await get();
-    if (p) setPhoto(p);
+  // Solange ein Foto ausgewählt und vorbereitet wird, startet kein zweites (sonst überholen
+  // sich zwei Fotos und das alte Ergebnis platzt später ins neue). Bis es fertig ist, läuft ein Ladekreis.
+  const photoBusy = useRef(false);
+  const [preparing, setPreparing] = useState(false);
+  const startPhoto = async (get: (onPicked: (b: boolean) => void) => Promise<Photo | null>) => {
+    if (photoBusy.current) return;
+    photoBusy.current = true;
+    try {
+      if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return showLimit(t);
+      const p = await get(setPreparing);
+      if (p) setPhoto(p);
+    } finally {
+      photoBusy.current = false;
+      setPreparing(false);
+    }
   };
   const [openFind, setOpenFind] = useState<Find | null>(null);
   // Aktuelle Liste auch in Rückrufen, die später fertig werden
@@ -165,7 +176,7 @@ function Main() {
     setOpenFind(null);
     setShowProfile(false);
     setTab('start');
-    startPhoto(() => takePhoto(t));
+    startPhoto((cb) => takePhoto(t, cb));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wantCamera, fontsLoaded, name, region, photo]);
 
@@ -274,7 +285,9 @@ function Main() {
       }}
     />
   ) : photo ? (
+    // key: jedes neue Foto bekommt eine frische Ergebnisseite
     <ResultScreen
+      key={photo.uri}
       photo={photo}
       onIdentified={async (animal, replaceId) => {
         const quizXp = correctAnswers(quizRef.current);
@@ -327,8 +340,8 @@ function Main() {
             xp={progress.xp}
             avatar={avatarBadge}
             freeLeft={freeLeft}
-            onTakePhoto={() => startPhoto(() => takePhoto(t))}
-            onPickPhoto={() => startPhoto(pickPhoto)}
+            onTakePhoto={() => startPhoto((cb) => takePhoto(t, cb))}
+            onPickPhoto={() => startPhoto((cb) => pickPhoto(cb))}
           />
         )}
         {tab === 'collection' && (
@@ -371,6 +384,15 @@ function Main() {
       </View>
       <TabBar active={tab} onSelect={setTab} dot={freshBadges.length ? 'challenges' : null} />
       {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
+      {/* Foto ist gewählt und wird noch vorbereitet (z. B. aus iCloud geladen) */}
+      {preparing && (
+        <View style={[StyleSheet.absoluteFill, styles.preparing]}>
+          <View style={styles.prepBox}>
+            <ActivityIndicator color={colors.accentLight} />
+            <Text style={styles.prepText}>{t('res.preparing')}</Text>
+          </View>
+        </View>
+      )}
       {!promised && !overlay && (
         <PromiseSheet
           onDone={() => {
@@ -382,3 +404,17 @@ function Main() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  preparing: { backgroundColor: 'rgba(0,0,0,0.35)', alignItems: 'center', justifyContent: 'center' },
+  prepBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    backgroundColor: '#17462F',
+    borderRadius: 16,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+  },
+  prepText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white },
+});

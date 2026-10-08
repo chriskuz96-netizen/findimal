@@ -16,8 +16,10 @@ const MAX_SIDE = 1024; // größer braucht die Tierbestimmung nicht
 export type Photo = { uri: string; base64: string | null; place?: Promise<string | null> };
 
 // Macht aus dem gewählten Bild ein Photo für die Bestimmung.
-async function toPhoto(result: ImagePicker.ImagePickerResult): Promise<Photo | null> {
+// onPicked(true): Bild ist gewählt, wird jetzt vorbereitet (für einen Ladekreis)
+async function toPhoto(result: ImagePicker.ImagePickerResult, onPicked?: (busy: boolean) => void): Promise<Photo | null> {
   if (result.canceled || !result.assets?.length) return null;
+  onPicked?.(true);
   const a = result.assets[0];
   // Ort: der aktuelle Standort, falls erlaubt (die Ortsdaten im Bild werden nicht gelesen)
   const place = currentPlace();
@@ -49,21 +51,21 @@ function askForSettings(t: Translate) {
 }
 
 // Öffnet die Kamera und liefert das Foto (oder null, wenn abgebrochen).
-export async function takePhoto(t: Translate): Promise<Photo | null> {
+export async function takePhoto(t: Translate, onPicked?: (busy: boolean) => void): Promise<Photo | null> {
   const perm = await ImagePicker.requestCameraPermissionsAsync();
   if (!perm.granted) {
     askForSettings(t);
     return null;
   }
   try {
-    return toPhoto(await ImagePicker.launchCameraAsync(OPTIONS));
+    return await toPhoto(await ImagePicker.launchCameraAsync(OPTIONS), onPicked);
   } catch {
     // Keine Kamera vorhanden (z. B. in der Web-Vorschau): Mediathek nehmen.
-    return pickPhoto();
+    return pickPhoto(onPicked);
   }
 }
 
 // Öffnet die Foto-Mediathek.
-export async function pickPhoto(): Promise<Photo | null> {
-  return toPhoto(await ImagePicker.launchImageLibraryAsync(OPTIONS));
+export async function pickPhoto(onPicked?: (busy: boolean) => void): Promise<Photo | null> {
+  return toPhoto(await ImagePicker.launchImageLibraryAsync(OPTIONS), onPicked);
 }

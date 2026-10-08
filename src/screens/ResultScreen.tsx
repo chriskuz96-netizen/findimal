@@ -156,8 +156,11 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   }, [photo, run]);
 
   // fresh = true: kein Tier erkannt, das neue Foto ersetzt das alte statt es zu ergänzen
+  const adding = useRef(false); // kein zweites Foto, solange eins noch geholt wird
   const addPhoto = async (kind: 'camera' | 'library', fresh = false) => {
-    const extra = await morePhoto?.(kind);
+    if (adding.current) return;
+    adding.current = true;
+    const extra = await morePhoto?.(kind).finally(() => (adding.current = false));
     if (!extra) return;
     const list = fresh ? [extra] : [...photos, extra];
     setPhotos(list);
