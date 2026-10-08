@@ -319,7 +319,6 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           )}
 
           {/* Belohnung */}
-          {reward && animal && <RewardCard reward={reward} photos={photos.length} p={p} />}
 
           {/* Wusstest du? */}
           {animal && !!animal.wusstest_du && (
@@ -379,6 +378,10 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         </ScrollView>
 
       </SwipeBack>
+      {/* Belohnung: kurz unten einblenden, Balken füllt sich, dann wieder weg */}
+      {reward && animal && (
+        <RewardToast key={`${reward.after.xp}-${photos.length}`} reward={reward} photos={photos.length} p={p} bottom={insets.bottom} />
+      )}
       {/* Halbseitige Anzeige ab dem 3. Foto des Tages, nach „Weiter“ – danach geht es zurück */}
       {bigAd === 'open' && <AdSheet p={p} onClose={onBack} />}
     </View>
@@ -399,7 +402,7 @@ function Certainty({ value }: { value: Animal['sicherheit'] }) {
 }
 
 // Belohnungs-Karte: XP mit Aufschlüsselung und Stufenbalken, der sich füllt
-function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: Palette }) {
+function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: number; p: Palette; bottom: number }) {
   const { t } = useI18n();
   const pop = useRef(new Animated.Value(0)).current;
   const bar = useRef(new Animated.Value(0)).current;
@@ -411,6 +414,21 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
   const [shownLevel, setShownLevel] = useState(reward.levelUp ? reward.before.level : reward.after.level);
   const [shownXp, setShownXp] = useState(reward.before.xp);
   const [leveled, setLeveled] = useState(false);
+  // Ein- und Ausblenden von unten
+  const slide = useRef(new Animated.Value(0)).current;
+  const [gone, setGone] = useState(false);
+  const hide = () =>
+    Animated.timing(slide, { toValue: 0, duration: 300, easing: Easing.in(Easing.cubic), useNativeDriver: true }).start(() =>
+      setGone(true),
+    );
+
+  useEffect(() => {
+    slide.setValue(0);
+    Animated.timing(slide, { toValue: 1, duration: 350, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+    const away = setTimeout(hide, reward.levelUp ? 5200 : 3800);
+    return () => clearTimeout(away);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reward]);
 
   useEffect(() => {
     pop.setValue(0);
@@ -464,8 +482,20 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
   const lvlName = t(`level.${shownLevel - 1}` as 'level.0');
   const maxLevel = !reward.after.nextLevelXp && shownLevel === lvl;
 
+  if (gone) return null;
   return (
-    <View style={[styles.card, styles.reward, { backgroundColor: p.card }]}>
+    <Animated.View
+      style={[
+        styles.toast,
+        {
+          bottom: bottom + 14,
+          backgroundColor: p.card,
+          opacity: slide,
+          transform: [{ translateY: slide.interpolate({ inputRange: [0, 1], outputRange: [140, 0] }) }],
+        },
+      ]}
+    >
+      <Pressable onPress={hide} accessibilityRole="button">
       <View style={styles.rewardHead}>
         <Text style={[styles.cardTitle, { color: p.ink }]}>{t('rew.title')}</Text>
         <Animated.Text
@@ -511,7 +541,8 @@ function RewardCard({ reward, photos, p }: { reward: Reward; photos: number; p: 
         )}
       </View>
       {photos > 1 && <Text style={[styles.small, { color: p.mute }]}>{t('rew.updated', { n: photos })}</Text>}
-    </View>
+      </Pressable>
+    </Animated.View>
   );
 }
 
@@ -744,13 +775,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   smallBtnText: { fontFamily: fonts.sansBold, fontSize: 15 },
-  reward: { borderWidth: 2, borderColor: colors.accent },
+  toast: {
+    position: 'absolute',
+    left: spacing.gutter,
+    right: spacing.gutter,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: colors.accent,
+    padding: 14,
+    shadowColor: '#000',
+    shadowOpacity: 0.25,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 8,
+  },
   rewardHead: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  rewardXp: { fontFamily: fonts.serifBold, fontSize: 30, color: colors.accent },
+  rewardXp: { fontFamily: fonts.serifBold, fontSize: 26, color: colors.accent },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8 },
   chip: {
     backgroundColor: 'rgba(232,131,58,0.16)',
