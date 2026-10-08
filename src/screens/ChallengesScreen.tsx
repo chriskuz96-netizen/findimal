@@ -51,25 +51,30 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         <Text style={styles.h2}>{t('ch.title')}</Text>
       </View>
 
-      {/* Stufe und XP ganz oben – ragt über den Kopf */}
-      <View style={[styles.levelCard, { backgroundColor: p.card }]}>
+      {/* Stufe und XP ganz oben – dunkle Karte, hebt sich von den Aufgaben ab */}
+      <View style={styles.levelCard}>
         <View style={styles.levelHead}>
-          <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>
-            {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
-          </Text>
+          <View style={styles.levelBadge}>
+            <Text style={styles.levelBadgeText}>{progress.level}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.levelSmall}>{t('ch.level', { n: progress.level })}</Text>
+            <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
+              {t(`level.${progress.level - 1}` as 'level.0')}
+            </Text>
+          </View>
           <Text style={styles.levelXp}>{progress.xp} XP</Text>
         </View>
-        <View style={[styles.prog, { backgroundColor: p.line }]}>
+        <View style={styles.levelBar}>
           <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
         </View>
-        <Text style={[styles.sub, { color: p.mute }]}>
+        <Text style={styles.levelSub}>
           {progress.nextLevelXp
             ? t('ch.toNextShort', { n: progress.nextLevelXp - progress.xp })
             : t('ch.max', { xp: progress.xp })}
         </Text>
       </View>
 
-      {/* Saison-Ziel: Tiere aus 3 Gruppen in dieser Jahreszeit */}
       {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft */}
       <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
         <View style={styles.misHead}>
@@ -261,13 +266,31 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.gutter,
     borderRadius: 20,
     padding: 16,
+    backgroundColor: '#123826',
+    borderWidth: 1.5,
+    borderColor: 'rgba(255,210,168,0.35)',
     shadowColor: '#000',
-    shadowOpacity: 0.18,
-    shadowRadius: 12,
+    shadowOpacity: 0.25,
+    shadowRadius: 14,
     shadowOffset: { width: 0, height: 10 },
   },
-  levelHead: { flexDirection: 'row', alignItems: 'baseline', gap: 10 },
-  levelXp: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.accent },
+  levelHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  levelBadge: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: colors.accent,
+    borderWidth: 3,
+    borderColor: colors.accentLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  levelBadgeText: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.ink },
+  levelSmall: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
+  levelName: { fontFamily: fonts.serifBold, fontSize: 21, color: colors.white },
+  levelXp: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.accent },
+  levelBar: { height: 8, borderRadius: 9, marginTop: 14, marginBottom: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
+  levelSub: { fontFamily: fonts.sans, fontSize: 13, color: colors.accentLight },
   doneCard: { borderWidth: 2 },
   mi: {
     width: 52,
