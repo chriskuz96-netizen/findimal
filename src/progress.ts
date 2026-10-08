@@ -1,7 +1,7 @@
 import { Find, speciesKey } from './finds';
 import { GroupId, groupOf } from './groups';
 import { breedGuessed } from './names';
-import { seasonAnimals, seasonId, SeasonId } from './season';
+import { matchesAnimal, seasonAnimals, seasonId, SeasonId } from './season';
 import { thisWeek, WeekTask, weeksDone } from './weekly';
 
 // Alles rund um Erfahrungspunkte (XP), Stufen, Saison-Ziel und Abzeichen.
@@ -152,15 +152,12 @@ function longestStreak(finds: Find[]): number {
   return best;
 }
 
-// Alle vier Saison-Tiere einer Jahreszeit gefunden (Gattung reicht, wie auf der Saison-Seite)?
+// Alle vier Saison-Tiere einer Jahreszeit gefunden (passende Gattung reicht, wie auf der Saison-Seite)?
 function seasonComplete(finds: Find[]): boolean {
   const ids: SeasonId[] = ['spring', 'summer', 'autumn', 'winter'];
   return ids.some((id) => {
     const inSeason = finds.filter((f) => seasonId(new Date(f.date)) === id);
-    return seasonAnimals(id).every((sci) => {
-      const genus = sci.split(' ')[0].toLowerCase();
-      return inSeason.some((f) => (f.animal.wissenschaftlicher_name || '').toLowerCase().startsWith(genus));
-    });
+    return seasonAnimals(id).every((match) => inSeason.some((f) => matchesAnimal(f.animal.wissenschaftlicher_name, match)));
   });
 }
 

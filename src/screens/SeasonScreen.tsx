@@ -7,7 +7,7 @@ import { SeasonTop } from '../components/SeasonTop';
 import { Find, useFindPhoto } from '../finds';
 import { GroupIcon } from '../groups';
 import { useI18n } from '../i18n';
-import { Phenomenon, seasonFor } from '../season';
+import { matchesAnimal, Phenomenon, seasonFor } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 const DAY = 86400000;
@@ -34,10 +34,9 @@ function seasonFinds(finds: Find[], now: Date): Find[] {
     .reverse();
 }
 
-// Passt ein Fund zu einem Saison-Tier? (gleiche Gattung im wissenschaftlichen Namen)
+// Passt ein Fund zu einem Saison-Tier? (passende Gattung im wissenschaftlichen Namen)
 function findFor(ph: Phenomenon, finds: Find[]): Find | null {
-  const genus = ph.sci.split(' ')[0].toLowerCase();
-  return finds.find((f) => (f.animal.wissenschaftlicher_name || '').toLowerCase().startsWith(genus)) ?? null;
+  return finds.find((f) => matchesAnimal(f.animal.wissenschaftlicher_name, ph.match)) ?? null;
 }
 
 // Saison: was gerade draußen los ist und wie man Tieren helfen kann.
@@ -93,6 +92,19 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
             />
           ))}
         </View>
+      </View>
+
+      {/* Naturschauspiel: zum Staunen und Hinhören, ohne Foto-Aufgabe */}
+      <View style={[styles.spec, { backgroundColor: p.card, borderColor: p.line }]}>
+        <Text style={[styles.h3, { color: p.ink }]}>🔭 {t('sea.spectacle')}</Text>
+        <Text style={[styles.sub, { color: p.mute }]}>{t('sea.spectacleSub')}</Text>
+        {season.spectacle.map((s, i) => (
+          <View key={s.title} style={[styles.specItem, i > 0 && { borderTopWidth: 1, borderTopColor: p.line }]}>
+            <Text style={[styles.hiTitle, { color: p.ink }]}>{s.title}</Text>
+            <Text style={[styles.hiText, { color: p.mute }]}>{s.text}</Text>
+            <Text style={[styles.qWhere, { color: dark ? colors.accent : colors.accentDark }]}>{s.where}</Text>
+          </View>
+        ))}
       </View>
 
       {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
@@ -211,6 +223,8 @@ const styles = StyleSheet.create({
   qTitle: { fontFamily: fonts.serifBold, fontSize: 15, lineHeight: 18, marginTop: 6 },
   qText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 3 },
   qWhere: { fontFamily: fonts.sansBold, fontSize: 11.5, lineHeight: 15, marginTop: 5 },
+  spec: { marginTop: 18, marginHorizontal: spacing.gutter, borderWidth: 1, borderRadius: 20, padding: 16, paddingBottom: 6 },
+  specItem: { paddingVertical: 10 },
   help: {
     marginTop: 26,
     marginHorizontal: spacing.gutter,
