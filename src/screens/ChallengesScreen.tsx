@@ -63,13 +63,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         <Text style={styles.h2}>{t('ch.title')}</Text>
         {/* Stufe und XP direkt im Kopf (wie im Profil), mit schmalem hellem Balken */}
         <View style={styles.levelHead}>
-          {/* Profilbild klein, mit der Stufen-Nummer daran */}
-          <View>
-            <Avatar id={avatar || null} name={name} size={50} />
-            <View style={styles.levelBadge}>
-              <Text style={styles.levelBadgeText}>{progress.level}</Text>
-            </View>
-          </View>
+          <Avatar id={avatar || null} name={name} size={50} />
           <View style={{ flex: 1 }}>
             <Text style={styles.levelSmall}>{t('ch.level', { n: progress.level })}</Text>
             <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
@@ -78,8 +72,19 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           </View>
           <Text style={styles.levelXp}>{progress.xp} XP</Text>
         </View>
-        <View style={styles.levelBar}>
-          <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
+        {/* Balken von der aktuellen zur nächsten Stufe */}
+        <View style={styles.levelRow}>
+          <View style={styles.levelBadge}>
+            <Text style={styles.levelBadgeText}>{progress.level}</Text>
+          </View>
+          <View style={styles.levelBar}>
+            <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
+          </View>
+          {progress.nextLevelXp ? (
+            <View style={[styles.levelBadge, styles.levelBadgeNext]}>
+              <Text style={[styles.levelBadgeText, { color: colors.white }]}>{progress.level + 1}</Text>
+            </View>
+          ) : null}
         </View>
         <Text style={styles.levelSub}>
           {progress.nextLevelXp
@@ -349,26 +354,22 @@ const styles = StyleSheet.create({
   },
   h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 16 },
   levelHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  levelRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12 },
   levelBadge: {
-    position: 'absolute',
-    right: -4,
-    top: -4,
-    minWidth: 22,
-    height: 22,
-    paddingHorizontal: 4,
-    borderRadius: 11,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     backgroundColor: colors.accent,
-    borderWidth: 2,
-    borderColor: '#123826',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  levelBadgeNext: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.45)' },
   levelBadgeText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
   levelSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
   levelName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
   levelXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
-  levelBar: { height: 6, borderRadius: 6, marginTop: 12, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
-  levelSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 5 },
+  levelBar: { flex: 1, height: 6, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
+  levelSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 6 },
   doneCard: { borderWidth: 2 },
   weekRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6 },
   goalRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
