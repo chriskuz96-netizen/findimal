@@ -51,8 +51,27 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         <Text style={styles.h2}>{t('ch.title')}</Text>
       </View>
 
+      {/* Stufe und XP ganz oben – ragt über den Kopf */}
+      <View style={[styles.levelCard, { backgroundColor: p.card }]}>
+        <View style={styles.levelHead}>
+          <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>
+            {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
+          </Text>
+          <Text style={styles.levelXp}>{progress.xp} XP</Text>
+        </View>
+        <View style={[styles.prog, { backgroundColor: p.line }]}>
+          <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
+        </View>
+        <Text style={[styles.sub, { color: p.mute }]}>
+          {progress.nextLevelXp
+            ? t('ch.toNextShort', { n: progress.nextLevelXp - progress.xp })
+            : t('ch.max', { xp: progress.xp })}
+        </Text>
+      </View>
+
       {/* Saison-Ziel: Tiere aus 3 Gruppen in dieser Jahreszeit */}
-      <View style={[styles.mis, { backgroundColor: p.card }]}>
+      {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft */}
+      <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
         <View style={styles.misHead}>
           <View style={{ flex: 1 }}>
             <Text style={[styles.small, { color: p.mute }]}>{t('goal.title')}</Text>
@@ -65,7 +84,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
             const g = GROUPS.find((x) => x.id === goal.groups[i]);
             return (
               <View key={i} style={styles.slot}>
-                <View style={[styles.slotDot, g ? { backgroundColor: '#123826', borderColor: colors.accent, borderStyle: 'solid' } : { borderColor: p.line }]}>
+                <View style={[styles.slotDot, g ? { backgroundColor: '#123826', borderColor: DONE, borderStyle: 'solid' } : { borderColor: p.line }]}>
                   {g && <GroupIcon id={g.id} size={20} color={colors.accentLight} />}
                 </View>
                 <Text style={[styles.small, { color: g ? p.ink : p.mute }]} numberOfLines={1}>
@@ -78,7 +97,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       </View>
 
       {/* Wochen-Aufgabe: jede Woche eine neue */}
-      <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
+      <View style={[styles.card, { backgroundColor: p.card, borderColor: week.done ? DONE : p.line }, week.done && styles.doneCard]}>
         <View style={styles.misHead}>
           <View style={{ flex: 1 }}>
             <Text style={[styles.small, { color: p.mute }]}>
@@ -90,21 +109,6 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           <XpPill text={week.done ? t('ch.done') : `+${XP.week} XP`} done={week.done} />
         </View>
         {week.done && <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>{t('week.done')}</Text>}
-      </View>
-
-      {/* Stufe */}
-      <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
-        <Text style={[styles.h3, { color: p.ink }]}>
-          {t('ch.levelLine', { n: progress.level, name: t(`level.${progress.level - 1}` as 'level.0') })}
-        </Text>
-        <View style={[styles.prog, { backgroundColor: p.line }]}>
-          <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
-        </View>
-        <Text style={[styles.sub, { color: p.mute }]}>
-          {progress.nextLevelXp
-            ? t('ch.toNext', { xp: progress.xp, next: progress.nextLevelXp })
-            : t('ch.max', { xp: progress.xp })}
-        </Text>
       </View>
 
       {/* Rangliste mit Freunden */}
@@ -209,9 +213,12 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   );
 }
 
+// Grün für "geschafft" (Rahmen und Marke)
+const DONE = '#6FBF8A';
+
 function XpPill({ text, done }: { text: string; done: boolean }) {
   return (
-    <View style={[styles.xp, done && { backgroundColor: '#6FBF8A' }]}>
+    <View style={[styles.xp, done && { backgroundColor: DONE }]}>
       <Text style={styles.xpText}>{done ? `✓ ${text}` : text}</Text>
     </View>
   );
@@ -249,18 +256,19 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 14 },
-  mis: {
+  levelCard: {
     marginTop: -24,
     marginHorizontal: spacing.gutter,
-    borderWidth: 2,
-    borderColor: colors.accent,
     borderRadius: 20,
-    padding: 14,
+    padding: 16,
     shadowColor: '#000',
     shadowOpacity: 0.18,
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 10 },
   },
+  levelHead: { flexDirection: 'row', alignItems: 'baseline', gap: 10 },
+  levelXp: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.accent },
+  doneCard: { borderWidth: 2 },
   mi: {
     width: 52,
     height: 52,
