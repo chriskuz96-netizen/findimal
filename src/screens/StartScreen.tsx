@@ -113,9 +113,12 @@ export function StartScreen({
                 : t(freeLeft === 1 ? 'start.freeOne' : 'start.free', { n: freeLeft })}
           </Text>
           {/* keine Gratis-Fotos mehr: Hinweis aufs Video (öffnet das Fenster mit Video und Plus) */}
-          {!plus && freeLeft === 0 && videosLeft > 0 && (
+          {/* alle Videos auch schon weg: Hinweis auf Findimal Plus */}
+          {!plus && freeLeft === 0 && (
             <Pressable onPress={onTakePhoto} hitSlop={8} accessibilityRole="button">
-              <Text style={styles.freeVideo}>▶ {t('start.freeVideo')}</Text>
+              <Text style={[styles.freeVideo, videosLeft === 0 && { color: '#FFD45E' }]}>
+                {videosLeft > 0 ? `▶ ${t('start.freeVideo')}` : `★ ${t('start.freePlus')}`}
+              </Text>
             </Pressable>
           )}
           </View>
