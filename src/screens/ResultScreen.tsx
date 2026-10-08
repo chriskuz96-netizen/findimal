@@ -21,7 +21,7 @@ import { Explorer } from '../components/Explorer';
 import { LimitCard } from '../components/LimitCard';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
-import { Animal, hasDetails, identify, IdentifyResult, loadDetails } from '../identify';
+import { Animal, breedGuessed, displayName, hasDetails, identify, IdentifyResult, loadDetails } from '../identify';
 import { Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 import { usePlus } from '../plus';
@@ -256,10 +256,12 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             )}
             {animal && (
               <>
-                <Text style={[styles.name, { color: p.ink }]}>{animal.name}</Text>
+                {/* Haustiere: Rasse groß, Tierart klein darunter */}
+                <Text style={[styles.name, { color: p.ink }]}>{displayName(animal)}</Text>
                 {!!animal.rasse && (
                   <Text style={styles.breed}>
-                    {t('res.breed')}: {animal.rasse}
+                    {animal.name}
+                    {breedGuessed(animal) ? ` · ${t('res.breedGuess')}` : ''}
                   </Text>
                 )}
                 {!!animal.wissenschaftlicher_name && (

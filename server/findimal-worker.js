@@ -61,10 +61,11 @@ Gib nur Fakten an, bei denen du dir sicher bist. Wenn die Art unsicher ist, nenn
 Wenn kein Tier zu sehen ist, setze "tier_gefunden" auf false, lass die Tierfelder leer und erkläre in
 "hinweis" kurz und freundlich, was du siehst und wie ein besseres Foto gelingt.
 Bei Haus- und Nutztieren (z. B. Hund, Katze, Huhn, Pferd, Rind, Schaf, Ziege, Kaninchen, Meerschweinchen)
-bestimme zusätzlich die Rasse so genau wie möglich und schreibe sie in "rasse" (z. B. "Golden Retriever",
-"Brahma", "Haflinger"). Sieht das Tier nach einer Mischung aus, schreibe z. B. "Mischling (vermutlich mit
-Labrador)". Bist du dir bei der Rasse nicht sicher, schreibe "vermutlich ..." davor. "name" bleibt die Tierart
-(z. B. "Haushund", "Haushuhn"). Bei Wildtieren bleibt "rasse" leer.
+bestimme zusätzlich die Rasse und schreibe sie kurz in "rasse" (höchstens drei Wörter, z. B. "Golden Retriever",
+"Brahma", "Haflinger"). Sieht das Tier nach einer Mischung aus, schreibe z. B. "Labrador-Mischling" oder nur
+"Mischling". Schreibe nie "vermutlich" in "rasse"; bist du dir bei der Rasse nicht sicher, setze stattdessen
+"rasse_sicher" auf false. "name" bleibt die Tierart (z. B. "Haushund", "Haushuhn").
+Bei Wildtieren bleibt "rasse" leer und "rasse_sicher" ist true.
 Setze "gefaehrdet" auf true, wenn die Art auf der Roten Liste Deutschlands oder weltweit (IUCN) mindestens als
 "gefährdet" eingestuft ist. Bei Haus- und Nutztieren, häufigen Arten oder wenn du unsicher bist: false.`;
 
@@ -73,13 +74,14 @@ const SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: [
-    'tier_gefunden', 'name', 'rasse', 'wissenschaftlicher_name', 'gruppe', 'sicherheit', 'kurzbeschreibung',
-    'wusstest_du', 'hinweis', 'gefaehrdet',
+    'tier_gefunden', 'name', 'rasse', 'rasse_sicher', 'wissenschaftlicher_name', 'gruppe', 'sicherheit',
+    'kurzbeschreibung', 'wusstest_du', 'hinweis', 'gefaehrdet',
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
     name: TEXT,
     rasse: TEXT,
+    rasse_sicher: { type: 'boolean' },
     gefaehrdet: { type: 'boolean' },
     wissenschaftlicher_name: TEXT,
     gruppe: GRUPPE,

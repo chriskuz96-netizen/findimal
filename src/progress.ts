@@ -1,5 +1,6 @@
 import { Find, speciesKey } from './finds';
 import { GroupId, groupOf } from './groups';
+import { breedGuessed } from './identify';
 import { seasonAnimals, seasonId, SeasonId } from './season';
 import { thisWeek, WeekTask, weeksDone } from './weekly';
 
@@ -139,11 +140,12 @@ function seasonComplete(finds: Find[]): boolean {
   });
 }
 
-// Verschiedene Rassen (Haus- und Nutztiere), ohne unsichere ("vermutlich ...")
+// Verschiedene Rassen (Haus- und Nutztiere), ohne geschätzte und ohne reine "Mischling"
 function breedCount(finds: Find[]): number {
   const names = finds
+    .filter((f) => !breedGuessed(f.animal))
     .map((f) => (f.animal.rasse || '').trim().toLowerCase())
-    .filter((r) => r && !r.includes('vermutlich'));
+    .filter((r) => r && r !== 'mischling');
   return new Set(names).size;
 }
 

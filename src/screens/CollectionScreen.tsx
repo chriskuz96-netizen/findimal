@@ -17,6 +17,7 @@ import { AdSlot } from '../components/AdSlot';
 import { Find, speciesKey, useFindPhoto } from '../finds';
 import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
+import { displayName } from '../identify';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
@@ -51,7 +52,7 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
   const photos = finds.filter(inFilter).slice().reverse(); // alle eigenen Fotos, neueste zuerst
 
   const askDelete = (f: Find) =>
-    Alert.alert(t('col.deleteTitle', { name: f.animal.name }), t('col.deleteText'), [
+    Alert.alert(t('col.deleteTitle', { name: displayName(f.animal) }), t('col.deleteText'), [
       { text: t('common.cancel'), style: 'cancel' },
       { text: t('common.delete'), style: 'destructive', onPress: () => onDelete(f) },
     ]);
@@ -182,7 +183,7 @@ function PhotoTile({
       onPress={onPress}
       onLongPress={onLongPress}
       accessibilityRole="button"
-      accessibilityLabel={find.animal.name}
+      accessibilityLabel={displayName(find.animal)}
       style={[styles.tile, { width, height: Math.round(width / 0.85), backgroundColor: g?.c1 ?? '#2F6B47' }]}
     >
       {uri ? (
@@ -201,7 +202,7 @@ function PhotoTile({
       </View>
       <View style={styles.caption}>
         <Text style={styles.captionName} numberOfLines={2}>
-          {find.animal.rasse || find.animal.name}
+          {displayName(find.animal)}
         </Text>
         <Text style={styles.captionDate} numberOfLines={1}>
           {new Date(find.date).toLocaleDateString(locale)}
