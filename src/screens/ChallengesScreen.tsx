@@ -48,6 +48,10 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const today = todayAnswered(quiz);
   const items = shown !== null && !today.includes(shown) ? [...today, shown] : today;
   const quizDone = !canAsk(quiz) || allDone; // für heute fertig
+  // angezeigte Frage: standardmäßig die letzte (aktuelle), mit Zurück/Weiter blätterbar
+  const [posState, setPos] = useState<number | null>(null);
+  const pos = Math.max(0, Math.min(posState ?? items.length - 1, items.length - 1));
+  const cur = items.length ? items[pos] : null;
   const todayXp = today.filter((i) => quiz[`q${i}`] === questionAt(i, lang).right).length * XP.quiz;
   const badgeName = (b: Badge) => t(`badge.${b.id}`);
   const badgeHint = (b: Badge) => t(`badge.${b.id}.hint`);
@@ -157,58 +161,78 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
             done={quizDone}
           />
         </View>
-        {items.map((idx) => {
-          const q = questionAt(idx, lang);
-          const given = quiz[`q${idx}`];
-          const answered = given !== undefined;
-          return (
-            <View key={idx} style={[styles.qCard, { backgroundColor: p.card, borderColor: p.line }]}>
-              <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
-              <View style={styles.answers}>
-                {q.answers.map((a, i) => {
-                  const isRight = i === q.right;
-                  const mine = i === given;
-                  const look = !answered
-                    ? { borderColor: p.line }
-                    : isRight
-                      ? { backgroundColor: p.button, borderColor: p.button }
-                      : mine
-                        ? { borderColor: colors.coral }
-                        : { borderColor: p.line, opacity: 0.5 };
-                  const textColor = answered && isRight ? colors.white : p.ink;
-                  return (
-                    <Pressable
-                      key={a}
-                      disabled={answered}
-                      onPress={() => onAnswer(idx, i)}
-                      style={[styles.answer, look]}
-                      accessibilityRole="button"
-                    >
-                      <View style={[styles.letter, { borderColor: textColor }]}>
+        {cur !== null &&
+          (() => {
+            const q = questionAt(cur, lang);
+            const given = quiz[`q${cur}`];
+            const answered = given !== undefined;
+            return (
+              <>
+                <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
+                {/* Antworten in einer Reihe (bei langen Antworten umgebrochen) */}
+                <View style={styles.answers}>
+                  {q.answers.map((a, i) => {
+                    const isRight = i === q.right;
+                    const mine = i === given;
+                    const look = !answered
+                      ? { borderColor: p.line }
+                      : isRight
+                        ? { backgroundColor: p.button, borderColor: p.button }
+                        : mine
+                          ? { borderColor: colors.coral }
+                          : { borderColor: p.line, opacity: 0.5 };
+                    const textColor = answered && isRight ? colors.white : p.ink;
+                    return (
+                      <Pressable
+                        key={a}
+                        disabled={answered}
+                        onPress={() => onAnswer(cur, i)}
+                        style={[styles.answer, look]}
+                        accessibilityRole="button"
+                      >
                         <Text style={[styles.letterText, { color: textColor }]}>{String.fromCharCode(65 + i)}</Text>
-                      </View>
-                      <Text style={[styles.answerText, { color: textColor }]}>
-                        {a}
-                        {answered && isRight ? '  ✓' : answered && mine ? '  ✗' : ''}
-                      </Text>
-                    </Pressable>
-                  );
-                })}
-              </View>
-              {answered && (
-                <Text style={[styles.sub, { color: p.mute, marginTop: 8 }]}>
-                  {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
-                </Text>
-              )}
-            </View>
-          );
-        })}
-        {/* nächste Frage, solange heute noch welche offen sind */}
-        {shown !== null && quiz[`q${shown}`] !== undefined && canAsk(quiz) && !allDone && (
-          <Pressable onPress={() => setShown(nextQuestion(quiz))} hitSlop={8} style={{ marginTop: 10, alignSelf: 'flex-start' }}>
-            <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-          </Pressable>
-        )}
+                        <Text style={[styles.answerText, { color: textColor }]}>
+                          {a}
+                          {answered && isRight ? ' ✓' : answered && mine ? ' ✗' : ''}
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+                {answered && (
+                  <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>
+                    {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
+                  </Text>
+                )}
+              </>
+            );
+          })()}
+        {/* Blättern: zurück zu früheren Fragen von heute, weiter zur nächsten */}
+        <View style={styles.quizNav}>
+          {pos > 0 ? (
+            <Pressable onPress={() => setPos(pos - 1)} hitSlop={8} accessibilityRole="button">
+              <Text style={[styles.next, { color: p.moss }]}>‹ {t('ch.prevQuestion')}</Text>
+            </Pressable>
+          ) : (
+            <View />
+          )}
+          {pos < items.length - 1 ? (
+            <Pressable onPress={() => setPos(pos + 1)} hitSlop={8} accessibilityRole="button">
+              <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+            </Pressable>
+          ) : cur !== null && quiz[`q${cur}`] !== undefined && canAsk(quiz) && !allDone ? (
+            <Pressable
+              onPress={() => {
+                setShown(nextQuestion(quiz));
+                setPos(items.length); // zur neuen Frage
+              }}
+              hitSlop={8}
+              accessibilityRole="button"
+            >
+              <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+            </Pressable>
+          ) : null}
+        </View>
       </View>
 
       {/* Abzeichen */}
@@ -399,13 +423,12 @@ const styles = StyleSheet.create({
   stDot: { width: 28, height: 28, borderRadius: 14, borderWidth: 2 },
   stName: { fontFamily: fonts.sansBold, fontSize: 16 },
   quizHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  qCard: { marginTop: 10, borderWidth: 1, borderRadius: 16, padding: 12 },
-  letter: { width: 20, height: 20, borderRadius: 10, borderWidth: 1.5, alignItems: 'center', justifyContent: 'center' },
-  letterText: { fontFamily: fonts.sansBold, fontSize: 11 },
-  question: { fontFamily: fonts.serifBold, fontSize: 16, lineHeight: 20 },
-  answers: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 10 },
-  answer: { flexDirection: 'row', alignItems: 'center', gap: 8, borderWidth: 1.5, borderRadius: 99, paddingVertical: 7, paddingLeft: 7, paddingRight: 14 },
-  answerText: { fontFamily: fonts.sansBold, fontSize: 15 },
+  quizNav: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 },
+  letterText: { fontFamily: fonts.sansBold, fontSize: 12, opacity: 0.6 },
+  question: { fontFamily: fonts.serifBold, fontSize: 16, lineHeight: 20, marginTop: 10 },
+  answers: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 8 },
+  answer: { flexDirection: 'row', alignItems: 'center', gap: 5, borderWidth: 1.5, borderRadius: 99, paddingVertical: 6, paddingHorizontal: 11 },
+  answerText: { fontFamily: fonts.sansBold, fontSize: 14 },
   badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 12, rowGap: 16 },
   badge: { width: '33.3%', alignItems: 'center' },
   medalWrap: {
