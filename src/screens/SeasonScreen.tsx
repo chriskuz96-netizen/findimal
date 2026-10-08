@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -54,6 +55,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
   // Breite eines Viertels (zwei nebeneinander ergeben den Kreis)
   const quarter = Math.floor((Math.min(useWindowDimensions().width, 520) - spacing.gutter * 2 - GAP) / 2);
+  // Alle vier Felder gleich hoch (so hoch wie das längste), damit der Kreis gleichmäßig aussieht
+  const [qHeight, setQHeight] = useState(0);
+  useEffect(() => setQHeight(0), [quarter, lang]);
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
@@ -86,6 +90,8 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
               found={matches[i]}
               corner={(['tl', 'tr', 'br', 'bl'] as const)[i]}
               width={quarter}
+              height={qHeight}
+              onHeight={(h) => setQHeight((old) => Math.max(old, Math.ceil(h)))}
               onOpen={onOpen}
               dark={dark}
               p={p}
@@ -140,6 +146,8 @@ function Quarter({
   found,
   corner,
   width,
+  height,
+  onHeight,
   onOpen,
   dark,
   p,
@@ -148,6 +156,8 @@ function Quarter({
   found: Find | null;
   corner: 'tl' | 'tr' | 'br' | 'bl';
   width: number;
+  height: number; // gemeinsame Höhe aller vier Felder (0 = noch nicht gemessen)
+  onHeight: (h: number) => void;
   onOpen: (f: Find) => void;
   dark: boolean;
   p: typeof lightPalette;
@@ -155,18 +165,21 @@ function Quarter({
   const uri = useFindPhoto(found?.id ?? '');
   const R = Math.round(width * 0.45);
   const round = {
-    tl: { borderTopLeftRadius: R, paddingLeft: 20, paddingTop: 24 },
-    tr: { borderTopRightRadius: R, paddingRight: 20, paddingTop: 24 },
-    br: { borderBottomRightRadius: R, paddingRight: 20, paddingBottom: 24 },
-    bl: { borderBottomLeftRadius: R, paddingLeft: 20, paddingBottom: 24 },
+    // oben: Inhalt zur Kreismitte (nach unten) schieben, damit die Felder ausgeglichen wirken
+    tl: { borderTopLeftRadius: R, paddingLeft: 20, paddingTop: 22, justifyContent: 'flex-end' as const },
+    tr: { borderTopRightRadius: R, paddingRight: 20, paddingTop: 22, justifyContent: 'flex-end' as const },
+    // unten mehr Abstand, damit der Text nicht in die Rundung läuft
+    br: { borderBottomRightRadius: R, paddingRight: 22, paddingBottom: 22 },
+    bl: { borderBottomLeftRadius: R, paddingLeft: 28, paddingBottom: 22 },
   }[corner];
   return (
     <Pressable
       onPress={found ? () => onOpen(found) : undefined}
       disabled={!found}
+      onLayout={(e) => onHeight(e.nativeEvent.layout.height)}
       style={[
         styles.quarter,
-        { width, minHeight: width * 0.8, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line },
+        { width, minHeight: Math.max(width * 0.75, height), backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line },
         round,
       ]}
     >
