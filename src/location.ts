@@ -22,17 +22,14 @@ export async function detectPlace(): Promise<string | null> {
   }
 }
 
-// Ortsname für ein Foto: aus den GPS-Daten des Bildes, sonst (nur bei der Kamera und nur,
-// wenn der Standort schon erlaubt ist – hier wird nie gefragt) aus dem aktuellen Standort.
-export async function placeOf(gps: { lat: number; lon: number } | null, fromCamera: boolean): Promise<string | null> {
+// Ortsname des aktuellen Standorts für einen neuen Fund – nur wenn der Standort schon erlaubt ist
+// (hier wird nie gefragt). Sonst null; dann nimmt die App den Ort aus den Einstellungen.
+export async function currentPlace(): Promise<string | null> {
   try {
-    let coords = gps;
-    if (!coords && fromCamera && (await Location.getForegroundPermissionsAsync()).granted) {
-      const pos = await Location.getLastKnownPositionAsync();
-      if (pos) coords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
-    }
-    if (!coords) return null;
-    const [addr] = await Location.reverseGeocodeAsync({ latitude: coords.lat, longitude: coords.lon });
+    if (!(await Location.getForegroundPermissionsAsync()).granted) return null;
+    const pos = await Location.getLastKnownPositionAsync();
+    if (!pos) return null;
+    const [addr] = await Location.reverseGeocodeAsync({ latitude: pos.coords.latitude, longitude: pos.coords.longitude });
     return addr?.city || addr?.subregion || addr?.region || addr?.country || null;
   } catch {
     return null;

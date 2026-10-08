@@ -72,7 +72,7 @@ export async function addFind(
   finds: Find[],
   photo: Photo,
   animal: Animal,
-  homePlace?: string, // eigener Ort aus dem Profil: für Kamera-Fotos ohne Standort
+  homePlace?: string, // Ort aus den Einstellungen: wenn der Standort nicht erlaubt ist
 ): Promise<{ finds: Find[]; isNew: boolean; id: string }> {
   const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
@@ -81,7 +81,7 @@ export async function addFind(
   const place = photo.place
     ? await Promise.race([photo.place, new Promise<null>((r) => setTimeout(() => r(null), 3000))])
     : null;
-  const where = place || (photo.fromCamera && homePlace) || null;
+  const where = place || homePlace || null;
   const find: Find = { id, date: new Date().toISOString(), ...(where ? { place: where } : {}), animal };
   const next = [...finds, find];
   await storeFinds(next);
