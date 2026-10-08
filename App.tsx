@@ -316,6 +316,7 @@ function Main() {
         )}
         {tab === 'challenges' && (
           <ChallengesScreen
+            active={!overlay}
             progress={progress}
             quiz={quiz}
             onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}

@@ -12,7 +12,7 @@ import { Leaderboard } from '../components/Leaderboard';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
-import { Badge, Progress, XP } from '../progress';
+import { Badge, levelAt, Progress, XP } from '../progress';
 import { seasonDaysLeft } from '../season';
 import { WeekTask } from '../weekly';
 import { answeredToday, nextQuestion, question as questionAt, QUESTIONS_PER_DAY, QuizLog, todayAnswered } from '../quiz';
@@ -29,9 +29,10 @@ type Props = {
   onInviteDone: () => void;
   onRank: (rank: number) => void; // eigener Platz in der weltweiten Rangliste
   onFriends: (n: number) => void; // Zahl der Freunde in der Rangliste
+  active?: boolean; // false, solange eine andere Seite (z. B. Ergebnis) darüber liegt
 };
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
@@ -58,35 +59,87 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const share = progress.nextLevelXp ? (progress.xp - progress.levelStart) / span : 1;
 
   // Belohnung: sind seit dem letzten Besuch XP dazugekommen (Foto, Saison-Ziel, Quiz …),
-  // füllt sich der Balken sichtbar vom alten zum neuen Stand und "+N XP" erscheint kurz.
+  // läuft dieselbe Animation wie in der Einblendung nach dem Foto: XP zählen hoch,
+  // der Balken füllt sich langsam und das neue Stück leuchtet hell auf.
   const fill = useRef(new Animated.Value(share)).current;
+  const glow = useRef(new Animated.Value(1)).current;
+  const count = useRef(new Animated.Value(progress.xp)).current;
   const gainFade = useRef(new Animated.Value(0)).current;
   const [gain, setGain] = useState(0);
+  const [shownXp, setShownXp] = useState(progress.xp);
+  const [shownLevel, setShownLevel] = useState(progress.level);
+  const [base, setBase] = useState(share); // alter Stand; alles darüber ist neu
   const lastXp = useRef<number | null>(null);
   useEffect(() => {
+    if (!active) return; // erst animieren, wenn man die Seite wirklich sieht
     let alive = true;
-    const shareOf = (xp: number) =>
-      progress.nextLevelXp ? Math.max(0, Math.min(1, (xp - progress.levelStart) / span)) : 1;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const shareAt = (xp: number) => {
+      const l = levelAt(xp);
+      return l.nextLevelXp ? Math.max(0, Math.min(1, (xp - l.levelStart) / (l.nextLevelXp - l.levelStart))) : 1;
+    };
+    const id = count.addListener(({ value }) => setShownXp(Math.round(value)));
     const run = (before: number) => {
       if (!alive) return;
       lastXp.current = progress.xp;
       AsyncStorage.setItem(SEEN_XP_KEY, String(progress.xp)).catch(() => {});
       if (before >= progress.xp) {
         fill.setValue(share);
+        count.setValue(progress.xp);
+        setShownXp(progress.xp);
+        setShownLevel(progress.level);
+        setBase(share);
         return;
       }
+      const oldLevel = levelAt(before).level;
+      const levelUp = oldLevel < progress.level;
+      const from = shareAt(before);
       setGain(progress.xp - before);
-      fill.setValue(shareOf(before)); // bei neuer Stufe: von vorn
+      setShownLevel(oldLevel);
+      setBase(from);
+      fill.setValue(from);
+      count.setValue(before);
+      setShownXp(before);
       gainFade.setValue(0);
+      glow.setValue(0.6);
+      const to = (toValue: number, duration: number) =>
+        Animated.timing(fill, { toValue, duration, easing: Easing.out(Easing.cubic), useNativeDriver: false });
+      // bei neuer Stufe: erst voll, dann von vorn bis zum neuen Stand
+      const filling = levelUp
+        ? Animated.sequence([to(1, 1100), Animated.timing(fill, { toValue: 0, duration: 0, useNativeDriver: false }), to(share, 1200)])
+        : to(share, 2000);
+      const counting = Animated.timing(count, {
+        toValue: progress.xp,
+        duration: levelUp ? 2400 : 2000,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: false,
+      });
       Animated.sequence([
-        Animated.delay(350),
-        Animated.parallel([
-          Animated.timing(fill, { toValue: share, duration: 1300, easing: Easing.out(Easing.cubic), useNativeDriver: false }),
-          Animated.timing(gainFade, { toValue: 1, duration: 300, useNativeDriver: true }),
-        ]),
-        Animated.delay(1400),
+        Animated.delay(400),
+        Animated.parallel([counting, filling, Animated.timing(gainFade, { toValue: 1, duration: 300, useNativeDriver: true })]),
+        Animated.delay(1800),
         Animated.timing(gainFade, { toValue: 0, duration: 500, useNativeDriver: true }),
       ]).start();
+      // das neue Stück pulsiert dreimal
+      Animated.sequence([
+        Animated.delay(1300),
+        Animated.loop(
+          Animated.sequence([
+            Animated.timing(glow, { toValue: 1, duration: 380, useNativeDriver: false }),
+            Animated.timing(glow, { toValue: 0.55, duration: 380, useNativeDriver: false }),
+          ]),
+          { iterations: 3 },
+        ),
+        Animated.timing(glow, { toValue: 1, duration: 300, useNativeDriver: false }),
+      ]).start(({ finished }) => {
+        if (finished && alive) setBase(share); // danach wird alles wieder orange
+      });
+      if (levelUp)
+        timer = setTimeout(() => {
+          if (!alive) return;
+          setShownLevel(progress.level);
+          setBase(0);
+        }, 1500);
     };
     if (lastXp.current !== null) run(lastXp.current);
     else
@@ -95,9 +148,11 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         .catch(() => run(progress.xp));
     return () => {
       alive = false;
+      count.removeListener(id);
+      if (timer) clearTimeout(timer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [progress.xp]);
+  }, [progress.xp, active]);
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
@@ -108,13 +163,13 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         <View style={styles.levelHead}>
           <Avatar id={avatar || null} name={name} size={50} />
           <View style={{ flex: 1 }}>
-            <Text style={styles.levelSmall}>{t('ch.level', { n: progress.level })}</Text>
+            <Text style={styles.levelSmall}>{t('ch.level', { n: shownLevel })}</Text>
             <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
-              {t(`level.${progress.level - 1}` as 'level.0')}
+              {t(`level.${shownLevel - 1}` as 'level.0')}
             </Text>
           </View>
           <View style={{ alignItems: 'flex-end' }}>
-            <Text style={styles.levelXp}>{progress.xp} XP</Text>
+            <Text style={styles.levelXp}>{shownXp} XP</Text>
             {/* kurz eingeblendet: so viele XP sind dazugekommen */}
             <Animated.Text style={[styles.levelGain, { opacity: gainFade }]}>+{gain} XP</Animated.Text>
           </View>
@@ -122,16 +177,18 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         {/* Balken von der aktuellen zur nächsten Stufe */}
         <View style={styles.levelRow}>
           <View style={styles.levelBadge}>
-            <Text style={styles.levelBadgeText}>{progress.level}</Text>
+            <Text style={styles.levelBadgeText}>{shownLevel}</Text>
           </View>
           <View style={styles.levelBar}>
+            {/* hinten: das neue Stück leuchtet hell; vorne: der alte Stand in Orange */}
             <Animated.View
-              style={[styles.progFill, { width: fill.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
+              style={[styles.levelGlow, { opacity: glow, width: fill.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
             />
+            <View style={[styles.progFill, styles.levelBase, { width: `${Math.round(base * 100)}%` }]} />
           </View>
-          {progress.nextLevelXp ? (
+          {levelAt(shownXp).nextLevelXp || shownLevel < progress.level ? (
             <View style={[styles.levelBadge, styles.levelBadgeNext]}>
-              <Text style={[styles.levelBadgeText, { color: colors.white }]}>{progress.level + 1}</Text>
+              <Text style={[styles.levelBadgeText, { color: colors.white }]}>{shownLevel + 1}</Text>
             </View>
           ) : null}
         </View>
@@ -421,7 +478,9 @@ const styles = StyleSheet.create({
   levelName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
   levelXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
   levelGain: { position: 'absolute', top: 24, right: 0, fontFamily: fonts.sansBold, fontSize: 12.5, color: '#9FE0B4' },
-  levelBar: { flex: 1, height: 6, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
+  levelGlow: { position: 'absolute', left: 0, top: 0, bottom: 0, borderRadius: 6, backgroundColor: '#FFD97A' },
+  levelBase: { position: 'absolute', left: 0, top: 0, bottom: 0 },
+  levelBar: { flex: 1, height: 8, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
   levelSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 6 },
   doneCard: { borderWidth: 2 },
   weekRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6 },

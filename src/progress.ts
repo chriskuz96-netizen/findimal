@@ -301,15 +301,9 @@ export function computeProgress(
   // XP für verdiente Abzeichen
   for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];
 
-  // Stufe
-  let level = 0;
-  while (level + 1 < LEVELS.length && xp >= LEVELS[level + 1]) level++;
-
   return {
     xp,
-    level: level + 1,
-    levelStart: LEVELS[level],
-    nextLevelXp: LEVELS[level + 1] ?? null,
+    ...levelAt(xp),
     season: { groups: thisSeason, done: thisSeason.length >= 3 },
     week: thisWeek(finds, now),
     badges,
@@ -317,6 +311,13 @@ export function computeProgress(
 }
 
 // ---------- Belohnung für einen Fund (für die Ergebnisseite) ----------
+
+// Stufe zu einem XP-Stand
+export function levelAt(xp: number): { level: number; levelStart: number; nextLevelXp: number | null } {
+  let level = 0;
+  while (level + 1 < LEVELS.length && xp >= LEVELS[level + 1]) level++;
+  return { level: level + 1, levelStart: LEVELS[level], nextLevelXp: LEVELS[level + 1] ?? null };
+}
 
 export type RewardItem = 'find' | 'newSpecies' | 'season' | 'week' | 'badge';
 
