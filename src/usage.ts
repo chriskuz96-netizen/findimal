@@ -53,3 +53,23 @@ export async function bigAdDue(): Promise<boolean> {
 export async function markBigAdShown(): Promise<void> {
   await AsyncStorage.setItem(BIG_AD_KEY, today()).catch(() => {});
 }
+
+// Extra-Fotos per Belohnungs-Video: höchstens so viele am Tag
+export const VIDEOS_PER_DAY = 3;
+const VIDEO_KEY = 'findimal-videos';
+
+export async function videosToday(): Promise<number> {
+  try {
+    const raw = await AsyncStorage.getItem(VIDEO_KEY);
+    const v = raw ? (JSON.parse(raw) as { day: string; count: number }) : null;
+    return v && v.day === today() ? v.count : 0;
+  } catch {
+    return 0;
+  }
+}
+
+// Nach einem fertig angesehenen Video (kommt mit AdMob)
+export async function addVideoToday(): Promise<void> {
+  const n = await videosToday();
+  await AsyncStorage.setItem(VIDEO_KEY, JSON.stringify({ day: today(), count: n + 1 })).catch(() => {});
+}

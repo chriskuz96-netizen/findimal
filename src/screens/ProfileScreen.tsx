@@ -19,6 +19,7 @@ import { HeaderBackground } from '../components/HeaderBackground';
 import { AdSlot } from '../components/AdSlot';
 import { Avatar } from '../components/Avatar';
 import { AvatarSheet } from '../components/AvatarSheet';
+import { PlusCard } from '../components/PlusCard';
 import { LanguageChips } from '../components/LanguageButton';
 import { SwipeBack } from '../components/SwipeBack';
 import { Find, speciesKey } from '../finds';
@@ -26,7 +27,6 @@ import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
 import { loadZone } from '../zone';
-import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { Progress } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -49,7 +49,6 @@ export function ProfileScreen(props: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
-  const { plus, setPlus } = usePlus();
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
   const [picking, setPicking] = useState(false); // Auswahlfenster fürs Profilbild
@@ -221,38 +220,7 @@ export function ProfileScreen(props: Props) {
         </Card>
 
         {/* Findimal Plus: was dazugehört */}
-        <View style={[styles.card, styles.plusCard]}>
-          <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
-          <Text style={styles.plusSub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
-          {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
-            <View key={k} style={styles.plusRow}>
-              <Text style={styles.plusCheck}>✓</Text>
-              <Text style={styles.plusText}>{t(k)}</Text>
-            </View>
-          ))}
-          {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
-          <View style={styles.plusPreview}>
-            {PLUS_AVATARS.slice(0, 5).map((a) => (
-              <Avatar key={a.id} id={a.id} name={name} size={44} />
-            ))}
-          </View>
-          {plus ? (
-            <Pressable onPress={() => setPlus(false)} style={styles.plusEnd} accessibilityRole="button">
-              <Text style={styles.plusEndText}>{t('plus.end')}</Text>
-            </Pressable>
-          ) : (
-            <>
-              <Pressable
-                onPress={() => askForPlus(t, setPlus)}
-                style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
-                accessibilityRole="button"
-              >
-                <Text style={styles.plusBtnText}>{t('plus.get')}</Text>
-              </Pressable>
-              <Text style={styles.plusPrice}>{t('plus.price')}</Text>
-            </>
-          )}
-        </View>
+        <PlusCard name={name} />
 
         {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
         <View style={[styles.card, styles.tipsCard, { backgroundColor: p.card }]}>
@@ -414,18 +382,6 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   h3: { fontFamily: fonts.serifBold, fontSize: 18 },
-  plusCard: { backgroundColor: '#123826', borderColor: '#E8B53A', borderWidth: 1.5 },
-  plusTitle: { fontFamily: fonts.serifBold, fontSize: 20, color: '#FFD45E' },
-  plusSub: { fontFamily: fonts.sans, fontSize: 14, color: colors.accentLight, marginTop: 2, marginBottom: 8 },
-  plusRow: { flexDirection: 'row', gap: 8, marginTop: 5 },
-  plusCheck: { fontFamily: fonts.sansBold, fontSize: 15, color: '#FFD45E' },
-  plusText: { flex: 1, fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 20, color: colors.white },
-  plusPreview: { flexDirection: 'row', justifyContent: 'center', gap: 6, marginTop: 14 },
-  plusBtn: { marginTop: 14, backgroundColor: '#E8B53A', borderRadius: 14, paddingVertical: 12, alignItems: 'center' },
-  plusBtnText: { fontFamily: fonts.sansBold, fontSize: 16, color: '#13261C' },
-  plusPrice: { fontFamily: fonts.sans, fontSize: 12.5, color: colors.accentLight, textAlign: 'center', marginTop: 6 },
-  plusEnd: { marginTop: 12, alignSelf: 'center', paddingVertical: 6 },
-  plusEndText: { fontFamily: fonts.sans, fontSize: 13, color: colors.accentLight, textDecorationLine: 'underline' },
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 2 },
   prog: { flex: 1, height: 8, borderRadius: 9, overflow: 'hidden' },
   xpRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10 },

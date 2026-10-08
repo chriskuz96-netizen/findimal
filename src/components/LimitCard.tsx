@@ -1,17 +1,18 @@
-import { useState } from 'react';
-import { Alert, Modal, Pressable, StyleSheet, Text, useColorScheme, View, ViewStyle } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Alert, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View, ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { Translate, useI18n } from '../i18n';
 import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { colors, darkPalette, fonts, lightPalette, Palette } from '../theme';
-import { FREE_PHOTOS_PER_DAY } from '../usage';
+import { FREE_PHOTOS_PER_DAY, VIDEOS_PER_DAY, videosToday } from '../usage';
+import { AdSlot } from './AdSlot';
+import { PlusCard } from './PlusCard';
 import { Avatar } from './Avatar';
 import { Explorer } from './Explorer';
 
 const GOLD = '#E8B53A';
-const VIDEOS_PER_DAY = 3; // höchstens so viele Extra-Fotos per Video am Tag
 
 // Werbevideos gibt es erst in der fertigen App (nicht in Expo Go/Snack).
 function soon(t: Translate) {
@@ -25,6 +26,14 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
   const { setPlus } = usePlus();
+  // Videos heute schon angesehen: sind alle weg, gibt es nur noch Plus (und morgen neue Fotos)
+  const [videos, setVideos] = useState<number | null>(null); // null = wird geladen
+  useEffect(() => {
+    if (visible) videosToday().then(setVideos);
+    else setVideos(null);
+  }, [visible]);
+  if (videos === null) return null;
+  if (videos >= VIDEOS_PER_DAY) return <DoneSheet visible={visible} onClose={onClose} />;
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable style={styles.dim} onPress={onClose} accessibilityLabel={t('ad.close')} />
@@ -67,7 +76,7 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
               <Text style={styles.bonusText}>+1</Text>
             </View>
           </Pressable>
-          <Text style={[styles.videoMax, { color: p.mute }]}>{t('lim.videoMax', { n: VIDEOS_PER_DAY })}</Text>
+          <Text style={[styles.videoMax, { color: p.mute }]}>{t('lim.videoLeft', { n: VIDEOS_PER_DAY - (videos ?? 0) })}</Text>
 
           {/* Zweiter Weg: Findimal Plus */}
           <View style={styles.plus}>
@@ -108,6 +117,36 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
   );
 }
 
+// Alles aufgebraucht (auch die Videos): ein netter Spruch, Findimal Plus wie im Profil, darunter Werbung
+function DoneSheet({ visible, onClose }: { visible: boolean; onClose: () => void }) {
+  const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
+  const insets = useSafeAreaInsets();
+  const { t } = useI18n();
+  // jeden Tag ein anderer Spruch
+  const n = (Math.floor(Date.now() / 86_400_000) % 3) + 1;
+  return (
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+      <Pressable style={styles.dimShort} onPress={onClose} accessibilityLabel={t('ad.close')} />
+      <View style={[styles.sheet, styles.sheetTall, { backgroundColor: p.bg }]}>
+        <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom + 16 }}>
+          <View style={styles.hero}>
+            <Explorer size={58} />
+            <Text style={styles.heroTitle}>{t(`lim.done${n}` as 'lim.done1')}</Text>
+            <Text style={styles.heroText}>{t(`lim.doneSub${n}` as 'lim.doneSub1')}</Text>
+          </View>
+          <PlusCard name="" style={{ marginTop: 16 }} onGet={onClose} />
+          <View style={{ marginTop: 4 }}>
+            <AdSlot p={p} placement="limit" />
+          </View>
+          <Pressable onPress={onClose} hitSlop={10} accessibilityRole="button" style={styles.later}>
+            <Text style={[styles.laterText, { color: p.mute }]}>{t('lim.tomorrow')}</Text>
+          </Pressable>
+        </ScrollView>
+      </View>
+    </Modal>
+  );
+}
+
 // Auf der Ergebnisseite: kurze Karte, die dasselbe Fenster öffnet
 export function LimitCard({ p, style }: { p: Palette; style?: ViewStyle }) {
   const { t } = useI18n();
@@ -126,6 +165,8 @@ export function LimitCard({ p, style }: { p: Palette; style?: ViewStyle }) {
 
 const styles = StyleSheet.create({
   dim: { flex: 1, backgroundColor: 'rgba(0,0,0,0.45)' },
+  dimShort: { height: '8%', backgroundColor: 'rgba(0,0,0,0.45)' },
+  sheetTall: { flex: 1 },
   sheet: { borderTopLeftRadius: 26, borderTopRightRadius: 26, overflow: 'hidden' },
   hero: { backgroundColor: '#17462F', alignItems: 'center', paddingTop: 22, paddingBottom: 18, paddingHorizontal: 24 },
   heroTitle: { fontFamily: fonts.serifBold, fontSize: 23, color: colors.white, marginTop: 10, textAlign: 'center' },
