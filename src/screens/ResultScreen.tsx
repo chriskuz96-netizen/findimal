@@ -266,6 +266,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             {!result && (
               <View style={styles.loading}>
                 <Explorer size={64} />
+                <Text style={styles.loadingTitle}>{t('res.wait')}</Text>
                 <Text style={styles.loadingText}>{waitText}</Text>
                 <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
                 {/* klein und erst nach ein paar Sekunden, damit man nicht vorschnell abbricht */}
@@ -274,6 +275,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
                     <Text style={styles.cancelText}>{t('common.cancel')}</Text>
                   </Pressable>
                 )}
+                {canCancel && !plus && <Text style={styles.cancelHint}>{t('res.cancelHint')}</Text>}
               </View>
             )}
             {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss (nicht während der Bestimmung) */}
@@ -298,10 +300,9 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           </View>
 
           {/* Name und kurze Beschreibung */}
-          {!limited && (
+          {/* während der Bestimmung steht alles oben im Foto */}
+          {!limited && !busy && (
             <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
-              {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
-              {canCancel && !plus && <Text style={[styles.cancelHint, { color: p.mute }]}>{t('res.cancelHint')}</Text>}
               {result && !result.ok && !result.limit && (
                 <>
                   <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
@@ -717,11 +718,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 30,
   },
+  loadingTitle: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.white, marginTop: 10 },
   loadingText: {
     fontFamily: fonts.sans,
-    fontSize: 16,
+    fontSize: 15,
     color: colors.accentLight,
-    marginTop: 12,
+    marginTop: 2,
     textAlign: 'center',
     paddingHorizontal: 28,
   },
@@ -738,7 +740,7 @@ const styles = StyleSheet.create({
   },
   cancelBtn: { marginTop: 14 },
   cancelText: { fontFamily: fonts.sans, fontSize: 13, color: colors.white, opacity: 0.6, textDecorationLine: 'underline' },
-  cancelHint: { fontFamily: fonts.sans, fontSize: 11.5, opacity: 0.6, marginTop: 2 },
+  cancelHint: { fontFamily: fonts.sans, fontSize: 10.5, color: colors.white, opacity: 0.45, marginTop: 3 },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
   stamp: {
     position: 'absolute',
