@@ -56,6 +56,7 @@ type Props =
     };
 
 const MAX_PHOTOS = 3;
+const CANCEL_AFTER = 8; // Sekunden, bis „Abbrechen“ erscheint (nicht vorschnell abbrechen)
 
 // "Gefunden am … in …" – der Ort lässt sich mit dem Stift ändern oder nachtragen
 function FoundOn({ find, p, onPlace }: { find: Find; p: Palette; onPlace: (place: string) => void }) {
@@ -229,6 +230,17 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const unsure = canAddPhoto && animal.sicherheit !== 'sicher';
   const noAnimal = !!morePhoto && !!result?.ok && !animal;
   const busy = !!onIdentified && !result; // wird gerade bestimmt: nur Abbrechen möglich
+  // Wartezeit in Sekunden: längeres Warten bekommt neue Texte, Abbrechen erscheint erst später
+  const [waited, setWaited] = useState(0);
+  useEffect(() => {
+    if (!busy) return setWaited(0);
+    const start = Date.now();
+    const timer = setInterval(() => setWaited(Math.floor((Date.now() - start) / 1000)), 1000);
+    return () => clearInterval(timer);
+  }, [busy]);
+  const waitText =
+    waited >= 35 ? t('res.looking5') : waited >= 22 ? t('res.looking4') : waited >= 12 ? t('res.looking3') : waited >= 6 ? t('res.looking2') : t('res.looking');
+  const canCancel = busy && waited >= CANCEL_AFTER;
 
   return (
     // ohne eigene Hintergrundfarbe: beim Zurückwischen soll die Seite darunter sichtbar werden
@@ -254,10 +266,11 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             {!result && (
               <View style={styles.loading}>
                 <Explorer size={64} />
-                <Text style={styles.loadingText}>{t('res.looking')}</Text>
+                <Text style={styles.loadingText}>{waitText}</Text>
                 <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
-                {busy && (
-                  <Pressable onPress={cancel} accessibilityRole="button" hitSlop={8} style={styles.cancelBtn}>
+                {/* klein und erst nach ein paar Sekunden, damit man nicht vorschnell abbricht */}
+                {canCancel && (
+                  <Pressable onPress={cancel} accessibilityRole="button" hitSlop={12} style={styles.cancelBtn}>
                     <Text style={styles.cancelText}>{t('common.cancel')}</Text>
                   </Pressable>
                 )}
@@ -288,7 +301,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {!limited && (
             <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
               {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
-              {busy && !plus && <Text style={[styles.cancelHint, { color: p.mute }]}>{t('res.cancelHint')}</Text>}
+              {canCancel && !plus && <Text style={[styles.cancelHint, { color: p.mute }]}>{t('res.cancelHint')}</Text>}
               {result && !result.ok && !result.limit && (
                 <>
                   <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
@@ -709,6 +722,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.accentLight,
     marginTop: 12,
+    textAlign: 'center',
+    paddingHorizontal: 28,
   },
   back: {
     position: 'absolute',
@@ -721,16 +736,9 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 14,
   },
-  cancelBtn: {
-    marginTop: 12,
-    paddingHorizontal: 22,
-    paddingVertical: 7,
-    borderRadius: 20,
-    borderWidth: 1.5,
-    borderColor: 'rgba(255,255,255,0.7)',
-  },
-  cancelHint: { fontFamily: fonts.sans, fontSize: 12, opacity: 0.7, marginTop: 2 },
-  cancelText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white },
+  cancelBtn: { marginTop: 14 },
+  cancelText: { fontFamily: fonts.sans, fontSize: 13, color: colors.white, opacity: 0.6, textDecorationLine: 'underline' },
+  cancelHint: { fontFamily: fonts.sans, fontSize: 11.5, opacity: 0.6, marginTop: 2 },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
   stamp: {
     position: 'absolute',
