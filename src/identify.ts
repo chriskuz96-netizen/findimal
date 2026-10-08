@@ -65,7 +65,7 @@ export async function loadDetails(a: Animal, lang: Lang): Promise<Details | null
 
 export type IdentifyResult =
   | { ok: true; animal: Animal }
-  | { ok: false; message: string; limit?: boolean }; // limit: Gratis-Fotos für heute aufgebraucht
+  | { ok: false; message: string; limit?: boolean; cancelled?: boolean }; // limit: Gratis-Fotos für heute aufgebraucht
 
 const KEY_STORAGE = 'findimal-app-key';
 
@@ -104,44 +104,77 @@ function askForAppKey(t: Translate): Promise<string | null> {
 }
 
 // extra = weiteres Foto zu einem Tier, das gerade bestimmt wird (zählt nicht als neues Gratis-Foto)
-async function send(photos: Photo[], appKey: string, lang: Lang): Promise<Response> {
+async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, signal?: AbortSignal): Promise<Response> {
   return fetch(SERVER_URL, {
     method: 'POST',
+    signal,
     headers: {
       'Content-Type': 'application/json',
       'X-Findimal-Key': appKey,
       'X-Findimal-Device': await getDeviceId(),
       ...((await hasPlus()) ? { 'X-Findimal-Plus': '1' } : {}),
     },
-    body: JSON.stringify({ images: photos.map((p) => p.base64), lang, extra: photos.length > 1 }),
+    body: JSON.stringify({ images: photos.map((p) => p.base64), lang, extra: photos.length > 1, rid }),
   });
 }
 
 // Schickt ein oder mehrere Fotos desselben Tieres an den Findimal-Server und liefert den Steckbrief.
-export async function identify(photos: Photo[], t: Translate, lang: Lang): Promise<IdentifyResult> {
+// cancel: zum Abbrechen (dann zählt das Foto nicht als Gratis-Foto)
+export type IdentifyCancel = { rid: string; controller: AbortController };
+
+export function newCancel(): IdentifyCancel {
+  const rid = Array.from({ length: 20 }, () => 'abcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 36)]).join('');
+  return { rid, controller: new AbortController() };
+}
+
+// Bricht eine laufende Bestimmung ab und sagt dem Server Bescheid, dass sie nicht zählen soll
+export async function cancelIdentify(c: IdentifyCancel): Promise<void> {
+  c.controller.abort();
+  if (!SERVER_URL) return;
+  try {
+    await fetch(SERVER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Findimal-Key': await getAppKey(),
+        'X-Findimal-Device': await getDeviceId(),
+      },
+      body: JSON.stringify({ mode: 'cancel', rid: c.rid }),
+    });
+  } catch {
+    // offline: dann ist die Bestimmung ohnehin nicht angekommen
+  }
+}
+
+export async function identify(photos: Photo[], t: Translate, lang: Lang, cancel?: IdentifyCancel): Promise<IdentifyResult> {
   if (!SERVER_URL) return { ok: false, message: t('id.noServer') };
   if (photos.some((p) => !p.base64)) return { ok: false, message: t('id.noPhoto') };
+  const signal = cancel?.controller.signal;
   try {
-    let res = await send(photos, await getAppKey(), lang);
+    let res = await send(photos, await getAppKey(), lang, cancel?.rid, signal);
     if (res.status === 401) {
       const key = await askForAppKey(t);
       if (!key) return { ok: false, message: t('id.noCode') };
-      res = await send(photos, key, lang);
+      res = await send(photos, key, lang, cancel?.rid, signal);
       if (res.status === 401) return { ok: false, message: t('id.wrongCode') };
     }
     if (res.status === 429) {
       await setUsedToday(FREE_PHOTOS_PER_DAY);
       return { ok: false, message: t('lim.text', { n: FREE_PHOTOS_PER_DAY }), limit: true };
     }
+    if (res.status === 409 || signal?.aborted) return { ok: false, message: '', cancelled: true };
     if (res.status === 400) return { ok: false, message: t('id.badPhoto') };
     if (res.status === 422) return { ok: false, message: t('id.refused') };
     if (res.status >= 500) return { ok: false, message: t('id.unavailable') };
     if (!res.ok) return { ok: false, message: t('id.error') };
     // Gratis-Fotos mitzählen (der Server meldet, wie viele heute schon genutzt sind)
     const used = Number(res.headers.get('X-Findimal-Used'));
+    const animal = (await res.json()) as Animal;
+    if (signal?.aborted) return { ok: false, message: '', cancelled: true };
     if (photos.length === 1) await setUsedToday(Number.isFinite(used) && used > 0 ? used : (await usedToday()) + 1);
-    return { ok: true, animal: (await res.json()) as Animal };
+    return { ok: true, animal };
   } catch {
+    if (signal?.aborted) return { ok: false, message: '', cancelled: true };
     return { ok: false, message: t('id.offline') };
   }
 }

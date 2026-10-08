@@ -762,6 +762,25 @@ export default {
       return res;
     }
 
+    // Abbrechen während der Bestimmung: zählt nicht als Gratis-Foto.
+    // Kommt die Bestimmung danach noch an, wird sie verworfen; war sie schon gezählt, wird zurückgezählt.
+    if (body.mode === 'cancel') {
+      const rid = String(body.rid || '');
+      if (!/^[a-z0-9]{8,40}$/.test(rid) || !env.DB) return json({ ok: false }, 400);
+      const capKey = deviceKey(request, 'c');
+      const cancels = Number(await env.DB.get(capKey)) || 0;
+      if (cancels >= 10) return json({ ok: false }, 429); // gegen Missbrauch: höchstens 10 am Tag
+      await env.DB.put(capKey, String(cancels + 1), { expirationTtl: 60 * 60 * 48 });
+      await env.DB.put(`cx:${rid}`, '1', { expirationTtl: 600 });
+      const counted = await env.DB.get(`ok:${rid}`);
+      if (counted) {
+        const used = Number(await env.DB.get(counted)) || 0;
+        if (used > 0) await env.DB.put(counted, String(used - 1), { expirationTtl: 60 * 60 * 48 });
+        await env.DB.delete(`ok:${rid}`);
+      }
+      return json({ ok: true });
+    }
+
     // Ausführlicher Steckbrief zu einem schon bestimmten Tier (Text, kein Foto)
     if (body.mode === 'details') {
       const name = String(body.name || '').slice(0, 120);
@@ -815,6 +834,9 @@ export default {
       ],
       (a) => a.tier_gefunden && a.sicherheit !== 'unsicher',
     );
+    // in der App abgebrochen: Ergebnis verwerfen, nichts zählen
+    const rid = /^[a-z0-9]{8,40}$/.test(String(body.rid || '')) ? String(body.rid) : null;
+    if (rid && env.DB && (await env.DB.get(`cx:${rid}`))) return json({ fehler: 'abgebrochen' }, 409);
     // Beliebteste Tiere der Saison: anonym mitzählen (nur beim ersten Foto, nicht bei Zusatzfotos desselben Tieres)
     if (res.ok && images.length === 1 && ctx) {
       ctx.waitUntil(
@@ -828,6 +850,8 @@ export default {
     // nur erfolgreiche Bestimmungen zählen
     if (counter && res.ok) {
       await env.DB.put(counter.key, String(counter.used + 1), { expirationTtl: 60 * 60 * 48 });
+      // merken, welcher Zähler erhöht wurde – falls gleich danach noch abgebrochen wird
+      if (rid) await env.DB.put(`ok:${rid}`, counter.key, { expirationTtl: 600 });
       if (!extra) res.headers.set('X-Findimal-Used', String(counter.used + 1));
     }
     return res;

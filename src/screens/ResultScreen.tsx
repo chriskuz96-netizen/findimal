@@ -22,7 +22,7 @@ import { LimitCard } from '../components/LimitCard';
 import { SwipeBack } from '../components/SwipeBack';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
-import { Animal, hasDetails, identify, IdentifyResult, loadDetails } from '../identify';
+import { Animal, cancelIdentify, hasDetails, identify, IdentifyCancel, IdentifyResult, loadDetails, newCancel } from '../identify';
 import { breedGuessed, displayName } from '../names';
 import { Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
@@ -133,11 +133,21 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const findId = useRef<string | null>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
+  // Laufende Bestimmung (zum Abbrechen) und Stand davor (bei einem weiteren Foto)
+  const pending = useRef<IdentifyCancel | null>(null);
+  const before = useRef<{ photos: Photo[]; result: IdentifyResult | null } | null>(null);
+
   const run = useCallback(
     (list: Photo[]) => {
       if (!onIdentified) return;
       setResult(null);
-      identify(list, t, lang).then(async (r) => {
+      const c = newCancel();
+      pending.current = c;
+      identify(list, t, lang, c).then(async (r) => {
+        // abgebrochen oder von einer neueren Bestimmung überholt: nichts anzeigen, nichts speichern
+        if (pending.current !== c || (!r.ok && r.cancelled)) return;
+        pending.current = null;
+        before.current = null;
         setResult(r);
         if (r.ok && r.animal.tier_gefunden) {
           const res = await onIdentified(r.animal, findId.current, list[0]);
@@ -164,8 +174,26 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
     const extra = await morePhoto?.(kind).finally(() => (adding.current = false));
     if (!extra) return;
     const list = fresh ? [extra] : [...photos, extra];
+    before.current = { photos, result };
     setPhotos(list);
     run(list);
+  };
+
+  // Abbrechen während der Bestimmung: zählt nicht als Gratis-Foto.
+  // Beim ersten Foto geht es zurück, bei einem weiteren Foto bleibt das bisherige Ergebnis.
+  const cancel = () => {
+    const c = pending.current;
+    if (!c) return;
+    pending.current = null;
+    cancelIdentify(c);
+    const prev = before.current;
+    before.current = null;
+    if (prev) {
+      setPhotos(prev.photos);
+      setResult(prev.result);
+    } else {
+      onBack();
+    }
   };
 
   // Zurück/Weiter: ab dem 3. Foto des Tages kommt vorher einmal die halbseitige Anzeige
@@ -200,12 +228,13 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const canAddPhoto = !!morePhoto && !!animal && photos.length < MAX_PHOTOS;
   const unsure = canAddPhoto && animal.sicherheit !== 'sicher';
   const noAnimal = !!morePhoto && !!result?.ok && !animal;
+  const busy = !!onIdentified && !result; // wird gerade bestimmt: nur Abbrechen möglich
 
   return (
     // ohne eigene Hintergrundfarbe: beim Zurückwischen soll die Seite darunter sichtbar werden
     <View style={{ flex: 1 }}>
       {/* nach rechts wischen = zurück (nicht, solange die halbseitige Anzeige offen ist) */}
-      <SwipeBack onBack={leave} enabled={bigAd !== 'open'}>
+      <SwipeBack onBack={leave} enabled={bigAd !== 'open' && !busy}>
         <ScrollView
           style={{ flex: 1, backgroundColor: p.bg }}
           contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
@@ -228,17 +257,24 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
                 <Text style={styles.loadingTitle}>{t('res.wait')}</Text>
                 <Text style={styles.loadingText}>{t('res.looking')}</Text>
                 <ActivityIndicator color={colors.accentLight} style={{ marginTop: 10 }} />
+                {busy && (
+                  <Pressable onPress={cancel} accessibilityRole="button" hitSlop={8} style={styles.cancelBtn}>
+                    <Text style={styles.cancelText}>{t('common.cancel')}</Text>
+                  </Pressable>
+                )}
               </View>
             )}
-            {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss */}
-            <Pressable
-              onPress={leave}
-              accessibilityRole="button"
-              hitSlop={10}
-              style={({ pressed }) => [styles.back, { top: insets.top + 10, opacity: pressed ? 0.7 : 1 }]}
-            >
-              <Text style={styles.backText}>{t('pro.back')}</Text>
-            </Pressable>
+            {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss (nicht während der Bestimmung) */}
+            {!busy && (
+              <Pressable
+                onPress={leave}
+                accessibilityRole="button"
+                hitSlop={10}
+                style={({ pressed }) => [styles.back, { top: insets.top + 10, opacity: pressed ? 0.7 : 1 }]}
+              >
+                <Text style={styles.backText}>{t('pro.back')}</Text>
+              </Pressable>
+            )}
             {isNew && result && <Text style={[styles.stamp, { top: insets.top + 14 }]}>{t('res.new')}</Text>}
             {photos.length > 1 && (
               <View style={styles.thumbs}>
@@ -253,6 +289,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {!limited && (
             <View style={[styles.card, styles.nameCard, { backgroundColor: p.card, borderColor: p.line }]}>
               {!result && <Text style={[styles.name, { color: p.ink }]}>{t('res.wait')}</Text>}
+              {busy && !plus && <Text style={[styles.body, { color: p.mute }]}>{t('res.cancelHint')}</Text>}
               {result && !result.ok && !result.limit && (
                 <>
                   <Text style={[styles.name, { color: p.ink }]}>{t('res.oops')}</Text>
@@ -378,7 +415,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {/* dezente Erinnerung ans Findimal-Ehrenwort */}
           <Text style={[styles.respect, { color: p.mute }]}>🐾 {t('res.respect')}</Text>
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
-          <Button label={backLabel ?? t('res.continue')} onPress={leave} p={p} filled={!!result} />
+          {!busy && <Button label={backLabel ?? t('res.continue')} onPress={leave} p={p} filled={!!result} />}
         </ScrollView>
 
       </SwipeBack>
@@ -691,6 +728,15 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 14,
   },
+  cancelBtn: {
+    marginTop: 12,
+    paddingHorizontal: 22,
+    paddingVertical: 7,
+    borderRadius: 20,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255,255,255,0.7)',
+  },
+  cancelText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
   stamp: {
     position: 'absolute',
