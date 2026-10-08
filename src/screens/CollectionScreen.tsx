@@ -17,7 +17,7 @@ import { AdSlot } from '../components/AdSlot';
 import { Find, speciesKey, useFindPhoto } from '../finds';
 import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
-import { displayName } from '../identify';
+import { displayName } from '../names';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {

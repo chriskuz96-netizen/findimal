@@ -67,7 +67,12 @@ bestimme zusätzlich die Rasse und schreibe sie kurz in "rasse" (höchstens drei
 "rasse_sicher" auf false. "name" bleibt die Tierart (z. B. "Haushund", "Haushuhn").
 Bei Wildtieren bleibt "rasse" leer und "rasse_sicher" ist true.
 Setze "gefaehrdet" auf true, wenn die Art auf der Roten Liste Deutschlands oder weltweit (IUCN) mindestens als
-"gefährdet" eingestuft ist. Bei Haus- und Nutztieren, häufigen Arten oder wenn du unsicher bist: false.`;
+"gefährdet" eingestuft ist. Bei Haus- und Nutztieren, häufigen Arten oder wenn du unsicher bist: false.
+Setze "giftig" auf true, wenn das Tier giftig ist oder mit Gift stechen oder beißen kann (z. B. Wespe, Biene,
+Kreuzotter, Feuersalamander), sonst false.
+Setze "gross" auf true, wenn ein ausgewachsenes Tier dieser Art größer oder länger als 1 Meter ist (z. B. Reh,
+Pferd, Rind, Schwan, Wildschwein), sonst false.
+Setze "schmetterling" auf true bei Schmetterlingen und Faltern (auch Nachtfalter und Raupen), sonst false.`;
 
 // Kurzer Steckbrief direkt nach dem Foto
 const SCHEMA = {
@@ -75,7 +80,7 @@ const SCHEMA = {
   additionalProperties: false,
   required: [
     'tier_gefunden', 'name', 'rasse', 'rasse_sicher', 'wissenschaftlicher_name', 'gruppe', 'sicherheit',
-    'kurzbeschreibung', 'wusstest_du', 'hinweis', 'gefaehrdet',
+    'kurzbeschreibung', 'wusstest_du', 'hinweis', 'gefaehrdet', 'giftig', 'gross', 'schmetterling',
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
@@ -83,6 +88,9 @@ const SCHEMA = {
     rasse: TEXT,
     rasse_sicher: { type: 'boolean' },
     gefaehrdet: { type: 'boolean' },
+    giftig: { type: 'boolean' },
+    gross: { type: 'boolean' },
+    schmetterling: { type: 'boolean' },
     wissenschaftlicher_name: TEXT,
     gruppe: GRUPPE,
     sicherheit: { type: 'string', enum: ['sicher', 'wahrscheinlich', 'unsicher'] },

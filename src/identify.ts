@@ -13,7 +13,10 @@ export type Animal = {
   name: string;
   rasse?: string; // nur bei Haus- und Nutztieren, z. B. "Golden Retriever"
   rasse_sicher?: boolean; // false = Rasse nur geschätzt
-  gefaehrdet?: boolean; // auf der Roten Liste (mind. gefährdet) – für das Abzeichen "Seltener Fund"
+  gefaehrdet?: boolean;
+  giftig?: boolean; // giftig oder sticht/beißt mit Gift
+  gross?: boolean; // ausgewachsen über 1 Meter
+  schmetterling?: boolean; // Schmetterling oder Falter (auch Raupe) // auf der Roten Liste (mind. gefährdet) – für das Abzeichen "Seltener Fund"
   wissenschaftlicher_name: string;
   gruppe: string;
   sicherheit: 'sicher' | 'wahrscheinlich' | 'unsicher';
@@ -139,16 +142,4 @@ export async function identify(photos: Photo[], t: Translate, lang: Lang): Promi
   } catch {
     return { ok: false, message: t('id.offline') };
   }
-}
-
-// Bei Haus- und Nutztieren steht die Rasse groß als Name ("Labrador-Mischling"), sonst der Tiername.
-// Ältere Funde hatten "vermutlich …" in der Rasse – das wird hier herausgenommen.
-export function displayName(a: Animal): string {
-  const r = (a.rasse || '').replace(/^vermutlich\s+/i, '').trim();
-  return r ? r.charAt(0).toUpperCase() + r.slice(1) : a.name;
-}
-
-// Ist die Rasse nur geschätzt?
-export function breedGuessed(a: Animal): boolean {
-  return !!a.rasse && (a.rasse_sicher === false || /vermutlich/i.test(a.rasse));
 }

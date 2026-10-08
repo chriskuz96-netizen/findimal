@@ -1,6 +1,6 @@
 import { Find, speciesKey } from './finds';
 import { GroupId, groupOf } from './groups';
-import { breedGuessed } from './identify';
+import { breedGuessed } from './names';
 import { seasonAnimals, seasonId, SeasonId } from './season';
 import { thisWeek, WeekTask, weeksDone } from './weekly';
 
@@ -62,7 +62,16 @@ export type BadgeId =
   | 'quiz25'
   | 'team3'
   | 'streak30'
-  | 'breeds5';
+  | 'breeds5'
+  | 'cats5'
+  | 'dogs5'
+  | 'farm3'
+  | 'big3'
+  | 'venom'
+  | 'butterfly3'
+  | 'spiders5'
+  | 'birds10'
+  | 'insects10';
 
 // Medaillen-Stufe je Abzeichen. Jedes verdiente Abzeichen gibt XP: Bronze 25, Silber 50, Gold 100.
 export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
@@ -93,6 +102,15 @@ export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
   team3: 'bronze',
   streak30: 'gold',
   breeds5: 'bronze',
+  cats5: 'bronze',
+  dogs5: 'bronze',
+  farm3: 'silver',
+  big3: 'silver',
+  venom: 'silver',
+  butterfly3: 'silver',
+  spiders5: 'silver',
+  birds10: 'gold',
+  insects10: 'gold',
 };
 export const BADGE_XP = { bronze: 25, silver: 50, gold: 100 };
 
@@ -148,6 +166,29 @@ function breedCount(finds: Find[]): number {
     .filter((r) => r && r !== 'mischling');
   return new Set(names).size;
 }
+
+// Wissenschaftlicher Name klein geschrieben (z. B. "felis catus")
+const sci = (f: Find) => (f.animal.wissenschaftlicher_name || '').trim().toLowerCase();
+const isCat = (f: Find) => /^felis (silvestris )?catus|^felis domesticus/.test(sci(f));
+const isDog = (f: Find) => /^canis (lupus )?familiaris/.test(sci(f));
+
+// Nutztiere (Gattung + Art), für "Bauernhof-Held"
+const FARM = [
+  'gallus gallus', 'bos taurus', 'bos primigenius', 'sus domesticus', 'sus scrofa domesticus', 'equus caballus',
+  'equus ferus', 'equus asinus', 'equus africanus', 'ovis aries', 'capra hircus', 'anser anser', 'anas platyrhynchos domesticus',
+  'meleagris gallopavo', 'lama glama', 'vicugna pacos', 'numida meleagris', 'cairina moschata',
+];
+function farmKinds(finds: Find[]): number {
+  const kinds = new Set<string>();
+  for (const f of finds) {
+    const k = FARM.find((x) => sci(f).startsWith(x));
+    if (k) kinds.add(k.split(' ').slice(0, 2).join(' '));
+  }
+  return kinds.size;
+}
+
+// Verschiedene Arten, auf die eine Bedingung zutrifft
+const kinds = (finds: Find[], ok: (f: Find) => boolean) => new Set(finds.filter(ok).map((f) => speciesKey(f.animal))).size;
 
 // extra.bestRank: bester Platz, den man in der weltweiten Rangliste je hatte (null = nie dabei)
 // extra.maxFriends: höchste Zahl an Freunden in der Rangliste
@@ -225,6 +266,15 @@ export function computeProgress(
     { id: 'team3', earned: (extra.maxFriends ?? 0) >= 3 },
     { id: 'streak30', earned: longestStreak(finds) >= 30 },
     { id: 'breeds5', earned: breedCount(finds) >= 5 },
+    { id: 'cats5', earned: finds.filter(isCat).length >= 5 },
+    { id: 'dogs5', earned: finds.filter(isDog).length >= 5 },
+    { id: 'farm3', earned: farmKinds(finds) >= 3 },
+    { id: 'big3', earned: kinds(finds, (f) => !!f.animal.gross) >= 3 },
+    { id: 'venom', earned: finds.some((f) => f.animal.giftig) },
+    { id: 'butterfly3', earned: kinds(finds, (f) => !!f.animal.schmetterling) >= 3 },
+    { id: 'spiders5', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'ara') >= 5 },
+    { id: 'birds10', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'bird') >= 10 },
+    { id: 'insects10', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'ins') >= 10 },
   ];
   // XP für verdiente Abzeichen
   for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];

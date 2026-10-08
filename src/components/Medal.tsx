@@ -304,6 +304,109 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Ellipse cx={9} cy={-3} rx={2.8} ry={3.6} />
         </G>
       );
+    case 'cats5': // Katzenkopf
+      return (
+        <G>
+          <Path d="M-11 -2 L-10 -13 L-3 -7 Z M11 -2 L10 -13 L3 -7 Z" fill={c('#9AA4AE')} />
+          <Path d="M-11 -4 Q-11 -9 -4 -8 L4 -8 Q11 -9 11 -4 Q12 9 0 11 Q-12 9 -11 -4 Z" fill={c('#9AA4AE')} />
+          <Path d="M-8.5 -9 L-8 -4 L-5 -7 Z M8.5 -9 L8 -4 L5 -7 Z" fill={c('#F2B8B0')} />
+          <Ellipse cx={-4.5} cy={-1} rx={1.8} ry={2.4} fill={c('#B5D96A')} />
+          <Ellipse cx={4.5} cy={-1} rx={1.8} ry={2.4} fill={c('#B5D96A')} />
+          <Path d="M-1.5 3 L1.5 3 L0 4.8 Z" fill={c('#E88A8A')} />
+          <Path d="M-3 4 L-11 2.5 M-3 5.5 L-11 6.5 M3 4 L11 2.5 M3 5.5 L11 6.5" stroke={c('#F4F6F8')} strokeWidth={0.7} />
+        </G>
+      );
+    case 'dogs5': // Hundekopf mit Schlappohren
+      return (
+        <G>
+          <Path d="M-8 -6 Q-8 -11 0 -11 Q8 -11 8 -6 L8 4 Q8 11 0 11 Q-8 11 -8 4 Z" fill={c('#D9A86C')} />
+          <Path d="M-8 -8 Q-15 -6 -12 5 Q-9 6 -8 1 Z M8 -8 Q15 -6 12 5 Q9 6 8 1 Z" fill={c('#8A5A33')} />
+          <Ellipse cx={0} cy={5} rx={4.5} ry={3.6} fill={c('#F3E2C8')} />
+          <Circle cx={-3.5} cy={-2} r={1.4} fill={c('#13261C')} />
+          <Circle cx={3.5} cy={-2} r={1.4} fill={c('#13261C')} />
+          <Ellipse cx={0} cy={3} rx={1.9} ry={1.4} fill={c('#13261C')} />
+          <Path d="M-1.4 8 Q0 10 1.4 8" stroke={c('#E07A7A')} strokeWidth={1.2} fill="none" />
+        </G>
+      );
+    case 'farm3': // Hahn
+      return (
+        <G>
+          <Path d="M-2 -12 Q0 -15 2 -12 Q4 -15 5 -11 Q7 -12 6 -8 L-1 -8 Z" fill={c('#D9433A')} />
+          <Path d="M-6 9 Q-12 2 -8 -4 Q-5 -9 1 -8 Q6 -7 6 -2 L10 -1 L6 1 Q8 9 -1 11 Q-4 11 -6 9 Z" fill={c('#F4F6F8')} />
+          <Path d="M-6 8 Q-14 6 -13 -3 Q-10 2 -6 2 Z" fill={c('#3E8F5E')} />
+          <Path d="M6 1 L4 4 L5 1 Z" fill={c('#D9433A')} />
+          <Circle cx={3} cy={-4} r={1.1} fill={c('#13261C')} />
+          <Path d="M-2 11 L-2 14 M2 11 L2 14" stroke={c('#E8B53A')} strokeWidth={1.4} />
+        </G>
+      );
+    case 'big3': // Hirschgeweih über einem Kopf
+      return (
+        <G>
+          <Path d="M-4 -4 L-8 -12 M-8 -12 L-12 -11 M-8 -12 L-9 -16 M-6 -8 L-11 -7 M4 -4 L8 -12 M8 -12 L12 -11 M8 -12 L9 -16 M6 -8 L11 -7" stroke={c('#F2D7A6')} strokeWidth={1.8} strokeLinecap="round" />
+          <Path d="M-6 -4 Q0 -7 6 -4 L4 8 Q0 13 -4 8 Z" fill={c('#B7783D')} />
+          <Ellipse cx={0} cy={9} rx={3} ry={2.3} fill={c('#3A2416')} />
+          <Circle cx={-3} cy={0} r={1.1} fill={c('#13261C')} />
+          <Circle cx={3} cy={0} r={1.1} fill={c('#13261C')} />
+        </G>
+      );
+    case 'venom': // Warndreieck
+      return (
+        <G>
+          <Path d="M0 -13 L13 10 L-13 10 Z" fill={c('#FFD45E')} stroke={c('#9A6B12')} strokeWidth={1.4} strokeLinejoin="round" />
+          <Path d="M0 -5 L0 3" stroke={c('#13261C')} strokeWidth={2.6} strokeLinecap="round" />
+          <Circle cx={0} cy={6.6} r={1.5} fill={c('#13261C')} />
+        </G>
+      );
+    case 'butterfly3': // Schmetterling von der Seite, mit Blüte
+      return (
+        <G>
+          <Path d="M0 -2 Q-12 -16 -12 -4 Q-12 2 0 0 Z" fill={c('#8E6CC9')} />
+          <Path d="M0 -2 Q12 -16 12 -4 Q12 2 0 0 Z" fill={c('#8E6CC9')} />
+          <Path d="M0 0 Q-9 10 -6 2 Z M0 0 Q9 10 6 2 Z" fill={c('#C9B3EE')} />
+          <Circle cx={-7} cy={-6} r={1.6} fill={c('#FFD45E')} />
+          <Circle cx={7} cy={-6} r={1.6} fill={c('#FFD45E')} />
+          <Path d="M0 -4 L0 6" stroke={c('#13261C')} strokeWidth={1.6} strokeLinecap="round" />
+          <Path d="M0 -4 Q-2 -9 -4 -10 M0 -4 Q2 -9 4 -10" stroke={c('#13261C')} strokeWidth={0.8} fill="none" />
+          <Circle cx={0} cy={11} r={2.2} fill={c('#E88A8A')} />
+        </G>
+      );
+    case 'spiders5': // Spinne mit Lupe
+      return (
+        <G>
+          <Path d="M-3 0 L-11 -6 M-3 1 L-12 0 M-3 2 L-11 7 M-2 3 L-8 11 M3 0 L11 -6 M3 1 L12 0 M3 2 L11 7 M2 3 L8 11" stroke={c('#E8D3B8')} strokeWidth={1.3} strokeLinecap="round" />
+          <Ellipse cx={0} cy={3} rx={4.2} ry={5} fill={c('#C98A5A')} />
+          <Circle cx={0} cy={-3} r={2.8} fill={c('#C98A5A')} />
+          <Path d="M-1.6 2 L1.6 2 M0 0.5 L0 5" stroke={c('#F4F6F8')} strokeWidth={0.9} />
+          <Circle cx={8} cy={-9} r={4} fill="none" stroke={c('#FFD45E')} strokeWidth={1.6} />
+          <Path d="M5.2 -6.2 L2 -3" stroke={c('#FFD45E')} strokeWidth={1.8} strokeLinecap="round" />
+        </G>
+      );
+    case 'birds10': // Vogel mit 10
+      return (
+        <G>
+          <Path d="M-11 2 Q-6 -8 3 -6 Q8 -10 12 -7 L8 -4 Q8 6 -2 8 Q-9 8 -11 2 Z" fill={c('#5C9BD1')} />
+          <Path d="M-6 -1 Q0 -6 6 -2 Q0 4 -6 -1 Z" fill={c('#2E6EA8')} />
+          <Circle cx={6} cy={-6} r={1} fill={c('#13261C')} />
+          <Path d="M12 -7 L15 -6 L12 -5 Z" fill={c('#E8B53A')} />
+          <SvgText x={0} y={14} fontSize={7.5} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
+            10
+          </SvgText>
+        </G>
+      );
+    case 'insects10': // Biene mit 10
+      return (
+        <G>
+          <Ellipse cx={-4} cy={-8} rx={4.5} ry={3} fill={c('#E6F2FA')} opacity={0.9} />
+          <Ellipse cx={4} cy={-8} rx={4.5} ry={3} fill={c('#E6F2FA')} opacity={0.9} />
+          <Ellipse cx={0} cy={-1} rx={8} ry={6} fill={c('#FFD45E')} />
+          <Path d="M-3 -6.5 L-3 4.5 M2 -6.5 L2 4.5" stroke={c('#13261C')} strokeWidth={2.2} />
+          <Circle cx={-8.5} cy={-2} r={2.6} fill={c('#13261C')} />
+          <Path d="M8 -1 L11 -1" stroke={c('#13261C')} strokeWidth={1.4} strokeLinecap="round" />
+          <SvgText x={0} y={14} fontSize={7.5} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
+            10
+          </SvgText>
+        </G>
+      );
     case 'allgroups': // Krone mit sechs Edelsteinen
       return (
         <G>
