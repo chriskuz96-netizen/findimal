@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Circle, G, Path } from 'react-native-svg';
 
 import { AdSlot } from '../components/AdSlot';
 import { Explorer } from '../components/Explorer';
@@ -87,7 +88,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
             {t('goal.title')} · {seasonLeft === 1 ? t('week.leftOne') : t('week.left', { n: seasonLeft })}
           </Text>
-          <XpPill text={goal.done ? t('ch.done') : `+${XP.season} XP`} done={goal.done} />
+          <XpPill text={`+${XP.season} XP`} done={goal.done} />
         </View>
         {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
         <View style={styles.goalRow}>
@@ -116,13 +117,11 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
             {t('week.title')} · {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
           </Text>
-          <XpPill text={week.done ? t('ch.done') : `+${XP.week} XP`} done={week.done} />
+          <XpPill text={`+${XP.week} XP`} done={week.done} />
         </View>
-        {/* Aufgabe mit passendem Symbol */}
+        {/* Aufgabe mit passendem Symbol (wie beim Saison-Ziel) */}
         <View style={styles.weekRow}>
-          <View style={[styles.weekIcon, { backgroundColor: week.done ? 'rgba(111,191,138,0.18)' : 'rgba(232,131,58,0.14)' }]}>
-            <Text style={styles.weekEmoji}>{WEEK_ICON[week.task]}</Text>
-          </View>
+          <TaskIcon task={week.task} done={week.done} />
           <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
         </View>
       </View>
@@ -229,21 +228,43 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   );
 }
 
-// Symbol je Wochen-Aufgabe
-const WEEK_ICON: Record<WeekTask, string> = {
-  bird: '🐦',
-  ins: '🐞',
-  mam: '🦊',
-  amp: '🐸',
-  mol: '🐌',
-  ara: '🕷️',
-  fish: '🐟',
-  rep: '🦎',
-  species3: '🔍',
-  days2: '📅',
-  morning: '🌅',
-  evening: '🌙',
-};
+// Symbol je Wochen-Aufgabe: gleicher dunkler Kreis und gleiche Strich-Symbole wie beim Saison-Ziel
+function TaskIcon({ task, done }: { task: WeekTask; done: boolean }) {
+  const color = colors.accentLight;
+  const st = { fill: 'none', stroke: color, strokeWidth: 1.4, strokeLinejoin: 'round', strokeLinecap: 'round' } as const;
+  const group = GROUPS.find((g) => g.id === task);
+  return (
+    <View style={[styles.goalDot, { backgroundColor: '#123826', borderStyle: 'solid', borderColor: done ? DONE : '#123826' }]}>
+      {group ? (
+        <GroupIcon id={group.id} size={18} color={color} />
+      ) : (
+        <Svg width={18} height={18} viewBox="0 0 24 24">
+          <G {...st}>
+            {task === 'species3' && (
+              <>
+                <Circle cx={10.5} cy={10.5} r={6} />
+                <Path d="M15 15l5 5" />
+              </>
+            )}
+            {task === 'days2' && (
+              <>
+                <Path d="M4 6.5h16v13H4z" />
+                <Path d="M4 10.5h16M8.5 4v4M15.5 4v4" />
+              </>
+            )}
+            {task === 'morning' && (
+              <>
+                <Path d="M7 17a5 5 0 0 1 10 0" />
+                <Path d="M3 17h18M12 6v3M5.5 10.5l2 2M18.5 10.5l-2 2" />
+              </>
+            )}
+            {task === 'evening' && <Path d="M19 14.5A7.5 7.5 0 1 1 9.5 5a6 6 0 0 0 9.5 9.5z" />}
+          </G>
+        </Svg>
+      )}
+    </View>
+  );
+}
 
 // Grün für "geschafft" (Rahmen und Marke)
 const DONE = '#6FBF8A';
@@ -319,8 +340,6 @@ const styles = StyleSheet.create({
   levelSub: { fontFamily: fonts.sans, fontSize: 13 },
   doneCard: { borderWidth: 2 },
   weekRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6 },
-  weekIcon: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center' },
-  weekEmoji: { fontSize: 20 },
   goalRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
   goalSlot: { width: 56, alignItems: 'center', gap: 3 },
   goalLabel: { fontFamily: fonts.sans, fontSize: 10.5 },
