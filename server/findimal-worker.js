@@ -352,6 +352,7 @@ const PRIVACY = {
       ['Was auf deinem Handy bleibt', `<p>Deine Sammlung (Fotos, Tiernamen, Datum), dein Name, deine Quiz-Antworten, Einstellungen und Abzeichen werden nur auf deinem Handy gespeichert. Mit „Profil zurücksetzen“ im Profil oder durch Löschen der App sind sie weg.</p>
 <p><b>Region:</b> Für „Jetzt in deiner Nähe“ gibst du deine Region selbst ein. Wenn du sie per Standort bestimmen lässt, ermittelt das iPhone den Ortsnamen über den Ortsdienst von Apple. Gespeichert wird nur der Ortsname, auf deinem Handy. Genauso bekommt jeder Fund den Namen des Ortes, an dem das Foto entstand – aus deinem Standort (nur wenn du ihn erlaubt hast), sonst aus dem Ort, den du in der App angegeben hast. Du kannst ihn bei jedem Fund ändern. Ortsdaten in deinen Fotos liest Findimal nicht. Auch hier wird nur der Name gespeichert, nie die genaue Position, und er bleibt auf deinem Handy.</p>`],
       ['„Jetzt in deiner Nähe“', `<p>Für die Tipps auf der Startseite schickt die App die Region, die du selbst eingetragen hast (z. B. „München“), die Tageszeit und die Sprache an den Server. Das Ergebnis wird bis zu 26 Stunden zwischengespeichert und für alle Nutzer derselben Region verwendet. Ein Bezug zu dir wird nicht gespeichert.</p>`],
+      ['Beliebteste Tiere der Saison', `<p>Wenn ein Wildtier bestimmt wird, zählt der Server anonym mit, welche Tierart es war und in welcher Jahreszeit – ohne Foto, Gerät, Ort oder Namen. Daraus entsteht die Liste der am häufigsten entdeckten Tiere auf der Saison-Seite. Haustiere werden nicht gezählt. Ein Bezug zu dir ist nicht möglich.</p>`],
       ['Tageslimit für Gratis-Fotos', `<p>Damit Gratis-Fotos begrenzt werden können, erzeugt die App eine zufällige Kennung für dein Handy. Der Server zählt damit, wie viele Fotos am Tag bestimmt wurden. Ohne Kennung wird ersatzweise die IP-Adresse verwendet. Die Zähler werden nach 48 Stunden automatisch gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Schutz vor Missbrauch und unbegrenzten Kosten).</p>`],
       ['Rangliste (freiwillig)', `<p>Wenn du bei der Rangliste mitmachst, speichert der Server deinen Spitznamen, deine Punkte (XP), Stufe, Zahl der Arten, dein Profilbild, deinen Freundescode und mit wem du befreundet bist. Freunde sehen diese Angaben; die 100 Entdecker mit den meisten Punkten erscheinen in der weltweiten Rangliste. Spitznamen mit Schimpfwörtern, Links oder Telefonnummern werden automatisch durch „Entdecker“ ersetzt. Meldest du einen Eintrag, speichern wir deinen Freundescode beim gemeldeten Eintrag; nach mehreren Meldungen wird er ausgeblendet. Mit „Rangliste verlassen“ wird dein Eintrag gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (deine Einwilligung durch das Mitmachen).</p>`],
       ['Server bei Cloudflare', `<p>Der Findimal-Server läuft bei Cloudflare, Inc. (USA) als Auftragsverarbeiter. Dabei wird technisch bedingt deine IP-Adresse verarbeitet. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert.</p>`],
@@ -379,6 +380,7 @@ const PRIVACY = {
       ['What stays on your phone', `<p>Your collection (photos, animal names, date), your name, quiz answers, settings and badges are stored only on your phone. “Reset profile” in your profile or deleting the app removes them.</p>
 <p><b>Region:</b> For “Near you now” you enter your region yourself. If you let the app detect it, the iPhone looks up the place name using Apple's location service. Only the place name is stored, on your phone. In the same way, each find gets the name of the place where the photo was taken – from your location (only if you allowed it), otherwise from the place you entered in the app. You can change it for every find. Findimal does not read location data stored in your photos. Here too only the name is stored, never the exact position, and it stays on your phone.</p>`],
       ['“Near you now”', `<p>For the tips on the home screen, the app sends the region you entered yourself (e.g. “Munich”), the time of day and the language to the server. The result is cached for up to 26 hours and shared by all users of that region. Nothing linking it to you is stored.</p>`],
+      ['Most spotted animals of the season', `<p>When a wild animal is identified, the server anonymously counts which species it was and in which season – without photo, device, place or name. This makes the list of the most spotted animals on the Season page. Pets are not counted. It cannot be linked to you.</p>`],
       ['Daily limit for free photos', `<p>To limit free photos, the app creates a random identifier for your phone. The server uses it to count how many photos were identified per day; without it, the IP address is used instead. The counters are deleted automatically after 48 hours. Legal basis: Art. 6(1)(f) GDPR (protection against abuse and unlimited costs).</p>`],
       ['Leaderboard (optional)', `<p>If you join the leaderboard, the server stores your nickname, points (XP), level, number of species, profile picture, friend code and who your friends are. Friends can see this; the top 100 explorers appear on the worldwide leaderboard. Nicknames with swear words, links or phone numbers are automatically replaced with “Entdecker”. If you report an entry, we store your friend code with the reported entry; after several reports it is hidden. “Leave leaderboard” deletes your entry. Legal basis: Art. 6(1)(a) GDPR (your consent by joining).</p>`],
       ['Server at Cloudflare', `<p>The Findimal server runs at Cloudflare, Inc. (USA) as a processor. Your IP address is processed for technical reasons. Cloudflare is certified under the EU-US Data Privacy Framework.</p>`],
@@ -406,6 +408,7 @@ const PRIVACY = {
       ['Ce qui reste sur ton téléphone', `<p>Ta collection (photos, noms des animaux, date), ton prénom, tes réponses au quiz, tes réglages et tes badges sont enregistrés uniquement sur ton téléphone. « Réinitialiser le profil » dans ton profil ou la suppression de l’app les efface.</p>
 <p><b>Région :</b> pour « Près de toi maintenant », tu indiques toi-même ta région. Si tu la fais détecter, l’iPhone trouve le nom du lieu grâce au service de localisation d’Apple. Seul le nom du lieu est enregistré, sur ton téléphone. De la même façon, chaque trouvaille reçoit le nom du lieu où la photo a été prise – grâce à ta position (seulement si tu l’as autorisée), sinon le lieu que tu as indiqué dans l’app. Tu peux le modifier pour chaque trouvaille. Findimal ne lit pas les données de lieu enregistrées dans tes photos. Là aussi, seul le nom est enregistré, jamais la position exacte, et il reste sur ton téléphone.</p>`],
       ['« Près de toi maintenant »', `<p>Pour les conseils de l’écran d’accueil, l’app envoie au serveur la région que tu as indiquée (par ex. « Lyon »), le moment de la journée et la langue. Le résultat est mis en cache jusqu’à 26 heures et partagé par tous les utilisateurs de cette région. Aucun lien avec toi n’est enregistré.</p>`],
+      ['Animaux les plus repérés de la saison', `<p>Quand un animal sauvage est identifié, le serveur compte de façon anonyme de quelle espèce il s’agit et en quelle saison – sans photo, appareil, lieu ni nom. Cela donne la liste des animaux les plus repérés sur la page Saison. Les animaux de compagnie ne sont pas comptés. Aucun lien avec toi n’est possible.</p>`],
       ['Limite quotidienne de photos gratuites', `<p>Pour limiter les photos gratuites, l’app crée un identifiant aléatoire pour ton téléphone. Le serveur s’en sert pour compter les photos identifiées par jour ; à défaut, l’adresse IP est utilisée. Les compteurs sont supprimés automatiquement après 48 heures. Base juridique : art. 6, par. 1, point f du RGPD (protection contre les abus et les coûts illimités).</p>`],
       ['Classement (facultatif)', `<p>Si tu participes au classement, le serveur enregistre ton pseudo, tes points (XP), ton niveau, le nombre d’espèces, ta photo de profil, ton code ami et tes amis. Tes amis voient ces informations ; les 100 explorateurs ayant le plus de points apparaissent dans le classement mondial. Les pseudos contenant des insultes, des liens ou des numéros de téléphone sont remplacés automatiquement par « Entdecker ». Si tu signales une entrée, nous enregistrons ton code ami avec l’entrée signalée ; après plusieurs signalements, elle est masquée. « Quitter le classement » supprime ton entrée. Base juridique : art. 6, par. 1, point a du RGPD (ton consentement en participant).</p>`],
       ['Serveur chez Cloudflare', `<p>Le serveur Findimal fonctionne chez Cloudflare, Inc. (États-Unis) en tant que sous-traitant. Ton adresse IP est traitée pour des raisons techniques. Cloudflare est certifié selon l’EU-US Data Privacy Framework.</p>`],
@@ -433,6 +436,7 @@ const PRIVACY = {
       ['Lo que se queda en tu móvil', `<p>Tu colección (fotos, nombres de animales, fecha), tu nombre, tus respuestas del quiz, tus ajustes e insignias se guardan solo en tu móvil. «Restablecer perfil» en tu perfil o borrar la app los elimina.</p>
 <p><b>Región:</b> para «Cerca de ti ahora» indicas tú mismo tu región. Si dejas que la app la detecte, el iPhone busca el nombre del lugar con el servicio de ubicación de Apple. Solo se guarda el nombre del lugar, en tu móvil. Del mismo modo, cada hallazgo recibe el nombre del lugar donde se hizo la foto, a partir de tu ubicación (solo si la permitiste) o, si no, del lugar que indicaste en la app. Puedes cambiarlo en cada hallazgo. Findimal no lee los datos de ubicación guardados en tus fotos. También aquí solo se guarda el nombre, nunca la posición exacta, y se queda en tu móvil.</p>`],
       ['«Cerca de ti ahora»', `<p>Para los consejos de la pantalla de inicio, la app envía al servidor la región que indicaste (p. ej. «Valencia»), el momento del día y el idioma. El resultado se guarda en caché hasta 26 horas y lo comparten todos los usuarios de esa región. No se guarda nada que lo relacione contigo.</p>`],
+      ['Animales más vistos de la temporada', `<p>Cuando se identifica un animal salvaje, el servidor cuenta de forma anónima qué especie era y en qué estación, sin foto, dispositivo, lugar ni nombre. Así se crea la lista de los animales más vistos en la página Temporada. Las mascotas no se cuentan. No es posible relacionarlo contigo.</p>`],
       ['Límite diario de fotos gratis', `<p>Para limitar las fotos gratis, la app crea un identificador aleatorio para tu móvil. El servidor lo usa para contar cuántas fotos se identifican al día; si no existe, se usa la dirección IP. Los contadores se borran automáticamente a las 48 horas. Base jurídica: art. 6.1.f del RGPD (protección contra abusos y costes ilimitados).</p>`],
       ['Clasificación (opcional)', `<p>Si participas en la clasificación, el servidor guarda tu apodo, tus puntos (XP), nivel, número de especies, foto de perfil, código de amigo y quiénes son tus amigos. Tus amigos ven estos datos; los 100 exploradores con más puntos aparecen en la clasificación mundial. Los apodos con insultos, enlaces o números de teléfono se sustituyen automáticamente por «Entdecker». Si denuncias una entrada, guardamos tu código de amigo junto a la entrada denunciada; tras varias denuncias se oculta. «Salir de la clasificación» borra tu entrada. Base jurídica: art. 6.1.a del RGPD (tu consentimiento al participar).</p>`],
       ['Servidor en Cloudflare', `<p>El servidor de Findimal funciona en Cloudflare, Inc. (EE. UU.) como encargado del tratamiento. Tu dirección IP se trata por motivos técnicos. Cloudflare está certificado según el EU-US Data Privacy Framework.</p>`],
@@ -666,13 +670,57 @@ async function publicBudget(env, request) {
   return null;
 }
 
+// ---------- Beliebteste Tiere der Saison (anonym) ----------
+// Gezählt wird nur: welche Tierart in welcher Jahreszeit bestimmt wurde. Kein Gerät, kein Ort, kein Foto.
+// Haus- und Nutztiere (mit Rasse) zählen nicht, sonst stünden Hund und Katze immer oben.
+
+function seasonOf(d = new Date()) {
+  const m = d.getUTCMonth(); // 0 = Januar
+  const id = m >= 2 && m <= 4 ? 'spring' : m >= 5 && m <= 7 ? 'summer' : m >= 8 && m <= 10 ? 'autumn' : 'winter';
+  const year = m <= 1 ? d.getUTCFullYear() - 1 : d.getUTCFullYear();
+  return `${id}-${year}`;
+}
+
+async function countSeason(env, animal, lang) {
+  if (!env.DB || !animal || !animal.tier_gefunden || animal.rasse) return;
+  const key = String(animal.wissenschaftlicher_name || animal.name || '').trim().toLowerCase().slice(0, 80);
+  if (!key) return;
+  const dbKey = 'season:' + seasonOf();
+  const data = (await env.DB.get(dbKey, 'json')) || { total: 0, s: {} };
+  const entry = data.s[key] || { c: 0, n: {} };
+  entry.c += 1;
+  if (animal.name) entry.n[LANGUAGES[lang] ? lang : 'de'] = String(animal.name).slice(0, 60);
+  data.s[key] = entry;
+  data.total += 1;
+  // nicht unendlich wachsen lassen: nur die 300 häufigsten Arten behalten
+  const keys = Object.keys(data.s);
+  if (keys.length > 400) {
+    keys.sort((a, b) => data.s[b].c - data.s[a].c);
+    for (const k of keys.slice(300)) delete data.s[k];
+  }
+  await env.DB.put(dbKey, JSON.stringify(data), { expirationTtl: 60 * 60 * 24 * 400 });
+}
+
+// GET /saison-top?l=de -> { total, top: [{ sci, name, count }] } (die 5 häufigsten Arten dieser Jahreszeit)
+async function seasonTop(env, url) {
+  if (!env.DB) return json({ total: 0, top: [] });
+  const lang = url.searchParams.get('l') || 'de';
+  const data = (await env.DB.get('season:' + seasonOf(), 'json')) || { total: 0, s: {} };
+  const top = Object.entries(data.s)
+    .sort((a, b) => b[1].c - a[1].c)
+    .slice(0, 5)
+    .map(([sci, e]) => ({ sci, name: e.n[lang] || e.n.de || Object.values(e.n)[0] || sci, count: e.c }));
+  return json({ total: data.total, top });
+}
+
 // ---------- Eingang ----------
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     if (request.method === 'OPTIONS') return new Response(null, { headers: CORS });
     if (request.method === 'GET') {
       const url = new URL(request.url);
+      if (url.pathname === '/saison-top') return seasonTop(env, url);
       if (url.pathname === '/einladung') return invitePage(url);
       if (url.pathname === '/datenschutz' || url.pathname === '/impressum') return privacyPage(url);
       if (url.pathname === '/hilfe' || url.pathname === '/support') return helpPage(url);
@@ -767,6 +815,16 @@ export default {
       ],
       (a) => a.tier_gefunden && a.sicherheit !== 'unsicher',
     );
+    // Beliebteste Tiere der Saison: anonym mitzählen (nur beim ersten Foto, nicht bei Zusatzfotos desselben Tieres)
+    if (res.ok && images.length === 1 && ctx) {
+      ctx.waitUntil(
+        res
+          .clone()
+          .json()
+          .then((a) => countSeason(env, a, body.lang))
+          .catch(() => {}),
+      );
+    }
     // nur erfolgreiche Bestimmungen zählen
     if (counter && res.ok) {
       await env.DB.put(counter.key, String(counter.used + 1), { expirationTtl: 60 * 60 * 48 });

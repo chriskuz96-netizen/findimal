@@ -3,6 +3,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdSlot } from '../components/AdSlot';
 import { HeaderBackground } from '../components/HeaderBackground';
+import { SeasonTop } from '../components/SeasonTop';
 import { Find, useFindPhoto } from '../finds';
 import { GroupIcon } from '../groups';
 import { useI18n } from '../i18n';
@@ -93,6 +94,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           ))}
         </View>
       </View>
+
+      {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
+      <SeasonTop finds={recent} p={p} />
 
       {/* Anzeigen-Platz unter den Saison-Tieren */}
       <AdSlot p={p} placement='season' />
