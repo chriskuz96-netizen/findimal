@@ -9,6 +9,7 @@ export type Find = {
   id: string;
   date: string; // ISO-Datum
   place?: string; // Ortsname, wo das Foto gemacht wurde (z. B. "München")
+  lang?: string; // Sprache der Texte (nach einem Sprachwechsel wird übersetzt)
   animal: Animal;
 };
 
@@ -73,6 +74,7 @@ export async function addFind(
   photo: Photo,
   animal: Animal,
   homePlace?: string, // Ort aus den Einstellungen: wenn der Standort nicht erlaubt ist
+  lang?: string, // Sprache der Texte
 ): Promise<{ finds: Find[]; isNew: boolean; id: string }> {
   const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
@@ -82,7 +84,7 @@ export async function addFind(
     ? await Promise.race([photo.place, new Promise<null>((r) => setTimeout(() => r(null), 3000))])
     : null;
   const where = place || homePlace || null;
-  const find: Find = { id, date: new Date().toISOString(), ...(where ? { place: where } : {}), animal };
+  const find: Find = { id, date: new Date().toISOString(), ...(where ? { place: where } : {}), ...(lang ? { lang } : {}), animal };
   const next = [...finds, find];
   await storeFinds(next);
   return { finds: next, isNew, id };
@@ -102,6 +104,13 @@ export async function updatePlace(finds: Find[], id: string, place: string): Pro
 // Ersetzt die Bestimmung eines Fundes (z. B. nach einem zweiten Foto).
 export async function updateFind(finds: Find[], id: string, animal: Animal): Promise<Find[]> {
   const next = finds.map((f) => (f.id === id ? { ...f, animal } : f));
+  await storeFinds(next);
+  return next;
+}
+
+// Übersetzte Texte eines Fundes speichern (Sprachwechsel)
+export async function translateFindTexts(finds: Find[], id: string, texts: Partial<Animal>, lang: string): Promise<Find[]> {
+  const next = finds.map((f) => (f.id === id ? { ...f, lang, animal: { ...f.animal, ...texts } } : f));
   await storeFinds(next);
   return next;
 }

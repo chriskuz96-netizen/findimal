@@ -63,6 +63,28 @@ export async function loadDetails(a: Animal, lang: Lang): Promise<Details | null
   }
 }
 
+// Texte eines gespeicherten Fundes in eine andere Sprache übersetzen (null = hat nicht geklappt)
+export async function translateAnimal(a: Animal, lang: Lang): Promise<Partial<Animal> | null> {
+  if (!SERVER_URL) return null;
+  try {
+    const res = await fetch(SERVER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Findimal-Key': await getAppKey(),
+        'X-Findimal-Device': await getDeviceId(),
+      },
+      body: JSON.stringify({ mode: 'translate', animal: a, lang }),
+    });
+    if (!res.ok) return null;
+    const texts = (await res.json()) as Record<string, unknown>;
+    // nur Texte übernehmen, alles andere (Art, Gruppe, Merkmale) bleibt
+    return Object.fromEntries(Object.entries(texts).filter(([, v]) => typeof v === 'string')) as Partial<Animal>;
+  } catch {
+    return null;
+  }
+}
+
 export type IdentifyResult =
   | { ok: true; animal: Animal }
   | { ok: false; message: string; limit?: boolean; cancelled?: boolean }; // limit: Gratis-Fotos für heute aufgebraucht

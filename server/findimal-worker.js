@@ -167,6 +167,14 @@ function languageRule(lang) {
   return `\n\nSchreibe alle Texte auf ${name}. Die Werte für "gruppe" und "sicherheit" bleiben genau wie im Schema vorgegeben.`;
 }
 
+// ---------- Übersetzen gespeicherter Funde (nach einem Sprachwechsel in der App) ----------
+
+const TRANSLATE_SYSTEM = `Du bist der Tierexperte der App Findimal. Du bekommst die Texte eines Tier-Steckbriefs als JSON
+und übersetzt jeden Wert in die Zielsprache. Tier- und Rassennamen: der übliche Name in der Zielsprache
+(z. B. "Amsel" -> "Blackbird", "Mischling" -> "Mixed breed"). Bleib freundlich und gut verständlich für Kinder
+und Erwachsene, ändere keine Fakten und lass leere Werte leer.`;
+const TRANSLATE_FIELDS = ['name', 'rasse', 'kurzbeschreibung', 'wusstest_du', 'hinweis', ...DETAILS_FIELDS];
+
 // ---------- 3. Rangliste mit Freunden ----------
 
 const CODE = /^[A-HJ-NP-Z2-9]{6}$/; // Freundescode, z. B. "K7QX2M" (ohne 0/O und 1/I)
@@ -794,6 +802,31 @@ export default {
         await env.DB.delete(`ok:${rid}`);
       }
       return json({ ok: true });
+    }
+
+    // Gespeicherten Fund in eine andere Sprache übersetzen (Text, kein Foto, sehr günstig)
+    if (body.mode === 'translate') {
+      const animal = body.animal && typeof body.animal === 'object' ? body.animal : {};
+      const texts = Object.fromEntries(
+        TRANSLATE_FIELDS.filter((f) => typeof animal[f] === 'string' && animal[f].trim()).map((f) => [f, animal[f].slice(0, 1500)]),
+      );
+      const fields = Object.keys(texts);
+      if (!fields.length) return json({});
+      if (env.DB) {
+        const key = deviceKey(request, 't');
+        const used = Number(await env.DB.get(key)) || 0;
+        if (used >= 300) return json({ fehler: 'limit' }, 429);
+        await env.DB.put(key, String(used + 1), { expirationTtl: 60 * 60 * 48 });
+      }
+      const stop = await budget();
+      if (stop) return stop;
+      const schema = {
+        type: 'object',
+        additionalProperties: false,
+        required: fields,
+        properties: Object.fromEntries(fields.map((f) => [f, TEXT])),
+      };
+      return ask(env, TRANSLATE_SYSTEM + languageRule(body.lang), schema, [{ type: 'text', text: JSON.stringify(texts) }]);
     }
 
     // Ausführlicher Steckbrief zu einem schon bestimmten Tier (Text, kein Foto)

@@ -16,7 +16,8 @@ import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
 import { LimitSheet } from './src/components/LimitCard';
 import { FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
-import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updatePlace } from './src/finds';
+import { addFind, Find, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
+import { translateAnimal } from './src/identify';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { loadZone } from './src/zone';
@@ -129,6 +130,30 @@ function Main() {
       loadMaxFriends().then(setMaxFriends),
     ]).finally(() => setLoaded(true));
   }, []);
+
+  // Sprachwechsel: gespeicherte Funde einmal im Hintergrund übersetzen (nacheinander, sehr günstig).
+  // Alte Funde ohne Sprache wurden auf Deutsch bestimmt.
+  const translating = useRef(false);
+  const langRef = useRef(lang);
+  langRef.current = lang;
+  useEffect(() => {
+    if (!loaded || translating.current) return;
+    translating.current = true;
+    (async () => {
+      // immer in die gerade eingestellte Sprache (falls währenddessen nochmal gewechselt wird)
+      for (;;) {
+        const target = langRef.current;
+        const f = findsRef.current.find((x) => (x.lang ?? 'de') !== target);
+        if (!f) break;
+        const texts = await translateAnimal(f.animal, target);
+        if (!texts) break; // offline o. Ä.: beim nächsten Start nochmal
+        const next = await translateFindTexts(findsRef.current, f.id, texts, target);
+        findsRef.current = next; // sofort, damit der nächste Durchlauf den neuen Stand sieht
+        setFinds(next);
+      }
+      translating.current = false;
+    })();
+  }, [lang, loaded]);
 
   // Natur-Tipps: bei jedem Start (und Sprachwechsel) die nächsten Wochen neu einplanen;
   // Tippen auf einen Tipp öffnet die Saison-Seite
@@ -306,7 +331,7 @@ function Main() {
         if (replaceId) {
           next = await updateFind(findsRef.current, replaceId, animal);
         } else {
-          const added = await addFind(findsRef.current, shot, animal, region || undefined);
+          const added = await addFind(findsRef.current, shot, animal, region || undefined, lang);
           next = added.finds;
           id = added.id;
         }
