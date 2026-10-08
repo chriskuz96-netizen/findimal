@@ -15,7 +15,7 @@ import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
 import { LimitSheet } from './src/components/LimitCard';
-import { FREE_PHOTOS_PER_DAY, usedToday } from './src/usage';
+import { FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, updateFind, updatePlace } from './src/finds';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
@@ -69,7 +69,12 @@ function Main() {
   const [photo, setPhoto] = useState<Photo | null>(null);
   // Gratis-Fotos, die heute noch übrig sind (der Server zählt verbindlich)
   const [freeLeft, setFreeLeft] = useState(FREE_PHOTOS_PER_DAY);
-  const refreshFreeLeft = () => usedToday().then((u) => setFreeLeft(Math.max(0, FREE_PHOTOS_PER_DAY - u)));
+  // Videos für Extra-Fotos, die heute noch gehen (Hinweis unter der Kamera)
+  const [videosLeft, setVideosLeft] = useState(VIDEOS_PER_DAY);
+  const refreshFreeLeft = () => {
+    usedToday().then((u) => setFreeLeft(Math.max(0, FREE_PHOTOS_PER_DAY - u)));
+    videosToday().then((v) => setVideosLeft(Math.max(0, VIDEOS_PER_DAY - v)));
+  };
   useEffect(() => {
     refreshFreeLeft();
   }, []);
@@ -341,6 +346,7 @@ function Main() {
             xp={progress.xp}
             avatar={avatarBadge}
             freeLeft={freeLeft}
+            videosLeft={videosLeft}
             onTakePhoto={() => startPhoto((cb) => takePhoto(t, cb))}
             onPickPhoto={() => startPhoto((cb) => pickPhoto(cb))}
           />

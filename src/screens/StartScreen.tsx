@@ -25,6 +25,7 @@ type Props = {
   xp: number;
   avatar: string | null; // Abzeichen oder Plus-Tier als Profilbild
   freeLeft: number; // Gratis-Fotos, die heute noch übrig sind
+  videosLeft: number; // Extra-Fotos per Video, die heute noch gehen
   onTakePhoto: () => void;
   onPickPhoto: () => void;
 };
@@ -36,6 +37,7 @@ export function StartScreen({
   xp,
   avatar,
   freeLeft,
+  videosLeft,
   onTakePhoto,
   onPickPhoto,
 }: Props) {
@@ -102,6 +104,7 @@ export function StartScreen({
               <Text style={styles.pickLink}>{t('start.pick')}</Text>
             </Pressable>
           </View>
+          <View style={{ alignItems: 'center' }}>
           <Text style={styles.freeLeft}>
             {plus
               ? t('start.plus')
@@ -109,6 +112,13 @@ export function StartScreen({
                 ? t('start.freeNone')
                 : t(freeLeft === 1 ? 'start.freeOne' : 'start.free', { n: freeLeft })}
           </Text>
+          {/* keine Gratis-Fotos mehr: Hinweis aufs Video (öffnet das Fenster mit Video und Plus) */}
+          {!plus && freeLeft === 0 && videosLeft > 0 && (
+            <Pressable onPress={onTakePhoto} hitSlop={8} accessibilityRole="button">
+              <Text style={styles.freeVideo}>▶ {t('start.freeVideo')}</Text>
+            </Pressable>
+          )}
+          </View>
         </View>
 
         <View style={styles.greetingWrap} pointerEvents="none">
@@ -180,6 +190,15 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 10,
+  },
+  freeVideo: {
+    marginTop: 3,
+    fontFamily: fonts.sansBold,
+    fontSize: 13,
+    color: colors.accentLight,
+    textShadowColor: 'rgba(0,0,0,0.45)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 8,
   },
   freeLeft: {
     marginTop: -6,
