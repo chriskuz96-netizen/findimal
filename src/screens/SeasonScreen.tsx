@@ -166,7 +166,7 @@ function Quarter({
       disabled={!found}
       style={[
         styles.quarter,
-        { width, minHeight: width * 1.05, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line },
+        { width, minHeight: width * 0.8, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line },
         round,
       ]}
     >
@@ -178,9 +178,12 @@ function Quarter({
             <GroupIcon id={ph.icon} size={18} color={colors.accentLight} />
           )}
         </View>
-        {found && <Text style={styles.qTick}>✓</Text>}
+        {/* Überschrift direkt neben dem Symbol – spart Höhe */}
+        <Text style={[styles.qTitle, { color: p.ink }]}>
+          {ph.title}
+          {found ? <Text style={styles.qTick}> ✓</Text> : null}
+        </Text>
       </View>
-      <Text style={[styles.qTitle, { color: p.ink }]}>{ph.title}</Text>
       <Text style={[styles.qText, { color: p.ink }]}>{ph.text}</Text>
       <Text style={[styles.qWhere, { color: dark ? colors.accent : colors.accentDark }]}>{ph.where}</Text>
     </Pressable>
@@ -208,7 +211,7 @@ const styles = StyleSheet.create({
   sub: { fontFamily: fonts.sans, fontSize: 14, marginTop: 4, marginBottom: 4 },
   circle: { flexDirection: 'row', flexWrap: 'wrap', gap: GAP, marginTop: 10, alignSelf: 'center' },
   quarter: { borderWidth: 1.5, borderRadius: 16, padding: 12 },
-  qHead: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  qHead: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   qIcon: {
     width: 32,
     height: 32,
@@ -220,8 +223,8 @@ const styles = StyleSheet.create({
   },
   qImg: { position: 'absolute', left: 0, top: 0, width: 32, height: 32 },
   qTick: { fontFamily: fonts.sansBold, fontSize: 13, color: '#2E7A4C' },
-  qTitle: { fontFamily: fonts.serifBold, fontSize: 15, lineHeight: 18, marginTop: 6 },
-  qText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 3 },
+  qTitle: { flex: 1, fontFamily: fonts.serifBold, fontSize: 14.5, lineHeight: 17 },
+  qText: { fontFamily: fonts.sans, fontSize: 12.5, lineHeight: 17, marginTop: 6 },
   qWhere: { fontFamily: fonts.sansBold, fontSize: 11.5, lineHeight: 15, marginTop: 5 },
   spec: { marginTop: 18, marginHorizontal: spacing.gutter, borderWidth: 1, borderRadius: 20, padding: 16, paddingBottom: 6 },
   specItem: { paddingVertical: 10 },
