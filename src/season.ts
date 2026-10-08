@@ -3,7 +3,7 @@ import { Lang } from './i18n';
 
 // Inhalte der Saison-Seite für die vier Jahreszeiten (Mitteleuropa), in vier Sprachen.
 // - phenomena: vier Saison-Tiere, die man wirklich fotografieren kann (werden abgehakt)
-// - spectacle: Naturschauspiel zum Staunen (z. B. Kranichzug) – ohne Foto-Aufgabe
+// - spectacle: Naturschauspiel zum Staunen (z. B. Kranichzug) – als kleine Marke oben im Kopf, ohne Foto-Aufgabe
 
 export type SeasonId = 'spring' | 'summer' | 'autumn' | 'winter';
 
@@ -48,10 +48,11 @@ const BASE: Record<SeasonId, { icons: GroupId[]; match: string[][] }> = {
 };
 
 type Item = { title: string; text: string; where: string };
+export type Spectacle = Item & { short: string }; // short: Symbol + 1–3 Wörter für die Marke im Kopf
 type Text = {
   name: string;
   phenomena: Item[];
-  spectacle: Item[];
+  spectacle: Spectacle[];
   help: { title: string; text: string }[];
 };
 
@@ -66,8 +67,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Schnecken unterwegs', text: 'Nach einem warmen Frühlingsregen kriechen Weinbergschnecken und Bänderschnecken überall heraus.', where: 'Wegränder und Mauern, nach Regen' },
       ],
       spectacle: [
-        { title: 'Kröten wandern', text: 'In milden, feuchten Nächten wandern Erdkröten zu ihren Laichgewässern, oft über Straßen. Viele Helfer tragen sie sicher hinüber.', where: 'Teiche und Waldwege, abends' },
-        { title: 'Störche kehren zurück', text: 'Nach dem Winter in Afrika oder Spanien besetzen Weißstörche wieder ihre Nester auf Dächern und Masten.', where: 'Dörfer und feuchte Wiesen' },
+        { short: '🐸 Krötenwanderung', title: 'Kröten wandern', text: 'In milden, feuchten Nächten wandern Erdkröten zu ihren Laichgewässern, oft über Straßen. Viele Helfer tragen sie sicher hinüber.', where: 'Teiche und Waldwege, abends' },
+        { short: '🪺 Störche kommen', title: 'Störche kehren zurück', text: 'Nach dem Winter in Afrika oder Spanien besetzen Weißstörche wieder ihre Nester auf Dächern und Masten.', where: 'Dörfer und feuchte Wiesen' },
       ],
       help: [
         { title: 'Nistkasten aufhängen', text: 'Am besten schon im März, an einer ruhigen Stelle, nicht in der prallen Sonne.' },
@@ -85,8 +86,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Junge Frösche', text: 'Aus Kaulquappen werden winzige Frösche, die das Wasser verlassen und das Land erkunden.', where: 'Ufer und feuchte Wiesen' },
       ],
       spectacle: [
-        { title: 'Glühwürmchen leuchten', text: 'In warmen Juninächten blinken die Leuchtkäfer. Die Männchen fliegen, die Weibchen leuchten am Boden.', where: 'Waldränder, nach Einbruch der Dunkelheit' },
-        { title: 'Mauersegler jagen', text: 'Mit schrillen Rufen sausen sie über die Dächer. Sie schlafen sogar im Flug und ziehen schon Anfang August wieder fort.', where: 'Über Städten, abends' },
+        { short: '✨ Glühwürmchen', title: 'Glühwürmchen leuchten', text: 'In warmen Juninächten blinken die Leuchtkäfer. Die Männchen fliegen, die Weibchen leuchten am Boden.', where: 'Waldränder, nach Einbruch der Dunkelheit' },
+        { short: '🐦 Mauersegler', title: 'Mauersegler jagen', text: 'Mit schrillen Rufen sausen sie über die Dächer. Sie schlafen sogar im Flug und ziehen schon Anfang August wieder fort.', where: 'Über Städten, abends' },
       ],
       help: [
         { title: 'Insektentränke aufstellen', text: 'Eine flache Schale mit Wasser und ein paar Steinen als Landeplatz hilft Bienen bei Hitze.' },
@@ -104,8 +105,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Igel futtern sich satt', text: 'Vor dem Winterschlaf fressen sie sich Speck an. Ein Laubhaufen ist ihr Winterquartier.', where: 'Hecken und Gärten, abends' },
       ],
       spectacle: [
-        { title: 'Kraniche ziehen', text: 'In großen Keilformationen geht es nach Süden. Achte auf ihre trompetenden Rufe am Himmel.', where: 'Am Himmel, morgens und abends' },
-        { title: 'Hirschbrunft', text: 'Bis Mitte Oktober röhren die Hirsche, um Rivalen zu beeindrucken. Beobachte nur aus großer Entfernung.', where: 'Waldränder in der Dämmerung' },
+        { short: '🕊️ Kranichzug', title: 'Kraniche ziehen', text: 'In großen Keilformationen geht es nach Süden. Achte auf ihre trompetenden Rufe am Himmel.', where: 'Am Himmel, morgens und abends' },
+        { short: '🦌 Hirschbrunft', title: 'Hirschbrunft', text: 'Bis Mitte Oktober röhren die Hirsche, um Rivalen zu beeindrucken. Beobachte nur aus großer Entfernung.', where: 'Waldränder in der Dämmerung' },
       ],
       help: [
         { title: 'Laub liegen lassen', text: 'Unter Laubhaufen überwintern Igel, Käfer und Spinnen. Lass einfach eine Ecke liegen.' },
@@ -123,8 +124,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Eichhörnchen bleiben wach', text: 'Eichhörnchen halten keinen Winterschlaf. Sie suchen ihre im Herbst versteckten Nüsse.', where: 'Parks und Wälder' },
       ],
       spectacle: [
-        { title: 'Spuren im Schnee', text: 'Füchse sind jetzt in der Paarungszeit viel unterwegs. Im Schnee siehst du ihre Spuren wie an einer Schnur aufgereiht.', where: 'Feldränder und Waldwege' },
-        { title: 'Gäste aus dem Norden', text: 'In manchen Wintern kommen Seidenschwänze aus Skandinavien und plündern Beerensträucher.', where: 'Beerensträucher in Städten' },
+        { short: '🐾 Spuren im Schnee', title: 'Spuren im Schnee', text: 'Füchse sind jetzt in der Paarungszeit viel unterwegs. Im Schnee siehst du ihre Spuren wie an einer Schnur aufgereiht.', where: 'Feldränder und Waldwege' },
+        { short: '🍒 Wintergäste', title: 'Gäste aus dem Norden', text: 'In manchen Wintern kommen Seidenschwänze aus Skandinavien und plündern Beerensträucher.', where: 'Beerensträucher in Städten' },
       ],
       help: [
         { title: 'Vögel richtig füttern', text: 'Sonnenblumenkerne und Meisenknödel ohne Netz, kein Brot. Das Futterhaus sauber halten.' },
@@ -144,8 +145,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Snails on the move', text: 'After a warm spring shower, Roman snails and banded snails come out everywhere.', where: 'Path edges and walls, after rain' },
       ],
       spectacle: [
-        { title: 'Toads on the move', text: 'On mild, damp nights common toads migrate to their breeding ponds, often across roads. Many volunteers carry them safely over.', where: 'Ponds and forest paths, evenings' },
-        { title: 'Storks return', text: 'After the winter in Africa or Spain, white storks move back into their nests on roofs and poles.', where: 'Villages and wet meadows' },
+        { short: '🐸 Toad migration', title: 'Toads on the move', text: 'On mild, damp nights common toads migrate to their breeding ponds, often across roads. Many volunteers carry them safely over.', where: 'Ponds and forest paths, evenings' },
+        { short: '🪺 Storks return', title: 'Storks return', text: 'After the winter in Africa or Spain, white storks move back into their nests on roofs and poles.', where: 'Villages and wet meadows' },
       ],
       help: [
         { title: 'Hang up a nest box', text: 'Ideally in March, in a quiet spot and out of the full sun.' },
@@ -163,8 +164,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Young frogs', text: 'Tadpoles turn into tiny frogs that leave the water and explore the land.', where: 'Banks and wet meadows' },
       ],
       spectacle: [
-        { title: 'Glow-worms shine', text: 'On warm June nights the glow-worms light up. The males fly, the females glow on the ground.', where: 'Forest edges, after dark' },
-        { title: 'Swifts hunting', text: 'With shrill calls they race over the rooftops. They even sleep while flying and leave again in early August.', where: 'Over towns, evenings' },
+        { short: '✨ Fireflies', title: 'Glow-worms shine', text: 'On warm June nights the glow-worms light up. The males fly, the females glow on the ground.', where: 'Forest edges, after dark' },
+        { short: '🐦 Swifts', title: 'Swifts hunting', text: 'With shrill calls they race over the rooftops. They even sleep while flying and leave again in early August.', where: 'Over towns, evenings' },
       ],
       help: [
         { title: 'Set up a bee bath', text: 'A shallow dish of water with a few stones to land on helps bees in the heat.' },
@@ -182,8 +183,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Hedgehogs feed up', text: 'They eat lots before hibernating. A leaf pile makes a perfect winter home.', where: 'Hedges and gardens, evenings' },
       ],
       spectacle: [
-        { title: 'Cranes migrate', text: 'They fly south in large V-formations. Listen for their trumpeting calls overhead.', where: 'In the sky, morning and evening' },
-        { title: 'Red deer rut', text: 'Until mid-October stags roar to impress rivals. Only watch from far away.', where: 'Forest edges at dusk' },
+        { short: '🕊️ Crane migration', title: 'Cranes migrate', text: 'They fly south in large V-formations. Listen for their trumpeting calls overhead.', where: 'In the sky, morning and evening' },
+        { short: '🦌 Deer rut', title: 'Red deer rut', text: 'Until mid-October stags roar to impress rivals. Only watch from far away.', where: 'Forest edges at dusk' },
       ],
       help: [
         { title: 'Leave the leaves', text: 'Hedgehogs, beetles and spiders spend the winter under leaf piles. Just leave one corner.' },
@@ -201,8 +202,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Squirrels stay awake', text: 'Squirrels don’t hibernate. They look for the nuts they hid in autumn.', where: 'Parks and forests' },
       ],
       spectacle: [
-        { title: 'Tracks in the snow', text: 'Foxes are busy now during their mating season. In the snow their tracks line up like beads on a string.', where: 'Field edges and forest paths' },
-        { title: 'Visitors from the north', text: 'In some winters, waxwings arrive from Scandinavia and raid berry bushes.', where: 'Berry bushes in towns' },
+        { short: '🐾 Snow tracks', title: 'Tracks in the snow', text: 'Foxes are busy now during their mating season. In the snow their tracks line up like beads on a string.', where: 'Field edges and forest paths' },
+        { short: '🍒 Winter guests', title: 'Visitors from the north', text: 'In some winters, waxwings arrive from Scandinavia and raid berry bushes.', where: 'Berry bushes in towns' },
       ],
       help: [
         { title: 'Feed birds the right way', text: 'Sunflower seeds and fat balls without nets, no bread. Keep the feeder clean.' },
@@ -222,8 +223,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Les escargots sortent', text: 'Après une pluie de printemps tiède, les escargots sortent partout.', where: 'Bords de chemins et murs, après la pluie' },
       ],
       spectacle: [
-        { title: 'Les crapauds migrent', text: 'Par les nuits douces et humides, les crapauds communs rejoignent leurs mares, souvent en traversant les routes. Des bénévoles les aident à passer.', where: 'Mares et chemins forestiers, le soir' },
-        { title: 'Retour des cigognes', text: 'Après l’hiver en Afrique ou en Espagne, les cigognes blanches réoccupent leurs nids sur les toits et les poteaux.', where: 'Villages et prairies humides' },
+        { short: '🐸 Crapauds en route', title: 'Les crapauds migrent', text: 'Par les nuits douces et humides, les crapauds communs rejoignent leurs mares, souvent en traversant les routes. Des bénévoles les aident à passer.', where: 'Mares et chemins forestiers, le soir' },
+        { short: '🪺 Retour des cigognes', title: 'Retour des cigognes', text: 'Après l’hiver en Afrique ou en Espagne, les cigognes blanches réoccupent leurs nids sur les toits et les poteaux.', where: 'Villages et prairies humides' },
       ],
       help: [
         { title: 'Installer un nichoir', text: 'Idéalement dès mars, dans un endroit calme, pas en plein soleil.' },
@@ -241,8 +242,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Jeunes grenouilles', text: 'Les têtards deviennent de minuscules grenouilles qui quittent l’eau pour explorer la terre.', where: 'Berges et prairies humides' },
       ],
       spectacle: [
-        { title: 'Les vers luisants brillent', text: 'Par les chaudes nuits de juin, les lampyres s’illuminent. Les mâles volent, les femelles brillent au sol.', where: 'Lisières, à la nuit tombée' },
-        { title: 'Les martinets chassent', text: 'Avec des cris stridents, ils filent au-dessus des toits. Ils dorment même en vol et repartent début août.', where: 'Au-dessus des villes, le soir' },
+        { short: '✨ Vers luisants', title: 'Les vers luisants brillent', text: 'Par les chaudes nuits de juin, les lampyres s’illuminent. Les mâles volent, les femelles brillent au sol.', where: 'Lisières, à la nuit tombée' },
+        { short: '🐦 Martinets', title: 'Les martinets chassent', text: 'Avec des cris stridents, ils filent au-dessus des toits. Ils dorment même en vol et repartent début août.', where: 'Au-dessus des villes, le soir' },
       ],
       help: [
         { title: 'Installer un abreuvoir', text: 'Une coupelle d’eau avec quelques pierres pour se poser aide les abeilles par forte chaleur.' },
@@ -260,8 +261,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Les hérissons font des réserves', text: 'Ils ont besoin d’énergie avant l’hibernation. Un tas de feuilles au jardin est un abri parfait.', where: 'Haies et jardins, le soir' },
       ],
       spectacle: [
-        { title: 'Les grues migrent', text: 'Elles partent vers le sud en grands V. Écoute leurs cris trompetants dans le ciel.', where: 'Dans le ciel, matin et soir' },
-        { title: 'Le brame du cerf', text: 'Jusqu’à mi-octobre, les cerfs brament pour impressionner leurs rivaux. Observe de très loin.', where: 'Lisières au crépuscule' },
+        { short: '🕊️ Migration des grues', title: 'Les grues migrent', text: 'Elles partent vers le sud en grands V. Écoute leurs cris trompetants dans le ciel.', where: 'Dans le ciel, matin et soir' },
+        { short: '🦌 Brame du cerf', title: 'Le brame du cerf', text: 'Jusqu’à mi-octobre, les cerfs brament pour impressionner leurs rivaux. Observe de très loin.', where: 'Lisières au crépuscule' },
       ],
       help: [
         { title: 'Laisse les feuilles', text: 'Hérissons, scarabées et araignées hivernent sous les feuilles. Laisse un coin tranquille.' },
@@ -279,8 +280,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Les écureuils restent éveillés', text: 'Les écureuils n’hibernent pas. Ils cherchent les noix cachées en automne.', where: 'Parcs et forêts' },
       ],
       spectacle: [
-        { title: 'Traces dans la neige', text: 'Les renards sont très actifs pendant leur saison des amours. Dans la neige, leurs traces s’alignent comme sur un fil.', where: 'Bords des champs et chemins forestiers' },
-        { title: 'Visiteurs du Nord', text: 'Certains hivers, les jaseurs boréaux arrivent de Scandinavie et pillent les arbustes à baies.', where: 'Arbustes à baies en ville' },
+        { short: '🐾 Traces dans la neige', title: 'Traces dans la neige', text: 'Les renards sont très actifs pendant leur saison des amours. Dans la neige, leurs traces s’alignent comme sur un fil.', where: 'Bords des champs et chemins forestiers' },
+        { short: '🍒 Visiteurs d’hiver', title: 'Visiteurs du Nord', text: 'Certains hivers, les jaseurs boréaux arrivent de Scandinavie et pillent les arbustes à baies.', where: 'Arbustes à baies en ville' },
       ],
       help: [
         { title: 'Bien nourrir les oiseaux', text: 'Graines de tournesol et boules de graisse sans filet, pas de pain. Garde la mangeoire propre.' },
@@ -300,8 +301,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Caracoles de paseo', text: 'Tras una lluvia templada de primavera, los caracoles salen por todas partes.', where: 'Bordes de caminos y muros, tras la lluvia' },
       ],
       spectacle: [
-        { title: 'Los sapos migran', text: 'En noches templadas y húmedas, los sapos comunes van a sus charcas, a menudo cruzando carreteras. Muchos voluntarios les ayudan a pasar.', where: 'Charcas y caminos del bosque, al anochecer' },
-        { title: 'Vuelven las cigüeñas', text: 'Tras el invierno en África o España, las cigüeñas blancas ocupan de nuevo sus nidos en tejados y postes.', where: 'Pueblos y prados húmedos' },
+        { short: '🐸 Sapos en marcha', title: 'Los sapos migran', text: 'En noches templadas y húmedas, los sapos comunes van a sus charcas, a menudo cruzando carreteras. Muchos voluntarios les ayudan a pasar.', where: 'Charcas y caminos del bosque, al anochecer' },
+        { short: '🪺 Vuelven las cigüeñas', title: 'Vuelven las cigüeñas', text: 'Tras el invierno en África o España, las cigüeñas blancas ocupan de nuevo sus nidos en tejados y postes.', where: 'Pueblos y prados húmedos' },
       ],
       help: [
         { title: 'Colgar una caja nido', text: 'Mejor ya en marzo, en un lugar tranquilo y sin sol directo.' },
@@ -319,8 +320,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Ranitas jóvenes', text: 'Los renacuajos se convierten en ranas diminutas que salen del agua a explorar la tierra.', where: 'Orillas y prados húmedos' },
       ],
       spectacle: [
-        { title: 'Brillan las luciérnagas', text: 'En las noches cálidas de junio se encienden las luciérnagas. Los machos vuelan, las hembras brillan en el suelo.', where: 'Bordes del bosque, al oscurecer' },
-        { title: 'Los vencejos cazan', text: 'Con chillidos agudos pasan rozando los tejados. Incluso duermen volando y se marchan a principios de agosto.', where: 'Sobre las ciudades, al atardecer' },
+        { short: '✨ Luciérnagas', title: 'Brillan las luciérnagas', text: 'En las noches cálidas de junio se encienden las luciérnagas. Los machos vuelan, las hembras brillan en el suelo.', where: 'Bordes del bosque, al oscurecer' },
+        { short: '🐦 Vencejos', title: 'Los vencejos cazan', text: 'Con chillidos agudos pasan rozando los tejados. Incluso duermen volando y se marchan a principios de agosto.', where: 'Sobre las ciudades, al atardecer' },
       ],
       help: [
         { title: 'Poner un bebedero', text: 'Un plato llano con agua y unas piedras para posarse ayuda a las abejas cuando hace calor.' },
@@ -338,8 +339,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Los erizos comen mucho', text: 'Necesitan energía antes de hibernar. Un montón de hojas en el jardín es un refugio perfecto.', where: 'Setos y jardines, al anochecer' },
       ],
       spectacle: [
-        { title: 'Las grullas migran', text: 'Vuelan al sur en grandes formaciones en V. Escucha sus llamadas como trompetas.', where: 'En el cielo, mañana y tarde' },
-        { title: 'La berrea del ciervo', text: 'Hasta mediados de octubre los ciervos braman para impresionar a sus rivales. Observa solo desde lejos.', where: 'Bordes del bosque al anochecer' },
+        { short: '🕊️ Paso de grullas', title: 'Las grullas migran', text: 'Vuelan al sur en grandes formaciones en V. Escucha sus llamadas como trompetas.', where: 'En el cielo, mañana y tarde' },
+        { short: '🦌 Berrea', title: 'La berrea del ciervo', text: 'Hasta mediados de octubre los ciervos braman para impresionar a sus rivales. Observa solo desde lejos.', where: 'Bordes del bosque al anochecer' },
       ],
       help: [
         { title: 'Deja las hojas', text: 'Erizos, escarabajos y arañas pasan el invierno bajo las hojas. Deja un rincón sin limpiar.' },
@@ -357,8 +358,8 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
         { title: 'Las ardillas no duermen', text: 'Las ardillas no hibernan. Buscan las nueces que escondieron en otoño.', where: 'Parques y bosques' },
       ],
       spectacle: [
-        { title: 'Huellas en la nieve', text: 'Los zorros están muy activos en su época de celo. En la nieve sus huellas van en fila como en un hilo.', where: 'Bordes de campos y caminos del bosque' },
-        { title: 'Visitas del norte', text: 'Algunos inviernos llegan ampelis desde Escandinavia y saquean los arbustos con bayas.', where: 'Arbustos con bayas en ciudades' },
+        { short: '🐾 Huellas en la nieve', title: 'Huellas en la nieve', text: 'Los zorros están muy activos en su época de celo. En la nieve sus huellas van en fila como en un hilo.', where: 'Bordes de campos y caminos del bosque' },
+        { short: '🍒 Visitas de invierno', title: 'Visitas del norte', text: 'Algunos inviernos llegan ampelis desde Escandinavia y saquean los arbustos con bayas.', where: 'Arbustos con bayas en ciudades' },
       ],
       help: [
         { title: 'Alimentar bien a las aves', text: 'Pipas de girasol y bolas de sebo sin red, nada de pan. Mantén limpio el comedero.' },
@@ -375,7 +376,7 @@ export type Season = {
   id: SeasonId;
   name: string;
   phenomena: Phenomenon[];
-  spectacle: Item[];
+  spectacle: Spectacle[];
   help: { title: string; text: string }[];
 };
 
