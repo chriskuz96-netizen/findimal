@@ -34,7 +34,7 @@ export function SeasonTop({ finds, p }: { finds: Find[]; p: Palette }) {
   return (
     <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
       <Text style={[styles.h3, { color: p.ink }]}>🏆 {t('sea.top')}</Text>
-      <Text style={[styles.sub, { color: p.mute }]}>{t('sea.topSub', { n: data.total })}</Text>
+      <Text style={[styles.sub, { color: p.mute }]}>{t('sea.topSub')}</Text>
       {data.top.slice(0, SHOW).map((a, i) => {
         const found = mine.has(a.sci);
         return (
