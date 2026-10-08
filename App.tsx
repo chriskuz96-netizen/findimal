@@ -273,7 +273,9 @@ function Main() {
       morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
       onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
       onBack={() => {
+        // nach einem neuen Foto geht es zur Startseite mit der Kamera – fürs nächste Tier
         setPhoto(null);
+        setTab('start');
         refreshFreeLeft();
         setTimeout(askTips, 600);
       }}
@@ -283,6 +285,7 @@ function Main() {
       saved={openFind}
       onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
       onPlace={(id, place) => updatePlace(findsRef.current, id, place).then(setFinds)}
+      backLabel={t(tab === 'season' ? 'res.backSeason' : tab === 'collection' ? 'res.backCollection' : 'res.back')}
       onBack={() => setOpenFind(null)}
     />
   ) : null;

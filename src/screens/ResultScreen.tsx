@@ -39,6 +39,7 @@ type Props =
       morePhoto: (kind: 'camera' | 'library') => Promise<Photo | null>;
       onDetails: (id: string, animal: Animal) => void; // ausführlicher Steckbrief nachgeladen
       onPlace?: undefined;
+      backLabel?: undefined;
       onBack: () => void;
     }
   // Fund aus der Sammlung: wird nur angezeigt
@@ -49,6 +50,7 @@ type Props =
       morePhoto?: undefined;
       onDetails: (id: string, animal: Animal) => void;
       onPlace: (id: string, place: string) => void; // Fundort nachträglich ändern
+      backLabel?: string; // Text für den Knopf unten, z. B. "Zurück zur Sammlung"
       onBack: () => void;
     };
 
@@ -115,7 +117,7 @@ function FoundOn({ find, p, onPlace }: { find: Find; p: Palette; onPlace: (place
 }
 
 // Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
-export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails, onPlace, onBack }: Props) {
+export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails, onPlace, backLabel, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
@@ -372,7 +374,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
 
           {/* dezente Erinnerung ans Findimal-Ehrenwort */}
           <Text style={[styles.respect, { color: p.mute }]}>🐾 {t('res.respect')}</Text>
-          <Button label={t('res.continue')} onPress={leave} p={p} filled={!!result} />
+          {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
+          <Button label={backLabel ?? t('res.continue')} onPress={leave} p={p} filled={!!result} />
         </ScrollView>
 
       </SwipeBack>
