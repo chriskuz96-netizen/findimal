@@ -203,7 +203,10 @@ function PhotoTile({
         <Text style={styles.captionName} numberOfLines={2}>
           {find.animal.rasse || find.animal.name}
         </Text>
-        <Text style={styles.captionDate}>{new Date(find.date).toLocaleDateString(locale)}</Text>
+        <Text style={styles.captionDate} numberOfLines={1}>
+          {new Date(find.date).toLocaleDateString(locale)}
+          {find.place ? ` · ${find.place}` : ''}
+        </Text>
       </View>
       {/* dünner Rand in Akzentfarbe unten, wie die Karten der Vorlage */}
       <View style={styles.tileLine} />

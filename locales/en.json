@@ -1,5 +1,5 @@
 {
   "NSCameraUsageDescription": "Findimal needs the camera so you can photograph animals and have them identified.",
   "NSPhotoLibraryUsageDescription": "Findimal needs access to your photos so you can choose an animal photo to identify.",
-  "NSLocationWhenInUseUsageDescription": "So Findimal can suggest animals from your area, your location is used once to find the name of your town. Only the name is stored, on your phone."
+  "NSLocationWhenInUseUsageDescription": "So Findimal can suggest animals from your area and note where you found them, your location is used to find the name of the place. Only the name is stored, on your phone."
 }

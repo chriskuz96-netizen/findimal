@@ -314,7 +314,7 @@ Für alle Punkte: **nicht mit der Identität verknüpft**, **kein Tracking**.
 | Datentyp bei Apple | Zweck | Warum |
 |---|---|---|
 | Fotos oder Videos | App-Funktionalität | Foto wird zur Bestimmung an den Server und Anthropic geschickt |
-| Grober Standort | App-Funktionalität | Regionsname für „Jetzt in deiner Nähe“ |
+| Grober Standort | App-Funktionalität | Regionsname für „Jetzt in deiner Nähe“ (die Ortsnamen der Funde bleiben nur auf dem iPhone) |
 | Geräte-ID | App-Funktionalität | zufällige Kennung für das Tageslimit |
 | Spielinhalte (Gameplay Content) | App-Funktionalität | Spitzname, Punkte, Abzeichen in der Rangliste (freiwillig) |
 

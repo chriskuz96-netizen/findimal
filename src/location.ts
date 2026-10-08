@@ -21,3 +21,20 @@ export async function detectPlace(): Promise<string | null> {
     return null;
   }
 }
+
+// Ortsname für ein Foto: aus den GPS-Daten des Bildes, sonst (nur bei der Kamera und nur,
+// wenn der Standort schon erlaubt ist – hier wird nie gefragt) aus dem aktuellen Standort.
+export async function placeOf(gps: { lat: number; lon: number } | null, fromCamera: boolean): Promise<string | null> {
+  try {
+    let coords = gps;
+    if (!coords && fromCamera && (await Location.getForegroundPermissionsAsync()).granted) {
+      const pos = await Location.getLastKnownPositionAsync();
+      if (pos) coords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+    }
+    if (!coords) return null;
+    const [addr] = await Location.reverseGeocodeAsync({ latitude: coords.lat, longitude: coords.lon });
+    return addr?.city || addr?.subregion || addr?.region || addr?.country || null;
+  } catch {
+    return null;
+  }
+}

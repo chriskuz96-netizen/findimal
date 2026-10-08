@@ -8,6 +8,7 @@ import { Animal } from './identify';
 export type Find = {
   id: string;
   date: string; // ISO-Datum
+  place?: string; // Ortsname, wo das Foto gemacht wurde (z. B. "München")
   animal: Animal;
 };
 
@@ -75,7 +76,11 @@ export async function addFind(
   const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
   await storePhoto(id, photo);
-  const find: Find = { id, date: new Date().toISOString(), animal };
+  // Ort abwarten, aber höchstens 3 Sekunden (meist ist er längst fertig)
+  const place = photo.place
+    ? await Promise.race([photo.place, new Promise<null>((r) => setTimeout(() => r(null), 3000))])
+    : null;
+  const find: Find = { id, date: new Date().toISOString(), ...(place ? { place } : {}), animal };
   const next = [...finds, find];
   await storeFinds(next);
   return { finds: next, isNew, id };

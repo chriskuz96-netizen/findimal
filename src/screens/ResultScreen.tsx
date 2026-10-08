@@ -209,8 +209,9 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             )}
             {saved && (
               <Text style={[styles.foundOn, { color: p.mute }]}>
-                {t('res.foundOn', {
+                {t(saved.place ? 'res.foundOnIn' : 'res.foundOn', {
                   date: new Date(saved.date).toLocaleDateString(locale),
+                  place: saved.place ?? '',
                 })}
               </Text>
             )}
