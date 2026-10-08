@@ -86,16 +86,19 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </View>
         {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
         <View style={styles.goalRow}>
-          <Text style={[styles.misText, { color: p.ink, flex: 1 }]}>{t('goal.short')}</Text>
+          <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t('goal.short')}</Text>
           {[0, 1, 2].map((i) => {
             const g = GROUPS.find((x) => x.id === goal.groups[i]);
             return (
-              <View
-                key={i}
-                style={[styles.goalDot, g ? { backgroundColor: '#123826', borderColor: DONE, borderStyle: 'solid' } : { borderColor: p.line }]}
-                accessibilityLabel={g ? t(`g.${g.id}`) : t('ch.open')}
-              >
-                {g && <GroupIcon id={g.id} size={16} color={colors.accentLight} />}
+              <View key={i} style={styles.goalSlot}>
+                <View
+                  style={[styles.goalDot, g ? { backgroundColor: '#123826', borderColor: DONE, borderStyle: 'solid' } : { borderColor: p.line }]}
+                >
+                  {g && <GroupIcon id={g.id} size={17} color={colors.accentLight} />}
+                </View>
+                <Text style={[styles.goalLabel, { color: g ? p.ink : p.mute }]} numberOfLines={1}>
+                  {g ? t(`g.${g.id}`) : t('ch.open')}
+                </Text>
               </View>
             );
           })}
@@ -292,11 +295,13 @@ const styles = StyleSheet.create({
   levelBar: { height: 8, borderRadius: 9, marginTop: 14, marginBottom: 6, overflow: 'hidden', backgroundColor: 'rgba(232,131,58,0.2)' },
   levelSub: { fontFamily: fonts.sans, fontSize: 13 },
   doneCard: { borderWidth: 2 },
-  goalRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 },
+  goalRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
+  goalSlot: { width: 56, alignItems: 'center', gap: 3 },
+  goalLabel: { fontFamily: fonts.sans, fontSize: 10.5 },
   goalDot: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     borderWidth: 2,
     borderStyle: 'dashed',
     alignItems: 'center',
