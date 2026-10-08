@@ -30,10 +30,7 @@ type Props = {
 };
 
 export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends }: Props) {
-  const dark = useColorScheme() === 'dark';
-  const p = dark ? darkPalette : lightPalette;
-  // Stufen-Karte in warmem Sandton (hebt sich vom grünen Kopf und den weißen Karten ab)
-  const sand = dark ? { bg: '#3A2B1C', ink: '#F6E7D4', mute: '#D9B996' } : { bg: '#FFF1DE', ink: colors.ink, mute: colors.accentDark };
+  const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
   const goal = progress.season;
@@ -63,17 +60,14 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
         <HeaderBackground />
         <Text style={styles.h2}>{t('ch.title')}</Text>
-      </View>
-
-      {/* Stufe und XP ganz oben – Sandton mit orangem Rand, hebt sich von den Aufgaben ab */}
-      <View style={[styles.levelCard, { backgroundColor: sand.bg }]}>
+        {/* Stufe und XP direkt im Kopf (wie im Profil), mit schmalem hellem Balken */}
         <View style={styles.levelHead}>
           <View style={styles.levelBadge}>
             <Text style={styles.levelBadgeText}>{progress.level}</Text>
           </View>
           <View style={{ flex: 1 }}>
-            <Text style={[styles.levelSmall, { color: sand.mute }]}>{t('ch.level', { n: progress.level })}</Text>
-            <Text style={[styles.levelName, { color: sand.ink }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
+            <Text style={styles.levelSmall}>{t('ch.level', { n: progress.level })}</Text>
+            <Text style={styles.levelName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
               {t(`level.${progress.level - 1}` as 'level.0')}
             </Text>
           </View>
@@ -82,7 +76,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         <View style={styles.levelBar}>
           <View style={[styles.progFill, { width: `${Math.min(100, Math.round(share * 100))}%` }]} />
         </View>
-        <Text style={[styles.levelSub, { color: sand.mute }]}>
+        <Text style={styles.levelSub}>
           {progress.nextLevelXp
             ? t('ch.toNextShort', { n: progress.nextLevelXp - progress.xp })
             : t('ch.max', { xp: progress.xp })}
@@ -343,41 +337,29 @@ function BadgeView({
 const styles = StyleSheet.create({
   hx: {
     paddingHorizontal: spacing.gutter,
-    paddingBottom: 40,
+    paddingBottom: 24,
     borderBottomLeftRadius: spacing.radiusHero,
     borderBottomRightRadius: spacing.radiusHero,
     overflow: 'hidden',
   },
-  h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 14 },
-  levelCard: {
-    marginTop: -24,
-    marginHorizontal: spacing.gutter,
-    borderRadius: 20,
-    padding: 16,
-    borderWidth: 2,
-    borderColor: colors.accent,
-    shadowColor: '#000',
-    shadowOpacity: 0.18,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 10 },
-  },
+  h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginBottom: 16 },
   levelHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   levelBadge: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#123826',
-    borderWidth: 3,
-    borderColor: colors.accent,
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    backgroundColor: colors.accent,
+    borderWidth: 2.5,
+    borderColor: colors.accentLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  levelBadgeText: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.accentLight },
-  levelSmall: { fontFamily: fonts.sansBold, fontSize: 12, textTransform: 'uppercase', letterSpacing: 0.6 },
-  levelName: { fontFamily: fonts.serifBold, fontSize: 21 },
-  levelXp: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.accent },
-  levelBar: { height: 8, borderRadius: 9, marginTop: 14, marginBottom: 6, overflow: 'hidden', backgroundColor: 'rgba(232,131,58,0.2)' },
-  levelSub: { fontFamily: fonts.sans, fontSize: 13 },
+  levelBadgeText: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.ink },
+  levelSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
+  levelName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
+  levelXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
+  levelBar: { height: 6, borderRadius: 6, marginTop: 12, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
+  levelSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 5 },
   doneCard: { borderWidth: 2 },
   weekRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6 },
   goalRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
