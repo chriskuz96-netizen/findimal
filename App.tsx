@@ -14,7 +14,7 @@ import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
-import { LimitSheet } from './src/components/LimitCard';
+import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { translateAnimal } from './src/identify';
@@ -373,6 +373,7 @@ function Main() {
             avatar={avatarBadge}
             freeLeft={freeLeft}
             videosLeft={videosLeft}
+            onWatchVideo={() => watchVideo(t)}
             onTakePhoto={() => startPhoto((cb) => takePhoto(t, cb))}
             onPickPhoto={() => startPhoto((cb) => pickPhoto(cb))}
           />

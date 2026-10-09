@@ -15,7 +15,9 @@ import { Explorer } from './Explorer';
 const GOLD = '#E8B53A';
 
 // Werbevideos gibt es erst in der fertigen App (nicht in Expo Go/Snack).
-function soon(t: Translate) {
+// Belohnungs-Video starten: gibt es erst in der fertigen App (kommt mit AdMob).
+// Danach: addVideoToday() und direkt die Kamera öffnen.
+export function watchVideo(t: Translate) {
   Alert.alert(t('lim.title'), t('lim.soon'));
 }
 
@@ -55,7 +57,7 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
         <View style={styles.body}>
           {/* Hauptweg: Video ansehen */}
           <Pressable
-            onPress={() => soon(t)}
+            onPress={() => watchVideo(t)}
             accessibilityRole="button"
             style={({ pressed }) => [styles.video, { transform: [{ scale: pressed ? 0.98 : 1 }] }]}
           >

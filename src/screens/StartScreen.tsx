@@ -26,6 +26,7 @@ type Props = {
   avatar: string | null; // Abzeichen oder Plus-Tier als Profilbild
   freeLeft: number; // Gratis-Fotos, die heute noch übrig sind
   videosLeft: number; // Extra-Fotos per Video, die heute noch gehen
+  onWatchVideo: () => void; // Video direkt starten
   onTakePhoto: () => void;
   onPickPhoto: () => void;
 };
@@ -38,6 +39,7 @@ export function StartScreen({
   avatar,
   freeLeft,
   videosLeft,
+  onWatchVideo,
   onTakePhoto,
   onPickPhoto,
 }: Props) {
@@ -112,10 +114,10 @@ export function StartScreen({
                 ? t('start.freeNone')
                 : t(freeLeft === 1 ? 'start.freeOne' : 'start.free', { n: freeLeft })}
           </Text>
-          {/* keine Gratis-Fotos mehr: Hinweis aufs Video (öffnet das Fenster mit Video und Plus) */}
+          {/* keine Gratis-Fotos mehr: Antippen startet direkt das Video (die Kamera öffnet das Fenster) */}
           {/* alle Videos auch schon weg: Hinweis auf Findimal Plus */}
           {!plus && freeLeft === 0 && (
-            <Pressable onPress={onTakePhoto} hitSlop={8} accessibilityRole="button">
+            <Pressable onPress={videosLeft > 0 ? onWatchVideo : onTakePhoto} hitSlop={8} accessibilityRole="button">
               <Text style={[styles.freeVideo, videosLeft === 0 && { color: '#FFD45E' }]}>
                 {videosLeft > 0 ? `▶ ${t('start.freeVideo')}` : `★ ${t('start.freePlus')}`}
               </Text>
