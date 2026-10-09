@@ -69,12 +69,12 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 **Texte für die Bildschirmfotos** (9 Stück, je ein kurzer Satz oben auf dem Bild – fertige Bilder im Zweig `app-assets`, Ordner `store-screenshots`):
 1. Foto machen – Tier erkennen
 2. Steckbrief und „Wusstest du?“
-3. Täglich Quiz, Ziele und Abzeichen
-4. Deine Sammlung, sortiert nach Gruppen
-5. Saison: Was jetzt draußen los ist
-6. Tiere schützen – so hilfst du jetzt
-7. Jede Woche ein Natur-Tipp – kein Spam
-8. Mit Freunden um die Wette entdecken
+3. Mit Freunden um die Wette entdecken
+4. Täglich Quiz, Ziele und Abzeichen
+5. Deine Sammlung, sortiert nach Gruppen
+6. Saison: Was jetzt draußen los ist
+7. Tiere schützen – so hilfst du jetzt
+8. Jede Woche ein Natur-Tipp – kein Spam
 9. Findimal Plus: unbegrenzt entdecken
 
 **TestFlight – „Was soll getestet werden?“**
@@ -146,12 +146,12 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 **Screenshot captions:**
 1. Snap a photo – identify the animal
 2. Fact sheet and "Did you know?"
-3. Daily quiz, goals and badges
-4. Your collection, sorted by group
-5. Seasons: what's happening outside
-6. Protect animals – how to help right now
-7. One nature tip a week – no spam
-8. Compete with friends
+3. Compete with friends
+4. Daily quiz, goals and badges
+5. Your collection, sorted by group
+6. Seasons: what's happening outside
+7. Protect animals – how to help right now
+8. One nature tip a week – no spam
 9. Findimal Plus: explore without limits
 
 ---
@@ -220,12 +220,12 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 **Légendes des captures d’écran :**
 1. Prends une photo – découvre l’animal
 2. Fiche et « Le savais-tu ? »
-3. Quiz du jour, objectifs et badges
-4. Ta collection, triée par groupe
-5. Saison : ce qui se passe dehors
-6. Protéger les animaux – comment aider maintenant
-7. Un conseil nature par semaine – sans spam
-8. Explore et défie tes amis
+3. Explore et défie tes amis
+4. Quiz du jour, objectifs et badges
+5. Ta collection, triée par groupe
+6. Saison : ce qui se passe dehors
+7. Protéger les animaux – comment aider maintenant
+8. Un conseil nature par semaine – sans spam
 9. Findimal Plus : découvrir sans limite
 
 **URL d’assistance :** https://findimal.chriskuz96.workers.dev/hilfe?l=fr
@@ -296,12 +296,12 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 **Textos de las capturas de pantalla:**
 1. Haz una foto – descubre el animal
 2. Ficha y «¿Sabías que…?»
-3. Quiz diario, metas e insignias
-4. Tu colección, ordenada por grupos
-5. Temporada: lo que pasa ahí fuera
-6. Proteger a los animales – cómo ayudar ahora
-7. Un consejo de naturaleza por semana – sin spam
-8. Explora y compite con tus amigos
+3. Explora y compite con tus amigos
+4. Quiz diario, metas e insignias
+5. Tu colección, ordenada por grupos
+6. Temporada: lo que pasa ahí fuera
+7. Proteger a los animales – cómo ayudar ahora
+8. Un consejo de naturaleza por semana – sin spam
 9. Findimal Plus: descubre sin límites
 
 **URL de soporte:** https://findimal.chriskuz96.workers.dev/hilfe?l=es
