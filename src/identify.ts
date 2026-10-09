@@ -215,7 +215,9 @@ export async function identify(photos: Photo[], t: Translate, lang: Lang, cancel
     if (signal.aborted) return stopped();
     const bonus = res.headers.get('X-Findimal-Bonus');
     if (bonus !== null) await setBonusPhotos(Number(bonus) || 0); // Extra-Foto eingelöst
-    else if (photos.length === 1) await setUsedToday(Number.isFinite(used) && used > 0 ? used : (await usedToday()) + 1);
+    else if (Number.isFinite(used) && used > 0) await setUsedToday(used);
+    // ohne Angabe vom Server: nur Fotos mit gefundenem Tier zählen (wie auf dem Server)
+    else if (photos.length === 1 && animal.tier_gefunden) await setUsedToday((await usedToday()) + 1);
     return { ok: true, animal };
   } catch {
     if (signal.aborted) return stopped();

@@ -42,7 +42,7 @@ const DAILY_EXTRA = 6;
 const DAILY_PLUS = 30;
 // Ohne Findimal-Code (OFFEN = "ja"): KI-Anfragen pro Internetanschluss und Tag
 // (großzügig, weil sich Familien und Schulklassen einen Anschluss teilen)
-const DAILY_PER_IP = 80;
+const DAILY_PER_IP = 150; // eine Schulklasse im selben WLAN soll nicht ausgebremst werden
 const DAILY_TOTAL = 300;
 
 const TEXT = { type: 'string' };
@@ -276,9 +276,10 @@ async function board(env, body, request) {
         if (!(await env.DB.get('invited:' + dev))) {
           await env.DB.put('invited:' + dev, friend);
           await addBonus(env, dev);
-          const n = Number(await env.DB.get('inv:' + friend)) || 0;
-          if (n < 10 && inviter.dev) {
-            await env.DB.put('inv:' + friend, String(n + 1));
+          // höchstens 10 Boni pro einladendem Handy (nicht pro Code – Codes kann man neu würfeln)
+          const n = inviter.dev ? Number(await env.DB.get('invdev:' + inviter.dev)) || 0 : 10;
+          if (n < 10) {
+            await env.DB.put('invdev:' + inviter.dev, String(n + 1));
             await addBonus(env, inviter.dev);
           }
           bonus = true;
@@ -617,7 +618,7 @@ const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, X-Findimal-Key, X-Findimal-Device, X-Findimal-Plus',
-  'Access-Control-Expose-Headers': 'X-Findimal-Used',
+  'Access-Control-Expose-Headers': 'X-Findimal-Used, X-Findimal-Bonus',
 };
 
 function json(body, status = 200) {
@@ -631,10 +632,11 @@ function json(body, status = 200) {
 async function claude(env, model, system, schema, content, timeoutMs) {
   const cheap = model === CHEAP_MODEL;
   let res;
+  const signal = AbortSignal.timeout(timeoutMs); // nicht ewig warten
   try {
     res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      signal: AbortSignal.timeout(timeoutMs), // nicht ewig warten
+      signal,
       headers: {
         'content-type': 'application/json',
         'x-api-key': env.ANTHROPIC_API_KEY,
@@ -663,6 +665,12 @@ async function claude(env, model, system, schema, content, timeoutMs) {
   }
 
   const data = await res.json().catch(() => null);
+  if (!data && signal.aborted) return { error: json({ fehler: 'Das dauert gerade zu lange. Bitte nochmal versuchen.' }, 504) };
+  if (res.status === 400) {
+    // z. B. kaputtes oder zu großes Bild: das genaue Modell würde genauso scheitern
+    console.log('Claude-Fehler 400', model, JSON.stringify(data));
+    return { error: json({ fehler: 'Kein oder zu großes Foto.' }, 400), fatal: true };
+  }
   if (!res.ok || !data) {
     console.log('Claude-Fehler', model, res.status, JSON.stringify(data));
     return { error: json({ fehler: 'Die Tierbestimmung ist gerade nicht erreichbar.' }, 502) };
@@ -684,6 +692,7 @@ async function ask(env, system, schema, content, good = () => true) {
   // Zeitgrenzen: die schnelle KI höchstens 10 s, die genaue höchstens 25 s (die App wartet höchstens 40 s)
   const first = await claude(env, CHEAP_MODEL, system, schema, content, 10_000);
   if (first.data && good(first.data)) return json(first.data);
+  if (first.fatal) return first.error;
   const second = await claude(env, MODEL, system, schema, content, 25_000);
   if (second.data) return json(second.data);
   return first.data ? json(first.data) : second.error;
@@ -707,24 +716,40 @@ const BONUS_TTL = 60 * 60 * 24 * 60;
 async function addBonus(env, device) {
   const key = 'bonus:' + device;
   const n = Number(await env.DB.get(key)) || 0;
-  await env.DB.put(key, String(Math.min(n + 1, 20)), { expirationTtl: BONUS_TTL });
+  await safePut(env, key, String(Math.min(n + 1, 20)), { expirationTtl: BONUS_TTL });
+}
+
+// Zähler schreiben, ohne dass ein KV-Fehler (z. B. zu viele Schreibzugriffe pro Sekunde) die Anfrage abbricht
+async function safePut(env, key, value, options) {
+  try {
+    await env.DB.put(key, value, options);
+  } catch (e) {
+    console.log('KV-Schreibfehler', key, String(e));
+  }
 }
 
 // Grenzen für Anfragen ohne Findimal-Code: pro Internetanschluss und für alle zusammen pro Tag.
 // Liefert eine Fehlerantwort oder null.
-async function publicBudget(env, request) {
+async function publicBudget(env, request, kind = 'g') {
   if (!env.DB) return json({ fehler: 'Server nicht eingerichtet.' }, 503); // ohne Speicher keine Grenzen
   const day = new Date().toISOString().slice(0, 10);
-  const ipKey = `g:${day}:ip-${request.headers.get('CF-Connecting-IP') || '?'}`;
-  const allKey = `g:${day}:alle`;
+  // IPv6: ganze /64-Adresse zählen (dort wechselt die Endung oft)
+  const ipRaw = request.headers.get('CF-Connecting-IP') || '?';
+  const ip6 = ipRaw.includes(':') ? ipRaw.split(':').slice(0, 4).join(':') : ipRaw;
+  const ipKey = `${kind}:${day}:ip-${ip6}`;
+  const allKey = `${kind}:${day}:alle`;
   const [ip, all] = await Promise.all([env.DB.get(ipKey), env.DB.get(allKey)]);
-  const maxAll = Number(env.TAGES_GRENZE) || DAILY_TOTAL;
-  if ((Number(ip) || 0) >= DAILY_PER_IP || (Number(all) || 0) >= maxAll) {
-    return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
+  // Text-Aufträge (Übersetzen, Steckbrief, In der Nähe) sind viel günstiger: eigenes, größeres Budget
+  const text = kind === 't';
+  const maxAll = (Number(env.TAGES_GRENZE) || DAILY_TOTAL) * (text ? 10 : 1);
+  const maxIp = DAILY_PER_IP * (text ? 5 : 1);
+  if ((Number(ip) || 0) >= maxIp || (Number(all) || 0) >= maxAll) {
+    // nicht als "Gratis-Fotos aufgebraucht" melden – das wäre für die Nutzer falsch
+    return json({ fehler: 'Gerade sind sehr viele unterwegs. Bitte später nochmal versuchen.' }, 503);
   }
   await Promise.all([
-    env.DB.put(ipKey, String((Number(ip) || 0) + 1), { expirationTtl: 60 * 60 * 48 }),
-    env.DB.put(allKey, String((Number(all) || 0) + 1), { expirationTtl: 60 * 60 * 48 }),
+    safePut(env, ipKey, String((Number(ip) || 0) + 1), { expirationTtl: 60 * 60 * 48 }),
+    safePut(env, allKey, String((Number(all) || 0) + 1), { expirationTtl: 60 * 60 * 48 }),
   ]);
   return null;
 }
@@ -792,6 +817,7 @@ export default {
     if (!tester && env.OFFEN !== 'ja') return json({ fehler: 'falscher_code' }, 401);
     // Vor jeder KI-Anfrage: Grenzen für alle ohne Code
     const budget = () => (tester ? null : publicBudget(env, request));
+    const textBudget = () => (tester ? null : publicBudget(env, request, 't'));
 
     let body;
     try {
@@ -799,6 +825,7 @@ export default {
     } catch {
       return json({ fehler: 'Ungültige Anfrage.' }, 400);
     }
+    if (!body || typeof body !== 'object') return json({ fehler: 'Ungültige Anfrage.' }, 400);
 
     if (typeof body.mode === 'string' && body.mode.startsWith('board_')) return board(env, body, request);
 
@@ -812,7 +839,7 @@ export default {
         const cached = await env.DB.get(cacheKey);
         if (cached) return new Response(cached, { headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS } });
       }
-      const stop = await budget();
+      const stop = await textBudget();
       if (stop) return stop;
       const res = await ask(env, NEARBY_SYSTEM + languageRule(lang), NEARBY_SCHEMA, [
         { type: 'text', text: `Region: ${region}\nZeit: ${zeit}` },
@@ -839,9 +866,13 @@ export default {
         } catch {
           info = { key: counted };
         }
-        const n = Number(await env.DB.get(info.key)) || 0;
-        if (info.bonus) await env.DB.put(info.key, String(n + 1), { expirationTtl: BONUS_TTL }); // Extra-Foto zurück
-        else if (n > 0) await env.DB.put(info.key, String(n - 1), { expirationTtl: 60 * 60 * 48 });
+        // nur wenn der Abbruch praktisch gleichzeitig mit dem Ergebnis kam (sonst könnte man
+        // Ergebnisse behalten und sich das Foto trotzdem zurückholen)
+        if (info.t && Date.now() - info.t < 3000) {
+          const n = Number(await env.DB.get(info.key)) || 0;
+          if (info.bonus) await safePut(env, info.key, String(n + 1), { expirationTtl: BONUS_TTL }); // Extra-Foto zurück
+          else if (n > 0) await safePut(env, info.key, String(n - 1), { expirationTtl: 60 * 60 * 48 });
+        }
         await env.DB.delete(`ok:${rid}`);
       }
       return json({ ok: true });
@@ -858,10 +889,10 @@ export default {
       if (env.DB) {
         const key = deviceKey(request, 't');
         const used = Number(await env.DB.get(key)) || 0;
-        if (used >= 300) return json({ fehler: 'limit' }, 429);
-        await env.DB.put(key, String(used + 1), { expirationTtl: 60 * 60 * 48 });
+        if (used >= 100) return json({ fehler: 'limit' }, 429);
+        await safePut(env, key, String(used + 1), { expirationTtl: 60 * 60 * 48 });
       }
-      const stop = await budget();
+      const stop = await textBudget();
       if (stop) return stop;
       const schema = {
         type: 'object',
@@ -881,9 +912,9 @@ export default {
         const key = deviceKey(request, 'd');
         const used = Number(await env.DB.get(key)) || 0;
         if (used >= 30) return json({ fehler: 'limit' }, 429);
-        await env.DB.put(key, String(used + 1), { expirationTtl: 60 * 60 * 48 });
+        await safePut(env, key, String(used + 1), { expirationTtl: 60 * 60 * 48 });
       }
-      const stop = await budget();
+      const stop = await textBudget();
       if (stop) return stop;
       return ask(env, DETAILS_SYSTEM + languageRule(body.lang), DETAILS_SCHEMA, [
         { type: 'text', text: `Tier: ${name}${sci ? ` (${sci})` : ''}` },
@@ -894,7 +925,7 @@ export default {
     const images = (Array.isArray(body.images) ? body.images : [body.image])
       .filter((i) => typeof i === 'string' && i)
       .slice(0, 3);
-    if (!images.length || images.some((i) => i.length > 7_000_000)) {
+    if (!images.length || images.some((i) => i.length > 5_000_000)) {
       return json({ fehler: 'Kein oder zu großes Foto.' }, 400);
     }
     const question =
@@ -902,7 +933,8 @@ export default {
         ? 'Diese Fotos zeigen dasselbe Tier aus verschiedenen Blickwinkeln. Welches Tier ist es?'
         : 'Welches Tier ist auf diesem Foto?';
     // Tageslimit: pro Handy (Kennung aus der App, sonst die IP-Adresse) und Tag
-    const extra = body.extra === true;
+    // Zusatzfotos zählen nur, wenn wirklich mehrere Fotos desselben Tieres kommen
+    const extra = body.extra === true && images.length > 1;
     let counter = null;
     if (env.DB) {
       const key = deviceKey(request, extra ? 'x' : 'n');
@@ -920,6 +952,14 @@ export default {
     }
     const stop = await budget();
     if (stop) return stop;
+    // Platz sofort reservieren (sonst kämen gleichzeitige Anfragen alle durchs Limit);
+    // geht etwas schief oder wird kein Tier gefunden, gibt es ihn zurück
+    const reserve = async (back) => {
+      if (!counter) return;
+      if (counter.bonus) await safePut(env, counter.key, String(back ? counter.left : counter.left - 1), { expirationTtl: BONUS_TTL });
+      else await safePut(env, counter.key, String(back ? counter.used : counter.used + 1), { expirationTtl: 60 * 60 * 48 });
+    };
+    await reserve(false);
     // Günstiges Modell reicht, wenn es ein Tier gefunden hat und nicht unsicher ist
     const res = await ask(
       env,
@@ -933,7 +973,13 @@ export default {
     );
     // in der App abgebrochen: Ergebnis verwerfen, nichts zählen
     const rid = /^[a-z0-9]{8,40}$/.test(String(body.rid || '')) ? String(body.rid) : null;
-    if (rid && env.DB && (await env.DB.get(`cx:${rid}`))) return json({ fehler: 'abgebrochen' }, 409);
+    if (rid && env.DB && (await env.DB.get(`cx:${rid}`))) {
+      await reserve(true);
+      return json({ fehler: 'abgebrochen' }, 409);
+    }
+    // Nur Fotos mit gefundenem Tier zählen als Gratis-Foto
+    const found = res.ok ? !!(await res.clone().json().catch(() => null))?.tier_gefunden : false;
+    if (!found) await reserve(true);
     // Beliebteste Tiere der Saison: anonym mitzählen (nur beim ersten Foto, nicht bei Zusatzfotos desselben Tieres)
     if (res.ok && images.length === 1 && ctx) {
       ctx.waitUntil(
@@ -944,17 +990,11 @@ export default {
           .catch(() => {}),
       );
     }
-    // nur erfolgreiche Bestimmungen zählen
-    if (counter && res.ok && counter.bonus) {
-      // Extra-Foto verbraucht
-      await env.DB.put(counter.key, String(counter.left - 1), { expirationTtl: BONUS_TTL });
-      if (rid) await env.DB.put(`ok:${rid}`, JSON.stringify({ key: counter.key, bonus: true }), { expirationTtl: 600 });
-      res.headers.set('X-Findimal-Bonus', String(counter.left - 1));
-    } else if (counter && res.ok) {
-      await env.DB.put(counter.key, String(counter.used + 1), { expirationTtl: 60 * 60 * 48 });
-      // merken, welcher Zähler erhöht wurde – falls gleich danach noch abgebrochen wird
-      if (rid) await env.DB.put(`ok:${rid}`, JSON.stringify({ key: counter.key }), { expirationTtl: 600 });
-      if (!extra) res.headers.set('X-Findimal-Used', String(counter.used + 1));
+    // gezählt: merken, falls gleich danach noch abgebrochen wird (nur kurz gültig, siehe "cancel")
+    if (counter && found) {
+      if (rid) await safePut(env, `ok:${rid}`, JSON.stringify({ key: counter.key, bonus: !!counter.bonus, t: Date.now() }), { expirationTtl: 600 });
+      if (counter.bonus) res.headers.set('X-Findimal-Bonus', String(counter.left - 1));
+      else if (!extra) res.headers.set('X-Findimal-Used', String(counter.used + 1));
     }
     return res;
   },
