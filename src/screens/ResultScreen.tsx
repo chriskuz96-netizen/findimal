@@ -19,6 +19,7 @@ import { Photo } from '../camera';
 import { AdSheet, AdSlot } from '../components/AdSlot';
 import { Explorer } from '../components/Explorer';
 import { LimitCard } from '../components/LimitCard';
+import { ShareCard, shareCard } from '../components/ShareCard';
 import { SwipeBack } from '../components/SwipeBack';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
@@ -132,6 +133,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   // halbseitige Anzeige ab dem 3. Foto des Tages: kommt beim Tippen auf „Weiter“
   const [bigAd, setBigAd] = useState<'due' | 'open' | null>(null);
   const findId = useRef<string | null>(null);
+  const shareRef = useRef<View>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
   // Laufende Bestimmung (zum Abbrechen) und Stand davor (bei einem weiteren Foto)
@@ -428,6 +430,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {/* dezente Erinnerung ans Findimal-Ehrenwort */}
           <Text style={[styles.respect, { color: p.mute }]}>🐾 {t('res.respect')}</Text>
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
+          {/* Fund als schönes Bild teilen (WhatsApp & Co.) */}
+          {animal && !!mainUri && <Button label={`↗  ${t('res.share')}`} onPress={() => shareCard(shareRef, t)} p={p} filled={false} />}
           {!busy && <Button label={backLabel ?? t('res.continue')} onPress={leave} p={p} filled={!!result} />}
         </ScrollView>
 
@@ -435,6 +439,16 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
       {/* Belohnung: kurz unten einblenden, Balken füllt sich, dann wieder weg */}
       {reward && animal && (
         <RewardToast key={`${reward.after.xp}-${photos.length}`} reward={reward} photos={photos.length} p={p} bottom={insets.bottom} />
+      )}
+      {/* Teilen-Bild: unsichtbar gezeichnet, wird nur beim Teilen fotografiert */}
+      {animal && !!mainUri && (
+        <ShareCard
+          ref={shareRef}
+          animal={animal}
+          photo={mainUri}
+          t={t}
+          when={[new Date(saved?.date ?? Date.now()).toLocaleDateString(locale), saved?.place].filter(Boolean).join(' · ')}
+        />
       )}
       {/* Halbseitige Anzeige ab dem 3. Foto des Tages, nach „Weiter“ – danach geht es zurück */}
       {bigAd === 'open' && <AdSheet p={p} onClose={onBack} />}
