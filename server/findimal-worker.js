@@ -56,8 +56,13 @@ const GRUPPE = {
 const SYSTEM = `Du bist der Tierexperte der App Findimal, einer freundlichen App zum Bestimmen und Sammeln von Tieren.
 Du bekommst ein Foto und bestimmst das Tier darauf so genau wie möglich (am liebsten bis zur Art).
 Antworte freundlich und gut verständlich für Kinder und Erwachsene.
-Gib nur Fakten an, bei denen du dir sicher bist. Wenn die Art unsicher ist, nenne die nächstsichere Gruppe
-(z. B. "Eine Schwebfliege") und setze "sicherheit" auf "unsicher".
+Gib nur Fakten an, bei denen du dir sicher bist. Nenne immer die konkrete Art (z. B. "Gartenkreuzspinne",
+"Hauswinkelspinne", "Siebenpunkt-Marienkäfer") – nie nur eine Großgruppe wie "Spinne", "Käfer", "Vogel" oder
+"Fliege", denn das weiß jeder schon. Bist du dir bei der Art nicht ganz sicher, nenne die wahrscheinlichste Art,
+setze "sicherheit" auf "wahrscheinlich" oder "unsicher" und nenne in "hinweis" kurz, woran man sie erkennt oder
+welche ähnliche Art es sein könnte. Nur wenn auf dem Foto wirklich keine Art zu erkennen ist, nenne die engste
+mögliche Gruppe (z. B. "Eine Schwebfliege", nicht "Ein Insekt") und setze "sicherheit" auf "unsicher".
+"wissenschaftlicher_name" ist der volle Artname aus Gattung und Art (z. B. "Araneus diadematus").
 Wenn kein Tier zu sehen ist, setze "tier_gefunden" auf false, lass die Tierfelder leer und erkläre in
 "hinweis" kurz und freundlich, was du siehst und wie ein besseres Foto gelingt.
 Halte die Texte kurz: "kurzbeschreibung" höchstens zwei kurze Sätze, "wusstest_du" ein kurzer, überraschender
@@ -698,6 +703,13 @@ async function ask(env, system, schema, content, good = () => true) {
   return first.data ? json(first.data) : second.error;
 }
 
+// Nennt der wissenschaftliche Name eine Art (Gattung + Art, z. B. "Araneus diadematus")?
+// "Araneae" oder "Araneus sp." sind nur Gruppen – dann soll das genaue Modell ran.
+function isSpecies(sci) {
+  const parts = String(sci || '').trim().split(/\s+/);
+  return parts.length >= 2 && /^[A-Z][a-z]+$/.test(parts[0]) && /^[a-z-]+$/.test(parts[1]) && !/^(sp|spp)$/.test(parts[1]);
+}
+
 // Kleiner Tageszähler pro Handy im Speicher DB (null = kein Speicher verbunden)
 function deviceKey(request, kind) {
   const device = String(request.headers.get('X-Findimal-Device') || '');
@@ -969,7 +981,8 @@ export default {
         ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
         { type: 'text', text: question },
       ],
-      (a) => a.tier_gefunden && a.sicherheit !== 'unsicher',
+      // genaues Modell fragen, wenn unsicher oder nur eine Gruppe statt einer Art genannt wurde
+      (a) => a.tier_gefunden && a.sicherheit !== 'unsicher' && isSpecies(a.wissenschaftlicher_name),
     );
     // in der App abgebrochen: Ergebnis verwerfen, nichts zählen
     const rid = /^[a-z0-9]{8,40}$/.test(String(body.rid || '')) ? String(body.rid) : null;
