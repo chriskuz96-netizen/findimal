@@ -34,7 +34,7 @@ const de = {
   // Region
   'reg.title': 'Wo bist du unterwegs?',
   'reg.text':
-    'Damit ich dir zeigen kann, welche Tiere es in deiner Nähe gibt. Ich merke mir nur den Ortsnamen, nicht deinen genauen Standort.',
+    'Damit ich dir zeigen kann, welche Tiere es in deiner Nähe gibt – und deine Tiere noch genauer erkenne. Ich merke mir nur den Ortsnamen, nicht deinen genauen Standort.',
   'reg.useLocation': 'Standort verwenden',
   'reg.or': 'oder Region eingeben',
   'reg.placeholder': 'z. B. München',
@@ -486,7 +486,7 @@ const en: Strings = {
   'wel.go': 'Let’s go',
   'reg.title': 'Where do you explore?',
   'reg.text':
-    'So I can show you which animals live near you. I only remember the name of the place, not your exact location.',
+    'So I can show you which animals live near you – and recognise your animals even more accurately. I only remember the name of the place, not your exact location.',
   'reg.useLocation': 'Use my location',
   'reg.or': 'or enter a region',
   'reg.placeholder': 'e.g. Munich',
@@ -908,7 +908,7 @@ const fr: Strings = {
   'wel.go': 'C’est parti',
   'reg.title': 'Où explores-tu ?',
   'reg.text':
-    'Pour te montrer quels animaux vivent près de chez toi. Je retiens seulement le nom du lieu, pas ta position exacte.',
+    'Pour te montrer quels animaux vivent près de chez toi – et reconnaître tes animaux encore plus précisément. Je retiens seulement le nom du lieu, pas ta position exacte.',
   'reg.useLocation': 'Utiliser ma position',
   'reg.or': 'ou saisis une région',
   'reg.placeholder': 'ex. Munich',
@@ -1331,7 +1331,7 @@ const es: Strings = {
   'wel.go': '¡Vamos!',
   'reg.title': '¿Dónde exploras?',
   'reg.text':
-    'Así puedo mostrarte qué animales viven cerca de ti. Solo recuerdo el nombre del lugar, no tu ubicación exacta.',
+    'Así puedo mostrarte qué animales viven cerca de ti – y reconocer tus animales con más precisión. Solo recuerdo el nombre del lugar, no tu ubicación exacta.',
   'reg.useLocation': 'Usar mi ubicación',
   'reg.or': 'o escribe una región',
   'reg.placeholder': 'p. ej. Múnich',

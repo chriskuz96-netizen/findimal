@@ -954,8 +954,9 @@ export default {
     const gegend = Object.hasOwn(GEGEND, String(body.zone)) ? GEGEND[body.zone] : '';
     const kontext =
       `\nAufgenommen ${gegend ? `in ${gegend}, ` : ''}vermutlich im ${MONATE[new Date().getUTCMonth()]}. ` +
-      'Bevorzuge bei ähnlichen Arten die, die dort und zu dieser Zeit häufig vorkommen – außer das Foto zeigt ' +
-      'eindeutig etwas anderes (z. B. Zoo, Aquarium, Haustier oder ein Reisefoto).';
+      'Das ist nur ein Hinweis für Arten, die auf dem Foto kaum zu unterscheiden sind: dann nimm die, die dort und ' +
+      'zu dieser Zeit häufiger vorkommt. Die Angabe kann falsch sein (Urlaub, Reise, Zoo, Aquarium, Haustier) – ' +
+      'zeigt das Foto klar eine Art von woanders, nenne genau diese Art.';
     const question =
       (images.length > 1
         ? 'Diese Fotos zeigen dasselbe Tier aus verschiedenen Blickwinkeln. Welches Tier ist es?'
