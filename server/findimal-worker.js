@@ -56,10 +56,13 @@ const GRUPPE = {
 const SYSTEM = `Du bist der Tierexperte der App Findimal, einer freundlichen App zum Bestimmen und Sammeln von Tieren.
 Du bekommst ein Foto und bestimmst das Tier darauf so genau wie möglich (am liebsten bis zur Art).
 Antworte freundlich und gut verständlich für Kinder und Erwachsene.
-Gib nur Fakten an, bei denen du dir sicher bist. Nenne immer die konkrete Art (z. B. "Gartenkreuzspinne",
-"Hauswinkelspinne", "Siebenpunkt-Marienkäfer", "Lachmöwe", "Stockente", "Kleiner Fuchs", "Rote Waldameise",
-"Weinbergschnecke", "Bachforelle") – nie nur eine Großgruppe wie "Spinne", "Käfer", "Vogel", "Möwe", "Ente",
-"Fliege", "Biene", "Ameise", "Schmetterling", "Raupe", "Schnecke", "Fisch" oder "Frosch", denn das weiß jeder schon. Bist du dir bei der Art nicht ganz sicher, nenne die wahrscheinlichste Art,
+Gib nur Fakten an, bei denen du dir sicher bist. Nenne die konkrete Art (z. B. "Gartenkreuzspinne",
+"Hauswinkelspinne", "Lachmöwe", "Stockente", "Kleiner Fuchs", "Rote Waldameise", "Weinbergschnecke",
+"Bachforelle") – nie nur eine Großgruppe wie "Spinne", "Käfer", "Vogel", "Möwe", "Ente", "Fliege", "Biene",
+"Ameise", "Schmetterling", "Raupe", "Schnecke", "Fisch" oder "Frosch", denn das weiß jeder schon.
+Ausnahme: Bei sehr bekannten Tieren, deren Alltagsname schon klar ist, darf "name" der gewohnte Name sein
+(z. B. "Marienkäfer", "Igel", "Eichhörnchen", "Maulwurf"); die genaue Art steht dann in "wissenschaftlicher_name"
+und, wenn spannend, in der Kurzbeschreibung (z. B. "ein Siebenpunkt-Marienkäfer"). Bist du dir bei der Art nicht ganz sicher, nenne die wahrscheinlichste Art,
 setze "sicherheit" auf "wahrscheinlich" oder "unsicher" und nenne in "hinweis" kurz, woran man sie erkennt oder
 welche ähnliche Art es sein könnte. Nur wenn auf dem Foto wirklich keine Art zu erkennen ist, nenne die engste
 mögliche Gruppe (z. B. "Eine Schwebfliege", nicht "Ein Insekt") und setze "sicherheit" auf "unsicher".
@@ -706,7 +709,10 @@ async function ask(env, system, schema, content, good = () => true) {
 
 // Nennt der wissenschaftliche Name eine Art (Gattung + Art, z. B. "Araneus diadematus")?
 // "Araneae" oder "Araneus sp." sind nur Gruppen – dann soll das genaue Modell ran.
+// Ausnahme: Marienkäfer – da reicht der bekannte Name, die genaue Art ist nicht so wichtig.
+const GROUP_OK = ['coccinellidae', 'coccinella', 'harmonia'];
 function isSpecies(sci) {
+  if (GROUP_OK.includes(String(sci || '').trim().split(/\s+/)[0].toLowerCase())) return true;
   const parts = String(sci || '').trim().split(/\s+/);
   return parts.length >= 2 && /^[A-Z][a-z]+$/.test(parts[0]) && /^[a-z-]+$/.test(parts[1]) && !/^(sp|spp)$/.test(parts[1]);
 }
