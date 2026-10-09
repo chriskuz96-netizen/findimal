@@ -9,7 +9,7 @@ Beim Bauen der App werden sie nach `assets/` in den Hauptzweig kopiert.
 - `assets/icon.svg` – Vorlage (aus `src/components/AppLogo.tsx`)
 
 ## Bildschirmfotos für den App Store (`store-screenshots/`)
-1320 × 2868 Pixel (6,9-Zoll-iPhone), je 6 Bilder auf Deutsch (`de-…`) und Englisch (`en-…`).
+1320 × 2868 Pixel (6,9-Zoll-iPhone), je 7 Bilder auf Deutsch (`de-…`) und Englisch (`en-…`).
 Erstellt aus der Web-Vorschau mit Beispieldaten und eigenen Tierfotos (Huhn, Nebelkrähe, Höckerschwan, Koala, Kühe, Hund).
 
 ## Knopf fürs Kontrollzentrum (`targets/kamera-knopf/`)
