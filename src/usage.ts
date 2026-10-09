@@ -73,3 +73,18 @@ export async function addVideoToday(): Promise<void> {
   const n = await videosToday();
   await AsyncStorage.setItem(VIDEO_KEY, JSON.stringify({ day: today(), count: n + 1 })).catch(() => {});
 }
+
+// Extra-Fotos aus Freundes-Einladungen (der Server zählt verbindlich, hier nur zur Anzeige)
+const BONUS_KEY = 'findimal-bonus';
+
+export async function bonusPhotos(): Promise<number> {
+  try {
+    return Number(await AsyncStorage.getItem(BONUS_KEY)) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+export async function setBonusPhotos(n: number): Promise<void> {
+  await AsyncStorage.setItem(BONUS_KEY, String(Math.max(0, n))).catch(() => {});
+}

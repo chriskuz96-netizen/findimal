@@ -219,7 +219,7 @@ async function updateTop(env, id, entry) {
   await env.DB.put('top', JSON.stringify(next));
 }
 
-async function board(env, body) {
+async function board(env, body, request) {
   if (!env.DB) return json({ fehler: 'keine_datenbank' }, 503);
 
   if (body.mode === 'board_top') {
@@ -244,6 +244,8 @@ async function board(env, body) {
         species: int(body.species, 100_000),
         avatar: String(body.avatar || '').slice(0, 20),
         updated: Date.now(),
+        created: old ? old.created || 0 : Date.now(), // seit wann dabei (für den Einladungs-Bonus)
+        dev: deviceOf(request) || (old && old.dev) || '', // Handy (nur für den Bonus, nie öffentlich)
         ...(old && old.hidden ? { hidden: true } : {}), // nach Meldungen ausgeblendet: bleibt so
       };
       await env.DB.put('p:' + id, JSON.stringify(entry));
@@ -264,7 +266,25 @@ async function board(env, body) {
       if (!CODE.test(friend) || friend === id) return json({ fehler: 'Ungültig.' }, 400);
       const list = (await env.DB.get('f:' + friend, 'json')) || [];
       if (!list.includes(id)) await env.DB.put('f:' + friend, JSON.stringify([...list, id].slice(-200)));
-      return json({ ok: true });
+      // Einladungs-Bonus: wer neu dabei ist und einen Freund hinzufügt, der schon länger dabei ist,
+      // bekommt mit ihm je 1 Gratis-Foto extra. Pro Handy nur einmal, pro Einladendem höchstens 10-mal.
+      let bonus = false;
+      const dev = deviceOf(request);
+      const inviter = await env.DB.get('p:' + friend, 'json');
+      const isNew = old.created && Date.now() - old.created < 3 * 24 * 60 * 60 * 1000;
+      if (dev && inviter && isNew && (inviter.created || 0) < old.created && inviter.dev !== dev) {
+        if (!(await env.DB.get('invited:' + dev))) {
+          await env.DB.put('invited:' + dev, friend);
+          await addBonus(env, dev);
+          const n = Number(await env.DB.get('inv:' + friend)) || 0;
+          if (n < 10 && inviter.dev) {
+            await env.DB.put('inv:' + friend, String(n + 1));
+            await addBonus(env, inviter.dev);
+          }
+          bonus = true;
+        }
+      }
+      return json({ ok: true, bonus });
     }
     // Eintrag melden: nach 3 Meldungen von verschiedenen Leuten verschwindet er aus der weltweiten Liste.
     // Gemeldete Einträge stehen im KV-Speicher unter "rep:<Code>" (zum Nachschauen in Cloudflare).
@@ -287,7 +307,9 @@ async function board(env, body) {
     }
     // Wer hat mich hinzugefügt?
     if (body.mode === 'board_inbox') {
-      return json({ ids: (await env.DB.get('f:' + id, 'json')) || [] });
+      const dev = deviceOf(request);
+      const bonus = dev ? Number(await env.DB.get('bonus:' + dev)) || 0 : 0; // offene Extra-Fotos
+      return json({ ids: (await env.DB.get('f:' + id, 'json')) || [], bonus });
     }
     return json({ fehler: 'Ungültig.' }, 400);
   }
@@ -304,10 +326,10 @@ async function board(env, body) {
 
 // Einladungsseite: https-Link aus WhatsApp & Co. -> öffnet Findimal (Expo Go) mit dem Freundescode
 const INVITE_TEXT = {
-  de: ['lädt dich zu Findimal ein!', 'Sammelt zusammen Tiere und vergleicht eure Punkte.', 'Findimal öffnen', 'Du brauchst die App „Expo Go“:', 'Expo Go im App Store', 'Freundescode'],
-  en: ['invites you to Findimal!', 'Collect animals together and compare your points.', 'Open Findimal', 'You need the “Expo Go” app:', 'Expo Go on the App Store', 'Friend code'],
-  fr: ['t’invite sur Findimal !', 'Collectionnez des animaux ensemble et comparez vos points.', 'Ouvrir Findimal', 'Il te faut l’app « Expo Go » :', 'Expo Go sur l’App Store', 'Code ami'],
-  es: ['te invita a Findimal!', 'Coleccionad animales juntos y comparad vuestros puntos.', 'Abrir Findimal', 'Necesitas la app «Expo Go»:', 'Expo Go en la App Store', 'Código de amigo'],
+  de: ['lädt dich zu Findimal ein!', 'Sammelt zusammen Tiere und vergleicht eure Punkte. Ihr bekommt beide 1 Gratis-Foto extra und 50 XP.', 'Findimal öffnen', 'Du brauchst die App „Expo Go“:', 'Expo Go im App Store', 'Freundescode'],
+  en: ['invites you to Findimal!', 'Collect animals together and compare your points. You both get 1 extra free photo and 50 XP.', 'Open Findimal', 'You need the “Expo Go” app:', 'Expo Go on the App Store', 'Friend code'],
+  fr: ['t’invite sur Findimal !', 'Collectionnez des animaux ensemble et comparez vos points. Vous recevez tous les deux 1 photo gratuite en plus et 50 XP.', 'Ouvrir Findimal', 'Il te faut l’app « Expo Go » :', 'Expo Go sur l’App Store', 'Code ami'],
+  es: ['te invita a Findimal!', 'Coleccionad animales juntos y comparad vuestros puntos. Los dos recibís 1 foto gratis extra y 50 XP.', 'Abrir Findimal', 'Necesitas la app «Expo Go»:', 'Expo Go en la App Store', 'Código de amigo'],
 };
 const esc = (v) => String(v).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
@@ -366,7 +388,7 @@ const PRIVACY = {
       ['„Jetzt in deiner Nähe“', `<p>Für die Tipps auf der Startseite schickt die App die Region, die du selbst eingetragen hast (z. B. „München“), die Tageszeit und die Sprache an den Server. Das Ergebnis wird bis zu 26 Stunden zwischengespeichert und für alle Nutzer derselben Region verwendet. Ein Bezug zu dir wird nicht gespeichert.</p>`],
       ['Beliebteste Tiere der Saison', `<p>Wenn ein Wildtier bestimmt wird, zählt der Server anonym mit, welche Tierart es war und in welcher Jahreszeit – ohne Foto, Gerät, Ort oder Namen. Daraus entsteht die Liste der am häufigsten entdeckten Tiere auf der Saison-Seite. Haustiere werden nicht gezählt. Ein Bezug zu dir ist nicht möglich.</p>`],
       ['Tageslimit für Gratis-Fotos', `<p>Damit Gratis-Fotos begrenzt werden können, erzeugt die App eine zufällige Kennung für dein Handy. Der Server zählt damit, wie viele Fotos am Tag bestimmt wurden. Ohne Kennung wird ersatzweise die IP-Adresse verwendet. Die Zähler werden nach 48 Stunden automatisch gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Schutz vor Missbrauch und unbegrenzten Kosten).</p>`],
-      ['Rangliste (freiwillig)', `<p>Wenn du bei der Rangliste mitmachst, speichert der Server deinen Spitznamen, deine Punkte (XP), Stufe, Zahl der Arten, dein Profilbild, deinen Freundescode und mit wem du befreundet bist. Freunde sehen diese Angaben; die 100 Entdecker mit den meisten Punkten erscheinen in der weltweiten Rangliste. Spitznamen mit Schimpfwörtern, Links oder Telefonnummern werden automatisch durch „Entdecker“ ersetzt. Meldest du einen Eintrag, speichern wir deinen Freundescode beim gemeldeten Eintrag; nach mehreren Meldungen wird er ausgeblendet. Mit „Rangliste verlassen“ wird dein Eintrag gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (deine Einwilligung durch das Mitmachen).</p>`],
+      ['Rangliste (freiwillig)', `<p>Wenn du bei der Rangliste mitmachst, speichert der Server deinen Spitznamen, deine Punkte (XP), Stufe, Zahl der Arten, dein Profilbild, deinen Freundescode und mit wem du befreundet bist. Freunde sehen diese Angaben; die 100 Entdecker mit den meisten Punkten erscheinen in der weltweiten Rangliste. Spitznamen mit Schimpfwörtern, Links oder Telefonnummern werden automatisch durch „Entdecker“ ersetzt. Meldest du einen Eintrag, speichern wir deinen Freundescode beim gemeldeten Eintrag; nach mehreren Meldungen wird er ausgeblendet. Für den Einladungs-Bonus (ein Gratis-Foto extra) speichert der Server außerdem die zufällige Kennung deines Handys bei deinem Eintrag und merkt sich, dass dieses Handy den Bonus schon bekommen hat; die Kennung ist für niemanden sichtbar. Mit „Rangliste verlassen“ wird dein Eintrag gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (deine Einwilligung durch das Mitmachen).</p>`],
       ['Server bei Cloudflare', `<p>Der Findimal-Server läuft bei Cloudflare, Inc. (USA) als Auftragsverarbeiter. Dabei wird technisch bedingt deine IP-Adresse verarbeitet. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert.</p>`],
       ['Werbung', `<p>In der kostenlosen Version zeigt Findimal einige kleine, als „Anzeige“ gekennzeichnete Werbeplätze. In der Testversion sind das nur Platzhalter. In der fertigen App kommen die Anzeigen von Google AdMob (Google Ireland Ltd.) und sind <b>nicht personalisiert</b> und familiengeeignet eingestellt. Google verarbeitet dabei technische Daten wie IP-Adresse und Gerätetyp, um die Anzeige auszuliefern und Betrug zu verhindern. Mit Findimal Plus gibt es keine Werbung. Diese Erklärung wird ergänzt, sobald die Werbung eingebaut ist.</p>`],
       ['Käufe (Findimal Plus)', `<p>Das Abo wird über Apple abgeschlossen und bezahlt. Wir erhalten keine Zahlungsdaten, sondern nur die Bestätigung, dass ein Abo besteht.</p>`],
@@ -394,7 +416,7 @@ const PRIVACY = {
       ['“Near you now”', `<p>For the tips on the home screen, the app sends the region you entered yourself (e.g. “Munich”), the time of day and the language to the server. The result is cached for up to 26 hours and shared by all users of that region. Nothing linking it to you is stored.</p>`],
       ['Most spotted animals of the season', `<p>When a wild animal is identified, the server anonymously counts which species it was and in which season – without photo, device, place or name. This makes the list of the most spotted animals on the Season page. Pets are not counted. It cannot be linked to you.</p>`],
       ['Daily limit for free photos', `<p>To limit free photos, the app creates a random identifier for your phone. The server uses it to count how many photos were identified per day; without it, the IP address is used instead. The counters are deleted automatically after 48 hours. Legal basis: Art. 6(1)(f) GDPR (protection against abuse and unlimited costs).</p>`],
-      ['Leaderboard (optional)', `<p>If you join the leaderboard, the server stores your nickname, points (XP), level, number of species, profile picture, friend code and who your friends are. Friends can see this; the top 100 explorers appear on the worldwide leaderboard. Nicknames with swear words, links or phone numbers are automatically replaced with “Entdecker”. If you report an entry, we store your friend code with the reported entry; after several reports it is hidden. “Leave leaderboard” deletes your entry. Legal basis: Art. 6(1)(a) GDPR (your consent by joining).</p>`],
+      ['Leaderboard (optional)', `<p>If you join the leaderboard, the server stores your nickname, points (XP), level, number of species, profile picture, friend code and who your friends are. Friends can see this; the top 100 explorers appear on the worldwide leaderboard. Nicknames with swear words, links or phone numbers are automatically replaced with “Entdecker”. If you report an entry, we store your friend code with the reported entry; after several reports it is hidden. For the invite bonus (one extra free photo), the server also stores your phone’s random identifier with your entry and remembers that this phone has already received the bonus; the identifier is never shown to anyone. “Leave leaderboard” deletes your entry. Legal basis: Art. 6(1)(a) GDPR (your consent by joining).</p>`],
       ['Server at Cloudflare', `<p>The Findimal server runs at Cloudflare, Inc. (USA) as a processor. Your IP address is processed for technical reasons. Cloudflare is certified under the EU-US Data Privacy Framework.</p>`],
       ['Advertising', `<p>The free version shows a few small spaces marked “Ad”. In the test version these are placeholders only. In the finished app, ads come from Google AdMob (Google Ireland Ltd.) and are set to <b>non-personalised</b> and family-friendly. Google processes technical data such as IP address and device type to deliver ads and prevent fraud. Findimal Plus has no ads. This policy will be updated once ads are added.</p>`],
       ['Purchases (Findimal Plus)', `<p>The subscription is purchased and paid through Apple. We receive no payment data, only confirmation that a subscription exists.</p>`],
@@ -422,7 +444,7 @@ const PRIVACY = {
       ['« Près de toi maintenant »', `<p>Pour les conseils de l’écran d’accueil, l’app envoie au serveur la région que tu as indiquée (par ex. « Lyon »), le moment de la journée et la langue. Le résultat est mis en cache jusqu’à 26 heures et partagé par tous les utilisateurs de cette région. Aucun lien avec toi n’est enregistré.</p>`],
       ['Animaux les plus repérés de la saison', `<p>Quand un animal sauvage est identifié, le serveur compte de façon anonyme de quelle espèce il s’agit et en quelle saison – sans photo, appareil, lieu ni nom. Cela donne la liste des animaux les plus repérés sur la page Saison. Les animaux de compagnie ne sont pas comptés. Aucun lien avec toi n’est possible.</p>`],
       ['Limite quotidienne de photos gratuites', `<p>Pour limiter les photos gratuites, l’app crée un identifiant aléatoire pour ton téléphone. Le serveur s’en sert pour compter les photos identifiées par jour ; à défaut, l’adresse IP est utilisée. Les compteurs sont supprimés automatiquement après 48 heures. Base juridique : art. 6, par. 1, point f du RGPD (protection contre les abus et les coûts illimités).</p>`],
-      ['Classement (facultatif)', `<p>Si tu participes au classement, le serveur enregistre ton pseudo, tes points (XP), ton niveau, le nombre d’espèces, ta photo de profil, ton code ami et tes amis. Tes amis voient ces informations ; les 100 explorateurs ayant le plus de points apparaissent dans le classement mondial. Les pseudos contenant des insultes, des liens ou des numéros de téléphone sont remplacés automatiquement par « Entdecker ». Si tu signales une entrée, nous enregistrons ton code ami avec l’entrée signalée ; après plusieurs signalements, elle est masquée. « Quitter le classement » supprime ton entrée. Base juridique : art. 6, par. 1, point a du RGPD (ton consentement en participant).</p>`],
+      ['Classement (facultatif)', `<p>Si tu participes au classement, le serveur enregistre ton pseudo, tes points (XP), ton niveau, le nombre d’espèces, ta photo de profil, ton code ami et tes amis. Tes amis voient ces informations ; les 100 explorateurs ayant le plus de points apparaissent dans le classement mondial. Les pseudos contenant des insultes, des liens ou des numéros de téléphone sont remplacés automatiquement par « Entdecker ». Si tu signales une entrée, nous enregistrons ton code ami avec l’entrée signalée ; après plusieurs signalements, elle est masquée. Pour le bonus d’invitation (une photo gratuite en plus), le serveur enregistre aussi l’identifiant aléatoire de ton téléphone avec ton entrée et retient que ce téléphone a déjà reçu le bonus ; l’identifiant n’est visible par personne. « Quitter le classement » supprime ton entrée. Base juridique : art. 6, par. 1, point a du RGPD (ton consentement en participant).</p>`],
       ['Serveur chez Cloudflare', `<p>Le serveur Findimal fonctionne chez Cloudflare, Inc. (États-Unis) en tant que sous-traitant. Ton adresse IP est traitée pour des raisons techniques. Cloudflare est certifié selon l’EU-US Data Privacy Framework.</p>`],
       ['Publicité', `<p>La version gratuite affiche quelques petits emplacements marqués « Publicité ». Dans la version de test, ce ne sont que des espaces réservés. Dans l’app finale, les publicités proviennent de Google AdMob (Google Ireland Ltd.) et sont réglées comme <b>non personnalisées</b> et adaptées aux familles. Google traite des données techniques comme l’adresse IP et le type d’appareil pour diffuser les publicités et prévenir la fraude. Findimal Plus est sans publicité. Cette politique sera complétée dès l’ajout de la publicité.</p>`],
       ['Achats (Findimal Plus)', `<p>L’abonnement est souscrit et payé via Apple. Nous ne recevons aucune donnée de paiement, seulement la confirmation qu’un abonnement existe.</p>`],
@@ -450,7 +472,7 @@ const PRIVACY = {
       ['«Cerca de ti ahora»', `<p>Para los consejos de la pantalla de inicio, la app envía al servidor la región que indicaste (p. ej. «Valencia»), el momento del día y el idioma. El resultado se guarda en caché hasta 26 horas y lo comparten todos los usuarios de esa región. No se guarda nada que lo relacione contigo.</p>`],
       ['Animales más vistos de la temporada', `<p>Cuando se identifica un animal salvaje, el servidor cuenta de forma anónima qué especie era y en qué estación, sin foto, dispositivo, lugar ni nombre. Así se crea la lista de los animales más vistos en la página Temporada. Las mascotas no se cuentan. No es posible relacionarlo contigo.</p>`],
       ['Límite diario de fotos gratis', `<p>Para limitar las fotos gratis, la app crea un identificador aleatorio para tu móvil. El servidor lo usa para contar cuántas fotos se identifican al día; si no existe, se usa la dirección IP. Los contadores se borran automáticamente a las 48 horas. Base jurídica: art. 6.1.f del RGPD (protección contra abusos y costes ilimitados).</p>`],
-      ['Clasificación (opcional)', `<p>Si participas en la clasificación, el servidor guarda tu apodo, tus puntos (XP), nivel, número de especies, foto de perfil, código de amigo y quiénes son tus amigos. Tus amigos ven estos datos; los 100 exploradores con más puntos aparecen en la clasificación mundial. Los apodos con insultos, enlaces o números de teléfono se sustituyen automáticamente por «Entdecker». Si denuncias una entrada, guardamos tu código de amigo junto a la entrada denunciada; tras varias denuncias se oculta. «Salir de la clasificación» borra tu entrada. Base jurídica: art. 6.1.a del RGPD (tu consentimiento al participar).</p>`],
+      ['Clasificación (opcional)', `<p>Si participas en la clasificación, el servidor guarda tu apodo, tus puntos (XP), nivel, número de especies, foto de perfil, código de amigo y quiénes son tus amigos. Tus amigos ven estos datos; los 100 exploradores con más puntos aparecen en la clasificación mundial. Los apodos con insultos, enlaces o números de teléfono se sustituyen automáticamente por «Entdecker». Si denuncias una entrada, guardamos tu código de amigo junto a la entrada denunciada; tras varias denuncias se oculta. Para el bono por invitación (una foto gratis extra), el servidor guarda también el identificador aleatorio de tu móvil junto a tu entrada y recuerda que ese móvil ya recibió el bono; el identificador no lo ve nadie. «Salir de la clasificación» borra tu entrada. Base jurídica: art. 6.1.a del RGPD (tu consentimiento al participar).</p>`],
       ['Servidor en Cloudflare', `<p>El servidor de Findimal funciona en Cloudflare, Inc. (EE. UU.) como encargado del tratamiento. Tu dirección IP se trata por motivos técnicos. Cloudflare está certificado según el EU-US Data Privacy Framework.</p>`],
       ['Publicidad', `<p>La versión gratuita muestra algunos espacios pequeños marcados como «Anuncio». En la versión de prueba son solo marcadores. En la app final, los anuncios proceden de Google AdMob (Google Ireland Ltd.) y están configurados como <b>no personalizados</b> y aptos para familias. Google trata datos técnicos como la dirección IP y el tipo de dispositivo para mostrar anuncios y evitar fraudes. Findimal Plus no tiene anuncios. Esta política se completará cuando se añadan los anuncios.</p>`],
       ['Compras (Findimal Plus)', `<p>La suscripción se contrata y paga a través de Apple. No recibimos datos de pago, solo la confirmación de que existe una suscripción.</p>`],
@@ -674,6 +696,20 @@ function deviceKey(request, kind) {
   return `u:${new Date().toISOString().slice(0, 10)}:${who}:${kind}`;
 }
 
+// Kennung des Handys (aus der App) oder null
+function deviceOf(request) {
+  const device = String(request.headers.get('X-Findimal-Device') || '');
+  return /^[a-z0-9]{16,64}$/.test(device) ? device : null;
+}
+
+// Gratis-Extra-Fotos (z. B. für eine Freundes-Einladung): pro Handy, gelten 60 Tage
+const BONUS_TTL = 60 * 60 * 24 * 60;
+async function addBonus(env, device) {
+  const key = 'bonus:' + device;
+  const n = Number(await env.DB.get(key)) || 0;
+  await env.DB.put(key, String(Math.min(n + 1, 20)), { expirationTtl: BONUS_TTL });
+}
+
 // Grenzen für Anfragen ohne Findimal-Code: pro Internetanschluss und für alle zusammen pro Tag.
 // Liefert eine Fehlerantwort oder null.
 async function publicBudget(env, request) {
@@ -764,7 +800,7 @@ export default {
       return json({ fehler: 'Ungültige Anfrage.' }, 400);
     }
 
-    if (typeof body.mode === 'string' && body.mode.startsWith('board_')) return board(env, body);
+    if (typeof body.mode === 'string' && body.mode.startsWith('board_')) return board(env, body, request);
 
     if (body.mode === 'nearby') {
       const region = String(body.region || 'Deutschland').slice(0, 60);
@@ -797,8 +833,15 @@ export default {
       await env.DB.put(`cx:${rid}`, '1', { expirationTtl: 600 });
       const counted = await env.DB.get(`ok:${rid}`);
       if (counted) {
-        const used = Number(await env.DB.get(counted)) || 0;
-        if (used > 0) await env.DB.put(counted, String(used - 1), { expirationTtl: 60 * 60 * 48 });
+        let info;
+        try {
+          info = JSON.parse(counted);
+        } catch {
+          info = { key: counted };
+        }
+        const n = Number(await env.DB.get(info.key)) || 0;
+        if (info.bonus) await env.DB.put(info.key, String(n + 1), { expirationTtl: BONUS_TTL }); // Extra-Foto zurück
+        else if (n > 0) await env.DB.put(info.key, String(n - 1), { expirationTtl: 60 * 60 * 48 });
         await env.DB.delete(`ok:${rid}`);
       }
       return json({ ok: true });
@@ -866,8 +909,14 @@ export default {
       const used = Number(await env.DB.get(key)) || 0;
       const plus = tester && request.headers.get('X-Findimal-Plus') === '1'; // Plus testen nur mit Code
       const max = plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
-      if (used >= max) return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
       counter = { key, used };
+      if (used >= max) {
+        // Tageslimit erreicht: ein Extra-Foto (Einladungs-Bonus) einlösen, falls vorhanden
+        const dev = deviceOf(request);
+        const left = !extra && dev ? Number(await env.DB.get('bonus:' + dev)) || 0 : 0;
+        if (!left) return json({ fehler: 'limit', limit: DAILY_PHOTOS }, 429);
+        counter = { key: 'bonus:' + dev, left, bonus: true };
+      }
     }
     const stop = await budget();
     if (stop) return stop;
@@ -896,10 +945,15 @@ export default {
       );
     }
     // nur erfolgreiche Bestimmungen zählen
-    if (counter && res.ok) {
+    if (counter && res.ok && counter.bonus) {
+      // Extra-Foto verbraucht
+      await env.DB.put(counter.key, String(counter.left - 1), { expirationTtl: BONUS_TTL });
+      if (rid) await env.DB.put(`ok:${rid}`, JSON.stringify({ key: counter.key, bonus: true }), { expirationTtl: 600 });
+      res.headers.set('X-Findimal-Bonus', String(counter.left - 1));
+    } else if (counter && res.ok) {
       await env.DB.put(counter.key, String(counter.used + 1), { expirationTtl: 60 * 60 * 48 });
       // merken, welcher Zähler erhöht wurde – falls gleich danach noch abgebrochen wird
-      if (rid) await env.DB.put(`ok:${rid}`, counter.key, { expirationTtl: 600 });
+      if (rid) await env.DB.put(`ok:${rid}`, JSON.stringify({ key: counter.key }), { expirationTtl: 600 });
       if (!extra) res.headers.set('X-Findimal-Used', String(counter.used + 1));
     }
     return res;

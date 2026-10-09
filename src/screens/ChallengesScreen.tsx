@@ -33,9 +33,10 @@ type Props = {
   freshBadges?: string[]; // neu verdiente, noch nicht angesehene Abzeichen
   onSeeBadges?: (ids: string[]) => void;
   onOpenProfile?: () => void;
+  onBonus?: () => void; // Extra-Foto durch eine Einladung
 };
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges, onOpenProfile }: Props) {
+export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges, onOpenProfile, onBonus }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
@@ -297,6 +298,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           onInviteDone={onInviteDone}
           onRank={onRank}
           onFriends={onFriends}
+          onBonus={onBonus}
           p={p}
         />
 

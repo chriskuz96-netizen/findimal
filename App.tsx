@@ -15,7 +15,7 @@ import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
 import { LimitSheet } from './src/components/LimitCard';
-import { FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
+import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, Find, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { translateAnimal } from './src/identify';
 import { LangProvider, useI18n } from './src/i18n';
@@ -73,7 +73,8 @@ function Main() {
   // Videos für Extra-Fotos, die heute noch gehen (Hinweis unter der Kamera)
   const [videosLeft, setVideosLeft] = useState(VIDEOS_PER_DAY);
   const refreshFreeLeft = () => {
-    usedToday().then((u) => setFreeLeft(Math.max(0, FREE_PHOTOS_PER_DAY - u)));
+    // Gratis-Fotos von heute plus Extra-Fotos aus Einladungen
+    Promise.all([usedToday(), bonusPhotos()]).then(([u, b]) => setFreeLeft(Math.max(0, FREE_PHOTOS_PER_DAY - u) + b));
     videosToday().then((v) => setVideosLeft(Math.max(0, VIDEOS_PER_DAY - v)));
   };
   useEffect(() => {
@@ -96,7 +97,7 @@ function Main() {
     if (photoBusy.current) return;
     photoBusy.current = true;
     try {
-      if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY) return setLimitOpen(true);
+      if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY && (await bonusPhotos()) <= 0) return setLimitOpen(true);
       const p = await get(setPreparing);
       if (p) setPhoto(p);
     } finally {
@@ -390,6 +391,7 @@ function Main() {
             freshBadges={freshBadges}
             onSeeBadges={seeBadges}
             onOpenProfile={() => setShowProfile(true)}
+            onBonus={refreshFreeLeft}
             progress={progress}
             quiz={quiz}
             onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}

@@ -14,6 +14,7 @@ export const XP = {
   season: 100, // Saison-Ziel geschafft
   quiz: 10, // Quizfrage richtig beantwortet
   week: 30, // Wochen-Aufgabe geschafft
+  friend: 50, // je Freund in der Rangliste (höchstens 10)
 };
 
 // XP ab der jeweiligen Stufe (Namen: Texte 'level.0' bis 'level.11')
@@ -219,7 +220,7 @@ export function computeProgress(
 ): Progress {
   // Jeder Fund und jede neue Art gibt XP
   const seen = new Set<string>();
-  let xp = quizCorrect * XP.quiz;
+  let xp = quizCorrect * XP.quiz + Math.min(extra.maxFriends ?? 0, 10) * XP.friend;
   for (const f of finds) {
     xp += XP.find;
     const k = speciesKey(f.animal);

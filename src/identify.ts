@@ -4,7 +4,7 @@ import { Alert } from 'react-native';
 import { Photo } from './camera';
 import { SERVER_URL } from './config';
 import { hasPlus } from './plus';
-import { FREE_PHOTOS_PER_DAY, getDeviceId, setUsedToday, usedToday } from './usage';
+import { FREE_PHOTOS_PER_DAY, getDeviceId, setBonusPhotos, setUsedToday, usedToday } from './usage';
 import { Lang, Translate } from './i18n';
 
 // Steckbrief, wie ihn der Server zurückgibt (Felder siehe server/findimal-worker.js).
@@ -213,7 +213,9 @@ export async function identify(photos: Photo[], t: Translate, lang: Lang, cancel
     const used = Number(res.headers.get('X-Findimal-Used'));
     const animal = (await res.json()) as Animal;
     if (signal.aborted) return stopped();
-    if (photos.length === 1) await setUsedToday(Number.isFinite(used) && used > 0 ? used : (await usedToday()) + 1);
+    const bonus = res.headers.get('X-Findimal-Bonus');
+    if (bonus !== null) await setBonusPhotos(Number(bonus) || 0); // Extra-Foto eingelöst
+    else if (photos.length === 1) await setUsedToday(Number.isFinite(used) && used > 0 ? used : (await usedToday()) + 1);
     return { ok: true, animal };
   } catch {
     if (signal.aborted) return stopped();

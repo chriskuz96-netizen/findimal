@@ -3,6 +3,7 @@ import * as Linking from 'expo-linking';
 
 import { SERVER_URL } from './config';
 import { getAppKey } from './identify';
+import { getDeviceId, setBonusPhotos } from './usage';
 
 // Rangliste mit Freunden. Auf dem Server liegen nur Spitzname, XP, Stufe,
 // Anzahl Arten und das Abzeichen-Bild – keine Fotos und keine Fundorte.
@@ -27,7 +28,7 @@ export const isCode = (code: string) => /^[A-HJ-NP-Z2-9]{6}$/.test(code);
 async function call(body: object): Promise<Response> {
   return fetch(SERVER_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey() },
+    headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey(), 'X-Findimal-Device': await getDeviceId() },
     body: JSON.stringify(body),
   });
 }
@@ -107,8 +108,15 @@ export async function leave(me: Me): Promise<void> {
 }
 
 // Beim Freund vermerken, dass man ihn hinzugefügt hat (dann sieht er einen auch)
-export async function link(me: Me, friend: string): Promise<void> {
-  await call({ mode: 'board_link', ...me, friend }).catch(() => null);
+// Liefert true, wenn es dafür den Einladungs-Bonus gab (je 1 Gratis-Foto extra für beide)
+export async function link(me: Me, friend: string): Promise<boolean> {
+  try {
+    const res = await call({ mode: 'board_link', ...me, friend });
+    const data = (await res.json()) as { bonus?: boolean };
+    return !!data.bonus;
+  } catch {
+    return false;
+  }
 }
 
 // Eintrag eines anderen melden (z. B. anstößiger Name)
@@ -121,7 +129,8 @@ export async function inbox(me: Me): Promise<string[]> {
   try {
     const res = await call({ mode: 'board_inbox', ...me });
     if (!res.ok) return [];
-    const data = (await res.json()) as { ids?: string[] };
+    const data = (await res.json()) as { ids?: string[]; bonus?: number };
+    if (typeof data.bonus === 'number') await setBonusPhotos(data.bonus); // offene Extra-Fotos
     return (data.ids ?? []).filter(isCode);
   } catch {
     return [];

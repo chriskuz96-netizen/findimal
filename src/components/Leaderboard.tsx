@@ -23,16 +23,26 @@ import {
   syncMe,
 } from '../board';
 import { useI18n } from '../i18n';
+import { XP } from '../progress';
+import { bonusPhotos } from '../usage';
 import { colors, fonts, Palette, spacing } from '../theme';
 import { Avatar } from './Avatar';
 
-type Props = { stats: MyStats; invite: string | null; onInviteDone: () => void; onRank: (rank: number) => void; onFriends: (n: number) => void; p: Palette };
+type Props = {
+  stats: MyStats;
+  invite: string | null;
+  onInviteDone: () => void;
+  onRank: (rank: number) => void;
+  onFriends: (n: number) => void;
+  onBonus?: () => void; // Extra-Foto durch eine Einladung bekommen
+  p: Palette;
+};
 
 // "K7QX2M" -> "K7Q X2M" (leichter vorzulesen)
 const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 
 // Rangliste mit Freunden: eigener Freundescode, Freunde hinzufügen, nach XP sortiert.
-export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, p }: Props) {
+export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, onBonus, p }: Props) {
   const { t, locale, lang } = useI18n();
   const [me, setMe] = useState<Me | null | undefined>(undefined); // undefined = lädt noch
   const [friends, setFriends] = useState<string[]>([]);
@@ -65,7 +75,14 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, p 
     if (!me) return;
     await syncMe(me, stats);
     // Wer mich hinzugefügt hat, landet auch in meiner Liste
-    const incoming = (await inbox(me)).filter(
+    const bonusBefore = await bonusPhotos();
+    const all = await inbox(me);
+    if ((await bonusPhotos()) > bonusBefore) {
+      // jemand ist meiner Einladung gefolgt: Extra-Foto für mich
+      Alert.alert(t('lb.title'), t('lb.bonusInviter', { xp: XP.friend }));
+      onBonus?.();
+    }
+    const incoming = all.filter(
       (id) => id !== me.id && !friends.includes(id) && !removed.includes(id),
     );
     if (incoming.length) {
@@ -94,13 +111,18 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, p 
       const next = [...friends, invite];
       setFriends(next);
       saveFriends(next);
-      link(me, invite);
       if (removed.includes(invite)) {
         const back = removed.filter((r) => r !== invite);
         setRemoved(back);
         saveRemoved(back);
       }
-      Alert.alert(t('lb.title'), t('lb.added', { name: found[0].name }));
+      link(me, invite).then((bonus) => {
+        if (bonus) onBonus?.();
+        Alert.alert(
+          t('lb.title'),
+          bonus ? t('lb.bonusNew', { name: found[0].name, xp: XP.friend }) : t('lb.added', { name: found[0].name }),
+        );
+      });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [invite, me]);
@@ -147,7 +169,11 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, p 
     const next = [...friends, id];
     setFriends(next);
     saveFriends(next);
-    link(me, id);
+    link(me, id).then((bonus) => {
+      if (!bonus) return;
+      onBonus?.();
+      Alert.alert(t('lb.title'), t('lb.bonusNew', { name: found[0].name, xp: XP.friend }));
+    });
     if (removed.includes(id)) {
       const back = removed.filter((r) => r !== id);
       setRemoved(back);
@@ -315,6 +341,9 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, p 
               <Text style={styles.smallBtnText}>{t('lb.invite')}</Text>
             </Pressable>
           </View>
+
+          {/* Einladen lohnt sich: beide bekommen etwas */}
+          <Text style={[styles.small, { color: colors.accent, marginTop: 6 }]}>🎁 {t('lb.inviteBonus', { xp: XP.friend })}</Text>
 
           {adding ? (
             <View style={styles.addRow}>
