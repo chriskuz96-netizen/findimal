@@ -90,7 +90,14 @@ export function tipFor(date: Date, lang: Lang, zone: Zone = 'central'): Tip {
 const content = (tip: Tip) => ({ title: tip.title, body: tip.text, data: { screen: 'season' } });
 
 // Die nächsten Sonntage um 10 Uhr neu einplanen (nur wenn Tipps an sind und erlaubt)
-export async function planTips(lang: Lang): Promise<void> {
+// Nacheinander ausführen: mehrere gleichzeitige Aufrufe würden Tipps doppelt einplanen
+let planning: Promise<void> = Promise.resolve();
+export function planTips(lang: Lang): Promise<void> {
+  planning = planning.then(() => planTipsNow(lang)).catch(() => {});
+  return planning;
+}
+
+async function planTipsNow(lang: Lang): Promise<void> {
   if (!supported || !(await loadTips())) return;
   try {
     if (!(await Notifications.getPermissionsAsync()).granted) return;

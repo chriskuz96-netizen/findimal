@@ -99,6 +99,8 @@ export async function saveMaxFriends(n: number): Promise<void> {
 }
 
 // Löscht alle Findimal-Daten auf dem Handy (außer dem Findimal-Code für den Server).
+const KEEP_ON_RESET = ['findimal-app-key', 'findimal-device', 'findimal-usage', 'findimal-videos', 'findimal-bonus'];
+
 export async function resetAll(): Promise<void> {
   try {
     // Eintrag in der Rangliste auf dem Server ebenfalls löschen
@@ -106,7 +108,8 @@ export async function resetAll(): Promise<void> {
     if (me) await leave(me);
     const keys = await AsyncStorage.getAllKeys();
     await AsyncStorage.multiRemove(
-      keys.filter((k) => k.startsWith('findimal-') && k !== 'findimal-app-key'),
+      // Handy-Kennung und Tageszähler bleiben: sonst gäbe es nach jedem Zurücksetzen neue Gratis-Fotos
+      keys.filter((k) => k.startsWith('findimal-') && !KEEP_ON_RESET.includes(k)),
     );
   } catch {
     // ignorieren

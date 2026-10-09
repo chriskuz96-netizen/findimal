@@ -5,7 +5,7 @@ import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ActivityIndicator, Alert, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Alert, AppState, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Photo, pickPhoto, takePhoto } from './src/camera';
@@ -16,7 +16,7 @@ import { Tab, TabBar } from './src/components/TabBar';
 import { codeFromUrl } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
-import { addFind, Find, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
+import { addFind, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { translateAnimal } from './src/identify';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
@@ -77,8 +77,17 @@ function Main() {
     Promise.all([usedToday(), bonusPhotos()]).then(([u, b]) => setFreeLeft(Math.max(0, FREE_PHOTOS_PER_DAY - u) + b));
     videosToday().then((v) => setVideosLeft(Math.max(0, VIDEOS_PER_DAY - v)));
   };
+  // Zurück in der App (z. B. am nächsten Morgen): Gratis-Fotos neu zählen und alles neu zeichnen
+  const [, setWoke] = useState(0);
   useEffect(() => {
     refreshFreeLeft();
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state !== 'active') return;
+      refreshFreeLeft();
+      setWoke((n) => n + 1);
+    });
+    return () => sub.remove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // Beim ersten Öffnen der App (nach Name und Ort) einmal das Findimal-Ehrenwort (Tiere nicht stören)
   const [promised, setPromised] = useState(true);
@@ -106,6 +115,7 @@ function Main() {
     }
   };
   const [openFind, setOpenFind] = useState<Find | null>(null);
+  const tipsAfterSave = useRef(false); // Natur-Tipps-Frage, sobald der erste Fund gespeichert ist
   // Aktuelle Liste auch in Rückrufen, die später fertig werden
   const findsRef = useRef<Find[]>([]);
   findsRef.current = finds;
@@ -148,7 +158,7 @@ function Main() {
         if (!f) break;
         const texts = await translateAnimal(f.animal, target);
         if (!texts) break; // offline o. Ä.: beim nächsten Start nochmal
-        const next = await translateFindTexts(findsRef.current, f.id, texts, target);
+        const next = await translateFindTexts(f.id, texts, target);
         findsRef.current = next; // sofort, damit der nächste Durchlauf den neuen Stand sieht
         setFinds(next);
       }
@@ -159,8 +169,8 @@ function Main() {
   // Natur-Tipps: bei jedem Start (und Sprachwechsel) die nächsten Wochen neu einplanen;
   // Tippen auf einen Tipp öffnet die Saison-Seite
   useEffect(() => {
-    planTips(lang);
-  }, [lang, region]);
+    if (loaded) planTips(lang);
+  }, [lang, loaded]);
   useEffect(
     () =>
       onTipOpened(() => {
@@ -247,7 +257,7 @@ function Main() {
   };
 
   // Solange Schriften oder Name laden: Startbild mit dem Findimal-Symbol.
-  if (!fontsLoaded || name === undefined || region === undefined) {
+  if (!fontsLoaded || !loaded || name === undefined || region === undefined) {
     return (
       <View style={{ flex: 1, backgroundColor: colors.skyMid, alignItems: 'center', justifyContent: 'center' }}>
         <AppLogo size={140} />
@@ -305,7 +315,10 @@ function Main() {
       onSelectAvatar={chooseAvatar}
       onReset={async () => {
         await resetAll();
+        forgetFinds();
         setFinds([]);
+        setSeenBadges([]);
+        refreshFreeLeft();
         setQuiz({});
         setAvatar('');
         setBestRank(null);
@@ -330,31 +343,38 @@ function Main() {
         let id = replaceId;
         let next: Find[];
         if (replaceId) {
-          next = await updateFind(findsRef.current, replaceId, animal);
+          next = await updateFind(replaceId, animal);
         } else {
-          const added = await addFind(findsRef.current, shot, animal, region || undefined, lang);
+          const added = await addFind(shot, animal, region || undefined, lang);
           next = added.finds;
           id = added.id;
         }
         setFinds(next);
+        // Fund ist gespeichert: hat man die Seite schon verlassen, jetzt nach den Natur-Tipps fragen
+        if (tipsAfterSave.current) {
+          tipsAfterSave.current = false;
+          setTimeout(askTips, 300);
+        }
         const after = computeProgress(next, quizXp, new Date(), { bestRank, maxFriends });
         return { id: id!, reward: computeReward(before, after, isNew) };
       }}
       morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
-      onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
+      onDetails={(id, animal) => updateFind(id, animal).then(setFinds)}
       onBack={() => {
         // nach einem neuen Foto geht es zur Startseite mit der Kamera – fürs nächste Tier
         setPhoto(null);
         setTab('start');
         refreshFreeLeft();
-        setTimeout(askTips, 600);
+        // der erste Fund wird evtl. noch gespeichert (Ort abwarten) – dann danach fragen
+        if (findsRef.current.length) setTimeout(askTips, 600);
+        else tipsAfterSave.current = true;
       }}
     />
   ) : openFind ? (
     <ResultScreen
       saved={openFind}
-      onDetails={(id, animal) => updateFind(findsRef.current, id, animal).then(setFinds)}
-      onPlace={(id, place) => updatePlace(findsRef.current, id, place).then(setFinds)}
+      onDetails={(id, animal) => updateFind(id, animal).then(setFinds)}
+      onPlace={(id, place) => updatePlace(id, place).then(setFinds)}
       backLabel={t(tab === 'season' ? 'res.backSeason' : tab === 'collection' ? 'res.backCollection' : 'res.back')}
       onBack={() => setOpenFind(null)}
     />
@@ -382,7 +402,7 @@ function Main() {
           <CollectionScreen
             finds={finds}
             onOpen={setOpenFind}
-            onDelete={(f) => removeFind(findsRef.current, f.id).then(setFinds)}
+            onDelete={(f) => removeFind(f.id).then(setFinds)}
             onDiscover={() => setTab('start')}
           />
         )}

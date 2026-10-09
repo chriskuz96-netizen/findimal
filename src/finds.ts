@@ -15,13 +15,36 @@ export type Find = {
 
 const FINDS_KEY = 'findimal-finds';
 
+// Aktueller Stand und Warteschlange: Änderungen laufen nacheinander und immer auf dem neuesten Stand
+// (sonst könnte z. B. eine Übersetzung im Hintergrund einen gerade gespeicherten Fund überschreiben).
+let latest: Find[] = [];
+let queue: Promise<unknown> = Promise.resolve();
+
+function change(fn: (finds: Find[]) => Find[]): Promise<Find[]> {
+  const run = queue.then(async () => {
+    const next = fn(latest);
+    latest = next;
+    await storeFinds(next);
+    return next;
+  });
+  queue = run.catch(() => {});
+  return run;
+}
+
 export async function loadFinds(): Promise<Find[]> {
   try {
     const raw = await AsyncStorage.getItem(FINDS_KEY);
-    return raw ? (JSON.parse(raw) as Find[]) : [];
+    latest = raw ? (JSON.parse(raw) as Find[]) : [];
   } catch {
-    return [];
+    latest = [];
   }
+  return latest;
+}
+
+// Nach „Alles zurücksetzen“
+export function forgetFinds(): void {
+  latest = [];
+  photoCache.clear();
 }
 
 async function storeFinds(finds: Find[]): Promise<void> {
@@ -55,6 +78,8 @@ async function storePhoto(id: string, photo: Photo): Promise<void> {
 export function useFindPhoto(id: string): string | null {
   const [uri, setUri] = useState<string | null>(photoCache.get(id) ?? null);
   useEffect(() => {
+    // anderer Fund: sofort dessen Foto (oder erst mal keins) zeigen
+    setUri(photoCache.get(id) ?? null);
     if (photoCache.has(id)) return;
     AsyncStorage.getItem(photoKey(id))
       .then((v) => {
@@ -70,13 +95,11 @@ export function useFindPhoto(id: string): string | null {
 
 // Speichert einen neuen Fund. Liefert die neue Liste und ob die Art neu ist.
 export async function addFind(
-  finds: Find[],
   photo: Photo,
   animal: Animal,
   homePlace?: string, // Ort aus den Einstellungen: wenn der Standort nicht erlaubt ist
   lang?: string, // Sprache der Texte
 ): Promise<{ finds: Find[]; isNew: boolean; id: string }> {
-  const isNew = !finds.some((f) => speciesKey(f.animal) === speciesKey(animal));
   const id = `${Date.now()}`;
   await storePhoto(id, photo);
   // Ort abwarten, aber höchstens 3 Sekunden (meist ist er längst fertig)
@@ -85,46 +108,43 @@ export async function addFind(
     : null;
   const where = place || homePlace || null;
   const find: Find = { id, date: new Date().toISOString(), ...(where ? { place: where } : {}), ...(lang ? { lang } : {}), animal };
-  const next = [...finds, find];
-  await storeFinds(next);
-  return { finds: next, isNew, id };
+  let isNew = false;
+  const finds = await change((list) => {
+    isNew = !list.some((f) => speciesKey(f.animal) === speciesKey(animal));
+    return [...list, find];
+  });
+  return { finds, isNew, id };
 }
 
 // Fundort nachträglich ändern ('' = entfernen)
-export async function updatePlace(finds: Find[], id: string, place: string): Promise<Find[]> {
-  const next = finds.map((f) => {
-    if (f.id !== id) return f;
-    const { place: _old, ...rest } = f;
-    return place ? { ...rest, place } : rest;
-  });
-  await storeFinds(next);
-  return next;
+export function updatePlace(id: string, place: string): Promise<Find[]> {
+  return change((list) =>
+    list.map((f) => {
+      if (f.id !== id) return f;
+      const { place: _old, ...rest } = f;
+      return place ? { ...rest, place } : rest;
+    }),
+  );
 }
 
 // Ersetzt die Bestimmung eines Fundes (z. B. nach einem zweiten Foto).
-export async function updateFind(finds: Find[], id: string, animal: Animal): Promise<Find[]> {
-  const next = finds.map((f) => (f.id === id ? { ...f, animal } : f));
-  await storeFinds(next);
-  return next;
+export function updateFind(id: string, animal: Animal): Promise<Find[]> {
+  return change((list) => list.map((f) => (f.id === id ? { ...f, animal } : f)));
 }
 
 // Übersetzte Texte eines Fundes speichern (Sprachwechsel)
-export async function translateFindTexts(finds: Find[], id: string, texts: Partial<Animal>, lang: string): Promise<Find[]> {
-  const next = finds.map((f) => (f.id === id ? { ...f, lang, animal: { ...f.animal, ...texts } } : f));
-  await storeFinds(next);
-  return next;
+export function translateFindTexts(id: string, texts: Partial<Animal>, lang: string): Promise<Find[]> {
+  return change((list) => list.map((f) => (f.id === id ? { ...f, lang, animal: { ...f.animal, ...texts } } : f)));
 }
 
-export async function removeFind(finds: Find[], id: string): Promise<Find[]> {
+export async function removeFind(id: string): Promise<Find[]> {
   photoCache.delete(id);
   try {
     await AsyncStorage.removeItem(photoKey(id));
   } catch {
     // ignorieren
   }
-  const next = finds.filter((f) => f.id !== id);
-  await storeFinds(next);
-  return next;
+  return change((list) => list.filter((f) => f.id !== id));
 }
 
 // Nummer der Art in der Sammlung (#001 = erste entdeckte Art).

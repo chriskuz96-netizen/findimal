@@ -5,11 +5,11 @@ import {
   cleanCode,
   fetchPeople,
   fetchTop,
-  report,
   inbox,
   inviteLink,
   isCode,
   join,
+  lastOwnBonus,
   leave,
   link,
   loadFriends,
@@ -18,6 +18,7 @@ import {
   Me,
   MyStats,
   Person,
+  report,
   saveFriends,
   saveRemoved,
   syncMe,
@@ -77,7 +78,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     // Wer mich hinzugefügt hat, landet auch in meiner Liste
     const bonusBefore = await bonusPhotos();
     const all = await inbox(me);
-    if ((await bonusPhotos()) > bonusBefore) {
+    if ((await bonusPhotos()) > bonusBefore && Date.now() - lastOwnBonus > 15_000) {
       // jemand ist meiner Einladung gefolgt: Extra-Foto für mich
       Alert.alert(t('lb.title'), t('lb.bonusInviter', { xp: XP.friend }));
       onBonus?.();

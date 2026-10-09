@@ -3,7 +3,7 @@ import * as Linking from 'expo-linking';
 
 import { SERVER_URL } from './config';
 import { getAppKey } from './identify';
-import { getDeviceId, setBonusPhotos } from './usage';
+import { bonusPhotos, getDeviceId, setBonusPhotos } from './usage';
 
 // Rangliste mit Freunden. Auf dem Server liegen nur Spitzname, XP, Stufe,
 // Anzahl Arten und das Abzeichen-Bild – keine Fotos und keine Fundorte.
@@ -108,11 +108,18 @@ export async function leave(me: Me): Promise<void> {
 }
 
 // Beim Freund vermerken, dass man ihn hinzugefügt hat (dann sieht er einen auch)
+// Zeitpunkt des eigenen Einladungs-Bonus (damit er nicht auch als „Freund ist gefolgt“ gemeldet wird)
+export let lastOwnBonus = 0;
+
 // Liefert true, wenn es dafür den Einladungs-Bonus gab (je 1 Gratis-Foto extra für beide)
 export async function link(me: Me, friend: string): Promise<boolean> {
   try {
     const res = await call({ mode: 'board_link', ...me, friend });
     const data = (await res.json()) as { bonus?: boolean };
+    if (data.bonus) {
+      lastOwnBonus = Date.now();
+      await setBonusPhotos((await bonusPhotos()) + 1); // sofort nutzbar
+    }
     return !!data.bonus;
   } catch {
     return false;
