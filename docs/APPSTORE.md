@@ -73,7 +73,7 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 4. Deine Sammlung, sortiert nach Gruppen
 5. Saison: Was jetzt draußen los ist
 6. Tiere schützen – so hilfst du jetzt
-7. Natur-Tipp pro Woche – kein Spam
+7. Jede Woche ein Natur-Tipp – kein Spam
 8. Mit Freunden um die Wette entdecken
 9. Findimal Plus: unbegrenzt entdecken
 
