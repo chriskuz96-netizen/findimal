@@ -66,13 +66,14 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 > Datenschutz: https://findimal.chriskuz96.workers.dev/datenschutz
 > Nutzungsbedingungen: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
-**Texte für die Bildschirmfotos** (6 Stück, je ein kurzer Satz oben auf dem Bild):
+**Texte für die Bildschirmfotos** (7 Stück, je ein kurzer Satz oben auf dem Bild – fertige Bilder im Zweig `app-assets`, Ordner `store-screenshots`):
 1. Foto machen – Tier erkennen
 2. Steckbrief und „Wusstest du?“
-3. Deine Sammlung – nach Tiergruppen sortiert
+3. Deine Sammlung, sortiert nach Gruppen
 4. Saison: Was jetzt draußen los ist
-5. Quiz, Challenges und Abzeichen
+5. Tiere schützen – so hilfst du jetzt
 6. Mit Freunden um die Wette entdecken
+7. Findimal Plus: unbegrenzt entdecken
 
 **TestFlight – „Was soll getestet werden?“**
 > Danke fürs Testen! Bitte fotografiert möglichst viele verschiedene Tiere – im Garten, im Park, auch Haustiere. Schreibt uns, wenn ein Tier falsch erkannt wird, etwas nicht funktioniert oder euch etwas besonders gefällt. Über die TestFlight-App könnt ihr direkt einen Screenshot mit Kommentar schicken.
@@ -143,10 +144,11 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 **Screenshot captions:**
 1. Snap a photo – identify the animal
 2. Fact sheet and "Did you know?"
-3. Your collection, sorted by animal group
+3. Your collection, sorted by group
 4. Seasons: what's happening outside
-5. Quiz, challenges and badges
-6. Explore and compete with friends
+5. Protect animals – how to help right now
+6. Compete with friends
+7. Findimal Plus: explore without limits
 
 ---
 
@@ -216,8 +218,9 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 2. Fiche et « Le savais-tu ? »
 3. Ta collection, triée par groupe
 4. Saison : ce qui se passe dehors
-5. Quiz, défis et badges
+5. Protéger les animaux – comment aider maintenant
 6. Explore et défie tes amis
+7. Findimal Plus : découvrir sans limite
 
 **URL d’assistance :** https://findimal.chriskuz96.workers.dev/hilfe?l=fr
 
@@ -289,8 +292,9 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 2. Ficha y «¿Sabías que…?»
 3. Tu colección, ordenada por grupos
 4. Temporada: lo que pasa ahí fuera
-5. Quiz, retos e insignias
+5. Proteger a los animales – cómo ayudar ahora
 6. Explora y compite con tus amigos
+7. Findimal Plus: descubre sin límites
 
 **URL de soporte:** https://findimal.chriskuz96.workers.dev/hilfe?l=es
 
