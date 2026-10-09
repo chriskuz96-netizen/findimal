@@ -14,7 +14,6 @@ import { Explorer } from './Explorer';
 
 const GOLD = '#E8B53A';
 
-// Werbevideos gibt es erst in der fertigen App (nicht in Expo Go/Snack).
 // Belohnungs-Video starten: gibt es erst in der fertigen App (kommt mit AdMob).
 // Danach: addVideoToday() und direkt die Kamera öffnen.
 export function watchVideo(t: Translate) {
