@@ -391,7 +391,7 @@ const PRIVACY = {
 <li>Die Rangliste ist freiwillig. Dort stehen nur Spitzname, Punkte und Profilbild – keine Fotos und keine Orte.</li>
 </ul>`],
       ['Verantwortlich', `<p>{OPERATOR}</p>`],
-      ['Fotos zur Tierbestimmung', `<p>Wenn du ein Foto bestimmen lässt, schickt die App eine verkleinerte Kopie des Fotos – ohne Ortsangaben – an den Findimal-Server. Er leitet das Foto an die KI von Anthropic PBC (USA) weiter und schickt das Ergebnis zurück. Der Findimal-Server speichert das Foto nicht. Anthropic verarbeitet die Daten nach seinen Geschäftsbedingungen für Unternehmenskunden: Sie werden nicht zum Training der KI verwendet und nur für begrenzte Zeit gespeichert, z. B. zur Erkennung von Missbrauch. Die Übermittlung in die USA erfolgt auf Grundlage geeigneter Garantien (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).</p>
+      ['Fotos zur Tierbestimmung', `<p>Wenn du ein Foto bestimmen lässt, schickt die App eine verkleinerte Kopie des Fotos – ohne Ortsangaben – an den Findimal-Server, dazu höchstens die grobe Gegend („Mitteleuropa“ oder „Mittelmeerraum“), damit die KI ähnliche Arten besser unterscheiden kann. Er leitet das Foto an die KI von Anthropic PBC (USA) weiter und schickt das Ergebnis zurück. Der Findimal-Server speichert das Foto nicht. Anthropic verarbeitet die Daten nach seinen Geschäftsbedingungen für Unternehmenskunden: Sie werden nicht zum Training der KI verwendet und nur für begrenzte Zeit gespeichert, z. B. zur Erkennung von Missbrauch. Die Übermittlung in die USA erfolgt auf Grundlage geeigneter Garantien (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).</p>
 <p>Zweck: die Bestimmung, die du anforderst. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzung der App-Funktion).</p>
 <p>Bitte fotografiere keine Menschen, Gesichter oder Autokennzeichen.</p>`],
       ['Was auf deinem Handy bleibt', `<p>Deine Sammlung (Fotos, Tiernamen, Datum), dein Name, deine Quiz-Antworten, Einstellungen und Abzeichen werden nur auf deinem Handy gespeichert. Mit „Profil zurücksetzen“ im Profil oder durch Löschen der App sind sie weg.</p>
@@ -419,7 +419,7 @@ const PRIVACY = {
 <li>The leaderboard is optional. It only shows nickname, points and profile picture – no photos and no locations.</li>
 </ul>`],
       ['Controller', `<p>{OPERATOR}</p>`],
-      ['Photos for identification', `<p>When you identify a photo, the app sends a reduced copy – without location data – to the Findimal server. It forwards the photo to the AI of Anthropic PBC (USA) and returns the result. The Findimal server does not store the photo. Anthropic processes the data under its commercial terms: it is not used to train the AI and is kept only for a limited time, e.g. to detect abuse. Transfers to the USA are based on appropriate safeguards (EU standard contractual clauses or the EU-US Data Privacy Framework).</p>
+      ['Photos for identification', `<p>When you identify a photo, the app sends a reduced copy – without location data – to the Findimal server, plus at most the rough area (“Central Europe” or “Mediterranean”) so the AI can tell similar species apart. It forwards the photo to the AI of Anthropic PBC (USA) and returns the result. The Findimal server does not store the photo. Anthropic processes the data under its commercial terms: it is not used to train the AI and is kept only for a limited time, e.g. to detect abuse. Transfers to the USA are based on appropriate safeguards (EU standard contractual clauses or the EU-US Data Privacy Framework).</p>
 <p>Purpose: the identification you request. Legal basis: Art. 6(1)(b) GDPR (use of the app feature).</p>
 <p>Please do not photograph people, faces or licence plates.</p>`],
       ['What stays on your phone', `<p>Your collection (photos, animal names, date), your name, quiz answers, settings and badges are stored only on your phone. “Reset profile” in your profile or deleting the app removes them.</p>
@@ -447,7 +447,7 @@ const PRIVACY = {
 <li>Le classement est facultatif. On n’y voit que ton pseudo, tes points et ta photo de profil – ni photos, ni lieux.</li>
 </ul>`],
       ['Responsable', `<p>{OPERATOR}</p>`],
-      ['Photos pour l’identification', `<p>Quand tu fais identifier une photo, l’app envoie une copie réduite – sans données de localisation – au serveur Findimal. Il la transmet à l’IA d’Anthropic PBC (États-Unis) et renvoie le résultat. Le serveur Findimal ne conserve pas la photo. Anthropic traite les données selon ses conditions pour les clients professionnels : elles ne servent pas à entraîner l’IA et ne sont conservées que pour une durée limitée, par ex. pour détecter les abus. Le transfert vers les États-Unis repose sur des garanties appropriées (clauses contractuelles types de l’UE ou EU-US Data Privacy Framework).</p>
+      ['Photos pour l’identification', `<p>Quand tu fais identifier une photo, l’app envoie une copie réduite – sans données de localisation – au serveur Findimal, avec au plus la zone approximative (« Europe centrale » ou « Méditerranée ») pour aider l’IA à distinguer les espèces proches. Il la transmet à l’IA d’Anthropic PBC (États-Unis) et renvoie le résultat. Le serveur Findimal ne conserve pas la photo. Anthropic traite les données selon ses conditions pour les clients professionnels : elles ne servent pas à entraîner l’IA et ne sont conservées que pour une durée limitée, par ex. pour détecter les abus. Le transfert vers les États-Unis repose sur des garanties appropriées (clauses contractuelles types de l’UE ou EU-US Data Privacy Framework).</p>
 <p>Finalité : l’identification que tu demandes. Base juridique : art. 6, par. 1, point b du RGPD (utilisation de la fonction de l’app).</p>
 <p>Merci de ne pas photographier de personnes, de visages ni de plaques d’immatriculation.</p>`],
       ['Ce qui reste sur ton téléphone', `<p>Ta collection (photos, noms des animaux, date), ton prénom, tes réponses au quiz, tes réglages et tes badges sont enregistrés uniquement sur ton téléphone. « Réinitialiser le profil » dans ton profil ou la suppression de l’app les efface.</p>
@@ -475,7 +475,7 @@ const PRIVACY = {
 <li>La clasificación es opcional. Solo muestra tu apodo, tus puntos y tu foto de perfil – ni fotos ni lugares.</li>
 </ul>`],
       ['Responsable', `<p>{OPERATOR}</p>`],
-      ['Fotos para la identificación', `<p>Cuando identificas una foto, la app envía una copia reducida – sin datos de ubicación – al servidor de Findimal. Este la reenvía a la IA de Anthropic PBC (EE. UU.) y devuelve el resultado. El servidor de Findimal no guarda la foto. Anthropic trata los datos según sus condiciones para clientes empresariales: no se usan para entrenar la IA y solo se conservan durante un tiempo limitado, p. ej. para detectar abusos. La transferencia a EE. UU. se basa en garantías adecuadas (cláusulas contractuales tipo de la UE o EU-US Data Privacy Framework).</p>
+      ['Fotos para la identificación', `<p>Cuando identificas una foto, la app envía una copia reducida – sin datos de ubicación – al servidor de Findimal, y como mucho la zona aproximada («Europa Central» o «Mediterráneo») para que la IA distinga mejor especies parecidas. Este la reenvía a la IA de Anthropic PBC (EE. UU.) y devuelve el resultado. El servidor de Findimal no guarda la foto. Anthropic trata los datos según sus condiciones para clientes empresariales: no se usan para entrenar la IA y solo se conservan durante un tiempo limitado, p. ej. para detectar abusos. La transferencia a EE. UU. se basa en garantías adecuadas (cláusulas contractuales tipo de la UE o EU-US Data Privacy Framework).</p>
 <p>Finalidad: la identificación que solicitas. Base jurídica: art. 6.1.b del RGPD (uso de la función de la app).</p>
 <p>Por favor, no fotografíes personas, caras ni matrículas.</p>`],
       ['Lo que se queda en tu móvil', `<p>Tu colección (fotos, nombres de animales, fecha), tu nombre, tus respuestas del quiz, tus ajustes e insignias se guardan solo en tu móvil. «Restablecer perfil» en tu perfil o borrar la app los elimina.</p>
@@ -948,10 +948,18 @@ export default {
     if (!images.length || images.some((i) => i.length > 5_000_000)) {
       return json({ fehler: 'Kein oder zu großes Foto.' }, 400);
     }
+    // Gegend und Monat helfen bei ähnlichen Arten (nur grob – kein Standort)
+    const GEGEND = { central: 'Mitteleuropa', med: 'Mittelmeerraum' };
+    const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+    const gegend = Object.hasOwn(GEGEND, String(body.zone)) ? GEGEND[body.zone] : '';
+    const kontext =
+      `\nAufgenommen ${gegend ? `in ${gegend}, ` : ''}vermutlich im ${MONATE[new Date().getUTCMonth()]}. ` +
+      'Bevorzuge bei ähnlichen Arten die, die dort und zu dieser Zeit häufig vorkommen – außer das Foto zeigt ' +
+      'eindeutig etwas anderes (z. B. Zoo, Aquarium, Haustier oder ein Reisefoto).';
     const question =
-      images.length > 1
+      (images.length > 1
         ? 'Diese Fotos zeigen dasselbe Tier aus verschiedenen Blickwinkeln. Welches Tier ist es?'
-        : 'Welches Tier ist auf diesem Foto?';
+        : 'Welches Tier ist auf diesem Foto?') + kontext;
     // Tageslimit: pro Handy (Kennung aus der App, sonst die IP-Adresse) und Tag
     // Zusatzfotos zählen nur, wenn wirklich mehrere Fotos desselben Tieres kommen
     const extra = body.extra === true && images.length > 1;

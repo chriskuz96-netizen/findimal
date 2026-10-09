@@ -4,6 +4,7 @@ import { Alert } from 'react-native';
 import { Photo } from './camera';
 import { SERVER_URL } from './config';
 import { hasPlus } from './plus';
+import { loadZone } from './zone';
 import { FREE_PHOTOS_PER_DAY, getDeviceId, setBonusPhotos, setUsedToday, usedToday } from './usage';
 import { Lang, Translate } from './i18n';
 
@@ -136,7 +137,8 @@ async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, s
       'X-Findimal-Device': await getDeviceId(),
       ...((await hasPlus()) ? { 'X-Findimal-Plus': '1' } : {}),
     },
-    body: JSON.stringify({ images: photos.map((p) => p.base64), lang, extra: photos.length > 1, rid }),
+    // zone: grobe Gegend (z. B. Mitteleuropa) – hilft bei ähnlichen Arten, ist aber kein Standort
+    body: JSON.stringify({ images: photos.map((p) => p.base64), lang, extra: photos.length > 1, rid, zone: await loadZone() }),
   });
 }
 
