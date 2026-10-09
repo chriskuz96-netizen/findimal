@@ -73,7 +73,7 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 4. Deine Sammlung, sortiert nach Gruppen
 5. Saison: Was jetzt draußen los ist
 6. Tiere schützen – so hilfst du jetzt
-7. Jede Woche ein Natur-Tipp aufs Handy
+7. Natur-Tipp pro Woche – kein Spam
 8. Mit Freunden um die Wette entdecken
 9. Findimal Plus: unbegrenzt entdecken
 
@@ -150,7 +150,7 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 4. Your collection, sorted by group
 5. Seasons: what's happening outside
 6. Protect animals – how to help right now
-7. A nature tip every week
+7. One nature tip a week – no spam
 8. Compete with friends
 9. Findimal Plus: explore without limits
 
@@ -224,7 +224,7 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 4. Ta collection, triée par groupe
 5. Saison : ce qui se passe dehors
 6. Protéger les animaux – comment aider maintenant
-7. Un conseil nature chaque semaine
+7. Un conseil nature par semaine – sans spam
 8. Explore et défie tes amis
 9. Findimal Plus : découvrir sans limite
 
@@ -300,7 +300,7 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 4. Tu colección, ordenada por grupos
 5. Temporada: lo que pasa ahí fuera
 6. Proteger a los animales – cómo ayudar ahora
-7. Un consejo de naturaleza cada semana
+7. Un consejo de naturaleza por semana – sin spam
 8. Explora y compite con tus amigos
 9. Findimal Plus: descubre sin límites
 
