@@ -61,8 +61,9 @@ Gib nur Fakten an, bei denen du dir sicher bist. Nenne die konkrete Art (z. B. "
 "Bachforelle") – nie nur eine Großgruppe wie "Spinne", "Käfer", "Vogel", "Möwe", "Ente", "Fliege", "Biene",
 "Ameise", "Schmetterling", "Raupe", "Schnecke", "Fisch" oder "Frosch", denn das weiß jeder schon.
 Ausnahme: Bei sehr bekannten Tieren, deren Alltagsname schon klar ist, darf "name" der gewohnte Name sein
-(z. B. "Marienkäfer", "Igel", "Eichhörnchen", "Maulwurf"); die genaue Art steht dann in "wissenschaftlicher_name"
-und, wenn spannend, in der Kurzbeschreibung (z. B. "ein Siebenpunkt-Marienkäfer"). Bist du dir bei der Art nicht ganz sicher, nenne die wahrscheinlichste Art,
+(z. B. "Marienkäfer", "Hummel", "Libelle", "Igel", "Eichhörnchen", "Maulwurf"); die genaue Art steht dann in
+"wissenschaftlicher_name" und, wenn spannend, in der Kurzbeschreibung (z. B. "ein Siebenpunkt-Marienkäfer",
+"eine Dunkle Erdhummel", "eine Blaugrüne Mosaikjungfer"). Bist du dir bei der Art nicht ganz sicher, nenne die wahrscheinlichste Art,
 setze "sicherheit" auf "wahrscheinlich" oder "unsicher" und nenne in "hinweis" kurz, woran man sie erkennt oder
 welche ähnliche Art es sein könnte. Nur wenn auf dem Foto wirklich keine Art zu erkennen ist, nenne die engste
 mögliche Gruppe (z. B. "Eine Schwebfliege", nicht "Ein Insekt") und setze "sicherheit" auf "unsicher".
@@ -709,8 +710,8 @@ async function ask(env, system, schema, content, good = () => true) {
 
 // Nennt der wissenschaftliche Name eine Art (Gattung + Art, z. B. "Araneus diadematus")?
 // "Araneae" oder "Araneus sp." sind nur Gruppen – dann soll das genaue Modell ran.
-// Ausnahme: Marienkäfer – da reicht der bekannte Name, die genaue Art ist nicht so wichtig.
-const GROUP_OK = ['coccinellidae', 'coccinella', 'harmonia'];
+// Ausnahmen: Marienkäfer, Hummeln, Libellen – da reicht der bekannte Name, die Art steht ggf. in der Beschreibung.
+const GROUP_OK = ['coccinellidae', 'coccinella', 'harmonia', 'bombus', 'odonata', 'anisoptera', 'zygoptera'];
 function isSpecies(sci) {
   if (GROUP_OK.includes(String(sci || '').trim().split(/\s+/)[0].toLowerCase())) return true;
   const parts = String(sci || '').trim().split(/\s+/);
