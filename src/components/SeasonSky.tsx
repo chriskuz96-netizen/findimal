@@ -2,22 +2,23 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 import Svg, { Circle, G, Line, Path } from 'react-native-svg';
 
-import { SeasonId } from '../season';
+import { SkyMood } from '../season';
 
 // Kopf der Saison-Seite: immer das Findimal-Grün, dazu großes Symbol, Akzentfarbe und sanft
 // fallende Teilchen passend zur Jahreszeit.
 const GREEN = '#17462F';
 // Volle Farben statt Verläufe (Verläufe wurden auf dem iPhone nicht ganz gestreckt).
-export const SEASON_LOOK: Record<SeasonId, { bg: string; accent: string; light: string }> = {
+export const SEASON_LOOK: Record<SkyMood, { bg: string; accent: string; light: string }> = {
   spring: { bg: GREEN, accent: '#F49CBB', light: '#FFD9E6' },
   summer: { bg: GREEN, accent: '#F6C945', light: '#FFE9A8' },
   autumn: { bg: GREEN, accent: '#E8833A', light: '#FFD2A8' },
   winter: { bg: GREEN, accent: '#8FCDEB', light: '#D6EEFA' },
+  rain: { bg: GREEN, accent: '#7FC4E8', light: '#CFEAF7' }, // Regenzeit (andere Länder)
 };
 
 const COUNT = 9;
 
-export function SeasonSky({ season }: { season: SeasonId }) {
+export function SeasonSky({ season }: { season: SkyMood }) {
   const look = SEASON_LOOK[season];
   const [size, setSize] = useState({ w: 0, h: 0 });
   return (
@@ -36,19 +37,19 @@ export function SeasonSky({ season }: { season: SeasonId }) {
 }
 
 // Ein Teilchen: Blüte, Pollen, Blatt oder Schneeflocke – fällt (Sommer: steigt) langsam und schwingt leicht
-function Particle({ i, season, w, h }: { i: number; season: SeasonId; w: number; h: number }) {
+function Particle({ i, season, w, h }: { i: number; season: SkyMood; w: number; h: number }) {
   const t = useRef(new Animated.Value(0)).current;
   const cfg = useMemo(() => {
     const r = (n: number) => ((Math.sin((i + 1) * n) + 1) / 2); // feste „Zufallswerte“ pro Teilchen
     return {
       x: r(12.9898) * w,
       size: 9 + r(78.233) * 9,
-      dur: 7000 + r(3.7) * 6000,
-      delay: r(5.1) * 6000,
-      sway: 10 + r(9.3) * 18,
-      spin: (r(2.2) < 0.5 ? -1 : 1) * (120 + r(4.4) * 240),
+      dur: season === 'rain' ? 1400 + r(3.7) * 900 : 7000 + r(3.7) * 6000,
+      delay: r(5.1) * (season === 'rain' ? 1500 : 6000),
+      sway: season === 'rain' ? 0 : 10 + r(9.3) * 18,
+      spin: season === 'rain' ? 0 : (r(2.2) < 0.5 ? -1 : 1) * (120 + r(4.4) * 240),
     };
-  }, [i, w]);
+  }, [i, w, season]);
   useEffect(() => {
     t.setValue(0);
     const loop = Animated.loop(Animated.timing(t, { toValue: 1, duration: cfg.dur, easing: Easing.linear, useNativeDriver: true }));
@@ -74,13 +75,19 @@ function Particle({ i, season, w, h }: { i: number; season: SeasonId; w: number;
 
 const LEAVES = ['#E8833A', '#C9533B', '#F2B84B', '#A8642A'];
 
-function Bit({ season, size, i }: { season: SeasonId; size: number; i: number }) {
+function Bit({ season, size, i }: { season: SkyMood; size: number; i: number }) {
   const look = SEASON_LOOK[season];
   if (season === 'autumn')
     return (
       <Svg width={size} height={size} viewBox="0 0 24 24">
         <Path d="M12 2C18 6 20 14 12 22 4 14 6 6 12 2Z" fill={LEAVES[i % LEAVES.length]} />
         <Path d="M12 6v16" stroke="rgba(0,0,0,0.25)" strokeWidth={1.2} />
+      </Svg>
+    );
+  if (season === 'rain')
+    return (
+      <Svg width={size * 0.6} height={size} viewBox="0 0 14 24">
+        <Path d="M7 2C9 8 12 12 12 16a5 5 0 0 1-10 0c0-4 3-8 5-14Z" fill={look.light} opacity={0.85} />
       </Svg>
     );
   if (season === 'winter')
@@ -111,7 +118,7 @@ function Bit({ season, size, i }: { season: SeasonId; size: number; i: number })
   );
 }
 
-function BigIcon({ season, color }: { season: SeasonId; color: string }) {
+function BigIcon({ season, color }: { season: SkyMood; color: string }) {
   const s = 150;
   if (season === 'summer')
     return (
@@ -121,6 +128,17 @@ function BigIcon({ season, color }: { season: SeasonId; color: string }) {
           {Array.from({ length: 10 }, (_, k) => (
             <Line key={k} x1={50} y1={10} x2={50} y2={20} transform={`rotate(${k * 36} 50 50)`} />
           ))}
+        </G>
+      </Svg>
+    );
+  if (season === 'rain')
+    return (
+      <Svg width={s} height={s} viewBox="0 0 100 100" opacity={0.3}>
+        <Path d="M28 62a16 16 0 0 1 2-32 22 22 0 0 1 42 4 14 14 0 0 1 0 28Z" fill={color} />
+        <G stroke={color} strokeWidth={5} strokeLinecap="round">
+          <Line x1={36} y1={72} x2={32} y2={84} />
+          <Line x1={52} y1={72} x2={48} y2={84} />
+          <Line x1={68} y1={72} x2={64} y2={84} />
         </G>
       </Svg>
     );

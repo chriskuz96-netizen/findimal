@@ -1,6 +1,6 @@
 import * as Location from 'expo-location';
 
-import { saveZone, zoneOf } from './zone';
+import { saveCountry, saveZone, zoneOf } from './zone';
 
 // Ermittelt den Ortsnamen (z. B. "München") aus dem aktuellen Standort.
 // Gespeichert wird nur der Name (und der grobe Naturraum für die Natur-Tipps), nie die Koordinaten.
@@ -15,7 +15,10 @@ export async function detectPlace(): Promise<string | null> {
       latitude: pos.coords.latitude,
       longitude: pos.coords.longitude,
     });
-    if (addr?.isoCountryCode) await saveZone(zoneOf(addr.isoCountryCode, pos.coords.latitude, pos.coords.longitude));
+    if (addr?.isoCountryCode) {
+      await saveZone(zoneOf(addr.isoCountryCode, pos.coords.latitude, pos.coords.longitude));
+      await saveCountry(addr.isoCountryCode.toUpperCase());
+    }
     return addr?.city || addr?.subregion || addr?.region || null;
   } catch {
     return null;

@@ -170,6 +170,99 @@ const NEARBY_SCHEMA = {
 };
 
 // Sprache der Antwort (die App schickt de, en, fr oder es)
+// ---------- Saison-Seite für Länder außerhalb Mitteleuropas ----------
+// Wird pro Land, Monat und Sprache nur einmal erzeugt und dann für alle Nutzer gespeichert.
+
+const SAISON_SYSTEM = `Du bist der Naturexperte der Familien-App Findimal.
+Beschreibe für das genannte Land und den genannten Monat die Jahreszeit, wie sie dort für die Tierwelt gerade ist
+(z. B. "Regenzeit in Thailand", "Frühling in Australien", "Herbst in Spanien").
+- name: Jahreszeit + Land, höchstens 5 Wörter.
+- stimmung: welche Stimmung am besten passt (fruehling, sommer, herbst, winter, regen oder trocken).
+- start_monat und end_monat (1–12): wann diese Jahreszeit dort beginnt und endet; der genannte Monat liegt dazwischen.
+- tiere: genau 4 häufige, wild lebende Tiere, die Familien dort jetzt mit etwas Glück selbst sehen und fotografieren
+  können – in Gärten, Parks, am Wasser oder am Strand. Keine seltenen, gefährlichen oder streng geschützten Arten,
+  keine Haustiere. Möglichst verschiedene Tiergruppen.
+  titel: 2–4 Wörter (z. B. "Geckos auf Jagd"), text: 1–2 kurze, freundliche Sätze, was die Tiere jetzt tun,
+  wo: höchstens 6 Wörter, gruppe: passende Gruppe,
+  gattungen: 1–10 wissenschaftliche Gattungsnamen (oder "gattung art") in Kleinbuchstaben, die dazu passen –
+  daran erkennt die App, ob ein Fund dazugehört.
+- schauspiele: 2 Naturschauspiele zum Staunen, die es dort jetzt gibt. kurz: ein passendes Emoji + 1–3 Wörter.
+- hilfe: 3 oder 4 konkrete Tipps, wie man Tieren dort jetzt helfen kann.
+Schreibe nur, was du sicher weißt.`;
+
+const SAISON_ITEM = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['titel', 'text', 'wo'],
+  properties: { titel: TEXT, text: TEXT, wo: TEXT },
+};
+const SAISON_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['name', 'stimmung', 'start_monat', 'end_monat', 'tiere', 'schauspiele', 'hilfe'],
+  properties: {
+    name: TEXT,
+    stimmung: { type: 'string', enum: ['fruehling', 'sommer', 'herbst', 'winter', 'regen', 'trocken'] },
+    start_monat: { type: 'integer' },
+    end_monat: { type: 'integer' },
+    tiere: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['titel', 'text', 'wo', 'gruppe', 'gattungen'],
+        properties: {
+          titel: TEXT,
+          text: TEXT,
+          wo: TEXT,
+          gruppe: { type: 'string', enum: ['mam', 'bird', 'ins', 'amp', 'mol', 'ara', 'fish', 'rep'] },
+          gattungen: { type: 'array', items: TEXT },
+        },
+      },
+    },
+    schauspiele: {
+      type: 'array',
+      items: { ...SAISON_ITEM, required: ['kurz', 'titel', 'text', 'wo'], properties: { kurz: TEXT, ...SAISON_ITEM.properties } },
+    },
+    hilfe: {
+      type: 'array',
+      items: { type: 'object', additionalProperties: false, required: ['titel', 'text'], properties: { titel: TEXT, text: TEXT } },
+    },
+  },
+};
+
+// Antwort prüfen und kürzen; null, wenn sie nicht brauchbar ist
+function cleanSaison(d) {
+  const str = (v, n) => String(v || '').trim().slice(0, n);
+  const month = (v) => (Number.isInteger(v) && v >= 1 && v <= 12 ? v : null);
+  if (!d || !Array.isArray(d.tiere) || d.tiere.length < 4) return null;
+  const tiere = d.tiere.slice(0, 4).map((t) => ({
+    titel: str(t.titel, 60),
+    text: str(t.text, 300),
+    wo: str(t.wo, 80),
+    gruppe: t.gruppe,
+    gattungen: (Array.isArray(t.gattungen) ? t.gattungen : [])
+      .map((g) => String(g).trim().toLowerCase())
+      .filter((g) => /^[a-z]+( [a-z-]+)?$/.test(g))
+      .slice(0, 12),
+  }));
+  if (tiere.some((t) => !t.titel || !t.text || !t.gattungen.length)) return null;
+  return {
+    name: str(d.name, 60),
+    stimmung: d.stimmung,
+    start_monat: month(d.start_monat),
+    end_monat: month(d.end_monat),
+    tiere,
+    schauspiele: (Array.isArray(d.schauspiele) ? d.schauspiele : []).slice(0, 3).map((x) => ({
+      kurz: str(x.kurz, 30),
+      titel: str(x.titel, 60),
+      text: str(x.text, 300),
+      wo: str(x.wo, 80),
+    })),
+    hilfe: (Array.isArray(d.hilfe) ? d.hilfe : []).slice(0, 4).map((x) => ({ titel: str(x.titel, 60), text: str(x.text, 300) })),
+  };
+}
+
 const LANGUAGES = { de: 'Deutsch', en: 'Englisch', fr: 'Französisch', es: 'Spanisch' };
 
 function languageRule(lang) {
@@ -397,6 +490,7 @@ const PRIVACY = {
       ['Was auf deinem Handy bleibt', `<p>Deine Sammlung (Fotos, Tiernamen, Datum), dein Name, deine Quiz-Antworten, Einstellungen und Abzeichen werden nur auf deinem Handy gespeichert. Mit „Profil zurücksetzen“ im Profil oder durch Löschen der App sind sie weg.</p>
 <p><b>Region:</b> Für „Jetzt in deiner Nähe“ gibst du deine Region selbst ein. Wenn du sie per Standort bestimmen lässt, ermittelt das iPhone den Ortsnamen über den Ortsdienst von Apple. Gespeichert wird nur der Ortsname, auf deinem Handy. Genauso bekommt jeder Fund den Namen des Ortes, an dem das Foto entstand – aus deinem Standort (nur wenn du ihn erlaubt hast), sonst aus dem Ort, den du in der App angegeben hast. Du kannst ihn bei jedem Fund ändern. Ortsdaten in deinen Fotos liest Findimal nicht. Auch hier wird nur der Name gespeichert, nie die genaue Position, und er bleibt auf deinem Handy.</p>`],
       ['„Jetzt in deiner Nähe“', `<p>Für die Tipps auf der Startseite schickt die App die Region, die du selbst eingetragen hast (z. B. „München“), die Tageszeit und die Sprache an den Server. Das Ergebnis wird bis zu 26 Stunden zwischengespeichert und für alle Nutzer derselben Region verwendet. Ein Bezug zu dir wird nicht gespeichert.</p>`],
+      ['Saison in deinem Land', `<p>Bist du außerhalb Mitteleuropas, schickt die App für die Saison-Seite nur dein Land (z. B. „TH“ für Thailand), den Monat und die Sprache an den Server. Die KI beschreibt daraus einmal die Jahreszeit dort; das Ergebnis wird gespeichert und für alle Nutzer aus diesem Land verwendet. Ein Ort oder dein Gerät wird dabei nicht übertragen.</p>`],
       ['Beliebteste Tiere der Saison', `<p>Wenn ein Wildtier bestimmt wird, zählt der Server anonym mit, welche Tierart es war und in welcher Jahreszeit – ohne Foto, Gerät, Ort oder Namen. Daraus entsteht die Liste der am häufigsten entdeckten Tiere auf der Saison-Seite. Haustiere werden nicht gezählt. Ein Bezug zu dir ist nicht möglich.</p>`],
       ['Tageslimit für Gratis-Fotos', `<p>Damit Gratis-Fotos begrenzt werden können, erzeugt die App eine zufällige Kennung für dein Handy. Der Server zählt damit, wie viele Fotos am Tag bestimmt wurden. Ohne Kennung wird ersatzweise die IP-Adresse verwendet. Die Zähler werden nach 48 Stunden automatisch gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Schutz vor Missbrauch und unbegrenzten Kosten).</p>`],
       ['Rangliste (freiwillig)', `<p>Wenn du bei der Rangliste mitmachst, speichert der Server deinen Spitznamen, deine Punkte (XP), Stufe, Zahl der Arten, dein Profilbild, deinen Freundescode und mit wem du befreundet bist. Freunde sehen diese Angaben; die 100 Entdecker mit den meisten Punkten erscheinen in der weltweiten Rangliste. Spitznamen mit Schimpfwörtern, Links oder Telefonnummern werden automatisch durch „Entdecker“ ersetzt. Meldest du einen Eintrag, speichern wir deinen Freundescode beim gemeldeten Eintrag; nach mehreren Meldungen wird er ausgeblendet. Für den Einladungs-Bonus (ein Gratis-Foto extra) speichert der Server außerdem die zufällige Kennung deines Handys bei deinem Eintrag und merkt sich, dass dieses Handy den Bonus schon bekommen hat; die Kennung ist für niemanden sichtbar. Mit „Rangliste verlassen“ wird dein Eintrag gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (deine Einwilligung durch das Mitmachen).</p>`],
@@ -425,6 +519,7 @@ const PRIVACY = {
       ['What stays on your phone', `<p>Your collection (photos, animal names, date), your name, quiz answers, settings and badges are stored only on your phone. “Reset profile” in your profile or deleting the app removes them.</p>
 <p><b>Region:</b> For “Near you now” you enter your region yourself. If you let the app detect it, the iPhone looks up the place name using Apple's location service. Only the place name is stored, on your phone. In the same way, each find gets the name of the place where the photo was taken – from your location (only if you allowed it), otherwise from the place you entered in the app. You can change it for every find. Findimal does not read location data stored in your photos. Here too only the name is stored, never the exact position, and it stays on your phone.</p>`],
       ['“Near you now”', `<p>For the tips on the home screen, the app sends the region you entered yourself (e.g. “Munich”), the time of day and the language to the server. The result is cached for up to 26 hours and shared by all users of that region. Nothing linking it to you is stored.</p>`],
+      ['Season in your country', `<p>If you are outside Central Europe, the app sends only your country (e.g. “TH” for Thailand), the month and the language to the server for the season page. The AI describes the season there once; the result is stored and used for all users from that country. No place and no device information is sent.</p>`],
       ['Most spotted animals of the season', `<p>When a wild animal is identified, the server anonymously counts which species it was and in which season – without photo, device, place or name. This makes the list of the most spotted animals on the Season page. Pets are not counted. It cannot be linked to you.</p>`],
       ['Daily limit for free photos', `<p>To limit free photos, the app creates a random identifier for your phone. The server uses it to count how many photos were identified per day; without it, the IP address is used instead. The counters are deleted automatically after 48 hours. Legal basis: Art. 6(1)(f) GDPR (protection against abuse and unlimited costs).</p>`],
       ['Leaderboard (optional)', `<p>If you join the leaderboard, the server stores your nickname, points (XP), level, number of species, profile picture, friend code and who your friends are. Friends can see this; the top 100 explorers appear on the worldwide leaderboard. Nicknames with swear words, links or phone numbers are automatically replaced with “Entdecker”. If you report an entry, we store your friend code with the reported entry; after several reports it is hidden. For the invite bonus (one extra free photo), the server also stores your phone’s random identifier with your entry and remembers that this phone has already received the bonus; the identifier is never shown to anyone. “Leave leaderboard” deletes your entry. Legal basis: Art. 6(1)(a) GDPR (your consent by joining).</p>`],
@@ -453,6 +548,7 @@ const PRIVACY = {
       ['Ce qui reste sur ton téléphone', `<p>Ta collection (photos, noms des animaux, date), ton prénom, tes réponses au quiz, tes réglages et tes badges sont enregistrés uniquement sur ton téléphone. « Réinitialiser le profil » dans ton profil ou la suppression de l’app les efface.</p>
 <p><b>Région :</b> pour « Près de toi maintenant », tu indiques toi-même ta région. Si tu la fais détecter, l’iPhone trouve le nom du lieu grâce au service de localisation d’Apple. Seul le nom du lieu est enregistré, sur ton téléphone. De la même façon, chaque trouvaille reçoit le nom du lieu où la photo a été prise – grâce à ta position (seulement si tu l’as autorisée), sinon le lieu que tu as indiqué dans l’app. Tu peux le modifier pour chaque trouvaille. Findimal ne lit pas les données de lieu enregistrées dans tes photos. Là aussi, seul le nom est enregistré, jamais la position exacte, et il reste sur ton téléphone.</p>`],
       ['« Près de toi maintenant »', `<p>Pour les conseils de l’écran d’accueil, l’app envoie au serveur la région que tu as indiquée (par ex. « Lyon »), le moment de la journée et la langue. Le résultat est mis en cache jusqu’à 26 heures et partagé par tous les utilisateurs de cette région. Aucun lien avec toi n’est enregistré.</p>`],
+      ['La saison dans ton pays', `<p>Si tu es hors d’Europe centrale, l’app envoie seulement ton pays (p. ex. « TH » pour la Thaïlande), le mois et la langue au serveur pour la page Saison. L’IA décrit une fois la saison là-bas ; le résultat est enregistré et utilisé pour tous les utilisateurs de ce pays. Aucun lieu ni appareil n’est transmis.</p>`],
       ['Animaux les plus repérés de la saison', `<p>Quand un animal sauvage est identifié, le serveur compte de façon anonyme de quelle espèce il s’agit et en quelle saison – sans photo, appareil, lieu ni nom. Cela donne la liste des animaux les plus repérés sur la page Saison. Les animaux de compagnie ne sont pas comptés. Aucun lien avec toi n’est possible.</p>`],
       ['Limite quotidienne de photos gratuites', `<p>Pour limiter les photos gratuites, l’app crée un identifiant aléatoire pour ton téléphone. Le serveur s’en sert pour compter les photos identifiées par jour ; à défaut, l’adresse IP est utilisée. Les compteurs sont supprimés automatiquement après 48 heures. Base juridique : art. 6, par. 1, point f du RGPD (protection contre les abus et les coûts illimités).</p>`],
       ['Classement (facultatif)', `<p>Si tu participes au classement, le serveur enregistre ton pseudo, tes points (XP), ton niveau, le nombre d’espèces, ta photo de profil, ton code ami et tes amis. Tes amis voient ces informations ; les 100 explorateurs ayant le plus de points apparaissent dans le classement mondial. Les pseudos contenant des insultes, des liens ou des numéros de téléphone sont remplacés automatiquement par « Entdecker ». Si tu signales une entrée, nous enregistrons ton code ami avec l’entrée signalée ; après plusieurs signalements, elle est masquée. Pour le bonus d’invitation (une photo gratuite en plus), le serveur enregistre aussi l’identifiant aléatoire de ton téléphone avec ton entrée et retient que ce téléphone a déjà reçu le bonus ; l’identifiant n’est visible par personne. « Quitter le classement » supprime ton entrée. Base juridique : art. 6, par. 1, point a du RGPD (ton consentement en participant).</p>`],
@@ -481,6 +577,7 @@ const PRIVACY = {
       ['Lo que se queda en tu móvil', `<p>Tu colección (fotos, nombres de animales, fecha), tu nombre, tus respuestas del quiz, tus ajustes e insignias se guardan solo en tu móvil. «Restablecer perfil» en tu perfil o borrar la app los elimina.</p>
 <p><b>Región:</b> para «Cerca de ti ahora» indicas tú mismo tu región. Si dejas que la app la detecte, el iPhone busca el nombre del lugar con el servicio de ubicación de Apple. Solo se guarda el nombre del lugar, en tu móvil. Del mismo modo, cada hallazgo recibe el nombre del lugar donde se hizo la foto, a partir de tu ubicación (solo si la permitiste) o, si no, del lugar que indicaste en la app. Puedes cambiarlo en cada hallazgo. Findimal no lee los datos de ubicación guardados en tus fotos. También aquí solo se guarda el nombre, nunca la posición exacta, y se queda en tu móvil.</p>`],
       ['«Cerca de ti ahora»', `<p>Para los consejos de la pantalla de inicio, la app envía al servidor la región que indicaste (p. ej. «Valencia»), el momento del día y el idioma. El resultado se guarda en caché hasta 26 horas y lo comparten todos los usuarios de esa región. No se guarda nada que lo relacione contigo.</p>`],
+      ['La temporada en tu país', `<p>Si estás fuera de Europa Central, la app envía solo tu país (p. ej. «TH» para Tailandia), el mes y el idioma al servidor para la página de temporada. La IA describe una vez la temporada allí; el resultado se guarda y se usa para todos los usuarios de ese país. No se envía ningún lugar ni dato del dispositivo.</p>`],
       ['Animales más vistos de la temporada', `<p>Cuando se identifica un animal salvaje, el servidor cuenta de forma anónima qué especie era y en qué estación, sin foto, dispositivo, lugar ni nombre. Así se crea la lista de los animales más vistos en la página Temporada. Las mascotas no se cuentan. No es posible relacionarlo contigo.</p>`],
       ['Límite diario de fotos gratis', `<p>Para limitar las fotos gratis, la app crea un identificador aleatorio para tu móvil. El servidor lo usa para contar cuántas fotos se identifican al día; si no existe, se usa la dirección IP. Los contadores se borran automáticamente a las 48 horas. Base jurídica: art. 6.1.f del RGPD (protección contra abusos y costes ilimitados).</p>`],
       ['Clasificación (opcional)', `<p>Si participas en la clasificación, el servidor guarda tu apodo, tus puntos (XP), nivel, número de especies, foto de perfil, código de amigo y quiénes son tus amigos. Tus amigos ven estos datos; los 100 exploradores con más puntos aparecen en la clasificación mundial. Los apodos con insultos, enlaces o números de teléfono se sustituyen automáticamente por «Entdecker». Si denuncias una entrada, guardamos tu código de amigo junto a la entrada denunciada; tras varias denuncias se oculta. Para el bono por invitación (una foto gratis extra), el servidor guarda también el identificador aleatorio de tu móvil junto a tu entrada y recuerda que ese móvil ya recibió el bono; el identificador no lo ve nadie. «Salir de la clasificación» borra tu entrada. Base jurídica: art. 6.1.a del RGPD (tu consentimiento al participar).</p>`],
@@ -866,6 +963,37 @@ export default {
       ]);
       if (env.DB && res.ok) await env.DB.put(cacheKey, await res.clone().text(), { expirationTtl: 60 * 60 * 26 });
       return res;
+    }
+
+    // Saison-Seite für ein Land außerhalb Mitteleuropas (nur das Land, z. B. "TH" – kein Ort)
+    if (body.mode === 'saison') {
+      const cc = String(body.cc || '').toUpperCase();
+      const m = Number(body.m);
+      const lang = Object.hasOwn(LANGUAGES, String(body.lang)) ? body.lang : 'de';
+      if (!/^[A-Z]{2}$/.test(cc) || !Number.isInteger(m) || m < 1 || m > 12) return json({ fehler: 'Ungültige Anfrage.' }, 400);
+      const key = `saison:v1:${cc}:${m}:${lang}`;
+      if (env.DB) {
+        const cached = await env.DB.get(key);
+        if (cached) return new Response(cached, { headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS } });
+        // neu erzeugen höchstens 150-mal am Tag für alle zusammen (danach morgen wieder)
+        const capKey = `sgen:${new Date().toISOString().slice(0, 10)}`;
+        const made = Number(await env.DB.get(capKey)) || 0;
+        if (made >= 150) return json({ fehler: 'limit' }, 429);
+        await safePut(env, capKey, String(made + 1), { expirationTtl: 60 * 60 * 48 });
+      }
+      const stop = await textBudget();
+      if (stop) return stop;
+      const MONTHS = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+      const res = await claude(env, MODEL, SAISON_SYSTEM + languageRule(lang), SAISON_SCHEMA, [
+        { type: 'text', text: `Land (ISO-Code): ${cc}\nMonat: ${MONTHS[m - 1]}` },
+      ], 45_000);
+      if (res.error) return res.error;
+      const clean = cleanSaison(res.data);
+      if (!clean) return json({ fehler: 'Die Antwort war unvollständig.' }, 502);
+      const out = JSON.stringify(clean);
+      // ein knappes Jahr aufheben – nächstes Jahr wird es neu erzeugt
+      if (env.DB) await safePut(env, key, out, { expirationTtl: 60 * 60 * 24 * 330 });
+      return new Response(out, { headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS } });
     }
 
     // Abbrechen während der Bestimmung: zählt nicht als Gratis-Foto.

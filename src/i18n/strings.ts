@@ -399,6 +399,7 @@ const de = {
   'badge.tiny.hint': 'Finde ein Tier, das kleiner als 1 Zentimeter ist.',
 
   // Saison
+  'sea.loadingRegion': 'Die Saison für dein Land wird vorbereitet … Das dauert nur beim ersten Mal ein paar Sekunden.',
   'sea.now': 'Saison-Tiere',
   'sea.spectacle': 'Naturschauspiel',
   'sea.top': 'Am häufigsten entdeckt',
@@ -834,6 +835,7 @@ const en: Strings = {
   'badge.pets3.hint': 'Photograph 3 different kinds of pets, e.g. dog, cat and rabbit.',
   'badge.tiny': 'Tiny finder',
   'badge.tiny.hint': 'Find an animal smaller than 1 centimetre.',
+  'sea.loadingRegion': 'Preparing the season for your country … This only takes a few seconds the first time.',
   'sea.now': 'Seasonal animals',
   'sea.spectacle': 'Nature spectacle',
   'sea.top': 'Most spotted',
@@ -1265,6 +1267,7 @@ const fr: Strings = {
   'badge.pets3.hint': 'Photographie 3 sortes d’animaux de compagnie, p. ex. chien, chat et lapin.',
   'badge.tiny': 'Tout petit',
   'badge.tiny.hint': 'Trouve un animal de moins d’un centimètre.',
+  'sea.loadingRegion': 'Préparation de la saison pour ton pays … Cela ne prend quelques secondes que la première fois.',
   'sea.now': 'Animaux de saison',
   'sea.spectacle': 'Spectacle de la nature',
   'sea.top': 'Les plus repérés',
@@ -1695,6 +1698,7 @@ const es: Strings = {
   'badge.pets3.hint': 'Fotografía 3 tipos de mascotas, p. ej. perro, gato y conejo.',
   'badge.tiny': 'Diminuto',
   'badge.tiny.hint': 'Encuentra un animal de menos de 1 centímetro.',
+  'sea.loadingRegion': 'Preparando la temporada para tu país … Solo tarda unos segundos la primera vez.',
   'sea.now': 'Animales de temporada',
   'sea.spectacle': 'Espectáculo natural',
   'sea.top': 'Los más vistos',

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { ActivityIndicator, Image, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdSlot } from '../components/AdSlot';
@@ -9,8 +9,10 @@ import { SeasonTop } from '../components/SeasonTop';
 import { Find, useFindPhoto } from '../finds';
 import { GroupIcon } from '../groups';
 import { useI18n } from '../i18n';
-import { matchesAnimal, Phenomenon, seasonDaysLeft, seasonFor, seasonId, seasonRange } from '../season';
+import { loadRegionSeason } from '../regionSeason';
+import { matchesAnimal, Phenomenon, Season, seasonFor, seasonId, seasonRange } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
+import { hasOwnSeason, loadCountry } from '../zone';
 
 
 // Zählt die App-Starts (einmal pro Start hochgezählt), damit das Naturschauspiel jedes Mal wechselt
@@ -33,8 +35,7 @@ function useLaunchNumber(): number {
 const GAP = 8;
 
 // Funde aus der aktuellen Jahreszeit (neueste zuerst)
-function seasonFinds(finds: Find[], now: Date): Find[] {
-  const { start, end } = seasonRange(now);
+function seasonFinds(finds: Find[], { start, end }: { start: Date; end: Date }): Find[] {
   return finds
     .filter((f) => {
       const d = new Date(f.date);
@@ -55,18 +56,32 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
   const now = new Date();
-  const season = seasonFor(now, lang);
-  const sid = seasonId(now);
-  const look = SEASON_LOOK[sid];
-  const { start, end } = seasonRange(now);
-  const recent = seasonFinds(finds, now);
-  const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
-  const daysLeft = seasonDaysLeft(now);
+  // Außerhalb Mitteleuropas: Saison für das eigene Land (vom Server, einmal pro Monat)
+  const [region, setRegion] = useState<Season | null | 'loading'>(null);
+  useEffect(() => {
+    let alive = true;
+    loadCountry().then((cc) => {
+      if (!alive || !cc || hasOwnSeason(cc)) return setRegion(null);
+      setRegion('loading');
+      loadRegionSeason(cc, lang).then((s) => alive && setRegion(s));
+    });
+    return () => {
+      alive = false;
+    };
+  }, [lang]);
+  const season = region && region !== 'loading' ? region : seasonFor(now, lang);
+  const mood = season.mood ?? seasonId(now);
+  const look = SEASON_LOOK[mood];
+  const { start, end } = season.range ?? seasonRange(now);
+  const recent = seasonFinds(finds, { start, end });
+  const share = Math.min(1, (now.getTime() - start.getTime()) / (end.getTime() - start.getTime()));
+  const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / 86400000));
   const matches = season.phenomena.map((ph) => findFor(ph, recent));
   // Breite eines Viertels (zwei nebeneinander ergeben den Kreis)
   const launch = useLaunchNumber();
   const [showSpec, setShowSpec] = useState(false);
-  const spec = season.spectacle.length ? season.spectacle[launch % season.spectacle.length] : null;
+  const loading = region === 'loading';
+  const spec = !loading && season.spectacle.length ? season.spectacle[launch % season.spectacle.length] : null;
   const quarter = Math.floor((Math.min(useWindowDimensions().width, 520) - spacing.gutter * 2 - GAP) / 2);
 
   return (
@@ -74,7 +89,7 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
       {/* Kopf: Monat, Jahreszeit und wie lange sie noch dauert */}
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
         {/* Farbe, Symbol und Teilchen passend zur Jahreszeit */}
-        <SeasonSky season={sid} />
+        {loading ? <View style={[StyleSheet.absoluteFill, { backgroundColor: SEASON_LOOK.summer.bg }]} /> : <SeasonSky season={mood} />}
         <View style={styles.headRow}>
           <Text style={styles.h2}>{t(`month.${now.getMonth()}` as 'month.0')}</Text>
           {/* Naturschauspiel als kleine Marke – wechselt bei jedem App-Start, Antippen zeigt mehr */}
@@ -95,15 +110,23 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
             </Pressable>
           )}
         </View>
-        <Text style={[styles.season, { color: look.light }]}>{season.name}</Text>
+        <Text style={[styles.season, { color: look.light }]}>{loading ? '…' : season.name}</Text>
         <View style={styles.bar}>
-          <View style={[styles.barFill, { width: `${Math.round(share * 100)}%`, backgroundColor: look.accent }]} />
+          {!loading && <View style={[styles.barFill, { width: `${Math.round(share * 100)}%`, backgroundColor: look.accent }]} />}
         </View>
-        <Text style={styles.barText}>{t('sea.daysLeft', { n: daysLeft })}</Text>
+        <Text style={styles.barText}>{loading ? ' ' : t('sea.daysLeft', { n: daysLeft })}</Text>
       </View>
 
-      {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) */}
-      <SeasonTop finds={recent} p={p} first />
+      {/* Saison fürs eigene Land wird zum ersten Mal geschrieben (danach sofort da) */}
+      {loading ? (
+        <View style={styles.loadingBox}>
+          <ActivityIndicator color={p.moss} />
+          <Text style={[styles.sub, { color: p.mute, textAlign: 'center' }]}>{t('sea.loadingRegion')}</Text>
+        </View>
+      ) : (
+      <>
+      {/* Beliebteste Tiere der Saison bei allen Entdeckern (ab 20 Funden) – nur für Mitteleuropa */}
+      {!region && <SeasonTop finds={recent} p={p} first />}
 
       {/* Saison-Tiere als Kreis aus vier Vierteln – alles auf einen Blick */}
       <View style={styles.blk}>
@@ -150,6 +173,8 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           </View>
         ))}
       </View>
+      </>
+      )}
       {/* Infofeld zum Naturschauspiel */}
       <Modal visible={showSpec} transparent animationType="fade" onRequestClose={() => setShowSpec(false)}>
         <Pressable style={styles.specDim} onPress={() => setShowSpec(false)}>
@@ -231,6 +256,7 @@ function Quarter({
 }
 
 const styles = StyleSheet.create({
+  loadingBox: { alignItems: 'center', gap: 10, paddingVertical: 60, paddingHorizontal: 40 },
   hx: {
     paddingHorizontal: spacing.gutter,
     paddingBottom: 24,

@@ -42,6 +42,24 @@ function deviceCountry(): string | null {
   }
 }
 
+// Land (z. B. "TH") für die Saison-Seite – nur der Ländercode, kein Ort
+const COUNTRY_KEY = 'findimal-country';
+export async function saveCountry(cc: string): Promise<void> {
+  if (/^[A-Z]{2}$/.test(cc)) await AsyncStorage.setItem(COUNTRY_KEY, cc).catch(() => {});
+}
+// Gespeichertes Land (vom Standort), sonst aus den iPhone-Einstellungen
+export async function loadCountry(): Promise<string | null> {
+  try {
+    const cc = await AsyncStorage.getItem(COUNTRY_KEY);
+    if (cc && /^[A-Z]{2}$/.test(cc)) return cc;
+  } catch {
+    // weiter mit dem Land des iPhones
+  }
+  return deviceCountry();
+}
+// Für Mitteleuropa gibt es fertige Saison-Inhalte; für alle anderen Länder erzeugt sie der Server
+export const hasOwnSeason = (cc: string) => CENTRAL.includes(cc.toUpperCase());
+
 export async function saveZone(zone: Zone): Promise<void> {
   await AsyncStorage.setItem(KEY, zone).catch(() => {});
 }

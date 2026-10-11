@@ -372,9 +372,13 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
 };
 
 export type Phenomenon = { icon: GroupId; title: string; text: string; where: string; match: string[] };
+// Stimmung für den Kopf der Saison-Seite (Regenzeit gibt es nur außerhalb Europas)
+export type SkyMood = SeasonId | 'rain';
 export type Season = {
   id: SeasonId;
   name: string;
+  mood?: SkyMood; // sonst wie die Jahreszeit
+  range?: { start: Date; end: Date }; // eigene Dauer (andere Länder), sonst die Jahreszeit in Mitteleuropa
   phenomena: Phenomenon[];
   spectacle: Spectacle[];
   help: { title: string; text: string }[];
