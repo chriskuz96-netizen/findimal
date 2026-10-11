@@ -256,6 +256,7 @@ const de = {
   'ch.new': 'NEU',
   'ch.newBadges': '{n} neu',
   'ch.profilePic': 'Profilbild',
+  'ch.doneNow': 'Geschafft!',
   'ch.note':
     'Punkte gibt es für neue Arten (+{fresh}), schon bekannte Arten (+{find}, einmal pro Tag), geschaffte Challenges, Abzeichen (+25 bis +100) und Freunde in der Rangliste (+50).',
 
@@ -693,6 +694,7 @@ const en: Strings = {
   'ch.new': 'NEW',
   'ch.newBadges': '{n} new',
   'ch.profilePic': 'Profile picture',
+  'ch.doneNow': 'Done!',
   'ch.note':
     'You get points for new species (+{fresh}), species you already have (+{find}, once a day), completed challenges, badges (+25 to +100) and friends on your leaderboard (+50).',
   'level.0': 'Rookie',
@@ -1118,6 +1120,7 @@ const fr: Strings = {
   'ch.new': 'NOUVEAU',
   'ch.newBadges': '{n} nouveau(x)',
   'ch.profilePic': 'Photo de profil',
+  'ch.doneNow': 'Réussi !',
   'ch.note':
     'Tu gagnes des points pour les nouvelles espèces (+{fresh}), les espèces déjà trouvées (+{find}, une fois par jour), les défis réussis, les badges (+25 à +100) et les amis dans ton classement (+50).',
   'level.0': 'Débutant',
@@ -1542,6 +1545,7 @@ const es: Strings = {
   'ch.new': 'NUEVA',
   'ch.newBadges': '{n} nueva(s)',
   'ch.profilePic': 'Foto de perfil',
+  'ch.doneNow': '¡Conseguido!',
   'ch.note':
     'Ganas puntos por especies nuevas (+{fresh}), especies que ya tienes (+{find}, una vez al día), retos superados, insignias (+25 a +100) y amigos en tu clasificación (+50).',
   'level.0': 'Novato',

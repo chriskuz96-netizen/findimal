@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useRef, useState } from 'react';
-import { Alert, Animated, Easing, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { Alert, Animated, Easing, LayoutAnimation, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 
@@ -12,9 +12,9 @@ import { Leaderboard } from '../components/Leaderboard';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
-import { Badge, levelAt, Progress, XP } from '../progress';
+import { Badge, dayKey, levelAt, Progress, seasonKey, XP } from '../progress';
 import { seasonDaysLeft } from '../season';
-import { WeekTask } from '../weekly';
+import { WeekTask, weekStart } from '../weekly';
 import { answeredToday, nextQuestion, question as questionAt, QUESTIONS_PER_DAY, QuizLog, todayAnswered } from '../quiz';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -35,6 +35,8 @@ type Props = {
   onOpenProfile?: () => void;
   onBonus?: () => void; // Extra-Foto durch eine Einladung
 };
+
+const SEEN_DONE = 'findimal-seen-done'; // geschaffte Aufgaben, deren „Geschafft!“ schon gezeigt wurde
 
 export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges, onOpenProfile, onBonus }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
@@ -197,6 +199,43 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
     </View>
   );
 
+  // Gerade geschafft: Karte bleibt noch 5 Sekunden oben (mit „Geschafft!“) und rutscht dann unter das Quiz.
+  // Gemerkt wird, welche geschafften Aufgaben man schon gesehen hat (nur auf dem Handy).
+  const now = new Date();
+  const goalKey = `goal-${seasonKey(now)}`;
+  const weekKey = `week-${dayKey(weekStart(now))}`;
+  const [seenDone, setSeenDone] = useState<string[] | null>(null);
+  const [fresh, setFresh] = useState({ goal: false, week: false });
+  useEffect(() => {
+    AsyncStorage.getItem(SEEN_DONE)
+      .then((v) => setSeenDone(v ? JSON.parse(v) : []))
+      .catch(() => setSeenDone([]));
+  }, []);
+  useEffect(() => {
+    if (!active) {
+      // Seite verlassen: Hinweis ist gesehen, Karte steht beim nächsten Mal schon unten
+      setFresh((f) => (f.goal || f.week ? { goal: false, week: false } : f));
+      return;
+    }
+    if (!seenDone) return;
+    const g = goal.done && !seenDone.includes(goalKey);
+    const w = week.done && !seenDone.includes(weekKey);
+    if (!g && !w) return;
+    setFresh({ goal: g, week: w });
+    const next = [...seenDone, ...(g ? [goalKey] : []), ...(w ? [weekKey] : [])].slice(-20);
+    setSeenDone(next);
+    AsyncStorage.setItem(SEEN_DONE, JSON.stringify(next)).catch(() => {});
+    const timer = setTimeout(() => {
+      LayoutAnimation.configureNext(LayoutAnimation.create(500, 'easeInEaseOut', 'opacity'));
+      setFresh({ goal: false, week: false });
+    }, 5000);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, seenDone === null, goal.done, week.done, goalKey, weekKey]);
+  const goalTop = !goal.done || fresh.goal;
+  const weekTop = !week.done || fresh.week;
+  const doneNow = <Text style={styles.doneNow}>✓ {t('ch.doneNow')}</Text>;
+
   // Saison-Ziel und Wochen-Aufgabe (offen: oben, geschafft: unter dem Quiz)
   const goalCard = (
     <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
@@ -206,6 +245,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </Text>
         <XpPill text={`+${XP.season} XP`} done={goal.done} />
       </View>
+      {fresh.goal && doneNow}
       {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
       <View style={styles.goalRow}>
         <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t('goal.short')}</Text>
@@ -235,6 +275,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </Text>
         <XpPill text={`+${XP.week} XP`} done={week.done} />
       </View>
+      {fresh.week && doneNow}
       {/* Aufgabe mit passendem Symbol (wie beim Saison-Ziel) */}
       <View style={styles.weekRow}>
         <TaskIcon task={week.task} done={week.done} />
@@ -295,8 +336,8 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </View>
 
         {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft. Offene oben, geschaffte rutschen unter das Quiz */}
-        {!goal.done && goalCard}
-        {!week.done && weekCard}
+        {goalTop && goalCard}
+        {weekTop && weekCard}
 
         {/* Rangliste mit Freunden */}
         <Leaderboard
@@ -404,8 +445,8 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </View>
 
         {/* geschaffte Aufgaben */}
-        {goal.done && goalCard}
-        {week.done && weekCard}
+        {!goalTop && goalCard}
+        {!weekTop && weekCard}
 
         {/* Abzeichen */}
         <View
@@ -620,6 +661,7 @@ const styles = StyleSheet.create({
   levelBar: { flex: 1, height: 8, borderRadius: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.15)' },
   levelSub: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 6 },
   doneCard: { borderWidth: 2 },
+  doneNow: { fontFamily: fonts.serifBold, fontSize: 20, color: DONE, marginTop: 2, marginBottom: 2 },
   weekRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 6 },
   goalRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
   goalSlot: { width: 56, alignItems: 'center', gap: 3 },
