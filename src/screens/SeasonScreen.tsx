@@ -1,16 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Image, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdSlot } from '../components/AdSlot';
 import { SEASON_LOOK, SeasonSky } from '../components/SeasonSky';
 import { SeasonTop } from '../components/SeasonTop';
-import { Find, useFindPhoto } from '../finds';
+import { Find } from '../finds';
 import { GroupIcon } from '../groups';
 import { useI18n } from '../i18n';
 import { loadRegionSeason } from '../regionSeason';
-import { matchesAnimal, Phenomenon, Season, seasonFor, seasonId, seasonRange } from '../season';
+import { Phenomenon, Season, seasonFor, seasonId, seasonRange } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 import { hasOwnSeason, loadCountry } from '../zone';
 
@@ -44,20 +44,13 @@ function seasonFinds(finds: Find[], { start, end }: { start: Date; end: Date }):
     .reverse();
 }
 
-// Passt ein Fund zu einem Saison-Tier? (passende Gattung im wissenschaftlichen Namen)
-function findFor(ph: Phenomenon, finds: Find[]): Find | null {
-  return finds.find((f) => matchesAnimal(f.animal.wissenschaftlicher_name, ph.match)) ?? null;
-}
-
 // Saison: was gerade draußen los ist und wie man Tieren helfen kann.
 export function SeasonScreen({
   finds,
-  onOpen,
   place,
   onChangePlace,
 }: {
   finds: Find[];
-  onOpen: (f: Find) => void;
   place: string; // eingestellter Ort ('' = keiner)
   onChangePlace: () => void;
 }) {
@@ -86,7 +79,6 @@ export function SeasonScreen({
   const recent = seasonFinds(finds, { start, end });
   const share = Math.min(1, (now.getTime() - start.getTime()) / (end.getTime() - start.getTime()));
   const daysLeft = Math.max(1, Math.ceil((end.getTime() - now.getTime()) / 86400000));
-  const matches = season.phenomena.map((ph) => findFor(ph, recent));
   // Breite eines Viertels (zwei nebeneinander ergeben den Kreis)
   const launch = useLaunchNumber();
   const [showSpec, setShowSpec] = useState(false);
@@ -154,9 +146,6 @@ export function SeasonScreen({
       <View style={styles.blk}>
         <View style={styles.bh}>
           <Text style={[styles.h3, { color: p.ink }]}>{t('sea.now')}</Text>
-          <Text style={[styles.count, { color: p.mute }]}>
-            {matches.filter(Boolean).length} / {matches.length} {t('sea.found')}
-          </Text>
         </View>
         <Text style={[styles.sub, { color: p.mute }]}>{t('sea.nowSub')}</Text>
         <View style={[styles.circle, { width: quarter * 2 + GAP }]}>
@@ -165,10 +154,8 @@ export function SeasonScreen({
             <Quarter
               key={season.phenomena[i].title}
               ph={season.phenomena[i]}
-              found={matches[i]}
               corner={(['tl', 'tr', 'br', 'bl'] as const)[i]}
               width={quarter}
-              onOpen={onOpen}
               dark={dark}
               p={p}
             />
@@ -223,22 +210,17 @@ export function SeasonScreen({
 // Die äußere Ecke ist stark abgerundet, zusammen ergeben die vier Viertel einen Kreis.
 function Quarter({
   ph,
-  found,
   corner,
   width,
-  onOpen,
   dark,
   p,
 }: {
   ph: Phenomenon;
-  found: Find | null;
   corner: 'tl' | 'tr' | 'br' | 'bl';
   width: number;
-  onOpen: (f: Find) => void;
   dark: boolean;
   p: typeof lightPalette;
 }) {
-  const uri = useFindPhoto(found?.id ?? '');
   const R = Math.round(width * 0.45);
   const round = {
     tl: { borderTopLeftRadius: R, paddingLeft: 20, paddingTop: 22 },
@@ -248,32 +230,17 @@ function Quarter({
     bl: { borderBottomLeftRadius: R, paddingLeft: 28, paddingBottom: 22 },
   }[corner];
   return (
-    <Pressable
-      onPress={found ? () => onOpen(found) : undefined}
-      disabled={!found}
-      style={[
-        styles.quarter,
-        { width, backgroundColor: p.card, borderColor: found ? '#6FBF8A' : p.line },
-        round,
-      ]}
-    >
+    <View style={[styles.quarter, { width, backgroundColor: p.card, borderColor: p.line }, round]}>
       <View style={styles.qHead}>
-        <View style={[styles.qIcon, found && { borderWidth: 2, borderColor: '#6FBF8A' }]}>
-          {found && uri ? (
-            <Image source={{ uri }} style={styles.qImg} resizeMode="cover" />
-          ) : (
-            <GroupIcon id={ph.icon} size={18} color={colors.accentLight} />
-          )}
+        <View style={styles.qIcon}>
+          <GroupIcon id={ph.icon} size={18} color={colors.accentLight} />
         </View>
         {/* Überschrift direkt neben dem Symbol – spart Höhe */}
-        <Text style={[styles.qTitle, { color: p.ink }]}>
-          {ph.title}
-          {found ? <Text style={styles.qTick}> ✓</Text> : null}
-        </Text>
+        <Text style={[styles.qTitle, { color: p.ink }]}>{ph.title}</Text>
       </View>
       <Text style={[styles.qText, { color: p.ink }]}>{ph.text}</Text>
       <Text style={[styles.qWhere, { color: dark ? colors.accent : colors.accentDark }]}>{ph.where}</Text>
-    </Pressable>
+    </View>
   );
 }
 

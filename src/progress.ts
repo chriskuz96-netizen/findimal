@@ -1,7 +1,7 @@
 import { Find, speciesKey } from './finds';
 import { GroupId, groupOf } from './groups';
 import { breedGuessed } from './names';
-import { matchesAnimal, seasonAnimals, seasonId, SeasonId } from './season';
+import { seasonId } from './season';
 import { thisWeek, WeekTask, weeksDone } from './weekly';
 
 // Alles rund um Erfahrungspunkte (XP), Stufen, Saison-Ziel und Abzeichen.
@@ -154,12 +154,16 @@ function longestStreak(finds: Find[]): number {
 }
 
 // Alle vier Saison-Tiere einer Jahreszeit gefunden (passende Gattung reicht, wie auf der Saison-Seite)?
+// „Saison-Sammler“: 10 verschiedene Arten in einer Jahreszeit (eines Jahres)
 function seasonComplete(finds: Find[]): boolean {
-  const ids: SeasonId[] = ['spring', 'summer', 'autumn', 'winter'];
-  return ids.some((id) => {
-    const inSeason = finds.filter((f) => seasonId(new Date(f.date)) === id);
-    return seasonAnimals(id).every((match) => inSeason.some((f) => matchesAnimal(f.animal.wissenschaftlicher_name, match)));
-  });
+  const bySeason = new Map<string, Set<string>>();
+  for (const f of finds) {
+    const k = seasonKey(new Date(f.date));
+    const set = bySeason.get(k) ?? new Set<string>();
+    set.add(speciesKey(f.animal));
+    bySeason.set(k, set);
+  }
+  return [...bySeason.values()].some((s) => s.size >= 10);
 }
 
 // Verschiedene Rassen (Haus- und Nutztiere), ohne geschätzte und ohne reine "Mischling"
