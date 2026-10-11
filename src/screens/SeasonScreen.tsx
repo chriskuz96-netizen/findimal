@@ -4,12 +4,12 @@ import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdSlot } from '../components/AdSlot';
-import { HeaderBackground } from '../components/HeaderBackground';
+import { SEASON_LOOK, SeasonSky } from '../components/SeasonSky';
 import { SeasonTop } from '../components/SeasonTop';
 import { Find, useFindPhoto } from '../finds';
 import { GroupIcon } from '../groups';
 import { useI18n } from '../i18n';
-import { matchesAnimal, Phenomenon, seasonDaysLeft, seasonFor, seasonRange } from '../season';
+import { matchesAnimal, Phenomenon, seasonDaysLeft, seasonFor, seasonId, seasonRange } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 
 
@@ -56,6 +56,8 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
   const { t, lang } = useI18n();
   const now = new Date();
   const season = seasonFor(now, lang);
+  const sid = seasonId(now);
+  const look = SEASON_LOOK[sid];
   const { start, end } = seasonRange(now);
   const recent = seasonFinds(finds, now);
   const share = (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
@@ -71,7 +73,8 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>
       {/* Kopf: Monat, Jahreszeit und wie lange sie noch dauert */}
       <View style={[styles.hx, { paddingTop: insets.top + 34 }]}>
-        <HeaderBackground />
+        {/* Farbe, Symbol und Teilchen passend zur Jahreszeit */}
+        <SeasonSky season={sid} />
         <View style={styles.headRow}>
           <Text style={styles.h2}>{t(`month.${now.getMonth()}` as 'month.0')}</Text>
           {/* Naturschauspiel als kleine Marke – wechselt bei jedem App-Start, Antippen zeigt mehr */}
@@ -92,9 +95,9 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
             </Pressable>
           )}
         </View>
-        <Text style={styles.season}>{season.name}</Text>
+        <Text style={[styles.season, { color: look.light }]}>{season.name}</Text>
         <View style={styles.bar}>
-          <View style={[styles.barFill, { width: `${Math.round(share * 100)}%` }]} />
+          <View style={[styles.barFill, { width: `${Math.round(share * 100)}%`, backgroundColor: look.accent }]} />
         </View>
         <Text style={styles.barText}>{t('sea.daysLeft', { n: daysLeft })}</Text>
       </View>
