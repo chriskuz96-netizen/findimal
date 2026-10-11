@@ -423,6 +423,26 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Path d="M0 8 Q-6 3 -5 0 Q-3.5 -2.5 0 0.5 Q3.5 -2.5 5 0 Q6 3 0 8 Z" fill={c('#E05A5A')} />
         </G>
       );
+    case 'abroad': // Weltkugel
+      return (
+        <G>
+          <Circle cx={0} cy={0} r={11} fill={c('#5BB0E0')} stroke={c('#FFF4C2')} strokeWidth={1.4} />
+          <Path d="M-8 -6 Q-3 -9 0 -6 Q2 -3 -2 -1 Q-5 1 -3 4 Q-1 7 -5 8 Q-10 4 -8 -6 Z" fill={c('#7CC46A')} />
+          <Path d="M3 -9 Q8 -7 10 -2 Q7 0 5 -2 Q2 -4 3 -9 Z M4 3 Q8 2 9 5 Q6 9 3 8 Q2 5 4 3 Z" fill={c('#7CC46A')} />
+          <Path d="M-11 0 H11 M0 -11 Q-6 0 0 11 M0 -11 Q6 0 0 11" stroke="#fff" strokeOpacity={0.35} strokeWidth={0.8} fill="none" />
+        </G>
+      );
+    case 'world5': // Flugzeug über der Weltkugel
+      return (
+        <G>
+          <Circle cx={0} cy={2} r={10} fill={c('#5BB0E0')} />
+          <Path d="M-7 -2 Q-3 -4 -1 -1 Q0 2 -3 3 Q-6 5 -4 8 Q-9 5 -7 -2 Z M3 -6 Q7 -4 8 1 Q5 2 3 0 Q1 -3 3 -6 Z" fill={c('#7CC46A')} />
+          <G transform="translate(1 -9) rotate(-25)">
+            <Path d="M-9 0 L9 0 L11 -1.4 L9 -2.6 L-9 -1.6 Z" fill={c('#FFFFFF')} />
+            <Path d="M-1 -1 L-5 -7 L-2 -7 L4 -1 Z M-1 -1 L-4 4 L-1.5 4 L3 -1 Z M-8 -1 L-10 -4 L-8.5 -4 L-6 -1 Z" fill={c('#FFD45E')} />
+          </G>
+        </G>
+      );
     case 'tiny': // Ameise unter der Lupe
       return (
         <G>

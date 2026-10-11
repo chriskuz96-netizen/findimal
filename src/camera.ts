@@ -3,7 +3,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Alert, Linking } from 'react-native';
 
 import { Translate } from './i18n';
-import { currentPlace } from './location';
+import { currentPlace, Spot } from './location';
 
 const OPTIONS: ImagePicker.ImagePickerOptions = {
   mediaTypes: ['images'],
@@ -13,7 +13,7 @@ const OPTIONS: ImagePicker.ImagePickerOptions = {
 const MAX_SIDE = 1024; // größer braucht die Tierbestimmung nicht
 
 // place: Ortsname des aktuellen Standorts (nur wenn erlaubt; wird nebenbei ermittelt, nur der Name wird gespeichert)
-export type Photo = { uri: string; base64: string | null; place?: Promise<string | null> };
+export type Photo = { uri: string; base64: string | null; place?: Promise<Spot | null> };
 
 // Macht aus dem gewählten Bild ein Photo für die Bestimmung.
 // onPicked(uri): Bild ist gewählt, wird jetzt vorbereitet (für den Ladebildschirm)

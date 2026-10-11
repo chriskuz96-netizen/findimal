@@ -75,7 +75,9 @@ export type BadgeId =
   | 'insects10'
   | 'water5'
   | 'pets3'
-  | 'tiny';
+  | 'tiny'
+  | 'abroad'
+  | 'world5';
 
 // Medaillen-Stufe je Abzeichen. Jedes verdiente Abzeichen gibt XP: Bronze 25, Silber 50, Gold 100.
 export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
@@ -118,6 +120,8 @@ export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
   water5: 'silver',
   pets3: 'bronze',
   tiny: 'silver',
+  abroad: 'silver',
+  world5: 'gold',
 };
 export const BADGE_XP = { bronze: 25, silver: 50, gold: 100 };
 
@@ -312,6 +316,9 @@ export function computeProgress(
     { id: 'water5', earned: kinds(finds, (f) => !!f.animal.wasser || groupOf(f.animal.gruppe)?.id === 'fish') >= 5 },
     { id: 'pets3', earned: petKinds(finds) >= 3 },
     { id: 'tiny', earned: finds.some((f) => f.animal.winzig) },
+    // Funde in verschiedenen Ländern (Land kommt vom Standort beim Fotografieren)
+    { id: 'abroad', earned: new Set(finds.map((f) => f.country).filter(Boolean)).size >= 2 },
+    { id: 'world5', earned: new Set(finds.map((f) => f.country).filter(Boolean)).size >= 5 },
   ];
   // XP für verdiente Abzeichen
   for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];

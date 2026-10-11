@@ -44,15 +44,21 @@ export async function placeCountry(name: string): Promise<void> {
   }
 }
 
-// Ortsname des aktuellen Standorts für einen neuen Fund – nur wenn der Standort schon erlaubt ist
+// Ortsname und Land des aktuellen Standorts für einen neuen Fund – nur wenn der Standort schon erlaubt ist
 // (hier wird nie gefragt). Sonst null; dann nimmt die App den Ort aus den Einstellungen.
-export async function currentPlace(): Promise<string | null> {
+// Das Land (z. B. "TH") zählt für die Weltenbummler-Abzeichen.
+export type Spot = { name: string | null; country: string | null };
+export async function currentPlace(): Promise<Spot | null> {
   try {
     if (!(await Location.getForegroundPermissionsAsync()).granted) return null;
     const pos = await Location.getLastKnownPositionAsync();
     if (!pos) return null;
     const [addr] = await Location.reverseGeocodeAsync({ latitude: pos.coords.latitude, longitude: pos.coords.longitude });
-    return addr?.city || addr?.subregion || addr?.region || addr?.country || null;
+    if (!addr) return null;
+    return {
+      name: addr.city || addr.subregion || addr.region || addr.country || null,
+      country: addr.isoCountryCode ? addr.isoCountryCode.toUpperCase() : null,
+    };
   } catch {
     return null;
   }

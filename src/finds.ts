@@ -9,6 +9,7 @@ export type Find = {
   id: string;
   date: string; // ISO-Datum
   place?: string; // Ortsname, wo das Foto gemacht wurde (z. B. "München")
+  country?: string; // Land laut Standort (z. B. "TH"), nur wenn der Standort erlaubt war
   lang?: string; // Sprache der Texte (nach einem Sprachwechsel wird übersetzt)
   animal: Animal;
 };
@@ -106,8 +107,15 @@ export async function addFind(
   const place = photo.place
     ? await Promise.race([photo.place, new Promise<null>((r) => setTimeout(() => r(null), 3000))])
     : null;
-  const where = place || homePlace || null;
-  const find: Find = { id, date: new Date().toISOString(), ...(where ? { place: where } : {}), ...(lang ? { lang } : {}), animal };
+  const where = place?.name || homePlace || null;
+  const find: Find = {
+    id,
+    date: new Date().toISOString(),
+    ...(where ? { place: where } : {}),
+    ...(place?.country ? { country: place.country } : {}),
+    ...(lang ? { lang } : {}),
+    animal,
+  };
   let isNew = false;
   const finds = await change((list) => {
     isNew = !list.some((f) => speciesKey(f.animal) === speciesKey(animal));
