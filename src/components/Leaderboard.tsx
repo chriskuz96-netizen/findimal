@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import {
@@ -24,6 +24,7 @@ import {
   syncMe,
 } from '../board';
 import { useI18n } from '../i18n';
+import { usePlus } from '../plus';
 import { XP } from '../progress';
 import { bonusPhotos } from '../usage';
 import { colors, fonts, Palette, spacing } from '../theme';
@@ -45,6 +46,10 @@ const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 // Rangliste mit Freunden: eigener Freundescode, Freunde hinzufügen, nach XP sortiert.
 export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, onBonus, p }: Props) {
   const { t, locale, lang } = useI18n();
+  // Plus hat unbegrenzte Fotos: dann nur XP erwähnen (das Gratis-Foto bekommt nur der Freund)
+  const { plus } = usePlus();
+  const plusRef = useRef(plus);
+  plusRef.current = plus;
   const [me, setMe] = useState<Me | null | undefined>(undefined); // undefined = lädt noch
   const [friends, setFriends] = useState<string[]>([]);
   const [removed, setRemoved] = useState<string[]>([]);
@@ -80,7 +85,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     const all = await inbox(me);
     if ((await bonusPhotos()) > bonusBefore && Date.now() - lastOwnBonus > 15_000) {
       // jemand ist meiner Einladung gefolgt: Extra-Foto für mich
-      Alert.alert(t('lb.title'), t('lb.bonusInviter', { xp: XP.friend }));
+      Alert.alert(t('lb.title'), t(plusRef.current ? 'lb.bonusInviterPlus' : 'lb.bonusInviter', { xp: XP.friend }));
       onBonus?.();
     }
     const incoming = all.filter(
@@ -121,7 +126,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
         if (bonus) onBonus?.();
         Alert.alert(
           t('lb.title'),
-          bonus ? t('lb.bonusNew', { name: found[0].name, xp: XP.friend }) : t('lb.added', { name: found[0].name }),
+          bonus ? t(plusRef.current ? 'lb.bonusNewPlus' : 'lb.bonusNew', { name: found[0].name, xp: XP.friend }) : t('lb.added', { name: found[0].name }),
         );
       });
     });
@@ -173,7 +178,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     link(me, id).then((bonus) => {
       if (!bonus) return;
       onBonus?.();
-      Alert.alert(t('lb.title'), t('lb.bonusNew', { name: found[0].name, xp: XP.friend }));
+      Alert.alert(t('lb.title'), t(plusRef.current ? 'lb.bonusNewPlus' : 'lb.bonusNew', { name: found[0].name, xp: XP.friend }));
     });
     if (removed.includes(id)) {
       const back = removed.filter((r) => r !== id);
@@ -344,7 +349,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
           </View>
 
           {/* Einladen lohnt sich: beide bekommen etwas */}
-          <Text style={[styles.small, { color: colors.accent, marginTop: 6 }]}>🎁 {t('lb.inviteBonus', { xp: XP.friend })}</Text>
+          <Text style={[styles.small, { color: colors.accent, marginTop: 6 }]}>🎁 {t(plus ? 'lb.inviteBonusPlus' : 'lb.inviteBonus', { xp: XP.friend })}</Text>
 
           {adding ? (
             <View style={styles.addRow}>
