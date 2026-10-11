@@ -108,6 +108,9 @@ function Main() {
     photoBusy.current = true;
     try {
       if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY && (await bonusPhotos()) <= 0) return setLimitOpen(true);
+      // Ladebildschirm liegt schon unter der Kamera/Fotoauswahl: wenn sie wegfährt, kommt direkt
+      // „Moment …“ statt kurz die Startseite. Bricht man ab, verschwindet er wieder.
+      setPreparing('');
       const p = await get(setPreparing);
       if (p) setPhoto(p);
     } finally {
