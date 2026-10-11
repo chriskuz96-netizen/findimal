@@ -116,19 +116,23 @@ export function SeasonScreen({
         <View style={styles.bar}>
           {!loading && <View style={[styles.barFill, { width: `${Math.round(share * 100)}%`, backgroundColor: look.accent }]} />}
         </View>
-        <Text style={styles.barText}>{loading ? ' ' : t('sea.daysLeft', { n: daysLeft })}</Text>
-        {/* Die Seite richtet sich nach dem Ort – hier sieht man welcher und kann ihn ändern */}
-        <Pressable
-          onPress={onChangePlace}
-          hitSlop={8}
-          style={({ pressed }) => [styles.placeChip, { opacity: pressed ? 0.7 : 1 }]}
-          accessibilityRole="button"
-        >
-          <Text style={styles.placeText} numberOfLines={1}>
-            📍 {place ? t('sea.placeFor', { place }) : t('sea.placeNone')}
+        <View style={styles.barRow}>
+          <Text style={[styles.barText, { flex: 1 }]} numberOfLines={1}>
+            {loading ? ' ' : t('sea.daysLeft', { n: daysLeft })}
           </Text>
-          {!!place && <Text style={[styles.placeEdit, { color: look.accent }]}>{t('sea.placeChange')}</Text>}
-        </Pressable>
+          {/* Die Seite richtet sich nach dem Ort – klein daneben, antippen zum Ändern */}
+          <Pressable
+            onPress={onChangePlace}
+            hitSlop={10}
+            style={({ pressed }) => [styles.placeLink, { opacity: pressed ? 0.6 : 1 }]}
+            accessibilityRole="button"
+            accessibilityLabel={place ? t('sea.placeFor', { place }) : t('sea.placeNone')}
+          >
+            <Text style={styles.placeText} numberOfLines={1}>
+              📍 {place || t('sea.placeNone')}
+            </Text>
+          </Pressable>
+        </View>
       </View>
 
       {/* Saison fürs eigene Land wird zum ersten Mal geschrieben (danach sofort da) */}
@@ -245,22 +249,9 @@ function Quarter({
 }
 
 const styles = StyleSheet.create({
-  placeChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    maxWidth: '100%',
-    gap: 8,
-    marginTop: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 999,
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.18)',
-  },
-  placeText: { flexShrink: 1, fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
-  placeEdit: { fontFamily: fonts.sansBold, fontSize: 13, textDecorationLine: 'underline' },
+  barRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 5 },
+  placeLink: { maxWidth: '45%' },
+  placeText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.white, opacity: 0.85, textDecorationLine: 'underline' },
   loadingBox: { alignItems: 'center', gap: 10, paddingVertical: 60, paddingHorizontal: 40 },
   hx: {
     paddingHorizontal: spacing.gutter,
@@ -273,7 +264,7 @@ const styles = StyleSheet.create({
   season: { fontFamily: fonts.sans, fontSize: 15, color: colors.accentLight, marginTop: 2 },
   bar: { height: 6, borderRadius: 6, backgroundColor: 'rgba(255,255,255,0.15)', marginTop: 12, overflow: 'hidden' },
   barFill: { height: '100%', backgroundColor: colors.accent },
-  barText: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8, marginTop: 5 },
+  barText: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8 },
   small: { fontFamily: fonts.sans, fontSize: 12 },
   blk: { marginTop: 26, marginHorizontal: spacing.gutter },
   bh: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', gap: 10 },
