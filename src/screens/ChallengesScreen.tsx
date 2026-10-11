@@ -9,6 +9,7 @@ import { Avatar } from '../components/Avatar';
 import { Explorer } from '../components/Explorer';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Leaderboard } from '../components/Leaderboard';
+import { LevelUp, claimParty } from '../components/LevelUp';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
@@ -75,6 +76,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const [gain, setGain] = useState(0);
   const [shownXp, setShownXp] = useState(progress.xp);
   const [shownLevel, setShownLevel] = useState(progress.level);
+  const [party, setParty] = useState<number | null>(null); // neue Stufe: große Feier
   const [base, setBase] = useState(share); // alter Stand; alles darüber ist neu
   const lastXp = useRef<number | null>(null);
   // Scrollstand und Höhe des großen Kopfs (für die schmale Leiste)
@@ -174,6 +176,8 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           if (!alive) return;
           setShownLevel(progress.level);
           setBase(0);
+          const level = progress.level;
+          setTimeout(() => claimParty(level).then((ok) => ok && alive && setParty(level)), 400);
         }, 1500);
     };
     if (lastXp.current !== null) run(lastXp.current);
@@ -541,6 +545,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
         </Text>
       </ScrollView>
+      <LevelUp level={party} onClose={() => setParty(null)} />
       {/* Schmale Leiste: erscheint, sobald der große Kopf weggescrollt ist, und bleibt oben stehen */}
       <Animated.View
         pointerEvents="none"

@@ -18,6 +18,7 @@ import Svg, { Path } from 'react-native-svg';
 import { Photo } from '../camera';
 import { AdSheet, AdSlot } from '../components/AdSlot';
 import { Explorer } from '../components/Explorer';
+import { LevelUp, claimParty } from '../components/LevelUp';
 import { LimitCard } from '../components/LimitCard';
 import { ShareCard, shareCard } from '../components/ShareCard';
 import { SwipeBack } from '../components/SwipeBack';
@@ -128,6 +129,16 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const [photos, setPhotos] = useState<Photo[]>(photo ? [photo] : []);
   const [result, setResult] = useState<IdentifyResult | null>(saved ? { ok: true, animal: saved.animal } : null);
   const [reward, setReward] = useState<Reward | null>(null);
+  // neue Stufe: große Feier, sobald der Balken im Hinweis voll ist
+  const [party, setParty] = useState<number | null>(null);
+  useEffect(() => {
+    if (!reward?.levelUp) return;
+    const level = reward.after.level;
+    const timer = setTimeout(() => {
+      claimParty(level).then((ok) => ok && setParty(level));
+    }, 1900);
+    return () => clearTimeout(timer);
+  }, [reward]);
   const [details, setDetails] = useState(false);
   const [loadingDetails, setLoadingDetails] = useState(false);
   // halbseitige Anzeige ab dem 3. Foto des Tages: kommt beim Tippen auf „Weiter“
@@ -475,6 +486,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
       )}
       {/* Halbseitige Anzeige ab dem 3. Foto des Tages, nach „Weiter“ – danach geht es zurück */}
       {bigAd === 'open' && <AdSheet p={p} onClose={() => onBack(target.current)} />}
+      <LevelUp level={party} onClose={() => setParty(null)} />
     </View>
   );
 }
