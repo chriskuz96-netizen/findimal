@@ -197,6 +197,52 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
     </View>
   );
 
+  // Saison-Ziel und Wochen-Aufgabe (offen: oben, geschafft: unter dem Quiz)
+  const goalCard = (
+    <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
+      <View style={styles.misHead}>
+        <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
+          {t('goal.title')} · {seasonLeft === 1 ? t('week.leftOne') : t('week.left', { n: seasonLeft })}
+        </Text>
+        <XpPill text={`+${XP.season} XP`} done={goal.done} />
+      </View>
+      {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
+      <View style={styles.goalRow}>
+        <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t('goal.short')}</Text>
+        {[0, 1, 2].map((i) => {
+          const g = GROUPS.find((x) => x.id === goal.groups[i]);
+          return (
+            <View key={i} style={styles.goalSlot}>
+              <View
+                style={[styles.goalDot, g ? { backgroundColor: '#123826', borderColor: DONE, borderStyle: 'solid' } : { borderColor: p.line }]}
+              >
+                {g && <GroupIcon id={g.id} size={17} color={colors.accentLight} />}
+              </View>
+              <Text style={[styles.goalLabel, { color: g ? p.ink : p.mute }]} numberOfLines={1}>
+                {g ? t(`g.${g.id}`) : t('ch.open')}
+              </Text>
+            </View>
+          );
+        })}
+      </View>
+    </View>
+  );
+  const weekCard = (
+    <View style={[styles.card, { backgroundColor: p.card, borderColor: week.done ? DONE : p.line }, week.done && styles.doneCard]}>
+      <View style={styles.misHead}>
+        <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
+          {t('week.title')} · {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
+        </Text>
+        <XpPill text={`+${XP.week} XP`} done={week.done} />
+      </View>
+      {/* Aufgabe mit passendem Symbol (wie beim Saison-Ziel) */}
+      <View style={styles.weekRow}>
+        <TaskIcon task={week.task} done={week.done} />
+        <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
+      </View>
+    </View>
+  );
+
   return (
     <View style={{ flex: 1, backgroundColor: p.bg }}>
       <ScrollView
@@ -248,49 +294,9 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           </Text>
         </View>
 
-        {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft */}
-        <View style={[styles.card, { backgroundColor: p.card, borderColor: goal.done ? DONE : p.line }, goal.done && styles.doneCard]}>
-          <View style={styles.misHead}>
-            <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
-              {t('goal.title')} · {seasonLeft === 1 ? t('week.leftOne') : t('week.left', { n: seasonLeft })}
-            </Text>
-            <XpPill text={`+${XP.season} XP`} done={goal.done} />
-          </View>
-          {/* kurzer Satz, daneben die drei Gruppen als kleine Kreise */}
-          <View style={styles.goalRow}>
-            <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t('goal.short')}</Text>
-            {[0, 1, 2].map((i) => {
-              const g = GROUPS.find((x) => x.id === goal.groups[i]);
-              return (
-                <View key={i} style={styles.goalSlot}>
-                  <View
-                    style={[styles.goalDot, g ? { backgroundColor: '#123826', borderColor: DONE, borderStyle: 'solid' } : { borderColor: p.line }]}
-                  >
-                    {g && <GroupIcon id={g.id} size={17} color={colors.accentLight} />}
-                  </View>
-                  <Text style={[styles.goalLabel, { color: g ? p.ink : p.mute }]} numberOfLines={1}>
-                    {g ? t(`g.${g.id}`) : t('ch.open')}
-                  </Text>
-                </View>
-              );
-            })}
-          </View>
-        </View>
-
-        {/* Wochen-Aufgabe: jede Woche eine neue */}
-        <View style={[styles.card, { backgroundColor: p.card, borderColor: week.done ? DONE : p.line }, week.done && styles.doneCard]}>
-          <View style={styles.misHead}>
-            <Text style={[styles.small, { color: p.mute, flex: 1 }]}>
-              {t('week.title')} · {week.daysLeft === 1 ? t('week.leftOne') : t('week.left', { n: week.daysLeft })}
-            </Text>
-            <XpPill text={`+${XP.week} XP`} done={week.done} />
-          </View>
-          {/* Aufgabe mit passendem Symbol (wie beim Saison-Ziel) */}
-          <View style={styles.weekRow}>
-            <TaskIcon task={week.task} done={week.done} />
-            <Text style={[styles.misText, { color: p.ink, flex: 1, fontSize: 16 }]}>{t(`week.${week.task}` as 'week.bird')}</Text>
-          </View>
-        </View>
+        {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft. Offene oben, geschaffte rutschen unter das Quiz */}
+        {!goal.done && goalCard}
+        {!week.done && weekCard}
 
         {/* Rangliste mit Freunden */}
         <Leaderboard
@@ -396,6 +402,10 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
             ) : null}
           </View>
         </View>
+
+        {/* geschaffte Aufgaben */}
+        {goal.done && goalCard}
+        {week.done && weekCard}
 
         {/* Abzeichen */}
         <View
