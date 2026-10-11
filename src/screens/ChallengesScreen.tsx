@@ -202,6 +202,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={{ paddingBottom: 24 }}
+        keyboardShouldPersistTaps="handled"
         scrollEventThrottle={16}
         onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
       >

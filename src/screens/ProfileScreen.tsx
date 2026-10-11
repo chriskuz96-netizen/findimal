@@ -113,7 +113,12 @@ export function ProfileScreen(props: Props) {
     </Modal>
     {/* nach rechts wischen = zurück */}
     <SwipeBack onBack={onBack}>
-      <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}>
+      <ScrollView
+        style={{ flex: 1, backgroundColor: p.bg }}
+        contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
+        // Tipp auf ✓ zählt sofort, auch wenn die Tastatur offen ist
+        keyboardShouldPersistTaps="handled"
+      >
         <View style={[styles.hx, { paddingTop: insets.top + 10 }]}>
           <HeaderBackground />
           <Pressable onPress={onBack} hitSlop={12} accessibilityRole="button" style={styles.back}>

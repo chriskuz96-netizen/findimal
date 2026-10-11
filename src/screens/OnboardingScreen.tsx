@@ -49,6 +49,7 @@ function Welcome({ onNext }: { onNext: () => void }) {
     <View style={[styles.screen, { backgroundColor: colors.skyMid }]}>
       <JungleBackground />
       <ScrollView
+        keyboardShouldPersistTaps="handled"
         contentContainerStyle={[styles.welcome, { paddingTop: insets.top + 56, paddingBottom: insets.bottom + 24 }]}
       >
         <Animated.View
