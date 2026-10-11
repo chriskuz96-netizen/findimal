@@ -42,7 +42,7 @@ type Props =
       onDetails: (id: string, animal: Animal) => void; // ausführlicher Steckbrief nachgeladen
       onPlace?: undefined;
       backLabel?: undefined;
-      onBack: () => void;
+      onBack: (to?: 'collection') => void; // to: direkt zur Sammlung statt zur Kamera
     }
   // Fund aus der Sammlung: wird nur angezeigt
   | {
@@ -200,13 +200,15 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   };
 
   // Zurück/Weiter: ab dem 3. Foto des Tages kommt vorher einmal die halbseitige Anzeige
-  const leave = () => {
+  const target = useRef<'collection' | undefined>(undefined);
+  const leave = (to?: 'collection') => {
+    target.current = to;
     if (bigAd === 'due' && !plus) {
       markBigAdShown();
       setBigAd('open');
       return;
     }
-    onBack();
+    onBack(to);
   };
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
@@ -248,7 +250,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
     // ohne eigene Hintergrundfarbe: beim Zurückwischen soll die Seite darunter sichtbar werden
     <View style={{ flex: 1 }}>
       {/* nach rechts wischen = zurück (nicht, solange die halbseitige Anzeige offen ist) */}
-      <SwipeBack onBack={leave} enabled={bigAd !== 'open' && !busy}>
+      <SwipeBack onBack={() => leave()} enabled={bigAd !== 'open' && !busy}>
         <ScrollView
           style={{ flex: 1, backgroundColor: p.bg }}
           contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
@@ -283,7 +285,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             {/* Zurück-Knopf oben links, damit man nicht nach unten scrollen muss (nicht während der Bestimmung) */}
             {!busy && (
               <Pressable
-                onPress={leave}
+                onPress={() => leave()}
                 accessibilityRole="button"
                 hitSlop={10}
                 style={({ pressed }) => [styles.back, { top: insets.top + 10, opacity: pressed ? 0.7 : 1 }]}
@@ -432,7 +434,13 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
           {/* Fund als schönes Bild teilen (WhatsApp & Co.) */}
           {animal && !!mainUri && <Button label={`↗  ${t('res.share')}`} onPress={() => shareCard(shareRef, t)} p={p} filled={false} />}
-          {!busy && <Button label={backLabel ?? t('res.continue')} onPress={leave} p={p} filled={!!result} />}
+          {!busy && <Button label={backLabel ?? t('res.continue')} onPress={() => leave()} p={p} filled={!!result} />}
+          {/* neues Foto: Abkürzung zur Sammlung, dezent als Link */}
+          {!saved && animal && !busy && (
+            <Pressable onPress={() => leave('collection')} accessibilityRole="button" hitSlop={10} style={styles.toCollection}>
+              <Text style={[styles.toCollectionText, { color: p.mute }]}>{t('res.toCollection')} →</Text>
+            </Pressable>
+          )}
         </ScrollView>
 
       </SwipeBack>
@@ -451,7 +459,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         />
       )}
       {/* Halbseitige Anzeige ab dem 3. Foto des Tages, nach „Weiter“ – danach geht es zurück */}
-      {bigAd === 'open' && <AdSheet p={p} onClose={onBack} />}
+      {bigAd === 'open' && <AdSheet p={p} onClose={() => onBack(target.current)} />}
     </View>
   );
 }
@@ -753,6 +761,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   cancelBtn: { marginTop: 14 },
+  toCollection: { alignSelf: 'center', marginTop: 14, paddingVertical: 4 },
+  toCollectionText: { fontFamily: fonts.sansBold, fontSize: 14, textDecorationLine: 'underline' },
   cancelText: { fontFamily: fonts.sans, fontSize: 13, color: colors.white, opacity: 0.6, textDecorationLine: 'underline' },
   cancelHint: { fontFamily: fonts.sans, fontSize: 10.5, color: colors.white, opacity: 0.45, marginTop: 3 },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },

@@ -360,10 +360,10 @@ function Main() {
       }}
       morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
       onDetails={(id, animal) => updateFind(id, animal).then(setFinds)}
-      onBack={() => {
-        // nach einem neuen Foto geht es zur Startseite mit der Kamera – fürs nächste Tier
+      onBack={(to) => {
+        // nach einem neuen Foto geht es zur Startseite mit der Kamera – fürs nächste Tier (oder auf Wunsch zur Sammlung)
         setPhoto(null);
-        setTab('start');
+        setTab(to ?? 'start');
         refreshFreeLeft();
         // der erste Fund wird evtl. noch gespeichert (Ort abwarten) – dann danach fragen
         if (findsRef.current.length) setTimeout(askTips, 600);
