@@ -50,7 +50,17 @@ function findFor(ph: Phenomenon, finds: Find[]): Find | null {
 }
 
 // Saison: was gerade draußen los ist und wie man Tieren helfen kann.
-export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Find) => void }) {
+export function SeasonScreen({
+  finds,
+  onOpen,
+  place,
+  onChangePlace,
+}: {
+  finds: Find[];
+  onOpen: (f: Find) => void;
+  place: string; // eingestellter Ort ('' = keiner)
+  onChangePlace: () => void;
+}) {
   const dark = useColorScheme() === 'dark';
   const p = dark ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
@@ -68,7 +78,7 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
     return () => {
       alive = false;
     };
-  }, [lang]);
+  }, [lang, place]);
   const season = region && region !== 'loading' ? region : seasonFor(now, lang);
   const mood = season.mood ?? seasonId(now);
   const look = SEASON_LOOK[mood];
@@ -115,6 +125,18 @@ export function SeasonScreen({ finds, onOpen }: { finds: Find[]; onOpen: (f: Fin
           {!loading && <View style={[styles.barFill, { width: `${Math.round(share * 100)}%`, backgroundColor: look.accent }]} />}
         </View>
         <Text style={styles.barText}>{loading ? ' ' : t('sea.daysLeft', { n: daysLeft })}</Text>
+        {/* Die Seite richtet sich nach dem Ort – hier sieht man welcher und kann ihn ändern */}
+        <Pressable
+          onPress={onChangePlace}
+          hitSlop={8}
+          style={({ pressed }) => [styles.placeChip, { opacity: pressed ? 0.7 : 1 }]}
+          accessibilityRole="button"
+        >
+          <Text style={styles.placeText} numberOfLines={1}>
+            📍 {place ? t('sea.placeFor', { place }) : t('sea.placeNone')}
+          </Text>
+          {!!place && <Text style={[styles.placeEdit, { color: look.accent }]}>{t('sea.placeChange')}</Text>}
+        </Pressable>
       </View>
 
       {/* Saison fürs eigene Land wird zum ersten Mal geschrieben (danach sofort da) */}
@@ -256,6 +278,22 @@ function Quarter({
 }
 
 const styles = StyleSheet.create({
+  placeChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    maxWidth: '100%',
+    gap: 8,
+    marginTop: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.18)',
+  },
+  placeText: { flexShrink: 1, fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
+  placeEdit: { fontFamily: fonts.sansBold, fontSize: 13, textDecorationLine: 'underline' },
   loadingBox: { alignItems: 'center', gap: 10, paddingVertical: 60, paddingHorizontal: 40 },
   hx: {
     paddingHorizontal: spacing.gutter,

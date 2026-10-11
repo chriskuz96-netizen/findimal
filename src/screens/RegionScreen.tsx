@@ -14,7 +14,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Explorer } from '../components/Explorer';
-import { detectPlace } from '../location';
+import { detectPlace, placeCountry } from '../location';
 import { useI18n } from '../i18n';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 
@@ -28,6 +28,14 @@ export function RegionScreen({ onDone }: Props) {
   const [region, setRegion] = useState('');
   const [locating, setLocating] = useState(false);
   const trimmed = region.trim();
+  // eingetippte Region: erst das Land dazu herausfinden (für die Saison-Seite), dann weiter
+  const typed = async () => {
+    if (!trimmed || locating) return;
+    setLocating(true);
+    await placeCountry(trimmed);
+    setLocating(false);
+    onDone(trimmed);
+  };
 
   const useLocation = async () => {
     setLocating(true);
@@ -75,13 +83,13 @@ export function RegionScreen({ onDone }: Props) {
           maxLength={40}
           autoCapitalize="words"
           returnKeyType="done"
-          onSubmitEditing={() => trimmed && onDone(trimmed)}
+          onSubmitEditing={typed}
           accessibilityLabel={t('pro.region')}
           style={[styles.input, { backgroundColor: p.card, borderColor: p.line, color: p.ink }]}
         />
         <Pressable
-          onPress={() => trimmed && onDone(trimmed)}
-          disabled={!trimmed}
+          onPress={typed}
+          disabled={!trimmed || locating}
           accessibilityRole="button"
           style={({ pressed }) => [
             styles.button,

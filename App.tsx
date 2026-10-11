@@ -438,7 +438,7 @@ function Main() {
           />
         )}
         {tab === 'season' && (
-          <SeasonScreen finds={finds} onOpen={setOpenFind} />
+          <SeasonScreen finds={finds} onOpen={setOpenFind} place={region ?? ''} onChangePlace={() => setAskRegion(true)} />
         )}
       </View>
       <TabBar active={tab} onSelect={setTab} dot={freshBadges.length ? 'challenges' : null} />

@@ -47,6 +47,9 @@ const COUNTRY_KEY = 'findimal-country';
 export async function saveCountry(cc: string): Promise<void> {
   if (/^[A-Z]{2}$/.test(cc)) await AsyncStorage.setItem(COUNTRY_KEY, cc).catch(() => {});
 }
+export async function clearCountry(): Promise<void> {
+  await AsyncStorage.removeItem(COUNTRY_KEY).catch(() => {});
+}
 // Gespeichertes Land (vom Standort), sonst aus den iPhone-Einstellungen
 export async function loadCountry(): Promise<string | null> {
   try {
