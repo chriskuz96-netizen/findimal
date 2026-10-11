@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect, useRef, useState } from 'react';
-import { Alert, Animated, Easing, LayoutAnimation, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import { Alert, Animated, Easing, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 
@@ -36,6 +36,7 @@ type Props = {
   onBonus?: () => void; // Extra-Foto durch eine Einladung
 };
 
+type Slot = 'goal' | 'week' | 'mid';
 const SEEN_DONE = 'findimal-seen-done'; // geschaffte Aufgaben, deren „Geschafft!“ schon gezeigt wurde
 
 export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges, onOpenProfile, onBonus }: Props) {
@@ -205,7 +206,19 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const goalKey = `goal-${seasonKey(now)}`;
   const weekKey = `week-${dayKey(weekStart(now))}`;
   const [seenDone, setSeenDone] = useState<string[] | null>(null);
+  // fresh: „Geschafft!“ zeigen (bis man die Seite verlässt); hold: Karte steht noch oben
   const [fresh, setFresh] = useState({ goal: false, week: false });
+  const [hold, setHold] = useState({ goal: false, week: false });
+  // Gleiten statt Springen: erst gleiten die Teile per Verschiebung an ihren neuen Platz
+  // (Karte nach unten, Rangliste/Quiz nach oben), dann wird in einem Schritt umsortiert –
+  // zusammen mit frischen Verschiebungen (0), damit nichts ruckelt.
+  const lay = useRef<Record<Slot, { y: number; h: number } | undefined>>({ goal: undefined, week: undefined, mid: undefined });
+  const makeShift = () => ({ goal: new Animated.Value(0), week: new Animated.Value(0), mid: new Animated.Value(0) });
+  const [shift, setShift] = useState(makeShift);
+  const moving = useRef(false);
+  const track = (k: Slot) => (e: LayoutChangeEvent) => {
+    lay.current[k] = { y: e.nativeEvent.layout.y, h: e.nativeEvent.layout.height };
+  };
   useEffect(() => {
     AsyncStorage.getItem(SEEN_DONE)
       .then((v) => setSeenDone(v ? JSON.parse(v) : []))
@@ -215,6 +228,11 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
     if (!active) {
       // Seite verlassen: Hinweis ist gesehen, Karte steht beim nächsten Mal schon unten
       setFresh((f) => (f.goal || f.week ? { goal: false, week: false } : f));
+      setHold((f) => (f.goal || f.week ? { goal: false, week: false } : f));
+      if (moving.current) {
+        moving.current = false;
+        setShift(makeShift());
+      }
       return;
     }
     if (!seenDone) return;
@@ -222,18 +240,52 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
     const w = week.done && !seenDone.includes(weekKey);
     if (!g && !w) return;
     setFresh({ goal: g, week: w });
+    setHold({ goal: g, week: w });
     const next = [...seenDone, ...(g ? [goalKey] : []), ...(w ? [weekKey] : [])].slice(-20);
     setSeenDone(next);
     AsyncStorage.setItem(SEEN_DONE, JSON.stringify(next)).catch(() => {});
+    let anim: Animated.CompositeAnimation | null = null;
     const timer = setTimeout(() => {
-      LayoutAnimation.configureNext(LayoutAnimation.create(500, 'easeInEaseOut', 'opacity'));
-      setFresh({ goal: false, week: false });
+      // Reihenfolge jetzt und danach; neue Plätze aus den bekannten Höhen ausrechnen
+      const order = (topG: boolean, topW: boolean): Slot[] => [
+        ...(topG ? ['goal' as Slot] : []),
+        ...(topW ? ['week' as Slot] : []),
+        'mid',
+        ...(!topG ? ['goal' as Slot] : []),
+        ...(!topW ? ['week' as Slot] : []),
+      ];
+      const L = lay.current;
+      const before = order(!goal.done || g, !week.done || w);
+      if (before.some((k) => !L[k])) return setHold({ goal: false, week: false });
+      let y = Math.min(...before.map((k) => L[k]!.y));
+      const moves: Animated.CompositeAnimation[] = [];
+      for (const k of order(!goal.done, !week.done)) {
+        const by = y - L[k]!.y;
+        y += L[k]!.h;
+        if (by) moves.push(Animated.timing(shift[k], { toValue: by, duration: 900, easing: Easing.inOut(Easing.cubic), useNativeDriver: true }));
+      }
+      anim = Animated.parallel(moves);
+      moving.current = true;
+      anim.start(({ finished }) => {
+        if (!finished) return;
+        moving.current = false;
+        setShift(makeShift());
+        setHold({ goal: false, week: false });
+      });
     }, 5000);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      anim?.stop();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, seenDone === null, goal.done, week.done, goalKey, weekKey]);
-  const goalTop = !goal.done || fresh.goal;
-  const weekTop = !week.done || fresh.week;
+  const slot = (k: 'goal' | 'week', card: ReactNode) => (
+    <Animated.View key={k} onLayout={track(k)} style={{ transform: [{ translateY: shift[k] }], zIndex: 2 }}>
+      {card}
+    </Animated.View>
+  );
+  const goalTop = !goal.done || hold.goal;
+  const weekTop = !week.done || hold.week;
   const doneNow = <Text style={styles.doneNow}>✓ {t('ch.doneNow')}</Text>;
 
   // Saison-Ziel und Wochen-Aufgabe (offen: oben, geschafft: unter dem Quiz)
@@ -336,117 +388,120 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </View>
 
         {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft. Offene oben, geschaffte rutschen unter das Quiz */}
-        {goalTop && goalCard}
-        {weekTop && weekCard}
+        {goalTop && slot('goal', goalCard)}
+        {weekTop && slot('week', weekCard)}
 
-        {/* Rangliste mit Freunden */}
-        <Leaderboard
-          stats={{ name, xp: progress.xp, level: progress.level, species, avatar }}
-          invite={invite}
-          onInviteDone={onInviteDone}
-          onRank={onRank}
-          onFriends={onFriends}
-          onBonus={onBonus}
-          p={p}
-        />
+        <Animated.View onLayout={track('mid')} style={{ transform: [{ translateY: shift.mid }] }}>
+          {/* Rangliste mit Freunden */}
+          <Leaderboard
+            stats={{ name, xp: progress.xp, level: progress.level, species, avatar }}
+            invite={invite}
+            onInviteDone={onInviteDone}
+            onRank={onRank}
+            onFriends={onFriends}
+            onBonus={onBonus}
+            p={p}
+          />
 
-        {/* Anzeigen-Platz zwischen Rangliste und Quiz */}
-        <AdSlot p={p} placement='challenges' />
+          {/* Anzeigen-Platz zwischen Rangliste und Quiz */}
+          <AdSlot p={p} placement='challenges' />
 
-        {/* Frage des Forschers: drei am Tag; die heutigen bleiben sichtbar */}
-        <View style={styles.blk}>
-          <View style={styles.quizHead}>
-            <Explorer size={44} />
-            <View style={{ flex: 1 }}>
-              <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
-              <Text style={[styles.small, { color: p.mute }]}>
-                {quizDone
-                  ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')
-                  : today.length
-                    ? t('ch.quizProgress', { n: today.length, max: QUESTIONS_PER_DAY })
-                    : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
-              </Text>
+          {/* Frage des Forschers: drei am Tag; die heutigen bleiben sichtbar */}
+          <View style={styles.blk}>
+            <View style={styles.quizHead}>
+              <Explorer size={44} />
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
+                <Text style={[styles.small, { color: p.mute }]}>
+                  {quizDone
+                    ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')
+                    : today.length
+                      ? t('ch.quizProgress', { n: today.length, max: QUESTIONS_PER_DAY })
+                      : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
+                </Text>
+              </View>
+              {/* wie bei den Zielen: orange = noch zu holen, grün = verdient */}
+              <XpPill text={`+${quizDone ? todayXp : QUESTIONS_PER_DAY * XP.quiz} XP`} done={quizDone} />
             </View>
-            {/* wie bei den Zielen: orange = noch zu holen, grün = verdient */}
-            <XpPill text={`+${quizDone ? todayXp : QUESTIONS_PER_DAY * XP.quiz} XP`} done={quizDone} />
+            {cur !== null &&
+              (() => {
+                const q = questionAt(cur, lang);
+                const given = quiz[`q${cur}`];
+                const answered = given !== undefined;
+                return (
+                  <>
+                    <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
+                    {/* Antworten in einer Reihe (bei langen Antworten umgebrochen) */}
+                    <View style={styles.answers}>
+                      {q.answers.map((a, i) => {
+                        const isRight = i === q.right;
+                        const mine = i === given;
+                        const look = !answered
+                          ? { borderColor: p.line }
+                          : isRight
+                            ? { backgroundColor: p.button, borderColor: p.button }
+                            : mine
+                              ? { borderColor: colors.coral }
+                              : { borderColor: p.line, opacity: 0.5 };
+                        const textColor = answered && isRight ? colors.white : p.ink;
+                        return (
+                          <Pressable
+                            key={a}
+                            disabled={answered}
+                            onPress={() => onAnswer(cur, i)}
+                            style={[styles.answer, look]}
+                            accessibilityRole="button"
+                          >
+                            <Text style={[styles.letterText, { color: textColor }]}>{String.fromCharCode(65 + i)}</Text>
+                            <Text style={[styles.answerText, { color: textColor }]}>
+                              {a}
+                              {answered && isRight ? ' ✓' : answered && mine ? ' ✗' : ''}
+                            </Text>
+                          </Pressable>
+                        );
+                      })}
+                    </View>
+                    {answered && (
+                      <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>
+                        {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
+                      </Text>
+                    )}
+                  </>
+                );
+              })()}
+            {/* Blättern: zurück zu früheren Fragen von heute, weiter zur nächsten */}
+            <View style={styles.quizNav}>
+              {pos > 0 ? (
+                <Pressable onPress={() => setPos(pos - 1)} hitSlop={8} accessibilityRole="button">
+                  <Text style={[styles.next, { color: p.moss }]}>‹ {t('ch.prevQuestion')}</Text>
+                </Pressable>
+              ) : (
+                <View />
+              )}
+              {pos < items.length - 1 ? (
+                <Pressable onPress={() => setPos(pos + 1)} hitSlop={8} accessibilityRole="button">
+                  <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+                </Pressable>
+              ) : cur !== null && quiz[`q${cur}`] !== undefined && canAsk(quiz) && !allDone ? (
+                <Pressable
+                  onPress={() => {
+                    setShown(nextQuestion(quiz));
+                    setPos(items.length); // zur neuen Frage
+                  }}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                >
+                  <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
+                </Pressable>
+              ) : null}
+            </View>
           </View>
-          {cur !== null &&
-            (() => {
-              const q = questionAt(cur, lang);
-              const given = quiz[`q${cur}`];
-              const answered = given !== undefined;
-              return (
-                <>
-                  <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
-                  {/* Antworten in einer Reihe (bei langen Antworten umgebrochen) */}
-                  <View style={styles.answers}>
-                    {q.answers.map((a, i) => {
-                      const isRight = i === q.right;
-                      const mine = i === given;
-                      const look = !answered
-                        ? { borderColor: p.line }
-                        : isRight
-                          ? { backgroundColor: p.button, borderColor: p.button }
-                          : mine
-                            ? { borderColor: colors.coral }
-                            : { borderColor: p.line, opacity: 0.5 };
-                      const textColor = answered && isRight ? colors.white : p.ink;
-                      return (
-                        <Pressable
-                          key={a}
-                          disabled={answered}
-                          onPress={() => onAnswer(cur, i)}
-                          style={[styles.answer, look]}
-                          accessibilityRole="button"
-                        >
-                          <Text style={[styles.letterText, { color: textColor }]}>{String.fromCharCode(65 + i)}</Text>
-                          <Text style={[styles.answerText, { color: textColor }]}>
-                            {a}
-                            {answered && isRight ? ' ✓' : answered && mine ? ' ✗' : ''}
-                          </Text>
-                        </Pressable>
-                      );
-                    })}
-                  </View>
-                  {answered && (
-                    <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>
-                      {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
-                    </Text>
-                  )}
-                </>
-              );
-            })()}
-          {/* Blättern: zurück zu früheren Fragen von heute, weiter zur nächsten */}
-          <View style={styles.quizNav}>
-            {pos > 0 ? (
-              <Pressable onPress={() => setPos(pos - 1)} hitSlop={8} accessibilityRole="button">
-                <Text style={[styles.next, { color: p.moss }]}>‹ {t('ch.prevQuestion')}</Text>
-              </Pressable>
-            ) : (
-              <View />
-            )}
-            {pos < items.length - 1 ? (
-              <Pressable onPress={() => setPos(pos + 1)} hitSlop={8} accessibilityRole="button">
-                <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-              </Pressable>
-            ) : cur !== null && quiz[`q${cur}`] !== undefined && canAsk(quiz) && !allDone ? (
-              <Pressable
-                onPress={() => {
-                  setShown(nextQuestion(quiz));
-                  setPos(items.length); // zur neuen Frage
-                }}
-                hitSlop={8}
-                accessibilityRole="button"
-              >
-                <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-              </Pressable>
-            ) : null}
-          </View>
-        </View>
+
+        </Animated.View>
 
         {/* geschaffte Aufgaben */}
-        {!goalTop && goalCard}
-        {!weekTop && weekCard}
+        {!goalTop && slot('goal', goalCard)}
+        {!weekTop && slot('week', weekCard)}
 
         {/* Abzeichen */}
         <View
