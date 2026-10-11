@@ -6,7 +6,7 @@ import { useI18n } from '../i18n';
 import { colors, fonts } from '../theme';
 
 // Große Feier bei einer neuen Stufe: Konfetti, die neue Stufe springt groß auf, darunter der Rang.
-// Schließt mit „Weiter“ oder Tippen irgendwo.
+// Verschwindet nach knapp 4 Sekunden von selbst (oder früher per Tippen).
 // Jede Stufe wird nur einmal gefeiert (egal ob auf der Ergebnisseite oder bei Challenges)
 const KEY = 'findimal-level-party';
 export async function claimParty(level: number): Promise<boolean> {
@@ -62,8 +62,24 @@ export function LevelUp({ level, onClose }: { level: number | null; onClose: () 
     ]).start();
   }, [level, fade, pop, fall, text, rays]);
 
+  // von selbst ausblenden, wenn das Konfetti unten ist
+  const closing = useRef(false);
+  const close = () => {
+    if (closing.current) return;
+    closing.current = true;
+    Animated.timing(fade, { toValue: 0, duration: 400, useNativeDriver: true }).start(() => {
+      closing.current = false;
+      onClose();
+    });
+  };
+  useEffect(() => {
+    if (level === null) return;
+    const timer = setTimeout(close, 3800);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [level]);
+
   if (level === null) return null;
-  const close = () => Animated.timing(fade, { toValue: 0, duration: 200, useNativeDriver: true }).start(onClose);
   const rise = text.interpolate({ inputRange: [0, 1], outputRange: [16, 0] });
 
   return (
@@ -115,9 +131,6 @@ export function LevelUp({ level, onClose }: { level: number | null; onClose: () 
             <Text style={styles.kicker}>{t('lvl.up')}</Text>
             <Text style={styles.caps}>{t('ch.level', { n: level })}</Text>
             <Text style={styles.name}>{t(`level.${level - 1}` as 'level.0')}</Text>
-            <Pressable onPress={close} style={({ pressed }) => [styles.btn, { opacity: pressed ? 0.85 : 1 }]} accessibilityRole="button">
-              <Text style={styles.btnText}>{t('lvl.ok')}</Text>
-            </Pressable>
           </Animated.View>
         </View>
       </Animated.View>
@@ -149,6 +162,4 @@ const styles = StyleSheet.create({
   kicker: { fontFamily: fonts.serifBold, fontSize: 30, color: colors.white, textAlign: 'center' },
   caps: { fontFamily: fonts.sansBold, fontSize: 14, letterSpacing: 2, color: colors.accentLight, marginTop: 14, textTransform: 'uppercase' },
   name: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginTop: 2, textAlign: 'center' },
-  btn: { marginTop: 30, backgroundColor: colors.accent, borderRadius: 16, paddingVertical: 14, paddingHorizontal: 48 },
-  btnText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
 });
