@@ -322,7 +322,25 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
               {animal && (
                 <>
                   {/* Haustiere: Rasse groß, Tierart klein darunter */}
-                  <Text style={[styles.name, { color: p.ink }]}>{displayName(animal)}</Text>
+                  <View style={styles.nameTop}>
+                    <Text style={[styles.name, styles.nameFlex, { color: p.ink }]}>{displayName(animal)}</Text>
+                    {/* Fund als schönes Bild teilen (WhatsApp & Co.) */}
+                    {!!mainUri && (
+                      <Pressable
+                        onPress={() => shareCard(shareRef, t)}
+                        hitSlop={10}
+                        accessibilityRole="button"
+                        accessibilityLabel={t('res.share')}
+                        style={({ pressed }) => [styles.shareBtn, { opacity: pressed ? 0.6 : 1 }]}
+                      >
+                        <Svg width={24} height={24} viewBox="0 0 24 24">
+                          <Path d="M12 3v12M7.5 7.5 12 3l4.5 4.5" fill="none" stroke={p.button} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                          <Path d="M8 10H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2" fill="none" stroke={p.button} strokeWidth={2} strokeLinecap="round" />
+                        </Svg>
+                        <Text style={[styles.shareLabel, { color: p.button }]}>{t('res.shareShort')}</Text>
+                      </Pressable>
+                    )}
+                  </View>
                   {!!animal.rasse && (
                     <Text style={styles.breed}>
                       {animal.name}
@@ -432,8 +450,6 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {/* dezente Erinnerung ans Findimal-Ehrenwort */}
           <Text style={[styles.respect, { color: p.mute }]}>🐾 {t('res.respect')}</Text>
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
-          {/* Fund als schönes Bild teilen (WhatsApp & Co.) */}
-          {animal && !!mainUri && <Button label={`↗  ${t('res.share')}`} onPress={() => shareCard(shareRef, t)} p={p} filled={false} />}
           {!busy && <Button label={backLabel ?? t('res.continue')} onPress={() => leave()} p={p} filled={!!result} />}
           {/* neues Foto: Abkürzung zur Sammlung, dezent als Link */}
           {!saved && animal && !busy && (
@@ -809,6 +825,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 8 },
   },
   name: { fontFamily: fonts.serifBold, fontSize: 25, lineHeight: 29 },
+  nameTop: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
+  nameFlex: { flex: 1 },
+  shareBtn: { alignItems: 'center', marginTop: -2, marginRight: -4, minWidth: 48 },
+  shareLabel: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 2 },
   breed: {
     fontFamily: fonts.sansBold,
     fontSize: 17,
