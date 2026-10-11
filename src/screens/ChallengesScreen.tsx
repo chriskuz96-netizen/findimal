@@ -248,6 +248,17 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
     const next = [...seenDone, ...(g ? [goalKey] : []), ...(w ? [weekKey] : [])].slice(-20);
     setSeenDone(next);
     AsyncStorage.setItem(SEEN_DONE, JSON.stringify(next)).catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, seenDone === null, goal.done, week.done, goalKey, weekKey]);
+  // Nach 5 Sekunden nach unten gleiten – läuft gerade die Stufen-Feier, erst danach (dann nach 2,5 s)
+  const afterParty = useRef(false);
+  useEffect(() => {
+    if (party !== null) afterParty.current = true;
+  }, [party]);
+  useEffect(() => {
+    if (!active || party !== null || (!hold.goal && !hold.week) || moving.current) return;
+    const g = hold.goal;
+    const w = hold.week;
     let anim: Animated.CompositeAnimation | null = null;
     const timer = setTimeout(() => {
       // Reihenfolge jetzt und danach; neue Plätze aus den bekannten Höhen ausrechnen
@@ -276,13 +287,13 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         setShift(makeShift());
         setHold({ goal: false, week: false });
       });
-    }, 5000);
+    }, afterParty.current ? 2500 : 5000);
     return () => {
       clearTimeout(timer);
       anim?.stop();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, seenDone === null, goal.done, week.done, goalKey, weekKey]);
+  }, [active, party, hold.goal, hold.week]);
   const slot = (k: 'goal' | 'week', card: ReactNode) => (
     <Animated.View key={k} onLayout={track(k)} style={{ transform: [{ translateY: shift[k] }], zIndex: 2 }}>
       {card}
