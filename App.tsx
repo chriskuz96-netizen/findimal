@@ -5,11 +5,12 @@ import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ActivityIndicator, Alert, AppState, StyleSheet, Text, View } from 'react-native';
+import { Alert, AppState, StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { Photo, pickPhoto, takePhoto } from './src/camera';
+import { OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
+import { Preparing } from './src/components/Preparing';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
@@ -34,7 +35,7 @@ import { RegionScreen } from './src/screens/RegionScreen';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
 import { loadAvatar, loadBestRank, loadMaxFriends, loadName, loadRegion, resetAll, saveAvatar, saveBestRank, saveMaxFriends, saveName, saveRegion } from './src/storage';
-import { colors, fonts } from './src/theme';
+import { colors } from './src/theme';
 
 export default function App() {
   return (
@@ -101,8 +102,8 @@ function Main() {
   // sich zwei Fotos und das alte Ergebnis platzt später ins neue). Bis es fertig ist, läuft ein Ladekreis.
   const photoBusy = useRef(false);
   const [limitOpen, setLimitOpen] = useState(false); // Fenster „Gratis-Fotos aufgebraucht“
-  const [preparing, setPreparing] = useState(false);
-  const startPhoto = async (get: (onPicked: (b: boolean) => void) => Promise<Photo | null>) => {
+  const [preparing, setPreparing] = useState<string | null>(null); // gewähltes Foto, solange es vorbereitet wird
+  const startPhoto = async (get: (onPicked: OnPicked) => Promise<Photo | null>) => {
     if (photoBusy.current) return;
     photoBusy.current = true;
     try {
@@ -111,7 +112,7 @@ function Main() {
       if (p) setPhoto(p);
     } finally {
       photoBusy.current = false;
-      setPreparing(false);
+      setPreparing(null);
     }
   };
   const [openFind, setOpenFind] = useState<Find | null>(null);
@@ -440,15 +441,8 @@ function Main() {
       <TabBar active={tab} onSelect={setTab} dot={freshBadges.length ? 'challenges' : null} />
       {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
       <LimitSheet visible={limitOpen} onClose={() => setLimitOpen(false)} />
-      {/* Foto ist gewählt und wird noch vorbereitet (z. B. aus iCloud geladen) */}
-      {preparing && (
-        <View style={[StyleSheet.absoluteFill, styles.preparing]}>
-          <View style={styles.prepBox}>
-            <ActivityIndicator color={colors.accentLight} />
-            <Text style={styles.prepText}>{t('res.preparing')}</Text>
-          </View>
-        </View>
-      )}
+      {/* Foto ist gewählt und wird noch vorbereitet (z. B. aus iCloud geladen) – sieht schon aus wie die Ergebnisseite */}
+      {preparing !== null && <Preparing uri={preparing} />}
       {!promised && !overlay && (
         <PromiseSheet
           onDone={() => {
@@ -461,16 +455,3 @@ function Main() {
   );
 }
 
-const styles = StyleSheet.create({
-  preparing: { backgroundColor: 'rgba(0,0,0,0.35)', alignItems: 'center', justifyContent: 'center' },
-  prepBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    backgroundColor: '#17462F',
-    borderRadius: 16,
-    paddingHorizontal: 18,
-    paddingVertical: 14,
-  },
-  prepText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white },
-});
