@@ -37,6 +37,7 @@ type Props = {
   onBonus?: () => void; // Extra-Foto durch eine Einladung
 };
 
+const MEDALS_PER_FRAME = 4;
 type Slot = 'goal' | 'week' | 'mid';
 const SEEN_DONE = 'findimal-seen-done'; // geschaffte Aufgaben, deren „Geschafft!“ schon gezeigt wurde
 
@@ -104,6 +105,21 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
     },
     [],
   );
+  // Die Medaillen sind aufwendige Grafiken: erst die Seite zeigen, dann die Abzeichen
+  // in kleinen Portionen nachzeichnen (sie liegen ohnehin weiter unten) – so öffnet die Seite sofort.
+  const [medals, setMedals] = useState(0);
+  useEffect(() => {
+    let frame = 0;
+    const step = () => {
+      setMedals((n) => {
+        if (n + MEDALS_PER_FRAME < progress.badges.length) frame = requestAnimationFrame(step);
+        return n + MEDALS_PER_FRAME;
+      });
+    };
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const badgeList = [...progress.badges].sort(
     (a, b) => Number(freshBadges.includes(b.id)) - Number(freshBadges.includes(a.id)),
   );
@@ -536,7 +552,12 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           </View>
           <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
           <View style={styles.badges}>
-            {badgeList.map((b) => (
+            {badgeList.map((b, i) =>
+              i >= medals ? (
+                <View key={b.id} style={styles.badge}>
+                  <View style={styles.medalSpot} />
+                </View>
+              ) : (
               <BadgeView
                 key={b.id}
                 badge={b}
@@ -548,7 +569,8 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
                   Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }));
                 }}
               />
-            ))}
+              ),
+            )}
           </View>
         </View>
 
@@ -787,6 +809,7 @@ const styles = StyleSheet.create({
   answerText: { fontFamily: fonts.sansBold, fontSize: 14 },
   badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 12, rowGap: 16 },
   badge: { width: '33.3%', alignItems: 'center' },
+  medalSpot: { width: 75, height: 97 }, // Platzhalter, bis die Medaille gezeichnet ist
   medalWrap: {
     borderRadius: 40,
     borderWidth: 2.5,
