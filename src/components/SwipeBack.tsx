@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { Animated, Easing, PanResponder, StyleSheet, useWindowDimensions } from 'react-native';
 
 // Nach rechts wischen = zurück, irgendwo auf dem Bildschirm (nicht nur am Rand).
@@ -9,6 +9,13 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
   // immer die aktuellen Werte nutzen (der PanResponder wird nur einmal angelegt)
   const state = useRef({ onBack, enabled, width });
   state.current = { onBack, enabled, width };
+  const mounted = useRef(true);
+  useEffect(
+    () => () => {
+      mounted.current = false;
+    },
+    [],
+  );
 
   const reset = () => Animated.spring(x, { toValue: 0, useNativeDriver: true, bounciness: 0, speed: 18 }).start();
 
@@ -29,7 +36,11 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
           const duration = Math.max(90, Math.min(260, left / Math.max(g.vx, 1.2)));
           Animated.timing(x, { toValue: w, duration, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start(() => {
             state.current.onBack();
-            x.setValue(0); // falls die Seite bleibt (z. B. wegen einer Anzeige)
+            // Seite bleibt draußen, bis sie verschwunden ist – sonst blitzt sie kurz wieder auf.
+            // Nur wenn sie danach noch da ist (z. B. wegen einer Anzeige), zurückholen.
+            setTimeout(() => {
+              if (mounted.current) x.setValue(0);
+            }, 400);
           });
         } else {
           reset();
