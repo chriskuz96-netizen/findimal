@@ -451,11 +451,9 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           <Text style={[styles.respect, { color: p.mute }]}>🐾 {t('res.respect')}</Text>
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
           {!busy && <Button label={backLabel ?? t('res.continue')} onPress={() => leave()} p={p} filled={!!result} />}
-          {/* neues Foto: Abkürzung zur Sammlung, dezent als Link */}
+          {/* neues Foto: Abkürzung zur Sammlung – wie „Weiter entdecken“, nur weiß */}
           {!saved && animal && !busy && (
-            <Pressable onPress={() => leave('collection')} accessibilityRole="button" hitSlop={10} style={styles.toCollection}>
-              <Text style={[styles.toCollectionText, { color: p.mute }]}>{t('res.toCollection')} →</Text>
-            </Pressable>
+            <Button label={t('res.toCollection')} onPress={() => leave('collection')} p={p} filled={false} white />
           )}
         </ScrollView>
 
@@ -696,7 +694,7 @@ function Details({ animal, p }: { animal: Animal; p: Palette }) {
   );
 }
 
-function Button({ label, onPress, filled, p }: { label: string; onPress: () => void; filled: boolean; p: Palette }) {
+function Button({ label, onPress, filled, white, p }: { label: string; onPress: () => void; filled: boolean; white?: boolean; p: Palette }) {
   return (
     <Pressable
       onPress={onPress}
@@ -704,10 +702,11 @@ function Button({ label, onPress, filled, p }: { label: string; onPress: () => v
       style={({ pressed }) => [
         styles.btn,
         filled ? { backgroundColor: p.button } : { borderWidth: 1.5, borderColor: p.line },
+        white && { backgroundColor: colors.white },
         { opacity: pressed ? 0.85 : 1 },
       ]}
     >
-      <Text style={[styles.btnText, { color: filled ? colors.white : p.ink }]}>{label}</Text>
+      <Text style={[styles.btnText, { color: filled ? colors.white : white ? p.button : p.ink }]}>{label}</Text>
     </Pressable>
   );
 }
@@ -777,8 +776,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   cancelBtn: { marginTop: 14 },
-  toCollection: { alignSelf: 'center', marginTop: 14, paddingVertical: 4 },
-  toCollectionText: { fontFamily: fonts.sansBold, fontSize: 14, textDecorationLine: 'underline' },
   cancelText: { fontFamily: fonts.sans, fontSize: 13, color: colors.white, opacity: 0.6, textDecorationLine: 'underline' },
   cancelHint: { fontFamily: fonts.sans, fontSize: 10.5, color: colors.white, opacity: 0.45, marginTop: 3 },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
