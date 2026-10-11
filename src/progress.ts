@@ -9,8 +9,8 @@ import { thisWeek, WeekTask, weeksDone } from './weekly';
 // durcheinandergeraten kann.
 
 export const XP = {
-  find: 10, // jeder Fund
-  newSpecies: 20, // zusätzlich für eine neue Art
+  newSpecies: 50, // neue Art (erster Fund dieser Art)
+  find: 5, // schon bekannte Art – höchstens einmal pro Art und Tag (sonst lohnt es, ständig das Haustier zu knipsen)
   season: 100, // Saison-Ziel geschafft
   quiz: 10, // Quizfrage richtig beantwortet
   week: 30, // Wochen-Aufgabe geschafft
@@ -218,15 +218,25 @@ export function computeProgress(
   now = new Date(),
   extra: { bestRank?: number | null; maxFriends?: number } = {},
 ): Progress {
-  // Jeder Fund und jede neue Art gibt XP
+  // Gleiche Art am gleichen Tag zählt nur einmal (für XP und Abzeichen)
+  const dayOnce = new Set<string>();
+  finds = finds.filter((f) => {
+    const k = `${speciesKey(f.animal)}|${dayKey(new Date(f.date))}`;
+    if (dayOnce.has(k)) return false;
+    dayOnce.add(k);
+    return true;
+  });
+
+  // Neue Art gibt viel XP, eine schon bekannte Art nur wenig
   const seen = new Set<string>();
   let xp = quizCorrect * XP.quiz + Math.min(extra.maxFriends ?? 0, 10) * XP.friend;
   for (const f of finds) {
-    xp += XP.find;
     const k = speciesKey(f.animal);
     if (!seen.has(k)) {
       seen.add(k);
       xp += XP.newSpecies;
+    } else {
+      xp += XP.find;
     }
   }
 
@@ -331,8 +341,7 @@ export type Reward = {
 };
 
 export function computeReward(before: Progress, after: Progress, isNew: boolean): Reward {
-  const items: Reward['items'] = [{ id: 'find', xp: XP.find }];
-  if (isNew) items.push({ id: 'newSpecies', xp: XP.newSpecies });
+  const items: Reward['items'] = [];
   if (after.season.done && !before.season.done) items.push({ id: 'season', xp: XP.season });
   if (after.week.done && !before.week.done) items.push({ id: 'week', xp: XP.week });
   // Neue Abzeichen durch diesen Fund
@@ -341,5 +350,9 @@ export function computeReward(before: Progress, after: Progress, isNew: boolean)
       items.push({ id: 'badge', xp: BADGE_XP[BADGE_TIER[b.id]], badge: b.id });
     }
   }
-  return { total: after.xp - before.xp, items, levelUp: after.level > before.level, after, before };
+  const total = after.xp - before.xp;
+  // Rest ist der Fund selbst: neue Art oder bekannte Art (0, wenn heute schon gefunden)
+  const findXp = total - items.reduce((s, i) => s + i.xp, 0);
+  if (findXp > 0) items.unshift(isNew ? { id: 'newSpecies', xp: findXp } : { id: 'find', xp: findXp });
+  return { total, items, levelUp: after.level > before.level, after, before };
 }

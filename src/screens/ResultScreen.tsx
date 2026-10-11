@@ -459,7 +459,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
 
       </SwipeBack>
       {/* Belohnung: kurz unten einblenden, Balken füllt sich, dann wieder weg */}
-      {reward && animal && (
+      {/* keine Punkte (Art heute schon gefunden): kein Balken */}
+      {reward && animal && reward.total > 0 && (
         <RewardToast key={`${reward.after.xp}-${photos.length}`} reward={reward} photos={photos.length} p={p} bottom={insets.bottom} />
       )}
       {/* Teilen-Bild: unsichtbar gezeichnet, wird nur beim Teilen fotografiert */}

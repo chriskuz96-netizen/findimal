@@ -147,7 +147,7 @@ const de = {
   'res.ai': 'Angaben laut KI-Einschätzung, ohne Gewähr.',
   'res.yourPhoto': 'Dein Foto',
   'rew.title': 'Deine Belohnung',
-  'rew.find': 'Fund',
+  'rew.find': 'Bekannte Art',
   'rew.newSpecies': 'Neue Art',
   'rew.levelUp': 'Stufe {n} erreicht: {name}!',
   'rew.updated': 'Bestimmung mit {n} Fotos aktualisiert',
@@ -257,7 +257,7 @@ const de = {
   'ch.newBadges': '{n} neu',
   'ch.profilePic': 'Profilbild',
   'ch.note':
-    'Punkte gibt es für jeden Fund (+{find}), neue Arten (+{fresh}), geschaffte Challenges, Abzeichen (+25 bis +100) und Freunde in der Rangliste (+50).',
+    'Punkte gibt es für neue Arten (+{fresh}), schon bekannte Arten (+{find}, einmal pro Tag), geschaffte Challenges, Abzeichen (+25 bis +100) und Freunde in der Rangliste (+50).',
 
   // Tageschallenges
 
@@ -590,7 +590,7 @@ const en: Strings = {
   'res.ai': 'Information based on AI estimate, without guarantee.',
   'res.yourPhoto': 'Your photo',
   'rew.title': 'Your reward',
-  'rew.find': 'Find',
+  'rew.find': 'Known species',
   'rew.newSpecies': 'New species',
   'rew.levelUp': 'Level {n} reached: {name}!',
   'rew.updated': 'Identification updated with {n} photos',
@@ -694,7 +694,7 @@ const en: Strings = {
   'ch.newBadges': '{n} new',
   'ch.profilePic': 'Profile picture',
   'ch.note':
-    'You get points for every find (+{find}), new species (+{fresh}), completed challenges, badges (+25 to +100) and friends on your leaderboard (+50).',
+    'You get points for new species (+{fresh}), species you already have (+{find}, once a day), completed challenges, badges (+25 to +100) and friends on your leaderboard (+50).',
   'level.0': 'Rookie',
   'level.1': 'Explorer',
   'level.2': 'Tracker',
@@ -1015,7 +1015,7 @@ const fr: Strings = {
   'res.ai': 'Informations selon une estimation de l’IA, sans garantie.',
   'res.yourPhoto': 'Ta photo',
   'rew.title': 'Ta récompense',
-  'rew.find': 'Trouvaille',
+  'rew.find': 'Espèce connue',
   'rew.newSpecies': 'Nouvelle espèce',
   'rew.levelUp': 'Niveau {n} atteint : {name} !',
   'rew.updated': 'Identification mise à jour avec {n} photos',
@@ -1119,7 +1119,7 @@ const fr: Strings = {
   'ch.newBadges': '{n} nouveau(x)',
   'ch.profilePic': 'Photo de profil',
   'ch.note':
-    'Tu gagnes des points pour chaque trouvaille (+{find}), les nouvelles espèces (+{fresh}), les défis réussis, les badges (+25 à +100) et les amis dans ton classement (+50).',
+    'Tu gagnes des points pour les nouvelles espèces (+{fresh}), les espèces déjà trouvées (+{find}, une fois par jour), les défis réussis, les badges (+25 à +100) et les amis dans ton classement (+50).',
   'level.0': 'Débutant',
   'level.1': 'Explorateur',
   'level.2': 'Pisteur',
@@ -1439,7 +1439,7 @@ const es: Strings = {
   'res.ai': 'Datos según estimación de IA, sin garantía.',
   'res.yourPhoto': 'Tu foto',
   'rew.title': 'Tu recompensa',
-  'rew.find': 'Hallazgo',
+  'rew.find': 'Especie conocida',
   'rew.newSpecies': 'Especie nueva',
   'rew.levelUp': '¡Nivel {n} alcanzado: {name}!',
   'rew.updated': 'Identificación actualizada con {n} fotos',
@@ -1543,7 +1543,7 @@ const es: Strings = {
   'ch.newBadges': '{n} nueva(s)',
   'ch.profilePic': 'Foto de perfil',
   'ch.note':
-    'Ganas puntos por cada hallazgo (+{find}), especies nuevas (+{fresh}), retos superados, insignias (+25 a +100) y amigos en tu clasificación (+50).',
+    'Ganas puntos por especies nuevas (+{fresh}), especies que ya tienes (+{find}, una vez al día), retos superados, insignias (+25 a +100) y amigos en tu clasificación (+50).',
   'level.0': 'Novato',
   'level.1': 'Explorador',
   'level.2': 'Rastreador',
