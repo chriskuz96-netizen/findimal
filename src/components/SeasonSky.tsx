@@ -4,13 +4,15 @@ import Svg, { Circle, G, Line, Path } from 'react-native-svg';
 
 import { SeasonId } from '../season';
 
-// Kopf der Saison-Seite: Farbe, großes Symbol und sanft fallende Teilchen passend zur Jahreszeit.
+// Kopf der Saison-Seite: immer das Findimal-Grün, dazu großes Symbol, Akzentfarbe und sanft
+// fallende Teilchen passend zur Jahreszeit.
+const GREEN = '#17462F';
 // Volle Farben statt Verläufe (Verläufe wurden auf dem iPhone nicht ganz gestreckt).
 export const SEASON_LOOK: Record<SeasonId, { bg: string; accent: string; light: string }> = {
-  spring: { bg: '#2B6340', accent: '#F49CBB', light: '#FFD9E6' },
-  summer: { bg: '#1E5A3C', accent: '#F6C945', light: '#FFE9A8' },
-  autumn: { bg: '#5E3A1C', accent: '#E8833A', light: '#FFD2A8' },
-  winter: { bg: '#1D3F57', accent: '#8FCDEB', light: '#D6EEFA' },
+  spring: { bg: GREEN, accent: '#F49CBB', light: '#FFD9E6' },
+  summer: { bg: GREEN, accent: '#F6C945', light: '#FFE9A8' },
+  autumn: { bg: GREEN, accent: '#E8833A', light: '#FFD2A8' },
+  winter: { bg: GREEN, accent: '#8FCDEB', light: '#D6EEFA' },
 };
 
 const COUNT = 9;
@@ -140,9 +142,9 @@ function BigIcon({ season, color }: { season: SeasonId; color: string }) {
     );
   if (season === 'spring')
     return (
-      <Svg width={s} height={s} viewBox="0 0 100 100" opacity={0.3}>
+      <Svg width={s} height={s} viewBox="0 0 100 100" opacity={0.32}>
         {[0, 72, 144, 216, 288].map((a) => (
-          <Circle key={a} cx={50} cy={27} r={17} fill={color} transform={`rotate(${a} 50 50)`} />
+          <Circle key={a} cx={50} cy={27} r={17} fill={a % 144 ? '#FFFFFF' : color} transform={`rotate(${a} 50 50)`} />
         ))}
         <Circle cx={50} cy={50} r={11} fill="#F6C945" />
       </Svg>
