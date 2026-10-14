@@ -1,10 +1,9 @@
 # Findimal – Stand und nächste Schritte
 
-Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
+Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 
 ## Konten
-- Apple-Entwickler-Account: angemeldet und bezahlt (eigene Apple-ID nur für Findimal, Einzelperson).
-  Freischaltung durch Apple steht evtl. noch aus.
+- Apple-Entwickler-Account: freigeschaltet (14.10.2026), eigene Apple-ID nur für Findimal, Einzelperson.
 - Expo: Konto `christianfindimal`, Projekt `findimal`, Projekt-ID `d01f3c01-05fb-435f-b41f-842cf6583f72`
   (in `app.config.js` eingetragen). Zugangsschlüssel als Umgebungsvariable `EXPO_TOKEN`.
 - Cloudflare-Worker: `https://findimal.chriskuz96.workers.dev/` (Code: `server/findimal-worker.js`,
@@ -19,9 +18,11 @@ Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
 - Bundle-ID `com.chriskuz.findimal`, nur iPhone (`supportsTablet: false`), `eas.json` mit Profil `production`.
 
 ## Nächste Schritte
-1. Sobald Apple freigeschaltet hat: App-Store-Connect-API-Schlüssel erstellen lassen (Rolle Admin)
-   und als Umgebungsvariablen hinterlegen: `EXPO_ASC_KEY_ID`, `EXPO_ASC_ISSUER_ID`, `EXPO_APPLE_TEAM_ID`
-   und den Inhalt der .p8-Datei (z. B. `EXPO_ASC_API_KEY_P8`). Nie in den Chat schreiben lassen.
+1. App-Store-Connect-API-Schlüssel (Rolle Admin) und Expo-Zugang als Umgebungsvariablen:
+   `EXPO_TOKEN`, `EXPO_ASC_KEY_ID`, `EXPO_ASC_ISSUER_ID`, `EXPO_APPLE_TEAM_ID` und der Inhalt der .p8-Datei
+   als `EXPO_ASC_API_KEY_P8` (vor dem Bau in eine Datei schreiben und `EXPO_ASC_API_KEY_PATH` darauf setzen).
+   Nie in den Chat schreiben lassen. Netzwerk der Umgebung muss expo.dev, api.expo.dev, u.expo.dev und
+   storage.googleapis.com erlauben (am 14.10. noch gesperrt).
 2. App in App Store Connect anlegen (Name Findimal, Bundle-ID oben).
 3. Ersten Bau mit EAS (`eas build -p ios --profile production`) und Upload zu TestFlight (`eas submit`).
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
@@ -31,6 +32,13 @@ Notiz für die nächste Arbeitssitzung (Stand: 7. Oktober 2026).
    Bausteine brauchen einen neuen Bau.
 6. Später: AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf).
    (Die Fundkarte wurde entfernt – keine Kartendienst-Kosten.)
+
+## Offen beim Server
+- Der Nutzer fügt `server/findimal-worker.js` von Hand in Cloudflare ein. Seit dem 11.10. kamen dazu:
+  Gegend/Monat als Hinweis bei der Bestimmung, konkrete Art statt „Spinne“, Länder-Saison (`mode: 'saison'`),
+  Datenschutz-Ergänzungen. Nachfragen, ob eingefügt.
+- Cloudflare-Zugang für Claude (API-Token „Edit Cloudflare Workers“ + api.cloudflare.com freigeben):
+  erst nach dem Start der App.
 
 ## Natur-Tipps (Mitteilungen)
 - `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
