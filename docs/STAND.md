@@ -18,11 +18,15 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Bundle-ID `com.chriskuz.findimal`, nur iPhone (`supportsTablet: false`), `eas.json` mit Profil `production`.
 
 ## Nächste Schritte
-1. App-Store-Connect-API-Schlüssel (Rolle Admin) und Expo-Zugang als Umgebungsvariablen:
-   `EXPO_TOKEN`, `EXPO_ASC_KEY_ID`, `EXPO_ASC_ISSUER_ID`, `EXPO_APPLE_TEAM_ID` und der Inhalt der .p8-Datei
-   als `EXPO_ASC_API_KEY_P8` (vor dem Bau in eine Datei schreiben und `EXPO_ASC_API_KEY_PATH` darauf setzen).
-   Nie in den Chat schreiben lassen. Netzwerk der Umgebung muss expo.dev, api.expo.dev, u.expo.dev und
-   storage.googleapis.com erlauben (am 14.10. noch gesperrt).
+1. Zugänge (eingerichtet am 15.10.):
+   - Expo-Token und Cloudflare-Token sind **Network secrets** der Umgebung „Default“ (Proxy hängt
+     `Authorization: Bearer …` an Anfragen zu `*.expo.dev` bzw. `api.cloudflare.com`). Sie sind NICHT als
+     Umgebungsvariable sichtbar; für eas-cli ggf. `EXPO_TOKEN` mit Platzhalterwert setzen (Proxy ersetzt den Header).
+     Getestet: api.expo.dev meldet `christianfindimal`, Cloudflare-Token gültig.
+   - Apple als Umgebungsvariablen: `EXPO_ASC_KEY_ID`, `EXPO_ASC_ISSUER_ID`, `EXPO_APPLE_TEAM_ID` (D3JJJYM9W7)
+     und `EXPO_ASC_API_KEY_P8` (Inhalt der .p8; vor dem Bau in eine Datei schreiben und
+     `EXPO_ASC_API_KEY_PATH` darauf setzen). Nie in den Chat schreiben lassen.
+   - App in App Store Connect angelegt (Hauptsprache Englisch USA), App-ID com.chriskuz.findimal registriert.
 2. App in App Store Connect anlegen (Name Findimal, Bundle-ID oben).
 3. Ersten Bau mit EAS (`eas build -p ios --profile production`) und Upload zu TestFlight (`eas submit`).
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
@@ -34,11 +38,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
    (Die Fundkarte wurde entfernt – keine Kartendienst-Kosten.)
 
 ## Offen beim Server
-- Der Nutzer fügt `server/findimal-worker.js` von Hand in Cloudflare ein. Seit dem 11.10. kamen dazu:
-  Gegend/Monat als Hinweis bei der Bestimmung, konkrete Art statt „Spinne“, Länder-Saison (`mode: 'saison'`),
-  Datenschutz-Ergänzungen. Nachfragen, ob eingefügt.
-- Cloudflare-Zugang für Claude (API-Token „Edit Cloudflare Workers“ + api.cloudflare.com freigeben):
-  erst nach dem Start der App.
+- Claude lädt `server/findimal-worker.js` jetzt selbst hoch (Cloudflare-API, Worker `findimal`, Modul-Format,
+  Bindungen behalten: Geheimnisse ANTHROPIC_API_KEY, APP_KEY, KV `DB`). Am 15.10. war der laufende Server
+  identisch mit GitHub. Variable `OFFEN` ist noch nicht gesetzt (erst für Tester ohne Code).
 
 ## Natur-Tipps (Mitteilungen)
 - `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
