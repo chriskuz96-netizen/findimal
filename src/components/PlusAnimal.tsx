@@ -78,11 +78,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Path d="M28.6 31 C28.6 29.4 35.4 29.4 35.4 31 C35.4 32.8 33.4 34 32 34 C30.6 34 28.6 32.8 28.6 31Z" fill="#6E4220"/>
       <Path d="M32 34 v1.6 M29.4 37 q2.6 1.8 5.2 0" stroke="#6E4220" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
       <Circle cx={20.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/><Circle cx={43.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/>
-      <Path d="M25 46 C25 43 27 42 32 42 C37 42 39 43 39 46 L38 56 C38 58 36 59 32 59 C28 59 26 58 26 56Z" fill="#E8A93A"/>
-      <Path d="M24.5 44 C24.5 41.8 39.5 41.8 39.5 44 C39.5 46 24.5 46 24.5 44Z" fill="#C98A20"/>
-      <Path d="M28 45 C28 47 29 49 28.6 51 C28.2 52.5 27 52 27 50.5" fill="#F6C83A"/>
-      <Path d="M29 51 h6" stroke="#C98A20" strokeWidth={1} strokeLinecap="round"/>
-      <Ellipse cx={22.5} cy={50} rx={4.6} ry={3.8} fill="#6E4220"/><Ellipse cx={41.5} cy={50} rx={4.6} ry={3.8} fill="#6E4220"/>
+      <Ellipse cx={24} cy={52} rx={4.6} ry={3.8} fill="#6E4220"/><Ellipse cx={40} cy={52} rx={4.6} ry={3.8} fill="#6E4220"/>
       </G>
     </>
   ),
