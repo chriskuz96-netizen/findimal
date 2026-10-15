@@ -79,13 +79,18 @@ export function RegionScreen({ onDone }: Props) {
           value={region}
           onChangeText={setRegion}
           placeholder={t('reg.placeholder')}
-          placeholderTextColor={p.mute}
+          // Beispieltext klar als Hinweis erkennbar: dünn und blasser (nicht wie schon eingetippt)
+          placeholderTextColor={`${p.mute}99`}
           maxLength={40}
           autoCapitalize="words"
           returnKeyType="done"
           onSubmitEditing={typed}
           accessibilityLabel={t('pro.region')}
-          style={[styles.input, { backgroundColor: p.card, borderColor: p.line, color: p.ink }]}
+          style={[
+            styles.input,
+            { backgroundColor: p.card, borderColor: p.line, color: p.ink },
+            !region && styles.inputEmpty,
+          ]}
         />
         <Pressable
           onPress={typed}
@@ -144,6 +149,10 @@ const styles = StyleSheet.create({
     fontFamily: fonts.sansBold,
     fontSize: 17,
     textAlign: 'center',
+  },
+  inputEmpty: {
+    fontFamily: fonts.sans,
+    fontSize: 16,
   },
   button: {
     width: '100%',
