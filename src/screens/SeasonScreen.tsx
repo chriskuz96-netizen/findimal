@@ -4,6 +4,8 @@ import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, useC
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdSlot } from '../components/AdSlot';
+import { Icon } from '../components/Icon';
+import { stripEmoji } from '../text';
 import { PlaceChip } from '../components/PlaceChip';
 import { SEASON_LOOK, SeasonSky } from '../components/SeasonSky';
 import { SeasonTop } from '../components/SeasonTop';
@@ -104,8 +106,9 @@ export function SeasonScreen({
               accessibilityRole="button"
               accessibilityLabel={spec.title}
             >
+              <Icon name="binoculars" size={16} color={colors.accentLight} />
               <Text style={styles.specPillText} numberOfLines={1}>
-                {spec.short}
+                {stripEmoji(spec.short)}
               </Text>
               <View style={styles.specInfo}>
                 <Text style={styles.specInfoText}>i</Text>
@@ -188,7 +191,10 @@ export function SeasonScreen({
       <Modal visible={showSpec} transparent animationType="fade" onRequestClose={() => setShowSpec(false)}>
         <Pressable style={styles.specDim} onPress={() => setShowSpec(false)}>
           <Pressable style={[styles.specBox, { backgroundColor: p.card }]} onPress={() => {}}>
-            <Text style={[styles.specSmall, { color: p.mute }]}>🔭 {t('sea.spectacle')}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+              <Icon name="binoculars" size={16} color={p.mute} />
+              <Text style={[styles.specSmall, { color: p.mute }]}>{t('sea.spectacle')}</Text>
+            </View>
             <Text style={[styles.specBoxTitle, { color: p.ink }]}>{spec?.title}</Text>
             <Text style={[styles.specText, { color: p.ink }]}>{spec?.text}</Text>
             <Text style={[styles.specWhere, { color: dark ? colors.accent : colors.accentDark }]}>{spec?.where}</Text>

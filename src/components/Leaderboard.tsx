@@ -28,6 +28,7 @@ import { usePlus } from '../plus';
 import { XP } from '../progress';
 import { bonusPhotos } from '../usage';
 import { colors, fonts, Palette, spacing } from '../theme';
+import { Icon } from './Icon';
 import { Avatar } from './Avatar';
 
 type Props = {
@@ -349,7 +350,12 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
           </View>
 
           {/* Einladen lohnt sich: beide bekommen etwas */}
-          <Text style={[styles.small, { color: colors.accent, marginTop: 6 }]}>🎁 {t(plus ? 'lb.inviteBonusPlus' : 'lb.inviteBonus', { xp: XP.friend })}</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 6 }}>
+            <Icon name="gift" size={16} color={colors.accent} />
+            <Text style={[styles.small, { color: colors.accent, marginTop: 0, flexShrink: 1 }]}>
+              {t(plus ? 'lb.inviteBonusPlus' : 'lb.inviteBonus', { xp: XP.friend })}
+            </Text>
+          </View>
 
           {adding ? (
             <View style={styles.addRow}>

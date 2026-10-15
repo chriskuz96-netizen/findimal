@@ -5,6 +5,7 @@ import { SERVER_URL } from '../config';
 import { Find } from '../finds';
 import { useI18n } from '../i18n';
 import { colors, fonts, Palette, spacing } from '../theme';
+import { Icon } from './Icon';
 
 type Top = { total: number; top: { sci: string; name: string; count: number }[] };
 
@@ -33,7 +34,10 @@ export function SeasonTop({ finds, p, first }: { finds: Find[]; p: Palette; firs
 
   return (
     <View style={[styles.card, first && { marginTop: 22 }, { backgroundColor: p.card, borderColor: p.line }]}>
-      <Text style={[styles.h3, { color: p.ink }]}>🏆 {t('sea.top')}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        <Icon name="trophy" size={20} color={colors.accent} />
+        <Text style={[styles.h3, { color: p.ink }]}>{t('sea.top')}</Text>
+      </View>
       <Text style={[styles.sub, { color: p.mute }]}>{t('sea.topSub')}</Text>
       {data.top.slice(0, SHOW).map((a, i) => {
         const found = mine.has(a.sci);
