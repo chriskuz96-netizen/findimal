@@ -90,7 +90,12 @@ Setze "schmetterling" auf true bei Schmetterlingen und Faltern (auch Nachtfalter
 Setze "wasser" auf true, wenn die Art im oder direkt am Wasser lebt (z. B. Fisch, Ente, Schwan, Frosch, Libelle,
 Graureiher), sonst false.
 Setze "winzig" auf true, wenn ein ausgewachsenes Tier dieser Art kleiner als 1 Zentimeter ist (z. B. Blattlaus,
-Ameise, Springspinne), sonst false.`;
+Ameise, Springspinne), sonst false.
+"bildart" sagt, was fotografiert wurde: "echt" = ein echtes Tier (auch im Zoo, im Tierpark oder als Haustier);
+"zeichnung" = Zeichnung, Gemälde, Comic oder computererzeugtes Bild; "spielzeug" = Plüschtier, Figur, Statue oder
+ausgestopftes Tier; "bildschirm" = abfotografierter Bildschirm oder Screenshot; "druck" = Foto aus Buch, Zeitschrift,
+Poster oder ein abfotografiertes Papierfoto. Bestimme das Tier trotzdem ganz normal. Im Zweifel "echt" – lieber ein
+echtes Tier durchlassen als jemandem seinen Fund wegnehmen. Ohne Tier: "echt".`;
 
 // Kurzer Steckbrief direkt nach dem Foto
 const SCHEMA = {
@@ -99,10 +104,11 @@ const SCHEMA = {
   required: [
     'tier_gefunden', 'name', 'rasse', 'rasse_sicher', 'wissenschaftlicher_name', 'gruppe', 'sicherheit',
     'kurzbeschreibung', 'wusstest_du', 'hinweis', 'gefaehrdet', 'giftig', 'gross', 'schmetterling',
-    'wasser', 'winzig',
+    'wasser', 'winzig', 'bildart',
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
+    bildart: { type: 'string', enum: ['echt', 'zeichnung', 'spielzeug', 'bildschirm', 'druck'] },
     name: TEXT,
     rasse: TEXT,
     rasse_sicher: { type: 'boolean' },
@@ -901,6 +907,7 @@ function seasonOf(d = new Date()) {
 
 async function countSeason(env, animal, lang) {
   if (!env.DB || !animal || !animal.tier_gefunden || animal.rasse) return;
+  if (animal.bildart && animal.bildart !== 'echt') return; // Zeichnungen, Bildschirme usw. zählen nicht
   const key = String(animal.wissenschaftlicher_name || animal.name || '').trim().toLowerCase().slice(0, 80);
   if (!key) return;
   const dbKey = 'season:' + seasonOf();
@@ -1153,8 +1160,11 @@ export default {
         ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
         { type: 'text', text: question },
       ],
-      // genaues Modell fragen, wenn unsicher oder nur eine Gruppe statt einer Art genannt wurde
-      (a) => a.tier_gefunden && a.sicherheit !== 'unsicher' && isSpecies(a.wissenschaftlicher_name),
+      // genaues Modell fragen, wenn unsicher oder nur eine Gruppe statt einer Art genannt wurde.
+      // Kein echtes Tier (Zeichnung, Bildschirm …): kommt nicht in die Sammlung – das teure Modell sparen
+      (a) =>
+        (a.tier_gefunden && a.bildart && a.bildart !== 'echt') ||
+        (a.tier_gefunden && a.sicherheit !== 'unsicher' && isSpecies(a.wissenschaftlicher_name)),
     );
     // in der App abgebrochen: Ergebnis verwerfen, nichts zählen
     const rid = /^[a-z0-9]{8,40}$/.test(String(body.rid || '')) ? String(body.rid) : null;

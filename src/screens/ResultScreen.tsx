@@ -120,6 +120,9 @@ function FoundOn({ find, p, onPlace }: { find: Find; p: Palette; onPlace: (place
 }
 
 // Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
+// Zeichnung, Bildschirm, Plüschtier …: wird bestimmt, kommt aber nicht in die Sammlung
+const notReal = (a: Animal) => !!a.bildart && a.bildart !== 'echt';
+
 export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails, onPlace, backLabel, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
@@ -162,7 +165,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         pending.current = null;
         before.current = null;
         setResult(r);
-        if (r.ok && r.animal.tier_gefunden) {
+        // nur echte Tiere kommen in die Sammlung (keine Zeichnungen, Bildschirme, Plüschtiere …)
+        if (r.ok && r.animal.tier_gefunden && !notReal(r.animal)) {
           const res = await onIdentified(r.animal, findId.current, list[0]);
           findId.current = res.id;
           setReward(res.reward);
@@ -222,6 +226,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   };
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
+  const fake = !!animal && !saved && notReal(animal); // erkannt, aber kein echtes Tier
 
   // Ausführlicher Steckbrief erst beim Aufklappen laden und beim Fund speichern
   const openDetails = async () => {
@@ -240,7 +245,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const limited = !!result && !result.ok && !!result.limit; // Gratis-Fotos für heute aufgebraucht
   const mainUri = photo ? (photos[0]?.uri ?? photo.uri) : savedPhoto; // nach "neues Foto" das neue zeigen
   const isNew = !!reward?.items.some((i) => i.id === 'newSpecies');
-  const canAddPhoto = !!morePhoto && !!animal && photos.length < MAX_PHOTOS;
+  const canAddPhoto = !!morePhoto && !!animal && !fake && photos.length < MAX_PHOTOS;
   const unsure = canAddPhoto && animal.sicherheit !== 'sicher';
   const noAnimal = !!morePhoto && !!result?.ok && !animal;
   const busy = !!onIdentified && !result; // wird gerade bestimmt: nur Abbrechen möglich
@@ -328,6 +333,14 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
                   <Text style={[styles.name, { color: p.ink }]}>{t('res.noAnimal')}</Text>
                   <Text style={[styles.body, { color: p.mute }]}>{result.animal.hinweis || t('res.noAnimalHint')}</Text>
                 </>
+              )}
+              {fake && (
+                <View style={[styles.fake, { backgroundColor: p.bg }]}>
+                  <Text style={[styles.fakeTitle, { color: colors.accent }]}>
+                    {t(`res.fake.${animal.bildart}` as 'res.fake.zeichnung')}
+                  </Text>
+                  <Text style={[styles.body, { color: p.ink }]}>{t('res.fakeText')}</Text>
+                </View>
               )}
               {animal && (
                 <>
@@ -462,7 +475,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
           {!busy && <Button label={backLabel ?? t('res.continue')} onPress={() => leave()} p={p} filled={!!result} />}
           {/* neues Foto: Abkürzung zur Sammlung – wie „Weiter entdecken“, nur weiß */}
-          {!saved && animal && !busy && (
+          {!saved && animal && !fake && !busy && (
             <Button label={t('res.toCollection')} onPress={() => leave('collection')} p={p} filled={false} white />
           )}
         </SwipeScrollView>
@@ -750,6 +763,8 @@ function SmallButton({
 }
 
 const styles = StyleSheet.create({
+  fake: { borderRadius: 14, padding: 12, marginBottom: 12 },
+  fakeTitle: { fontFamily: fonts.sansBold, fontSize: 16, marginBottom: 2 },
   hero: {
     backgroundColor: '#17462F',
     borderBottomLeftRadius: spacing.radiusHero,

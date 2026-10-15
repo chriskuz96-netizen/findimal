@@ -11,6 +11,8 @@ import { Lang, Translate } from './i18n';
 // Steckbrief, wie ihn der Server zurückgibt (Felder siehe server/findimal-worker.js).
 export type Animal = {
   tier_gefunden: boolean;
+  // was fotografiert wurde: echtes Tier oder z. B. eine Zeichnung (kommt dann nicht in die Sammlung)
+  bildart?: 'echt' | 'zeichnung' | 'spielzeug' | 'bildschirm' | 'druck';
   name: string;
   rasse?: string; // nur bei Haus- und Nutztieren, z. B. "Golden Retriever"
   rasse_sicher?: boolean; // false = Rasse nur geschätzt
