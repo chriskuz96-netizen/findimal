@@ -31,17 +31,19 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Path d="M30 35.5h4l-2 4z" fill="#E8B53A"/>
     </>
   ),
-  // Wolf
-  'p-wolf': () => (
+  // Schnecke
+  'p-snail': () => (
     <>
-      <G transform="translate(32 33) scale(0.52) translate(-50 -48)">
-      <Path d="M21 46L25 9L47 29Z" fill="#7F93A8"/><Path d="M79 46L75 9L53 29Z" fill="#7F93A8"/>
-      <Path d="M27 37L29 18L41 29Z" fill="#3E4F63"/><Path d="M73 37L71 18L59 29Z" fill="#3E4F63"/>
-      <Path d="M16 46Q16 26 36 26L64 26Q84 26 84 46Q84 63 50 82Q16 63 16 46Z" fill="#9AAEC2"/>
-      <Path d="M36 26Q50 34 64 26L60 40Q50 44 40 40Z" fill="#6D8299"/>
-      <Path d="M22 50Q34 56 44 58Q47 68 50 82Q26 68 22 50Z" fill="#EEF2F6"/><Path d="M78 50Q66 56 56 58Q53 68 50 82Q74 68 78 50Z" fill="#EEF2F6"/>
-      <Ellipse cx={38} cy={46} rx={3.6} ry={4.3} fill="#13261C"/><Circle cx={39.2} cy={44.6} r={1.2} fill="#fff"/><Ellipse cx={62} cy={46} rx={3.6} ry={4.3} fill="#13261C"/><Circle cx={63.2} cy={44.6} r={1.2} fill="#fff"/>
-      <Ellipse cx={50} cy={76} rx={5} ry={3.6} fill="#13261C"/></G>
+      <Path d="M8 52 C8 46 12 42 17 42 L24 42 C30 42 34 46 44 47 C51 48 56 50 57 54 L10 54 C8.5 54 8 53 8 52Z" fill="#D9C27A"/>
+      <Circle cx={15} cy={41} r={7} fill="#D9C27A"/>
+      <Path d="M12 36 L9 27 M17.5 35.5 L20 26" stroke="#D9C27A" strokeWidth={2.6} strokeLinecap="round"/>
+      <Circle cx={9} cy={26} r={3} fill="#FFFFFF"/><Circle cx={20} cy={25.5} r={3} fill="#FFFFFF"/>
+      <Circle cx={9.4} cy={26.4} r={1.6} fill="#13261C"/><Circle cx={20.4} cy={25.9} r={1.6} fill="#13261C"/>
+      <Path d="M11.5 44.5 q3 2.2 6 0" stroke="#7A6230" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
+      <Circle cx={11} cy={42} r={1.4} fill="#F2A3A3" opacity={0.8}/>
+      <Circle cx={37} cy={33} r={14} fill="#E8833A"/>
+      <Path d="M37 33 m0 -1.5 a1.5 1.5 0 1 1 -1.5 1.5 a4.5 4.5 0 0 1 4.5 -4.5 a7.5 7.5 0 0 1 7.5 7.5 a10.5 10.5 0 0 1 -10.5 10.5 a13 13 0 0 1 -12.5 -10" stroke="#9A4A16" strokeWidth={1.8} fill="none" strokeLinecap="round"/>
+      <Path d="M28 24 C31 21 35 20 38 20" stroke="#F6B47A" strokeWidth={1.6} fill="none" strokeLinecap="round"/>
     </>
   ),
   // Reh
@@ -151,17 +153,20 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Eichhörnchen
   'p-squirrel': () => (
     <>
-      <Path d="M34 58 C50 60 61 48 58 33 C56 22 47 15 40 19 C35 22 36 28 41 29 C46 30 49 35 48 41 C47 48 41 52 33 52Z" fill="#B84A16"/>
-      <Path d="M43 22 C50 23 55 30 54 38 M47 44 C45 49 41 51 37 52" stroke="#E07A34" strokeWidth={2.2} fill="none" strokeLinecap="round"/>
-      <Path d="M15 27 C14 20 15 14 19 10 C21 15 25 19 27 23Z" fill="#E06A28"/><Path d="M39 27 C40 20 39 14 35 10 C33 15 29 19 27 23Z" fill="#E06A28"/>
-      <Path d="M18 22 C18 18 19 15 20 13 M36 22 C36 18 35 15 34 13" stroke="#F4B48A" strokeWidth={2} fill="none" strokeLinecap="round"/>
-      <Path d="M19 10 C18 7 19 5 21 4 M35 10 C36 7 35 5 33 4" stroke="#7A3E17" strokeWidth={1.6} fill="none" strokeLinecap="round"/>
-      <Ellipse cx={27} cy={35} rx={13.5} ry={12.5} fill="#E06A28"/>
-      <Path d="M27 33 C20 33 16 37 17 42 C19 46 23 48 27 48 C31 48 35 46 37 42 C38 37 34 33 27 33Z" fill="#FBE3CC"/>
-      <Ellipse cx={22} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={22.8} cy={30.1} r={0.8} fill="#fff"/><Ellipse cx={32} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={32.8} cy={30.1} r={0.8} fill="#fff"/>
-      <Ellipse cx={27} cy={38} rx={2.2} ry={1.6} fill="#13261C"/>
-      <Path d="M27 39.5v1.5M25 42q2 1.4 4 0" stroke="#13261C" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
-      <Circle cx={19.5} cy={38} r={1.8} fill="#F2A3A3" opacity={0.75}/><Circle cx={34.5} cy={38} r={1.8} fill="#F2A3A3" opacity={0.75}/>
+      <Path d="M38 58 C54 56 61 42 55 28 C51 18 41 15 36 22 C33 27 38 31 43 30 C48 30 50 37 48 43 C46 49 41 52 36 53Z" fill="#B84A16"/>
+      <Path d="M41 20 C49 20 55 27 55 35 M50 46 C47 51 43 53 39 54" stroke="#E07A34" strokeWidth={2.2} fill="none" strokeLinecap="round"/>
+      <Ellipse cx={31} cy={45} rx={10} ry={12} fill="#E06A28"/>
+      <Ellipse cx={27.5} cy={47} rx={5.5} ry={8} fill="#FBE3CC"/>
+      <Path d="M27 22 L30 14 L34 21Z" fill="#E06A28"/><Path d="M30 14 C29.7 12.2 30.4 11 31.6 10.6" stroke="#7A3E17" strokeWidth={1.6} fill="none" strokeLinecap="round"/>
+      <Circle cx={26} cy={29} r={9.5} fill="#E06A28"/>
+      <Ellipse cx={18.5} cy={32} rx={5} ry={4} fill="#E06A28"/>
+      <Ellipse cx={20.5} cy={33.5} rx={4.5} ry={3} fill="#FBE3CC"/>
+      <Circle cx={14.3} cy={31.2} r={1.5} fill="#13261C"/>
+      <Ellipse cx={23} cy={27} rx={2} ry={2.5} fill="#13261C"/><Circle cx={23.8} cy={26.1} r={0.8} fill="#fff"/>
+      <Ellipse cx={24} cy={42} rx={3.4} ry={4.2} fill="#B07A3A"/>
+      <Path d="M20.6 40 C21 37 27 37 27.4 40Z" fill="#5A3D22"/><Path d="M24 37.4v-1.8" stroke="#5A3D22" strokeWidth={1.2} strokeLinecap="round"/>
+      <Ellipse cx={20.5} cy={43} rx={2} ry={1.6} fill="#E06A28"/><Ellipse cx={27.5} cy={43} rx={2} ry={1.6} fill="#E06A28"/>
+      <Ellipse cx={27} cy={56.5} rx={5} ry={2.4} fill="#C2541B"/>
     </>
   ),
   // Frosch
@@ -314,7 +319,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
 export const PLUS_ANIMAL_BG: Record<string, [string, string]> = {
   'p-fox': ['#3E8A5C', '#123826'],
   'p-owl': ['#8EDBD0', '#1B6A66'],
-  'p-wolf': ['#FFD08A', '#C2741B'],
+  'p-snail': ['#A8E6F0', '#1F7A8C'],
   'p-deer': ['#A8DDA0', '#2F6B47'],
   'p-bear': ['#A9D8F2', '#2D6E9E'],
   'p-eagle': ['#9FD3F2', '#1C5E8C'],

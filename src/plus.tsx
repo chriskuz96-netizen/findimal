@@ -55,7 +55,7 @@ export function askForPlus(t: Translate, setPlus: (on: boolean) => void) {
 export const PLUS_AVATARS: { id: string }[] = [
   { id: 'p-fox' },
   { id: 'p-owl' },
-  { id: 'p-wolf' },
+  { id: 'p-snail' },
   { id: 'p-deer' },
   { id: 'p-bear' },
   { id: 'p-eagle' },
