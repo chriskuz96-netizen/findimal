@@ -81,8 +81,10 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
               <Text style={styles.meName} numberOfLines={1}>
                 {name}
               </Text>
+              {/* gleiche Schreibweise wie in Challenges und Profil: Stufe orange, Titel weiß */}
               <Text style={styles.meLevel} numberOfLines={1}>
-                {t('ch.level', { n: level })} · {t(`level.${level - 1}` as 'level.0')}
+                <Text style={styles.meCaps}>{t('ch.level', { n: level })}</Text> ·{' '}
+                <Text style={{ color: colors.white }}>{t(`level.${level - 1}` as 'level.0')}</Text>
               </Text>
             </View>
             <Avatar id={avatar} name={name} size={32} />
@@ -273,6 +275,7 @@ const styles = StyleSheet.create({
   meText: { alignItems: 'flex-end', flexShrink: 1 },
   meName: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
   meLevel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight },
+  meCaps: { fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 },
   stats: { flexDirection: 'row', alignItems: 'center', gap: 18 },
   stat: { fontFamily: fonts.sansBold, fontSize: 14, color: 'rgba(255,255,255,0.85)' },
   statValue: { fontFamily: fonts.serifBold, fontSize: 30, color: colors.accentLight },
