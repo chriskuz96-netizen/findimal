@@ -264,18 +264,20 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Giraffe
   'p-giraffe': () => (
     <>
-      <G transform="translate(0 5)"><Path d="M15 66 L23 28 C24 23 32 22 34 27 L33 66Z" fill="#F2C04A"/>
-      <Path d="M23 29 C21 40 18 52 15.5 66" stroke="#9A5A20" strokeWidth={2.6} fill="none" strokeLinecap="round" stroke-dasharray="3 2.2"/>
-      <Path d="M24.5 42 c2 -1 4 0 3.6 2.2 c-.4 2 -3 2.4 -4.2 1 c-1 -1.2 -.6 -2.6 .6 -3.2z M27 51 c2.4 -.6 4 1 3.4 3 c-.6 1.8 -3.4 2 -4.4.4 c-.8 -1.4 -.4 -3 1 -3.4z M21.5 57 c2 -.4 3.4 1 3 2.8 c-.4 1.6 -2.8 2 -3.8.6 c-.8 -1.2 -.6 -3 .8 -3.4z M28 36.5 c1.6 -.4 2.8.6 2.4 2 c-.4 1.4 -2.4 1.6 -3 .4 c-.6 -1 -.2 -2.2.6 -2.4z" fill="#B8742E"/>
-      <Path d="M31 15 L29 8 M36.5 14 L37 7" stroke="#B8742E" strokeWidth={2} strokeLinecap="round"/>
-      <Circle cx={29} cy={7.5} r={2} fill="#7A4A1E"/><Circle cx={37} cy={6.5} r={2} fill="#7A4A1E"/>
-      <Ellipse cx={25.5} cy={18.5} rx={4.2} ry={2.1} transform="rotate(-20 25.5 18.5)" fill="#F2C04A"/>
-      <Ellipse cx={35} cy={21} rx={9.5} ry={7} transform="rotate(12 35 21)" fill="#F2C04A"/>
-      <Ellipse cx={42.5} cy={24.5} rx={5} ry={4.2} transform="rotate(12 42.5 24.5)" fill="#F7DFA0"/>
-      <Circle cx={31} cy={22} r={1.8} fill="#B8742E"/>
-      <Ellipse cx={35} cy={19} rx={1.9} ry={2.3} fill="#13261C"/><Circle cx={35.6} cy={18.3} r={0.7} fill="#fff"/>
-      <Circle cx={44.5} cy={23.2} r={0.8} fill="#7A4A1E"/><Circle cx={46.2} cy={24} r={0.8} fill="#7A4A1E"/>
-      <Path d="M41 27.5 q2.5 1.6 5 0" stroke="#7A4A1E" strokeWidth={1.1} fill="none" strokeLinecap="round"/></G>
+      <G transform="translate(32 6) scale(0.9) translate(-32 0)"><Path d="M26 66 L27 34 L37 34 L38 66Z" fill="#F2C04A"/>
+      <Path d="M27 36 L27 66" stroke="#9A5A20" strokeWidth={2.6} strokeLinecap="round" stroke-dasharray="3 2.2"/>
+      <Path d="M30 41 c2 -.6 3.6.8 3 2.6 c-.6 1.6 -3 1.8 -3.8.4 c-.6 -1.2 -.2 -2.6.8 -3z M34 50 c1.8 -.4 3 1 2.4 2.6 c-.6 1.4 -2.8 1.4 -3.4 0 c-.4 -1.2.1 -2.4 1 -2.6z M29.5 56 c1.8 -.4 3.2.8 2.8 2.4 c-.4 1.6 -2.8 1.8 -3.6.4 c-.6 -1.2 -.2 -2.4.8 -2.8z" fill="#B8742E"/>
+      <Path d="M28 11 L27 5 M36 11 L37 5" stroke="#B8742E" strokeWidth={2.2} strokeLinecap="round"/>
+      <Circle cx={27} cy={4.5} r={2.1} fill="#7A4A1E"/><Circle cx={37} cy={4.5} r={2.1} fill="#7A4A1E"/>
+      <Ellipse cx={20} cy={15} rx={5} ry={2.3} transform="rotate(-18 20 15)" fill="#F2C04A"/><Ellipse cx={44} cy={15} rx={5} ry={2.3} transform="rotate(18 44 15)" fill="#F2C04A"/>
+      <Ellipse cx={20.5} cy={15} rx={2.6} ry={1.1} transform="rotate(-18 20.5 15)" fill="#E3A24A"/><Ellipse cx={43.5} cy={15} rx={2.6} ry={1.1} transform="rotate(18 43.5 15)" fill="#E3A24A"/>
+      <Path d="M32 9 C25 9 23 14 24 21 C25 27 27 33 32 35 C37 33 39 27 40 21 C41 14 39 9 32 9Z" fill="#F2C04A"/>
+      <Ellipse cx={32} cy={29.5} rx={6.5} ry={5.2} fill="#F7DFA0"/>
+      <Circle cx={28.5} cy={12.5} r={1.6} fill="#B8742E"/><Circle cx={36.5} cy={13.5} r={1.2} fill="#B8742E"/>
+      <Ellipse cx={28.5} cy={20} rx={2.1} ry={2.6} fill="#13261C"/><Circle cx={29.3} cy={19.1} r={0.8} fill="#fff"/><Ellipse cx={35.5} cy={20} rx={2.1} ry={2.6} fill="#13261C"/><Circle cx={36.3} cy={19.1} r={0.8} fill="#fff"/>
+      <Ellipse cx={30} cy={28.5} rx={0.9} ry={1.2} fill="#7A4A1E"/><Ellipse cx={34} cy={28.5} rx={0.9} ry={1.2} fill="#7A4A1E"/>
+      <Path d="M29.5 31.5 q2.5 1.8 5 0" stroke="#7A4A1E" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
+      <Circle cx={25.6} cy={25} r={1.7} fill="#F2A3A3" opacity={0.75}/><Circle cx={38.4} cy={25} r={1.7} fill="#F2A3A3" opacity={0.75}/></G>
     </>
   ),
   // Tiger
