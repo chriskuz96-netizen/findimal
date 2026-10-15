@@ -99,7 +99,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Plus/Video/Anzeigen-Platzhalter vor der Store-Einreichung ausblenden bzw. echt einbauen (Apple lehnt sonst ab).
 - Rangliste automatisch an: für Kinder heikel (DSGVO Art. 8) – vor dem Start nochmal entscheiden.
 
-## Geräte-Abgleich über iCloud (entschieden 15.10.)
+## Geräte-Abgleich über iCloud (15.10.: vorerst NICHT, nur falls Nutzer danach fragen)
+- Grund: Handywechsel klappt schon über Schnellstart/iCloud-Backup (alle Daten inkl. Fotos liegen in AsyncStorage);
+  Nutzung fast nur auf dem Handy, nicht auf dem iPad.
 - Ziel: gleiche Sammlung, Fotos, Punkte und Ranglisten-Eintrag auf iPhone, iPad und neuem Handy (gleiche Apple-ID),
   ohne eigenes Konto und ohne Daten auf unserem Server.
 - Umsetzung (neuer App-Bau nötig): iCloud-Fähigkeit + Container `iCloud.com.chriskuz.findimal` für die App-ID
