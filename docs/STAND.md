@@ -99,6 +99,12 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Plus/Video/Anzeigen-Platzhalter vor der Store-Einreichung ausblenden bzw. echt einbauen (Apple lehnt sonst ab).
 - Rangliste automatisch an: für Kinder heikel (DSGVO Art. 8) – vor dem Start nochmal entscheiden.
 
+## iPhone Duo (faltbar, ab Herbst 2026)
+- Läuft schon: außen wie ein normales iPhone, innen (7,6 Zoll) nur in iPhone-Größe mit Rändern.
+- Später, wenn die ersten Geräte da sind: mit dem iOS-27.1-Werkzeug (oder neuer) bauen, Seiten an die Breite anpassen
+  (Sammlung mehr Spalten, Startseite, Saison-Karten), im Simulator bzw. auf einem echten Gerät testen.
+- Apple verlangt laut Berichten ab April 2027 Duo-Bildschirmfotos im App Store.
+
 ## Ideen für später (wenn viele Spieler da sind)
 - Weltweite Rangliste ausbauen: eigenes Fenster mit Filtern nach **Land und Region** und nach **Saison**
   (z. B. „Herbst 2026“). Eigene **Platznummer** anzeigen (z. B. „Platz 740 von 1.000“ statt „–“) – dafür muss
