@@ -34,7 +34,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Schnecke
   'p-snail': () => (
     <>
-      <Path d="M8 52 C8 46 12 42 17 42 L24 42 C30 42 34 46 44 47 C51 48 56 50 57 54 L10 54 C8.5 54 8 53 8 52Z" fill="#D9C27A"/>
+      <G transform="translate(4 1) scale(0.94)"><Path d="M8 52 C8 46 12 42 17 42 L24 42 C30 42 34 46 44 47 C51 48 56 50 57 54 L10 54 C8.5 54 8 53 8 52Z" fill="#D9C27A"/>
       <Circle cx={15} cy={41} r={7} fill="#D9C27A"/>
       <Path d="M12 36 L9 27 M17.5 35.5 L20 26" stroke="#D9C27A" strokeWidth={2.6} strokeLinecap="round"/>
       <Circle cx={9} cy={26} r={3} fill="#FFFFFF"/><Circle cx={20} cy={25.5} r={3} fill="#FFFFFF"/>
@@ -43,7 +43,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Circle cx={11} cy={42} r={1.4} fill="#F2A3A3" opacity={0.8}/>
       <Circle cx={37} cy={33} r={14} fill="#E8833A"/>
       <Path d="M37 33 m0 -1.5 a1.5 1.5 0 1 1 -1.5 1.5 a4.5 4.5 0 0 1 4.5 -4.5 a7.5 7.5 0 0 1 7.5 7.5 a10.5 10.5 0 0 1 -10.5 10.5 a13 13 0 0 1 -12.5 -10" stroke="#9A4A16" strokeWidth={1.8} fill="none" strokeLinecap="round"/>
-      <Path d="M28 24 C31 21 35 20 38 20" stroke="#F6B47A" strokeWidth={1.6} fill="none" strokeLinecap="round"/>
+      <Path d="M28 24 C31 21 35 20 38 20" stroke="#F6B47A" strokeWidth={1.6} fill="none" strokeLinecap="round"/></G>
     </>
   ),
   // Reh
