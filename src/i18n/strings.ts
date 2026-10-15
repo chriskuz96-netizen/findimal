@@ -37,7 +37,7 @@ const de = {
   'reg.title': 'Wo bist du unterwegs?',
   'reg.hello': 'Hallo, {name}!',
   'reg.text':
-    'Damit ich dir zeigen kann, welche Tiere es in deiner Nähe gibt – und deine Tiere noch genauer erkenne. Ich merke mir nur den Ortsnamen, nicht deinen genauen Standort.',
+    'Dann zeige ich dir Tiere aus deiner Nähe. Ich merke mir nur den Ortsnamen.',
   'reg.useLocation': 'Standort verwenden',
   'reg.or': 'oder Region eingeben',
   'reg.placeholder': 'Ort eintippen (z. B. München)',
@@ -516,7 +516,7 @@ const en: Strings = {
   'reg.title': 'Where do you explore?',
   'reg.hello': 'Hi, {name}!',
   'reg.text':
-    'So I can show you which animals live near you – and recognise your animals even more accurately. I only remember the name of the place, not your exact location.',
+    'Then I’ll show you animals near you. I only remember the place name.',
   'reg.useLocation': 'Use my location',
   'reg.or': 'or enter a region',
   'reg.placeholder': 'Type a place (e.g. Munich)',
@@ -965,7 +965,7 @@ const fr: Strings = {
   'reg.title': 'Où explores-tu ?',
   'reg.hello': 'Salut, {name} !',
   'reg.text':
-    'Pour te montrer quels animaux vivent près de chez toi – et reconnaître tes animaux encore plus précisément. Je retiens seulement le nom du lieu, pas ta position exacte.',
+    'Je te montrerai les animaux près de chez toi. Je retiens seulement le nom du lieu.',
   'reg.useLocation': 'Utiliser ma position',
   'reg.or': 'ou saisis une région',
   'reg.placeholder': 'Saisis un lieu (ex. Munich)',
@@ -1415,7 +1415,7 @@ const es: Strings = {
   'reg.title': '¿Dónde exploras?',
   'reg.hello': '¡Hola, {name}!',
   'reg.text':
-    'Así puedo mostrarte qué animales viven cerca de ti – y reconocer tus animales con más precisión. Solo recuerdo el nombre del lugar, no tu ubicación exacta.',
+    'Te mostraré animales cerca de ti. Solo recuerdo el nombre del lugar.',
   'reg.useLocation': 'Usar mi ubicación',
   'reg.or': 'o escribe una región',
   'reg.placeholder': 'Escribe un lugar (p. ej. Múnich)',
