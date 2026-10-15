@@ -12,6 +12,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { OnOpen, OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
 import { Preparing } from './src/components/Preparing';
+import { useTabDots } from './src/tabDots';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
@@ -261,6 +262,7 @@ function Main() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
   const freshBadges = seenBadges ? earnedIds.filter((id) => !seenBadges.includes(id)) : [];
+  const dots = useTabDots(tab, quiz, freshBadges.length);
   const seeBadges = (ids: string[]) => {
     if (!seenBadges || ids.every((id) => seenBadges.includes(id))) return;
     const next = [...seenBadges, ...ids.filter((id) => !seenBadges.includes(id))];
@@ -453,7 +455,7 @@ function Main() {
           <SeasonScreen finds={finds} place={region ?? ''} onChangePlace={() => setAskRegion(true)} />
         )}
       </View>
-      <TabBar active={tab} onSelect={setTab} dot={freshBadges.length ? 'challenges' : null} />
+      <TabBar active={tab} onSelect={setTab} dots={dots} />
       {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
       <LimitSheet visible={limitOpen} onClose={() => setLimitOpen(false)} />
       {/* Foto ist gewählt und wird noch vorbereitet (z. B. aus iCloud geladen) – sieht schon aus wie die Ergebnisseite */}

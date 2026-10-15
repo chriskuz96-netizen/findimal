@@ -42,8 +42,8 @@ function TabIcon({ id, color }: { id: Tab; color: string }) {
 }
 
 // Menüleiste unten
-// dot: kleiner oranger Punkt an einem Menüpunkt (z. B. neues Abzeichen in den Challenges)
-export function TabBar({ active, onSelect, dot }: { active: Tab; onSelect: (t: Tab) => void; dot?: Tab | null }) {
+// dots: kleiner oranger Punkt an Menüpunkten mit Neuem (z. B. neues Abzeichen in den Challenges)
+export function TabBar({ active, onSelect, dots = [] }: { active: Tab; onSelect: (t: Tab) => void; dots?: Tab[] }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
@@ -62,7 +62,7 @@ export function TabBar({ active, onSelect, dot }: { active: Tab; onSelect: (t: T
           >
             <View>
               <TabIcon id={id} color={color} />
-              {dot === id && <View style={[styles.dot, { borderColor: p.card }]} />}
+              {dots.includes(id) && <View style={[styles.dot, { borderColor: p.card }]} />}
             </View>
             <Text style={[styles.label, { color }]}>{t(`tab.${id}`)}</Text>
           </Pressable>
