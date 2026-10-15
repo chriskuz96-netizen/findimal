@@ -90,7 +90,7 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
             <Avatar id={avatar} name={name} size={32} />
           </Pressable>
         </View>
-        {/* Fotos und Arten groß, frei auf dem Grün (wie die XP in den Challenges) */}
+        {/* Fotos, Arten und Gruppen groß, frei auf dem Grün (wie die XP in den Challenges) */}
         <View style={styles.stats}>
           <Text style={styles.stat}>
             <Text style={styles.statValue}>{finds.length}</Text> {t('col.photos')}
@@ -99,21 +99,10 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
           <Text style={styles.stat}>
             <Text style={styles.statValue}>{speciesKeys.size}</Text> {t('col.species')}
           </Text>
-        </View>
-        {/* Tiergruppen als Sammel-Leiste: gefundene leuchten, fehlende sind gestrichelt */}
-        <View style={styles.groupHead}>
-          <Text style={styles.groupTitle}>{t('col.groupsTitle')}</Text>
-          <Text style={styles.groupCount}>{t('col.groupsOf', { n: groupsFound.size, total: GROUPS.length })}</Text>
-        </View>
-        <View style={styles.groupRow}>
-          {GROUPS.map((g) => {
-            const on = groupsFound.has(g.id);
-            return (
-              <View key={g.id} style={[styles.groupDot, on ? styles.groupOn : styles.groupOff]} accessibilityLabel={t(`g.${g.id}`)}>
-                <GroupIcon id={g.id} size={20} color={on ? colors.accentLight : 'rgba(255,255,255,0.28)'} />
-              </View>
-            );
-          })}
+          <View style={styles.statSep} />
+          <Text style={styles.stat}>
+            <Text style={styles.statValue}>{groupsFound.size}</Text> {t('col.groups')}
+          </Text>
         </View>
       </View>
 
@@ -276,23 +265,10 @@ const styles = StyleSheet.create({
   meName: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
   meLevel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight },
   meCaps: { fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 },
-  stats: { flexDirection: 'row', alignItems: 'center', gap: 18 },
+  stats: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 16 },
   stat: { fontFamily: fonts.sansBold, fontSize: 14, color: 'rgba(255,255,255,0.85)' },
   statValue: { fontFamily: fonts.serifBold, fontSize: 30, color: colors.accentLight },
   statSep: { width: 1, height: 22, backgroundColor: 'rgba(255,255,255,0.18)' },
-  groupHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginTop: 18, marginBottom: 8 },
-  groupTitle: {
-    fontFamily: fonts.sansBold,
-    fontSize: 11.5,
-    letterSpacing: 0.8,
-    textTransform: 'uppercase',
-    color: colors.accentLight,
-  },
-  groupCount: { fontFamily: fonts.sansBold, fontSize: 12, color: 'rgba(255,255,255,0.75)' },
-  groupRow: { flexDirection: 'row', justifyContent: 'space-between' },
-  groupDot: { width: 34, height: 34, borderRadius: 17, borderWidth: 1.5, alignItems: 'center', justifyContent: 'center' },
-  groupOn: { borderColor: 'rgba(255,210,168,0.55)', backgroundColor: 'rgba(255,210,168,0.14)' },
-  groupOff: { borderColor: 'rgba(255,255,255,0.18)', borderStyle: 'dashed' },
   chipRow: { flexGrow: 0 },
   chips: { gap: 8, paddingHorizontal: spacing.gutter, paddingTop: 12, paddingBottom: 2 },
   chip: {
