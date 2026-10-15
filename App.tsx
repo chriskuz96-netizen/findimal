@@ -72,6 +72,7 @@ function Main() {
   // undefined = wird geladen, null = noch nicht gefragt, '' = übersprungen
   const [region, setRegion] = useState<string | null | undefined>(undefined);
   const [askRegion, setAskRegion] = useState(false);
+  const [firstVisit, setFirstVisit] = useState(false); // gerade eingerichtet: „Willkommen“ statt „Willkommen zurück“
   // Testphase: Findimal-Code gleich am Anfang abfragen, wenn der Server einen verlangt
   // (und der gespeicherte fehlt oder nicht mehr stimmt). Einmal pro Start prüfen.
   const [askCode, setAskCode] = useState(false);
@@ -337,6 +338,7 @@ function Main() {
           onDone={(newName) => {
             saveName(newName);
             setName(newName);
+            setFirstVisit(true);
             allowAutoJoin();
           }}
         />
@@ -468,6 +470,7 @@ function Main() {
       <View style={{ flex: 1 }}>
         {tab === 'start' && (
           <StartScreen
+            firstVisit={firstVisit}
             name={name}
             region={region}
             onSetRegion={(r) => {

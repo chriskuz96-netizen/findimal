@@ -31,6 +31,7 @@ type Props = {
   onWatchVideo: () => void; // Video direkt starten
   onTakePhoto: () => void;
   onPickPhoto: () => void;
+  firstVisit?: boolean; // gerade erst eingerichtet
 };
 
 export function StartScreen({
@@ -46,12 +47,14 @@ export function StartScreen({
   onWatchVideo,
   onTakePhoto,
   onPickPhoto,
+  firstVisit,
 }: Props) {
   const insets = useSafeAreaInsets();
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const { t, nickname } = useI18n();
   const { plus } = usePlus();
-  const greeting = name ? t('start.welcome', { name, nick: nickname }) : t('start.hello');
+  // direkt nach der Einrichtung „Willkommen“, danach „Willkommen zurück“
+  const greeting = name ? t(firstVisit ? 'start.welcomeNew' : 'start.welcome', { name, nick: nickname }) : t('start.hello');
   const { width, height } = useWindowDimensions();
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
   const camSize = Math.min(168, Math.max(120, height * 0.21));

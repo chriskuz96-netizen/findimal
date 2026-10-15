@@ -14,7 +14,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - `app.json` ist Snack-tauglich; `app.config.js` ergänzt Symbol, Startbild, Berechtigungstexte (`locales/`),
   Plugins, Expo-Konto und Projekt-ID. Snack ignoriert `app.config.js`.
 - App-Symbol und Startbild liegen im Zweig `app-assets` (Snack verträgt keine PNGs im Hauptzweig).
-  Vor dem Bauen: `git show origin/app-assets:assets/icon.png > assets/icon.png` und ebenso `splash-icon.png`.
+  Vor dem Bauen: `git show origin/app-assets:assets/icon.png > assets/icon.png` und ebenso `splash-icon.png`,
+  `icon-dark.png` und `icon-tinted.png` (dunkles/getöntes Symbol für iOS 18+).
 - Bundle-ID `com.chriskuz.findimal`, nur iPhone (`supportsTablet: false`), `eas.json` mit Profil `production`.
 
 ## Nächste Schritte

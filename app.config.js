@@ -36,6 +36,11 @@ module.exports = ({ config }) => ({
   },
   ios: {
     ...config.ios,
+    // Dunkle und getönte Symbole (iOS 18+, „Dunkel“ / „Getönt“ beim Anpassen des Home-Bildschirms):
+    // Fuchs ohne grünen Hintergrund bzw. in Grau auf Schwarz
+    ...(has('./assets/icon-dark.png') && has('./assets/icon-tinted.png')
+      ? { icon: { light: './assets/icon.png', dark: './assets/icon-dark.png', tinted: './assets/icon-tinted.png' } }
+      : {}),
     infoPlist: { ...(config.ios && config.ios.infoPlist), CFBundleDevelopmentRegion: 'de', CFBundleAllowMixedLocalizations: true },
   },
   plugins: [
