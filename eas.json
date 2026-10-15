@@ -15,7 +15,10 @@
   "submit": {
     "production": {
       "ios": {
-        "ascAppId": "6823092816"
+        "ascAppId": "6823092816",
+        "ascApiKeyPath": "/tmp/claude-0/-home-user-findimal/a2be49db-e5ea-572c-b04d-7fc8c4aac77d/scratchpad/asc.p8",
+        "ascApiKeyId": "3PD6G2N7F3",
+        "ascApiKeyIssuerId": "5ddbcdd7-5964-459a-b4e8-a4cf0e95ecbf"
       }
     }
   }

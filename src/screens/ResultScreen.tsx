@@ -120,7 +120,7 @@ function FoundOn({ find, p, onPlace }: { find: Find; p: Palette; onPlace: (place
 }
 
 // Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
-// Zeichnung, Bildschirm, Plüschtier …: wird bestimmt, kommt aber nicht in die Sammlung
+// Zeichnung, Bildschirm, Plüschtier, Internetbild …: kommt in die Sammlung, aber ohne Punkte
 const notReal = (a: Animal) => !!a.bildart && a.bildart !== 'echt';
 
 export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails, onPlace, backLabel, onBack }: Props) {
@@ -165,8 +165,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         pending.current = null;
         before.current = null;
         setResult(r);
-        // nur echte Tiere kommen in die Sammlung (keine Zeichnungen, Bildschirme, Plüschtiere …)
-        if (r.ok && r.animal.tier_gefunden && !notReal(r.animal)) {
+        // alles Erkannte kommt in die Sammlung; Zeichnungen, Internetbilder usw. nur zum Nachschlagen (ohne Punkte)
+        if (r.ok && r.animal.tier_gefunden) {
           const res = await onIdentified(r.animal, findId.current, list[0]);
           findId.current = res.id;
           setReward(res.reward);
@@ -226,7 +226,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   };
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
-  const fake = !!animal && !saved && notReal(animal); // erkannt, kommt aber nicht in die Sammlung
+  const fake = !!animal && !saved && notReal(animal); // erkannt und gespeichert, aber ohne Punkte
 
   // Ausführlicher Steckbrief erst beim Aufklappen laden und beim Fund speichern
   const openDetails = async () => {
@@ -475,7 +475,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
           {!busy && <Button label={backLabel ?? t('res.continue')} onPress={() => leave()} p={p} filled={!!result} />}
           {/* neues Foto: Abkürzung zur Sammlung – wie „Weiter entdecken“, nur weiß */}
-          {!saved && animal && !fake && !busy && (
+          {!saved && animal && !busy && (
             <Button label={t('res.toCollection')} onPress={() => leave('collection')} p={p} filled={false} white />
           )}
         </SwipeScrollView>

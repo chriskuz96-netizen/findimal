@@ -21,7 +21,7 @@ import { Tab, TabBar } from './src/components/TabBar';
 import { allowAutoJoin, autoJoin, codeFromUrl } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
-import { addFind, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
+import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { checkAppKey, getAppKey, translateAnimal } from './src/identify';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
@@ -248,7 +248,9 @@ function Main() {
 
   // Punkte, Stufe, Serie und Challenges – immer frisch berechnet
   const now = new Date();
-  const progress = computeProgress(finds, correctAnswers(quiz), now, { bestRank, maxFriends });
+  // nur echte Funde zählen für Punkte, Arten und Challenges (Internetbilder, Zeichnungen usw. nicht)
+  const realFinds = finds.filter(counts);
+  const progress = computeProgress(realFinds, correctAnswers(quiz), now, { bestRank, maxFriends });
   // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
   // Plus-Tiere nur, solange Plus aktiv ist
   const avatarBadge =
@@ -300,7 +302,7 @@ function Main() {
       name,
       xp: progress.xp,
       level: progress.level,
-      species: new Set(finds.map((f) => speciesKey(f.animal))).size,
+      species: new Set(realFinds.map((f) => speciesKey(f.animal))).size,
       avatar: avatarBadge ?? '',
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -387,7 +389,7 @@ function Main() {
       region={region}
       avatar={avatarBadge}
       progress={progress}
-      finds={finds}
+      finds={realFinds}
       onBack={() => setShowProfile(false)}
       onRename={(n) => {
         saveName(n);
@@ -419,7 +421,7 @@ function Main() {
       onIdentified={async (animal, replaceId, shot) => {
         const quizXp = correctAnswers(quizRef.current);
         // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
-        const others = findsRef.current.filter((f) => f.id !== replaceId);
+        const others = findsRef.current.filter((f) => f.id !== replaceId && counts(f));
         const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
         const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
         let id = replaceId;
@@ -437,7 +439,7 @@ function Main() {
           tipsAfterSave.current = false;
           setTimeout(askTips, 300);
         }
-        const after = computeProgress(next, quizXp, new Date(), { bestRank, maxFriends });
+        const after = computeProgress(next.filter(counts), quizXp, new Date(), { bestRank, maxFriends });
         return { id: id!, reward: computeReward(before, after, isNew) };
       }}
       morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
@@ -512,7 +514,7 @@ function Main() {
             onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}
             avatar={avatarBadge ?? ''}
             name={name}
-            species={new Set(finds.map((f) => speciesKey(f.animal))).size}
+            species={new Set(realFinds.map((f) => speciesKey(f.animal))).size}
             invite={invite}
             onRank={(rank) => {
               if (bestRank && bestRank <= rank) return;
@@ -528,7 +530,7 @@ function Main() {
           />
         )}
         {tab === 'season' && (
-          <SeasonScreen finds={finds} place={region ?? ''} onChangePlace={() => setAskRegion(true)} />
+          <SeasonScreen finds={realFinds} place={region ?? ''} onChangePlace={() => setAskRegion(true)} />
         )}
       </View>
       </LoopsPaused.Provider>

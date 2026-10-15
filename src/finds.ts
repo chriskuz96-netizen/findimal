@@ -56,6 +56,12 @@ async function storeFinds(finds: Find[]): Promise<void> {
   }
 }
 
+// Zählt der Fund für Punkte, Arten und Challenges? Nicht bei Zeichnungen, Bildschirmen, Internetbildern usw. –
+// die kommen nur zum Nachschlagen in die Sammlung.
+export function counts(f: Find): boolean {
+  return !f.animal.bildart || f.animal.bildart === 'echt';
+}
+
 // Gleiche Art = gleicher wissenschaftlicher Name (sonst gleicher deutscher Name).
 export function speciesKey(a: Animal): string {
   return (a.wissenschaftlicher_name || a.name).trim().toLowerCase();

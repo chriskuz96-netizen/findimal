@@ -15,7 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Avatar } from '../components/Avatar';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { AdSlot } from '../components/AdSlot';
-import { Find, speciesKey, useFindPhoto } from '../finds';
+import { counts, Find, speciesKey, useFindPhoto } from '../finds';
 import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
 import { displayName } from '../names';
@@ -45,7 +45,8 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
   // Arten (pro Art der erste Fund) für Zähler und Gruppen-Übersicht
   const speciesKeys = new Set<string>();
   const speciesFinds: Find[] = [];
-  for (const f of finds) {
+  // Arten und Gruppen: nur echte Funde (Internetbilder, Zeichnungen usw. liegen nur zum Nachschlagen hier)
+  for (const f of finds.filter(counts)) {
     const k = speciesKey(f.animal);
     if (!speciesKeys.has(k)) {
       speciesKeys.add(k);
@@ -203,6 +204,7 @@ function PhotoTile({
 }) {
   const uri = useFindPhoto(find.id);
   const g = groupOf(find.animal.gruppe);
+  const { t } = useI18n();
   return (
     <Pressable
       onPress={onPress}
@@ -225,6 +227,12 @@ function PhotoTile({
       <View style={styles.badge}>
         <GroupIcon id={g?.id ?? null} size={14} color={colors.accentLight} />
       </View>
+      {/* nur zum Nachschlagen: zählt nicht für Punkte */}
+      {!counts(find) && (
+        <View style={styles.noPoints}>
+          <Text style={styles.noPointsText}>{t('col.noPoints')}</Text>
+        </View>
+      )}
       <View style={styles.caption}>
         <Text style={styles.captionName} numberOfLines={2}>
           {displayName(find.animal)}
@@ -296,6 +304,16 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   tilePlaceholder: { alignItems: 'center', justifyContent: 'center' },
+  noPoints: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    borderRadius: 99,
+    backgroundColor: 'rgba(10,30,20,0.75)',
+  },
+  noPointsText: { fontFamily: fonts.sansBold, fontSize: 10.5, color: colors.accentLight },
   badge: {
     position: 'absolute',
     top: 8,
