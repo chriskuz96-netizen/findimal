@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Pressable, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -35,6 +36,9 @@ type Props = {
   firstVisit?: boolean; // gerade erst eingerichtet
 };
 
+// größte bisher gebrauchte Höhe von „Jetzt in deiner Nähe“ (bleibt beim Tab-Wechsel erhalten)
+let maxNearby = 0;
+
 export function StartScreen({
   name,
   region,
@@ -57,6 +61,7 @@ export function StartScreen({
   // direkt nach der Einrichtung „Willkommen“, danach „Willkommen zurück“
   const greeting = name ? t(firstVisit ? 'start.welcomeNew' : 'start.welcome', { name, nick: nickname }) : t('start.hello');
   const { width, height } = useWindowDimensions();
+  const [nearbyHeight, setNearbyHeight] = useState(maxNearby);
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
   const camSize = Math.min(168, Math.max(120, height * 0.21));
 
@@ -141,7 +146,16 @@ export function StartScreen({
           <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting}</Text>
         </View>
       </View>
-      <NearbyList region={region} onSetRegion={onSetRegion} onTypeRegion={onTypeRegion} />
+      {/* Platz für „Jetzt in deiner Nähe“ wächst nur: sonst springt der grüne Bereich, z. B. beim Sprachwechsel */}
+      <View
+        style={{ minHeight: nearbyHeight }}
+        onLayout={(e) => {
+          const h = Math.ceil(e.nativeEvent.layout.height);
+          if (h > nearbyHeight) setNearbyHeight((maxNearby = h));
+        }}
+      >
+        <NearbyList region={region} onSetRegion={onSetRegion} onTypeRegion={onTypeRegion} />
+      </View>
     </View>
   );
 }
