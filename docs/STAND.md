@@ -69,8 +69,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   App-Store-Link umstellen.
 
 ## Vor dem öffentlichen App-Store-Start
-- Impressum: Platzhalter in `server/findimal-worker.js` (OPERATOR) durch echte Angaben ersetzen
-  (Entscheidung: eigene Wohnadresse; E-Mail findimal26@gmail.com ist schon eingetragen).
+- Impressum: erledigt (15.10.). Name und Anschrift stehen als Cloudflare-Variablen `IMPRESSUM_NAME` und
+  `IMPRESSUM_ADRESSE` (nicht im GitHub-Code), Anschrift nur ganz unten. Beim Hochladen des Workers
+  `keep_bindings` mit `plain_text` angeben, sonst gehen die Variablen verloren.
 - Gewerbe anmelden, Fragebogen Finanzamt (Kleinunternehmer), ggf. USt-IdNr. für AdMob.
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen.
