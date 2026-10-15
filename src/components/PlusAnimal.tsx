@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import { Circle, Ellipse, G, Path, Rect } from 'react-native-svg';
 
 // Selbst gezeichnete Plus-Tiere (statt Emojis): viewBox 0 0 64 64, Mitte 32/32, sichtbarer Kreis r = 26.
+// Nicht von Hand ändern: Vorlage in tools/plus_animals.py, neu erzeugen mit tools/make_plus_animals.py.
 export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Fuchs
   'p-fox': () => (
@@ -136,27 +137,31 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Igel
   'p-hedgehog': () => (
     <>
-      <Path d="M13.6 45.2 L8.0 43.0 L13.7 41.5 L9.0 37.9 L14.9 37.9 L11.4 33.2 L17.0 34.9 L14.9 29.4 L19.9 32.5 L19.3 26.6 L23.3 31.0 L24.4 25.2 L27.0 30.5 L29.6 25.2 L30.7 31.0 L34.7 26.6 L34.1 32.5 L39.1 29.4 L37.0 34.9 L42.6 33.2 L39.1 37.9 L45.0 37.9 L40.3 41.5 L46.0 43.0 L40.4 45.2Z" fill="#5A3D22"/>
-      <Ellipse cx={27} cy={45} rx={15} ry={11} fill="#7A5434"/>
-      <Path d="M33 35 C40 33 48 37 55 41 C57 42 57 45 55 46 C48 48 40 49 33 48 C30 44 30 38 33 35Z" fill="#E8C9A0"/>
-      <Circle cx={56} cy={43.5} r={2.5} fill="#13261C"/>
-      <Ellipse cx={38} cy={35.5} rx={2.2} ry={2.6} fill="#C9A47A"/>
-      <Ellipse cx={45} cy={39.5} rx={1.9} ry={2.3} fill="#13261C"/><Circle cx={45.8} cy={38.6} r={0.8} fill="#fff"/>
-      <Circle cx={41} cy={44} r={1.8} fill="#F2A3A3" opacity={0.7}/>
-      <Ellipse cx={22} cy={56} rx={3} ry={2} fill="#C9A47A"/><Ellipse cx={38} cy={55} rx={3} ry={2} fill="#C9A47A"/>
+      <Path d="M20.5 42.6 L13.1 44.2 L18.0 38.5 L10.5 37.6 L17.0 33.7 L10.1 30.5 L17.6 28.9 L12.1 23.7 L19.6 24.6 L16.1 17.8 L22.9 21.0 L21.7 13.5 L27.2 18.8 L28.5 11.3 L32.0 18.0 L35.5 11.3 L36.8 18.8 L42.3 13.5 L41.1 21.0 L47.9 17.8 L44.4 24.6 L51.9 23.7 L46.4 28.9 L53.9 30.5 L47.0 33.7 L53.5 37.6 L46.0 38.5 L50.9 44.2 L43.5 42.6Z" fill="#5A3D22"/>
+      <Path d="M21.8 39.4 L15.8 39.7 L20.3 35.7 L14.5 34.2 L20.1 31.8 L15.1 28.5 L21.1 28.1 L17.4 23.3 L23.2 24.8 L21.3 19.1 L26.3 22.4 L26.4 16.4 L30.0 21.2 L32.0 15.5 L34.0 21.2 L37.6 16.4 L37.7 22.4 L42.7 19.1 L40.8 24.8 L46.6 23.3 L42.9 28.1 L48.9 28.5 L43.9 31.8 L49.5 34.2 L43.7 35.7 L48.2 39.7 L42.2 39.4Z" fill="#7A5434"/>
+      <Circle cx={32} cy={34} r={14} fill="#7A5434"/>
+      <Path d="M32 22 C24 22 19 28 20 35 C21 41 27 45 32 48 C37 45 43 41 44 35 C45 28 40 22 32 22Z" fill="#EBCDA6"/>
+      <Ellipse cx={22.5} cy={25} rx={3} ry={2.6} fill="#EBCDA6"/><Ellipse cx={41.5} cy={25} rx={3} ry={2.6} fill="#EBCDA6"/>
+      <Ellipse cx={22.5} cy={25} rx={1.5} ry={1.3} fill="#C99A70"/><Ellipse cx={41.5} cy={25} rx={1.5} ry={1.3} fill="#C99A70"/>
+      <Ellipse cx={27} cy={33} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={27.8} cy={32.1} r={0.8} fill="#fff"/><Ellipse cx={37} cy={33} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={37.8} cy={32.1} r={0.8} fill="#fff"/>
+      <Ellipse cx={32} cy={45.5} rx={2.8} ry={2.3} fill="#13261C"/><Circle cx={31} cy={44.7} r={0.7} fill="#fff"/>
+      <Circle cx={24.5} cy={38.5} r={2} fill="#F2A3A3" opacity={0.75}/><Circle cx={39.5} cy={38.5} r={2} fill="#F2A3A3" opacity={0.75}/>
     </>
   ),
   // Eichhörnchen
   'p-squirrel': () => (
     <>
-      <Path d="M36 60 C52 58 60 46 56 33 C53 22 43 18 38 24 C45 27 48 34 46 41 C44 49 37 53 30 55Z" fill="#C2541B"/>
-      <Path d="M44 26 C49 29 51 35 50 41" stroke="#E8833A" strokeWidth={2.4} fill="none" strokeLinecap="round"/>
-      <Path d="M18 26 L19 12 L27 21Z" fill="#E06A28"/><Path d="M38 26 L37 12 L29 21Z" fill="#E06A28"/>
-      <Path d="M19 12 l-1.5 -3 M19 12 l1 -3.2 M37 12 l1.5 -3 M37 12 l-1 -3.2" stroke="#7A3E17" strokeWidth={1.3} strokeLinecap="round"/>
-      <Ellipse cx={28} cy={34} rx={13} ry={12} fill="#E06A28"/>
-      <Ellipse cx={21} cy={38} rx={5} ry={4} fill="#FBE3CC"/><Ellipse cx={35} cy={38} rx={5} ry={4} fill="#FBE3CC"/>
-      <Ellipse cx={23} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={23.8} cy={30.1} r={0.8} fill="#fff"/><Ellipse cx={33} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={33.8} cy={30.1} r={0.8} fill="#fff"/><Ellipse cx={28} cy={36.5} rx={2} ry={1.5} fill="#13261C"/>
-      <Path d="M28 38v1.4M26.2 40q1.8 1.3 3.6 0" stroke="#13261C" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
+      <Path d="M34 58 C50 60 61 48 58 33 C56 22 47 15 40 19 C35 22 36 28 41 29 C46 30 49 35 48 41 C47 48 41 52 33 52Z" fill="#B84A16"/>
+      <Path d="M43 22 C50 23 55 30 54 38 M47 44 C45 49 41 51 37 52" stroke="#E07A34" strokeWidth={2.2} fill="none" strokeLinecap="round"/>
+      <Path d="M15 27 C14 20 15 14 19 10 C21 15 25 19 27 23Z" fill="#E06A28"/><Path d="M39 27 C40 20 39 14 35 10 C33 15 29 19 27 23Z" fill="#E06A28"/>
+      <Path d="M18 22 C18 18 19 15 20 13 M36 22 C36 18 35 15 34 13" stroke="#F4B48A" strokeWidth={2} fill="none" strokeLinecap="round"/>
+      <Path d="M19 10 C18 7 19 5 21 4 M35 10 C36 7 35 5 33 4" stroke="#7A3E17" strokeWidth={1.6} fill="none" strokeLinecap="round"/>
+      <Ellipse cx={27} cy={35} rx={13.5} ry={12.5} fill="#E06A28"/>
+      <Path d="M27 33 C20 33 16 37 17 42 C19 46 23 48 27 48 C31 48 35 46 37 42 C38 37 34 33 27 33Z" fill="#FBE3CC"/>
+      <Ellipse cx={22} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={22.8} cy={30.1} r={0.8} fill="#fff"/><Ellipse cx={32} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={32.8} cy={30.1} r={0.8} fill="#fff"/>
+      <Ellipse cx={27} cy={38} rx={2.2} ry={1.6} fill="#13261C"/>
+      <Path d="M27 39.5v1.5M25 42q2 1.4 4 0" stroke="#13261C" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
+      <Circle cx={19.5} cy={38} r={1.8} fill="#F2A3A3" opacity={0.75}/><Circle cx={34.5} cy={38} r={1.8} fill="#F2A3A3" opacity={0.75}/>
     </>
   ),
   // Frosch
