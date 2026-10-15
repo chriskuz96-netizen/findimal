@@ -18,10 +18,10 @@ import { detectPlace, placeCountry } from '../location';
 import { useI18n } from '../i18n';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 
-type Props = { onDone: (region: string) => void };
+type Props = { onDone: (region: string) => void; name?: string };
 
 // Zweite Begrüßungsfrage: Wo bist du unterwegs? ('' = später)
-export function RegionScreen({ onDone }: Props) {
+export function RegionScreen({ onDone, name }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
@@ -53,7 +53,9 @@ export function RegionScreen({ onDone }: Props) {
     >
       <View style={styles.content}>
         <Explorer size={96} />
-        <Text style={[styles.title, { color: p.ink }]}>{t('reg.title')}</Text>
+        {/* direkt nach der Namens-Frage: persönlich begrüßen */}
+        {!!name && <Text style={[styles.hello, { color: colors.accent }]}>{t('reg.hello', { name })}</Text>}
+        <Text style={[styles.title, { color: p.ink }, !!name && { marginTop: 2 }]}>{t('reg.title')}</Text>
         <Text style={[styles.text, { color: p.mute }]}>
           {t('reg.text')}
         </Text>
@@ -119,6 +121,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 24,
+  },
+  hello: {
+    fontFamily: fonts.sansBold,
+    fontSize: 17,
+    marginTop: 16,
+    textAlign: 'center',
   },
   title: {
     fontFamily: fonts.serifBold,

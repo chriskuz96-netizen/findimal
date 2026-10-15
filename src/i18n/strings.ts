@@ -35,6 +35,7 @@ const de = {
 
   // Region
   'reg.title': 'Wo bist du unterwegs?',
+  'reg.hello': 'Hallo, {name}!',
   'reg.text':
     'Damit ich dir zeigen kann, welche Tiere es in deiner Nähe gibt – und deine Tiere noch genauer erkenne. Ich merke mir nur den Ortsnamen, nicht deinen genauen Standort.',
   'reg.useLocation': 'Standort verwenden',
@@ -513,6 +514,7 @@ const en: Strings = {
   'wel.p3text': 'Watch from a distance, never disturb nests and leave every animal where it is. Findimal also shows you how to help animals near you.',
   'wel.go': 'Let’s go',
   'reg.title': 'Where do you explore?',
+  'reg.hello': 'Hi, {name}!',
   'reg.text':
     'So I can show you which animals live near you – and recognise your animals even more accurately. I only remember the name of the place, not your exact location.',
   'reg.useLocation': 'Use my location',
@@ -961,6 +963,7 @@ const fr: Strings = {
   'wel.p3text': 'Observe de loin, ne dérange jamais les nids et laisse chaque animal là où il est. Findimal te montre aussi comment aider les animaux près de chez toi.',
   'wel.go': 'C’est parti',
   'reg.title': 'Où explores-tu ?',
+  'reg.hello': 'Salut, {name} !',
   'reg.text':
     'Pour te montrer quels animaux vivent près de chez toi – et reconnaître tes animaux encore plus précisément. Je retiens seulement le nom du lieu, pas ta position exacte.',
   'reg.useLocation': 'Utiliser ma position',
@@ -1410,6 +1413,7 @@ const es: Strings = {
   'wel.p3text': 'Observa desde lejos, no molestes los nidos y deja a cada animal donde está. Findimal también te enseña a ayudar a los animales de tu entorno.',
   'wel.go': '¡Vamos!',
   'reg.title': '¿Dónde exploras?',
+  'reg.hello': '¡Hola, {name}!',
   'reg.text':
     'Así puedo mostrarte qué animales viven cerca de ti – y reconocer tus animales con más precisión. Solo recuerdo el nombre del lugar, no tu ubicación exacta.',
   'reg.useLocation': 'Usar mi ubicación',

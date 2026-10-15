@@ -332,6 +332,7 @@ function Main() {
       <>
         <StatusBar style="auto" />
         <RegionScreen
+          name={askRegion ? undefined : name}
           onDone={(r) => {
             // "Später" beim Ändern behält die alte Region
             const next = askRegion && !r ? region ?? '' : r;
