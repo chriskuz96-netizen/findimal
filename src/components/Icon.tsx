@@ -19,7 +19,8 @@ export type IconName =
   | 'palette'
   | 'toy'
   | 'phone'
-  | 'book';
+  | 'book'
+  | 'play';
 
 export function Icon({ name, size = 22, color = colors.accent }: { name: IconName; size?: number; color?: string }) {
   const s = { fill: 'none', stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
@@ -128,6 +129,9 @@ export function Icon({ name, size = 22, color = colors.accent }: { name: IconNam
           <Rect x={6.5} y={2.5} width={11} height={19} rx={2.5} {...s} />
           <Path d="M10.5 18.5h3" {...s} />
         </>
+      )}
+      {name === 'play' && (
+        <Path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z" fill={color} stroke={color} strokeWidth={1.2} strokeLinejoin="round" />
       )}
       {name === 'book' && (
         <>

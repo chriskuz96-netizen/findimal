@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { Icon } from './Icon';
 import { useI18n } from '../i18n';
 import { askForPlus, usePlus } from '../plus';
 import { colors, fonts, Palette, spacing } from '../theme';
@@ -105,7 +106,7 @@ export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
         </View>
         {/* Platzhalter für Bild oder kurzes Video ohne Ton */}
         <View style={[styles.sheetMedia, { backgroundColor: p.line }]}>
-          <Text style={{ fontSize: 30, color: colors.accent }}>▶</Text>
+          <Icon name="play" size={34} color={colors.accent} />
         </View>
         <Text style={[styles.title, { color: p.ink, marginTop: 12 }]}>{t('ad.placeholderTitle')}</Text>
         <Text style={[styles.text, { color: p.mute }]}>{t('ad.placeholderText')}</Text>

@@ -6,6 +6,7 @@ import { CameraButton } from '../components/CameraButton';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
 import { Avatar } from '../components/Avatar';
+import { Icon } from '../components/Icon';
 import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
 import { usePlus } from '../plus';
@@ -125,9 +126,12 @@ export function StartScreen({
           {/* alle Videos auch schon weg: Hinweis auf Findimal Plus */}
           {!plus && freeLeft === 0 && (
             <Pressable onPress={videosLeft > 0 ? onWatchVideo : onTakePhoto} hitSlop={8} accessibilityRole="button">
-              <Text style={[styles.freeVideo, videosLeft === 0 && { color: '#FFD45E' }]}>
-                {videosLeft > 0 ? `▶ ${t('start.freeVideo')}` : `★ ${t('start.freePlus')}`}
-              </Text>
+              <View style={styles.freeVideoRow}>
+                <Icon name={videosLeft > 0 ? 'play' : 'star'} size={12} color={videosLeft > 0 ? colors.accentLight : '#FFD45E'} />
+                <Text style={[styles.freeVideo, videosLeft === 0 && { color: '#FFD45E' }]}>
+                  {videosLeft > 0 ? t('start.freeVideo') : t('start.freePlus')}
+                </Text>
+              </View>
             </Pressable>
           )}
           </View>
@@ -203,8 +207,8 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 10,
   },
+  freeVideoRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 3 },
   freeVideo: {
-    marginTop: 3,
     fontFamily: fonts.sansBold,
     fontSize: 13,
     color: colors.accentLight,
