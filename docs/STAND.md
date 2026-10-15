@@ -28,11 +28,13 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
      `EXPO_ASC_API_KEY_PATH` darauf setzen). Nie in den Chat schreiben lassen.
    - App in App Store Connect angelegt (Hauptsprache Englisch USA), App-ID com.chriskuz.findimal registriert.
 2. App in App Store Connect anlegen (Name Findimal, Bundle-ID oben).
-   Erster Bauversuch 15.10.: Projekt gehört dem Expo-Team `christianfindimals-team` → `owner` in
-   `app.config.js` angepasst. App-Symbol/Startbild fehlten im Zweig `app-assets` (nur README war hochgeladen);
-   neu aus `AppLogo.tsx` erzeugt. Bau scheitert an „Apple 403“: Netzwerk der Umgebung muss
-   `api.appstoreconnect.apple.com` erlauben (EAS legt damit Zertifikat und Profil an). Bauen interaktiv
-   (`eas build` ohne `--non-interactive`), da Zertifikate nur so erzeugt werden; `EXPO_APPLE_TEAM_TYPE=INDIVIDUAL`.
+   Erster Bau 15.10.: Projekt gehört dem Expo-Team `christianfindimals-team` → `owner` in `app.config.js`.
+   App-Symbol/Startbild neu aus `AppLogo.tsx` erzeugt und in `app-assets` hochgeladen (`.easignore` sorgt dafür,
+   dass EAS `assets/` mitnimmt, obwohl Git es ignoriert). Netzwerk der Umgebung erlaubt jetzt
+   `api.appstoreconnect.apple.com`. Verteilungszertifikat und Profil liegen auf dem Expo-Server (gültig bis 15.10.2027).
+   Push-Fähigkeit der App-ID von Hand eingeschaltet (EAS-Abgleich scheitert) → immer mit
+   `EXPO_NO_CAPABILITY_SYNC=1`, `EXPO_APPLE_TEAM_TYPE=INDIVIDUAL` und `--non-interactive` bauen.
+   App-Store-Connect-ID der App: 6823092816 (in `eas.json` unter submit).
 3. Ersten Bau mit EAS (`eas build -p ios --profile production`) und Upload zu TestFlight (`eas submit`).
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
    80 pro Anschluss, 300 pro Tag gesamt; `TAGES_GRENZE` änderbar).
