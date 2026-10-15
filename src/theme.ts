@@ -19,7 +19,6 @@ export const colors = {
   skyBottom: '#0B2619',
   leafDark: '#1A4A32',
   leafMid: '#1E5A3C',
-  firefly: '#F2D27A',
   camInner: '#2B6B47',
   camOuter: '#0F3322',
   white: '#FFFFFF',

@@ -1,17 +1,7 @@
-import { Animated, StyleSheet } from 'react-native';
-import Svg, { Circle, Defs, Ellipse, G, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
+import { StyleSheet } from 'react-native';
+import Svg, { Defs, Ellipse, G, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 
-import { useLoop } from '../hooks/useLoop';
 import { colors } from '../theme';
-
-const AnimatedCircle = Animated.createAnimatedComponent(Circle);
-
-// Glühwürmchen, das langsam auf- und abblendet.
-function Firefly({ cx, cy, r, delayMs }: { cx: number; cy: number; r: number; delayMs: number }) {
-  const t = useLoop(3000, { delayMs, native: false });
-  const opacity = t.interpolate({ inputRange: [0, 0.5, 1], outputRange: [1, 0.15, 1] });
-  return <AnimatedCircle cx={cx} cy={cy} r={r} opacity={opacity} />;
-}
 
 // Dunkler Dschungel-Hintergrund der Startseite (füllt die Fläche, wird ggf. beschnitten).
 export function JungleBackground() {
@@ -40,12 +30,6 @@ export function JungleBackground() {
         <Path d="M0 600Q60 470 160 520Q90 540 0 600Z" />
         <Path d="M400 600Q340 460 230 520Q320 530 400 600Z" />
         <Path d="M60 600Q150 540 210 600Z" />
-      </G>
-      <G fill={colors.firefly} opacity={0.7}>
-        <Firefly cx={70} cy={380} r={2} delayMs={0} />
-        <Firefly cx={330} cy={380} r={1.8} delayMs={1200} />
-        <Firefly cx={250} cy={460} r={2} delayMs={2100} />
-        <Firefly cx={140} cy={200} r={1.6} delayMs={1200} />
       </G>
     </Svg>
   );
