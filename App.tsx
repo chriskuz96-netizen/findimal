@@ -18,7 +18,7 @@ import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
-import { codeFromUrl } from './src/board';
+import { allowAutoJoin, autoJoin, codeFromUrl } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
@@ -289,6 +289,22 @@ function Main() {
       .then((r) => r === 'wrong' && setAskCode(true));
   }, [name, region]);
 
+  // Rangliste: wer sich bei der Einrichtung einen Entdecker-Namen gegeben hat, ist automatisch dabei
+  // (einmal pro Start versuchen, z. B. wenn beim ersten Mal kein Internet da war)
+  const boardChecked = useRef(false);
+  useEffect(() => {
+    if (boardChecked.current || !name || !loaded || askCode) return;
+    boardChecked.current = true;
+    autoJoin({
+      name,
+      xp: progress.xp,
+      level: progress.level,
+      species: new Set(finds.map((f) => speciesKey(f.animal))).size,
+      avatar: avatarBadge ?? '',
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [name, loaded, askCode]);
+
   // Kein Ort eingestellt ("Später" gewählt): beim Öffnen der App einmal am Tag wieder nach dem Ort fragen
   const regionChecked = useRef(false);
   useEffect(() => {
@@ -321,6 +337,7 @@ function Main() {
           onDone={(newName) => {
             saveName(newName);
             setName(newName);
+            allowAutoJoin();
           }}
         />
       </>

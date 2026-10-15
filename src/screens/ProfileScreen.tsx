@@ -21,6 +21,7 @@ import { AvatarSheet } from '../components/AvatarSheet';
 import { PlusCard } from '../components/PlusCard';
 import { LanguageChips } from '../components/LanguageButton';
 import { PlaceChip } from '../components/PlaceChip';
+import { join, leave, loadMe, Me } from '../board';
 import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
@@ -77,6 +78,33 @@ export function ProfileScreen(props: Props) {
   };
   const earned = progress.badges.filter((b) => b.earned);
   const species = new Set(finds.map((f) => speciesKey(f.animal))).size;
+  // Rangliste: dabei sein oder nicht (gleich wie „Mitmachen“ / „Rangliste verlassen“ in den Challenges)
+  const [board, setBoard] = useState<Me | null | undefined>(undefined);
+  const [boardBusy, setBoardBusy] = useState(false);
+  useEffect(() => {
+    loadMe().then(setBoard);
+  }, []);
+  const toggleBoard = async (on: boolean) => {
+    if (on) {
+      setBoardBusy(true);
+      const res = await join({ name, xp: progress.xp, level: progress.level, species, avatar: avatar ?? '' });
+      setBoardBusy(false);
+      if (res.me) setBoard(res.me);
+      else Alert.alert(t('lb.title'), t('lb.offline'));
+      return;
+    }
+    Alert.alert(t('lb.leave'), t('lb.leaveText'), [
+      { text: t('common.cancel'), style: 'cancel' },
+      {
+        text: t('lb.leaveYes'),
+        style: 'destructive',
+        onPress: async () => {
+          if (board) await leave(board);
+          setBoard(null);
+        },
+      },
+    ]);
+  };
   const share = progress.nextLevelXp
     ? (progress.xp - progress.levelStart) / (progress.nextLevelXp - progress.levelStart)
     : 1;
@@ -236,6 +264,19 @@ export function ProfileScreen(props: Props) {
               <Text style={[styles.sub, { color: p.moss, fontFamily: fonts.sansBold }]}>{t('tips.test')} ›</Text>
             </Pressable>
           )}
+        </View>
+
+        {/* In der Rangliste zeigen (Entdecker-Name und Punkte, keine Fotos und Orte) */}
+        <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
+          <View style={styles.tipsHead}>
+            <View style={{ flex: 1 }}>
+              <Text style={[styles.h3, { color: p.ink }]}>{t('pro.boardTitle')}</Text>
+            </View>
+            {board !== undefined && (
+              <Switch value={!!board} onValueChange={toggleBoard} disabled={boardBusy} trackColor={{ true: p.button }} />
+            )}
+          </View>
+          <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>{t('pro.boardText')}</Text>
         </View>
 
         {/* Anzeigen-Platz unter den Natur-Tipps (nicht mit Plus) */}

@@ -16,6 +16,10 @@ const ME_KEY = 'findimal-board';
 const FRIENDS_KEY = 'findimal-friends';
 const SENT_KEY = 'findimal-board-sent';
 const REMOVED_KEY = 'findimal-friends-removed'; // entfernte Freunde nicht wieder automatisch aufnehmen
+// Automatisch in der Rangliste: nur wer sich bei der Einrichtung einen Entdecker-Namen gegeben hat
+// (ältere Nutzer haben evtl. ihren echten Namen eingetippt – die machen weiter selbst mit).
+const AUTO_KEY = 'findimal-board-auto';
+const OPTOUT_KEY = 'findimal-board-optout'; // selbst ausgestiegen: nicht wieder automatisch aufnehmen
 const LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // ohne 0/O und 1/I (leicht zu verwechseln)
 
 const random = (n: number, chars: string) =>
@@ -84,6 +88,7 @@ export async function join(stats: MyStats): Promise<{ me: Me | null; error: Join
     if (!res.ok) return { me: null, error: 'offline' };
     await AsyncStorage.setItem(ME_KEY, JSON.stringify(me)).catch(() => {});
     await AsyncStorage.setItem(SENT_KEY, JSON.stringify(stats)).catch(() => {});
+    await AsyncStorage.removeItem(OPTOUT_KEY).catch(() => {});
     return { me, error: null };
   }
   return { me: null, error: 'offline' };
@@ -105,6 +110,23 @@ export async function syncMe(me: Me, stats: MyStats): Promise<void> {
 export async function leave(me: Me): Promise<void> {
   await call({ mode: 'board_delete', ...me }).catch(() => null);
   await AsyncStorage.multiRemove([ME_KEY, FRIENDS_KEY, SENT_KEY, REMOVED_KEY]).catch(() => {});
+  await AsyncStorage.setItem(OPTOUT_KEY, '1').catch(() => {});
+}
+
+// Bei der Einrichtung mit Entdecker-Namen: ab jetzt automatisch in der Rangliste
+export async function allowAutoJoin(): Promise<void> {
+  await AsyncStorage.setItem(AUTO_KEY, '1').catch(() => {});
+}
+
+// Automatisch mitmachen (einmal), wenn erlaubt und nicht selbst ausgestiegen
+export async function autoJoin(stats: MyStats): Promise<void> {
+  try {
+    const [auto, out, me] = await Promise.all([AsyncStorage.getItem(AUTO_KEY), AsyncStorage.getItem(OPTOUT_KEY), loadMe()]);
+    if (auto !== '1' || out === '1' || me) return;
+    await join(stats);
+  } catch {
+    // offline: beim nächsten Start
+  }
 }
 
 // Beim Freund vermerken, dass man ihn hinzugefügt hat (dann sieht er einen auch)
