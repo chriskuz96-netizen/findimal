@@ -99,6 +99,16 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Plus/Video/Anzeigen-Platzhalter vor der Store-Einreichung ausblenden bzw. echt einbauen (Apple lehnt sonst ab).
 - Rangliste automatisch an: für Kinder heikel (DSGVO Art. 8) – vor dem Start nochmal entscheiden.
 
+## Geräte-Abgleich über iCloud (entschieden 15.10.)
+- Ziel: gleiche Sammlung, Fotos, Punkte und Ranglisten-Eintrag auf iPhone, iPad und neuem Handy (gleiche Apple-ID),
+  ohne eigenes Konto und ohne Daten auf unserem Server.
+- Umsetzung (neuer App-Bau nötig): iCloud-Fähigkeit + Container `iCloud.com.chriskuz.findimal` für die App-ID
+  (im Apple-Entwicklerportal einschalten), Baustein z. B. `react-native-cloud-store` mit Config-Plugin.
+  Kleine Daten (Name, Punkte, Ranglisten-Code/-Geheimnis, Einstellungen) in iCloud-Key-Value, Funde + Fotos als Dateien
+  im iCloud-Container. Zusammenführen: Funde nach ID vereinen, neuere Änderung gewinnt.
+- Dabei die App fürs iPad freischalten (`supportsTablet: true`) und Seiten an große Breiten anpassen (passt zum iPhone Duo).
+- Gut zu wissen: Beim Handywechsel per iCloud-Backup bzw. Schnellstart kommen die App-Daten heute schon mit.
+
 ## iPhone Duo (faltbar, ab Herbst 2026)
 - Läuft schon: außen wie ein normales iPhone, innen (7,6 Zoll) nur in iPhone-Größe mit Rändern.
 - Später, wenn die ersten Geräte da sind: mit dem iOS-27.1-Werkzeug (oder neuer) bauen, Seiten an die Breite anpassen
