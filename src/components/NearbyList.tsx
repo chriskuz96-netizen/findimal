@@ -11,7 +11,7 @@ import { Explorer } from './Explorer';
 export function NearbyList({ region }: { region: string }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const { t, lang } = useI18n();
-  const [tiere, setTiere] = useState<NearbyAnimal[] | null | undefined>(undefined);
+  const [tiere, setTiere] = useState<NearbyAnimal[] | undefined>(undefined);
 
   useEffect(() => {
     setTiere(undefined);
@@ -31,11 +31,6 @@ export function NearbyList({ region }: { region: string }) {
       </View>
 
       {tiere === undefined && <ActivityIndicator color={p.mute} style={{ marginVertical: 12 }} />}
-      {tiere === null && (
-        <Text style={[styles.empty, { color: p.mute }]}>
-          {t('near.empty')}
-        </Text>
-      )}
       {tiere && (
         <View style={styles.list}>
           {tiere.map((a) => {
@@ -127,10 +122,5 @@ const styles = StyleSheet.create({
     lineHeight: 15,
     textAlign: 'center',
     marginTop: 2,
-  },
-  empty: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    marginTop: 4,
   },
 });
