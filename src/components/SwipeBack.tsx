@@ -1,14 +1,19 @@
 import { ReactNode, useEffect, useRef } from 'react';
-import { Animated, Easing, PanResponder, StyleSheet, useWindowDimensions } from 'react-native';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
+import { scheduleOnRN } from 'react-native-worklets';
 
 // Nach rechts wischen = zurück, irgendwo auf dem Bildschirm (nicht nur am Rand).
-// Die Seite folgt dem Finger ein Stück; weit genug oder schnell genug gewischt -> onBack.
+// Die Geste und die Bewegung laufen direkt auf dem Bildschirm-Thread (nicht über JavaScript),
+// deshalb folgt die Seite dem Finger ohne Ruckeln. Weit genug oder schnell genug gewischt -> onBack.
 export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => void; enabled?: boolean; children: ReactNode }) {
   const { width } = useWindowDimensions();
-  const x = useRef(new Animated.Value(0)).current;
-  // immer die aktuellen Werte nutzen (der PanResponder wird nur einmal angelegt)
-  const state = useRef({ onBack, enabled, width });
-  state.current = { onBack, enabled, width };
+  const x = useSharedValue(0);
+  // immer die aktuelle Funktion nutzen
+  const back = useRef(onBack);
+  back.current = onBack;
   const mounted = useRef(true);
   useEffect(
     () => () => {
@@ -17,53 +22,61 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
     [],
   );
 
-  const reset = () => Animated.spring(x, { toValue: 0, useNativeDriver: true, bounciness: 0, speed: 18 }).start();
+  const done = () => {
+    back.current();
+    // Seite bleibt draußen, bis sie verschwunden ist – sonst blitzt sie kurz wieder auf.
+    // Nur wenn sie danach noch da ist (z. B. wegen einer Anzeige), zurückholen.
+    setTimeout(() => {
+      if (mounted.current) x.value = 0;
+    }, 400);
+  };
 
-  const pan = useRef(
-    PanResponder.create({
-      // nur klar waagerechte Bewegungen nach rechts – senkrechtes Scrollen und Tippen bleiben ungestört.
-      // "Capture": die Seite prüft die Bewegung vor Knöpfen und Listen darin.
-      onMoveShouldSetPanResponderCapture: (_, g) =>
-        state.current.enabled && g.dx > 18 && Math.abs(g.dx) > Math.abs(g.dy) * 2,
-      onPanResponderTerminationRequest: () => false,
-      // die Seite folgt dem Finger genau
-      onPanResponderMove: (_, g) => x.setValue(Math.max(0, g.dx)),
-      onPanResponderRelease: (_, g) => {
-        const w = state.current.width;
-        if (g.dx > w * 0.33 || (g.dx > 30 && g.vx > 0.5)) {
-          // Rest der Strecke weich weggleiten (schneller gewischt = schneller weg)
-          const left = w - Math.max(0, g.dx);
-          const duration = Math.max(90, Math.min(260, left / Math.max(g.vx, 1.2)));
-          Animated.timing(x, { toValue: w, duration, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start(() => {
-            state.current.onBack();
-            // Seite bleibt draußen, bis sie verschwunden ist – sonst blitzt sie kurz wieder auf.
-            // Nur wenn sie danach noch da ist (z. B. wegen einer Anzeige), zurückholen.
-            setTimeout(() => {
-              if (mounted.current) x.setValue(0);
-            }, 400);
-          });
-        } else {
-          reset();
-        }
-      },
-      onPanResponderTerminate: reset,
-    }),
-  ).current;
+  const pan = Gesture.Pan()
+    .enabled(enabled)
+    // nur klar waagerechte Bewegungen nach rechts – senkrechtes Scrollen und Tippen bleiben ungestört
+    .activeOffsetX(18)
+    .failOffsetX(-12)
+    .failOffsetY([-14, 14])
+    .onUpdate((e) => {
+      x.value = Math.max(0, e.translationX);
+    })
+    .onEnd((e) => {
+      const dx = Math.max(0, e.translationX);
+      if (dx > width * 0.33 || (dx > 30 && e.velocityX > 500)) {
+        // Rest der Strecke weich weggleiten (schneller gewischt = schneller weg)
+        const duration = Math.max(90, Math.min(260, ((width - dx) / Math.max(e.velocityX, 1200)) * 1000));
+        x.value = withTiming(width, { duration, easing: Easing.out(Easing.cubic) }, (finished) => {
+          if (finished) scheduleOnRN(done);
+        });
+      } else {
+        x.value = withSpring(0, { damping: 28, stiffness: 320, overshootClamping: true });
+      }
+    });
+
+  const moving = useAnimatedStyle(() => ({ transform: [{ translateX: x.value }] }));
 
   return (
-    <Animated.View style={[styles.page, { transform: [{ translateX: x }] }]} {...pan.panHandlers}>
-      {children}
-    </Animated.View>
+    <GestureDetector gesture={pan}>
+      <Animated.View style={[styles.page, moving]}>
+        {/* schmaler Schatten links neben der Seite – nur beim Wischen sichtbar, kostet fast nichts */}
+        <View pointerEvents="none" style={styles.shadow}>
+          <Svg width={16} height="100%">
+            <Defs>
+              <LinearGradient id="swipeShadow" x1="0" y1="0" x2="1" y2="0">
+                <Stop offset="0" stopColor="#000" stopOpacity={0} />
+                <Stop offset="1" stopColor="#000" stopOpacity={0.16} />
+              </LinearGradient>
+            </Defs>
+            <Rect x={0} y={0} width={16} height="100%" fill="url(#swipeShadow)" />
+          </Svg>
+        </View>
+        {children}
+      </Animated.View>
+    </GestureDetector>
   );
 }
 
 const styles = StyleSheet.create({
-  // leichter Schatten an der linken Kante, während die Seite zur Seite gleitet
-  page: {
-    flex: 1,
-    shadowColor: '#000',
-    shadowOpacity: 0.18,
-    shadowRadius: 12,
-    shadowOffset: { width: -4, height: 0 },
-  },
+  page: { flex: 1 },
+  shadow: { position: 'absolute', top: 0, bottom: 0, left: -16, width: 16 },
 });

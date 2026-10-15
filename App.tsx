@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert, AppState, StyleSheet, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
@@ -39,15 +40,18 @@ import { colors } from './src/theme';
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <LangProvider>
-        <PlusProvider>
-          <ErrorBoundary>
-            <Main />
-          </ErrorBoundary>
-        </PlusProvider>
-      </LangProvider>
-    </SafeAreaProvider>
+    // Gesten (Zurückwischen) laufen direkt auf dem Bildschirm-Thread, nicht über JavaScript
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <LangProvider>
+          <PlusProvider>
+            <ErrorBoundary>
+              <Main />
+            </ErrorBoundary>
+          </PlusProvider>
+        </LangProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
 
