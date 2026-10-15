@@ -73,3 +73,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Gewerbe anmelden, Fragebogen Finanzamt (Kleinunternehmer), ggf. USt-IdNr. für AdMob.
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen.
+- Server für alle öffnen (`OFFEN = ja`) – im App Store hat niemand einen Findimal-Code. Vorher Apple App Attest
+  einbauen (Server prüft, dass Anfragen aus der echten App kommen). Anthropic-Monatslimit klein halten.
+- Wächter: tägliche geplante Aufgabe „Findimal-Wächter“ (7:52 Uhr) meldet Zugriffe ohne Code (KV-Schlüssel `fremd:Datum`).
+  Vorschläge „In deiner Nähe“ gehen seit 15.10. auch ohne Code.
+- GitHub-Projekt ist öffentlich (Server-Adresse sichtbar, Geheimnisse nicht) – ggf. auf privat stellen.
