@@ -13,6 +13,7 @@ import { OnOpen, OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
 import { Preparing } from './src/components/Preparing';
 import { useTabDots } from './src/tabDots';
+import { LoopsPaused } from './src/hooks/useLoop';
 import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
@@ -445,6 +446,8 @@ function Main() {
   return (
     <>
       <StatusBar style="light" />
+      {/* Seiten darunter: Animationen anhalten, solange Profil oder Ergebnis darüber liegt */}
+      <LoopsPaused.Provider value={!!overlay}>
       <View style={{ flex: 1 }}>
         {tab === 'start' && (
           <StartScreen
@@ -508,6 +511,7 @@ function Main() {
           <SeasonScreen finds={finds} place={region ?? ''} onChangePlace={() => setAskRegion(true)} />
         )}
       </View>
+      </LoopsPaused.Provider>
       <TabBar active={tab} onSelect={setTab} dots={dots} />
       {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
       <LimitSheet visible={limitOpen} onClose={() => setLimitOpen(false)} />

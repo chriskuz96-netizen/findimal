@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 import Svg, { Circle, G, Line, Path } from 'react-native-svg';
 
+import { LoopsPaused } from '../hooks/useLoop';
 import { SkyMood } from '../season';
 
 // Kopf der Saison-Seite: immer das Findimal-Grün, dazu großes Symbol, Akzentfarbe und sanft
@@ -50,15 +51,17 @@ function Particle({ i, season, w, h }: { i: number; season: SkyMood; w: number; 
       spin: season === 'rain' ? 0 : (r(2.2) < 0.5 ? -1 : 1) * (120 + r(4.4) * 240),
     };
   }, [i, w, season]);
+  const paused = useContext(LoopsPaused);
   useEffect(() => {
     t.setValue(0);
+    if (paused) return;
     const loop = Animated.loop(Animated.timing(t, { toValue: 1, duration: cfg.dur, easing: Easing.linear, useNativeDriver: true }));
     const start = setTimeout(() => loop.start(), cfg.delay);
     return () => {
       clearTimeout(start);
       loop.stop();
     };
-  }, [t, cfg]);
+  }, [t, cfg, paused]);
   const up = season === 'summer';
   const y = t.interpolate({ inputRange: [0, 1], outputRange: up ? [h + 10, -20] : [-20, h + 10] });
   const x = t.interpolate({ inputRange: [0, 0.25, 0.5, 0.75, 1], outputRange: [0, cfg.sway, 0, -cfg.sway, 0] });
