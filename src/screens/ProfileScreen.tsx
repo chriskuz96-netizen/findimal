@@ -266,19 +266,6 @@ export function ProfileScreen(props: Props) {
           )}
         </View>
 
-        {/* In der Rangliste zeigen (Entdecker-Name und Punkte, keine Fotos und Orte) */}
-        <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
-          <View style={styles.tipsHead}>
-            <View style={{ flex: 1 }}>
-              <Text style={[styles.h3, { color: p.ink }]}>{t('pro.boardTitle')}</Text>
-            </View>
-            {board !== undefined && (
-              <Switch value={!!board} onValueChange={toggleBoard} disabled={boardBusy} trackColor={{ true: p.button }} />
-            )}
-          </View>
-          <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>{t('pro.boardText')}</Text>
-        </View>
-
         {/* Anzeigen-Platz unter den Natur-Tipps (nicht mit Plus) */}
         <AdSlot p={p} placement='profile' />
 
@@ -326,6 +313,22 @@ export function ProfileScreen(props: Props) {
             </Pressable>
           ))}
         </View>
+        {/* In der Rangliste zeigen: bewusst klein und ganz unten (Widerspruch gegen die automatische Teilnahme) */}
+        {board !== undefined && (
+          <View style={styles.boardRow}>
+            <View style={{ flex: 1 }}>
+              <Text style={[styles.boardTitle, { color: p.mute }]}>{t('pro.boardTitle')}</Text>
+              <Text style={[styles.boardText, { color: p.mute }]}>{t('pro.boardText')}</Text>
+            </View>
+            <Switch
+              value={!!board}
+              onValueChange={toggleBoard}
+              disabled={boardBusy}
+              trackColor={{ true: p.button }}
+              style={{ transform: [{ scale: 0.8 }] }}
+            />
+          </View>
+        )}
       </SwipeScrollView>
     </SwipeBack>
     </>
@@ -431,6 +434,9 @@ const styles = StyleSheet.create({
     padding: 14,
     alignItems: 'center',
   },
+  boardRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10, marginHorizontal: spacing.gutter + 6, opacity: 0.85 },
+  boardTitle: { fontFamily: fonts.sansBold, fontSize: 13 },
+  boardText: { fontFamily: fonts.sans, fontSize: 12, marginTop: 1 },
   resetText: { fontFamily: fonts.sansBold, fontSize: 16 },
   quick: { flexDirection: 'row', gap: 10, marginTop: 16, marginHorizontal: spacing.gutter },
   quickBtn: { flex: 1, borderWidth: 1, borderRadius: 14, paddingVertical: 12, paddingHorizontal: 4, alignItems: 'center' },
