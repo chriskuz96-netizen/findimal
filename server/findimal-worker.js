@@ -845,6 +845,23 @@ async function safePut(env, key, value, options) {
   }
 }
 
+// Wächter: zählt pro Tag die Anfragen ohne Findimal-Code (nur Art der Anfrage, keine Adresse, kein Gerät).
+// "abgelehnt" = jemand ohne Code wollte mehr als die Vorschläge. Eine tägliche Prüfung meldet das.
+async function countStranger(env, mode, blocked) {
+  if (!env.DB) return;
+  const key = `fremd:${new Date().toISOString().slice(0, 10)}`;
+  const data = (await env.DB.get(key, 'json')) || { nearby: 0, abgelehnt: 0, arten: {} };
+  if (data.nearby + data.abgelehnt >= 2000) return; // genug gezählt, nicht unbegrenzt schreiben
+  if (blocked) {
+    data.abgelehnt += 1;
+    const m = String(mode || 'foto').slice(0, 20);
+    data.arten[m] = (data.arten[m] || 0) + 1;
+  } else {
+    data.nearby += 1;
+  }
+  await safePut(env, key, JSON.stringify(data), { expirationTtl: 60 * 60 * 24 * 30 });
+}
+
 // Grenzen für Anfragen ohne Findimal-Code: pro Internetanschluss und für alle zusammen pro Tag.
 // Liefert eine Fehlerantwort oder null.
 async function publicBudget(env, request, kind = 'g') {
@@ -931,7 +948,6 @@ export default {
     // Mit dem richtigen Findimal-Code ist man "Tester" (darf z. B. Plus testen).
     // Ohne Code geht es nur, wenn der Server für alle offen ist (OFFEN = "ja").
     const tester = !env.APP_KEY || request.headers.get('X-Findimal-Key') === env.APP_KEY;
-    if (!tester && env.OFFEN !== 'ja') return json({ fehler: 'falscher_code' }, 401);
     // Vor jeder KI-Anfrage: Grenzen für alle ohne Code
     const budget = () => (tester ? null : publicBudget(env, request));
     const textBudget = () => (tester ? null : publicBudget(env, request, 't'));
@@ -943,6 +959,14 @@ export default {
       return json({ fehler: 'Ungültige Anfrage.' }, 400);
     }
     if (!body || typeof body !== 'object') return json({ fehler: 'Ungültige Anfrage.' }, 400);
+
+    // Die Vorschläge "Jetzt in deiner Nähe" gibt es immer (auch ohne Code, mit Text-Grenzen) –
+    // die Startseite soll nie leer sein. Alles andere nur mit Code oder wenn der Server offen ist.
+    if (!tester) {
+      const blocked = env.OFFEN !== 'ja' && body.mode !== 'nearby';
+      ctx.waitUntil(countStranger(env, blocked ? body.mode : 'nearby', blocked));
+      if (blocked) return json({ fehler: 'falscher_code' }, 401);
+    }
 
     if (typeof body.mode === 'string' && body.mode.startsWith('board_')) return board(env, body, request);
 
