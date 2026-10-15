@@ -479,7 +479,8 @@ ${ok ? `<a class="b" href="${esc(app)}">${esc(tx[2])}</a>` : ''}
 
 // ---------- Datenschutz und Impressum ----------
 // Erreichbar unter /datenschutz (Deutsch) und /datenschutz?l=en (Englisch).
-// Hier die eigenen Angaben eintragen (werden auf der Seite öffentlich angezeigt):
+// Name und Anschrift kommen aus den Cloudflare-Variablen IMPRESSUM_NAME und IMPRESSUM_ADRESSE
+// (nicht im öffentlichen GitHub-Code). Fehlen sie, erscheinen die Platzhalter unten.
 const OPERATOR = {
   name: '[Vor- und Nachname]',
   address: '[Straße und Hausnummer], [PLZ Ort], Deutschland',
@@ -611,8 +612,8 @@ const PRIVACY = {
   },
 };
 
-function privacyPage(url) {
-  return infoPage(url, PRIVACY, '/datenschutz');
+function privacyPage(url, env = {}) {
+  return infoPage(url, PRIVACY, '/datenschutz', PRIVACY_DATE, env);
 }
 
 // Hilfe und Kontakt (Support-Seite für den App Store): /hilfe bzw. /hilfe?l=en
@@ -713,7 +714,7 @@ function helpPage(url) {
 }
 
 // Einfache Textseite (Datenschutz, Hilfe) im Findimal-Grün
-function infoPage(url, content, path, dates = PRIVACY_DATE) {
+function infoPage(url, content, path, dates = PRIVACY_DATE, env = {}) {
   const asked = url.searchParams.get('l') || '';
   const lang = content[asked] ? asked : asked ? 'en' : 'de'; // unbekannte Sprache: Englisch
   const p = content[lang];
@@ -723,9 +724,11 @@ function infoPage(url, content, path, dates = PRIVACY_DATE) {
     .filter((l) => l !== lang)
     .map((l) => `<a href="${path}${l === 'de' ? '' : '?l=' + l}">${NAMES[l]}</a>`)
     .join(' · ');
-  const op = `${esc(OPERATOR.name)}<br>${esc(OPERATOR.address)}<br>E-Mail: ${esc(OPERATOR.email)}`;
+  const opName = env.IMPRESSUM_NAME || OPERATOR.name;
+  const opAddress = env.IMPRESSUM_ADRESSE || OPERATOR.address;
+  const op = `${esc(opName)}<br>${esc(opAddress)}<br>E-Mail: ${esc(OPERATOR.email)}`;
   // oben nur Name und E-Mail, die Anschrift steht ganz unten im Impressum
-  const opShort = `${esc(OPERATOR.name)}<br>E-Mail: ${esc(OPERATOR.email)}`;
+  const opShort = `${esc(opName)}<br>E-Mail: ${esc(OPERATOR.email)}`;
   const body = p.sections
     .map(([h, html]) => `<h2>${esc(h)}</h2>${html.split('{OPERATOR_SHORT}').join(opShort).split('{OPERATOR}').join(op).split('{EMAIL}').join(esc(OPERATOR.email))}`)
     .join('\n');
@@ -963,7 +966,7 @@ export default {
       if (url.pathname === '/saison-top') return seasonTop(env, url);
       if (url.pathname === '/icon.png' || url.pathname === '/apple-touch-icon.png' || url.pathname === '/favicon.ico') return iconResponse();
       if (url.pathname === '/einladung') return invitePage(url);
-      if (url.pathname === '/datenschutz' || url.pathname === '/impressum') return privacyPage(url);
+      if (url.pathname === '/datenschutz' || url.pathname === '/impressum') return privacyPage(url, env);
       if (url.pathname === '/hilfe' || url.pathname === '/support') return helpPage(url);
     }
     if (request.method !== 'POST') return json({ fehler: 'Findimal-Server läuft.' });
