@@ -37,7 +37,7 @@ const de = {
   'reg.title': 'Wo bist du unterwegs?',
   'reg.hello': 'Hallo, {name}!',
   'reg.text':
-    'So kann ich dir zeigen, welche Tiere du in deiner Nähe finden kannst. Ich merke mir nur den Ortsnamen.',
+    'Ich zeige dir Tiere in deiner Nähe und erkenne deine Funde genauer. Gespeichert wird nur der Ortsname.',
   'reg.useLocation': 'Standort verwenden',
   'reg.or': 'oder Region eingeben',
   'reg.placeholder': 'Ort eintippen (z. B. München)',
@@ -516,7 +516,7 @@ const en: Strings = {
   'reg.title': 'Where do you explore?',
   'reg.hello': 'Hi, {name}!',
   'reg.text':
-    'This helps me show you which animals you can find near you. I only remember the place name.',
+    'I’ll show you animals near you and identify your finds more accurately. Only the place name is saved.',
   'reg.useLocation': 'Use my location',
   'reg.or': 'or enter a region',
   'reg.placeholder': 'Type a place (e.g. Munich)',
@@ -965,7 +965,7 @@ const fr: Strings = {
   'reg.title': 'Où explores-tu ?',
   'reg.hello': 'Salut, {name} !',
   'reg.text':
-    'Ainsi, je peux te montrer quels animaux tu peux trouver près de chez toi. Je retiens seulement le nom du lieu.',
+    'Je te montre les animaux près de chez toi et j’identifie mieux tes trouvailles. Seul le nom du lieu est enregistré.',
   'reg.useLocation': 'Utiliser ma position',
   'reg.or': 'ou saisis une région',
   'reg.placeholder': 'Saisis un lieu (ex. Munich)',
@@ -1415,7 +1415,7 @@ const es: Strings = {
   'reg.title': '¿Dónde exploras?',
   'reg.hello': '¡Hola, {name}!',
   'reg.text':
-    'Así puedo mostrarte qué animales puedes encontrar cerca de ti. Solo recuerdo el nombre del lugar.',
+    'Te muestro animales cerca de ti e identifico mejor tus hallazgos. Solo se guarda el nombre del lugar.',
   'reg.useLocation': 'Usar mi ubicación',
   'reg.or': 'o escribe una región',
   'reg.placeholder': 'Escribe un lugar (p. ej. Múnich)',
