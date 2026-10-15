@@ -65,10 +65,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Bär
   'p-bear': () => (
     <>
-      <G transform="translate(3.2 5) scale(0.9)">
-      <Path d="M11 66 C11 52 20 44 32 44 C44 44 53 52 53 66Z" fill="#8E5A30"/>
-      <Path d="M22 66 C22 56 26 50 32 50 C38 50 42 56 42 66Z" fill="#E2B88E"/>
-      <Circle cx={18} cy={15} r={6.5} fill="#8E5A30"/><Circle cx={46} cy={15} r={6.5} fill="#8E5A30"/>
+      <G transform="translate(32 33) scale(0.95) translate(-32 -26.5)"><Circle cx={18} cy={15} r={6.5} fill="#8E5A30"/><Circle cx={46} cy={15} r={6.5} fill="#8E5A30"/>
       <Circle cx={18} cy={15} r={3.4} fill="#D69A6A"/><Circle cx={46} cy={15} r={3.4} fill="#D69A6A"/>
       <Path d="M32 11 C20 11 15 19 15 27.5 C15 37 22 42.5 32 42.5 C42 42.5 49 37 49 27.5 C49 19 44 11 32 11Z" fill="#8E5A30"/>
       <Path d="M22 16 C25 13 29 12.5 32 12.5" stroke="#A97448" strokeWidth={2} fill="none" strokeLinecap="round"/>
@@ -77,9 +74,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Ellipse cx={39} cy={25.5} rx={2.3} ry={2.8} fill="#13261C"/><Circle cx={39.8} cy={24.5} r={0.85} fill="#fff"/>
       <Path d="M28.6 31 C28.6 29.4 35.4 29.4 35.4 31 C35.4 32.8 33.4 34 32 34 C30.6 34 28.6 32.8 28.6 31Z" fill="#6E4220"/>
       <Path d="M32 34 v1.6 M29.4 37 q2.6 1.8 5.2 0" stroke="#6E4220" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
-      <Circle cx={20.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/><Circle cx={43.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/>
-      <Path d="M13 54 C14 48 18 45.5 22 46.5 C25 47.5 27 50.5 27 53.5 C27 56.5 24.5 58 22 57.5 C19 57 18 55 17.5 52.5Z" fill="#7A4A26"/><Path d="M51 54 C50 48 46 45.5 42 46.5 C39 47.5 37 50.5 37 53.5 C37 56.5 39.5 58 42 57.5 C45 57 46 55 46.5 52.5Z" fill="#7A4A26"/><Ellipse cx={23.5} cy={54} rx={3.4} ry={2.8} fill="#6E4220"/><Ellipse cx={40.5} cy={54} rx={3.4} ry={2.8} fill="#6E4220"/>
-      </G>
+      <Circle cx={20.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/><Circle cx={43.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/></G>
     </>
   ),
   // Adler
@@ -298,11 +293,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Tiger
   'p-tiger': () => (
     <>
-      <G transform="translate(3.2 5) scale(0.9)">
-      <Path d="M11 66 C11 52 20 44 32 44 C44 44 53 52 53 66Z" fill="#EE8A2C"/>
-      <Path d="M22 66 C22 56 26 50 32 50 C38 50 42 56 42 66Z" fill="#FFF6EA"/>
-      <Path d="M14 56 l6 -1.5 M13 61 l6 -1 M50 56 l-6 -1.5 M51 61 l-6 -1" stroke="#13261C" strokeWidth={1.8} strokeLinecap="round"/>
-      <Circle cx={18} cy={15} r={6} fill="#EE8A2C"/><Circle cx={46} cy={15} r={6} fill="#EE8A2C"/>
+      <G transform="translate(32 33) scale(0.95) translate(-32 -26.5)"><Circle cx={18} cy={15} r={6} fill="#EE8A2C"/><Circle cx={46} cy={15} r={6} fill="#EE8A2C"/>
       <Circle cx={18} cy={15} r={3} fill="#FBE3CC"/><Circle cx={46} cy={15} r={3} fill="#FBE3CC"/>
       <Path d="M32 11 C20 11 15 19 15 27.5 C15 37 22 42.5 32 42.5 C42 42.5 49 37 49 27.5 C49 19 44 11 32 11Z" fill="#EE8A2C"/>
       <Path d="M32 12.5 v5 M27.5 13.5 l1.5 4 M36.5 13.5 l-1.5 4 M15.6 25 h5 M15.6 30 h4 M48.4 25 h-5 M48.4 30 h-4" stroke="#13261C" strokeWidth={1.9} strokeLinecap="round"/>
@@ -312,18 +303,13 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Path d="M28.8 30.5 C28.8 29 35.2 29 35.2 30.5 C35.2 32.2 33.3 33.3 32 33.3 C30.7 33.3 28.8 32.2 28.8 30.5Z" fill="#D86A6A"/>
       <Path d="M32 33.3 v1.6 M29.4 36.2 q2.6 1.8 5.2 0" stroke="#13261C" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
       <Path d="M23 34 l-5 -1 M23 36 l-5 1 M41 34 l5 -1 M41 36 l5 1" stroke="#FFFFFF" strokeWidth={0.8} strokeLinecap="round" opacity={0.9}/>
-      <Circle cx={21} cy={31} r={2} fill="#F5A3A3" opacity={0.6}/><Circle cx={43} cy={31} r={2} fill="#F5A3A3" opacity={0.6}/>
-      <Ellipse cx={23} cy={51} rx={4.6} ry={3.8} fill="#EE8A2C"/><Ellipse cx={41} cy={51} rx={4.6} ry={3.8} fill="#EE8A2C"/>
-      <Path d="M21.5 49.5 v3 M24.5 49.5 v3 M39.5 49.5 v3 M42.5 49.5 v3" stroke="#C26A1B" strokeWidth={0.9} strokeLinecap="round"/>
-      </G>
+      <Circle cx={21} cy={31} r={2} fill="#F5A3A3" opacity={0.6}/><Circle cx={43} cy={31} r={2} fill="#F5A3A3" opacity={0.6}/></G>
     </>
   ),
   // Panda
   'p-panda': () => (
     <>
-      <G transform="translate(3.2 5) scale(0.9)"><Path d="M12 66 C12 52 20 44 32 44 C44 44 52 52 52 66Z" fill="#FFFFFF"/>
-      <Path d="M12 66 C13 57 17 51 23 48 L27 52 C22 55 19 60 19 66Z M52 66 C51 57 47 51 41 48 L37 52 C42 55 45 60 45 66Z" fill="#232B33"/>
-      <Circle cx={18} cy={15} r={6} fill="#232B33"/><Circle cx={46} cy={15} r={6} fill="#232B33"/>
+      <G transform="translate(32 33) scale(0.95) translate(-32 -26.5)"><Circle cx={18} cy={15} r={6} fill="#232B33"/><Circle cx={46} cy={15} r={6} fill="#232B33"/>
       <Circle cx={18} cy={15} r={3} fill="#4A545E"/><Circle cx={46} cy={15} r={3} fill="#4A545E"/>
       <Path d="M32 12 C20 12 15 20 15 28 C15 37 22 42 32 42 C42 42 49 37 49 28 C49 20 44 12 32 12Z" fill="#FFFFFF"/>
       <Path d="M25.5 21 C29 21 30 25 29 29 C28 33 24 34 22 32 C19.5 30 20 23 25.5 21Z" fill="#232B33"/>
@@ -333,11 +319,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Circle cx={26.6} cy={26.7} r={0.6} fill="#fff"/><Circle cx={39.4} cy={26.7} r={0.6} fill="#fff"/>
       <Path d="M29.5 33 C29.5 31.6 34.5 31.6 34.5 33 C34.5 34.4 33 35.4 32 35.4 C31 35.4 29.5 34.4 29.5 33Z" fill="#232B33"/>
       <Path d="M32 35.4 v1.4 M29.6 38 q2.4 1.6 4.8 0" stroke="#232B33" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
-      <Circle cx={21} cy={35} r={2} fill="#F5B5B5" opacity={0.8}/><Circle cx={43} cy={35} r={2} fill="#F5B5B5" opacity={0.8}/>
-      <Path d="M47 24 L39 64" stroke="#5DAA3A" strokeWidth={3.4} strokeLinecap="round"/>
-      <Path d="M46.2 32 l-3.4 0 M44.2 42 l-3.4 0 M42.2 52 l-3.4 0" stroke="#3E8A2A" strokeWidth={1.2} strokeLinecap="round"/>
-      <Path d="M47 25 C51 20 56 19 60 20 C57 24 52 26 47 25Z" fill="#7CC456"/><Path d="M47.5 27 C52 28 55 31 56 35 C52 34 49 31 47.5 27Z" fill="#5DAA3A"/>
-      <Ellipse cx={25} cy={51} rx={5} ry={4} fill="#232B33"/><Ellipse cx={38.5} cy={50} rx={5} ry={4} fill="#232B33"/></G>
+      <Circle cx={21} cy={35} r={2} fill="#F5B5B5" opacity={0.8}/><Circle cx={43} cy={35} r={2} fill="#F5B5B5" opacity={0.8}/></G>
     </>
   ),
   // Otter
