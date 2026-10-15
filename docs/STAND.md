@@ -78,6 +78,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   einbauen (Server prüft, dass Anfragen aus der echten App kommen). Anthropic-Monatslimit klein halten.
 - Wächter: tägliche geplante Aufgabe „Findimal-Wächter“ (7:52 Uhr) meldet Zugriffe ohne Code (KV-Schlüssel `fremd:Datum`).
   Vorschläge „In deiner Nähe“ gehen seit 15.10. auch ohne Code.
+- **Server-Adresse ohne eigenen Namen:** `findimal.chriskuz96.workers.dev` zeigt „chriskuz96“ (Einladungslinks,
+  Datenschutz, Hilfe). Vor dem Start eigene Adresse (z. B. `findimal.app`) bei Cloudflare kaufen und an den Worker
+  hängen; dann `SERVER_URL` in `src/config.ts` und die Links in `docs/APPSTORE.md` umstellen. Alte Adresse
+  weiterlaufen lassen (schon verschickte Einladungen, ältere App-Stände).
 - GitHub-Projekt ist öffentlich (Server-Adresse sichtbar, Geheimnisse nicht) – ggf. auf privat stellen.
 
 ## Ideen für später (wenn viele Spieler da sind)
