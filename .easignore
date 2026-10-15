@@ -1,2 +1,3 @@
 # EAS lädt nach dieser Liste hoch (statt .gitignore), damit assets/ mitkommt
 node_modules/
+.expo/

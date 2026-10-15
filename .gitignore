@@ -2,3 +2,4 @@ node_modules/
 # Bilder kommen aus dem Zweig app-assets (Snack verträgt keine PNGs im Hauptzweig)
 assets/
 package-lock.json
+.expo/
