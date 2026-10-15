@@ -503,7 +503,7 @@ const PRIVACY = {
 <li>Nur das Foto, das du bestimmen lässt, geht kurz an unseren Server und an den KI-Dienst Anthropic. Wir speichern es dort nicht.</li>
 <li>In der Rangliste stehen nur Spitzname, Punkte und Profilbild – keine Fotos und keine Orte. Du kannst sie im Profil jederzeit ausschalten.</li>
 </ul>`],
-      ['Verantwortlich', `<p>{OPERATOR_SHORT}<br>Anschrift: siehe Impressum am Ende dieser Seite.</p>`],
+      ['Verantwortlich', `<p>Name und Anschrift findest du im Impressum am Ende dieser Seite. E-Mail: {EMAIL}</p>`],
       ['Fotos zur Tierbestimmung', `<p>Wenn du ein Foto bestimmen lässt, schickt die App eine verkleinerte Kopie des Fotos – ohne Ortsangaben – an den Findimal-Server, dazu höchstens die grobe Gegend („Mitteleuropa“ oder „Mittelmeerraum“), damit die KI ähnliche Arten besser unterscheiden kann. Er leitet das Foto an die KI von Anthropic PBC (USA) weiter und schickt das Ergebnis zurück. Der Findimal-Server speichert das Foto nicht. Anthropic verarbeitet die Daten nach seinen Geschäftsbedingungen für Unternehmenskunden: Sie werden nicht zum Training der KI verwendet und nur für begrenzte Zeit gespeichert, z. B. zur Erkennung von Missbrauch. Die Übermittlung in die USA erfolgt auf Grundlage geeigneter Garantien (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).</p>
 <p>Zweck: die Bestimmung, die du anforderst. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzung der App-Funktion).</p>
 <p>Bitte fotografiere keine Menschen, Gesichter oder Autokennzeichen.</p>`],
@@ -532,7 +532,7 @@ const PRIVACY = {
 <li>Only the photo you want identified is sent briefly to our server and to the AI service Anthropic. We do not store it there.</li>
 <li>The leaderboard only shows nickname, points and profile picture – no photos and no locations. You can turn it off in your profile at any time.</li>
 </ul>`],
-      ['Controller', `<p>{OPERATOR_SHORT}<br>Postal address: see the legal notice at the end of this page.</p>`],
+      ['Controller', `<p>Name and postal address: see the legal notice at the end of this page. Email: {EMAIL}</p>`],
       ['Photos for identification', `<p>When you identify a photo, the app sends a reduced copy – without location data – to the Findimal server, plus at most the rough area (“Central Europe” or “Mediterranean”) so the AI can tell similar species apart. It forwards the photo to the AI of Anthropic PBC (USA) and returns the result. The Findimal server does not store the photo. Anthropic processes the data under its commercial terms: it is not used to train the AI and is kept only for a limited time, e.g. to detect abuse. Transfers to the USA are based on appropriate safeguards (EU standard contractual clauses or the EU-US Data Privacy Framework).</p>
 <p>Purpose: the identification you request. Legal basis: Art. 6(1)(b) GDPR (use of the app feature).</p>
 <p>Please do not photograph people, faces or licence plates.</p>`],
@@ -561,7 +561,7 @@ const PRIVACY = {
 <li>Seule la photo que tu veux faire identifier est envoyée brièvement à notre serveur et au service d’IA Anthropic. Nous ne l’y conservons pas.</li>
 <li>Dans le classement, on ne voit que ton pseudo, tes points et ta photo de profil – ni photos, ni lieux. Tu peux le désactiver à tout moment dans ton profil.</li>
 </ul>`],
-      ['Responsable', `<p>{OPERATOR_SHORT}<br>Adresse postale : voir les mentions légales en bas de cette page.</p>`],
+      ['Responsable', `<p>Nom et adresse postale : voir les mentions légales en bas de cette page. E-mail : {EMAIL}</p>`],
       ['Photos pour l’identification', `<p>Quand tu fais identifier une photo, l’app envoie une copie réduite – sans données de localisation – au serveur Findimal, avec au plus la zone approximative (« Europe centrale » ou « Méditerranée ») pour aider l’IA à distinguer les espèces proches. Il la transmet à l’IA d’Anthropic PBC (États-Unis) et renvoie le résultat. Le serveur Findimal ne conserve pas la photo. Anthropic traite les données selon ses conditions pour les clients professionnels : elles ne servent pas à entraîner l’IA et ne sont conservées que pour une durée limitée, par ex. pour détecter les abus. Le transfert vers les États-Unis repose sur des garanties appropriées (clauses contractuelles types de l’UE ou EU-US Data Privacy Framework).</p>
 <p>Finalité : l’identification que tu demandes. Base juridique : art. 6, par. 1, point b du RGPD (utilisation de la fonction de l’app).</p>
 <p>Merci de ne pas photographier de personnes, de visages ni de plaques d’immatriculation.</p>`],
@@ -590,7 +590,7 @@ const PRIVACY = {
 <li>Solo la foto que quieres identificar se envía brevemente a nuestro servidor y al servicio de IA Anthropic. No la guardamos allí.</li>
 <li>La clasificación solo muestra tu apodo, tus puntos y tu foto de perfil – ni fotos ni lugares. Puedes desactivarla en tu perfil en cualquier momento.</li>
 </ul>`],
-      ['Responsable', `<p>{OPERATOR_SHORT}<br>Dirección postal: ver el aviso legal al final de esta página.</p>`],
+      ['Responsable', `<p>Nombre y dirección postal: ver el aviso legal al final de esta página. Correo: {EMAIL}</p>`],
       ['Fotos para la identificación', `<p>Cuando identificas una foto, la app envía una copia reducida – sin datos de ubicación – al servidor de Findimal, y como mucho la zona aproximada («Europa Central» o «Mediterráneo») para que la IA distinga mejor especies parecidas. Este la reenvía a la IA de Anthropic PBC (EE. UU.) y devuelve el resultado. El servidor de Findimal no guarda la foto. Anthropic trata los datos según sus condiciones para clientes empresariales: no se usan para entrenar la IA y solo se conservan durante un tiempo limitado, p. ej. para detectar abusos. La transferencia a EE. UU. se basa en garantías adecuadas (cláusulas contractuales tipo de la UE o EU-US Data Privacy Framework).</p>
 <p>Finalidad: la identificación que solicitas. Base jurídica: art. 6.1.b del RGPD (uso de la función de la app).</p>
 <p>Por favor, no fotografíes personas, caras ni matrículas.</p>`],
@@ -727,10 +727,8 @@ function infoPage(url, content, path, dates = PRIVACY_DATE, env = {}) {
   const opName = env.IMPRESSUM_NAME || OPERATOR.name;
   const opAddress = env.IMPRESSUM_ADRESSE || OPERATOR.address;
   const op = `${esc(opName)}<br>${esc(opAddress)}<br>E-Mail: ${esc(OPERATOR.email)}`;
-  // oben nur Name und E-Mail, die Anschrift steht ganz unten im Impressum
-  const opShort = `${esc(opName)}<br>E-Mail: ${esc(OPERATOR.email)}`;
   const body = p.sections
-    .map(([h, html]) => `<h2>${esc(h)}</h2>${html.split('{OPERATOR_SHORT}').join(opShort).split('{OPERATOR}').join(op).split('{EMAIL}').join(esc(OPERATOR.email))}`)
+    .map(([h, html]) => `<h2>${esc(h)}</h2>${html.split('{OPERATOR}').join(op).split('{EMAIL}').join(esc(OPERATOR.email))}`)
     .join('\n');
   const html = `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Findimal – ${esc(p.title)}</title><link rel="apple-touch-icon" href="/icon.png"><link rel="icon" href="/icon.png"><style>
