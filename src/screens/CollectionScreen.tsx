@@ -79,7 +79,7 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
           >
             <View style={styles.meText}>
               {/* lange Namen werden kleiner statt die Ecke breiter zu machen (wie in den Challenges) */}
-              <Text style={styles.meName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.6}>
+              <Text style={styles.meName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
                 {name}
               </Text>
               {/* gleiche Schreibweise wie in Challenges und Profil: Stufe orange, Titel weiß */}
@@ -263,9 +263,10 @@ const styles = StyleSheet.create({
     borderRadius: 99,
     backgroundColor: 'rgba(255,255,255,0.08)',
   },
-  meText: { alignItems: 'flex-end', flexShrink: 1 },
-  meName: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
-  meLevel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight },
+  // stretch + textAlign right: nur so kann iOS lange Namen verkleinern (sonst schneidet es mit „…“ ab)
+  meText: { alignItems: 'stretch', flexShrink: 1 },
+  meName: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.white, textAlign: 'right' },
+  meLevel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight, textAlign: 'right' },
   meCaps: { fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 },
   stats: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 16 },
   stat: { fontFamily: fonts.sansBold, fontSize: 14, color: 'rgba(255,255,255,0.85)' },
