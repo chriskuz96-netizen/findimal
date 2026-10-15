@@ -20,6 +20,7 @@ import { Explorer } from '../components/Explorer';
 import { JungleBackground } from '../components/JungleBackground';
 import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
+import { randomNickname } from '../nicknames';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 
 type Props = { onDone: (name: string) => void };
@@ -131,7 +132,7 @@ function PointIcon({ id }: { id: 'camera' | 'album' | 'friends' | 'heart' }) {
 function AskName({ onDone }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [name, setName] = useState('');
   const trimmed = name.trim();
 
@@ -152,16 +153,20 @@ function AskName({ onDone }: Props) {
           value={name}
           onChangeText={setName}
           placeholder={t('onb.placeholder')}
-          placeholderTextColor={p.mute}
+          placeholderTextColor={`${p.mute}99`}
           maxLength={24}
-          autoComplete="given-name"
-          textContentType="givenName"
+          autoComplete="off"
+          textContentType="nickname"
           autoCapitalize="words"
           returnKeyType="go"
           onSubmitEditing={submit}
           accessibilityLabel={t('onb.placeholder')}
-          style={[styles.input, { backgroundColor: p.card, borderColor: p.line, color: p.ink }]}
+          style={[styles.input, { backgroundColor: p.card, borderColor: p.line, color: p.ink }, !name && styles.inputEmpty]}
         />
+        {/* Vorschlag würfeln: lustiger Tiername statt echtem Namen */}
+        <Pressable onPress={() => setName(randomNickname(lang))} hitSlop={8} accessibilityRole="button" style={styles.dice}>
+          <Text style={[styles.diceText, { color: p.moss }]}>{t('onb.dice')}</Text>
+        </Pressable>
         <Pressable
           onPress={submit}
           disabled={!trimmed}
@@ -182,6 +187,9 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
   },
+  inputEmpty: { fontFamily: fonts.sans, fontSize: 16 },
+  dice: { marginTop: 10, marginBottom: 2 },
+  diceText: { fontFamily: fonts.sansBold, fontSize: 15 },
   welcome: { paddingHorizontal: 22, flexGrow: 1, justifyContent: 'center' },
   wTitle: {
     fontFamily: fonts.serifBold,
