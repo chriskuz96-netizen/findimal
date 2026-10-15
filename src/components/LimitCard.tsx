@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { Translate, useI18n } from '../i18n';
-import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
+import { askForPlus, PLUS_SHOWCASE, usePlus } from '../plus';
 import { colors, darkPalette, fonts, lightPalette, Palette } from '../theme';
 import { FREE_PHOTOS_PER_DAY, VIDEOS_PER_DAY, videosToday } from '../usage';
 import { AdSlot } from './AdSlot';
@@ -84,7 +84,7 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
             <View style={[styles.plusHead, { marginBottom: 4 }]}>
               <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
               <View style={styles.plusAvatars}>
-                {PLUS_AVATARS.slice(0, 3).map((a) => (
+                {PLUS_SHOWCASE.slice(0, 3).map((a) => (
                   <Avatar key={a.id} id={a.id} name="" size={26} />
                 ))}
               </View>

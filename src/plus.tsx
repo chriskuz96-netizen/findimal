@@ -50,6 +50,9 @@ export function askForPlus(t: Translate, setPlus: (on: boolean) => void) {
   ]);
 }
 
+// Auswahl für die Plus-Werbung (Profil-Karte und Foto-Grenze)
+export const PLUS_SHOWCASE = ['p-fox', 'p-eagle', 'p-shark', 'p-giraffe', 'p-crab'].map((id) => ({ id }));
+
 // Exklusive Tier-Profilbilder für Plus-Kunden: Tier und zwei Farben für den Hintergrund
 // Plus-Profilbilder: selbst gezeichnete Tiere (Bilder und Hintergrund in components/PlusAnimal.tsx)
 export const PLUS_AVATARS: { id: string }[] = [

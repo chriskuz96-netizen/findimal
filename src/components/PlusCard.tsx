@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 import { useI18n } from '../i18n';
-import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
+import { askForPlus, PLUS_SHOWCASE, usePlus } from '../plus';
 import { colors, fonts, spacing } from '../theme';
 import { Avatar } from './Avatar';
 
@@ -21,7 +21,7 @@ export function PlusCard({ name, style, onGet }: { name: string; style?: ViewSty
       ))}
       {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
       <View style={styles.preview}>
-        {PLUS_AVATARS.slice(0, 5).map((a) => (
+        {PLUS_SHOWCASE.slice(0, 5).map((a) => (
           <Avatar key={a.id} id={a.id} name={name} size={44} />
         ))}
       </View>
