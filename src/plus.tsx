@@ -67,7 +67,7 @@ export const PLUS_AVATARS: { id: string }[] = [
   { id: 'p-squirrel' },
   { id: 'p-frog' },
   { id: 'p-lizard' },
-  { id: 'p-dolphin' },
+  { id: 'p-crab' },
   { id: 'p-octopus' },
   { id: 'p-parrot' },
   { id: 'p-flamingo' },
@@ -76,7 +76,7 @@ export const PLUS_AVATARS: { id: string }[] = [
   { id: 'p-tiger' },
   { id: 'p-panda' },
   { id: 'p-otter' },
-  { id: 'p-crab' },
+  { id: 'p-shark' },
 ];
 
 export const isPlusAvatar = (id: string) => PLUS_AVATARS.some((a) => a.id === id);

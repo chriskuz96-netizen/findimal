@@ -194,14 +194,21 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Path d="M50 39 Q55 41 59 38" stroke="#2E6E22" strokeWidth={1.2} fill="none" strokeLinecap="round"/></G>
     </>
   ),
-  // Delfin
-  'p-dolphin': () => (
+  // Krabbe
+  'p-crab': () => (
     <>
-      <Path d="M30 23 C30 17 34 13 39 12 C37 16 37 19 39 22Z" fill="#3A7AAE"/>
-      <Path d="M7 39 C12 28 24 22 36 22 C46 22 53 27 56 33 L62 34 C60 37 56 38 53 37 C48 42 40 45 30 45 C22 45 16 43 12 41 L5 46 Z" fill="#4A8FC2"/>
-      <Path d="M14 41 C22 44 34 45 44 42 C49 40 52 38 53 37 C46 41 36 43 26 42 C21 42 17 41 14 41Z" fill="#CFE8F7"/>
-      <Path d="M30 43 C30 48 27 51 23 52 C24 48 25 45 27 43Z" fill="#3A7AAE"/>
-      <Ellipse cx={46} cy={30} rx={1.8} ry={2.2} fill="#13261C"/><Circle cx={46.8} cy={29.1} r={0.8} fill="#fff"/><Path d="M52 35 Q55 36.5 58 35" stroke="#13261C" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
+      <G transform="translate(32 34) scale(0.88) translate(-32 -34)"><Path d="M18 44 L9 48 M18 47 L10 53 M20 50 L13 57 M46 44 L55 48 M46 47 L54 53 M44 50 L51 57" stroke="#C9372A" strokeWidth={2.4} strokeLinecap="round"/>
+      <Path d="M20 38 L13 30 M44 38 L51 30" stroke="#C9372A" strokeWidth={3} strokeLinecap="round"/>
+      <Path d="M13 31 C7 30 5 24 8 19 C10 16 14 15 16 17 L12 22 L17 23 C17 28 16 31 13 31Z" fill="#E8453A"/>
+      <Path d="M51 31 C57 30 59 24 56 19 C54 16 50 15 48 17 L52 22 L47 23 C47 28 48 31 51 31Z" fill="#E8453A"/>
+      <Ellipse cx={32} cy={42} rx={16} ry={11} fill="#E8453A"/>
+      <Path d="M20 38 C25 35 39 35 44 38" stroke="#F27A6A" strokeWidth={1.6} fill="none" strokeLinecap="round"/>
+      <Path d="M27 33 L26 25 M37 33 L38 25" stroke="#C9372A" strokeWidth={2} strokeLinecap="round"/>
+      <Circle cx={26} cy={24} r={3.4} fill="#FFFFFF"/><Circle cx={38} cy={24} r={3.4} fill="#FFFFFF"/>
+      <Circle cx={26.5} cy={24.5} r={1.8} fill="#13261C"/><Circle cx={38.5} cy={24.5} r={1.8} fill="#13261C"/>
+      <Circle cx={27.2} cy={23.7} r={0.6} fill="#fff"/><Circle cx={39.2} cy={23.7} r={0.6} fill="#fff"/>
+      <Path d="M28 45 q4 3 8 0" stroke="#7A1F18" strokeWidth={1.4} fill="none" strokeLinecap="round"/>
+      <Circle cx={23} cy={43} r={2} fill="#F7A8A0" opacity={0.8}/><Circle cx={41} cy={43} r={2} fill="#F7A8A0" opacity={0.8}/></G>
     </>
   ),
   // Krake
@@ -302,21 +309,15 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Path d="M22 38h-8M22 41l-7 2M42 38h8M42 41l7 2" stroke="#F5EDE2" strokeWidth={0.9} strokeLinecap="round"/>
     </>
   ),
-  // Krabbe
-  'p-crab': () => (
+  // Hai
+  'p-shark': () => (
     <>
-      <G transform="translate(32 34) scale(0.88) translate(-32 -34)"><Path d="M18 44 L9 48 M18 47 L10 53 M20 50 L13 57 M46 44 L55 48 M46 47 L54 53 M44 50 L51 57" stroke="#C9372A" strokeWidth={2.4} strokeLinecap="round"/>
-      <Path d="M20 38 L13 30 M44 38 L51 30" stroke="#C9372A" strokeWidth={3} strokeLinecap="round"/>
-      <Path d="M13 31 C7 30 5 24 8 19 C10 16 14 15 16 17 L12 22 L17 23 C17 28 16 31 13 31Z" fill="#E8453A"/>
-      <Path d="M51 31 C57 30 59 24 56 19 C54 16 50 15 48 17 L52 22 L47 23 C47 28 48 31 51 31Z" fill="#E8453A"/>
-      <Ellipse cx={32} cy={42} rx={16} ry={11} fill="#E8453A"/>
-      <Path d="M20 38 C25 35 39 35 44 38" stroke="#F27A6A" strokeWidth={1.6} fill="none" strokeLinecap="round"/>
-      <Path d="M27 33 L26 25 M37 33 L38 25" stroke="#C9372A" strokeWidth={2} strokeLinecap="round"/>
-      <Circle cx={26} cy={24} r={3.4} fill="#FFFFFF"/><Circle cx={38} cy={24} r={3.4} fill="#FFFFFF"/>
-      <Circle cx={26.5} cy={24.5} r={1.8} fill="#13261C"/><Circle cx={38.5} cy={24.5} r={1.8} fill="#13261C"/>
-      <Circle cx={27.2} cy={23.7} r={0.6} fill="#fff"/><Circle cx={39.2} cy={23.7} r={0.6} fill="#fff"/>
-      <Path d="M28 45 q4 3 8 0" stroke="#7A1F18" strokeWidth={1.4} fill="none" strokeLinecap="round"/>
-      <Circle cx={23} cy={43} r={2} fill="#F7A8A0" opacity={0.8}/><Circle cx={41} cy={43} r={2} fill="#F7A8A0" opacity={0.8}/></G>
+      <Path d="M30 12 C33 18 36 22 40 25 L26 25 C28 21 29 17 30 12Z" fill="#6E8597"/>
+      <Path d="M8 40c6-10 16-16 28-16 9 0 16 4 20 10-4 7-12 11-22 11-6 0-10-1-14-3l-6 6c0-3 0-6 1-8-3 0-5 0-7 0z" fill="#8A9FB0"/>
+      <Path d="M22 41c6 3 14 4 22 2 5-1 9-4 12-9-6 5-16 8-34 7z" fill="#EEF2F6"/>
+      <Path d="M38 37l1.5 2 1.5-2 1.5 2 1.5-2 1.5 2 1.5-2" stroke="#8A9FB0" strokeWidth={0.9} fill="#fff" strokeLinejoin="round"/>
+      <Ellipse cx={44} cy={31} rx={1.9} ry={2.3} fill="#13261C"/><Circle cx={44.6} cy={30.3} r={0.7} fill="#fff"/>
+      <Path d="M30 30v6M33 29.5v6" stroke="#6E8597" strokeWidth={1.1} strokeLinecap="round"/>
     </>
   ),
 };
@@ -337,7 +338,7 @@ export const PLUS_ANIMAL_BG: Record<string, [string, string]> = {
   'p-squirrel': ['#AEDCF5', '#2A6FB8'],
   'p-frog': ['#FFC9B6', '#C8573E'],
   'p-lizard': ['#FFD59A', '#C26A1B'],
-  'p-dolphin': ['#FFE0A8', '#E07A3A'],
+  'p-crab': ['#9FD8F5', '#1F5E8C'],
   'p-octopus': ['#8EDBD6', '#145E66'],
   'p-parrot': ['#FFF0A0', '#D4A015'],
   'p-flamingo': ['#9FE6DA', '#1F7A70'],
@@ -346,5 +347,5 @@ export const PLUS_ANIMAL_BG: Record<string, [string, string]> = {
   'p-tiger': ['#9BD49B', '#1F5639'],
   'p-panda': ['#C9F08F', '#3E8A2A'],
   'p-otter': ['#A9D8F2', '#1F5E8C'],
-  'p-crab': ['#9FD8F5', '#1F5E8C'],
+  'p-shark': ['#FFD9A0', '#E08A2A'],
 };
