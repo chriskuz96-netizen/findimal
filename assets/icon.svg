@@ -1,8 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 100 100" overflow="hidden">
 <defs><radialGradient id="logoBg" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="#2F6B47"/><stop offset="1" stop-color="#0F2E1F"/></radialGradient></defs>
 <rect x="0" y="0" width="100" height="100" rx="0" fill="url(#logoBg)"/>
-<path d="M-4 88Q14 62 40 70Q22 92 -4 88Z" fill="#1F5639"/>
-<path d="M104 84Q86 60 62 70Q78 92 104 84Z" fill="#1F5639"/>
 <path d="M23 44L28 13L48 30Z" fill="#E8833A"/>
 <path d="M77 44L72 13L52 30Z" fill="#E8833A"/>
 <path d="M28 36L31 20L41 30Z" fill="#7A3E17"/>

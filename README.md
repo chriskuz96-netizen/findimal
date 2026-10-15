@@ -6,7 +6,7 @@ Beim Bauen der App werden sie nach `assets/` in den Hauptzweig kopiert.
 
 - `assets/icon.png` – App-Symbol 1024 × 1024, ohne Transparenz (iOS rundet die Ecken selbst)
 - `assets/splash-icon.png` – Logo für den Startbildschirm
-- `assets/icon.svg` – Vorlage (aus `src/components/AppLogo.tsx`)
+- `assets/icon.svg` – Vorlage (aus `src/components/AppLogo.tsx`), seit 15.10. ohne Blätter (clean)
 
 ## Bildschirmfotos für den App Store (`store-screenshots/`)
 1320 × 2868 Pixel (6,9-Zoll-iPhone), je 9 Bilder auf Deutsch (`de-…`) und Englisch (`en-…`).
