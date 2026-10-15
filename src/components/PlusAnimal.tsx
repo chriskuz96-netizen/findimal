@@ -78,7 +78,7 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Path d="M28.6 31 C28.6 29.4 35.4 29.4 35.4 31 C35.4 32.8 33.4 34 32 34 C30.6 34 28.6 32.8 28.6 31Z" fill="#6E4220"/>
       <Path d="M32 34 v1.6 M29.4 37 q2.6 1.8 5.2 0" stroke="#6E4220" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
       <Circle cx={20.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/><Circle cx={43.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/>
-      <Ellipse cx={24} cy={52} rx={4.6} ry={3.8} fill="#6E4220"/><Ellipse cx={40} cy={52} rx={4.6} ry={3.8} fill="#6E4220"/>
+      <Path d="M13 54 C14 48 18 45.5 22 46.5 C25 47.5 27 50.5 27 53.5 C27 56.5 24.5 58 22 57.5 C19 57 18 55 17.5 52.5Z" fill="#7A4A26"/><Path d="M51 54 C50 48 46 45.5 42 46.5 C39 47.5 37 50.5 37 53.5 C37 56.5 39.5 58 42 57.5 C45 57 46 55 46.5 52.5Z" fill="#7A4A26"/><Ellipse cx={23.5} cy={54} rx={3.4} ry={2.8} fill="#6E4220"/><Ellipse cx={40.5} cy={54} rx={3.4} ry={2.8} fill="#6E4220"/>
       </G>
     </>
   ),
