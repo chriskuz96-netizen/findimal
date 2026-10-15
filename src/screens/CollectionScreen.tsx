@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { Avatar } from '../components/Avatar';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { AdSlot } from '../components/AdSlot';
 import { Find, speciesKey, useFindPhoto } from '../finds';
@@ -22,13 +23,17 @@ import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../t
 
 type Props = {
   finds: Find[];
+  name: string;
+  avatar: string | null; // Profilbild (wie im Profil)
+  level: number;
+  onOpenProfile: () => void;
   onOpen: (find: Find) => void;
   onDelete: (find: Find) => void;
   onDiscover: () => void;
 };
 
 // Sammlung als Fotoalbum: alle eigenen Fotos, filterbar nach Tiergruppe.
-export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props) {
+export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, onOpen, onDelete, onDiscover }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, locale } = useI18n();
@@ -65,11 +70,48 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
         <HeaderBackground />
         <View style={styles.titleRow}>
           <Text style={styles.h2}>{t('col.title')}</Text>
+          {/* klein oben rechts: wer sammelt – antippen öffnet das Profil */}
+          <Pressable
+            onPress={onOpenProfile}
+            accessibilityRole="button"
+            accessibilityLabel={t('a11y.profile')}
+            style={({ pressed }) => [styles.me, { opacity: pressed ? 0.8 : 1 }]}
+          >
+            <View style={styles.meText}>
+              <Text style={styles.meName} numberOfLines={1}>
+                {name}
+              </Text>
+              <Text style={styles.meLevel} numberOfLines={1}>
+                {t('ch.level', { n: level })} · {t(`level.${level - 1}` as 'level.0')}
+              </Text>
+            </View>
+            <Avatar id={avatar} name={name} size={32} />
+          </Pressable>
         </View>
+        {/* Fotos und Arten groß, frei auf dem Grün (wie die XP in den Challenges) */}
         <View style={styles.stats}>
-          <Stat value={String(finds.length)} label={t('col.photos')} />
-          <Stat value={String(speciesKeys.size)} label={t('col.species')} />
-          <Stat value={`${groupsFound.size}/${GROUPS.length}`} label={t('col.groups')} />
+          <Text style={styles.stat}>
+            <Text style={styles.statValue}>{finds.length}</Text> {t('col.photos')}
+          </Text>
+          <View style={styles.statSep} />
+          <Text style={styles.stat}>
+            <Text style={styles.statValue}>{speciesKeys.size}</Text> {t('col.species')}
+          </Text>
+        </View>
+        {/* Tiergruppen als Sammel-Leiste: gefundene leuchten, fehlende sind gestrichelt */}
+        <View style={styles.groupHead}>
+          <Text style={styles.groupTitle}>{t('col.groupsTitle')}</Text>
+          <Text style={styles.groupCount}>{t('col.groupsOf', { n: groupsFound.size, total: GROUPS.length })}</Text>
+        </View>
+        <View style={styles.groupRow}>
+          {GROUPS.map((g) => {
+            const on = groupsFound.has(g.id);
+            return (
+              <View key={g.id} style={[styles.groupDot, on ? styles.groupOn : styles.groupOff]} accessibilityLabel={t(`g.${g.id}`)}>
+                <GroupIcon id={g.id} size={20} color={on ? colors.accentLight : 'rgba(255,255,255,0.28)'} />
+              </View>
+            );
+          })}
         </View>
       </View>
 
@@ -121,15 +163,6 @@ export function CollectionScreen({ finds, onOpen, onDelete, onDiscover }: Props)
       </ScrollView>
       {/* Feste Anzeigen-Leiste unten: bleibt stehen, die Fotos scrollen darüber */}
       {finds.length > 0 && <AdSlot p={p} placement='collection' compact />}
-    </View>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <View style={styles.stat}>
-      <Text style={styles.statValue}>{value}</Text>
-      <Text style={styles.statLabel}>{label}</Text>
     </View>
   );
 }
@@ -225,18 +258,38 @@ const styles = StyleSheet.create({
   },
   h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white },
   titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
-  stats: { flexDirection: 'row', gap: 8 },
-  stat: {
-    flex: 1,
-    backgroundColor: 'rgba(255,255,255,0.07)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,210,168,0.25)',
-    borderRadius: 14,
-    paddingVertical: 8,
+  me: {
+    flexDirection: 'row',
     alignItems: 'center',
+    gap: 8,
+    flexShrink: 1,
+    marginLeft: 12,
+    paddingVertical: 4,
+    paddingLeft: 12,
+    paddingRight: 4,
+    borderRadius: 99,
+    backgroundColor: 'rgba(255,255,255,0.08)',
   },
-  statValue: { fontFamily: fonts.serifBold, fontSize: 22, color: colors.accentLight },
-  statLabel: { fontFamily: fonts.sans, fontSize: 12, color: colors.white, opacity: 0.8 },
+  meText: { alignItems: 'flex-end', flexShrink: 1 },
+  meName: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
+  meLevel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight },
+  stats: { flexDirection: 'row', alignItems: 'center', gap: 18 },
+  stat: { fontFamily: fonts.sansBold, fontSize: 14, color: 'rgba(255,255,255,0.85)' },
+  statValue: { fontFamily: fonts.serifBold, fontSize: 30, color: colors.accentLight },
+  statSep: { width: 1, height: 22, backgroundColor: 'rgba(255,255,255,0.18)' },
+  groupHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginTop: 18, marginBottom: 8 },
+  groupTitle: {
+    fontFamily: fonts.sansBold,
+    fontSize: 11.5,
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
+    color: colors.accentLight,
+  },
+  groupCount: { fontFamily: fonts.sansBold, fontSize: 12, color: 'rgba(255,255,255,0.75)' },
+  groupRow: { flexDirection: 'row', justifyContent: 'space-between' },
+  groupDot: { width: 34, height: 34, borderRadius: 17, borderWidth: 1.5, alignItems: 'center', justifyContent: 'center' },
+  groupOn: { borderColor: 'rgba(255,210,168,0.55)', backgroundColor: 'rgba(255,210,168,0.14)' },
+  groupOff: { borderColor: 'rgba(255,255,255,0.18)', borderStyle: 'dashed' },
   chipRow: { flexGrow: 0 },
   chips: { gap: 8, paddingHorizontal: spacing.gutter, paddingTop: 12, paddingBottom: 2 },
   chip: {

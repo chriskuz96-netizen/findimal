@@ -429,6 +429,11 @@ function Main() {
           <StartScreen
             name={name}
             region={region}
+            onSetRegion={(r) => {
+              saveRegion(r);
+              setRegion(r);
+            }}
+            onTypeRegion={() => setAskRegion(true)}
             onOpenProfile={() => setShowProfile(true)}
             xp={progress.xp}
             avatar={avatarBadge}
@@ -442,6 +447,10 @@ function Main() {
         {tab === 'collection' && (
           <CollectionScreen
             finds={finds}
+            name={name}
+            avatar={avatarBadge}
+            level={progress.level}
+            onOpenProfile={() => setShowProfile(true)}
             onOpen={setOpenFind}
             onDelete={(f) => removeFind(f.id).then(setFinds)}
             onDiscover={() => setTab('start')}

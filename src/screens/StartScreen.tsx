@@ -21,6 +21,8 @@ import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 type Props = {
   name: string | null;
   region: string;
+  onSetRegion: (place: string) => void;
+  onTypeRegion: () => void;
   onOpenProfile: () => void;
   xp: number;
   avatar: string | null; // Abzeichen oder Plus-Tier als Profilbild
@@ -34,6 +36,8 @@ type Props = {
 export function StartScreen({
   name,
   region,
+  onSetRegion,
+  onTypeRegion,
   onOpenProfile,
   xp,
   avatar,
@@ -130,7 +134,7 @@ export function StartScreen({
           <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting}</Text>
         </View>
       </View>
-      <NearbyList region={region} />
+      <NearbyList region={region} onSetRegion={onSetRegion} onTypeRegion={onTypeRegion} />
     </View>
   );
 }
