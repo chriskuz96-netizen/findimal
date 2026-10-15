@@ -78,11 +78,12 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
             style={({ pressed }) => [styles.me, { opacity: pressed ? 0.8 : 1 }]}
           >
             <View style={styles.meText}>
-              <Text style={styles.meName} numberOfLines={1}>
+              {/* lange Namen werden kleiner statt die Ecke breiter zu machen (wie in den Challenges) */}
+              <Text style={styles.meName} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.6}>
                 {name}
               </Text>
               {/* gleiche Schreibweise wie in Challenges und Profil: Stufe orange, Titel weiß */}
-              <Text style={styles.meLevel} numberOfLines={1}>
+              <Text style={styles.meLevel} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75}>
                 <Text style={styles.meCaps}>{t('ch.level', { n: level })}</Text> ·{' '}
                 <Text style={{ color: colors.white }}>{t(`level.${level - 1}` as 'level.0')}</Text>
               </Text>
@@ -254,6 +255,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     flexShrink: 1,
+    maxWidth: '52%',
     marginLeft: 12,
     paddingVertical: 4,
     paddingLeft: 12,
