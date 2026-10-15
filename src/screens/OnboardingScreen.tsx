@@ -39,9 +39,10 @@ function Welcome({ onNext }: { onNext: () => void }) {
   useEffect(() => {
     Animated.timing(fade, { toValue: 1, duration: 700, useNativeDriver: true }).start();
   }, [fade]);
-  const points: { icon: 'camera' | 'album' | 'heart'; title: string; text: string }[] = [
+  const points: { icon: 'camera' | 'album' | 'friends' | 'heart'; title: string; text: string }[] = [
     { icon: 'camera', title: t('wel.p1'), text: t('wel.p1text') },
     { icon: 'album', title: t('wel.p2'), text: t('wel.p2text') },
+    { icon: 'friends', title: t('wel.p4'), text: t('wel.p4text') },
     { icon: 'heart', title: t('wel.p3'), text: t('wel.p3text') },
   ];
 
@@ -90,10 +91,18 @@ function Welcome({ onNext }: { onNext: () => void }) {
   );
 }
 
-function PointIcon({ id }: { id: 'camera' | 'album' | 'heart' }) {
+function PointIcon({ id }: { id: 'camera' | 'album' | 'friends' | 'heart' }) {
   const s = { stroke: colors.accentLight, strokeWidth: 1.8, fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
   return (
     <Svg width={24} height={24} viewBox="0 0 24 24">
+      {id === 'friends' && (
+        <>
+          <Circle cx={9} cy={8} r={3} {...s} />
+          <Path d="M3 19c0-3.3 2.7-5 6-5s6 1.7 6 5" {...s} />
+          <Circle cx={17} cy={9} r={2.4} {...s} />
+          <Path d="M16 14.2c2.9 0 5 1.6 5 4.3" {...s} />
+        </>
+      )}
       {id === 'camera' && (
         <>
           <Path d="M4 8h3l1.6-2.5h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" {...s} />
