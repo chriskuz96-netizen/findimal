@@ -288,6 +288,21 @@ function Main() {
       .then((r) => r === 'wrong' && setAskCode(true));
   }, [name, region]);
 
+  // Kein Ort eingestellt ("Später" gewählt): beim Öffnen der App einmal am Tag wieder nach dem Ort fragen
+  const regionChecked = useRef(false);
+  useEffect(() => {
+    if (regionChecked.current || !name || region !== '') return;
+    regionChecked.current = true;
+    const today = new Date().toDateString();
+    AsyncStorage.getItem('findimal-region-asked')
+      .then((day) => {
+        if (day === today) return;
+        AsyncStorage.setItem('findimal-region-asked', today).catch(() => {});
+        setAskRegion(true);
+      })
+      .catch(() => {});
+  }, [name, region]);
+
   // Solange Schriften oder Name laden: Startbild mit dem Findimal-Symbol.
   if (!fontsLoaded || !loaded || name === undefined || region === undefined) {
     return (
@@ -323,6 +338,11 @@ function Main() {
             saveRegion(next);
             setRegion(next);
             setAskRegion(false);
+            // heute nicht noch einmal fragen
+            if (!next) {
+              regionChecked.current = true;
+              AsyncStorage.setItem('findimal-region-asked', new Date().toDateString()).catch(() => {});
+            }
           }}
         />
       </>
