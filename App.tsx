@@ -132,6 +132,9 @@ function Main() {
         setPreparing(uri);
       }, onOpen);
       if (p) setPhoto(p);
+    } catch {
+      // z. B. iCloud-Foto nicht ladbar
+      Alert.alert(t('id.error'));
     } finally {
       clearTimeout(under);
       photoBusy.current = false;
@@ -230,7 +233,7 @@ function Main() {
       setShowProfile(false);
       setTab('challenges');
     };
-    Linking.getInitialURL().then(handle);
+    Linking.getInitialURL().then(handle).catch(() => {});
     const sub = Linking.addEventListener('url', (e) => handle(e.url));
     return () => sub.remove();
   }, []);

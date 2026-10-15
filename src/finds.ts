@@ -32,11 +32,26 @@ function change(fn: (finds: Find[]) => Find[]): Promise<Find[]> {
   return run;
 }
 
+// Konnte der Speicher nicht gelesen werden, wird nichts zurückgeschrieben – sonst würde ein neuer Fund
+// die ganze (nur gerade nicht lesbare) Sammlung überschreiben.
+let readFailed = false;
+
 export async function loadFinds(): Promise<Find[]> {
+  let raw: string | null;
   try {
-    const raw = await AsyncStorage.getItem(FINDS_KEY);
-    latest = raw ? (JSON.parse(raw) as Find[]) : [];
+    raw = await AsyncStorage.getItem(FINDS_KEY);
+    readFailed = false;
   } catch {
+    readFailed = true;
+    latest = [];
+    return latest;
+  }
+  try {
+    const list = raw ? JSON.parse(raw) : [];
+    latest = Array.isArray(list) ? (list as Find[]) : [];
+  } catch {
+    // kaputter Inhalt: Rohdaten sichern, dann neu anfangen
+    await AsyncStorage.setItem(FINDS_KEY + '-backup', raw ?? '').catch(() => {});
     latest = [];
   }
   return latest;
@@ -45,10 +60,12 @@ export async function loadFinds(): Promise<Find[]> {
 // Nach „Alles zurücksetzen“
 export function forgetFinds(): void {
   latest = [];
+  readFailed = false;
   photoCache.clear();
 }
 
 async function storeFinds(finds: Find[]): Promise<void> {
+  if (readFailed) return;
   try {
     await AsyncStorage.setItem(FINDS_KEY, JSON.stringify(finds));
   } catch {

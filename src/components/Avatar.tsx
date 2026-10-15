@@ -11,7 +11,7 @@ import { BADGE_TIER, Medal } from './Medal';
 export function Avatar({ id, name, size }: { id: string | null; name: string; size: number }) {
   const plus = id ? PLUS_AVATARS.find((a) => a.id === id) : undefined;
   if (plus) return <PlusAvatar size={size} id={plus.id} />;
-  if (id && id in BADGE_TIER) return <Medal id={id as BadgeId} size={size} />;
+  if (id && Object.prototype.hasOwnProperty.call(BADGE_TIER, id)) return <Medal id={id as BadgeId} size={size} />;
   const d = Math.round(size * 0.9);
   return (
     <View style={[styles.letter, { width: d, height: d, borderRadius: d / 2, margin: (size - d) / 2 }]}>
