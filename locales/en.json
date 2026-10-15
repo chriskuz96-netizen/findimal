@@ -1,5 +1,6 @@
 {
   "NSCameraUsageDescription": "Findimal needs the camera so you can photograph animals and have them identified.",
   "NSPhotoLibraryUsageDescription": "Findimal needs access to your photos so you can choose an animal photo to identify.",
-  "NSLocationWhenInUseUsageDescription": "So Findimal can suggest animals from your area and note where you found them, your location is used to find the name of the place. Only the name is stored, on your phone."
+  "NSLocationWhenInUseUsageDescription": "So Findimal can suggest animals from your area and note where you found them, your location is used to find the name of the place. Only the name is stored, on your phone.",
+  "NSMotionUsageDescription": "Findimal does not use motion or fitness data. Your location is only used to find the place name of your sightings."
 }

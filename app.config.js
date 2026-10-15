@@ -48,7 +48,7 @@ module.exports = ({ config }) => ({
         locationWhenInUsePermission: de.NSLocationWhenInUseUsageDescription,
         locationAlwaysPermission: de.NSLocationWhenInUseUsageDescription,
         locationAlwaysAndWhenInUsePermission: de.NSLocationWhenInUseUsageDescription,
-        motionUsagePermission: false,
+        motionUsagePermission: de.NSMotionUsageDescription,
       },
     ],
   ],
