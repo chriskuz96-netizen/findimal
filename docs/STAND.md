@@ -35,7 +35,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
    Push-Fähigkeit der App-ID von Hand eingeschaltet (EAS-Abgleich scheitert) → immer mit
    `EXPO_NO_CAPABILITY_SYNC=1`, `EXPO_APPLE_TEAM_TYPE=INDIVIDUAL` und `--non-interactive` bauen.
    App-Store-Connect-ID der App: 6823092816 (in `eas.json` unter submit).
-   Bau 1.0.0 (5) am 15.10. fertig und zu TestFlight hochgeladen. `eas submit --non-interactive` braucht den
+   Bau 5 von Apple abgelehnt (ITMS-90683: NSMotionUsageDescription fehlte, verlangt vom Standort-Baustein; jetzt in
+   `locales/` ergänzt). Bau 1.0.0 (6) am 15.10. von Apple angenommen (VALID) und in TestFlight. `eas submit --non-interactive` braucht den
    API-Schlüssel in `eas.json` (`ascApiKeyPath`, `ascApiKeyId`, `ascApiKeyIssuerId`) – nur lokal eintragen, nicht committen.
 3. ~~Ersten Bau mit EAS und Upload zu TestFlight~~ erledigt (15.10.). Offen: Tester in App Store Connect → TestFlight eintragen.
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
