@@ -1,20 +1,21 @@
-import { ComponentProps, createContext, ReactNode, useContext, useEffect, useMemo, useRef } from 'react';
+import { ComponentProps, createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { Gesture, GestureDetector, NativeGesture } from 'react-native-gesture-handler';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { scheduleOnRN } from 'react-native-worklets';
 
-// Scrollen der Seite: läuft gleichzeitig mit der Wischgeste, statt auf sie zu warten (sonst ruckelt es)
-const ScrollGesture = createContext<NativeGesture | null>(null);
+// Scrollen der Seite: läuft gleichzeitig mit der Wischgeste, statt auf sie zu warten (sonst ruckelt es).
+// Sobald das Zurückwischen erkannt ist, steht das Scrollen still (locked).
+const ScrollGesture = createContext<{ native: NativeGesture; locked: boolean } | null>(null);
 
 // ScrollView für Seiten in SwipeBack – scrollt flüssig, auch wenn man leicht schräg wischt
 export function SwipeScrollView(props: ComponentProps<typeof ScrollView>) {
-  const native = useContext(ScrollGesture);
-  if (!native) return <ScrollView {...props} />;
+  const ctx = useContext(ScrollGesture);
+  if (!ctx) return <ScrollView {...props} />;
   return (
-    <GestureDetector gesture={native}>
-      <ScrollView {...props} />
+    <GestureDetector gesture={ctx.native}>
+      <ScrollView {...props} scrollEnabled={!ctx.locked && props.scrollEnabled !== false} />
     </GestureDetector>
   );
 }
@@ -46,6 +47,8 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
   };
 
   const native = useMemo(() => Gesture.Native(), []);
+  const [locked, setLocked] = useState(false);
+  const scroll = useMemo(() => ({ native, locked }), [native, locked]);
   const pan = Gesture.Pan()
     .enabled(enabled)
     .simultaneousWithExternalGesture(native)
@@ -53,6 +56,13 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
     .activeOffsetX(18)
     .failOffsetX(-12)
     .failOffsetY([-14, 14])
+    // Zurückwischen erkannt: Seite nicht mehr hoch und runter scrollen lassen
+    .onStart(() => {
+      scheduleOnRN(setLocked, true);
+    })
+    .onFinalize(() => {
+      scheduleOnRN(setLocked, false);
+    })
     .onUpdate((e) => {
       x.value = Math.max(0, e.translationX);
     })
@@ -86,7 +96,7 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
             <Rect x={0} y={0} width={16} height="100%" fill="url(#swipeShadow)" />
           </Svg>
         </View>
-        <ScrollGesture.Provider value={native}>{children}</ScrollGesture.Provider>
+        <ScrollGesture.Provider value={scroll}>{children}</ScrollGesture.Provider>
       </Animated.View>
     </GestureDetector>
   );
