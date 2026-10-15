@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Alert, Platform, Pressable, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import {
   cleanCode,
@@ -246,11 +246,15 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     } catch {
       link = '';
     }
-    const message = link
-      ? t('lb.shareText', { code: pretty(me.id), link })
-      : t('lb.shareCode', { code: pretty(me.id) });
+    // iOS: Link extra mitgeben, dann zeigt das Teilen-Fenster die Vorschau mit dem Fuchs-Symbol
+    const ios = Platform.OS === 'ios' && !!link;
+    const message = ios
+      ? t('lb.shareTextUrl', { code: pretty(me.id) })
+      : link
+        ? t('lb.shareText', { code: pretty(me.id), link })
+        : t('lb.shareCode', { code: pretty(me.id) });
     try {
-      await Share.share({ message });
+      await Share.share(ios ? { message, url: link } : { message });
     } catch (e) {
       Alert.alert(t('lb.invite'), `${t('lb.shareFailed')}\n\n${pretty(me.id)}`);
     }
