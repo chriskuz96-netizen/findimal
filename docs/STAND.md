@@ -82,5 +82,6 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 ## Ideen für später (wenn viele Spieler da sind)
 - Weltweite Rangliste ausbauen: eigenes Fenster mit Filtern nach **Land und Region** und nach **Saison**
   (z. B. „Herbst 2026“). Eigene **Platznummer** anzeigen (z. B. „Platz 740 von 1.000“ statt „–“) – dafür muss
-  der Server alle Punktestände kennen, nicht nur die Top 100 (`TOP_SIZE`). Optional kürzere Liste: Top 10,
-  dann „···“ und die Leute knapp vor und hinter einem selbst (motiviert, den Nächsten zu überholen).
+  der Server alle Punktestände kennen, nicht nur die Top 100 (`TOP_SIZE`).
+- **Entschieden (15.10.):** Weltweit nur **Top 10**, dann „···“, dann **ein paar Leute vor und nach einem selbst**
+  (motiviert, den Nächsten zu überholen). Statt der langen Top-100-Liste.
