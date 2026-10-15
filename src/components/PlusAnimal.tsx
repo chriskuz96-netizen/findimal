@@ -65,12 +65,25 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Bär
   'p-bear': () => (
     <>
-      <Circle cx={19} cy={20} r={6} fill="#7A4A26"/><Circle cx={45} cy={20} r={6} fill="#7A4A26"/>
-      <Circle cx={19} cy={20} r={3} fill="#C98A5A"/><Circle cx={45} cy={20} r={3} fill="#C98A5A"/>
-      <Circle cx={32} cy={34} r={16} fill="#8E5A30"/>
-      <Ellipse cx={32} cy={41} rx={8.5} ry={6.5} fill="#E2B88E"/>
-      <Ellipse cx={25.5} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={26.3} cy={30.1} r={0.8} fill="#fff"/><Ellipse cx={38.5} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={39.3} cy={30.1} r={0.8} fill="#fff"/><Ellipse cx={32} cy={38} rx={3.2} ry={2.3} fill="#13261C"/>
-      <Path d="M32 40.5v2.3M29.5 43.5q2.5 2 5 0" stroke="#13261C" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
+      <G transform="translate(3.2 5) scale(0.9)">
+      <Path d="M11 66 C11 52 20 44 32 44 C44 44 53 52 53 66Z" fill="#8E5A30"/>
+      <Path d="M22 66 C22 56 26 50 32 50 C38 50 42 56 42 66Z" fill="#E2B88E"/>
+      <Circle cx={18} cy={15} r={6.5} fill="#8E5A30"/><Circle cx={46} cy={15} r={6.5} fill="#8E5A30"/>
+      <Circle cx={18} cy={15} r={3.4} fill="#D69A6A"/><Circle cx={46} cy={15} r={3.4} fill="#D69A6A"/>
+      <Path d="M32 11 C20 11 15 19 15 27.5 C15 37 22 42.5 32 42.5 C42 42.5 49 37 49 27.5 C49 19 44 11 32 11Z" fill="#8E5A30"/>
+      <Path d="M22 16 C25 13 29 12.5 32 12.5" stroke="#A97448" strokeWidth={2} fill="none" strokeLinecap="round"/>
+      <Ellipse cx={32} cy={34} rx={9} ry={7} fill="#E2B88E"/>
+      <Ellipse cx={25} cy={25.5} rx={2.3} ry={2.8} fill="#13261C"/><Circle cx={25.8} cy={24.5} r={0.85} fill="#fff"/>
+      <Ellipse cx={39} cy={25.5} rx={2.3} ry={2.8} fill="#13261C"/><Circle cx={39.8} cy={24.5} r={0.85} fill="#fff"/>
+      <Path d="M28.6 31 C28.6 29.4 35.4 29.4 35.4 31 C35.4 32.8 33.4 34 32 34 C30.6 34 28.6 32.8 28.6 31Z" fill="#6E4220"/>
+      <Path d="M32 34 v1.6 M29.4 37 q2.6 1.8 5.2 0" stroke="#6E4220" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
+      <Circle cx={20.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/><Circle cx={43.5} cy={33} r={2.2} fill="#F2A3A3" opacity={0.7}/>
+      <Path d="M25 46 C25 43 27 42 32 42 C37 42 39 43 39 46 L38 56 C38 58 36 59 32 59 C28 59 26 58 26 56Z" fill="#E8A93A"/>
+      <Path d="M24.5 44 C24.5 41.8 39.5 41.8 39.5 44 C39.5 46 24.5 46 24.5 44Z" fill="#C98A20"/>
+      <Path d="M28 45 C28 47 29 49 28.6 51 C28.2 52.5 27 52 27 50.5" fill="#F6C83A"/>
+      <Path d="M29 51 h6" stroke="#C98A20" strokeWidth={1} strokeLinecap="round"/>
+      <Ellipse cx={22.5} cy={50} rx={4.6} ry={3.8} fill="#6E4220"/><Ellipse cx={41.5} cy={50} rx={4.6} ry={3.8} fill="#6E4220"/>
+      </G>
     </>
   ),
   // Adler
@@ -88,12 +101,18 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Schildkröte
   'p-turtle': () => (
     <>
-      <Ellipse cx={32} cy={45} rx={19} ry={12} fill="#5E8A2E"/>
-      <Path d="M18 44h28M24 37l-3 8 3 8M40 37l3 8-3 8M32 34v22" stroke="#3E6018" strokeWidth={1.4} fill="none"/>
-      <Ellipse cx={32} cy={44} rx={19} ry={12} fill="none" stroke="#C9A54A" strokeWidth={1.6}/>
-      <Circle cx={32} cy={27} r={11} fill="#8CC56A"/>
-      <Ellipse cx={27.5} cy={25.5} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={28.3} cy={24.6} r={0.8} fill="#fff"/><Ellipse cx={36.5} cy={25.5} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={37.3} cy={24.6} r={0.8} fill="#fff"/><Path d="M28 31q4 3 8 0" stroke="#13261C" strokeWidth={1.3} fill="none" strokeLinecap="round"/>
-      <Circle cx={25} cy={29.5} r={1.6} fill="#F2A3A3" opacity={0.7}/><Circle cx={39} cy={29.5} r={1.6} fill="#F2A3A3" opacity={0.7}/>
+      <Ellipse cx={14} cy={50} rx={6} ry={3.4} transform="rotate(-25 14 50)" fill="#7CBF5A"/><Ellipse cx={50} cy={50} rx={6} ry={3.4} transform="rotate(25 50 50)" fill="#7CBF5A"/>
+      <Path d="M12 46 C12 34 21 28 32 28 C43 28 52 34 52 46 C52 52 43 56 32 56 C21 56 12 52 12 46Z" fill="#4E7F2A"/>
+      <Path d="M32 31 L38 35 L37 42 L32 45 L27 42 L26 35Z" fill="#6FA23C" stroke="#C9A54A" strokeWidth={1.2} strokeLinejoin="round"/>
+      <Path d="M26 35 L18 37 L16 44 L22 48 L27 42Z M38 35 L46 37 L48 44 L42 48 L37 42Z M27 42 L22 48 L27 53 L32 51 L32 45Z M37 42 L42 48 L37 53 L32 51 L32 45Z" fill="#5E922F" stroke="#C9A54A" strokeWidth={1.1} strokeLinejoin="round"/>
+      <Path d="M12.5 47 C14 53 22 56.5 32 56.5 C42 56.5 50 53 51.5 47" stroke="#C9A54A" strokeWidth={1.6} fill="none"/>
+      <Path d="M20 32 C23 30 27 29 30 29" stroke="#8CC56A" strokeWidth={1.4} fill="none" strokeLinecap="round" opacity={0.8}/>
+      <Circle cx={32} cy={22} r={10.5} fill="#8CC56A"/>
+      <Ellipse cx={28} cy={21} rx={2.1} ry={2.6} fill="#13261C"/><Circle cx={28.8} cy={20} r={0.8} fill="#fff"/>
+      <Ellipse cx={36} cy={21} rx={2.1} ry={2.6} fill="#13261C"/><Circle cx={36.8} cy={20} r={0.8} fill="#fff"/>
+      <Path d="M28.5 26 q3.5 2.6 7 0" stroke="#13261C" strokeWidth={1.3} fill="none" strokeLinecap="round"/>
+      <Circle cx={25} cy={24.5} r={1.7} fill="#F2A3A3" opacity={0.75}/><Circle cx={39} cy={24.5} r={1.7} fill="#F2A3A3" opacity={0.75}/>
+      <Path d="M26 15 C28 13 31 12.5 33 12.6" stroke="#B5E09A" strokeWidth={1.4} fill="none" strokeLinecap="round"/>
     </>
   ),
   // Schmetterling
@@ -283,13 +302,24 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
   // Tiger
   'p-tiger': () => (
     <>
-      <Circle cx={19} cy={19} r={5.5} fill="#E8833A"/><Circle cx={45} cy={19} r={5.5} fill="#E8833A"/>
-      <Circle cx={19} cy={19} r={2.6} fill="#FBE3CC"/><Circle cx={45} cy={19} r={2.6} fill="#FBE3CC"/>
-      <Circle cx={32} cy={34} r={17} fill="#EE8A2C"/>
-      <Path d="M32 17v6M27 18l1.5 5M37 18l-1.5 5M15.5 30h6M15.5 36h5M48.5 30h-6M48.5 36h-5" stroke="#13261C" strokeWidth={2} strokeLinecap="round"/>
-      <Path d="M32 36c-6 0-11 3-11 8 2 4 6 6 11 6s9-2 11-6c0-5-5-8-11-8z" fill="#FFF6EA"/>
-      <Ellipse cx={25.5} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={26.3} cy={30.1} r={0.8} fill="#fff"/><Ellipse cx={38.5} cy={31} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={39.3} cy={30.1} r={0.8} fill="#fff"/><Path d="M29.5 37h5l-2.5 2.6z" fill="#D86A6A"/>
-      <Path d="M32 39.5v1.6M29.5 42.5q2.5 1.8 5 0" stroke="#13261C" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
+      <G transform="translate(3.2 5) scale(0.9)">
+      <Path d="M11 66 C11 52 20 44 32 44 C44 44 53 52 53 66Z" fill="#EE8A2C"/>
+      <Path d="M22 66 C22 56 26 50 32 50 C38 50 42 56 42 66Z" fill="#FFF6EA"/>
+      <Path d="M14 56 l6 -1.5 M13 61 l6 -1 M50 56 l-6 -1.5 M51 61 l-6 -1" stroke="#13261C" strokeWidth={1.8} strokeLinecap="round"/>
+      <Circle cx={18} cy={15} r={6} fill="#EE8A2C"/><Circle cx={46} cy={15} r={6} fill="#EE8A2C"/>
+      <Circle cx={18} cy={15} r={3} fill="#FBE3CC"/><Circle cx={46} cy={15} r={3} fill="#FBE3CC"/>
+      <Path d="M32 11 C20 11 15 19 15 27.5 C15 37 22 42.5 32 42.5 C42 42.5 49 37 49 27.5 C49 19 44 11 32 11Z" fill="#EE8A2C"/>
+      <Path d="M32 12.5 v5 M27.5 13.5 l1.5 4 M36.5 13.5 l-1.5 4 M15.6 25 h5 M15.6 30 h4 M48.4 25 h-5 M48.4 30 h-4" stroke="#13261C" strokeWidth={1.9} strokeLinecap="round"/>
+      <Path d="M32 28 C24 28 20 32 21 36 C23 40 27 42 32 42 C37 42 41 40 43 36 C44 32 40 28 32 28Z" fill="#FFF6EA"/>
+      <Ellipse cx={25} cy={24.5} rx={2.3} ry={2.8} fill="#13261C"/><Circle cx={25.8} cy={23.5} r={0.85} fill="#fff"/>
+      <Ellipse cx={39} cy={24.5} rx={2.3} ry={2.8} fill="#13261C"/><Circle cx={39.8} cy={23.5} r={0.85} fill="#fff"/>
+      <Path d="M28.8 30.5 C28.8 29 35.2 29 35.2 30.5 C35.2 32.2 33.3 33.3 32 33.3 C30.7 33.3 28.8 32.2 28.8 30.5Z" fill="#D86A6A"/>
+      <Path d="M32 33.3 v1.6 M29.4 36.2 q2.6 1.8 5.2 0" stroke="#13261C" strokeWidth={1.2} fill="none" strokeLinecap="round"/>
+      <Path d="M23 34 l-5 -1 M23 36 l-5 1 M41 34 l5 -1 M41 36 l5 1" stroke="#FFFFFF" strokeWidth={0.8} strokeLinecap="round" opacity={0.9}/>
+      <Circle cx={21} cy={31} r={2} fill="#F5A3A3" opacity={0.6}/><Circle cx={43} cy={31} r={2} fill="#F5A3A3" opacity={0.6}/>
+      <Ellipse cx={23} cy={51} rx={4.6} ry={3.8} fill="#EE8A2C"/><Ellipse cx={41} cy={51} rx={4.6} ry={3.8} fill="#EE8A2C"/>
+      <Path d="M21.5 49.5 v3 M24.5 49.5 v3 M39.5 49.5 v3 M42.5 49.5 v3" stroke="#C26A1B" strokeWidth={0.9} strokeLinecap="round"/>
+      </G>
     </>
   ),
   // Panda
