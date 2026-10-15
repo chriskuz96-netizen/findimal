@@ -79,9 +79,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Wächter: tägliche geplante Aufgabe „Findimal-Wächter“ (7:52 Uhr) meldet Zugriffe ohne Code (KV-Schlüssel `fremd:Datum`).
   Vorschläge „In deiner Nähe“ gehen seit 15.10. auch ohne Code.
 - **Server-Adresse ohne eigenen Namen:** `findimal.chriskuz96.workers.dev` zeigt „chriskuz96“ (Einladungslinks,
-  Datenschutz, Hilfe). Vor dem Start eigene Adresse (z. B. `findimal.app`) bei Cloudflare kaufen und an den Worker
-  hängen; dann `SERVER_URL` in `src/config.ts` und die Links in `docs/APPSTORE.md` umstellen. Alte Adresse
-  weiterlaufen lassen (schon verschickte Einladungen, ältere App-Stände).
+  Datenschutz, Hilfe). **Entschieden (15.10.):** später nur den Namensteil ändern (Cloudflare → Workers & Pages →
+  Konto-Unterdomäne, z. B. `findimal-app.workers.dev`), keine eigene Domain. Achtung: die alte Adresse geht dann
+  sofort nicht mehr. Deshalb gleichzeitig `SERVER_URL` in `src/config.ts` umstellen und per `eas update`
+  verteilen, die Links in `docs/APPSTORE.md` anpassen. Am besten vor dem Start, wenn nur Tester betroffen sind.
 - GitHub-Projekt ist öffentlich (Server-Adresse sichtbar, Geheimnisse nicht) – ggf. auf privat stellen.
 
 ## Ideen für später (wenn viele Spieler da sind)
