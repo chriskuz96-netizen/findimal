@@ -166,8 +166,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         before.current = null;
         setResult(r);
         // nur echte Tiere kommen in die Sammlung (keine Zeichnungen, Bildschirme, Plüschtiere …)
-        // … und nur eigene Fotos (Bilder aus der Mediathek ohne Kameradaten stammen meist aus dem Netz)
-        if (r.ok && r.animal.tier_gefunden && !notReal(r.animal) && !list[0]?.foreign) {
+        if (r.ok && r.animal.tier_gefunden && !notReal(r.animal)) {
           const res = await onIdentified(r.animal, findId.current, list[0]);
           findId.current = res.id;
           setReward(res.reward);
@@ -227,8 +226,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   };
 
   const animal = result?.ok && result.animal.tier_gefunden ? result.animal : null;
-  const foreign = !saved && !!photos[0]?.foreign; // Bild aus dem Netz o. Ä. (keine Kameradaten)
-  const fake = !!animal && !saved && (notReal(animal) || foreign); // erkannt, kommt aber nicht in die Sammlung
+  const fake = !!animal && !saved && notReal(animal); // erkannt, kommt aber nicht in die Sammlung
 
   // Ausführlicher Steckbrief erst beim Aufklappen laden und beim Fund speichern
   const openDetails = async () => {
@@ -339,9 +337,9 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
               {fake && (
                 <View style={[styles.fake, { backgroundColor: p.bg }]}>
                   <Text style={[styles.fakeTitle, { color: colors.accent }]}>
-                    {notReal(animal) ? t(`res.fake.${animal.bildart}` as 'res.fake.zeichnung') : t('res.fake.netz')}
+                    {animal.bildart === 'internet' ? t('res.fake.netz') : t(`res.fake.${animal.bildart}` as 'res.fake.zeichnung')}
                   </Text>
-                  <Text style={[styles.body, { color: p.ink }]}>{t(notReal(animal) ? 'res.fakeText' : 'res.fakeNetText')}</Text>
+                  <Text style={[styles.body, { color: p.ink }]}>{t(animal.bildart === 'internet' ? 'res.fakeNetText' : 'res.fakeText')}</Text>
                 </View>
               )}
               {animal && (

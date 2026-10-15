@@ -8,7 +8,7 @@ import { currentPlace, Spot } from './location';
 const OPTIONS: ImagePicker.ImagePickerOptions = {
   mediaTypes: ['images'],
   quality: 1,
-  // Kameradaten (Hersteller, Aufnahmezeit): fehlen sie bei einem Bild aus der Mediathek, stammt es meist aus dem Netz
+  // Kameradaten (Hersteller, Aufnahmezeit): fehlen sie, bekommt die KI einen Hinweis (siehe Photo.foreign)
   exif: true,
   // ganzer Bildschirm (auch die Fotoauswahl), damit dahinter nichts durchscheint
   presentationStyle: ImagePicker.UIImagePickerPresentationStyle.FULL_SCREEN,
@@ -17,8 +17,8 @@ const OPTIONS: ImagePicker.ImagePickerOptions = {
 const MAX_SIDE = 1024; // größer braucht die Tierbestimmung nicht
 
 // place: Ortsname des aktuellen Standorts (nur wenn erlaubt; wird nebenbei ermittelt, nur der Name wird gespeichert)
-// foreign: aus der Mediathek, aber ohne Kameradaten (Bild aus dem Netz, Screenshot, weitergeleitet) – wird
-// bestimmt, kommt aber nicht in die Sammlung
+// foreign: aus der Mediathek, aber ohne Kameradaten (z. B. aus dem Netz, Screenshot oder per WhatsApp bekommen).
+// Nur ein Hinweis an die KI – gesperrt wird erst, wenn das Bild eindeutig aus dem Internet ist.
 export type Photo = { uri: string; base64: string | null; place?: Promise<Spot | null>; foreign?: boolean };
 
 // Hat das Bild Daten einer Kamera? (iOS legt sie teils direkt, teils in Gruppen wie "{TIFF}" / "{Exif}" ab)

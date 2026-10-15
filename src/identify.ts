@@ -12,7 +12,7 @@ import { Lang, Translate } from './i18n';
 export type Animal = {
   tier_gefunden: boolean;
   // was fotografiert wurde: echtes Tier oder z. B. eine Zeichnung (kommt dann nicht in die Sammlung)
-  bildart?: 'echt' | 'zeichnung' | 'spielzeug' | 'bildschirm' | 'druck';
+  bildart?: 'echt' | 'zeichnung' | 'spielzeug' | 'bildschirm' | 'druck' | 'internet';
   name: string;
   rasse?: string; // nur bei Haus- und Nutztieren, z. B. "Golden Retriever"
   rasse_sicher?: boolean; // false = Rasse nur geschätzt
@@ -165,7 +165,14 @@ async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, s
       ...((await hasPlus()) ? { 'X-Findimal-Plus': '1' } : {}),
     },
     // zone: grobe Gegend (z. B. Mitteleuropa) – hilft bei ähnlichen Arten, ist aber kein Standort
-    body: JSON.stringify({ images: photos.map((p) => p.base64), lang, extra: photos.length > 1, rid, zone: await loadZone() }),
+    body: JSON.stringify({
+      images: photos.map((p) => p.base64),
+      lang,
+      extra: photos.length > 1,
+      rid,
+      zone: await loadZone(),
+      ohneKamera: !!photos[0]?.foreign, // nur ein Hinweis für die KI
+    }),
   });
 }
 

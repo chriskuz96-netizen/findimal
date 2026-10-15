@@ -94,7 +94,9 @@ Ameise, Springspinne), sonst false.
 "bildart" sagt, was fotografiert wurde: "echt" = ein echtes Tier (auch im Zoo, im Tierpark oder als Haustier);
 "zeichnung" = Zeichnung, Gemälde, Comic oder computererzeugtes Bild; "spielzeug" = Plüschtier, Figur, Statue oder
 ausgestopftes Tier; "bildschirm" = abfotografierter Bildschirm oder Screenshot; "druck" = Foto aus Buch, Zeitschrift,
-Poster oder ein abfotografiertes Papierfoto. Bestimme das Tier trotzdem ganz normal. Im Zweifel "echt" – lieber ein
+Poster oder ein abfotografiertes Papierfoto; "internet" = eindeutig ein Bild aus dem Internet (z. B. Wasserzeichen,
+Logo einer Bildagentur, Text oder Rahmen einer Webseite, Collage) – ein gutes, scharfes Foto allein reicht dafür
+nicht. Bestimme das Tier trotzdem ganz normal. Im Zweifel "echt" – lieber ein
 echtes Tier durchlassen als jemandem seinen Fund wegnehmen. Ohne Tier: "echt".`;
 
 // Kurzer Steckbrief direkt nach dem Foto
@@ -108,7 +110,7 @@ const SCHEMA = {
   ],
   properties: {
     tier_gefunden: { type: 'boolean' },
-    bildart: { type: 'string', enum: ['echt', 'zeichnung', 'spielzeug', 'bildschirm', 'druck'] },
+    bildart: { type: 'string', enum: ['echt', 'zeichnung', 'spielzeug', 'bildschirm', 'druck', 'internet'] },
     name: TEXT,
     rasse: TEXT,
     rasse_sicher: { type: 'boolean' },
@@ -1119,10 +1121,16 @@ export default {
       'Das ist nur ein Hinweis für Arten, die auf dem Foto kaum zu unterscheiden sind: dann nimm die, die dort und ' +
       'zu dieser Zeit häufiger vorkommt. Die Angabe kann falsch sein (Urlaub, Reise, Zoo, Aquarium, Haustier) – ' +
       'zeigt das Foto klar eine Art von woanders, nenne genau diese Art.';
+    // Bild aus der Mediathek ohne Kameradaten: nur ein Hinweis (auch WhatsApp-Fotos und Screenshots haben keine)
+    const ohneKamera =
+      body.ohneKamera === true
+        ? '\nDas Bild stammt aus der Fotomediathek und hat keine Kameradaten. Das ist bei Fotos aus WhatsApp normal – ' +
+          'setze "bildart" nur dann auf "internet", wenn es eindeutige Merkmale gibt.'
+        : '';
     const question =
       (images.length > 1
         ? 'Diese Fotos zeigen dasselbe Tier aus verschiedenen Blickwinkeln. Welches Tier ist es?'
-        : 'Welches Tier ist auf diesem Foto?') + kontext;
+        : 'Welches Tier ist auf diesem Foto?') + kontext + ohneKamera;
     // Tageslimit: pro Handy (Kennung aus der App, sonst die IP-Adresse) und Tag
     // Zusatzfotos zählen nur, wenn wirklich mehrere Fotos desselben Tieres kommen
     const extra = body.extra === true && images.length > 1;
