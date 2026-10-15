@@ -5,6 +5,7 @@ import { useI18n } from '../i18n';
 import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { Badge } from '../progress';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
+import { Icon } from './Icon';
 import { Avatar } from './Avatar';
 
 type Props = {
@@ -41,7 +42,11 @@ export function AvatarSheet({ visible, name, avatar, earned, onSelect, onClose }
         <View style={{ opacity: locked ? 0.45 : 1 }}>
           <Avatar id={id || null} name={name} size={SIZE} />
         </View>
-        {locked && <Text style={styles.lock}>🔒</Text>}
+        {locked && (
+          <View style={styles.lock}>
+            <Icon name="lock" size={16} color={colors.white} />
+          </View>
+        )}
       </Pressable>
     );
   };
@@ -58,7 +63,10 @@ export function AvatarSheet({ visible, name, avatar, earned, onSelect, onClose }
         </View>
         <ScrollView contentContainerStyle={{ paddingBottom: 8 }}>
           {/* Buchstabe und verdiente Abzeichen */}
-          <Text style={[styles.h4, { color: p.ink }]}>🏅 {t('pro.badgesTitle')}</Text>
+          <View style={styles.h4Row}>
+            <Icon name="medal" size={18} color={colors.accent} />
+            <Text style={[styles.h4, { color: p.ink }]}>{t('pro.badgesTitle')}</Text>
+          </View>
           <Text style={[styles.hint, { color: p.mute }]}>{t('pro.badgesHint')}</Text>
           <View style={styles.grid}>
             <Item id="" />
@@ -69,7 +77,10 @@ export function AvatarSheet({ visible, name, avatar, earned, onSelect, onClose }
 
           {/* Plus-Tiere: ohne Plus mit Schloss */}
           <View style={styles.plusHead}>
-            <Text style={[styles.h4, { color: p.ink }]}>★ {t('pro.plusAvatars')}</Text>
+            <View style={styles.h4Row}>
+              <Icon name="star" size={16} color="#E8B53A" />
+              <Text style={[styles.h4, { color: p.ink }]}>{t('pro.plusAvatars')}</Text>
+            </View>
             {!plus && (
               <Pressable onPress={() => askForPlus(t, setPlus)} hitSlop={8} accessibilityRole="button">
                 <Text style={[styles.unlock, { color: colors.accent }]}>{t('pro.unlock')} ›</Text>
@@ -103,9 +114,20 @@ const styles = StyleSheet.create({
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
   item: { padding: 3, borderRadius: 40, borderWidth: 2.5, borderColor: 'transparent' },
   itemOn: { borderColor: colors.accent },
-  lock: { position: 'absolute', right: 2, bottom: 2, fontSize: 13 },
+  lock: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: 'rgba(10,30,20,0.8)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   plusHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 16, marginBottom: 6 },
   h4: { fontFamily: fonts.serifBold, fontSize: 17 },
+  h4Row: { flexDirection: 'row', alignItems: 'center', gap: 7 },
   hint: { fontFamily: fonts.sans, fontSize: 13, marginTop: 2, marginBottom: 6 },
   unlock: { fontFamily: fonts.sansBold, fontSize: 14 },
 });

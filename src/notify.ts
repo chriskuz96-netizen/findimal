@@ -1,3 +1,4 @@
+import { stripEmoji } from './text';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
@@ -87,7 +88,8 @@ export function tipFor(date: Date, lang: Lang, zone: Zone = 'central'): Tip {
   return pick;
 }
 
-const content = (tip: Tip) => ({ title: tip.title, body: tip.text, data: { screen: 'season' } });
+// Mitteilung ohne Emojis (die App nutzt eigene Symbole)
+const content = (tip: Tip) => ({ title: stripEmoji(tip.title), body: stripEmoji(tip.text), data: { screen: 'season' } });
 
 // Die nächsten Sonntage um 10 Uhr neu einplanen (nur wenn Tipps an sind und erlaubt)
 // Nacheinander ausführen: mehrere gleichzeitige Aufrufe würden Tipps doppelt einplanen

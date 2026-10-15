@@ -21,6 +21,7 @@ import { JungleBackground } from '../components/JungleBackground';
 import { LanguageButton } from '../components/LanguageButton';
 import { useI18n } from '../i18n';
 import { randomNickname } from '../nicknames';
+import { Icon } from '../components/Icon';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 
 type Props = { onDone: (name: string) => void };
@@ -165,6 +166,7 @@ function AskName({ onDone }: Props) {
         />
         {/* Vorschlag würfeln: lustiger Tiername statt echtem Namen */}
         <Pressable onPress={() => setName(randomNickname(lang))} hitSlop={8} accessibilityRole="button" style={styles.dice}>
+          <Icon name="dice" size={18} color={p.moss} />
           <Text style={[styles.diceText, { color: p.moss }]}>{t('onb.dice')}</Text>
         </Pressable>
         <Pressable
@@ -188,7 +190,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputEmpty: { fontFamily: fonts.sans, fontSize: 16 },
-  dice: { marginTop: 10, marginBottom: 2 },
+  dice: { marginTop: 10, marginBottom: 2, flexDirection: 'row', alignItems: 'center', gap: 6 },
   diceText: { fontFamily: fonts.sansBold, fontSize: 15 },
   welcome: { paddingHorizontal: 22, flexGrow: 1, justifyContent: 'center' },
   wTitle: {

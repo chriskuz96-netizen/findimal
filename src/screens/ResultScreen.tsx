@@ -20,6 +20,7 @@ import { Explorer } from '../components/Explorer';
 import { LevelUp, claimParty } from '../components/LevelUp';
 import { LimitCard } from '../components/LimitCard';
 import { ShareCard, shareCard } from '../components/ShareCard';
+import { Icon, IconName } from '../components/Icon';
 import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
@@ -122,6 +123,7 @@ function FoundOn({ find, p, onPlace }: { find: Find; p: Palette; onPlace: (place
 // Ergebnisseite: großes Foto, Name, Belohnung, Fun Fact und einklappbarer Steckbrief.
 // Zeichnung, Bildschirm, Plüschtier, Internetbild …: kommt in die Sammlung, aber ohne Punkte
 const notReal = (a: Animal) => !!a.bildart && a.bildart !== 'echt';
+const FAKE_ICON: Record<string, IconName> = { zeichnung: 'palette', spielzeug: 'toy', bildschirm: 'phone', druck: 'book', internet: 'globe' };
 
 export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails, onPlace, backLabel, onBack }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
@@ -336,9 +338,12 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
               )}
               {fake && (
                 <View style={[styles.fake, { backgroundColor: p.bg }]}>
-                  <Text style={[styles.fakeTitle, { color: colors.accent }]}>
-                    {animal.bildart === 'internet' ? t('res.fake.netz') : t(`res.fake.${animal.bildart}` as 'res.fake.zeichnung')}
-                  </Text>
+                  <View style={styles.fakeHead}>
+                    <Icon name={FAKE_ICON[animal.bildart ?? 'internet'] ?? 'globe'} size={20} color={colors.accent} />
+                    <Text style={[styles.fakeTitle, { color: colors.accent }]}>
+                      {animal.bildart === 'internet' ? t('res.fake.netz') : t(`res.fake.${animal.bildart}` as 'res.fake.zeichnung')}
+                    </Text>
+                  </View>
                   <Text style={[styles.body, { color: p.ink }]}>{t(animal.bildart === 'internet' ? 'res.fakeNetText' : 'res.fakeText')}</Text>
                 </View>
               )}
@@ -471,7 +476,10 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           )}
 
           {/* dezente Erinnerung ans Findimal-Ehrenwort */}
-          <Text style={[styles.respect, { color: p.mute }]}>🐾 {t('res.respect')}</Text>
+          <View style={styles.respectRow}>
+            <Icon name="paw" size={16} color={p.mute} />
+            <Text style={[styles.respect, { color: p.mute, marginTop: 0, marginHorizontal: 0, flexShrink: 1 }]}>{t('res.respect')}</Text>
+          </View>
           {/* Neues Foto: weiter zur Kamera. Gespeicherter Fund: zurück, woher man kam */}
           {!busy && <Button label={backLabel ?? t('res.continue')} onPress={() => leave()} p={p} filled={!!result} />}
           {/* neues Foto: Abkürzung zur Sammlung – wie „Weiter entdecken“, nur weiß */}
@@ -764,7 +772,8 @@ function SmallButton({
 
 const styles = StyleSheet.create({
   fake: { borderRadius: 14, padding: 12, marginBottom: 12 },
-  fakeTitle: { fontFamily: fonts.sansBold, fontSize: 16, marginBottom: 2 },
+  fakeHead: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 },
+  fakeTitle: { fontFamily: fonts.sansBold, fontSize: 16, flexShrink: 1 },
   hero: {
     backgroundColor: '#17462F',
     borderBottomLeftRadius: spacing.radiusHero,
@@ -868,6 +877,7 @@ const styles = StyleSheet.create({
   body: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, marginTop: 8 },
   foundOn: { fontFamily: fonts.sans, fontSize: 13, marginTop: 10 },
   respect: { fontFamily: fonts.sans, fontSize: 12.5, textAlign: 'center', marginTop: 16, marginHorizontal: spacing.gutter },
+  respectRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 16, marginHorizontal: spacing.gutter },
   placeRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginTop: 10 },
   placeAdd: { fontFamily: fonts.sansBold, fontSize: 13 },
   placeEdit: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10 },

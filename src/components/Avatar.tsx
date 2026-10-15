@@ -1,15 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Svg, { Circle, Defs, RadialGradient, Stop } from 'react-native-svg';
+import Svg, { Circle, ClipPath, Defs, G, Path, RadialGradient, Stop } from 'react-native-svg';
 
 import { PLUS_AVATARS } from '../plus';
 import { BadgeId } from '../progress';
+import { PLUS_ANIMAL_ART, PLUS_ANIMAL_BG } from './PlusAnimal';
 import { colors, fonts } from '../theme';
 import { BADGE_TIER, Medal } from './Medal';
 
 // Profilbild: Plus-Tier (mit goldenem Rahmen), Abzeichen oder Anfangsbuchstabe.
 export function Avatar({ id, name, size }: { id: string | null; name: string; size: number }) {
   const plus = id ? PLUS_AVATARS.find((a) => a.id === id) : undefined;
-  if (plus) return <PlusAvatar emoji={plus.emoji} from={plus.from} to={plus.to} size={size} id={plus.id} />;
+  if (plus) return <PlusAvatar size={size} id={plus.id} />;
   if (id && id in BADGE_TIER) return <Medal id={id as BadgeId} size={size} />;
   const d = Math.round(size * 0.9);
   return (
@@ -19,9 +20,11 @@ export function Avatar({ id, name, size }: { id: string | null; name: string; si
   );
 }
 
-// Tier auf farbigem Grund mit goldenem Ring und kleinem Stern
-export function PlusAvatar({ id, emoji, from, to, size }: { id: string; emoji: string; from: string; to: string; size: number }) {
+// Tier auf farbigem Grund mit goldenem Ring und kleinem Stern (alles selbst gezeichnet, keine Emojis)
+export function PlusAvatar({ id, size }: { id: string; size: number }) {
   const g = `pa-${id}`;
+  const [from, to] = PLUS_ANIMAL_BG[id] ?? ['#3E8A5C', '#123826'];
+  const Art = PLUS_ANIMAL_ART[id];
   return (
     <View style={{ width: size, height: size }}>
       <Svg width={size} height={size} viewBox="0 0 64 64">
@@ -35,22 +38,17 @@ export function PlusAvatar({ id, emoji, from, to, size }: { id: string; emoji: s
             <Stop offset="0.5" stopColor="#E8B53A" />
             <Stop offset="1" stopColor="#9A6B12" />
           </RadialGradient>
+          <ClipPath id={`${g}-clip`}>
+            <Circle cx={32} cy={32} r={26} />
+          </ClipPath>
         </Defs>
         <Circle cx={32} cy={32} r={30} fill={`url(#${g}-ring)`} />
         <Circle cx={32} cy={32} r={26} fill={`url(#${g}-bg)`} />
+        {Art && <G clipPath={`url(#${g}-clip)`}>{Art()}</G>}
+        {/* kleiner Plus-Stern unten rechts */}
+        <Circle cx={53} cy={53} r={6.5} fill="#C98A10" stroke="#FFF2B8" strokeWidth={1.5} />
+        <Path d="m53 49.6 1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z" fill="#fff" />
       </Svg>
-      <View style={[StyleSheet.absoluteFill, styles.center]}>
-        <Text style={{ fontSize: size * 0.46, lineHeight: size * 0.6 }}>{emoji}</Text>
-      </View>
-      {/* kleiner Plus-Stern unten rechts */}
-      <View
-        style={[
-          styles.star,
-          { width: size * 0.34, height: size * 0.34, borderRadius: size * 0.17, right: -size * 0.02, bottom: -size * 0.02 },
-        ]}
-      >
-        <Text style={{ fontSize: size * 0.2, lineHeight: size * 0.26, color: colors.white }}>★</Text>
-      </View>
     </View>
   );
 }
@@ -64,13 +62,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   letterText: { fontFamily: fonts.serifBold, color: colors.ink },
-  center: { alignItems: 'center', justifyContent: 'center' },
-  star: {
-    position: 'absolute',
-    backgroundColor: '#C98A10',
-    borderWidth: 1.5,
-    borderColor: '#FFF2B8',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });

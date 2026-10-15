@@ -3,12 +3,13 @@ import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native'
 import { useI18n } from '../i18n';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 import { Explorer } from './Explorer';
+import { Icon } from './Icon';
 
 const RULES = [
-  ['🔭', 'promise.r1'],
-  ['🤲', 'promise.r2'],
-  ['🪺', 'promise.r3'],
-  ['🤫', 'promise.r4'],
+  ['binoculars', 'promise.r1'],
+  ['hand', 'promise.r2'],
+  ['nest', 'promise.r3'],
+  ['path', 'promise.r4'],
 ] as const;
 
 // Das Findimal-Ehrenwort: erscheint einmal beim ersten Öffnen der App. Tiere sollen nicht gestört werden.
@@ -24,7 +25,9 @@ export function PromiseSheet({ onDone }: { onDone: () => void }) {
         <View style={styles.rules}>
           {RULES.map(([icon, key]) => (
             <View key={key} style={styles.rule}>
-              <Text style={styles.icon}>{icon}</Text>
+              <View style={styles.icon}>
+                <Icon name={icon} size={20} color={colors.accent} />
+              </View>
               <Text style={[styles.ruleText, { color: p.ink }]}>{t(key)}</Text>
             </View>
           ))}
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
   intro: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, textAlign: 'center', marginTop: 6 },
   rules: { alignSelf: 'stretch', marginTop: 16, gap: 12 },
   rule: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  icon: { fontSize: 24, width: 32, textAlign: 'center' },
+  icon: { width: 36, height: 36, borderRadius: 18, backgroundColor: 'rgba(232,131,58,0.14)', alignItems: 'center', justifyContent: 'center' },
   ruleText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 15, lineHeight: 20 },
   button: { alignSelf: 'stretch', marginTop: 20, borderRadius: 99, paddingVertical: 14, alignItems: 'center' },
   buttonText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
