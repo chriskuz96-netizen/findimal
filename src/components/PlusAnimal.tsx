@@ -261,16 +261,21 @@ export const PLUS_ANIMAL_ART: Record<string, () => ReactElement> = {
       <Ellipse cx={26} cy={57} rx={4} ry={2} fill="#F2A12E"/><Ellipse cx={38} cy={57} rx={4} ry={2} fill="#F2A12E"/>
     </>
   ),
-  // Löwe
-  'p-lion': () => (
+  // Giraffe
+  'p-giraffe': () => (
     <>
-      <Circle cx={32} cy={33} r={21} fill="#B8641C"/>
-      <Path d="M32 12l4 5 6-3 1 6 6 1-3 5 5 4-5 3 3 5-6 1-1 6-6-3-4 5-4-5-6 3-1-6-6-1 3-5-5-3 5-4-3-5 6-1 1-6 6 3z" fill="#C97424"/>
-      <Circle cx={32} cy={34} r={13} fill="#F2B84A"/>
-      <Circle cx={22} cy={23} r={3.4} fill="#F2B84A"/><Circle cx={42} cy={23} r={3.4} fill="#F2B84A"/>
-      <Ellipse cx={32} cy={40} rx={7} ry={5.5} fill="#FBE3B6"/>
-      <Ellipse cx={26.5} cy={32} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={27.3} cy={31.1} r={0.8} fill="#fff"/><Ellipse cx={37.5} cy={32} rx={2.2} ry={2.7} fill="#13261C"/><Circle cx={38.3} cy={31.1} r={0.8} fill="#fff"/><Path d="M29.5 37.5h5l-2.5 2.6z" fill="#7A3E17"/>
-      <Path d="M32 40v1.6M29.5 42.5q2.5 1.8 5 0" stroke="#7A3E17" strokeWidth={1.1} fill="none" strokeLinecap="round"/>
+      <G transform="translate(0 5)"><Path d="M15 66 L23 28 C24 23 32 22 34 27 L33 66Z" fill="#F2C04A"/>
+      <Path d="M23 29 C21 40 18 52 15.5 66" stroke="#9A5A20" strokeWidth={2.6} fill="none" strokeLinecap="round" stroke-dasharray="3 2.2"/>
+      <Path d="M24.5 42 c2 -1 4 0 3.6 2.2 c-.4 2 -3 2.4 -4.2 1 c-1 -1.2 -.6 -2.6 .6 -3.2z M27 51 c2.4 -.6 4 1 3.4 3 c-.6 1.8 -3.4 2 -4.4.4 c-.8 -1.4 -.4 -3 1 -3.4z M21.5 57 c2 -.4 3.4 1 3 2.8 c-.4 1.6 -2.8 2 -3.8.6 c-.8 -1.2 -.6 -3 .8 -3.4z M28 36.5 c1.6 -.4 2.8.6 2.4 2 c-.4 1.4 -2.4 1.6 -3 .4 c-.6 -1 -.2 -2.2.6 -2.4z" fill="#B8742E"/>
+      <Path d="M31 15 L29 8 M36.5 14 L37 7" stroke="#B8742E" strokeWidth={2} strokeLinecap="round"/>
+      <Circle cx={29} cy={7.5} r={2} fill="#7A4A1E"/><Circle cx={37} cy={6.5} r={2} fill="#7A4A1E"/>
+      <Ellipse cx={25.5} cy={18.5} rx={4.2} ry={2.1} transform="rotate(-20 25.5 18.5)" fill="#F2C04A"/>
+      <Ellipse cx={35} cy={21} rx={9.5} ry={7} transform="rotate(12 35 21)" fill="#F2C04A"/>
+      <Ellipse cx={42.5} cy={24.5} rx={5} ry={4.2} transform="rotate(12 42.5 24.5)" fill="#F7DFA0"/>
+      <Circle cx={31} cy={22} r={1.8} fill="#B8742E"/>
+      <Ellipse cx={35} cy={19} rx={1.9} ry={2.3} fill="#13261C"/><Circle cx={35.6} cy={18.3} r={0.7} fill="#fff"/>
+      <Circle cx={44.5} cy={23.2} r={0.8} fill="#7A4A1E"/><Circle cx={46.2} cy={24} r={0.8} fill="#7A4A1E"/>
+      <Path d="M41 27.5 q2.5 1.6 5 0" stroke="#7A4A1E" strokeWidth={1.1} fill="none" strokeLinecap="round"/></G>
     </>
   ),
   // Tiger
@@ -343,7 +348,7 @@ export const PLUS_ANIMAL_BG: Record<string, [string, string]> = {
   'p-parrot': ['#FFF0A0', '#D4A015'],
   'p-flamingo': ['#9FE6DA', '#1F7A70'],
   'p-penguin': ['#DDF0FF', '#5A8FC0'],
-  'p-lion': ['#C9E8A0', '#4E7A1F'],
+  'p-giraffe': ['#C9B8F0', '#5B3A86'],
   'p-tiger': ['#9BD49B', '#1F5639'],
   'p-panda': ['#C9F08F', '#3E8A2A'],
   'p-otter': ['#A9D8F2', '#1F5E8C'],

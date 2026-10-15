@@ -72,7 +72,7 @@ export const PLUS_AVATARS: { id: string }[] = [
   { id: 'p-parrot' },
   { id: 'p-flamingo' },
   { id: 'p-penguin' },
-  { id: 'p-lion' },
+  { id: 'p-giraffe' },
   { id: 'p-tiger' },
   { id: 'p-panda' },
   { id: 'p-otter' },
