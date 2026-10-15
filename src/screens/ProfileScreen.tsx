@@ -291,6 +291,22 @@ export function ProfileScreen(props: Props) {
           ))}
         </View>
 
+        {/* In der Rangliste zeigen: im Stil der drei Kacheln darüber (Widerspruch gegen die automatische Teilnahme) */}
+        {board !== undefined && (
+          <View style={[styles.boardRow, { borderColor: p.line, backgroundColor: p.card }]}>
+            <View style={{ flex: 1 }}>
+              <Text style={[styles.quickText, { color: p.ink }]}>{t('pro.boardTitle')}</Text>
+              <Text style={[styles.boardText, { color: p.mute }]}>{t('pro.boardText')}</Text>
+            </View>
+            <Switch
+              value={!!board}
+              onValueChange={toggleBoard}
+              disabled={boardBusy}
+              trackColor={{ true: p.button }}
+              style={{ transform: [{ scale: 0.8 }] }}
+            />
+          </View>
+        )}
         <Pressable onPress={confirmReset} style={[styles.reset, { borderColor: p.line }]} accessibilityRole="button">
           <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
         </Pressable>
@@ -313,22 +329,6 @@ export function ProfileScreen(props: Props) {
             </Pressable>
           ))}
         </View>
-        {/* In der Rangliste zeigen: bewusst klein und ganz unten (Widerspruch gegen die automatische Teilnahme) */}
-        {board !== undefined && (
-          <View style={styles.boardRow}>
-            <View style={{ flex: 1 }}>
-              <Text style={[styles.boardTitle, { color: p.mute }]}>{t('pro.boardTitle')}</Text>
-              <Text style={[styles.boardText, { color: p.mute }]}>{t('pro.boardText')}</Text>
-            </View>
-            <Switch
-              value={!!board}
-              onValueChange={toggleBoard}
-              disabled={boardBusy}
-              trackColor={{ true: p.button }}
-              style={{ transform: [{ scale: 0.8 }] }}
-            />
-          </View>
-        )}
       </SwipeScrollView>
     </SwipeBack>
     </>
@@ -434,8 +434,7 @@ const styles = StyleSheet.create({
     padding: 14,
     alignItems: 'center',
   },
-  boardRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10, marginHorizontal: spacing.gutter + 6, opacity: 0.85 },
-  boardTitle: { fontFamily: fonts.sansBold, fontSize: 13 },
+  boardRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10, marginHorizontal: spacing.gutter, borderWidth: 1, borderRadius: 14, paddingVertical: 10, paddingLeft: 14, paddingRight: 6 },
   boardText: { fontFamily: fonts.sans, fontSize: 12, marginTop: 1 },
   resetText: { fontFamily: fonts.sansBold, fontSize: 16 },
   quick: { flexDirection: 'row', gap: 10, marginTop: 16, marginHorizontal: spacing.gutter },
