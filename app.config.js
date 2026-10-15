@@ -14,7 +14,7 @@ const has = (file) => {
 module.exports = ({ config }) => ({
   ...config,
   // Expo-Konto und -Projekt für den App-Bau (EAS)
-  owner: 'christianfindimal',
+  owner: 'christianfindimals-team',
   extra: { ...config.extra, eas: { projectId: 'd01f3c01-05fb-435f-b41f-842cf6583f72' } },
   // Kleine Updates ohne Apple-Prüfung (Expo Updates): die App lädt sie beim Start und nutzt sie
   // ab dem nächsten Start. "fingerprint" sorgt dafür, dass ein Update nur auf passende App-Bauten geht

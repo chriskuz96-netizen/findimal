@@ -4,7 +4,7 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 
 ## Konten
 - Apple-Entwickler-Account: freigeschaltet (14.10.2026), eigene Apple-ID nur für Findimal, Einzelperson.
-- Expo: Konto `christianfindimal`, Projekt `findimal`, Projekt-ID `d01f3c01-05fb-435f-b41f-842cf6583f72`
+- Expo: Konto `christianfindimal`, Projekt `findimal` (gehört dem Team `christianfindimals-team`), Projekt-ID `d01f3c01-05fb-435f-b41f-842cf6583f72`
   (in `app.config.js` eingetragen). Zugangsschlüssel als Umgebungsvariable `EXPO_TOKEN`.
 - Cloudflare-Worker: `https://findimal.chriskuz96.workers.dev/` (Code: `server/findimal-worker.js`,
   wird von Hand im Cloudflare-Editor eingefügt). KV-Speicher als `DB` verbunden.
@@ -28,6 +28,11 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
      `EXPO_ASC_API_KEY_PATH` darauf setzen). Nie in den Chat schreiben lassen.
    - App in App Store Connect angelegt (Hauptsprache Englisch USA), App-ID com.chriskuz.findimal registriert.
 2. App in App Store Connect anlegen (Name Findimal, Bundle-ID oben).
+   Erster Bauversuch 15.10.: Projekt gehört dem Expo-Team `christianfindimals-team` → `owner` in
+   `app.config.js` angepasst. App-Symbol/Startbild fehlten im Zweig `app-assets` (nur README war hochgeladen);
+   neu aus `AppLogo.tsx` erzeugt. Bau scheitert an „Apple 403“: Netzwerk der Umgebung muss
+   `api.appstoreconnect.apple.com` erlauben (EAS legt damit Zertifikat und Profil an). Bauen interaktiv
+   (`eas build` ohne `--non-interactive`), da Zertifikate nur so erzeugt werden; `EXPO_APPLE_TEAM_TYPE=INDIVIDUAL`.
 3. Ersten Bau mit EAS (`eas build -p ios --profile production`) und Upload zu TestFlight (`eas submit`).
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
    80 pro Anschluss, 300 pro Tag gesamt; `TAGES_GRENZE` änderbar).
