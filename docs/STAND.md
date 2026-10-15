@@ -85,6 +85,20 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   verteilen, die Links in `docs/APPSTORE.md` anpassen. Am besten vor dem Start, wenn nur Tester betroffen sind.
 - GitHub-Projekt ist öffentlich (Server-Adresse sichtbar, Geheimnisse nicht) – ggf. auf privat stellen.
 
+## Aus dem Test vom 15.10. (vor dem Start erledigen)
+- Server: Profilbild-ID beim Speichern gegen erlaubte Werte prüfen (App ist schon abgesichert).
+- Rangliste: XP werden ungeprüft übernommen → Sprünge begrenzen, `board_*` pro IP begrenzen.
+- Melden: 3 Meldungen von frischen Codes blenden jeden aus → nur Melder mit etwas XP zählen.
+- `board_link`: Fremde landen ungefragt in der Freundesliste → begrenzen bzw. bestätigen lassen; ab 51 Freunden fehlen Einträge.
+- Kosten: Geräte-ID würfelt die App selbst (Limit pro Handy umgehbar); Fotos ohne Tier gehen auch an das teure Modell.
+  `DAILY_PER_IP` ist 150 (nicht 80). Vor `OFFEN=ja` App Attest.
+- KV: `top` und Saison-Zähler werden gleichzeitig überschrieben (bei vielen Nutzern) → später D1/Durable Object.
+- Einladungsseite verweist auf „Expo Go“ → auf App-Store-Seite umstellen.
+- Sammlung: Fotos liegen als Text im Speicher, alle Kacheln auf einmal → bei vielen Funden Fotos als Dateien + FlatList.
+- Standort-Texte „immer“ und Bewegungsdaten-Text prüfen (App nutzt nur „beim Verwenden“).
+- Plus/Video/Anzeigen-Platzhalter vor der Store-Einreichung ausblenden bzw. echt einbauen (Apple lehnt sonst ab).
+- Rangliste automatisch an: für Kinder heikel (DSGVO Art. 8) – vor dem Start nochmal entscheiden.
+
 ## Ideen für später (wenn viele Spieler da sind)
 - Weltweite Rangliste ausbauen: eigenes Fenster mit Filtern nach **Land und Region** und nach **Saison**
   (z. B. „Herbst 2026“). Eigene **Platznummer** anzeigen (z. B. „Platz 740 von 1.000“ statt „–“) – dafür muss
