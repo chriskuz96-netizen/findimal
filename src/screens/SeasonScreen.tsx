@@ -4,6 +4,7 @@ import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, useC
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdSlot } from '../components/AdSlot';
+import { PlaceChip } from '../components/PlaceChip';
 import { SEASON_LOOK, SeasonSky } from '../components/SeasonSky';
 import { SeasonTop } from '../components/SeasonTop';
 import { Find } from '../finds';
@@ -121,17 +122,12 @@ export function SeasonScreen({
             {loading ? ' ' : t('sea.daysLeft', { n: daysLeft })}
           </Text>
           {/* Die Seite richtet sich nach dem Ort – klein daneben, antippen zum Ändern */}
-          <Pressable
+          <PlaceChip
+            label={place || t('sea.placeNone')}
             onPress={onChangePlace}
-            hitSlop={10}
-            style={({ pressed }) => [styles.placeLink, { opacity: pressed ? 0.6 : 1 }]}
-            accessibilityRole="button"
             accessibilityLabel={place ? t('sea.placeFor', { place }) : t('sea.placeNone')}
-          >
-            <Text style={styles.placeText} numberOfLines={1}>
-              📍 {place || t('sea.placeNone')}
-            </Text>
-          </Pressable>
+            style={styles.placeLink}
+          />
         </View>
       </View>
 
@@ -251,7 +247,6 @@ function Quarter({
 const styles = StyleSheet.create({
   barRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 5 },
   placeLink: { maxWidth: '45%' },
-  placeText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.white, opacity: 0.85, textDecorationLine: 'underline' },
   loadingBox: { alignItems: 'center', gap: 10, paddingVertical: 60, paddingHorizontal: 40 },
   hx: {
     paddingHorizontal: spacing.gutter,

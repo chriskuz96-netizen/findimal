@@ -5,7 +5,6 @@ import {
   Easing,
   Image,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -21,7 +20,7 @@ import { Explorer } from '../components/Explorer';
 import { LevelUp, claimParty } from '../components/LevelUp';
 import { LimitCard } from '../components/LimitCard';
 import { ShareCard, shareCard } from '../components/ShareCard';
-import { SwipeBack } from '../components/SwipeBack';
+import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
 import { Animal, cancelIdentify, hasDetails, identify, IdentifyCancel, IdentifyResult, loadDetails, newCancel } from '../identify';
@@ -262,7 +261,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
     <View style={{ flex: 1 }}>
       {/* nach rechts wischen = zurück (nicht, solange die halbseitige Anzeige offen ist) */}
       <SwipeBack onBack={() => leave()} enabled={bigAd !== 'open' && !busy}>
-        <ScrollView
+        <SwipeScrollView
           style={{ flex: 1, backgroundColor: p.bg }}
           contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
           keyboardShouldPersistTaps="handled"
@@ -466,7 +465,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
           {!saved && animal && !busy && (
             <Button label={t('res.toCollection')} onPress={() => leave('collection')} p={p} filled={false} white />
           )}
-        </ScrollView>
+        </SwipeScrollView>
 
       </SwipeBack>
       {/* Belohnung: kurz unten einblenden, Balken füllt sich, dann wieder weg */}

@@ -12,9 +12,6 @@ export function AppLogo({ size, rounded = true }: { size: number; rounded?: bool
         </RadialGradient>
       </Defs>
       <Rect x={0} y={0} width={100} height={100} rx={rounded ? 22 : 0} fill="url(#logoBg)" />
-      {/* Blätter im Hintergrund */}
-      <Path d="M-4 88Q14 62 40 70Q22 92 -4 88Z" fill="#1F5639" />
-      <Path d="M104 84Q86 60 62 70Q78 92 104 84Z" fill="#1F5639" />
       {/* Ohren */}
       <Path d="M23 44L28 13L48 30Z" fill="#E8833A" />
       <Path d="M77 44L72 13L52 30Z" fill="#E8833A" />

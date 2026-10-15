@@ -964,9 +964,12 @@ export default {
     // die Startseite soll nie leer sein. Alles andere nur mit Code oder wenn der Server offen ist.
     if (!tester) {
       const blocked = env.OFFEN !== 'ja' && body.mode !== 'nearby';
-      ctx.waitUntil(countStranger(env, blocked ? body.mode : 'nearby', blocked));
+      // "ping" (Code-Prüfung beim ersten Start der App) zählt der Wächter nicht – das ist kein Zugriffsversuch
+      if (body.mode !== 'ping') ctx.waitUntil(countStranger(env, blocked ? body.mode : 'nearby', blocked));
       if (blocked) return json({ fehler: 'falscher_code' }, 401);
     }
+    // Code-Prüfung: 200 = der Code passt (oder der Server ist für alle offen), 401 = Code nötig/falsch
+    if (body.mode === 'ping') return json({ ok: true });
 
     if (typeof body.mode === 'string' && body.mode.startsWith('board_')) return board(env, body, request);
 

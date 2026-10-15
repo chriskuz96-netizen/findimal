@@ -8,15 +8,17 @@ import { Tab } from './components/TabBar';
 // Kleine Punkte an der Menüleiste für wirklich Neues:
 // - Challenges: neues Abzeichen, oder heute gibt es neue Quizfragen und man war heute noch nicht dort
 // - Saison: eine neue Jahreszeit hat begonnen und man hat sie noch nicht angeschaut
+// - Sammlung: ein neuer Fund ist dazugekommen, seit man zuletzt in der Sammlung war
 // Sobald man den Bereich öffnet, verschwindet der Punkt.
 
-type Seen = { challenges?: string; season?: string };
+type Seen = { challenges?: string; season?: string; collection?: string };
 const KEY = 'findimal-tab-seen';
 
 const today = (d = new Date()) => d.toDateString();
 const seasonKey = (d = new Date()) => `${seasonId(d)}-${seasonRange(d).start.getFullYear()}`;
 
-export function useTabDots(tab: Tab, quiz: QuizLog, freshBadges: number): Tab[] {
+// newestFind: Datum (ISO) des neuesten Fundes
+export function useTabDots(tab: Tab, quiz: QuizLog, freshBadges: number, newestFind?: string): Tab[] {
   const [seen, setSeen] = useState<Seen | null>(null);
 
   useEffect(() => {
@@ -25,20 +27,21 @@ export function useTabDots(tab: Tab, quiz: QuizLog, freshBadges: number): Tab[] 
       .catch(() => setSeen({}));
   }, []);
 
-  // geöffneter Bereich gilt als gesehen
+  // geöffneter Bereich gilt als gesehen (die Sammlung auch, wenn dort ein Fund dazukommt)
   useEffect(() => {
-    if (!seen || (tab !== 'challenges' && tab !== 'season')) return;
-    const value = tab === 'challenges' ? today() : seasonKey();
+    if (!seen || tab === 'start') return;
+    const value = tab === 'challenges' ? today() : tab === 'season' ? seasonKey() : newestFind ?? '';
     if (seen[tab] === value) return;
     const next = { ...seen, [tab]: value };
     setSeen(next);
     AsyncStorage.setItem(KEY, JSON.stringify(next)).catch(() => {});
-  }, [tab, seen]);
+  }, [tab, seen, newestFind]);
 
   if (!seen) return [];
   const dots: Tab[] = [];
   const newQuiz = nextQuestion(quiz) !== null && answeredToday(quiz) < QUESTIONS_PER_DAY && seen.challenges !== today();
   if (tab !== 'challenges' && (freshBadges > 0 || newQuiz)) dots.push('challenges');
   if (tab !== 'season' && seen.season !== seasonKey()) dots.push('season');
+  if (tab !== 'collection' && newestFind && newestFind !== seen.collection) dots.push('collection');
   return dots;
 }

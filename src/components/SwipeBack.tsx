@@ -1,9 +1,23 @@
-import { ReactNode, useEffect, useRef } from 'react';
-import { StyleSheet, useWindowDimensions, View } from 'react-native';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { ComponentProps, createContext, ReactNode, useContext, useEffect, useMemo, useRef } from 'react';
+import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Gesture, GestureDetector, NativeGesture } from 'react-native-gesture-handler';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { scheduleOnRN } from 'react-native-worklets';
+
+// Scrollen der Seite: läuft gleichzeitig mit der Wischgeste, statt auf sie zu warten (sonst ruckelt es)
+const ScrollGesture = createContext<NativeGesture | null>(null);
+
+// ScrollView für Seiten in SwipeBack – scrollt flüssig, auch wenn man leicht schräg wischt
+export function SwipeScrollView(props: ComponentProps<typeof ScrollView>) {
+  const native = useContext(ScrollGesture);
+  if (!native) return <ScrollView {...props} />;
+  return (
+    <GestureDetector gesture={native}>
+      <ScrollView {...props} />
+    </GestureDetector>
+  );
+}
 
 // Nach rechts wischen = zurück, irgendwo auf dem Bildschirm (nicht nur am Rand).
 // Die Geste und die Bewegung laufen direkt auf dem Bildschirm-Thread (nicht über JavaScript),
@@ -31,8 +45,10 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
     }, 400);
   };
 
+  const native = useMemo(() => Gesture.Native(), []);
   const pan = Gesture.Pan()
     .enabled(enabled)
+    .simultaneousWithExternalGesture(native)
     // nur klar waagerechte Bewegungen nach rechts – senkrechtes Scrollen und Tippen bleiben ungestört
     .activeOffsetX(18)
     .failOffsetX(-12)
@@ -70,7 +86,7 @@ export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => 
             <Rect x={0} y={0} width={16} height="100%" fill="url(#swipeShadow)" />
           </Svg>
         </View>
-        {children}
+        <ScrollGesture.Provider value={native}>{children}</ScrollGesture.Provider>
       </Animated.View>
     </GestureDetector>
   );

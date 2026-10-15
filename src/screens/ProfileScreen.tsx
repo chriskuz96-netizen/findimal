@@ -4,7 +4,6 @@ import {
   Alert,
   Modal,
   Pressable,
-  ScrollView,
   StyleSheet,
   Switch,
   Text,
@@ -13,7 +12,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 import { HeaderBackground } from '../components/HeaderBackground';
 import { AdSlot } from '../components/AdSlot';
@@ -21,7 +20,8 @@ import { Avatar } from '../components/Avatar';
 import { AvatarSheet } from '../components/AvatarSheet';
 import { PlusCard } from '../components/PlusCard';
 import { LanguageChips } from '../components/LanguageButton';
-import { SwipeBack } from '../components/SwipeBack';
+import { PlaceChip } from '../components/PlaceChip';
+import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
@@ -113,7 +113,7 @@ export function ProfileScreen(props: Props) {
     </Modal>
     {/* nach rechts wischen = zurück */}
     <SwipeBack onBack={onBack}>
-      <ScrollView
+      <SwipeScrollView
         style={{ flex: 1, backgroundColor: p.bg }}
         contentContainerStyle={{ paddingBottom: insets.bottom + 24 }}
         // Tipp auf ✓ zählt sofort, auch wenn die Tastatur offen ist
@@ -184,25 +184,12 @@ export function ProfileScreen(props: Props) {
                 <Text style={{ color: colors.white }}>{t(`level.${progress.level - 1}` as 'level.0')}</Text>
               </Text>
               {/* Ort: antippen zum Ändern */}
-              <Pressable
+              <PlaceChip
+                label={region || t('pro.setPlace')}
                 onPress={onChangeRegion}
-                hitSlop={8}
-                style={styles.place}
-                accessibilityRole="button"
                 accessibilityLabel={`${t('pro.region')}: ${region || t('pro.noRegion')}`}
-              >
-                <Svg width={14} height={14} viewBox="0 0 24 24">
-                  <Path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z" fill={colors.accent} />
-                  <Circle cx={12} cy={10} r={2.6} fill="#123826" />
-                </Svg>
-                <Text style={styles.placeText} numberOfLines={1}>
-                  {region || t('pro.setPlace')}
-                </Text>
-                <Svg width={13} height={13} viewBox="0 0 24 24">
-                  <Path d="M4 20h4L19 9l-4-4L4 16v4Z" fill="none" stroke={colors.accentLight} strokeWidth={2} strokeLinejoin="round" />
-                  <Path d="M13.5 6.5l4 4" stroke={colors.accentLight} strokeWidth={2} />
-                </Svg>
-              </Pressable>
+                style={styles.place}
+              />
             </View>
           </View>
         </View>
@@ -298,7 +285,7 @@ export function ProfileScreen(props: Props) {
             </Pressable>
           ))}
         </View>
-      </ScrollView>
+      </SwipeScrollView>
     </SwipeBack>
     </>
   );
@@ -344,18 +331,7 @@ const styles = StyleSheet.create({
   },
   name: { flexShrink: 1, fontFamily: fonts.serifBold, fontSize: 26, color: colors.white },
   nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8, maxWidth: '100%' },
-  place: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-    alignSelf: 'flex-start',
-    marginTop: 8,
-    paddingVertical: 4,
-    paddingHorizontal: 10,
-    borderRadius: 99,
-    backgroundColor: 'rgba(255,255,255,0.10)',
-  },
-  placeText: { flexShrink: 1, fontFamily: fonts.sansBold, fontSize: 13, color: colors.white },
+  place: { alignSelf: 'flex-start', marginTop: 8 },
   nameEdit: { alignSelf: 'stretch' },
   nameInput: {
     flex: 1,

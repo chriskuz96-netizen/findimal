@@ -100,6 +100,31 @@ export async function getAppKey(): Promise<string> {
   }
 }
 
+export async function saveAppKey(key: string): Promise<void> {
+  try {
+    await AsyncStorage.setItem(KEY_STORAGE, key);
+  } catch {
+    // ignorieren
+  }
+}
+
+// Fragt den Server, ob dieser Code passt: 'ok' (passt, oder der Server braucht gar keinen Code),
+// 'wrong' (Code nötig bzw. falsch), 'offline' (keine Antwort – dann nicht aufhalten)
+export async function checkAppKey(key: string): Promise<'ok' | 'wrong' | 'offline'> {
+  if (!SERVER_URL) return 'ok';
+  try {
+    const res = await fetch(SERVER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': key },
+      body: JSON.stringify({ mode: 'ping' }),
+    });
+    if (res.status === 401) return 'wrong';
+    return 'ok';
+  } catch {
+    return 'offline';
+  }
+}
+
 // Fragt einmalig nach dem Findimal-Code (APP_KEY aus Cloudflare) und speichert ihn.
 function askForAppKey(t: Translate): Promise<string | null> {
   return new Promise((resolve) => {

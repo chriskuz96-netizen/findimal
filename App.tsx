@@ -13,6 +13,7 @@ import { OnOpen, OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
 import { Preparing } from './src/components/Preparing';
 import { useTabDots } from './src/tabDots';
+import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
@@ -20,7 +21,7 @@ import { codeFromUrl } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
-import { translateAnimal } from './src/identify';
+import { checkAppKey, getAppKey, translateAnimal } from './src/identify';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { loadZone } from './src/zone';
@@ -70,6 +71,10 @@ function Main() {
   // undefined = wird geladen, null = noch nicht gefragt, '' = übersprungen
   const [region, setRegion] = useState<string | null | undefined>(undefined);
   const [askRegion, setAskRegion] = useState(false);
+  // Testphase: Findimal-Code gleich am Anfang abfragen, wenn der Server einen verlangt
+  // (und der gespeicherte fehlt oder nicht mehr stimmt). Einmal pro Start prüfen.
+  const [askCode, setAskCode] = useState(false);
+  const codeChecked = useRef(false);
   const [finds, setFinds] = useState<Find[]>([]);
   const [tab, setTab] = useState<Tab>('start');
   // Neues Foto (wird bestimmt) oder geöffneter Fund aus der Sammlung
@@ -262,7 +267,8 @@ function Main() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
   const freshBadges = seenBadges ? earnedIds.filter((id) => !seenBadges.includes(id)) : [];
-  const dots = useTabDots(tab, quiz, freshBadges.length);
+  const newestFind = finds.reduce<string | undefined>((a, f) => (!a || f.date > a ? f.date : a), undefined);
+  const dots = useTabDots(tab, quiz, freshBadges.length, newestFind);
   const seeBadges = (ids: string[]) => {
     if (!seenBadges || ids.every((id) => seenBadges.includes(id))) return;
     const next = [...seenBadges, ...ids.filter((id) => !seenBadges.includes(id))];
@@ -273,6 +279,14 @@ function Main() {
     saveAvatar(id);
     setAvatar(id);
   };
+
+  useEffect(() => {
+    if (codeChecked.current || !name || region == null) return;
+    codeChecked.current = true;
+    getAppKey()
+      .then(checkAppKey)
+      .then((r) => r === 'wrong' && setAskCode(true));
+  }, [name, region]);
 
   // Solange Schriften oder Name laden: Startbild mit dem Findimal-Symbol.
   if (!fontsLoaded || !loaded || name === undefined || region === undefined) {
@@ -311,6 +325,15 @@ function Main() {
             setAskRegion(false);
           }}
         />
+      </>
+    );
+  }
+
+  if (askCode) {
+    return (
+      <>
+        <StatusBar style="auto" />
+        <CodeScreen onDone={() => setAskCode(false)} />
       </>
     );
   }
