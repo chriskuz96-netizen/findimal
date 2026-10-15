@@ -17,10 +17,11 @@ module.exports = ({ config }) => ({
   owner: 'christianfindimals-team',
   extra: { ...config.extra, eas: { projectId: 'd01f3c01-05fb-435f-b41f-842cf6583f72' } },
   // Kleine Updates ohne Apple-Prüfung (Expo Updates): die App lädt sie beim Start und nutzt sie
-  // ab dem nächsten Start. "fingerprint" sorgt dafür, dass ein Update nur auf passende App-Bauten geht
-  // (nach neuen Bausteinen wie Werbung braucht es einen neuen Bau über Apple).
+  // ab dem nächsten Start. Ein Update geht an alle Bauten mit derselben App-Version ("version" in app.json).
+  // WICHTIG: Kommen neue native Bausteine dazu (z. B. Werbung), vorher die Version erhöhen und neu bauen –
+  // sonst bekäme ein alter Bau Code, der den neuen Baustein braucht.
   updates: { url: 'https://u.expo.dev/d01f3c01-05fb-435f-b41f-842cf6583f72' },
-  runtimeVersion: { policy: 'fingerprint' },
+  runtimeVersion: { policy: 'appVersion' },
   ...(has('./assets/icon.png') ? { icon: './assets/icon.png' } : {}),
   splash: {
     ...config.splash,

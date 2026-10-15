@@ -8,6 +8,8 @@ import { currentPlace, Spot } from './location';
 const OPTIONS: ImagePicker.ImagePickerOptions = {
   mediaTypes: ['images'],
   quality: 1,
+  // ganzer Bildschirm (auch die Fotoauswahl), damit dahinter nichts durchscheint
+  presentationStyle: ImagePicker.UIImagePickerPresentationStyle.FULL_SCREEN,
 };
 
 const MAX_SIDE = 1024; // größer braucht die Tierbestimmung nicht
@@ -18,6 +20,8 @@ export type Photo = { uri: string; base64: string | null; place?: Promise<Spot |
 // Macht aus dem gewählten Bild ein Photo für die Bestimmung.
 // onPicked(uri): Bild ist gewählt, wird jetzt vorbereitet (für den Ladebildschirm)
 export type OnPicked = (uri: string) => void;
+// onOpen: Kamera bzw. Fotoauswahl geht jetzt auf (Berechtigung ist da)
+export type OnOpen = () => void;
 async function toPhoto(result: ImagePicker.ImagePickerResult, onPicked?: OnPicked): Promise<Photo | null> {
   if (result.canceled || !result.assets?.length) return null;
   const a = result.assets[0];
@@ -52,13 +56,14 @@ function askForSettings(t: Translate) {
 }
 
 // Öffnet die Kamera und liefert das Foto (oder null, wenn abgebrochen).
-export async function takePhoto(t: Translate, onPicked?: OnPicked): Promise<Photo | null> {
+export async function takePhoto(t: Translate, onPicked?: OnPicked, onOpen?: OnOpen): Promise<Photo | null> {
   const perm = await ImagePicker.requestCameraPermissionsAsync();
   if (!perm.granted) {
     askForSettings(t);
     return null;
   }
   try {
+    onOpen?.();
     return await toPhoto(await ImagePicker.launchCameraAsync(OPTIONS), onPicked);
   } catch {
     // Keine Kamera vorhanden (z. B. in der Web-Vorschau): Mediathek nehmen.
@@ -67,6 +72,7 @@ export async function takePhoto(t: Translate, onPicked?: OnPicked): Promise<Phot
 }
 
 // Öffnet die Foto-Mediathek.
-export async function pickPhoto(onPicked?: OnPicked): Promise<Photo | null> {
+export async function pickPhoto(onPicked?: OnPicked, onOpen?: OnOpen): Promise<Photo | null> {
+  onOpen?.();
   return toPhoto(await ImagePicker.launchImageLibraryAsync(OPTIONS), onPicked);
 }

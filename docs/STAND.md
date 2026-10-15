@@ -42,8 +42,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
    80 pro Anschluss, 300 pro Tag gesamt; `TAGES_GRENZE` änderbar).
 5. Kleine Updates ohne Apple-Prüfung sind eingerichtet (expo-updates, Kanal `production`):
-   `eas update --channel production --message "…"`. Nur für reine JS-/Text-Änderungen; neue native
-   Bausteine brauchen einen neuen Bau.
+   `eas update --channel production --environment production --platform ios --message "…"`. Nur für reine
+   JS-/Text-Änderungen. Laufzeit-Regel ist `appVersion` (seit Bau 8): Updates gehen an alle Bauten mit gleicher
+   Version. Neue native Bausteine → zuerst `version` in `app.json` erhöhen, dann neu bauen.
+   (Vorher `fingerprint`: zu empfindlich, schon `.gitignore`/`eas.json` änderten die Kennung.)
 6. Später: AdMob mit Testanzeigen, Plus-Abo (In-App-Kauf).
    (Die Fundkarte wurde entfernt – keine Kartendienst-Kosten.)
 

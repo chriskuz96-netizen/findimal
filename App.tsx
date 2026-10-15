@@ -9,7 +9,7 @@ import { Alert, AppState, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
+import { OnOpen, OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
 import { Preparing } from './src/components/Preparing';
 import { PromiseSheet } from './src/components/PromiseSheet';
@@ -107,17 +107,25 @@ function Main() {
   const photoBusy = useRef(false);
   const [limitOpen, setLimitOpen] = useState(false); // Fenster „Gratis-Fotos aufgebraucht“
   const [preparing, setPreparing] = useState<string | null>(null); // gewähltes Foto, solange es vorbereitet wird
-  const startPhoto = async (get: (onPicked: OnPicked) => Promise<Photo | null>) => {
+  const startPhoto = async (get: (onPicked: OnPicked, onOpen: OnOpen) => Promise<Photo | null>) => {
     if (photoBusy.current) return;
     photoBusy.current = true;
+    let under: ReturnType<typeof setTimeout> | undefined;
     try {
       if (!plus && (await usedToday()) >= FREE_PHOTOS_PER_DAY && (await bonusPhotos()) <= 0) return setLimitOpen(true);
-      // Ladebildschirm liegt schon unter der Kamera/Fotoauswahl: wenn sie wegfährt, kommt direkt
-      // „Moment …“ statt kurz die Startseite. Bricht man ab, verschwindet er wieder.
-      setPreparing('');
-      const p = await get(setPreparing);
+      // Ladebildschirm erst unter die Kamera/Fotoauswahl legen, wenn sie den Bildschirm ganz verdeckt
+      // (sonst sieht man „Moment …“ beim Hochfahren durchscheinen). Fährt sie nach dem Foto weg,
+      // kommt direkt „Moment …“ statt kurz die Startseite.
+      const onOpen = () => {
+        under = setTimeout(() => setPreparing((cur) => cur ?? ''), 700);
+      };
+      const p = await get((uri) => {
+        clearTimeout(under);
+        setPreparing(uri);
+      }, onOpen);
       if (p) setPhoto(p);
     } finally {
+      clearTimeout(under);
       photoBusy.current = false;
       setPreparing(null);
     }
@@ -226,7 +234,7 @@ function Main() {
     setOpenFind(null);
     setShowProfile(false);
     setTab('start');
-    startPhoto((cb) => takePhoto(t, cb));
+    startPhoto((cb, open) => takePhoto(t, cb, open));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wantCamera, fontsLoaded, name, region, photo]);
 
@@ -402,8 +410,8 @@ function Main() {
             freeLeft={freeLeft}
             videosLeft={videosLeft}
             onWatchVideo={() => watchVideo(t)}
-            onTakePhoto={() => startPhoto((cb) => takePhoto(t, cb))}
-            onPickPhoto={() => startPhoto((cb) => pickPhoto(cb))}
+            onTakePhoto={() => startPhoto((cb, open) => takePhoto(t, cb, open))}
+            onPickPhoto={() => startPhoto((cb, open) => pickPhoto(cb, open))}
           />
         )}
         {tab === 'collection' && (
