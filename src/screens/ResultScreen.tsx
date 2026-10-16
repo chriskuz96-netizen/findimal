@@ -437,12 +437,14 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
 
           {/* KI nicht ganz sicher: zweites Foto direkt unter dem Ergebnis anbieten */}
           {unsure && (
-            <View style={[styles.card, styles.second, { backgroundColor: p.card }]}>
-              <Text style={[styles.cardTitle, { color: p.ink }]}>{t('res.secondTitle')}</Text>
-              <Text style={[styles.body, { color: p.mute }]}>{t('res.secondText')}</Text>
-              <View style={styles.row}>
-                <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera')} filled p={p} />
-                <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library')} p={p} />
+            <View style={[styles.card, styles.second, styles.secondCompact, { backgroundColor: p.card }]}>
+              <Text style={[styles.secondText, { color: p.mute }]}>
+                <Text style={{ fontFamily: fonts.sansBold, color: p.ink }}>{t('res.secondTitle')}: </Text>
+                {t('res.secondText')}
+              </Text>
+              <View style={[styles.row, { marginTop: 8 }]}>
+                <SmallButton label={t('res.secondCamera')} onPress={() => addPhoto('camera')} filled compact p={p} />
+                <SmallButton label={t('res.secondPick')} onPress={() => addPhoto('library')} compact p={p} />
               </View>
             </View>
           )}
@@ -813,11 +815,13 @@ function SmallButton({
   label,
   onPress,
   filled,
+  compact,
   p,
 }: {
   label: string;
   onPress: () => void;
   filled?: boolean;
+  compact?: boolean; // flacher, z. B. in der Karte „Um 100 % sicherzugehen“
   p: Palette;
 }) {
   return (
@@ -826,11 +830,12 @@ function SmallButton({
       accessibilityRole="button"
       style={({ pressed }) => [
         styles.smallBtn,
+        compact && { paddingVertical: 7, borderRadius: 11 },
         filled ? { backgroundColor: colors.accent, borderColor: colors.accent } : { borderColor: p.line },
         { opacity: pressed ? 0.85 : 1 },
       ]}
     >
-      <Text style={[styles.smallBtnText, { color: filled ? colors.ink : p.ink }]}>{label}</Text>
+      <Text style={[styles.smallBtnText, compact && { fontSize: 14 }, { color: filled ? colors.ink : p.ink }]}>{label}</Text>
     </Pressable>
   );
 }
@@ -969,6 +974,8 @@ const styles = StyleSheet.create({
   dot: { width: 8, height: 8, borderRadius: 4 },
   certaintyText: { fontFamily: fonts.sansBold, fontSize: 13 },
   second: { borderWidth: 2, borderStyle: 'dashed', borderColor: colors.accent },
+  secondCompact: { paddingVertical: 11, paddingHorizontal: 14, borderWidth: 1.5 },
+  secondText: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 19 },
   notRight: { alignSelf: 'center', marginTop: 12 },
   fixNote: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, textAlign: 'center', marginTop: 10, marginHorizontal: spacing.gutter + 8 },
   fixRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10, marginHorizontal: spacing.gutter },
