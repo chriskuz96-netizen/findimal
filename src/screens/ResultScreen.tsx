@@ -449,9 +449,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
 
           {/* Ergebnis der Korrektur */}
           {!!fixNote && animal && (
-            <View style={[styles.card, { backgroundColor: 'rgba(31,110,71,0.09)' }]}>
-              <Text style={[styles.body, { color: p.ink, marginTop: 0 }]}>{fixNote}</Text>
-            </View>
+            <Text style={[styles.fixNote, { color: p.mute }]}>{fixNote}</Text>
           )}
 
           {/* „Stimmt nicht?“: eigene Vermutung am vorhandenen Foto prüfen lassen (kein neues Foto nötig) */}
@@ -461,25 +459,31 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             </Pressable>
           )}
           {animal && fixing && (
-            <View style={[styles.card, styles.second, { backgroundColor: p.card }]}>
-              <Text style={[styles.cardTitle, { color: p.ink }]}>{t('fix.title')}</Text>
-              <Text style={[styles.body, { color: p.mute }]}>{t('fix.text')}</Text>
+            <View style={styles.fixRow}>
               <TextInput
                 value={guess}
                 onChangeText={setGuess}
-                placeholder={t('fix.placeholder')}
+                placeholder={t('fix.title')}
                 placeholderTextColor={p.mute}
                 maxLength={60}
                 autoFocus
                 returnKeyType="done"
                 onSubmitEditing={correct}
-                style={[styles.fixInput, { color: p.ink, borderColor: p.line }]}
+                style={[styles.fixInput, { color: p.ink, borderColor: p.line, backgroundColor: p.card }]}
                 accessibilityLabel={t('fix.title')}
               />
-              <View style={styles.row}>
-                <SmallButton label={t(guess.trim() ? 'fix.check' : 'fix.recheck')} onPress={correct} filled p={p} />
-                <SmallButton label={t('common.cancel')} onPress={() => setFixing(false)} p={p} />
-              </View>
+              <Pressable onPress={correct} accessibilityRole="button" hitSlop={6} style={styles.fixGo}>
+                <Text style={styles.fixGoText}>{t('fix.go')}</Text>
+              </Pressable>
+              <Pressable
+                onPress={() => setFixing(false)}
+                accessibilityRole="button"
+                accessibilityLabel={t('common.cancel')}
+                hitSlop={10}
+                style={styles.fixClose}
+              >
+                <Text style={[styles.fixCloseText, { color: p.mute }]}>✕</Text>
+              </Pressable>
             </View>
           )}
 
@@ -966,7 +970,13 @@ const styles = StyleSheet.create({
   certaintyText: { fontFamily: fonts.sansBold, fontSize: 13 },
   second: { borderWidth: 2, borderStyle: 'dashed', borderColor: colors.accent },
   notRight: { alignSelf: 'center', marginTop: 12 },
-  fixInput: { fontFamily: fonts.sans, fontSize: 16, borderWidth: 1.5, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10, marginTop: 12 },
+  fixNote: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18, textAlign: 'center', marginTop: 10, marginHorizontal: spacing.gutter + 8 },
+  fixRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 10, marginHorizontal: spacing.gutter },
+  fixInput: { flex: 1, fontFamily: fonts.sans, fontSize: 15, borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
+  fixGo: { backgroundColor: colors.accent, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8 },
+  fixGoText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
+  fixClose: { paddingHorizontal: 2 },
+  fixCloseText: { fontSize: 15 },
   notRightText: {
     fontFamily: fonts.sansBold,
     fontSize: 14,
