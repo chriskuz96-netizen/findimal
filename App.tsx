@@ -23,6 +23,7 @@ import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { Animal, checkAppKey, getAppKey, translateAnimal } from './src/identify';
+import { updateBeforeSetup } from './src/firstUpdate';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { loadZone } from './src/zone';
@@ -158,7 +159,11 @@ function Main() {
   // true, sobald Funde, Quiz und Rangliste geladen sind
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    loadName().then(setName);
+    // noch kein Name = allererster Start: vorher kurz das neueste Update holen
+    loadName().then(async (n) => {
+      if (!n) await updateBeforeSetup();
+      setName(n);
+    });
     loadRegion().then(setRegion);
     loadAvatar().then(setAvatar);
     Promise.all([
