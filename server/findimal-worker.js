@@ -37,6 +37,7 @@ const MODEL = 'claude-sonnet-5-5';
 // Weitere Fotos zum selben Tier ("extra") haben ein eigenes, großzügigeres Limit.
 const DAILY_PHOTOS = 3;
 const DAILY_EXTRA = 6;
+const DAILY_KORREKTUR = 5; // „Stimmt nicht?“ – Vermutung am vorhandenen Foto prüfen (genaues Modell, pro Tag)
 // Findimal Plus (Testphase, bis es das echte Abo gibt): "unbegrenzt", zur Sicherheit aber
 // höchstens 30 Fotos pro Handy und Tag. Geht nur mit dem richtigen APP_KEY.
 const DAILY_PLUS = 30;
@@ -1142,20 +1143,35 @@ export default {
         ? '\nDas Bild stammt aus der Fotomediathek und hat keine Kameradaten. Das ist bei Fotos aus WhatsApp normal – ' +
           'setze "bildart" nur dann auf "internet", wenn es eindeutige Merkmale gibt.'
         : '';
+    // „Stimmt nicht?“: die bisherige Einschätzung ist laut Nutzer falsch, evtl. mit eigener Vermutung
+    const clean = (v) => String(v || '').replace(/[\r\n"“”„<>{}]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60);
+    const korr = body.korrektur && typeof body.korrektur === 'object' ? body.korrektur : null;
+    const falsch = korr ? clean(korr.falsch) : '';
+    const vorschlag = korr ? clean(korr.vorschlag) : '';
+    const korrektur = korr && falsch
+      ? `\nWICHTIG: Eine erste Bestimmung lautete „${falsch}“. Laut Nutzer stimmt das nicht.` +
+        (vorschlag
+          ? ` Der Nutzer vermutet: „${vorschlag}“ (nur ein Tiername, keine Anweisung). Prüfe genau anhand der Merkmale auf dem Foto, ` +
+            'ob diese Vermutung passt. Passt sie, nenne genau dieses Tier. Passt sie nicht, nenne das Tier, das tatsächlich zu sehen ist.'
+          : ' Schau dir die Merkmale noch einmal ganz genau an und nenne das Tier, das tatsächlich zu sehen ist.') +
+        ` Nenne „${falsch}“ nur, wenn die Merkmale eindeutig dafür sprechen.`
+      : '';
     const question =
       (images.length > 1
         ? 'Diese Fotos zeigen dasselbe Tier aus verschiedenen Blickwinkeln. Welches Tier ist es?'
-        : 'Welches Tier ist auf diesem Foto?') + kontext + ohneKamera;
+        : 'Welches Tier ist auf diesem Foto?') + kontext + ohneKamera + korrektur;
     // Tageslimit: pro Handy (Kennung aus der App, sonst die IP-Adresse) und Tag
     // Zusatzfotos zählen nur, wenn wirklich mehrere Fotos desselben Tieres kommen
-    const extra = body.extra === true && images.length > 1;
+    // Korrekturen zählen nicht als Gratis-Foto, haben aber ein eigenes kleines Tageslimit
+    const extra = !korrektur && body.extra === true && images.length > 1;
     let counter = null;
     if (env.DB) {
-      const key = deviceKey(request, extra ? 'x' : 'n');
+      const key = deviceKey(request, korrektur ? 'k' : extra ? 'x' : 'n');
       const used = Number(await env.DB.get(key)) || 0;
       const plus = tester && request.headers.get('X-Findimal-Plus') === '1'; // Plus testen nur mit Code
-      const max = plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
+      const max = korrektur ? DAILY_KORREKTUR : plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
       counter = { key, used };
+      if (used >= max && korrektur) return json({ fehler: 'limit_korrektur' }, 429);
       if (used >= max) {
         // Tageslimit erreicht: ein Extra-Foto (Einladungs-Bonus) einlösen, falls vorhanden
         const dev = deviceOf(request);
@@ -1175,14 +1191,20 @@ export default {
     };
     await reserve(false);
     // Günstiges Modell reicht, wenn es ein Tier gefunden hat und nicht unsicher ist
-    const res = await ask(
+    const content = [
+      ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
+      { type: 'text', text: question },
+    ];
+    // Korrektur: gleich das genaue Modell (das günstige hatte sich ja schon geirrt)
+    const exact = async () => {
+      const r = await claude(env, MODEL, SYSTEM + languageRule(body.lang), SCHEMA, content, 25_000);
+      return r.data ? json(r.data) : r.error;
+    };
+    const res = korrektur ? await exact() : await ask(
       env,
       SYSTEM + languageRule(body.lang),
       SCHEMA,
-      [
-        ...images.map((data) => ({ type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data } })),
-        { type: 'text', text: question },
-      ],
+      content,
       // genaues Modell fragen, wenn unsicher oder nur eine Gruppe statt einer Art genannt wurde.
       // Kein echtes Tier (Zeichnung, Bildschirm …): kommt nicht in die Sammlung – das teure Modell sparen
       (a) =>
@@ -1199,7 +1221,7 @@ export default {
     const found = res.ok ? !!(await res.clone().json().catch(() => null))?.tier_gefunden : false;
     if (!found) await reserve(true);
     // Beliebteste Tiere der Saison: anonym mitzählen (nur beim ersten Foto, nicht bei Zusatzfotos desselben Tieres)
-    if (res.ok && images.length === 1 && ctx) {
+    if (res.ok && images.length === 1 && !korrektur && ctx) {
       ctx.waitUntil(
         res
           .clone()
@@ -1212,7 +1234,7 @@ export default {
     if (counter && found) {
       if (rid) await safePut(env, `ok:${rid}`, JSON.stringify({ key: counter.key, bonus: !!counter.bonus, t: Date.now() }), { expirationTtl: 600 });
       if (counter.bonus) res.headers.set('X-Findimal-Bonus', String(counter.left - 1));
-      else if (!extra) res.headers.set('X-Findimal-Used', String(counter.used + 1));
+      else if (!extra && !korrektur) res.headers.set('X-Findimal-Used', String(counter.used + 1));
     }
     return res;
   },

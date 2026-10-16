@@ -22,9 +22,9 @@ import { LimitCard } from '../components/LimitCard';
 import { ShareCard, shareCard } from '../components/ShareCard';
 import { Icon, IconName } from '../components/Icon';
 import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
-import { Find, useFindPhoto } from '../finds';
+import { Find, speciesKey, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
-import { Animal, cancelIdentify, hasDetails, identify, IdentifyCancel, IdentifyResult, loadDetails, newCancel } from '../identify';
+import { Animal, cancelIdentify, hasDetails, identify, IdentifyCancel, IdentifyResult, Korrektur, loadDetails, newCancel } from '../identify';
 import { breedGuessed, displayName } from '../names';
 import { Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
@@ -49,7 +49,8 @@ type Props =
   | {
       photo?: undefined;
       saved: Find;
-      onIdentified?: undefined;
+      // „Stimmt nicht?“: korrigierter Fund ersetzt den gespeicherten
+      onIdentified?: (animal: Animal, replaceId: string | null, shot: Photo) => Promise<{ id: string; reward: Reward }>;
       morePhoto?: undefined;
       onDetails: (id: string, animal: Animal) => void;
       onPlace: (id: string, place: string) => void; // Fundort nachträglich ändern
@@ -144,10 +145,14 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
     return () => clearTimeout(timer);
   }, [reward]);
   const [details, setDetails] = useState(false);
+  // „Stimmt nicht?“: eigene Vermutung eingeben und am Foto prüfen lassen
+  const [fixing, setFixing] = useState(false);
+  const [guess, setGuess] = useState('');
+  const [fixNote, setFixNote] = useState<string | null>(null);
   const [loadingDetails, setLoadingDetails] = useState(false);
   // halbseitige Anzeige ab dem 3. Foto des Tages: kommt beim Tippen auf „Weiter“
   const [bigAd, setBigAd] = useState<'due' | 'open' | null>(null);
-  const findId = useRef<string | null>(null);
+  const findId = useRef<string | null>(saved?.id ?? null);
   const shareRef = useRef<View>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
@@ -156,23 +161,35 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const before = useRef<{ photos: Photo[]; result: IdentifyResult | null } | null>(null);
 
   const run = useCallback(
-    (list: Photo[]) => {
+    (list: Photo[], korrektur?: Korrektur) => {
       if (!onIdentified) return;
+      const prev = before.current?.result;
       setResult(null);
+      setFixNote(null);
       const c = newCancel();
       pending.current = c;
-      identify(list, t, lang, c).then(async (r) => {
+      identify(list, t, lang, c, korrektur).then(async (r) => {
         // abgebrochen oder von einer neueren Bestimmung überholt: nichts anzeigen, nichts speichern
         if (pending.current !== c || (!r.ok && r.cancelled)) return;
         pending.current = null;
         before.current = null;
+        // Korrektur ging schief (offline, Tageslimit …): bisheriges Ergebnis behalten
+        if (korrektur && prev?.ok && (!r.ok || !r.animal.tier_gefunden)) {
+          setResult(prev);
+          setFixNote(r.ok ? t('fix.failed') : r.message);
+          return;
+        }
+        if (korrektur && prev?.ok && r.ok) {
+          const same = speciesKey(r.animal) === speciesKey(prev.animal);
+          setFixNote(same ? t('fix.same', { name: displayName(r.animal) }) : t('fix.changed'));
+        }
         setResult(r);
         // alles Erkannte kommt in die Sammlung; Zeichnungen, Internetbilder usw. nur zum Nachschlagen (ohne Punkte)
         if (r.ok && r.animal.tier_gefunden) {
           const res = await onIdentified(r.animal, findId.current, list[0]);
           findId.current = res.id;
           setReward(res.reward);
-          if (list.length === 1 && (await bigAdDue())) setBigAd('due');
+          if (!korrektur && list.length === 1 && (await bigAdDue())) setBigAd('due');
         }
       });
     },
@@ -196,6 +213,21 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
     before.current = { photos, result };
     setPhotos(list);
     run(list);
+  };
+
+  // „Stimmt nicht?“ – mit den vorhandenen Fotos (oder dem gespeicherten) noch einmal genau prüfen
+  const correct = () => {
+    if (!result?.ok) return;
+    const list: Photo[] = photos.length
+      ? photos
+      : savedPhoto?.startsWith('data:')
+        ? [{ uri: savedPhoto, base64: savedPhoto.slice(savedPhoto.indexOf(',') + 1) }]
+        : [];
+    if (!list.length) return;
+    setFixing(false);
+    before.current = { photos, result };
+    run(list, { falsch: displayName(result.animal), vorschlag: guess.trim() || undefined });
+    setGuess('');
   };
 
   // Abbrechen während der Bestimmung: zählt nicht als Gratis-Foto.
@@ -415,11 +447,40 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             </View>
           )}
 
-          {/* KI sicher: trotzdem leise die Möglichkeit für ein weiteres Foto */}
-          {canAddPhoto && !unsure && (
-            <Pressable onPress={() => addPhoto('camera')} accessibilityRole="button" hitSlop={8} style={styles.notRight}>
-              <Text style={[styles.notRightText, { color: p.moss }]}>{t('res.notRight')}</Text>
+          {/* Ergebnis der Korrektur */}
+          {!!fixNote && animal && (
+            <View style={[styles.card, { backgroundColor: 'rgba(31,110,71,0.09)' }]}>
+              <Text style={[styles.body, { color: p.ink, marginTop: 0 }]}>{fixNote}</Text>
+            </View>
+          )}
+
+          {/* „Stimmt nicht?“: eigene Vermutung am vorhandenen Foto prüfen lassen (kein neues Foto nötig) */}
+          {animal && !fake && !!onIdentified && !busy && !fixing && (
+            <Pressable onPress={() => setFixing(true)} accessibilityRole="button" hitSlop={8} style={styles.notRight}>
+              <Text style={[styles.notRightText, { color: p.moss }]}>{t('fix.button')}</Text>
             </Pressable>
+          )}
+          {animal && fixing && (
+            <View style={[styles.card, styles.second, { backgroundColor: p.card }]}>
+              <Text style={[styles.cardTitle, { color: p.ink }]}>{t('fix.title')}</Text>
+              <Text style={[styles.body, { color: p.mute }]}>{t('fix.text')}</Text>
+              <TextInput
+                value={guess}
+                onChangeText={setGuess}
+                placeholder={t('fix.placeholder')}
+                placeholderTextColor={p.mute}
+                maxLength={60}
+                autoFocus
+                returnKeyType="done"
+                onSubmitEditing={correct}
+                style={[styles.fixInput, { color: p.ink, borderColor: p.line }]}
+                accessibilityLabel={t('fix.title')}
+              />
+              <View style={styles.row}>
+                <SmallButton label={t(guess.trim() ? 'fix.check' : 'fix.recheck')} onPress={correct} filled p={p} />
+                <SmallButton label={t('common.cancel')} onPress={() => setFixing(false)} p={p} />
+              </View>
+            </View>
           )}
 
           {/* Belohnung */}
@@ -905,6 +966,7 @@ const styles = StyleSheet.create({
   certaintyText: { fontFamily: fonts.sansBold, fontSize: 13 },
   second: { borderWidth: 2, borderStyle: 'dashed', borderColor: colors.accent },
   notRight: { alignSelf: 'center', marginTop: 12 },
+  fixInput: { fontFamily: fonts.sans, fontSize: 16, borderWidth: 1.5, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10, marginTop: 12 },
   notRightText: {
     fontFamily: fonts.sansBold,
     fontSize: 14,

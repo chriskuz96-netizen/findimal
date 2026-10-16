@@ -154,7 +154,10 @@ function askForAppKey(t: Translate): Promise<string | null> {
 }
 
 // extra = weiteres Foto zu einem Tier, das gerade bestimmt wird (zählt nicht als neues Gratis-Foto)
-async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, signal?: AbortSignal): Promise<Response> {
+// korrektur: „Stimmt nicht?“ – bisheriges Tier ist falsch, evtl. mit eigener Vermutung (prüft das genaue Modell)
+export type Korrektur = { falsch: string; vorschlag?: string };
+
+async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, signal?: AbortSignal, korrektur?: Korrektur): Promise<Response> {
   return fetch(SERVER_URL, {
     method: 'POST',
     signal,
@@ -172,6 +175,7 @@ async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, s
       rid,
       zone: await loadZone(),
       ohneKamera: !!photos[0]?.foreign, // nur ein Hinweis für die KI
+      ...(korrektur ? { korrektur } : {}),
     }),
   });
 }
@@ -207,7 +211,13 @@ export async function cancelIdentify(c: IdentifyCancel): Promise<void> {
 // Höchstens so lange wartet die App auf eine Bestimmung (Server: 10 s schnelle KI, dann 25 s genaue KI)
 const IDENTIFY_TIMEOUT = 40_000;
 
-export async function identify(photos: Photo[], t: Translate, lang: Lang, cancel?: IdentifyCancel): Promise<IdentifyResult> {
+export async function identify(
+  photos: Photo[],
+  t: Translate,
+  lang: Lang,
+  cancel?: IdentifyCancel,
+  korrektur?: Korrektur,
+): Promise<IdentifyResult> {
   if (!SERVER_URL) return { ok: false, message: t('id.noServer') };
   if (photos.some((p) => !p.base64)) return { ok: false, message: t('id.noPhoto') };
   const c = cancel ?? newCancel();
@@ -226,15 +236,17 @@ export async function identify(photos: Photo[], t: Translate, lang: Lang, cancel
     timedOut ? { ok: false, message: t('id.slow') } : { ok: false, message: '', cancelled: true };
   try {
     arm();
-    let res = await send(photos, await getAppKey(), lang, c.rid, signal);
+    let res = await send(photos, await getAppKey(), lang, c.rid, signal, korrektur);
     if (res.status === 401) {
       disarm(); // während der Code-Eingabe läuft keine Zeit
       const key = await askForAppKey(t);
       if (!key) return { ok: false, message: t('id.noCode') };
       arm();
-      res = await send(photos, key, lang, c.rid, signal);
+      res = await send(photos, key, lang, c.rid, signal, korrektur);
       if (res.status === 401) return { ok: false, message: t('id.wrongCode') };
     }
+    // Korrekturen haben ein eigenes Tageslimit – die Gratis-Fotos bleiben unberührt
+    if (res.status === 429 && korrektur) return { ok: false, message: t('fix.limit') };
     if (res.status === 429) {
       await setUsedToday(FREE_PHOTOS_PER_DAY);
       return { ok: false, message: t('lim.text', { n: FREE_PHOTOS_PER_DAY }), limit: true };
@@ -253,7 +265,7 @@ export async function identify(photos: Photo[], t: Translate, lang: Lang, cancel
     if (bonus !== null) await setBonusPhotos(Number(bonus) || 0); // Extra-Foto eingelöst
     else if (Number.isFinite(used) && used > 0) await setUsedToday(used);
     // ohne Angabe vom Server: nur Fotos mit gefundenem Tier zählen (wie auf dem Server)
-    else if (photos.length === 1 && animal.tier_gefunden) await setUsedToday((await usedToday()) + 1);
+    else if (!korrektur && photos.length === 1 && animal.tier_gefunden) await setUsedToday((await usedToday()) + 1);
     return { ok: true, animal };
   } catch {
     if (signal.aborted) return stopped();

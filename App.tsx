@@ -22,7 +22,7 @@ import { allowAutoJoin, autoJoin, codeFromUrl } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
-import { checkAppKey, getAppKey, translateAnimal } from './src/identify';
+import { Animal, checkAppKey, getAppKey, translateAnimal } from './src/identify';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { loadZone } from './src/zone';
@@ -386,6 +386,32 @@ function Main() {
 
   // Profil und Ergebnis liegen ÜBER den Tabs (die darunter gezeichnet bleiben).
   // So sieht man beim Zurückwischen die richtige Seite darunter statt einer weißen Fläche.
+  // Fund speichern (neu oder als Ersatz, z. B. nach „Stimmt nicht?“) und Belohnung berechnen
+  const saveIdentified = async (animal: Animal, replaceId: string | null, shot: Photo) => {
+    const quizXp = correctAnswers(quizRef.current);
+    // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
+    const others = findsRef.current.filter((f) => f.id !== replaceId && counts(f));
+    const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
+    const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
+    let id = replaceId;
+    let next: Find[];
+    if (replaceId) {
+      next = await updateFind(replaceId, animal);
+    } else {
+      const added = await addFind(shot, animal, region || undefined, lang);
+      next = added.finds;
+      id = added.id;
+    }
+    setFinds(next);
+    // Fund ist gespeichert: hat man die Seite schon verlassen, jetzt nach den Natur-Tipps fragen
+    if (tipsAfterSave.current) {
+      tipsAfterSave.current = false;
+      setTimeout(askTips, 300);
+    }
+    const after = computeProgress(next.filter(counts), quizXp, new Date(), { bestRank, maxFriends });
+    return { id: id!, reward: computeReward(before, after, isNew) };
+  };
+
   const overlay = showProfile ? (
     <ProfileScreen
       name={name}
@@ -421,30 +447,7 @@ function Main() {
     <ResultScreen
       key={photo.uri}
       photo={photo}
-      onIdentified={async (animal, replaceId, shot) => {
-        const quizXp = correctAnswers(quizRef.current);
-        // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
-        const others = findsRef.current.filter((f) => f.id !== replaceId && counts(f));
-        const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
-        const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
-        let id = replaceId;
-        let next: Find[];
-        if (replaceId) {
-          next = await updateFind(replaceId, animal);
-        } else {
-          const added = await addFind(shot, animal, region || undefined, lang);
-          next = added.finds;
-          id = added.id;
-        }
-        setFinds(next);
-        // Fund ist gespeichert: hat man die Seite schon verlassen, jetzt nach den Natur-Tipps fragen
-        if (tipsAfterSave.current) {
-          tipsAfterSave.current = false;
-          setTimeout(askTips, 300);
-        }
-        const after = computeProgress(next.filter(counts), quizXp, new Date(), { bestRank, maxFriends });
-        return { id: id!, reward: computeReward(before, after, isNew) };
-      }}
+      onIdentified={saveIdentified}
       morePhoto={(kind) => (kind === 'camera' ? takePhoto(t) : pickPhoto())}
       onDetails={(id, animal) => updateFind(id, animal).then(setFinds)}
       onBack={(to) => {
@@ -460,6 +463,7 @@ function Main() {
   ) : openFind ? (
     <ResultScreen
       saved={openFind}
+      onIdentified={saveIdentified}
       onDetails={(id, animal) => updateFind(id, animal).then(setFinds)}
       onPlace={(id, place) => updatePlace(id, place).then(setFinds)}
       backLabel={t(tab === 'season' ? 'res.backSeason' : tab === 'collection' ? 'res.backCollection' : 'res.back')}
