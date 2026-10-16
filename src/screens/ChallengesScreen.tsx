@@ -293,12 +293,14 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       for (const k of order(!goal.done, !week.done)) {
         const by = y - L[k]!.y;
         y += L[k]!.h;
-        if (by) moves.push(Animated.timing(shift[k], { toValue: by, duration: 900, easing: Easing.inOut(Easing.cubic), useNativeDriver: true }));
+        // ohne nativen Treiber: sonst bleibt die Verschiebung auf dem iPhone nach dem Umsortieren teils hängen
+        // (Rangliste rutschte über den grünen Kopf)
+        if (by) moves.push(Animated.timing(shift[k], { toValue: by, duration: 900, easing: Easing.inOut(Easing.cubic), useNativeDriver: false }));
       }
       anim = Animated.parallel(moves);
       moving.current = true;
-      anim.start(({ finished }) => {
-        if (!finished) return;
+      // auch bei Unterbrechung (z. B. Stufen-Feier) sauber auf die neue Reihenfolge springen
+      anim.start(() => {
         moving.current = false;
         setShift(makeShift());
         setHold({ goal: false, week: false });
