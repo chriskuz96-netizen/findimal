@@ -38,7 +38,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
    App-Store-Connect-ID der App: 6823092816 (in `eas.json` unter submit).
    Bau 5 von Apple abgelehnt (ITMS-90683: NSMotionUsageDescription fehlte, verlangt vom Standort-Baustein; jetzt in
    `locales/` ergänzt). Bau 1.0.0 (6) am 15.10. von Apple angenommen (VALID) und in TestFlight. `eas submit --non-interactive` braucht den
-   API-Schlüssel in `eas.json` (`ascApiKeyPath`, `ascApiKeyId`, `ascApiKeyIssuerId`) – nur lokal eintragen, nicht committen.
+   API-Schlüssel in `eas.json` (`ascApiKeyPath`, `ascApiKeyId`, `ascApiKeyIssuerId`) – **nie im Projektordner eintragen**,
+   sondern in einer eigenen Kopie: `git worktree add --detach <scratchpad>/submit HEAD`, dort `eas.json` ergänzen und
+   `eas submit --id <Build-ID>` ausführen (am 15.10. war der Schlüssel versehentlich auf GitHub gelandet).
 3. ~~Ersten Bau mit EAS und Upload zu TestFlight~~ erledigt (15.10.). Offen: Tester in App Store Connect → TestFlight eintragen.
 4. Server für Tester öffnen: in Cloudflare die Variable `OFFEN` = `ja` setzen (Grenzen: 3 Fotos pro Handy,
    80 pro Anschluss, 300 pro Tag gesamt; `TAGES_GRENZE` änderbar).
@@ -54,6 +56,17 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Claude lädt `server/findimal-worker.js` jetzt selbst hoch (Cloudflare-API, Worker `findimal`, Modul-Format,
   Bindungen behalten: Geheimnisse ANTHROPIC_API_KEY, APP_KEY, KV `DB`). Am 15.10. war der laufende Server
   identisch mit GitHub. Variable `OFFEN` ist noch nicht gesetzt (erst für Tester ohne Code).
+
+## TestFlight für Tester
+- Öffentlicher Link: https://testflight.apple.com/join/cjtvMZnH (Gruppe „Tester (Link)“, max. 100). Build 10 am 16.10.
+  freigegeben (erste Beta-Prüfung dauerte ca. 13 Std.). Tester brauchen den Findimal-Code (separat schicken).
+- Neue Builds: in App Store Connect der Gruppe hinzufügen und zur Beta-Prüfung einreichen.
+- Erster Start lädt seit 16.10. das neueste Update vor der Einrichtung (`src/firstUpdate.ts`), sonst sähe man den
+  aktuellen Stand erst beim zweiten Start.
+
+## „Stimmt nicht?“ (16.10.)
+- Unter dem Ergebnis und bei Funden in der Sammlung: eigene Vermutung eingeben, die genaue KI prüft am vorhandenen Foto.
+- Server: `korrektur: { falsch, vorschlag }` → direkt `MODEL`, Tageslimit `DAILY_KORREKTUR` (5), kostet kein Gratis-Foto.
 
 ## Natur-Tipps (Mitteilungen)
 - `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
