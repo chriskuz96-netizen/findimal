@@ -668,11 +668,13 @@ function QuizCard({ started, days, onPress }: { started: boolean; days: number; 
   const { t } = useI18n();
   const pulse = useLoop(2200);
   const glow = pulse.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.35, 0.9, 0.35] });
+  // Verlauf in fester Größe (auf dem iPhone füllt ein Svg mit 100 % die Karte nicht zuverlässig aus)
+  const [size, setSize] = useState({ width: 0, height: 0 });
   return (
     <Pressable onPress={onPress} accessibilityRole="button" style={({ pressed }) => [styles.quizCard, { opacity: pressed ? 0.9 : 1 }]}>
       <Animated.View pointerEvents="none" style={[styles.quizGlow, { opacity: glow }]} />
-      <View style={styles.quizInner}>
-        <Svg style={StyleSheet.absoluteFill} width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
+      <View style={styles.quizInner} onLayout={(e) => setSize(e.nativeEvent.layout)}>
+        <Svg style={styles.quizBg} width={size.width} height={size.height} preserveAspectRatio="none" viewBox="0 0 100 100">
           <Defs>
             <LinearGradient id="qcard" x1="0" y1="0" x2="1" y2="1">
               <Stop offset="0" stopColor="#F6A55B" />
@@ -711,7 +713,8 @@ function QuizCard({ started, days, onPress }: { started: boolean; days: number; 
 const styles = StyleSheet.create({
   quizCard: { marginHorizontal: spacing.gutter, marginTop: 14 },
   quizGlow: { position: 'absolute', left: -4, right: -4, top: -4, bottom: -4, borderRadius: 26, borderWidth: 3, borderColor: colors.accentLight, shadowColor: colors.accent, shadowOpacity: 0.8, shadowRadius: 12, shadowOffset: { width: 0, height: 0 } },
-  quizInner: { borderRadius: 22, overflow: 'hidden', padding: 16 },
+  quizInner: { borderRadius: 22, overflow: 'hidden', padding: 16, backgroundColor: colors.accent },
+  quizBg: { position: 'absolute', left: 0, top: 0 },
   quizTop: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   quizKicker: { fontFamily: fonts.sansBold, fontSize: 11, letterSpacing: 1, color: colors.ink, opacity: 0.75 },
   quizTitle: { fontFamily: fonts.serifBold, fontSize: 23, color: colors.ink, marginTop: 2 },
