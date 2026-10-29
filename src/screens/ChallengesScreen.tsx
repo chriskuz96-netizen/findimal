@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Alert, Animated, Easing, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, G, LinearGradient, Path, Rect, Stop } from 'react-native-svg';
@@ -241,8 +241,17 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
   // (Karte nach unten, Rangliste/Quiz nach oben), dann wird in einem Schritt umsortiert –
   // zusammen mit frischen Verschiebungen (0), damit nichts ruckelt.
   const lay = useRef<Record<Slot, { y: number; h: number } | undefined>>({ quiz: undefined, goal: undefined, week: undefined, mid: undefined });
-  const makeShift = () => ({ quiz: new Animated.Value(0), goal: new Animated.Value(0), week: new Animated.Value(0), mid: new Animated.Value(0) });
-  const [shift, setShift] = useState(makeShift);
+  // Verschiebung beim Umsortieren. Die Werte bleiben dieselben und werden nach dem Umsortieren auf 0 gesetzt:
+  // neue Werte einzusetzen reichte auf dem iPhone nicht, die alte Verschiebung blieb sichtbar hängen
+  // (Karten rutschten über den grünen Kopf).
+  const [shift] = useState(() => ({ quiz: new Animated.Value(0), goal: new Animated.Value(0), week: new Animated.Value(0), mid: new Animated.Value(0) }));
+  const zeroShift = () => (Object.keys(shift) as Slot[]).forEach((k) => shift[k].setValue(0));
+  const resetAfterSort = useRef(false);
+  useLayoutEffect(() => {
+    if (!resetAfterSort.current) return;
+    resetAfterSort.current = false;
+    zeroShift();
+  });
   const moving = useRef(false);
   const track = (k: Slot) => (e: LayoutChangeEvent) => {
     lay.current[k] = { y: e.nativeEvent.layout.y, h: e.nativeEvent.layout.height };
@@ -259,7 +268,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
       setHold((f) => (f.quiz || f.goal || f.week ? { quiz: false, goal: false, week: false } : f));
       if (moving.current) {
         moving.current = false;
-        setShift(makeShift());
+        zeroShift();
       }
       return;
     }
@@ -314,7 +323,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
       // auch bei Unterbrechung (z. B. Stufen-Feier) sauber auf die neue Reihenfolge springen
       anim.start(() => {
         moving.current = false;
-        setShift(makeShift());
+        resetAfterSort.current = true; // erst umsortieren, dann (vor dem Zeichnen) auf 0
         setHold({ quiz: false, goal: false, week: false });
       });
     }, afterParty.current ? 2500 : 5000);
