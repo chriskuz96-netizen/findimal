@@ -1,0 +1,1028 @@
+[
+ {
+  "id": "k01",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Welche Aussage ist FALSCH?",
+   "a": [
+    "Eulen können ihre Augen nicht bewegen",
+    "Alle Haie müssen ständig schwimmen, um zu atmen",
+    "Kraken haben blaues Blut",
+    "Biber haben orange Zähne"
+   ],
+   "x": "Viele Haie müssen schwimmen, aber nicht alle: Ammenhaie oder Katzenhaie liegen am Grund und pumpen Wasser über ihre Kiemen."
+  },
+  "en": {
+   "q": "Which statement is FALSE?",
+   "a": [
+    "Owls can’t move their eyes",
+    "All sharks must swim constantly to breathe",
+    "Octopuses have blue blood",
+    "Beavers have orange teeth"
+   ],
+   "x": "Many sharks have to swim, but not all: nurse sharks or catsharks lie on the bottom and pump water over their gills."
+  },
+  "fr": {
+   "q": "Quelle affirmation est FAUSSE ?",
+   "a": [
+    "Les chouettes ne peuvent pas bouger les yeux",
+    "Tous les requins doivent nager sans arrêt pour respirer",
+    "Les pieuvres ont le sang bleu",
+    "Les castors ont les dents orange"
+   ],
+   "x": "Beaucoup de requins doivent nager, mais pas tous : le requin-nourrice ou la roussette restent au fond et pompent l’eau sur leurs branchies."
+  },
+  "es": {
+   "q": "¿Qué afirmación es FALSA?",
+   "a": [
+    "Los búhos no pueden mover los ojos",
+    "Todos los tiburones deben nadar sin parar para respirar",
+    "Los pulpos tienen sangre azul",
+    "Los castores tienen los dientes naranjas"
+   ],
+   "x": "Muchos tiburones tienen que nadar, pero no todos: el tiburón nodriza o la pintarroja descansan en el fondo y bombean agua por sus branquias."
+  }
+ },
+ {
+  "id": "k02",
+  "lvl": 1,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Welche Aussage ist FALSCH?",
+   "a": [
+    "Ameisen tragen ein Vielfaches ihres Gewichts",
+    "Spechte trommeln über 10-mal pro Sekunde",
+    "Fledermäuse sind blind",
+    "Hummeln fliegen auch bei Kälte"
+   ],
+   "x": "Fledermäuse sehen gut. Nachts orientieren sie sich aber zusätzlich mit Ultraschall-Echos."
+  },
+  "en": {
+   "q": "Which statement is FALSE?",
+   "a": [
+    "Ants carry many times their own weight",
+    "Woodpeckers drum over 10 times a second",
+    "Bats are blind",
+    "Bumblebees fly even in the cold"
+   ],
+   "x": "Bats can see well. At night, they also find their way using ultrasound echoes."
+  },
+  "fr": {
+   "q": "Quelle affirmation est FAUSSE ?",
+   "a": [
+    "Les fourmis portent plusieurs fois leur poids",
+    "Le pic tambourine plus de 10 fois par seconde",
+    "Les chauves-souris sont aveugles",
+    "Les bourdons volent même par temps froid"
+   ],
+   "x": "Les chauves-souris voient bien. La nuit, elles s’orientent en plus grâce à l’écho des ultrasons."
+  },
+  "es": {
+   "q": "¿Qué afirmación es FALSA?",
+   "a": [
+    "Las hormigas cargan varias veces su peso",
+    "Los pájaros carpinteros tamborilean más de 10 veces por segundo",
+    "Los murciélagos son ciegos",
+    "Los abejorros vuelan incluso con frío"
+   ],
+   "x": "Los murciélagos ven bien. De noche se orientan además con el eco de los ultrasonidos."
+  }
+ },
+ {
+  "id": "k03",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Schätzfrage: Wie viel Honig sammelt eine Arbeitsbiene in ihrem ganzen Leben?",
+   "a": [
+    "Etwa 1/12 Teelöffel",
+    "Etwa 1 Teelöffel",
+    "Etwa 1 Esslöffel",
+    "Etwa ein halbes Glas"
+   ],
+   "x": "Nur etwa ein Zwölftel Teelöffel! Für ein Glas Honig fliegen Bienen zusammen eine Strecke, die mehrmals um die Erde reicht."
+  },
+  "en": {
+   "q": "Guess: how much honey does a worker bee make in her whole life?",
+   "a": [
+    "About 1/12 teaspoon",
+    "About 1 teaspoon",
+    "About 1 tablespoon",
+    "About half a jar"
+   ],
+   "x": "Only about a twelfth of a teaspoon! For one jar of honey, bees together fly a distance that would go around the Earth several times."
+  },
+  "fr": {
+   "q": "Devine : combien de miel une abeille ouvrière produit-elle dans toute sa vie ?",
+   "a": [
+    "Environ 1/12 de cuillère à café",
+    "Environ 1 cuillère à café",
+    "Environ 1 cuillère à soupe",
+    "Environ un demi-pot"
+   ],
+   "x": "Seulement un douzième de cuillère à café ! Pour un pot de miel, les abeilles parcourent ensemble une distance de plusieurs fois le tour de la Terre."
+  },
+  "es": {
+   "q": "Adivina: ¿cuánta miel produce una abeja obrera en toda su vida?",
+   "a": [
+    "Una doceava parte de cucharadita",
+    "Una cucharadita",
+    "Una cucharada",
+    "Medio tarro"
+   ],
+   "x": "¡Solo una doceava parte de cucharadita! Para un tarro de miel, las abejas recorren juntas una distancia de varias vueltas a la Tierra."
+  }
+ },
+ {
+  "id": "k04",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Schätzfrage: Wie viele Insekten frisst eine kleine Zwergfledermaus in einer Nacht?",
+   "a": [
+    "Etwa 5",
+    "Etwa 50",
+    "Mehrere Hundert bis über tausend",
+    "Etwa eine Million"
+   ],
+   "x": "Eine Zwergfledermaus wiegt nur rund 5 Gramm, fängt aber pro Nacht Hunderte bis über tausend Mücken und andere kleine Insekten."
+  },
+  "en": {
+   "q": "Guess: how many insects does a tiny pipistrelle bat eat in one night?",
+   "a": [
+    "About 5",
+    "About 50",
+    "Several hundred to over a thousand",
+    "About a million"
+   ],
+   "x": "A pipistrelle weighs only about 5 grams, but catches hundreds to over a thousand midges and other small insects in one night."
+  },
+  "fr": {
+   "q": "Devine : combien d’insectes une petite pipistrelle mange-t-elle en une nuit ?",
+   "a": [
+    "Environ 5",
+    "Environ 50",
+    "Plusieurs centaines à plus de mille",
+    "Environ un million"
+   ],
+   "x": "Une pipistrelle ne pèse qu’environ 5 grammes, mais attrape en une nuit des centaines, voire plus de mille moucherons et autres petits insectes."
+  },
+  "es": {
+   "q": "Adivina: ¿cuántos insectos come un pequeño murciélago enano en una noche?",
+   "a": [
+    "Unos 5",
+    "Unos 50",
+    "De varios cientos a más de mil",
+    "Un millón"
+   ],
+   "x": "Un murciélago enano pesa solo unos 5 gramos, pero en una noche caza de cientos a más de mil mosquitos y otros insectos pequeños."
+  }
+ },
+ {
+  "id": "k05",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Schätzfrage: Wie schwer ist ein Igelbaby bei der Geburt?",
+   "a": [
+    "Etwa 2 Gramm",
+    "Etwa 20 Gramm",
+    "Etwa 200 Gramm",
+    "Etwa 1 Kilo"
+   ],
+   "x": "Neugeborene Igel wiegen 12 bis 25 Gramm. Ihre Stacheln sind weich und stecken unter einer Hautschicht, damit die Geburt nicht wehtut – nach einigen Stunden kommen sie heraus."
+  },
+  "en": {
+   "q": "Guess: how much does a baby hedgehog weigh at birth?",
+   "a": [
+    "About 2 grams",
+    "About 20 grams",
+    "About 200 grams",
+    "About 1 kilo"
+   ],
+   "x": "Newborn hedgehogs weigh 12 to 25 grams. Their spines are soft and covered by a layer of skin so birth doesn’t hurt – they come out after a few hours."
+  },
+  "fr": {
+   "q": "Devine : combien pèse un bébé hérisson à la naissance ?",
+   "a": [
+    "Environ 2 grammes",
+    "Environ 20 grammes",
+    "Environ 200 grammes",
+    "Environ 1 kilo"
+   ],
+   "x": "Un hérisson nouveau-né pèse 12 à 25 grammes. Ses piquants sont mous et couverts d’une couche de peau pour que la naissance ne fasse pas mal – ils sortent après quelques heures."
+  },
+  "es": {
+   "q": "Adivina: ¿cuánto pesa un erizo al nacer?",
+   "a": [
+    "Unos 2 gramos",
+    "Unos 20 gramos",
+    "Unos 200 gramos",
+    "Un kilo"
+   ],
+   "x": "Un erizo recién nacido pesa de 12 a 25 gramos. Sus púas son blandas y están cubiertas por una capa de piel para que el parto no duela; salen a las pocas horas."
+  }
+ },
+ {
+  "id": "k06",
+  "lvl": 3,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Schätzfrage: Wie viele Federn hat ein Höckerschwan?",
+   "a": [
+    "Etwa 2.500",
+    "Etwa 25.000",
+    "Etwa 250.000",
+    "Etwa 2,5 Millionen"
+   ],
+   "x": "Rund 25.000 – die meisten Federn aller Vögel, ein großer Teil davon am langen Hals. Ein Kolibri hat nur etwa 1.000."
+  },
+  "en": {
+   "q": "Guess: how many feathers does a mute swan have?",
+   "a": [
+    "About 2,500",
+    "About 25,000",
+    "About 250,000",
+    "About 2.5 million"
+   ],
+   "x": "Around 25,000 – the most feathers of any bird, many of them on the long neck. A hummingbird has only about 1,000."
+  },
+  "fr": {
+   "q": "Devine : combien de plumes a un cygne tuberculé ?",
+   "a": [
+    "Environ 2 500",
+    "Environ 25 000",
+    "Environ 250 000",
+    "Environ 2,5 millions"
+   ],
+   "x": "Environ 25 000 – le record chez les oiseaux, dont une grande partie sur le long cou. Un colibri n’en a qu’environ 1 000."
+  },
+  "es": {
+   "q": "Adivina: ¿cuántas plumas tiene un cisne vulgar?",
+   "a": [
+    "Unas 2.500",
+    "Unas 25.000",
+    "Unas 250.000",
+    "Unos 2,5 millones"
+   ],
+   "x": "Unas 25.000, el récord entre las aves, muchas de ellas en el largo cuello. Un colibrí tiene solo unas 1.000."
+  }
+ },
+ {
+  "id": "k07",
+  "lvl": 1,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Was wächst einer Kaulquappe zuerst?",
+   "a": [
+    "Die Hinterbeine",
+    "Die Vorderbeine",
+    "Die Zunge zum Fliegenfangen",
+    "Ein längerer Schwanz für das Leben an Land"
+   ],
+   "x": "Zuerst wachsen die Hinterbeine, dann die Vorderbeine. Zum Schluss wird der Schwanz abgebaut – und als Baumaterial wiederverwertet."
+  },
+  "en": {
+   "q": "What does a tadpole grow first?",
+   "a": [
+    "Its back legs",
+    "Its front legs",
+    "A tongue for catching flies",
+    "A longer tail for life on land"
+   ],
+   "x": "The back legs grow first, then the front legs. Finally the tail is absorbed – and recycled as building material."
+  },
+  "fr": {
+   "q": "Qu’est-ce qui pousse en premier chez le têtard ?",
+   "a": [
+    "Les pattes arrière",
+    "Les pattes avant",
+    "Une langue pour attraper les mouches",
+    "Une queue plus longue pour la vie sur terre"
+   ],
+   "x": "Les pattes arrière poussent d’abord, puis les pattes avant. Enfin, la queue est résorbée – et recyclée comme matériau."
+  },
+  "es": {
+   "q": "¿Qué le crece primero a un renacuajo?",
+   "a": [
+    "Las patas traseras",
+    "Las patas delanteras",
+    "Una lengua para cazar moscas",
+    "Una cola más larga para vivir en tierra"
+   ],
+   "x": "Primero crecen las patas traseras y luego las delanteras. Al final la cola se reabsorbe y se recicla como material."
+  }
+ },
+ {
+  "id": "k08",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Welches Tier hat die größten Augen der Welt?",
+   "a": [
+    "Blauwal",
+    "Koloss-Kalmar",
+    "Strauß",
+    "Uhu"
+   ],
+   "x": "Kalmare der Tiefsee haben Augen so groß wie ein Fußball, etwa 27 cm. Damit erkennen sie im Dunkeln die Pottwale, die sie jagen."
+  },
+  "en": {
+   "q": "Which animal has the largest eyes in the world?",
+   "a": [
+    "Blue whale",
+    "Colossal squid",
+    "Ostrich",
+    "Eagle owl"
+   ],
+   "x": "Deep-sea squids have eyes as big as a football, about 27 cm. They use them to spot the sperm whales that hunt them in the dark."
+  },
+  "fr": {
+   "q": "Quel animal a les plus grands yeux du monde ?",
+   "a": [
+    "Baleine bleue",
+    "Calmar colossal",
+    "Autruche",
+    "Grand-duc"
+   ],
+   "x": "Les calmars des abysses ont des yeux grands comme un ballon de foot, environ 27 cm. Ils repèrent ainsi dans le noir les cachalots qui les chassent."
+  },
+  "es": {
+   "q": "¿Qué animal tiene los ojos más grandes del mundo?",
+   "a": [
+    "Ballena azul",
+    "Calamar colosal",
+    "Avestruz",
+    "Búho real"
+   ],
+   "x": "Los calamares de las profundidades tienen ojos del tamaño de un balón, unos 27 cm. Así ven en la oscuridad a los cachalotes que los cazan."
+  }
+ },
+ {
+  "id": "k09",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wer gräbt oft den Bau, in dem später ein Fuchs wohnt?",
+   "a": [
+    "Dachs",
+    "Kaninchen",
+    "Wildschwein",
+    "Maulwurf"
+   ],
+   "x": "Füchse ziehen gern in Dachsbaue ein. Manchmal wohnen beide sogar gleichzeitig darin – in verschiedenen Röhren."
+  },
+  "en": {
+   "q": "Who often digs the den that a fox later lives in?",
+   "a": [
+    "Badger",
+    "Rabbit",
+    "Wild boar",
+    "Mole"
+   ],
+   "x": "Foxes like to move into badger setts. Sometimes both even live there at the same time – in different tunnels."
+  },
+  "fr": {
+   "q": "Qui creuse souvent le terrier où vivra ensuite un renard ?",
+   "a": [
+    "Le blaireau",
+    "Le lapin",
+    "Le sanglier",
+    "La taupe"
+   ],
+   "x": "Le renard s’installe volontiers dans un terrier de blaireau. Parfois, les deux y vivent même en même temps – dans des galeries différentes."
+  },
+  "es": {
+   "q": "¿Quién suele cavar la madriguera donde después vive un zorro?",
+   "a": [
+    "El tejón",
+    "El conejo",
+    "El jabalí",
+    "El topo"
+   ],
+   "x": "Los zorros se mudan con gusto a madrigueras de tejón. A veces viven los dos a la vez, en túneles distintos."
+  }
+ },
+ {
+  "id": "k10",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Warum stehen Flamingos oft auf einem Bein?",
+   "a": [
+    "Es spart Kraft und Wärme",
+    "Das andere Bein ist müde vom Laufen",
+    "So sehen sie Fische besser",
+    "Damit Feinde sie für Äste halten"
+   ],
+   "x": "Auf einem Bein halten Flamingos die Balance fast ohne Muskelkraft. Über das eingezogene Bein verlieren sie außerdem weniger Wärme."
+  },
+  "en": {
+   "q": "Why do flamingos often stand on one leg?",
+   "a": [
+    "It saves energy and warmth",
+    "The other leg is tired from walking",
+    "They can see fish better",
+    "So enemies think they are branches"
+   ],
+   "x": "On one leg, flamingos keep their balance with almost no muscle effort. They also lose less heat through the tucked-up leg."
+  },
+  "fr": {
+   "q": "Pourquoi les flamants se tiennent-ils souvent sur une patte ?",
+   "a": [
+    "Ça économise force et chaleur",
+    "L’autre patte est fatiguée",
+    "Ils voient mieux les poissons",
+    "Pour que les ennemis les prennent pour des branches"
+   ],
+   "x": "Sur une patte, le flamant garde l’équilibre presque sans effort musculaire. Et il perd moins de chaleur par la patte repliée."
+  },
+  "es": {
+   "q": "¿Por qué los flamencos se apoyan a menudo en una pata?",
+   "a": [
+    "Ahorran fuerza y calor",
+    "La otra pata está cansada",
+    "Ven mejor los peces",
+    "Para que los enemigos los tomen por ramas"
+   ],
+   "x": "Sobre una pata, el flamenco mantiene el equilibrio casi sin esfuerzo muscular. Además pierde menos calor por la pata recogida."
+  }
+ },
+ {
+  "id": "k13",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Welches Tier ist KEIN Fisch?",
+   "a": [
+    "Seepferdchen",
+    "Aal",
+    "Tintenfisch",
+    "Hai"
+   ],
+   "x": "Tintenfische sind Weichtiere, verwandt mit Schnecken. Seepferdchen und Aale sehen ungewöhnlich aus, sind aber echte Fische."
+  },
+  "en": {
+   "q": "Which animal is NOT a fish?",
+   "a": [
+    "Seahorse",
+    "Eel",
+    "Squid",
+    "Shark"
+   ],
+   "x": "Squids are molluscs, related to snails. Seahorses and eels look unusual, but they are real fish."
+  },
+  "fr": {
+   "q": "Quel animal n’est PAS un poisson ?",
+   "a": [
+    "Hippocampe",
+    "Anguille",
+    "Calmar",
+    "Requin"
+   ],
+   "x": "Le calmar est un mollusque, parent de l’escargot. L’hippocampe et l’anguille ont l’air étranges, mais ce sont de vrais poissons."
+  },
+  "es": {
+   "q": "¿Qué animal NO es un pez?",
+   "a": [
+    "Caballito de mar",
+    "Anguila",
+    "Calamar",
+    "Tiburón"
+   ],
+   "x": "El calamar es un molusco, pariente del caracol. El caballito de mar y la anguila parecen raros, pero son peces de verdad."
+  }
+ },
+ {
+  "id": "k14",
+  "lvl": 2,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Welches Tier ist KEIN Säugetier?",
+   "a": [
+    "Fledermaus",
+    "Delfin",
+    "Schnabeltier",
+    "Pinguin"
+   ],
+   "x": "Pinguine sind Vögel, die nicht fliegen können. Das Schnabeltier legt zwar Eier, säugt seine Jungen aber und ist ein Säugetier."
+  },
+  "en": {
+   "q": "Which animal is NOT a mammal?",
+   "a": [
+    "Bat",
+    "Dolphin",
+    "Platypus",
+    "Penguin"
+   ],
+   "x": "Penguins are birds that can’t fly. The platypus lays eggs, but it feeds its young with milk and is a mammal."
+  },
+  "fr": {
+   "q": "Quel animal n’est PAS un mammifère ?",
+   "a": [
+    "Chauve-souris",
+    "Dauphin",
+    "Ornithorynque",
+    "Manchot"
+   ],
+   "x": "Le manchot est un oiseau qui ne vole pas. L’ornithorynque pond des œufs, mais il allaite ses petits : c’est un mammifère."
+  },
+  "es": {
+   "q": "¿Qué animal NO es un mamífero?",
+   "a": [
+    "Murciélago",
+    "Delfín",
+    "Ornitorrinco",
+    "Pingüino"
+   ],
+   "x": "El pingüino es un ave que no vuela. El ornitorrinco pone huevos, pero amamanta a sus crías y es un mamífero."
+  }
+ },
+ {
+  "id": "k17",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Schätzfrage: Wie weit springt ein Floh im Verhältnis zu seiner Größe?",
+   "a": [
+    "Etwa doppelt so weit",
+    "Etwa 10-mal so weit",
+    "Über 100-mal so weit",
+    "Etwa 10.000-mal so weit"
+   ],
+   "x": "Ein Floh springt rund 30 cm weit – über hundertmal seine Körperlänge. Ein Mensch müsste dafür weiter springen als ein Fußballfeld lang ist."
+  },
+  "en": {
+   "q": "Guess: how far does a flea jump compared to its size?",
+   "a": [
+    "About twice as far",
+    "About 10 times as far",
+    "Over 100 times as far",
+    "About 10,000 times as far"
+   ],
+   "x": "A flea jumps about 30 cm – over a hundred times its body length. A human would have to jump further than a football pitch is long."
+  },
+  "fr": {
+   "q": "Devine : à quelle distance une puce saute-t-elle par rapport à sa taille ?",
+   "a": [
+    "Environ deux fois sa taille",
+    "Environ 10 fois",
+    "Plus de 100 fois",
+    "Environ 10 000 fois"
+   ],
+   "x": "Une puce saute environ 30 cm – plus de cent fois la longueur de son corps. Un humain devrait sauter plus loin que la longueur d’un terrain de foot."
+  },
+  "es": {
+   "q": "Adivina: ¿cuánto salta una pulga en relación con su tamaño?",
+   "a": [
+    "El doble de su tamaño",
+    "Unas 10 veces",
+    "Más de 100 veces",
+    "Unas 10.000 veces"
+   ],
+   "x": "Una pulga salta unos 30 cm, más de cien veces su longitud. Un humano tendría que saltar más que lo que mide un campo de fútbol."
+  }
+ },
+ {
+  "id": "k18",
+  "lvl": 1,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Welche Reihenfolge stimmt beim Schmetterling?",
+   "a": [
+    "Ei – Raupe – Puppe – Falter",
+    "Ei – Puppe – Raupe – Falter",
+    "Raupe – Ei – Puppe – Falter",
+    "Ei – Raupe – Falter – Puppe"
+   ],
+   "x": "Aus dem Ei schlüpft die Raupe, sie frisst und wächst, verpuppt sich, und in der Puppe wird ihr ganzer Körper zum Falter umgebaut."
+  },
+  "en": {
+   "q": "Which order is right for a butterfly?",
+   "a": [
+    "Egg – caterpillar – pupa – butterfly",
+    "Egg – pupa – caterpillar – butterfly",
+    "Caterpillar – egg – pupa – butterfly",
+    "Egg – caterpillar – butterfly – pupa"
+   ],
+   "x": "A caterpillar hatches from the egg, eats and grows, turns into a pupa, and inside the pupa its whole body is rebuilt into a butterfly."
+  },
+  "fr": {
+   "q": "Quel est le bon ordre chez le papillon ?",
+   "a": [
+    "Œuf – chenille – chrysalide – papillon",
+    "Œuf – chrysalide – chenille – papillon",
+    "Chenille – œuf – chrysalide – papillon",
+    "Œuf – chenille – papillon – chrysalide"
+   ],
+   "x": "La chenille sort de l’œuf, mange et grandit, devient chrysalide, et dans la chrysalide tout son corps se transforme en papillon."
+  },
+  "es": {
+   "q": "¿Qué orden es el correcto en la mariposa?",
+   "a": [
+    "Huevo – oruga – crisálida – mariposa",
+    "Huevo – crisálida – oruga – mariposa",
+    "Oruga – huevo – crisálida – mariposa",
+    "Huevo – oruga – mariposa – crisálida"
+   ],
+   "x": "Del huevo sale la oruga, que come y crece, se convierte en crisálida, y dentro todo su cuerpo se transforma en mariposa."
+  }
+ },
+ {
+  "id": "t04",
+  "lvl": 1,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Stimmt’s? Goldfische haben ein Gedächtnis von nur drei Sekunden.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Ein Mythos! Goldfische können sich Dinge monatelang merken und lassen sich sogar auf Töne oder Farben trainieren."
+  },
+  "en": {
+   "q": "True or false? Goldfish have a memory of only three seconds.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "A myth! Goldfish can remember things for months and can even be trained to respond to sounds or colours."
+  },
+  "fr": {
+   "q": "Vrai ou faux ? Le poisson rouge n’a que trois secondes de mémoire.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Un mythe ! Le poisson rouge se souvient de choses pendant des mois et peut même être dressé à réagir à des sons ou des couleurs."
+  },
+  "es": {
+   "q": "¿Verdadero o falso? Los peces de colores solo tienen tres segundos de memoria.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Un mito! Los peces de colores recuerdan cosas durante meses e incluso se les puede entrenar con sonidos o colores."
+  }
+ },
+ {
+  "id": "k19",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Welche Aussage ist FALSCH?",
+   "a": [
+    "Libellen gibt es seit über 300 Millionen Jahren",
+    "Eine Schnecke kriecht auf einem einzigen Fuß",
+    "Hummeln können stechen",
+    "Strauße stecken bei Gefahr den Kopf in den Sand"
+   ],
+   "x": "Ein Mythos: Strauße legen sich bei Gefahr flach auf den Boden – oder rennen mit bis zu 70 km/h davon."
+  },
+  "en": {
+   "q": "Which statement is FALSE?",
+   "a": [
+    "Dragonflies have existed for over 300 million years",
+    "A snail crawls on a single foot",
+    "Bumblebees can sting",
+    "Ostriches bury their heads in the sand when in danger"
+   ],
+   "x": "A myth: in danger, ostriches lie flat on the ground – or run away at up to 70 km/h."
+  },
+  "fr": {
+   "q": "Quelle affirmation est FAUSSE ?",
+   "a": [
+    "Les libellules existent depuis plus de 300 millions d’années",
+    "L’escargot rampe sur un seul pied",
+    "Les bourdons peuvent piquer",
+    "L’autruche cache sa tête dans le sable en cas de danger"
+   ],
+   "x": "Un mythe : en cas de danger, l’autruche se couche à plat sur le sol – ou s’enfuit à 70 km/h."
+  },
+  "es": {
+   "q": "¿Qué afirmación es FALSA?",
+   "a": [
+    "Las libélulas existen desde hace más de 300 millones de años",
+    "El caracol se arrastra sobre un solo pie",
+    "Los abejorros pueden picar",
+    "El avestruz esconde la cabeza en la arena ante el peligro"
+   ],
+   "x": "Un mito: ante el peligro, el avestruz se tumba en el suelo o huye corriendo a hasta 70 km/h."
+  }
+ },
+ {
+  "id": "k20",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Schätzfrage: Wie weit kann ein Chamäleon seine Zunge herausschnellen?",
+   "a": [
+    "Halb so weit, wie es lang ist",
+    "Etwa so weit, wie es lang ist",
+    "Bis zu doppelt so weit, wie es lang ist",
+    "Zehnmal so weit, wie es lang ist"
+   ],
+   "x": "Bis zur doppelten Körperlänge (ohne Schwanz) – und das in einem Bruchteil einer Sekunde. Die klebrige Zungenspitze hält auch große Insekten fest."
+  },
+  "en": {
+   "q": "Guess: how far can a chameleon shoot out its tongue?",
+   "a": [
+    "Half its body length",
+    "About its body length",
+    "Up to twice its body length",
+    "Ten times its body length"
+   ],
+   "x": "Up to twice its body length (without the tail) – in a fraction of a second. The sticky tongue tip holds even large insects."
+  },
+  "fr": {
+   "q": "Devine : jusqu’où un caméléon peut-il projeter sa langue ?",
+   "a": [
+    "La moitié de sa longueur",
+    "Environ sa longueur",
+    "Jusqu’à deux fois sa longueur",
+    "Dix fois sa longueur"
+   ],
+   "x": "Jusqu’à deux fois la longueur de son corps (sans la queue) – en une fraction de seconde. Le bout collant retient même de gros insectes."
+  },
+  "es": {
+   "q": "Adivina: ¿hasta dónde lanza un camaleón su lengua?",
+   "a": [
+    "La mitad de su longitud",
+    "Más o menos su longitud",
+    "Hasta el doble de su longitud",
+    "Diez veces su longitud"
+   ],
+   "x": "Hasta el doble de la longitud de su cuerpo (sin la cola), en una fracción de segundo. La punta pegajosa sujeta incluso insectos grandes."
+  }
+ },
+ {
+  "id": "k21",
+  "lvl": 3,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Schätzfrage: Wie viele Ameisen leben ungefähr auf der Erde?",
+   "a": [
+    "Etwa 20 Millionen",
+    "Etwa 20 Milliarden",
+    "Etwa 20 Billionen",
+    "Etwa 20 Billiarden"
+   ],
+   "x": "Forscher schätzten 2022: rund 20 Billiarden – eine 2 mit 16 Nullen. Das sind etwa 2,5 Millionen Ameisen pro Mensch."
+  },
+  "en": {
+   "q": "Guess: roughly how many ants live on Earth?",
+   "a": [
+    "About 20 million",
+    "About 20 billion",
+    "About 20 trillion",
+    "About 20 quadrillion"
+   ],
+   "x": "Researchers estimated in 2022: around 20 quadrillion – a 2 with 16 zeros. That’s about 2.5 million ants per person."
+  },
+  "fr": {
+   "q": "Devine : combien de fourmis vivent environ sur Terre ?",
+   "a": [
+    "Environ 20 millions",
+    "Environ 20 milliards",
+    "Environ 20 000 milliards",
+    "Environ 20 millions de milliards"
+   ],
+   "x": "Selon une estimation de 2022 : environ 20 millions de milliards – un 2 suivi de 16 zéros. Soit environ 2,5 millions de fourmis par personne."
+  },
+  "es": {
+   "q": "Adivina: ¿cuántas hormigas viven aproximadamente en la Tierra?",
+   "a": [
+    "Unos 20 millones",
+    "Unos 20.000 millones",
+    "Unos 20 billones",
+    "Unos 20.000 billones"
+   ],
+   "x": "Según una estimación de 2022: unos 20.000 billones, un 2 seguido de 16 ceros. Son unos 2,5 millones de hormigas por persona."
+  }
+ },
+ {
+  "id": "k22",
+  "lvl": 3,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wofür sind die Streifen des Zebras nach heutigem Wissen am wahrscheinlichsten gut?",
+   "a": [
+    "Sie halten stechende Fliegen fern",
+    "Tarnung im hohen Gras",
+    "Damit Löwen sie nicht von Felsen unterscheiden",
+    "Gegen Sonnenbrand"
+   ],
+   "x": "Versuche zeigen: Bremsen landen auf gestreiften Flächen viel seltener – das Muster bringt sie beim Anflug durcheinander."
+  },
+  "en": {
+   "q": "According to current knowledge, what are zebra stripes most likely good for?",
+   "a": [
+    "Keeping biting flies away",
+    "Camouflage in tall grass",
+    "So lions can’t tell them from rocks",
+    "Against sunburn"
+   ],
+   "x": "Experiments show that horseflies land far less often on striped surfaces – the pattern confuses them as they approach."
+  },
+  "fr": {
+   "q": "Selon les connaissances actuelles, à quoi servent le plus probablement les rayures du zèbre ?",
+   "a": [
+    "À éloigner les mouches piqueuses",
+    "À se camoufler dans les hautes herbes",
+    "À ressembler à des rochers pour les lions",
+    "À éviter les coups de soleil"
+   ],
+   "x": "Des expériences le montrent : les taons se posent bien plus rarement sur des surfaces rayées – le motif les désoriente à l’approche."
+  },
+  "es": {
+   "q": "Según lo que se sabe hoy, ¿para qué sirven probablemente las rayas de la cebra?",
+   "a": [
+    "Para alejar a las moscas que pican",
+    "Para camuflarse en la hierba alta",
+    "Para que los leones las confundan con rocas",
+    "Contra las quemaduras del sol"
+   ],
+   "x": "Los experimentos muestran que los tábanos se posan mucho menos en superficies rayadas: el dibujo los confunde al acercarse."
+  }
+ },
+ {
+  "id": "k23",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wie verständigen sich Elefanten über viele Kilometer?",
+   "a": [
+    "Mit sehr tiefen Tönen, die wir nicht hören",
+    "Mit Ohrenwedeln als Lichtzeichen",
+    "Mit Duftwolken im Wind",
+    "Gar nicht – nur aus der Nähe"
+   ],
+   "x": "Elefanten brummen im Infraschall. Diese tiefen Töne reichen kilometerweit – andere Elefanten spüren sie sogar über die Füße im Boden."
+  },
+  "en": {
+   "q": "How do elephants communicate over many kilometres?",
+   "a": [
+    "With very low sounds we can’t hear",
+    "By flapping their ears as light signals",
+    "With clouds of scent in the wind",
+    "They don’t – only up close"
+   ],
+   "x": "Elephants rumble in infrasound. These deep sounds travel for kilometres – other elephants even feel them through their feet in the ground."
+  },
+  "fr": {
+   "q": "Comment les éléphants communiquent-ils sur des kilomètres ?",
+   "a": [
+    "Avec des sons très graves que nous n’entendons pas",
+    "En agitant les oreilles comme des signaux lumineux",
+    "Avec des nuages d’odeurs dans le vent",
+    "Pas du tout – seulement de près"
+   ],
+   "x": "Les éléphants grondent en infrasons. Ces sons graves portent sur des kilomètres – les autres éléphants les sentent même par les pieds, dans le sol."
+  },
+  "es": {
+   "q": "¿Cómo se comunican los elefantes a muchos kilómetros?",
+   "a": [
+    "Con sonidos muy graves que no oímos",
+    "Moviendo las orejas como señales",
+    "Con nubes de olor en el viento",
+    "No lo hacen: solo de cerca"
+   ],
+   "x": "Los elefantes emiten infrasonidos. Esos sonidos graves llegan a kilómetros, y otros elefantes los notan incluso con las patas a través del suelo."
+  }
+ },
+ {
+  "id": "t06",
+  "lvl": 2,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Stimmt’s? Viele Schmetterlinge können erst fliegen, wenn sie sich aufgewärmt haben.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Ihre Flugmuskeln brauchen Wärme. Darum sonnen sich Tagfalter morgens mit ausgebreiteten Flügeln oder zittern sich warm."
+  },
+  "en": {
+   "q": "True or false? Many butterflies can only fly once they have warmed up.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Their flight muscles need warmth. That’s why butterflies sunbathe with open wings in the morning or shiver to warm up."
+  },
+  "fr": {
+   "q": "Vrai ou faux ? Beaucoup de papillons ne peuvent voler qu’après s’être réchauffés.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Leurs muscles de vol ont besoin de chaleur. C’est pourquoi les papillons se chauffent au soleil, ailes ouvertes, le matin, ou frissonnent pour se réchauffer."
+  },
+  "es": {
+   "q": "¿Verdadero o falso? Muchas mariposas solo pueden volar cuando se han calentado.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Sus músculos de vuelo necesitan calor. Por eso, por la mañana, toman el sol con las alas abiertas o tiritan para calentarse."
+  }
+ },
+ {
+  "id": "t07",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Stimmt’s? Im Fell von Faultieren wachsen Algen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Ja – sie geben dem Fell einen grünlichen Schimmer, eine gute Tarnung im Regenwald. Sogar eigene Mottenarten leben darin."
+  },
+  "en": {
+   "q": "True or false? Algae grow in sloths’ fur.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Yes – they give the fur a greenish tint, good camouflage in the rainforest. Even special kinds of moths live in it."
+  },
+  "fr": {
+   "q": "Vrai ou faux ? Des algues poussent dans la fourrure des paresseux.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Oui – elles donnent au pelage un reflet verdâtre, un bon camouflage dans la forêt tropicale. Des papillons de nuit spéciaux y vivent même."
+  },
+  "es": {
+   "q": "¿Verdadero o falso? En el pelo de los perezosos crecen algas.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Sí, le dan al pelo un tono verdoso, buen camuflaje en la selva. Hasta viven en él polillas especiales."
+  }
+ },
+ {
+  "id": "t08",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Stimmt’s? Krokodile können ihre Zunge nicht herausstrecken.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Ihre Zunge ist am Mundboden festgewachsen. Sie hilft beim Schlucken und dichtet zusammen mit einer Klappe den Rachen ab, wenn sie unter Wasser das Maul öffnen."
+  },
+  "en": {
+   "q": "True or false? Crocodiles can’t stick out their tongue.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Their tongue is attached to the floor of the mouth. It helps with swallowing and, together with a flap, seals the throat when they open their mouth underwater."
+  },
+  "fr": {
+   "q": "Vrai ou faux ? Les crocodiles ne peuvent pas tirer la langue.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Leur langue est fixée au plancher de la bouche. Elle aide à avaler et, avec un clapet, ferme la gorge quand ils ouvrent la gueule sous l’eau."
+  },
+  "es": {
+   "q": "¿Verdadero o falso? Los cocodrilos no pueden sacar la lengua.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Su lengua está unida al suelo de la boca. Ayuda a tragar y, junto con una válvula, cierra la garganta cuando abren la boca bajo el agua."
+  }
+ }
+]

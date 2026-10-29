@@ -7,7 +7,8 @@ import { BANK, BankQuestion } from './quizBank';
 
 export const ROUND_SIZE = 10;
 export const TIME_TEXT = 15; // Sekunden für Text- und Wahr/Falsch-Fragen
-export const TIME_IMAGE = 12; // Sekunden für Bildfragen
+export const TIME_IMAGE = 12; // Sekunden für Bildfragen (4 Tiere)
+export const TIME_DUEL = 10; // Sekunden für „Wer ist …?“ mit zwei Tieren
 const XP_RIGHT = 4; // richtige Antwort
 const XP_FAST = 2; // Bonus: in den ersten 5 Sekunden
 const XP_QUICK = 1; // Bonus: in den ersten 10 Sekunden
@@ -41,7 +42,7 @@ export async function resetForscher(): Promise<void> {
 }
 
 export const byId = new Map<string, BankQuestion>(BANK.map((q) => [q.id, q]));
-export const timeFor = (q: BankQuestion) => (q.type === 'image' ? TIME_IMAGE : TIME_TEXT);
+export const timeFor = (q: BankQuestion) => (q.type === 'image' ? TIME_IMAGE : q.type === 'duel' ? TIME_DUEL : TIME_TEXT);
 
 // XP für eine Antwort
 export function answerXp(q: BankQuestion, answer: number, ms: number): number {
@@ -97,7 +98,7 @@ function rng(seed: number) {
 }
 
 // 10 Fragen: am liebsten lange nicht (oder nie) gesehene; 3 mittel, 4 schwer, 3 sehr schwer, aufsteigend.
-// Mindestens 2 Bildfragen, damit es abwechslungsreich bleibt.
+// Abwechslung: je eine Frage mit 4 Tierbildern, mit einem großen Bild (Spur, Umriss, Fundstück) und ein Duell.
 function pickRound(log: ForscherLog, day: number): string[] {
   const rand = rng(day * 2654435761);
   // Nie gesehene Fragen zuerst. Sind alle durch: erst die, die man falsch hatte (zum Lernen), dann die ältesten.
@@ -116,7 +117,7 @@ function pickRound(log: ForscherLog, day: number): string[] {
       max--;
     }
   };
-  take((q) => q.type === 'image', 2);
+  for (const type of ['image', 'pic', 'duel']) take((q) => q.type === type);
   for (const lvl of [1, 2, 3]) take((q) => q.lvl === lvl, want[lvl]);
   // zu wenige einer Stufe: mit beliebigen auffüllen
   for (const { q } of pool) {

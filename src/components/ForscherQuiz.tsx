@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Alert, Animated, Easing, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle, ClipPath, Defs, G, RadialGradient, Stop } from 'react-native-svg';
+import Svg, { Circle, ClipPath, Defs, G, LinearGradient, RadialGradient, Rect, Stop } from 'react-native-svg';
 
 import { AdSlot } from './AdSlot';
 import { Explorer } from './Explorer';
 import { PLUS_ANIMAL_ART, PLUS_ANIMAL_BG } from './PlusAnimal';
+import { QUIZ_ART, QUIZ_ART_BG } from './QuizArt';
 import {
   answer,
   answerXp,
@@ -249,8 +250,31 @@ export function ForscherQuiz({
                   </Pressable>
                 ))}
               </View>
+            ) : q.type === 'duel' ? (
+              // Duell: zwei Tiere nebeneinander, eins antippen
+              <View style={styles.duel}>
+                {q.img!.map((id, i) => (
+                  <Pressable
+                    key={id}
+                    onPress={() => choose(i)}
+                    disabled={phase !== 'ask'}
+                    accessibilityRole="button"
+                    accessibilityLabel={text.a[i]}
+                    style={[styles.duelTile, { backgroundColor: p.card }, look(phase, q.right, last?.value, i, p)]}
+                  >
+                    <AnimalPicture id={id} size={118} />
+                    <Text style={[styles.duelName, { color: p.ink }]} numberOfLines={2}>
+                      {text.a[i]}
+                    </Text>
+                  </Pressable>
+                ))}
+                <View style={styles.vs} pointerEvents="none">
+                  <Text style={styles.vsText}>VS</Text>
+                </View>
+              </View>
             ) : (
               <View style={[styles.answers, q.type === 'tf' && { flexDirection: 'row' }]}>
+                {q.type === 'pic' && <QuizPicture id={q.img![0]} />}
                 {text.a.map((a, i) => {
                   const st = look(phase, q.right, last?.value, i, p);
                   const right = phase === 'reveal' && i === q.right;
@@ -268,7 +292,7 @@ export function ForscherQuiz({
                         right && { backgroundColor: '#2E7A4C' },
                       ]}
                     >
-                      {q.type === 'text' && <Text style={[styles.letter, right && { color: '#CFE3D6' }]}>{'ABCD'[i]}</Text>}
+                      {q.type !== 'tf' && <Text style={[styles.letter, right && { color: '#CFE3D6' }]}>{'ABCD'[i]}</Text>}
                       <Text style={[styles.answerText, { color: right ? colors.white : p.ink }, q.type === 'tf' && { textAlign: 'center' }]}>{a}</Text>
                     </Pressable>
                   );
@@ -350,6 +374,32 @@ function AnimalPicture({ id, size }: { id: string; size: number }) {
   );
 }
 
+// Großes Quiz-Bild (Spur, Umriss am Himmel, Fundstück) in einer abgerundeten Karte
+function QuizPicture({ id }: { id: string }) {
+  const [from, to] = QUIZ_ART_BG[id] ?? ['#EADBB9', '#C7A978'];
+  const Art = QUIZ_ART[id];
+  const g = `fqa-${id}`;
+  return (
+    <View style={styles.pic}>
+      <Svg width={176} height={176} viewBox="0 0 64 64">
+        <Defs>
+          <LinearGradient id={`${g}-bg`} x1="0" y1="0" x2="0" y2="1">
+            <Stop offset="0" stopColor={from} />
+            <Stop offset="1" stopColor={to} />
+          </LinearGradient>
+          <ClipPath id={`${g}-c`}>
+            <Rect width={64} height={64} rx={8} />
+          </ClipPath>
+        </Defs>
+        <G clipPath={`url(#${g}-c)`}>
+          <Rect width={64} height={64} fill={`url(#${g}-bg)`} />
+          {Art && Art()}
+        </G>
+      </Svg>
+    </View>
+  );
+}
+
 // Auswertung: Ergebnis, XP, Serie, Tempo und was man heute gelernt hat
 function Result({ round, log, p, onDone }: { round: NonNullable<ReturnType<typeof todayRound>>; log: ForscherLog; p: Palette; onDone: () => void }) {
   const insets = useSafeAreaInsets();
@@ -418,6 +468,25 @@ const styles = StyleSheet.create({
   answerText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 16 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginHorizontal: 18 },
   tile: { width: '47.5%', alignItems: 'center', borderWidth: 2, borderRadius: 18, paddingTop: 10, paddingBottom: 8 },
+  duel: { flexDirection: 'row', gap: 14, marginHorizontal: 18 },
+  duelTile: { flex: 1, alignItems: 'center', borderWidth: 2, borderRadius: 20, paddingTop: 16, paddingBottom: 12, paddingHorizontal: 6 },
+  duelName: { fontFamily: fonts.sansBold, fontSize: 15, marginTop: 8, textAlign: 'center' },
+  vs: {
+    position: 'absolute',
+    left: '50%',
+    top: 52,
+    marginLeft: -22,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 3,
+    borderColor: colors.white,
+  },
+  vsText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
+  pic: { alignSelf: 'center', marginBottom: 6, borderRadius: 22, overflow: 'hidden' },
   tileText: { fontFamily: fonts.sansBold, fontSize: 14, marginTop: 4, paddingHorizontal: 6 },
   explain: { marginHorizontal: 18, marginTop: 14, borderRadius: 14, padding: 14 },
   verdict: { fontFamily: fonts.sansBold, fontSize: 15, marginBottom: 4 },

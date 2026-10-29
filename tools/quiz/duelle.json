@@ -1,0 +1,1010 @@
+[
+ {
+  "id": "e01",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-eagle",
+   "p-parrot"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer ist schneller?",
+   "a": [
+    "Adler",
+    "Papagei"
+   ],
+   "x": "Im Sturzflug erreichen Steinadler über 200 km/h. Papageien fliegen meist mit 30 bis 60 km/h."
+  },
+  "en": {
+   "q": "Who is faster?",
+   "a": [
+    "Eagle",
+    "Parrot"
+   ],
+   "x": "Golden eagles reach over 200 km/h in a dive. Parrots usually fly at 30 to 60 km/h."
+  },
+  "fr": {
+   "q": "Qui est le plus rapide ?",
+   "a": [
+    "Aigle",
+    "Perroquet"
+   ],
+   "x": "En piqué, l’aigle royal dépasse les 200 km/h. Les perroquets volent en général à 30 à 60 km/h."
+  },
+  "es": {
+   "q": "¿Quién es más rápido?",
+   "a": [
+    "Águila",
+    "Loro"
+   ],
+   "x": "En picado, el águila real supera los 200 km/h. Los loros suelen volar a 30 a 60 km/h."
+  }
+ },
+ {
+  "id": "e02",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-giraffe",
+   "p-tiger"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer schläft mehr am Tag?",
+   "a": [
+    "Giraffe",
+    "Tiger"
+   ],
+   "x": "Tiger dösen 16 bis 20 Stunden am Tag. Giraffen schlafen nur wenige Stunden, oft im Stehen und in kurzen Nickerchen."
+  },
+  "en": {
+   "q": "Who sleeps more each day?",
+   "a": [
+    "Giraffe",
+    "Tiger"
+   ],
+   "x": "Tigers doze 16 to 20 hours a day. Giraffes sleep only a few hours, often standing and in short naps."
+  },
+  "fr": {
+   "q": "Qui dort le plus par jour ?",
+   "a": [
+    "Girafe",
+    "Tigre"
+   ],
+   "x": "Le tigre somnole 16 à 20 heures par jour. La girafe ne dort que quelques heures, souvent debout et par petites siestes."
+  },
+  "es": {
+   "q": "¿Quién duerme más al día?",
+   "a": [
+    "Jirafa",
+    "Tigre"
+   ],
+   "x": "Los tigres dormitan de 16 a 20 horas al día. Las jirafas solo duermen unas pocas horas, a menudo de pie y en siestas cortas."
+  }
+ },
+ {
+  "id": "e06",
+  "lvl": 3,
+  "type": "duel",
+  "img": [
+   "p-turtle",
+   "p-lizard"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer ist näher mit den Vögeln verwandt?",
+   "a": [
+    "Schildkröte",
+    "Eidechse"
+   ],
+   "x": "Erbgut-Vergleiche zeigen: Schildkröten sind näher mit Vögeln und Krokodilen verwandt als mit Eidechsen und Schlangen."
+  },
+  "en": {
+   "q": "Who is more closely related to birds?",
+   "a": [
+    "Turtle",
+    "Lizard"
+   ],
+   "x": "DNA comparisons show that turtles are more closely related to birds and crocodiles than to lizards and snakes."
+  },
+  "fr": {
+   "q": "Qui est le plus proche parent des oiseaux ?",
+   "a": [
+    "Tortue",
+    "Lézard"
+   ],
+   "x": "L’ADN le montre : les tortues sont plus proches des oiseaux et des crocodiles que des lézards et des serpents."
+  },
+  "es": {
+   "q": "¿Quién es pariente más cercano de las aves?",
+   "a": [
+    "Tortuga",
+    "Lagartija"
+   ],
+   "x": "Las comparaciones de ADN lo muestran: las tortugas están más emparentadas con aves y cocodrilos que con lagartijas y serpientes."
+  }
+ },
+ {
+  "id": "e08",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-crab",
+   "p-snail"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer ist näher mit den Insekten verwandt?",
+   "a": [
+    "Krabbe",
+    "Schnecke"
+   ],
+   "x": "Krabben und Insekten sind Gliederfüßer mit Panzer und gegliederten Beinen. Insekten haben sich sogar aus Krebstieren entwickelt."
+  },
+  "en": {
+   "q": "Who is more closely related to insects?",
+   "a": [
+    "Crab",
+    "Snail"
+   ],
+   "x": "Crabs and insects are arthropods with an armour and jointed legs. Insects even evolved from crustaceans."
+  },
+  "fr": {
+   "q": "Qui est le plus proche parent des insectes ?",
+   "a": [
+    "Crabe",
+    "Escargot"
+   ],
+   "x": "Crabes et insectes sont des arthropodes, avec carapace et pattes articulées. Les insectes descendent même des crustacés."
+  },
+  "es": {
+   "q": "¿Quién es pariente más cercano de los insectos?",
+   "a": [
+    "Cangrejo",
+    "Caracol"
+   ],
+   "x": "Cangrejos e insectos son artrópodos con caparazón y patas articuladas. Los insectos incluso evolucionaron a partir de crustáceos."
+  }
+ },
+ {
+  "id": "e10",
+  "lvl": 3,
+  "type": "duel",
+  "img": [
+   "p-panda",
+   "p-tiger"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer frisst mehr Kilo Futter am Tag?",
+   "a": [
+    "Panda",
+    "Tiger"
+   ],
+   "x": "Ein Panda frisst täglich 12 bis 38 kg Bambus, weil der kaum Energie liefert. Ein Tiger kommt im Schnitt mit 5 bis 7 kg Fleisch am Tag aus."
+  },
+  "en": {
+   "q": "Who eats more kilos of food a day?",
+   "a": [
+    "Panda",
+    "Tiger"
+   ],
+   "x": "A panda eats 12 to 38 kg of bamboo a day because it provides so little energy. A tiger gets by on 5 to 7 kg of meat a day on average."
+  },
+  "fr": {
+   "q": "Qui mange le plus de kilos par jour ?",
+   "a": [
+    "Panda",
+    "Tigre"
+   ],
+   "x": "Un panda mange 12 à 38 kg de bambou par jour, car il apporte très peu d’énergie. Un tigre se contente en moyenne de 5 à 7 kg de viande par jour."
+  },
+  "es": {
+   "q": "¿Quién come más kilos al día?",
+   "a": [
+    "Panda",
+    "Tigre"
+   ],
+   "x": "Un panda come de 12 a 38 kg de bambú al día, porque aporta muy poca energía. Un tigre se arregla con 5 a 7 kg de carne al día de media."
+  }
+ },
+ {
+  "id": "e12",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-lizard",
+   "p-frog"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer riecht mit der Zunge?",
+   "a": [
+    "Eidechse",
+    "Frosch"
+   ],
+   "x": "Eidechsen züngeln, um Duftteilchen aufzunehmen, und bringen sie zu einem Riechorgan im Gaumen. Frösche fangen mit der Zunge nur Beute."
+  },
+  "en": {
+   "q": "Who smells with its tongue?",
+   "a": [
+    "Lizard",
+    "Frog"
+   ],
+   "x": "Lizards flick their tongue to pick up scent particles and carry them to a smell organ in the roof of the mouth. Frogs only use their tongue to catch prey."
+  },
+  "fr": {
+   "q": "Qui sent avec sa langue ?",
+   "a": [
+    "Lézard",
+    "Grenouille"
+   ],
+   "x": "Le lézard sort la langue pour capter des odeurs et les porte à un organe olfactif dans le palais. La grenouille ne s’en sert que pour attraper ses proies."
+  },
+  "es": {
+   "q": "¿Quién huele con la lengua?",
+   "a": [
+    "Lagartija",
+    "Rana"
+   ],
+   "x": "Las lagartijas sacan la lengua para captar olores y los llevan a un órgano olfativo en el paladar. Las ranas solo la usan para cazar."
+  }
+ },
+ {
+  "id": "e13",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-frog",
+   "p-lizard"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer atmet auch durch die Haut?",
+   "a": [
+    "Frosch",
+    "Eidechse"
+   ],
+   "x": "Frösche nehmen über ihre dünne, feuchte Haut Sauerstoff auf – im Winter am Teichgrund fast nur so. Eidechsen haben trockene Schuppenhaut."
+  },
+  "en": {
+   "q": "Who also breathes through its skin?",
+   "a": [
+    "Frog",
+    "Lizard"
+   ],
+   "x": "Frogs take in oxygen through their thin, moist skin – in winter at the bottom of a pond almost only this way. Lizards have dry, scaly skin."
+  },
+  "fr": {
+   "q": "Qui respire aussi par la peau ?",
+   "a": [
+    "Grenouille",
+    "Lézard"
+   ],
+   "x": "La grenouille absorbe de l’oxygène par sa peau fine et humide – en hiver, au fond de la mare, presque uniquement ainsi. Le lézard a une peau sèche à écailles."
+  },
+  "es": {
+   "q": "¿Quién respira también por la piel?",
+   "a": [
+    "Rana",
+    "Lagartija"
+   ],
+   "x": "Las ranas absorben oxígeno por su piel fina y húmeda; en invierno, en el fondo del estanque, casi solo así. Las lagartijas tienen piel seca con escamas."
+  }
+ },
+ {
+  "id": "e15",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-bear",
+   "p-bee"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer sieht ultraviolettes Licht?",
+   "a": [
+    "Braunbär",
+    "Biene"
+   ],
+   "x": "Bienen sehen UV-Licht. Viele Blüten haben UV-Muster, die wie Landebahnen zum Nektar führen – für uns unsichtbar."
+  },
+  "en": {
+   "q": "Who can see ultraviolet light?",
+   "a": [
+    "Brown bear",
+    "Bee"
+   ],
+   "x": "Bees see UV light. Many flowers have UV patterns that lead to the nectar like runways – invisible to us."
+  },
+  "fr": {
+   "q": "Qui voit la lumière ultraviolette ?",
+   "a": [
+    "Ours brun",
+    "Abeille"
+   ],
+   "x": "Les abeilles voient les UV. Beaucoup de fleurs ont des motifs UV qui mènent au nectar comme des pistes d’atterrissage – invisibles pour nous."
+  },
+  "es": {
+   "q": "¿Quién ve la luz ultravioleta?",
+   "a": [
+    "Oso pardo",
+    "Abeja"
+   ],
+   "x": "Las abejas ven la luz UV. Muchas flores tienen dibujos UV que llevan al néctar como pistas de aterrizaje, invisibles para nosotros."
+  }
+ },
+ {
+  "id": "e16",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-bee",
+   "p-crab"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer hat mehr Augen?",
+   "a": [
+    "Biene",
+    "Krabbe"
+   ],
+   "x": "Bienen haben zwei große Facettenaugen und drei kleine Punktaugen oben auf dem Kopf – zusammen fünf. Krabben haben zwei Stielaugen."
+  },
+  "en": {
+   "q": "Who has more eyes?",
+   "a": [
+    "Bee",
+    "Crab"
+   ],
+   "x": "Bees have two large compound eyes and three small simple eyes on top of the head – five in total. Crabs have two eyes on stalks."
+  },
+  "fr": {
+   "q": "Qui a le plus d’yeux ?",
+   "a": [
+    "Abeille",
+    "Crabe"
+   ],
+   "x": "L’abeille a deux grands yeux à facettes et trois petits ocelles sur le dessus de la tête – cinq en tout. Le crabe a deux yeux pédonculés."
+  },
+  "es": {
+   "q": "¿Quién tiene más ojos?",
+   "a": [
+    "Abeja",
+    "Cangrejo"
+   ],
+   "x": "Las abejas tienen dos grandes ojos compuestos y tres ojillos simples en lo alto de la cabeza: cinco en total. Los cangrejos tienen dos ojos con pedúnculo."
+  }
+ },
+ {
+  "id": "e17",
+  "lvl": 3,
+  "type": "duel",
+  "img": [
+   "p-octopus",
+   "p-turtle"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer legt mehr Eier auf einmal?",
+   "a": [
+    "Krake",
+    "Schildkröte"
+   ],
+   "x": "Ein Krakenweibchen legt bis zu Hunderttausende Eier und bewacht sie wochenlang, ohne zu fressen. Meeresschildkröten legen etwa 100 Eier pro Gelege."
+  },
+  "en": {
+   "q": "Who lays more eggs at once?",
+   "a": [
+    "Octopus",
+    "Turtle"
+   ],
+   "x": "A female octopus lays up to hundreds of thousands of eggs and guards them for weeks without eating. Sea turtles lay about 100 eggs per clutch."
+  },
+  "fr": {
+   "q": "Qui pond le plus d’œufs en une fois ?",
+   "a": [
+    "Pieuvre",
+    "Tortue"
+   ],
+   "x": "Une pieuvre femelle pond jusqu’à des centaines de milliers d’œufs et les garde des semaines sans manger. Les tortues marines pondent environ 100 œufs par ponte."
+  },
+  "es": {
+   "q": "¿Quién pone más huevos de una vez?",
+   "a": [
+    "Pulpo",
+    "Tortuga"
+   ],
+   "x": "Una hembra de pulpo pone hasta cientos de miles de huevos y los vigila durante semanas sin comer. Las tortugas marinas ponen unos 100 huevos por puesta."
+  }
+ },
+ {
+  "id": "e18",
+  "lvl": 3,
+  "type": "duel",
+  "img": [
+   "p-shark",
+   "p-parrot"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer wird älter?",
+   "a": [
+    "Grönlandhai",
+    "Papagei"
+   ],
+   "x": "Grönlandhaie können mehrere hundert Jahre alt werden – sie sind die ältesten bekannten Wirbeltiere. Große Papageien schaffen 60 bis 80 Jahre."
+  },
+  "en": {
+   "q": "Who lives longer?",
+   "a": [
+    "Greenland shark",
+    "Parrot"
+   ],
+   "x": "Greenland sharks can live several hundred years – the oldest known vertebrates. Large parrots reach 60 to 80 years."
+  },
+  "fr": {
+   "q": "Qui vit le plus longtemps ?",
+   "a": [
+    "Requin du Groenland",
+    "Perroquet"
+   ],
+   "x": "Le requin du Groenland peut vivre plusieurs centaines d’années – c’est le plus vieux vertébré connu. Les grands perroquets atteignent 60 à 80 ans."
+  },
+  "es": {
+   "q": "¿Quién vive más?",
+   "a": [
+    "Tiburón de Groenlandia",
+    "Loro"
+   ],
+   "x": "El tiburón de Groenlandia puede vivir varios cientos de años: es el vertebrado más longevo conocido. Los loros grandes llegan a 60 u 80 años."
+  }
+ },
+ {
+  "id": "e19",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-shark",
+   "p-turtle"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wen gab es zuerst auf der Erde?",
+   "a": [
+    "Hai",
+    "Schildkröte"
+   ],
+   "x": "Haie gibt es seit über 400 Millionen Jahren – länger als Bäume. Schildkröten erst seit etwa 220 Millionen Jahren."
+  },
+  "en": {
+   "q": "Who was on Earth first?",
+   "a": [
+    "Shark",
+    "Turtle"
+   ],
+   "x": "Sharks have existed for over 400 million years – longer than trees. Turtles only for about 220 million years."
+  },
+  "fr": {
+   "q": "Qui était sur Terre en premier ?",
+   "a": [
+    "Requin",
+    "Tortue"
+   ],
+   "x": "Les requins existent depuis plus de 400 millions d’années – plus longtemps que les arbres. Les tortues seulement depuis environ 220 millions d’années."
+  },
+  "es": {
+   "q": "¿Quién llegó antes a la Tierra?",
+   "a": [
+    "Tiburón",
+    "Tortuga"
+   ],
+   "x": "Los tiburones existen desde hace más de 400 millones de años, más que los árboles. Las tortugas, solo desde hace unos 220 millones."
+  }
+ },
+ {
+  "id": "e21",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-otter",
+   "p-penguin"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer schwimmt schneller?",
+   "a": [
+    "Fischotter",
+    "Pinguin"
+   ],
+   "x": "Eselspinguine erreichen unter Wasser rund 35 km/h – schneller als jeder andere Vogel im Wasser. Ein Fischotter schwimmt gut 10 km/h."
+  },
+  "en": {
+   "q": "Who swims faster?",
+   "a": [
+    "Otter",
+    "Penguin"
+   ],
+   "x": "Gentoo penguins reach about 35 km/h underwater – faster than any other bird in water. An otter swims a little over 10 km/h."
+  },
+  "fr": {
+   "q": "Qui nage le plus vite ?",
+   "a": [
+    "Loutre",
+    "Manchot"
+   ],
+   "x": "Le manchot papou atteint environ 35 km/h sous l’eau – plus vite que tout autre oiseau dans l’eau. La loutre nage à un peu plus de 10 km/h."
+  },
+  "es": {
+   "q": "¿Quién nada más rápido?",
+   "a": [
+    "Nutria",
+    "Pingüino"
+   ],
+   "x": "El pingüino papúa alcanza unos 35 km/h bajo el agua, más que cualquier otra ave en el agua. La nutria nada a algo más de 10 km/h."
+  }
+ },
+ {
+  "id": "e22",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-hedgehog",
+   "p-frog"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer übersteht es, fast ganz einzufrieren?",
+   "a": [
+    "Igel",
+    "Frosch"
+   ],
+   "x": "Der nordamerikanische Waldfrosch friert im Winter zu zwei Dritteln ein, Herz und Atmung stehen still. Zucker in den Zellen schützt ihn, im Frühling taut er auf. Der Igel braucht ein frostfreies Nest."
+  },
+  "en": {
+   "q": "Who can survive being almost frozen solid?",
+   "a": [
+    "Hedgehog",
+    "Frog"
+   ],
+   "x": "The North American wood frog freezes two-thirds solid in winter; its heart and breathing stop. Sugar in its cells protects it, and it thaws in spring. A hedgehog needs a frost-free nest."
+  },
+  "fr": {
+   "q": "Qui survit en gelant presque entièrement ?",
+   "a": [
+    "Hérisson",
+    "Grenouille"
+   ],
+   "x": "La grenouille des bois d’Amérique du Nord gèle aux deux tiers en hiver : son cœur et sa respiration s’arrêtent. Du sucre protège ses cellules et elle dégèle au printemps. Le hérisson a besoin d’un nid hors gel."
+  },
+  "es": {
+   "q": "¿Quién sobrevive a congelarse casi por completo?",
+   "a": [
+    "Erizo",
+    "Rana"
+   ],
+   "x": "La rana de bosque norteamericana se congela en dos tercios en invierno: su corazón y su respiración se detienen. El azúcar protege sus células y en primavera se descongela. El erizo necesita un nido sin heladas."
+  }
+ },
+ {
+  "id": "e23",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-lizard",
+   "p-parrot"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer stammt von den Dinosauriern ab?",
+   "a": [
+    "Eidechse",
+    "Papagei"
+   ],
+   "x": "Vögel sind die heute lebenden Dinosaurier. Eidechsen sehen urzeitlich aus, sind aber nur entfernte Verwandte."
+  },
+  "en": {
+   "q": "Who descends from dinosaurs?",
+   "a": [
+    "Lizard",
+    "Parrot"
+   ],
+   "x": "Birds are the dinosaurs living today. Lizards look prehistoric but are only distant relatives."
+  },
+  "fr": {
+   "q": "Qui descend des dinosaures ?",
+   "a": [
+    "Lézard",
+    "Perroquet"
+   ],
+   "x": "Les oiseaux sont les dinosaures d’aujourd’hui. Les lézards ont l’air préhistoriques mais ne sont que des cousins éloignés."
+  },
+  "es": {
+   "q": "¿Quién desciende de los dinosaurios?",
+   "a": [
+    "Lagartija",
+    "Loro"
+   ],
+   "x": "Las aves son los dinosaurios que viven hoy. Las lagartijas parecen prehistóricas, pero solo son parientes lejanas."
+  }
+ },
+ {
+  "id": "e25",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-tiger",
+   "p-panda"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer ist an Land schneller?",
+   "a": [
+    "Tiger",
+    "Panda"
+   ],
+   "x": "Tiger sprinten kurz 50 bis 65 km/h. Pandas schaffen im Notfall etwa 30 km/h."
+  },
+  "en": {
+   "q": "Who is faster on land?",
+   "a": [
+    "Tiger",
+    "Panda"
+   ],
+   "x": "Tigers sprint at 50 to 65 km/h for short distances. Pandas manage about 30 km/h when they have to."
+  },
+  "fr": {
+   "q": "Qui est le plus rapide sur terre ?",
+   "a": [
+    "Tigre",
+    "Panda"
+   ],
+   "x": "Le tigre sprinte à 50 à 65 km/h sur de courtes distances. Le panda atteint environ 30 km/h en cas d’urgence."
+  },
+  "es": {
+   "q": "¿Quién es más rápido en tierra?",
+   "a": [
+    "Tigre",
+    "Panda"
+   ],
+   "x": "El tigre esprinta a 50 o 65 km/h en distancias cortas. El panda llega a unos 30 km/h si hace falta."
+  }
+ },
+ {
+  "id": "e26",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-butterfly",
+   "p-owl"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer schmeckt mit den Füßen?",
+   "a": [
+    "Schmetterling",
+    "Eule"
+   ],
+   "x": "Schmetterlinge haben Geschmackssinne an den Füßen. Landen sie auf einem Blatt, „schmecken“ sie sofort, ob es für ihre Eier taugt."
+  },
+  "en": {
+   "q": "Who tastes with its feet?",
+   "a": [
+    "Butterfly",
+    "Owl"
+   ],
+   "x": "Butterflies have taste sensors on their feet. When they land on a leaf, they instantly “taste” whether it’s right for their eggs."
+  },
+  "fr": {
+   "q": "Qui goûte avec ses pattes ?",
+   "a": [
+    "Papillon",
+    "Chouette"
+   ],
+   "x": "Le papillon a des capteurs de goût sur les pattes. En se posant sur une feuille, il « goûte » tout de suite si elle convient à ses œufs."
+  },
+  "es": {
+   "q": "¿Quién saborea con las patas?",
+   "a": [
+    "Mariposa",
+    "Búho"
+   ],
+   "x": "Las mariposas tienen sensores de sabor en las patas. Al posarse en una hoja, «saborean» al instante si sirve para sus huevos."
+  }
+ },
+ {
+  "id": "e30",
+  "lvl": 3,
+  "type": "duel",
+  "img": [
+   "p-parrot",
+   "p-octopus"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Bei wem steckt der Großteil der Nervenzellen in den Armen?",
+   "a": [
+    "Papagei",
+    "Krake"
+   ],
+   "x": "Rund zwei Drittel der Nervenzellen eines Kraken sitzen in seinen Armen. Jeder Arm kann so tasten, schmecken und greifen, fast wie mit eigenem Kopf."
+  },
+  "en": {
+   "q": "Who has most of its nerve cells in its arms?",
+   "a": [
+    "Parrot",
+    "Octopus"
+   ],
+   "x": "About two-thirds of an octopus’s nerve cells are in its arms. Each arm can feel, taste and grab almost as if it had a mind of its own."
+  },
+  "fr": {
+   "q": "Qui a la plupart de ses neurones dans les bras ?",
+   "a": [
+    "Perroquet",
+    "Pieuvre"
+   ],
+   "x": "Environ deux tiers des neurones de la pieuvre se trouvent dans ses bras. Chaque bras peut toucher, goûter et saisir presque comme s’il avait sa propre tête."
+  },
+  "es": {
+   "q": "¿Quién tiene la mayoría de sus neuronas en los brazos?",
+   "a": [
+    "Loro",
+    "Pulpo"
+   ],
+   "x": "Unos dos tercios de las neuronas del pulpo están en sus brazos. Cada brazo puede tocar, saborear y agarrar casi como si tuviera cabeza propia."
+  }
+ },
+ {
+  "id": "e31",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-giraffe",
+   "p-bear"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer ist schwerer?",
+   "a": [
+    "Giraffe",
+    "Braunbär"
+   ],
+   "x": "Eine ausgewachsene Giraffe wiegt 800 bis 1.200 kg. Selbst sehr große Braunbären bringen meist deutlich weniger auf die Waage."
+  },
+  "en": {
+   "q": "Who is heavier?",
+   "a": [
+    "Giraffe",
+    "Brown bear"
+   ],
+   "x": "An adult giraffe weighs 800 to 1,200 kg. Even very big brown bears usually weigh a lot less."
+  },
+  "fr": {
+   "q": "Qui est le plus lourd ?",
+   "a": [
+    "Girafe",
+    "Ours brun"
+   ],
+   "x": "Une girafe adulte pèse 800 à 1 200 kg. Même les très grands ours bruns pèsent en général bien moins."
+  },
+  "es": {
+   "q": "¿Quién pesa más?",
+   "a": [
+    "Jirafa",
+    "Oso pardo"
+   ],
+   "x": "Una jirafa adulta pesa de 800 a 1.200 kg. Incluso los osos pardos muy grandes suelen pesar bastante menos."
+  }
+ },
+ {
+  "id": "e32",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-ladybug",
+   "p-bee"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer lebt in einem Volk mit Tausenden Geschwistern?",
+   "a": [
+    "Marienkäfer",
+    "Biene"
+   ],
+   "x": "Ein Honigbienenvolk hat im Sommer 30.000 bis 50.000 Bienen, fast alle Töchter der einen Königin. Marienkäfer leben allein."
+  },
+  "en": {
+   "q": "Who lives in a colony with thousands of siblings?",
+   "a": [
+    "Ladybird",
+    "Bee"
+   ],
+   "x": "In summer, a honeybee colony has 30,000 to 50,000 bees, almost all daughters of the one queen. Ladybirds live alone."
+  },
+  "fr": {
+   "q": "Qui vit dans une colonie avec des milliers de frères et sœurs ?",
+   "a": [
+    "Coccinelle",
+    "Abeille"
+   ],
+   "x": "En été, une colonie d’abeilles compte 30 000 à 50 000 abeilles, presque toutes filles de l’unique reine. La coccinelle vit seule."
+  },
+  "es": {
+   "q": "¿Quién vive en una colonia con miles de hermanas?",
+   "a": [
+    "Mariquita",
+    "Abeja"
+   ],
+   "x": "En verano, una colmena tiene de 30.000 a 50.000 abejas, casi todas hijas de la única reina. Las mariquitas viven solas."
+  }
+ },
+ {
+  "id": "e33",
+  "lvl": 2,
+  "type": "duel",
+  "img": [
+   "p-bear",
+   "p-hedgehog"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wessen Herz schlägt schneller?",
+   "a": [
+    "Braunbär",
+    "Igel"
+   ],
+   "x": "Kleine Tiere haben ein schnelles Herz: Beim wachen Igel schlägt es rund 200-mal pro Minute, beim Bären nur etwa 40- bis 50-mal."
+  },
+  "en": {
+   "q": "Whose heart beats faster?",
+   "a": [
+    "Brown bear",
+    "Hedgehog"
+   ],
+   "x": "Small animals have fast hearts: an awake hedgehog’s heart beats about 200 times a minute, a bear’s only about 40 to 50 times."
+  },
+  "fr": {
+   "q": "Quel cœur bat le plus vite ?",
+   "a": [
+    "Ours brun",
+    "Hérisson"
+   ],
+   "x": "Les petits animaux ont un cœur rapide : celui du hérisson éveillé bat environ 200 fois par minute, celui de l’ours seulement 40 à 50 fois."
+  },
+  "es": {
+   "q": "¿Qué corazón late más rápido?",
+   "a": [
+    "Oso pardo",
+    "Erizo"
+   ],
+   "x": "Los animales pequeños tienen el corazón rápido: el del erizo despierto late unas 200 veces por minuto; el del oso, solo unas 40 o 50."
+  }
+ },
+ {
+  "id": "e34",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-owl",
+   "p-eagle"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer sieht in der Dämmerung besser?",
+   "a": [
+    "Eule",
+    "Adler"
+   ],
+   "x": "Eulenaugen haben besonders viele Stäbchen – Sinneszellen für schwaches Licht. Adler sehen dafür am Tag schärfer."
+  },
+  "en": {
+   "q": "Who sees better at dusk?",
+   "a": [
+    "Owl",
+    "Eagle"
+   ],
+   "x": "Owl eyes have a great many rods – sensory cells for dim light. Eagles, on the other hand, see more sharply by day."
+  },
+  "fr": {
+   "q": "Qui voit le mieux au crépuscule ?",
+   "a": [
+    "Chouette",
+    "Aigle"
+   ],
+   "x": "Les yeux de la chouette ont énormément de bâtonnets – des cellules pour la faible lumière. L’aigle, lui, voit plus net le jour."
+  },
+  "es": {
+   "q": "¿Quién ve mejor al anochecer?",
+   "a": [
+    "Búho",
+    "Águila"
+   ],
+   "x": "Los ojos del búho tienen muchísimos bastones, células para la luz tenue. El águila, en cambio, ve con más nitidez de día."
+  }
+ },
+ {
+  "id": "e35",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-turtle",
+   "p-bear"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer wird älter?",
+   "a": [
+    "Schildkröte",
+    "Braunbär"
+   ],
+   "x": "Viele Landschildkröten werden 50 bis über 100 Jahre alt. Braunbären erreichen in freier Natur meist 20 bis 30 Jahre."
+  },
+  "en": {
+   "q": "Who lives longer?",
+   "a": [
+    "Turtle",
+    "Brown bear"
+   ],
+   "x": "Many tortoises live 50 to over 100 years. Brown bears in the wild usually reach 20 to 30 years."
+  },
+  "fr": {
+   "q": "Qui vit le plus longtemps ?",
+   "a": [
+    "Tortue",
+    "Ours brun"
+   ],
+   "x": "Beaucoup de tortues terrestres vivent de 50 à plus de 100 ans. L’ours brun atteint en général 20 à 30 ans dans la nature."
+  },
+  "es": {
+   "q": "¿Quién vive más?",
+   "a": [
+    "Tortuga",
+    "Oso pardo"
+   ],
+   "x": "Muchas tortugas terrestres viven de 50 a más de 100 años. Los osos pardos en libertad suelen llegar a 20 o 30 años."
+  }
+ },
+ {
+  "id": "e36",
+  "lvl": 1,
+  "type": "duel",
+  "img": [
+   "p-parrot",
+   "p-octopus"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer kann blitzschnell seine Farbe wechseln?",
+   "a": [
+    "Papagei",
+    "Krake"
+   ],
+   "x": "Kraken haben Tausende Farbzellen in der Haut, die sie in Sekundenbruchteilen öffnen und schließen – zum Tarnen und um Stimmung zu zeigen."
+  },
+  "en": {
+   "q": "Who can change colour in a flash?",
+   "a": [
+    "Parrot",
+    "Octopus"
+   ],
+   "x": "Octopuses have thousands of colour cells in their skin that they open and close in a fraction of a second – to hide and to show their mood."
+  },
+  "fr": {
+   "q": "Qui peut changer de couleur en un éclair ?",
+   "a": [
+    "Perroquet",
+    "Pieuvre"
+   ],
+   "x": "La pieuvre a des milliers de cellules colorées dans la peau qu’elle ouvre et ferme en une fraction de seconde – pour se camoufler et montrer son humeur."
+  },
+  "es": {
+   "q": "¿Quién cambia de color en un instante?",
+   "a": [
+    "Loro",
+    "Pulpo"
+   ],
+   "x": "El pulpo tiene miles de células de color en la piel que abre y cierra en una fracción de segundo, para camuflarse y mostrar su humor."
+  }
+ }
+]
