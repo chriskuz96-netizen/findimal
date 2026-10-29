@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, ClipPath, Defs, G, Path, RadialGradient, Stop } from 'react-native-svg';
 
 import { SERVER_URL } from '../config';
+import { findOfAvatar, useAvatarImage } from '../avatarPhoto';
 import { useFindPhoto } from '../finds';
 import { PLUS_AVATARS } from '../plus';
 import { BadgeId } from '../progress';
@@ -17,7 +18,7 @@ export const isPhotoAvatar = (id: string | null | undefined) => !!id && id.start
 
 // Profilbild: Plus-Tier (mit goldenem Rahmen), eigenes Foto (Plus), Abzeichen oder Anfangsbuchstabe.
 export function Avatar({ id, name, size }: { id: string | null; name: string; size: number }) {
-  if (isPhotoAvatar(id)) return <PhotoAvatar findId={id!.slice(PHOTO_PREFIX.length)} name={name} size={size} />;
+  if (isPhotoAvatar(id)) return <PhotoAvatar avatar={id!} name={name} size={size} />;
   // Foto eines anderen aus der Rangliste (vom Server)
   if (id?.startsWith('u:')) return <PhotoRing uri={remotePhoto(id)} name={name} size={size} />;
   // Foto noch nicht hochgeladen oder nicht erlaubt: Buchstabe im goldenen Plus-Rahmen
@@ -39,8 +40,11 @@ function remotePhoto(id: string): string | null {
   return m ? `${SERVER_URL.replace(/\/$/, '')}/profilbild/${m[1]}?v=${m[2]}` : null;
 }
 
-function PhotoAvatar({ findId, name, size }: { findId: string; name: string; size: number }) {
-  return <PhotoRing uri={useFindPhoto(findId)} name={name} size={size} />;
+// eigenes Foto: der gewählte Ausschnitt, sonst das ganze Fund-Foto
+function PhotoAvatar({ avatar, name, size }: { avatar: string; name: string; size: number }) {
+  const crop = useAvatarImage(avatar);
+  const photo = useFindPhoto(findOfAvatar(avatar));
+  return <PhotoRing uri={crop ?? photo} name={name} size={size} />;
 }
 
 // Foto im Kreis mit goldenem Plus-Ring und Stern (wie die Plus-Tiere); ohne Foto der Anfangsbuchstabe

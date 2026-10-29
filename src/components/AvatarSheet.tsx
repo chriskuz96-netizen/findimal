@@ -6,7 +6,8 @@ import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { Badge } from '../progress';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 import { Icon } from './Icon';
-import { Avatar, PHOTO_PREFIX } from './Avatar';
+import { Avatar, isPhotoAvatar, PHOTO_PREFIX } from './Avatar';
+import { findOfAvatar } from '../avatarPhoto';
 
 type Props = {
   visible: boolean;
@@ -15,28 +16,33 @@ type Props = {
   earned: Badge[]; // verdiente Abzeichen
   photos: string[]; // eigene Funde (neueste zuerst) – mit Plus als Profilbild wählbar
   onSelect: (id: string) => void; // '' = Anfangsbuchstabe
+  onCrop: (findId: string) => void; // eigenes Foto: erst den Bildausschnitt wählen
   onClose: () => void;
 };
 
 const SIZE = 54;
 
 // Auswahl des Profilbilds: fährt von unten hoch, alles auf einen Blick (kein Wischen).
-export function AvatarSheet({ visible, name, avatar, earned, photos, onSelect, onClose }: Props) {
+export function AvatarSheet({ visible, name, avatar, earned, photos, onSelect, onCrop, onClose }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
   const { plus, setPlus } = usePlus();
+
+  // ist dieses Fund-Foto (mit irgendeinem Ausschnitt) das aktuelle Profilbild? Dann den Ausschnitt zeigen
+  const on = (find: string) => !!avatar && isPhotoAvatar(avatar) && findOfAvatar(avatar) === find;
 
   const pick = (id: string) => {
     onSelect(id);
     onClose();
   };
 
-  const Item = ({ id, locked }: { id: string; locked?: boolean }) => {
-    const on = (avatar ?? '') === id;
+  const Item = ({ id, locked, crop }: { id: string; locked?: boolean; crop?: string }) => {
+    // eigenes Foto: markiert, wenn es (mit irgendeinem Ausschnitt) gerade das Profilbild ist
+    const on = crop ? !!avatar && isPhotoAvatar(avatar) && findOfAvatar(avatar) === crop : (avatar ?? '') === id;
     return (
       <Pressable
-        onPress={() => (locked ? askForPlus(t, setPlus) : pick(id))}
+        onPress={() => (locked ? askForPlus(t, setPlus) : crop ? onCrop(crop) : pick(id))}
         style={[styles.item, on && styles.itemOn]}
         accessibilityRole="button"
       >
@@ -102,7 +108,7 @@ export function AvatarSheet({ visible, name, avatar, earned, photos, onSelect, o
           <Text style={[styles.hint, { color: p.mute }]}>{photos.length ? t('pro.photoAvatarsHint') : t('pro.photoAvatarsNone')}</Text>
           <View style={styles.grid}>
             {photos.map((id) => (
-              <Item key={id} id={PHOTO_PREFIX + id} locked={!plus} />
+              <Item key={id} id={on(id) && avatar ? avatar : PHOTO_PREFIX + id} crop={id} locked={!plus} />
             ))}
           </View>
         </ScrollView>

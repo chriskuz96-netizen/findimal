@@ -18,6 +18,8 @@ import { HeaderBackground } from '../components/HeaderBackground';
 import { AdSlot } from '../components/AdSlot';
 import { Avatar } from '../components/Avatar';
 import { AvatarSheet } from '../components/AvatarSheet';
+import { PhotoCropper } from '../components/PhotoCropper';
+import { saveAvatarImage } from '../avatarPhoto';
 import { PlusCard } from '../components/PlusCard';
 import { LanguageChips } from '../components/LanguageButton';
 import { PlaceChip } from '../components/PlaceChip';
@@ -53,6 +55,7 @@ export function ProfileScreen(props: Props) {
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
   const [picking, setPicking] = useState(false); // Auswahlfenster fürs Profilbild
+  const [cropping, setCropping] = useState<string | null>(null); // eigenes Foto: Bildausschnitt wählen (Fund-ID)
   const [choosingLang, setChoosingLang] = useState(false); // Sprachauswahl
   const saveName = () => {
     const n = newName.trim();
@@ -129,6 +132,21 @@ export function ProfileScreen(props: Props) {
       photos={[...finds].sort((a, b) => (a.date < b.date ? 1 : -1)).map((f) => f.id)}
       onSelect={onSelectAvatar}
       onClose={() => setPicking(false)}
+      onCrop={(findId) => {
+        setPicking(false);
+        setCropping(findId);
+      }}
+    />
+    <PhotoCropper
+      findId={cropping}
+      onCancel={() => setCropping(null)}
+      onDone={async (uri) => {
+        // neue ID je Ausschnitt: so wird das neue Bild auch für die Rangliste neu hochgeladen
+        const id = `f-${cropping}~${Date.now().toString(36)}`;
+        await saveAvatarImage(id, uri);
+        setCropping(null);
+        onSelectAvatar(id);
+      }}
     />
     {/* Sprache wählen (wie oben rechts auf der Startseite) */}
     <Modal visible={choosingLang} transparent animationType="fade" onRequestClose={() => setChoosingLang(false)}>

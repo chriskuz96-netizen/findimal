@@ -21,7 +21,7 @@ import { Tab, TabBar } from './src/components/TabBar';
 import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
-import { addFind, counts, Find, forgetFinds, loadFindPhoto, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
+import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { Animal, checkAppKey, getAppKey, translateAnimal } from './src/identify';
 import { updateBeforeSetup } from './src/firstUpdate';
 import { LangProvider, useI18n } from './src/i18n';
@@ -38,7 +38,8 @@ import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import { SeasonScreen } from './src/screens/SeasonScreen';
 import { RegionScreen } from './src/screens/RegionScreen';
-import { isPhotoAvatar, PHOTO_PREFIX } from './src/components/Avatar';
+import { isPhotoAvatar } from './src/components/Avatar';
+import { findOfAvatar, photoForAvatar } from './src/avatarPhoto';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
 import { loadAvatar, loadBestRank, loadMaxFriends, loadName, loadRegion, resetAll, saveAvatar, saveBestRank, saveMaxFriends, saveName, saveRegion } from './src/storage';
@@ -275,7 +276,7 @@ function Main() {
   // Plus-Tiere und eigene Fotos nur, solange Plus aktiv ist (Foto nur, solange der Fund noch da ist)
   const avatarBadge =
     (plus && isPlusAvatar(avatar) ? avatar : null) ??
-    (plus && isPhotoAvatar(avatar) && realFinds.some((f) => PHOTO_PREFIX + f.id === avatar) ? avatar : null) ??
+    (plus && isPhotoAvatar(avatar) && realFinds.some((f) => f.id === findOfAvatar(avatar)) ? avatar : null) ??
     progress.badges.find((b) => b.id === avatar && b.earned)?.id ??
     null;
   // Neue Abzeichen: verdient, aber noch nicht angesehen (Punkt im Menü, "NEU" in den Challenges)
@@ -305,7 +306,7 @@ function Main() {
     setAvatar(id);
     // eigenes Foto: für die Rangliste hochladen (wird dort geprüft); abgelehnt -> kurzer Hinweis
     if (isPhotoAvatar(id))
-      ensurePhotoAvatar(id, () => loadFindPhoto(id.slice(PHOTO_PREFIX.length))).then((r) => {
+      ensurePhotoAvatar(id, () => photoForAvatar(id)).then((r) => {
         if (r === 'rejected') Alert.alert(t('pro.photoRejectedTitle'), t('pro.photoRejected'));
       });
   };
