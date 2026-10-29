@@ -29,7 +29,12 @@ const random = (n: number, chars: string) =>
 export const cleanCode = (code: string) => code.toUpperCase().replace(/[^A-Z0-9]/g, '');
 export const isCode = (code: string) => /^[A-HJ-NP-Z2-9]{6}$/.test(code);
 
+// Eigene Fotos als Profilbild bleiben auf dem Handy: an den Server geht nur 'p-letter'
+// (Anfangsbuchstabe mit goldenem Plus-Rahmen; ältere App-Versionen zeigen einfach den Buchstaben)
+const publicAvatar = (a: unknown) => (typeof a === 'string' && a.startsWith('f-') ? 'p-letter' : a);
+
 async function call(body: object): Promise<Response> {
+  if ('avatar' in body) body = { ...body, avatar: publicAvatar((body as { avatar?: unknown }).avatar) };
   return fetch(SERVER_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey(), 'X-Findimal-Device': await getDeviceId() },

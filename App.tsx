@@ -38,6 +38,7 @@ import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import { SeasonScreen } from './src/screens/SeasonScreen';
 import { RegionScreen } from './src/screens/RegionScreen';
+import { isPhotoAvatar, PHOTO_PREFIX } from './src/components/Avatar';
 import { ResultScreen } from './src/screens/ResultScreen';
 import { StartScreen } from './src/screens/StartScreen';
 import { loadAvatar, loadBestRank, loadMaxFriends, loadName, loadRegion, resetAll, saveAvatar, saveBestRank, saveMaxFriends, saveName, saveRegion } from './src/storage';
@@ -271,9 +272,10 @@ function Main() {
   const realFinds = finds.filter(counts);
   const progress = computeProgress(realFinds, quizTotals(quiz, forscher), now, { bestRank, maxFriends });
   // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
-  // Plus-Tiere nur, solange Plus aktiv ist
+  // Plus-Tiere und eigene Fotos nur, solange Plus aktiv ist (Foto nur, solange der Fund noch da ist)
   const avatarBadge =
     (plus && isPlusAvatar(avatar) ? avatar : null) ??
+    (plus && isPhotoAvatar(avatar) && realFinds.some((f) => PHOTO_PREFIX + f.id === avatar) ? avatar : null) ??
     progress.badges.find((b) => b.id === avatar && b.earned)?.id ??
     null;
   // Neue Abzeichen: verdient, aber noch nicht angesehen (Punkt im Menü, "NEU" in den Challenges)

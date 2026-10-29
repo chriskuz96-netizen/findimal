@@ -309,6 +309,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               person={x}
               rank={String(i + 1)}
               isMe={x.id === me?.id}
+              selfAvatar={stats.avatar}
               onLongPress={x.id !== me?.id ? () => onPerson(x) : undefined}
               p={p}
             />
@@ -316,7 +317,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
           {view === 'world' && self && top && !meInWorld && (
             <>
               <Text style={[styles.small, { color: p.mute, textAlign: 'center' }]}>···</Text>
-              <Row person={self} rank="–" isMe p={p} />
+              <Row person={self} rank="–" isMe selfAvatar={stats.avatar} p={p} />
             </>
           )}
           {((view === 'friends' && people === null) || (view === 'world' && top === null)) && !error && (
@@ -408,12 +409,14 @@ function Row({
   person: x,
   rank,
   isMe,
+  selfAvatar,
   onLongPress,
   p,
 }: {
   person: Person;
   rank: string;
   isMe: boolean;
+  selfAvatar?: string; // eigene Zeile: Profilbild vom Handy (auch ein eigenes Foto, das nie hochgeladen wird)
   onLongPress?: () => void;
   p: Palette;
 }) {
@@ -421,7 +424,7 @@ function Row({
   return (
     <Pressable onLongPress={onLongPress} style={[styles.row, isMe && { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
       <Text style={[styles.rank, { color: rank === '1' ? colors.accent : p.mute }]}>{rank}</Text>
-      <Avatar id={x.avatar || null} name={x.name} size={32} />
+      <Avatar id={(isMe ? selfAvatar : x.avatar) || null} name={x.name} size={32} />
       <View style={{ flex: 1 }}>
         <Text style={[styles.name, { color: p.ink }]} numberOfLines={1}>
           {x.name}

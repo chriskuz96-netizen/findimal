@@ -6,13 +6,14 @@ import { askForPlus, PLUS_AVATARS, usePlus } from '../plus';
 import { Badge } from '../progress';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 import { Icon } from './Icon';
-import { Avatar } from './Avatar';
+import { Avatar, PHOTO_PREFIX } from './Avatar';
 
 type Props = {
   visible: boolean;
   name: string;
   avatar: string | null; // aktuelles Profilbild
   earned: Badge[]; // verdiente Abzeichen
+  photos: string[]; // eigene Funde (neueste zuerst) – mit Plus als Profilbild wählbar
   onSelect: (id: string) => void; // '' = Anfangsbuchstabe
   onClose: () => void;
 };
@@ -20,7 +21,7 @@ type Props = {
 const SIZE = 54;
 
 // Auswahl des Profilbilds: fährt von unten hoch, alles auf einen Blick (kein Wischen).
-export function AvatarSheet({ visible, name, avatar, earned, onSelect, onClose }: Props) {
+export function AvatarSheet({ visible, name, avatar, earned, photos, onSelect, onClose }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
@@ -90,6 +91,18 @@ export function AvatarSheet({ visible, name, avatar, earned, onSelect, onClose }
           <View style={styles.grid}>
             {PLUS_AVATARS.map((a) => (
               <Item key={a.id} id={a.id} locked={!plus} />
+            ))}
+          </View>
+
+          {/* Eigene Fotos aus der Sammlung (Plus) – bleiben auf dem Handy, andere sehen sie nicht */}
+          <View style={[styles.h4Row, { marginTop: 16 }]}>
+            <Icon name="star" size={16} color="#E8B53A" />
+            <Text style={[styles.h4, { color: p.ink }]}>{t('pro.photoAvatars')}</Text>
+          </View>
+          <Text style={[styles.hint, { color: p.mute }]}>{photos.length ? t('pro.photoAvatarsHint') : t('pro.photoAvatarsNone')}</Text>
+          <View style={styles.grid}>
+            {photos.map((id) => (
+              <Item key={id} id={PHOTO_PREFIX + id} locked={!plus} />
             ))}
           </View>
         </ScrollView>

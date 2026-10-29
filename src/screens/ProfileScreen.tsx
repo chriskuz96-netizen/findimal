@@ -126,6 +126,7 @@ export function ProfileScreen(props: Props) {
       name={name}
       avatar={avatar}
       earned={earned}
+      photos={[...finds].sort((a, b) => (a.date < b.date ? 1 : -1)).map((f) => f.id)}
       onSelect={onSelectAvatar}
       onClose={() => setPicking(false)}
     />
