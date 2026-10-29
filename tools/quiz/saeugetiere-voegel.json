@@ -1397,38 +1397,38 @@
   "id": "a32",
   "lvl": 2,
   "type": "tf",
-  "right": 1,
+  "right": 0,
   "de": {
-   "q": "Eine Giraffe hat deutlich mehr Halswirbel als ein Mensch.",
+   "q": "Ein Rehkitz, das allein im hohen Gras liegt, ist meist nicht verlassen.",
    "a": [
     "Wahr",
     "Falsch"
    ],
-   "x": "Falsch! Beide haben sieben Halswirbel, wie fast alle Säugetiere. Bei der Giraffe ist jeder Wirbel nur viel länger."
+   "x": "Stimmt! Die Mutter lässt es absichtlich liegen und kommt zum Säugen zurück. Bitte nicht anfassen – sonst riecht es nach Mensch."
   },
   "en": {
-   "q": "A giraffe has far more neck vertebrae than a human.",
+   "q": "A fawn lying alone in tall grass has usually not been abandoned.",
    "a": [
     "True",
     "False"
    ],
-   "x": "False! Both have seven, like almost all mammals. A giraffe's vertebrae are simply much longer."
+   "x": "True! The mother leaves it there on purpose and comes back to feed it. Please don’t touch it – or it will smell of humans."
   },
   "fr": {
-   "q": "La girafe a beaucoup plus de vertèbres cervicales que l'humain.",
+   "q": "Un faon couché seul dans les hautes herbes n’est en général pas abandonné.",
    "a": [
     "Vrai",
     "Faux"
    ],
-   "x": "Faux ! Les deux en ont sept, comme presque tous les mammifères. Celles de la girafe sont juste bien plus longues."
+   "x": "Vrai ! Sa mère le laisse là exprès et revient l’allaiter. Surtout ne pas le toucher – sinon il sent l’humain."
   },
   "es": {
-   "q": "La jirafa tiene muchas más vértebras en el cuello que un humano.",
+   "q": "Un corzo bebé tumbado solo en la hierba alta normalmente no está abandonado.",
    "a": [
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Falso! Ambos tienen siete, como casi todos los mamíferos. Las de la jirafa son simplemente mucho más largas."
+   "x": "¡Verdadero! La madre lo deja allí a propósito y vuelve a amamantarlo. Por favor, no lo toques: olería a humano."
   }
  },
  {

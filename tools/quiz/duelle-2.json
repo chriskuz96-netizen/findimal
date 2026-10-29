@@ -81,36 +81,36 @@
   "type": "duel",
   "right": 1,
   "de": {
-   "q": "Wer ist näher mit dem Elefanten verwandt?",
+   "q": "Wer ist näher mit dem Hund verwandt?",
    "a": [
-    "Nashorn",
-    "Seekuh"
+    "Tüpfelhyäne",
+    "Seehund"
    ],
-   "x": "Überraschend: Seekühe (Manatis und Dugongs) gehören zu den nächsten lebenden Verwandten der Elefanten. Nashörner sind entfernt verwandt."
+   "x": "Robben gehören zu den „hundeartigen“ Raubtieren, wie Bären und Marder. Hyänen sehen zwar hundeähnlich aus, sind aber näher mit Katzen verwandt."
   },
   "en": {
-   "q": "Who is more closely related to the elephant?",
+   "q": "Who is more closely related to the dog?",
    "a": [
-    "Rhino",
-    "Manatee"
+    "Spotted hyena",
+    "Harbour seal"
    ],
-   "x": "Surprisingly, sea cows (manatees and dugongs) are among the closest living relatives of elephants. Rhinos are only distant relatives."
+   "x": "Seals belong to the “dog-like” carnivores, along with bears and weasels. Hyenas look like dogs but are more closely related to cats."
   },
   "fr": {
-   "q": "Qui est le plus proche parent de l’éléphant ?",
+   "q": "Qui est le plus proche parent du chien ?",
    "a": [
-    "Rhinocéros",
-    "Lamantin"
+    "Hyène tachetée",
+    "Phoque veau-marin"
    ],
-   "x": "Surprise : les siréniens (lamantins et dugongs) font partie des plus proches parents vivants de l’éléphant. Le rhinocéros n’est qu’un cousin éloigné."
+   "x": "Les phoques font partie des carnivores « caniformes », comme les ours et les martres. La hyène ressemble à un chien mais est plus proche des chats."
   },
   "es": {
-   "q": "¿Quién es pariente más cercano del elefante?",
+   "q": "¿Quién es pariente más cercano del perro?",
    "a": [
-    "Rinoceronte",
-    "Manatí"
+    "Hiena manchada",
+    "Foca común"
    ],
-   "x": "Sorpresa: los sirenios (manatíes y dugongos) están entre los parientes vivos más cercanos del elefante. El rinoceronte es solo un pariente lejano."
+   "x": "Las focas pertenecen a los carnívoros «caniformes», como osos y mustélidos. La hiena parece un perro, pero está más emparentada con los gatos."
   }
  },
  {
@@ -271,36 +271,36 @@
   "type": "duel",
   "right": 1,
   "de": {
-   "q": "Wer hat seine Ohren an den Beinen?",
+   "q": "Wer frisst einen Teil seines Kots absichtlich noch einmal?",
    "a": [
-    "Stubenfliege",
-    "Grille"
+    "Reh",
+    "Wildkaninchen"
    ],
-   "x": "Grillen hören mit kleinen Trommelfellen an den Vorderbeinen. Stubenfliegen haben gar keine Ohren."
+   "x": "Kaninchen fressen weiche Kotkügelchen direkt wieder auf. So holen sie beim zweiten Durchgang die Vitamine und Nährstoffe aus der schwer verdaulichen Pflanzenkost."
   },
   "en": {
-   "q": "Who has its ears on its legs?",
+   "q": "Who eats some of its own droppings on purpose?",
    "a": [
-    "Housefly",
-    "Cricket"
+    "Roe deer",
+    "Wild rabbit"
    ],
-   "x": "Crickets hear with tiny eardrums on their front legs. Houseflies have no ears at all."
+   "x": "Rabbits eat soft droppings straight away. On the second pass they get the vitamins and nutrients out of their hard-to-digest plant food."
   },
   "fr": {
-   "q": "Qui a les oreilles sur les pattes ?",
+   "q": "Qui mange exprès une partie de ses crottes ?",
    "a": [
-    "Mouche domestique",
-    "Grillon"
+    "Chevreuil",
+    "Lapin de garenne"
    ],
-   "x": "Le grillon entend grâce à de petits tympans sur ses pattes avant. La mouche n’a pas d’oreilles du tout."
+   "x": "Le lapin mange tout de suite certaines crottes molles. Au second passage, il tire vitamines et nutriments de sa nourriture végétale difficile à digérer."
   },
   "es": {
-   "q": "¿Quién tiene los oídos en las patas?",
+   "q": "¿Quién se come a propósito parte de sus excrementos?",
    "a": [
-    "Mosca común",
-    "Grillo"
+    "Corzo",
+    "Conejo silvestre"
    ],
-   "x": "El grillo oye con pequeños tímpanos en las patas delanteras. La mosca no tiene oídos."
+   "x": "El conejo se come enseguida unas bolitas blandas. En la segunda pasada saca las vitaminas y nutrientes de su comida vegetal, difícil de digerir."
   }
  },
  {

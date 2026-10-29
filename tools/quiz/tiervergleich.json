@@ -231,48 +231,48 @@
  },
  {
   "id": "c06",
-  "lvl": 1,
+  "lvl": 2,
   "type": "text",
-  "right": 1,
+  "right": 0,
   "de": {
-   "q": "Welcher Vogel kann seinen Kopf um bis zu 270 Grad drehen?",
+   "q": "Welcher Vogel legt im Verhältnis zu seinem Körper das größte Ei?",
    "a": [
-    "Adler",
-    "Eule",
-    "Papagei",
-    "Pinguin"
+    "Kiwi",
+    "Strauß",
+    "Haushuhn",
+    "Kaiserpinguin"
    ],
-   "x": "Eulenaugen sind in ihren Höhlen fast unbeweglich. Das gleicht die Eule mit ihrem extrem beweglichen Hals aus."
+   "x": "Ein Kiwi-Ei wiegt rund ein Fünftel so viel wie das Weibchen selbst. Das Straußenei ist zwar das größte Ei überhaupt, für den riesigen Strauß aber eher klein."
   },
   "en": {
-   "q": "Which bird can turn its head up to 270 degrees?",
+   "q": "Which bird lays the biggest egg compared to its body?",
    "a": [
-    "Eagle",
-    "Owl",
-    "Parrot",
-    "Penguin"
+    "Kiwi",
+    "Ostrich",
+    "Chicken",
+    "Emperor penguin"
    ],
-   "x": "An owl's eyes can barely move in their sockets. It makes up for this with an extremely flexible neck."
+   "x": "A kiwi egg weighs about a fifth as much as the female herself. The ostrich egg is the biggest egg of all, but quite small for such a huge bird."
   },
   "fr": {
-   "q": "Quel oiseau peut tourner la tête jusqu'à 270 degrés ?",
+   "q": "Quel oiseau pond le plus gros œuf par rapport à son corps ?",
    "a": [
-    "Aigle",
-    "Chouette",
-    "Perroquet",
-    "Manchot"
+    "Kiwi",
+    "Autruche",
+    "Poule",
+    "Manchot empereur"
    ],
-   "x": "Les yeux de la chouette bougent à peine dans leurs orbites. Elle compense avec un cou très souple."
+   "x": "Un œuf de kiwi pèse environ un cinquième du poids de la femelle. L’œuf d’autruche est le plus gros de tous, mais plutôt petit pour un oiseau aussi grand."
   },
   "es": {
-   "q": "¿Qué ave puede girar la cabeza hasta 270 grados?",
+   "q": "¿Qué ave pone el huevo más grande en relación con su cuerpo?",
    "a": [
-    "Águila",
-    "Búho",
-    "Loro",
-    "Pingüino"
+    "Kiwi",
+    "Avestruz",
+    "Gallina",
+    "Pingüino emperador"
    ],
-   "x": "Los ojos del búho apenas se mueven en sus órbitas. Lo compensa con un cuello extremadamente flexible."
+   "x": "Un huevo de kiwi pesa alrededor de una quinta parte de lo que pesa la hembra. El de avestruz es el huevo más grande de todos, pero pequeño para un ave tan enorme."
   }
  },
  {
@@ -1703,48 +1703,48 @@
  },
  {
   "id": "c38",
-  "lvl": 3,
+  "lvl": 2,
   "type": "text",
-  "right": 3,
+  "right": 0,
   "de": {
-   "q": "Bei wem legt der Embryo nach der Paarung im Sommer eine monatelange Entwicklungspause ein?",
+   "q": "Welches Tier „bellt“ im Wald, wenn es sich erschreckt?",
    "a": [
-    "Igel",
-    "Giraffe",
-    "Eichhörnchen",
-    "Reh"
+    "Reh",
+    "Wildschwein",
+    "Dachs",
+    "Eichhörnchen"
    ],
-   "x": "Beim Reh ruht der Keim von der Brunft im Juli/August bis Dezember. So kommen die Kitze erst im Mai/Juni."
+   "x": "Rehe stoßen bei Gefahr laute, bellende Rufe aus – das „Schrecken“. Viele Spaziergänger denken dann an einen Hund."
   },
   "en": {
-   "q": "In which animal does the embryo pause its development for months after mating in summer?",
+   "q": "Which animal “barks” in the forest when it gets startled?",
    "a": [
-    "Hedgehog",
-    "Giraffe",
-    "Squirrel",
-    "Roe deer"
+    "Roe deer",
+    "Wild boar",
+    "Badger",
+    "Squirrel"
    ],
-   "x": "In roe deer the embryo rests from the July/August rut until December, so fawns arrive in May/June."
+   "x": "Roe deer give loud, barking calls when alarmed. Many walkers think it’s a dog."
   },
   "fr": {
-   "q": "Chez quel animal l'embryon fait-il une pause de plusieurs mois après l'accouplement estival ?",
+   "q": "Quel animal « aboie » en forêt quand il est surpris ?",
    "a": [
-    "Hérisson",
-    "Girafe",
-    "Écureuil",
-    "Chevreuil"
+    "Chevreuil",
+    "Sanglier",
+    "Blaireau",
+    "Écureuil"
    ],
-   "x": "Chez le chevreuil, l'embryon reste en sommeil de juillet-août à décembre ; les faons naissent en mai-juin."
+   "x": "Le chevreuil pousse des cris forts, comme des aboiements, quand il sent un danger. Beaucoup de promeneurs pensent à un chien."
   },
   "es": {
-   "q": "¿En qué animal el embrión pausa su desarrollo durante meses tras el apareamiento en verano?",
+   "q": "¿Qué animal «ladra» en el bosque cuando se asusta?",
    "a": [
-    "Erizo",
-    "Jirafa",
-    "Ardilla",
-    "Corzo"
+    "Corzo",
+    "Jabalí",
+    "Tejón",
+    "Ardilla"
    ],
-   "x": "En el corzo, el embrión reposa desde el celo de julio-agosto hasta diciembre; las crías nacen en mayo-junio."
+   "x": "El corzo lanza fuertes gritos parecidos a ladridos cuando siente peligro. Muchos paseantes creen que es un perro."
   }
  },
  {

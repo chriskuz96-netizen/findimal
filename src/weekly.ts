@@ -13,7 +13,8 @@ const TASKS: Record<SeasonId, WeekTask[]> = {
   // Herbst ohne Schnecken und Insekten (im November kaum noch zu finden): stattdessen Vögel (Zugzeit) und
   // Säugetiere. Länge bleibt gleich, damit sich die Aufgaben der anderen Wochen nicht verschieben.
   autumn: ['ara', 'bird', 'mam', 'species3', 'morning', 'bird', 'days2', 'mam'],
-  winter: ['bird', 'mam', 'species3', 'days2', 'morning', 'evening'],
+  // Winter: nach 18 Uhr ist es stockdunkel – statt dessen 3 verschiedene Arten (am Futterhaus gut machbar)
+  winter: ['bird', 'mam', 'species3', 'days2', 'morning', 'species3'],
 };
 
 const DAY = 86400000;

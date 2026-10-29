@@ -613,36 +613,36 @@
   "type": "duel",
   "right": 0,
   "de": {
-   "q": "Wer schmeckt mit den Füßen?",
+   "q": "Wer trägt seine Eier im Maul, bis die Jungen schlüpfen?",
    "a": [
-    "Schmetterling",
-    "Eule"
+    "Maulbrüter-Buntbarsch",
+    "Karpfen"
    ],
-   "x": "Schmetterlinge haben Geschmackssinne an den Füßen. Landen sie auf einem Blatt, „schmecken“ sie sofort, ob es für ihre Eier taugt."
+   "x": "Bei vielen Buntbarschen nimmt ein Elternteil die Eier ins Maul und frisst so lange nichts. Auch die Jungen flüchten bei Gefahr noch zurück ins Maul. Karpfen legen ihre Eier einfach an Pflanzen ab."
   },
   "en": {
-   "q": "Who tastes with its feet?",
+   "q": "Who carries its eggs in its mouth until the young hatch?",
    "a": [
-    "Butterfly",
-    "Owl"
+    "Mouthbrooding cichlid",
+    "Carp"
    ],
-   "x": "Butterflies have taste sensors on their feet. When they land on a leaf, they instantly “taste” whether it’s right for their eggs."
+   "x": "In many cichlids one parent takes the eggs into its mouth and eats nothing all that time. Even the young flee back into the mouth when there’s danger. Carp simply lay their eggs on plants."
   },
   "fr": {
-   "q": "Qui goûte avec ses pattes ?",
+   "q": "Qui garde ses œufs dans la bouche jusqu’à l’éclosion ?",
    "a": [
-    "Papillon",
-    "Chouette"
+    "Cichlidé incubateur buccal",
+    "Carpe"
    ],
-   "x": "Le papillon a des capteurs de goût sur les pattes. En se posant sur une feuille, il « goûte » tout de suite si elle convient à ses œufs."
+   "x": "Chez beaucoup de cichlidés, un parent garde les œufs dans la bouche sans rien manger. Même les petits s’y réfugient en cas de danger. La carpe pond simplement sur les plantes."
   },
   "es": {
-   "q": "¿Quién saborea con las patas?",
+   "q": "¿Quién lleva sus huevos en la boca hasta que nacen las crías?",
    "a": [
-    "Mariposa",
-    "Búho"
+    "Cíclido incubador bucal",
+    "Carpa"
    ],
-   "x": "Las mariposas tienen sensores de sabor en las patas. Al posarse en una hoja, «saborean» al instante si sirve para sus huevos."
+   "x": "En muchos cíclidos, uno de los padres guarda los huevos en la boca sin comer nada. Las crías incluso vuelven a la boca si hay peligro. La carpa simplemente pone sus huevos en las plantas."
   }
  },
  {

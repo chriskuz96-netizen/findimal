@@ -99,42 +99,42 @@
   "de": {
    "q": "Wer schwimmt am schnellsten? Schnellstes zuerst.",
    "a": [
-    "Fächerfisch",
     "Schwertwal",
     "Kalifornischer Seelöwe",
+    "Fischotter",
     "Mensch"
    ],
-   "x": "Der Fächerfisch gilt als schnellster Fisch, Schwertwale schaffen gut 50 km/h, Seelöwen um 40 km/h. Die besten Menschen kommen nur auf etwa 8 km/h."
+   "x": "Schwertwale schaffen gut 50 km/h, Seelöwen um 40, Fischotter gut 10 km/h. Die besten Schwimmer unter den Menschen kommen auf knapp 9 km/h."
   },
   "en": {
    "q": "Who swims fastest? Fastest first.",
    "a": [
-    "Sailfish",
     "Orca",
     "California sea lion",
+    "Eurasian otter",
     "Human"
    ],
-   "x": "The sailfish is considered the fastest fish, orcas reach over 50 km/h, sea lions around 40 km/h. The best humans only manage about 8 km/h."
+   "x": "Orcas reach over 50 km/h, sea lions around 40, otters just over 10 km/h. The best human swimmers manage just under 9 km/h."
   },
   "fr": {
    "q": "Qui nage le plus vite ? Le plus rapide d’abord.",
    "a": [
-    "Voilier",
     "Orque",
     "Otarie de Californie",
+    "Loutre d’Europe",
     "Humain"
    ],
-   "x": "Le voilier passe pour le poisson le plus rapide, l’orque dépasse 50 km/h, l’otarie environ 40 km/h. Les meilleurs nageurs humains atteignent à peine 8 km/h."
+   "x": "L’orque dépasse 50 km/h, l’otarie environ 40, la loutre un peu plus de 10 km/h. Les meilleurs nageurs humains atteignent à peine 9 km/h."
   },
   "es": {
    "q": "¿Quién nada más rápido? El más rápido primero.",
    "a": [
-    "Pez vela",
     "Orca",
     "León marino de California",
+    "Nutria europea",
     "Humano"
    ],
-   "x": "El pez vela se considera el pez más rápido, la orca supera los 50 km/h, el león marino unos 40 km/h. Los mejores humanos solo llegan a unos 8 km/h."
+   "x": "La orca supera los 50 km/h, el león marino unos 40 y la nutria algo más de 10 km/h. Los mejores nadadores humanos llegan a casi 9 km/h."
   }
  },
  {
@@ -1017,44 +1017,44 @@
   "type": "rank",
   "right": 0,
   "de": {
-   "q": "Von welcher Gruppe kennt man die meisten Arten? Die meisten zuerst.",
+   "q": "Wer bekommt pro Jahr die meisten Jungen? Die meisten zuerst.",
    "a": [
-    "Käfer",
-    "Vögel",
-    "Säugetiere",
-    "Haie"
+    "Hausmaus",
+    "Wildkaninchen",
+    "Rotfuchs",
+    "Afrikanischer Elefant"
    ],
-   "x": "Von Käfern kennt man rund 400.000 Arten – fast jede vierte Tierart ist ein Käfer! Vögel gibt es rund 11.000 Arten, Säugetiere etwa 6.500, Haie gut 500."
+   "x": "Hausmäuse schaffen bis zu 50 Junge im Jahr, Wildkaninchen 20 bis 30, Füchse einen Wurf mit 4 bis 6. Eine Elefantenkuh bekommt nur etwa alle 4 bis 5 Jahre ein Kalb."
   },
   "en": {
-   "q": "Which group has the most known species? Most first.",
+   "q": "Who has the most babies per year? Most first.",
    "a": [
-    "Beetles",
-    "Birds",
-    "Mammals",
-    "Sharks"
+    "House mouse",
+    "Wild rabbit",
+    "Red fox",
+    "African elephant"
    ],
-   "x": "Around 400,000 beetle species are known – almost one in four animal species is a beetle! There are about 11,000 bird species, about 6,500 mammals and just over 500 sharks."
+   "x": "House mice can have up to 50 young a year, wild rabbits 20 to 30, foxes one litter of 4 to 6. An elephant cow has a calf only about every 4 to 5 years."
   },
   "fr": {
-   "q": "Quel groupe compte le plus d’espèces connues ? Le plus d’abord.",
+   "q": "Qui a le plus de petits par an ? Le plus d’abord.",
    "a": [
-    "Coléoptères",
-    "Oiseaux",
-    "Mammifères",
-    "Requins"
+    "Souris domestique",
+    "Lapin de garenne",
+    "Renard roux",
+    "Éléphant d’Afrique"
    ],
-   "x": "On connaît environ 400 000 espèces de coléoptères – près d’une espèce animale sur quatre ! Il y a environ 11 000 espèces d’oiseaux, 6 500 de mammifères et un peu plus de 500 de requins."
+   "x": "La souris peut avoir jusqu’à 50 petits par an, le lapin de garenne 20 à 30, le renard une portée de 4 à 6. Une éléphante n’a un petit qu’environ tous les 4 à 5 ans."
   },
   "es": {
-   "q": "¿Qué grupo tiene más especies conocidas? El que más primero.",
+   "q": "¿Quién tiene más crías al año? El que más primero.",
    "a": [
-    "Escarabajos",
-    "Aves",
-    "Mamíferos",
-    "Tiburones"
+    "Ratón doméstico",
+    "Conejo silvestre",
+    "Zorro rojo",
+    "Elefante africano"
    ],
-   "x": "Se conocen unas 400.000 especies de escarabajos: ¡casi una de cada cuatro especies animales! Hay unas 11.000 especies de aves, unas 6.500 de mamíferos y algo más de 500 de tiburones."
+   "x": "El ratón puede tener hasta 50 crías al año, el conejo de 20 a 30 y el zorro una camada de 4 a 6. Una elefanta solo tiene una cría cada 4 o 5 años."
   }
  },
  {
