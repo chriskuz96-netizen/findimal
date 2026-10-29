@@ -260,32 +260,41 @@ export function ForscherQuiz({
                   </View>
                 </View>
               ) : (
-                <View style={[styles.answers, q.type === 'tf' && { flexDirection: 'row' }]}>
+                // Antworten als Kacheln (2 × 2, bei Wahr/Falsch 2 nebeneinander) – wie bei Quizduell.
+                // Auflösung: richtige Kachel grün, eigene falsche rot, die anderen blass.
+                <View style={styles.answers}>
                   {q.type === 'pic' && (phase === 'ask' || !small) && <QuizPicture id={q.img![0]} size={phase === 'reveal' ? 96 : picSize} />}
-                  {text.a.map((a, i) => {
-                    // Auflösung: nur noch richtige und eigene falsche Antwort (Wahr/Falsch bleibt ganz)
-                    if (phase === 'reveal' && q.type !== 'tf' && i !== q.right && i !== last?.value) return null;
-                    const st = look(phase, q.right, last?.value, i, p);
-                    const right = phase === 'reveal' && i === q.right;
-                    return (
-                      <Pressable
-                        key={i}
-                        onPress={() => choose(i)}
-                        disabled={phase !== 'ask'}
-                        accessibilityRole="button"
-                        style={({ pressed }) => [
-                          styles.answer,
-                          q.type === 'tf' && styles.tf,
-                          { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.8 : 1 },
-                          st,
-                          right && { backgroundColor: '#2E7A4C', opacity: 1 },
-                        ]}
-                      >
-                        {q.type !== 'tf' && <Text style={[styles.letter, right && { color: '#CFE3D6' }]}>{'ABCD'[i]}</Text>}
-                        <Text style={[styles.answerText, { color: right ? colors.white : p.ink }, q.type === 'tf' && { textAlign: 'center' }]}>{a}</Text>
-                      </Pressable>
-                    );
-                  })}
+                  <View style={styles.tiles}>
+                    {text.a.map((a, i) => {
+                      const right = phase === 'reveal' && i === q.right;
+                      const wrong = phase === 'reveal' && i === last?.value && i !== q.right;
+                      return (
+                        <Pressable
+                          key={i}
+                          onPress={() => choose(i)}
+                          disabled={phase !== 'ask'}
+                          accessibilityRole="button"
+                          style={({ pressed }) => [
+                            styles.ansTile,
+                            { minHeight: phase === 'reveal' ? 64 : q.type === 'tf' ? 110 : small && q.type === 'pic' ? 80 : 100 },
+                            { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.8 : 1 },
+                            right && { backgroundColor: '#2E7A4C', borderColor: '#2E7A4C' },
+                            wrong && { backgroundColor: '#C8543A', borderColor: '#C8543A' },
+                            phase === 'reveal' && !right && !wrong && { opacity: 0.45 },
+                          ]}
+                        >
+                          <Text
+                            style={[styles.ansTileText, { color: right || wrong ? colors.white : p.ink }]}
+                            numberOfLines={4}
+                            adjustsFontSizeToFit
+                            minimumFontScale={0.7}
+                          >
+                            {a}
+                          </Text>
+                        </Pressable>
+                      );
+                    })}
+                  </View>
                 </View>
               )}
             </View>
@@ -581,8 +590,9 @@ const styles = StyleSheet.create({
   q: { fontFamily: fonts.serifBold, fontSize: 21, lineHeight: 27, marginHorizontal: 20, marginTop: 18, marginBottom: 14 },
   answers: { marginHorizontal: 18, gap: 10 },
   answer: { flexDirection: 'row', alignItems: 'center', borderWidth: 1.5, borderRadius: 16, paddingVertical: 13, paddingHorizontal: 16 },
-  tf: { flex: 1, justifyContent: 'center', paddingVertical: 22 },
-  letter: { fontFamily: fonts.sansBold, fontSize: 15, color: '#8A9A8F', marginRight: 12 },
+  tiles: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 10 },
+  ansTile: { width: '48.5%', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderRadius: 18, paddingVertical: 10, paddingHorizontal: 10 },
+  ansTileText: { fontFamily: fonts.sansBold, fontSize: 16, lineHeight: 21, textAlign: 'center' },
   answerText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 16 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginHorizontal: 18 },
   tile: { width: '47.5%', alignItems: 'center', borderWidth: 2, borderRadius: 18, paddingTop: 10, paddingBottom: 8 },
