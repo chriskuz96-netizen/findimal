@@ -10,7 +10,9 @@ export type WeekTask = GroupId | 'species3' | 'days2' | 'morning' | 'evening';
 const TASKS: Record<SeasonId, WeekTask[]> = {
   spring: ['bird', 'ins', 'amp', 'species3', 'morning', 'mol', 'days2', 'ara'],
   summer: ['ins', 'bird', 'evening', 'amp', 'species3', 'ara', 'days2', 'mol'],
-  autumn: ['ara', 'bird', 'mam', 'species3', 'morning', 'mol', 'days2', 'ins'],
+  // Herbst ohne Schnecken und Insekten (im November kaum noch zu finden): stattdessen Vögel (Zugzeit) und
+  // Säugetiere. Länge bleibt gleich, damit sich die Aufgaben der anderen Wochen nicht verschieben.
+  autumn: ['ara', 'bird', 'mam', 'species3', 'morning', 'bird', 'days2', 'mam'],
   winter: ['bird', 'mam', 'species3', 'days2', 'morning', 'evening'],
 };
 
