@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Alert, Animated, Easing, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Animated, Easing, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { ClipPath, Defs, G, LinearGradient, Rect, Stop } from 'react-native-svg';
 
@@ -93,6 +93,8 @@ export function ForscherQuiz({
 
   // Zeit pro Frage: Balken läuft ab, danach zählt die Frage als falsch
   const timeLeft = useRef(new Animated.Value(1)).current;
+  const rankRef = useRef<number[] | null>(null);
+  const [rankDrag, setRankDrag] = useState(false);
   const askedAt = useRef(0);
   const busy = useRef(false);
   useEffect(() => {
@@ -103,7 +105,8 @@ export function ForscherQuiz({
     timeLeft.setValue(1);
     const anim = Animated.timing(timeLeft, { toValue: 0, duration: secs * 1000, easing: Easing.linear, useNativeDriver: false });
     anim.start();
-    const timer = setTimeout(() => choose(-1), secs * 1000);
+    // Zeit um: bei einer Rangliste zählt, was gerade dasteht
+    const timer = setTimeout(() => choose(q.type === 'rank' && rankRef.current ? encodeRank(rankRef.current) : -1), secs * 1000);
     return () => {
       anim.stop();
       clearTimeout(timer);
@@ -114,7 +117,7 @@ export function ForscherQuiz({
   const choose = async (value: number) => {
     if (busy.current || phase !== 'ask') return;
     busy.current = true;
-    const ms = value < 0 ? timeFor(q!) * 1000 : Date.now() - askedAt.current;
+    const ms = Math.min(timeFor(q!) * 1000, Date.now() - askedAt.current);
     timeLeft.stopAnimation();
     setLast({ value, ms });
     setPhase('reveal');
@@ -232,10 +235,10 @@ export function ForscherQuiz({
         )}
 
         {(phase === 'ask' || phase === 'reveal') && q && text && (
-          <ScrollView contentContainerStyle={{ paddingBottom: 140 + insets.bottom }}>
+          <ScrollView scrollEnabled={!rankDrag} contentContainerStyle={{ paddingBottom: 140 + insets.bottom }}>
             <Text style={[styles.q, { color: p.ink }]}>{text.q}</Text>
             {q.type === 'rank' ? (
-              <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} p={p} />
+              <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} orderRef={rankRef} onDrag={setRankDrag} p={p} />
             ) : q.type === 'duel' ? (
               // Duell: zwei Tiere nebeneinander, eins antippen
               <View style={styles.duel}>
@@ -336,14 +339,20 @@ function look(phase: Phase, right: number, chosen: number | undefined, i: number
   return { borderColor: p.line, opacity: 0.55 };
 }
 
-// Rangliste: 4 Einträge in der richtigen Reihenfolge antippen (nochmal tippen nimmt ihn wieder raus).
-// Bei der Auflösung stehen sie richtig sortiert da: grün = an der richtigen Stelle getippt.
+// Rangliste wie ein Treppchen: links fest die Plätze 1–4, die Einträge schiebt man mit dem Finger
+// an die richtige Stelle und tippt dann auf „Fertig“. Läuft die Zeit ab, zählt die aktuelle Reihenfolge.
+// Bei der Auflösung stehen sie richtig sortiert da: grün = an der richtigen Stelle.
+const ROW = 62; // Höhe einer Zeile samt Abstand
+const PODIUM = ['#E8B53A', '#AEB8C2', '#C98552', '#8A9A8F'];
+
 function RankAnswers({
   q,
   text,
   phase,
   chosen,
   onDone,
+  orderRef,
+  onDrag,
   p,
 }: {
   q: BankQuestion;
@@ -351,17 +360,64 @@ function RankAnswers({
   phase: Phase;
   chosen?: number;
   onDone: (value: number) => void;
+  orderRef: React.MutableRefObject<number[] | null>; // aktuelle Reihenfolge (für den Zeitablauf)
+  onDrag: (dragging: boolean) => void; // solange geschoben wird, scrollt die Seite nicht
   p: Palette;
 }) {
   const { t } = useI18n();
-  const [picked, setPicked] = useState<number[]>([]);
-  const tap = (i: number) => {
-    if (phase !== 'ask') return;
-    const at = picked.indexOf(i);
-    const next = at >= 0 ? picked.slice(0, at) : [...picked, i];
-    setPicked(next);
-    if (next.length === text.a.length) onDone(encodeRank(next));
-  };
+  const n = text.a.length;
+  // order[platz] = Eintrag; ys[eintrag] = Position der Zeile
+  const order = useRef<number[]>(rankOrder(q));
+  const ys = useRef(text.a.map((_, i) => new Animated.Value(order.current.indexOf(i) * ROW))).current;
+  const [dragging, setDragging] = useState<number | null>(null);
+  const [, redraw] = useState(0);
+  orderRef.current = order.current;
+
+  const place = (except?: number) =>
+    order.current.forEach((item, slot) => {
+      if (item !== except) Animated.spring(ys[item], { toValue: slot * ROW, useNativeDriver: false, speed: 22, bounciness: 4 }).start();
+    });
+
+  const responders = useRef(
+    text.a.map((_, item) => {
+      let start = 0;
+      return PanResponder.create({
+        onStartShouldSetPanResponder: () => true,
+        onMoveShouldSetPanResponder: () => true,
+        onPanResponderTerminationRequest: () => false,
+        onPanResponderGrant: () => {
+          start = order.current.indexOf(item) * ROW;
+          setDragging(item);
+          onDrag(true);
+        },
+        onPanResponderMove: (_, g) => {
+          const y = Math.max(-10, Math.min((n - 1) * ROW + 10, start + g.dy));
+          ys[item].setValue(y);
+          const target = Math.max(0, Math.min(n - 1, Math.round(y / ROW)));
+          const from = order.current.indexOf(item);
+          if (target !== from) {
+            const next = order.current.filter((v) => v !== item);
+            next.splice(target, 0, item);
+            order.current = next;
+            orderRef.current = next;
+            place(item);
+          }
+        },
+        onPanResponderRelease: () => {
+          place();
+          setDragging(null);
+          onDrag(false);
+          redraw((v) => v + 1);
+        },
+        onPanResponderTerminate: () => {
+          place();
+          setDragging(null);
+          onDrag(false);
+        },
+      });
+    }),
+  ).current;
+
   if (phase === 'reveal') {
     const mine = decodeRank(chosen ?? -1);
     return (
@@ -384,25 +440,43 @@ function RankAnswers({
   return (
     <View style={styles.answers}>
       <Text style={[styles.rankHint, { color: p.mute }]}>{t('fq.rankHint')}</Text>
-      {rankOrder(q).map((i) => {
-        const at = picked.indexOf(i);
-        return (
-          <Pressable
-            key={i}
-            onPress={() => tap(i)}
-            accessibilityRole="button"
-            style={({ pressed }) => [
-              styles.answer,
-              { backgroundColor: p.card, borderColor: at >= 0 ? colors.accent : p.line, opacity: pressed ? 0.8 : 1 },
-            ]}
-          >
-            <View style={[styles.rankBadge, at >= 0 ? { backgroundColor: colors.accent } : { borderWidth: 1.5, borderColor: p.line }]}>
-              {at >= 0 && <Text style={styles.rankNum}>{at + 1}</Text>}
+      <View style={{ flexDirection: 'row' }}>
+        {/* Treppchen: Plätze bleiben fest stehen */}
+        <View>
+          {text.a.map((_, slot) => (
+            <View key={slot} style={[styles.podium, { backgroundColor: PODIUM[slot] }]}>
+              <Text style={styles.podiumNum}>{slot + 1}</Text>
             </View>
-            <Text style={[styles.answerText, { color: p.ink }]}>{text.a[i]}</Text>
-          </Pressable>
-        );
-      })}
+          ))}
+        </View>
+        <View style={{ flex: 1, height: n * ROW - 10 }}>
+          {text.a.map((a, item) => (
+            <Animated.View
+              key={item}
+              {...responders[item].panHandlers}
+              accessibilityRole="adjustable"
+              accessibilityLabel={a}
+              style={[
+                styles.rankRow,
+                { backgroundColor: p.card, borderColor: dragging === item ? colors.accent : p.line, transform: [{ translateY: ys[item] }] },
+                dragging === item && styles.rankLift,
+              ]}
+            >
+              <Text selectable={false} style={[styles.answerText, { color: p.ink }]} numberOfLines={2}>
+                {a}
+              </Text>
+              <Text selectable={false} style={[styles.grip, { color: p.mute }]}>⋮⋮</Text>
+            </Animated.View>
+          ))}
+        </View>
+      </View>
+      <Pressable
+        onPress={() => onDone(encodeRank(order.current))}
+        accessibilityRole="button"
+        style={({ pressed }) => [styles.rankDone, { opacity: pressed ? 0.85 : 1 }]}
+      >
+        <Text style={styles.rankDoneText}>{t('fq.rankDone')}</Text>
+      </Pressable>
     </View>
   );
 }
@@ -505,6 +579,23 @@ const styles = StyleSheet.create({
   duelTile: { flex: 1, minHeight: 150, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderRadius: 20, padding: 14 },
   duelName: { fontFamily: fonts.serifBold, fontSize: 21, lineHeight: 26, textAlign: 'center' },
   rankHint: { fontFamily: fonts.sansBold, fontSize: 13, marginBottom: 2 },
+  podium: { width: 40, height: ROW - 10, borderRadius: 14, marginBottom: 10, marginRight: 10, alignItems: 'center', justifyContent: 'center' },
+  podiumNum: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
+  rankRow: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    height: ROW - 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1.5,
+    borderRadius: 14,
+    paddingHorizontal: 14,
+  },
+  rankLift: { zIndex: 10, elevation: 6, shadowColor: '#000', shadowOpacity: 0.18, shadowRadius: 10, shadowOffset: { width: 0, height: 4 } },
+  grip: { fontSize: 18, letterSpacing: -3, marginLeft: 8 },
+  rankDone: { marginTop: 4, backgroundColor: '#1F6E47', borderRadius: 14, paddingVertical: 13, alignItems: 'center' },
+  rankDoneText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
   rankBadge: { width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
   rankNum: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
   rankMine: { fontFamily: fonts.sansBold, fontSize: 12, marginLeft: 8 },

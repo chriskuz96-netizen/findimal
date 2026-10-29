@@ -70,7 +70,7 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 
 ## Forscher-Quiz (29.10.)
 - Oben auf Challenges: jeden Tag 10 Fragen mit Zeitbalken, bis +60 XP. Ersetzt die alten 3 Tagesfragen.
-- Fragearten: Text, Wahr/Falsch, ein großes Bild (Spur, Umriss am Himmel, Fundstück), Duell „wer von beiden?“ und Rangliste (4 Einträge der Reihe nach antippen).
+- Fragearten: Text, Wahr/Falsch, ein großes Bild (Spur, Umriss am Himmel, Fundstück), Duell „wer von beiden?“ und Rangliste (Treppchen 1–4, Einträge per Finger an die richtige Stelle schieben, dann „Fertig“; bei Zeitablauf zählt, was dasteht).
 - Keine Tierbilder mehr im Quiz (29.10., Wunsch): so gehen beliebig viele Tiere ohne Zeichenaufwand. Nur Spuren/Umrisse/Fundstücke sind gezeichnet.
 - Fragen stehen in `tools/quiz/*.json` (4 Sprachen), daraus macht `python3 tools/make_quiz_bank.py` die Datei `src/quizBank.ts`.
 - Quiz-Bilder: `tools/quiz_art.py` (`python3 tools/make_quiz_art.py`).
