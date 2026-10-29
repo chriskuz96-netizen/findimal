@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Alert, Animated, Easing, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Animated, Easing, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { ClipPath, Defs, G, LinearGradient, Rect, Stop } from 'react-native-svg';
 
@@ -94,7 +94,11 @@ export function ForscherQuiz({
   // Zeit pro Frage: Balken läuft ab, danach zählt die Frage als falsch
   const timeLeft = useRef(new Animated.Value(1)).current;
   const rankRef = useRef<number[] | null>(null);
-  const [rankDrag, setRankDrag] = useState(false);
+  // Höhe der Werbeleiste unten (darüber sitzt „Weiter“) und Bildgröße passend zur Bildschirmhöhe
+  const [adH, setAdH] = useState(insets.bottom + 70);
+  const screenH = useWindowDimensions().height;
+  const picSize = Math.min(176, Math.round(screenH * 0.2));
+  const small = screenH < 760; // kleine iPhones: bei der Auflösung ohne Bild, damit alles auf eine Seite passt
   const askedAt = useRef(0);
   const busy = useRef(false);
   useEffect(() => {
@@ -219,12 +223,22 @@ export function ForscherQuiz({
         )}
 
         {(phase === 'ask' || phase === 'reveal') && q && text && (
-          <ScrollView scrollEnabled={!rankDrag} contentContainerStyle={{ paddingBottom: 140 + insets.bottom }}>
-            {/* nach der Auflösung: irgendwo hintippen geht weiter */}
-            <View onStartShouldSetResponder={() => phaseRef.current === 'reveal'} onResponderRelease={next}>
-              <Text style={[styles.q, { color: p.ink }]}>{text.q}</Text>
+          // Alles auf einer Seite, ohne Scrollen: Frage und Antworten oben, Auflösung und „Weiter“ fest unten
+          // über der Werbung. Bei der Auflösung bleiben nur die richtige (und die eigene falsche) Antwort stehen,
+          // Bild und Kacheln werden kleiner – so passt die Erklärung immer darunter.
+          // Nach der Auflösung: irgendwo hintippen geht auch weiter.
+          <View
+            style={{ flex: 1, paddingBottom: adH + 8 }}
+            onStartShouldSetResponder={() => phaseRef.current === 'reveal'}
+            onResponderRelease={next}
+          >
+            {/* oben: Frage und Antworten (wird im Notfall unten abgeschnitten, nie der „Weiter“-Knopf) */}
+            <View style={{ flexShrink: 1, overflow: 'hidden' }}>
+              <Text style={[styles.q, { color: p.ink }]} numberOfLines={4} adjustsFontSizeToFit minimumFontScale={0.75}>
+                {text.q}
+              </Text>
               {q.type === 'rank' ? (
-                <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} orderRef={rankRef} onDrag={setRankDrag} p={p} />
+                <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} orderRef={rankRef} p={p} />
               ) : q.type === 'duel' ? (
                 // Duell: zwei Tiere nebeneinander, eins antippen
                 <View style={styles.duel}>
@@ -234,21 +248,23 @@ export function ForscherQuiz({
                       onPress={() => choose(i)}
                       disabled={phase !== 'ask'}
                       accessibilityRole="button"
-                      style={[styles.duelTile, { backgroundColor: p.card }, look(phase, q.right, last?.value, i, p)]}
+                      style={[styles.duelTile, phase === 'reveal' && { minHeight: 92 }, { backgroundColor: p.card }, look(phase, q.right, last?.value, i, p)]}
                     >
                       <Text style={[styles.duelName, { color: p.ink }]} numberOfLines={3} adjustsFontSizeToFit>
                         {a}
                       </Text>
                     </Pressable>
                   ))}
-                  <View style={styles.vs} pointerEvents="none">
+                  <View style={[styles.vs, phase === 'reveal' && { top: 24 }]} pointerEvents="none">
                     <Text style={styles.vsText}>VS</Text>
                   </View>
                 </View>
               ) : (
                 <View style={[styles.answers, q.type === 'tf' && { flexDirection: 'row' }]}>
-                  {q.type === 'pic' && <QuizPicture id={q.img![0]} />}
+                  {q.type === 'pic' && (phase === 'ask' || !small) && <QuizPicture id={q.img![0]} size={phase === 'reveal' ? 96 : picSize} />}
                   {text.a.map((a, i) => {
+                    // Auflösung: nur noch richtige und eigene falsche Antwort (Wahr/Falsch bleibt ganz)
+                    if (phase === 'reveal' && q.type !== 'tf' && i !== q.right && i !== last?.value) return null;
                     const st = look(phase, q.right, last?.value, i, p);
                     const right = phase === 'reveal' && i === q.right;
                     return (
@@ -262,7 +278,7 @@ export function ForscherQuiz({
                           q.type === 'tf' && styles.tf,
                           { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.8 : 1 },
                           st,
-                          right && { backgroundColor: '#2E7A4C' },
+                          right && { backgroundColor: '#2E7A4C', opacity: 1 },
                         ]}
                       >
                         {q.type !== 'tf' && <Text style={[styles.letter, right && { color: '#CFE3D6' }]}>{'ABCD'[i]}</Text>}
@@ -272,9 +288,11 @@ export function ForscherQuiz({
                   })}
                 </View>
               )}
+            </View>
 
-              {phase === 'reveal' && last && (
-                // Auflösung: bleibt stehen, bis man weitertippt (in Ruhe lesen, kein Zeitdruck)
+            {phase === 'reveal' && last && (
+              <View style={styles.revealFoot}>
+                {/* Auflösung: bleibt stehen, bis man weitertippt (in Ruhe lesen, kein Zeitdruck) */}
                 <Pressable
                   onPress={next}
                   accessibilityRole="button"
@@ -288,23 +306,23 @@ export function ForscherQuiz({
                         ? t('fq.timeUp')
                         : t('fq.wrong')}
                   </Text>
-                  <Text style={[styles.explainText, { color: p.ink }]}>{text.x}</Text>
+                  <Text style={[styles.explainText, { color: p.ink }]} numberOfLines={7} adjustsFontSizeToFit minimumFontScale={0.8}>
+                    {text.x}
+                  </Text>
                 </Pressable>
-              )}
-              {phase === 'reveal' && last && (
                 <Pressable onPress={next} accessibilityRole="button" style={({ pressed }) => [styles.next, { opacity: pressed ? 0.85 : 1 }]}>
                   <Text style={styles.nextText}>{round && round.a.length >= round.q.length ? t('fq.toResult') : t('fq.next')} ›</Text>
                 </Pressable>
-              )}
-            </View>
-          </ScrollView>
+              </View>
+            )}
+          </View>
         )}
 
-        {phase === 'result' && round && <Result round={round} log={log} p={p} onDone={onClose} />}
+        {phase === 'result' && round && <Result round={round} log={log} p={p} onDone={onClose} bottom={adH} />}
 
         {/* fester Werbeplatz unten (nicht beim Countdown, nicht mit Plus) */}
         {phase !== 'count' && (
-          <View style={[styles.adBar, { paddingBottom: insets.bottom + 6, backgroundColor: p.bg }]}>
+          <View style={[styles.adBar, { paddingBottom: insets.bottom + 6, backgroundColor: p.bg }]} onLayout={(e) => setAdH(e.nativeEvent.layout.height)}>
             <AdSlot p={p} placement="challenges" compact />
           </View>
         )}
@@ -334,7 +352,6 @@ function RankAnswers({
   chosen,
   onDone,
   orderRef,
-  onDrag,
   p,
 }: {
   q: BankQuestion;
@@ -343,7 +360,6 @@ function RankAnswers({
   chosen?: number;
   onDone: (value: number) => void;
   orderRef: React.MutableRefObject<number[] | null>; // aktuelle Reihenfolge (für den Zeitablauf)
-  onDrag: (dragging: boolean) => void; // solange geschoben wird, scrollt die Seite nicht
   p: Palette;
 }) {
   const { t } = useI18n();
@@ -370,7 +386,6 @@ function RankAnswers({
         onPanResponderGrant: () => {
           start = order.current.indexOf(item) * ROW;
           setDragging(item);
-          onDrag(true);
         },
         onPanResponderMove: (_, g) => {
           const y = Math.max(-10, Math.min((n - 1) * ROW + 10, start + g.dy));
@@ -388,13 +403,11 @@ function RankAnswers({
         onPanResponderRelease: () => {
           place();
           setDragging(null);
-          onDrag(false);
           redraw((v) => v + 1);
         },
         onPanResponderTerminate: () => {
           place();
           setDragging(null);
-          onDrag(false);
         },
       });
     }),
@@ -403,12 +416,13 @@ function RankAnswers({
   if (phase === 'reveal') {
     const mine = decodeRank(chosen ?? -1);
     return (
-      <View style={styles.answers}>
+      // kompakt, damit die Erklärung auch auf kleinen iPhones darunter passt
+      <View style={[styles.answers, { gap: 6 }]}>
         {text.a.map((a, i) => {
           const ok = mine?.[i] === i;
           return (
-            <View key={i} style={[styles.answer, { backgroundColor: p.card, borderColor: ok ? '#2E7A4C' : '#C8543A', borderWidth: 2 }]}>
-              <View style={[styles.rankBadge, { backgroundColor: ok ? '#2E7A4C' : '#C8543A' }]}>
+            <View key={i} style={[styles.answer, { paddingVertical: 5, backgroundColor: p.card, borderColor: ok ? '#2E7A4C' : '#C8543A', borderWidth: 2 }]}>
+              <View style={[styles.rankBadge, { width: 24, height: 24, borderRadius: 12, backgroundColor: ok ? '#2E7A4C' : '#C8543A' }]}>
                 <Text style={styles.rankNum}>{i + 1}</Text>
               </View>
               <Text style={[styles.answerText, { color: p.ink }]}>{a}</Text>
@@ -464,13 +478,13 @@ function RankAnswers({
 }
 
 // Großes Quiz-Bild (Spur, Umriss am Himmel, Fundstück) in einer abgerundeten Karte
-function QuizPicture({ id }: { id: string }) {
+function QuizPicture({ id, size }: { id: string; size: number }) {
   const [from, to] = QUIZ_ART_BG[id] ?? ['#EADBB9', '#C7A978'];
   const Art = QUIZ_ART[id];
   const g = `fqa-${id}`;
   return (
     <View style={styles.pic}>
-      <Svg width={176} height={176} viewBox="0 0 64 64">
+      <Svg width={size} height={size} viewBox="0 0 64 64">
         <Defs>
           <LinearGradient id={`${g}-bg`} x1="0" y1="0" x2="0" y2="1">
             <Stop offset="0" stopColor={from} />
@@ -490,7 +504,20 @@ function QuizPicture({ id }: { id: string }) {
 }
 
 // Auswertung: Ergebnis, XP, Serie, Tempo und was man heute gelernt hat
-function Result({ round, log, p, onDone }: { round: NonNullable<ReturnType<typeof todayRound>>; log: ForscherLog; p: Palette; onDone: () => void }) {
+// „Fertig“ steht fest unten über der Werbung; nur die gelernten Fakten scrollen, falls es viele sind
+function Result({
+  round,
+  log,
+  p,
+  onDone,
+  bottom,
+}: {
+  round: NonNullable<ReturnType<typeof todayRound>>;
+  log: ForscherLog;
+  p: Palette;
+  onDone: () => void;
+  bottom: number;
+}) {
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
   const correct = roundCorrect(round);
@@ -502,36 +529,38 @@ function Result({ round, log, p, onDone }: { round: NonNullable<ReturnType<typeo
   const missed = round.q.filter((id, i) => byId.get(id)?.right !== round.a[i]);
   const facts = (missed.length ? missed : [...round.q].reverse().slice(0, 3)).map((id) => byId.get(id)!).filter(Boolean);
   return (
-    <ScrollView contentContainerStyle={{ paddingTop: insets.top + 44, paddingBottom: 150 + insets.bottom }}>
-      <Text style={[styles.resLabel, { color: p.mute }]}>{t('fq.resultTitle')}</Text>
-      <Text style={[styles.resBig, { color: p.ink }]}>
-        {correct} / {round.q.length}
-      </Text>
-      <View style={styles.resPill}>
-        <Text style={styles.resPillText}>+{xp} XP</Text>
-      </View>
-      <View style={styles.chips}>
-        <View style={[styles.chip, { backgroundColor: p.card }]}>
-          <Text style={[styles.chipText, { color: p.ink }]}>{days === 1 ? t('fq.inARow1') : t('fq.inARow', { n: days })}</Text>
+    <View style={{ flex: 1, paddingBottom: bottom + 8 }}>
+      <ScrollView alwaysBounceVertical={false} contentContainerStyle={{ paddingTop: insets.top + 44, paddingBottom: 12 }}>
+        <Text style={[styles.resLabel, { color: p.mute }]}>{t('fq.resultTitle')}</Text>
+        <Text style={[styles.resBig, { color: p.ink }]}>
+          {correct} / {round.q.length}
+        </Text>
+        <View style={styles.resPill}>
+          <Text style={styles.resPillText}>+{xp} XP</Text>
         </View>
-        {avg > 0 && (
+        <View style={styles.chips}>
           <View style={[styles.chip, { backgroundColor: p.card }]}>
-            <Text style={[styles.chipText, { color: p.ink }]}>{t('fq.avg', { s: avg.toFixed(1).replace('.', lang === 'en' ? '.' : ',') })}</Text>
+            <Text style={[styles.chipText, { color: p.ink }]}>{days === 1 ? t('fq.inARow1') : t('fq.inARow', { n: days })}</Text>
           </View>
-        )}
-      </View>
-      <View style={[styles.learn, { backgroundColor: p.card }]}>
-        <Text style={[styles.learnTitle, { color: p.ink }]}>{missed.length ? t('fq.learned') : t('fq.perfect')}</Text>
-        {facts.map((q) => (
-          <Text key={q.id} style={[styles.fact, { color: p.ink, borderTopColor: p.line }]}>
-            {q.t[lang].x}
-          </Text>
-        ))}
-      </View>
+          {avg > 0 && (
+            <View style={[styles.chip, { backgroundColor: p.card }]}>
+              <Text style={[styles.chipText, { color: p.ink }]}>{t('fq.avg', { s: avg.toFixed(1).replace('.', lang === 'en' ? '.' : ',') })}</Text>
+            </View>
+          )}
+        </View>
+        <View style={[styles.learn, { backgroundColor: p.card }]}>
+          <Text style={[styles.learnTitle, { color: p.ink }]}>{missed.length ? t('fq.learned') : t('fq.perfect')}</Text>
+          {facts.map((q) => (
+            <Text key={q.id} style={[styles.fact, { color: p.ink, borderTopColor: p.line }]}>
+              {q.t[lang].x}
+            </Text>
+          ))}
+        </View>
+      </ScrollView>
       <Pressable onPress={onDone} style={styles.done} accessibilityRole="button">
         <Text style={styles.doneText}>{t('fq.finish')}</Text>
       </Pressable>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -549,9 +578,9 @@ const styles = StyleSheet.create({
   timerFill: { height: '100%', borderRadius: 6, backgroundColor: colors.accent },
   countWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingBottom: 80 },
   count: { fontFamily: fonts.serifBold, fontSize: 120, color: colors.white, marginTop: 24 },
-  q: { fontFamily: fonts.serifBold, fontSize: 22, lineHeight: 28, marginHorizontal: 20, marginTop: 24, marginBottom: 18 },
+  q: { fontFamily: fonts.serifBold, fontSize: 21, lineHeight: 27, marginHorizontal: 20, marginTop: 18, marginBottom: 14 },
   answers: { marginHorizontal: 18, gap: 10 },
-  answer: { flexDirection: 'row', alignItems: 'center', borderWidth: 1.5, borderRadius: 16, paddingVertical: 14, paddingHorizontal: 16 },
+  answer: { flexDirection: 'row', alignItems: 'center', borderWidth: 1.5, borderRadius: 16, paddingVertical: 13, paddingHorizontal: 16 },
   tf: { flex: 1, justifyContent: 'center', paddingVertical: 22 },
   letter: { fontFamily: fonts.sansBold, fontSize: 15, color: '#8A9A8F', marginRight: 12 },
   answerText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 16 },
@@ -598,10 +627,11 @@ const styles = StyleSheet.create({
   vsText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
   pic: { alignSelf: 'center', marginBottom: 6, borderRadius: 22, overflow: 'hidden' },
   tileText: { fontFamily: fonts.sansBold, fontSize: 14, marginTop: 4, paddingHorizontal: 6 },
-  explain: { marginHorizontal: 18, marginTop: 14, borderRadius: 14, padding: 14 },
+  revealFoot: { marginTop: 'auto', paddingTop: 12, flexShrink: 0 },
+  explain: { marginHorizontal: 18, borderRadius: 14, padding: 14 },
   verdict: { fontFamily: fonts.sansBold, fontSize: 15, marginBottom: 4 },
   explainText: { fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 20 },
-  next: { marginHorizontal: 18, marginTop: 14, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
+  next: { marginHorizontal: 18, marginTop: 10, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
   nextText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
   adBar: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingTop: 6 },
   resLabel: { fontFamily: fonts.sansBold, fontSize: 15, textAlign: 'center' },
