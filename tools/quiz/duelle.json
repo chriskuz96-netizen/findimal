@@ -3,10 +3,6 @@
   "id": "e01",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-eagle",
-   "p-parrot"
-  ],
   "right": 0,
   "de": {
    "q": "Wer ist schneller?",
@@ -45,10 +41,6 @@
   "id": "e02",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-giraffe",
-   "p-tiger"
-  ],
   "right": 1,
   "de": {
    "q": "Wer schläft mehr am Tag?",
@@ -87,10 +79,6 @@
   "id": "e06",
   "lvl": 3,
   "type": "duel",
-  "img": [
-   "p-turtle",
-   "p-lizard"
-  ],
   "right": 0,
   "de": {
    "q": "Wer ist näher mit den Vögeln verwandt?",
@@ -129,10 +117,6 @@
   "id": "e08",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-crab",
-   "p-snail"
-  ],
   "right": 0,
   "de": {
    "q": "Wer ist näher mit den Insekten verwandt?",
@@ -171,10 +155,6 @@
   "id": "e10",
   "lvl": 3,
   "type": "duel",
-  "img": [
-   "p-panda",
-   "p-tiger"
-  ],
   "right": 0,
   "de": {
    "q": "Wer frisst mehr Kilo Futter am Tag?",
@@ -213,10 +193,6 @@
   "id": "e12",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-lizard",
-   "p-frog"
-  ],
   "right": 0,
   "de": {
    "q": "Wer riecht mit der Zunge?",
@@ -255,10 +231,6 @@
   "id": "e13",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-frog",
-   "p-lizard"
-  ],
   "right": 0,
   "de": {
    "q": "Wer atmet auch durch die Haut?",
@@ -297,10 +269,6 @@
   "id": "e15",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-bear",
-   "p-bee"
-  ],
   "right": 1,
   "de": {
    "q": "Wer sieht ultraviolettes Licht?",
@@ -339,10 +307,6 @@
   "id": "e16",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-bee",
-   "p-crab"
-  ],
   "right": 0,
   "de": {
    "q": "Wer hat mehr Augen?",
@@ -381,10 +345,6 @@
   "id": "e17",
   "lvl": 3,
   "type": "duel",
-  "img": [
-   "p-octopus",
-   "p-turtle"
-  ],
   "right": 0,
   "de": {
    "q": "Wer legt mehr Eier auf einmal?",
@@ -423,10 +383,6 @@
   "id": "e18",
   "lvl": 3,
   "type": "duel",
-  "img": [
-   "p-shark",
-   "p-parrot"
-  ],
   "right": 0,
   "de": {
    "q": "Wer wird älter?",
@@ -465,10 +421,6 @@
   "id": "e19",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-shark",
-   "p-turtle"
-  ],
   "right": 0,
   "de": {
    "q": "Wen gab es zuerst auf der Erde?",
@@ -507,10 +459,6 @@
   "id": "e21",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-otter",
-   "p-penguin"
-  ],
   "right": 1,
   "de": {
    "q": "Wer schwimmt schneller?",
@@ -549,10 +497,6 @@
   "id": "e22",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-hedgehog",
-   "p-frog"
-  ],
   "right": 1,
   "de": {
    "q": "Wer übersteht es, fast ganz einzufrieren?",
@@ -591,10 +535,6 @@
   "id": "e23",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-lizard",
-   "p-parrot"
-  ],
   "right": 1,
   "de": {
    "q": "Wer stammt von den Dinosauriern ab?",
@@ -633,10 +573,6 @@
   "id": "e25",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-tiger",
-   "p-panda"
-  ],
   "right": 0,
   "de": {
    "q": "Wer ist an Land schneller?",
@@ -675,10 +611,6 @@
   "id": "e26",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-butterfly",
-   "p-owl"
-  ],
   "right": 0,
   "de": {
    "q": "Wer schmeckt mit den Füßen?",
@@ -717,10 +649,6 @@
   "id": "e30",
   "lvl": 3,
   "type": "duel",
-  "img": [
-   "p-parrot",
-   "p-octopus"
-  ],
   "right": 1,
   "de": {
    "q": "Bei wem steckt der Großteil der Nervenzellen in den Armen?",
@@ -759,10 +687,6 @@
   "id": "e31",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-giraffe",
-   "p-bear"
-  ],
   "right": 0,
   "de": {
    "q": "Wer ist schwerer?",
@@ -801,10 +725,6 @@
   "id": "e32",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-ladybug",
-   "p-bee"
-  ],
   "right": 1,
   "de": {
    "q": "Wer lebt in einem Volk mit Tausenden Geschwistern?",
@@ -843,10 +763,6 @@
   "id": "e33",
   "lvl": 2,
   "type": "duel",
-  "img": [
-   "p-bear",
-   "p-hedgehog"
-  ],
   "right": 1,
   "de": {
    "q": "Wessen Herz schlägt schneller?",
@@ -885,10 +801,6 @@
   "id": "e34",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-owl",
-   "p-eagle"
-  ],
   "right": 0,
   "de": {
    "q": "Wer sieht in der Dämmerung besser?",
@@ -927,10 +839,6 @@
   "id": "e35",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-turtle",
-   "p-bear"
-  ],
   "right": 0,
   "de": {
    "q": "Wer wird älter?",
@@ -969,10 +877,6 @@
   "id": "e36",
   "lvl": 1,
   "type": "duel",
-  "img": [
-   "p-parrot",
-   "p-octopus"
-  ],
   "right": 1,
   "de": {
    "q": "Wer kann blitzschnell seine Farbe wechseln?",

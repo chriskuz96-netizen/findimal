@@ -2,13 +2,7 @@
  {
   "id": "c01",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-crab",
-   "p-octopus",
-   "p-shark",
-   "p-snail"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Welches dieser Tiere hat drei Herzen?",
@@ -54,13 +48,7 @@
  {
   "id": "c02",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-squirrel",
-   "p-deer",
-   "p-fox",
-   "p-hedgehog"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer hält einen echten Winterschlaf?",
@@ -106,13 +94,7 @@
  {
   "id": "c03",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-ladybug",
-   "p-octopus",
-   "p-snail",
-   "p-crab"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Welches Tier hat genau sechs Beine?",
@@ -158,13 +140,7 @@
  {
   "id": "c04",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-turtle",
-   "p-shark",
-   "p-penguin",
-   "p-frog"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wessen Skelett besteht nicht aus Knochen, sondern aus Knorpel?",
@@ -210,13 +186,7 @@
  {
   "id": "c05",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-parrot",
-   "p-eagle",
-   "p-owl",
-   "p-flamingo"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Welcher Vogel verdankt seine Farbe seiner Nahrung?",
@@ -262,13 +232,7 @@
  {
   "id": "c06",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-eagle",
-   "p-owl",
-   "p-parrot",
-   "p-penguin"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Welcher Vogel kann seinen Kopf um bis zu 270 Grad drehen?",
@@ -314,13 +278,7 @@
  {
   "id": "c07",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-otter",
-   "p-squirrel",
-   "p-panda",
-   "p-tiger"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Welches Tier hat einen verlängerten Handgelenksknochen, der wie ein zusätzlicher Daumen wirkt?",
@@ -366,13 +324,7 @@
  {
   "id": "c08",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-giraffe",
-   "p-deer",
-   "p-tiger",
-   "p-panda"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Welches Tier hat eine etwa 45 cm lange, dunkelblaue Zunge?",
@@ -418,13 +370,7 @@
  {
   "id": "c09",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-fox",
-   "p-deer",
-   "p-squirrel",
-   "p-tiger"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Bei welchem Tier ist auch die Haut unter dem Fell gestreift?",
@@ -470,13 +416,7 @@
  {
   "id": "c10",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-tiger",
-   "p-otter",
-   "p-fox",
-   "p-giraffe"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer kann beim Tauchen Ohren und Nasenlöcher verschließen?",
@@ -522,13 +462,7 @@
  {
   "id": "c11",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-owl",
-   "p-otter",
-   "p-parrot",
-   "p-penguin"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer hat über den Augen eine Drüse, die Salz aus Meerwasser ausscheidet?",
@@ -574,13 +508,7 @@
  {
   "id": "c12",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-snail",
-   "p-butterfly",
-   "p-turtle",
-   "p-bee"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Wer hat eine Raspelzunge mit Tausenden winziger Zähnchen?",
@@ -626,13 +554,7 @@
  {
   "id": "c13",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-octopus",
-   "p-penguin",
-   "p-shark",
-   "p-otter"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Wer kann die schwachen elektrischen Felder seiner Beute spüren?",
@@ -678,13 +600,7 @@
  {
   "id": "c14",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-bee",
-   "p-butterfly",
-   "p-ladybug",
-   "p-crab"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Wer zeigt seinen Artgenossen mit einem Tanz, wo es Futter gibt?",
@@ -730,13 +646,7 @@
  {
   "id": "c15",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-owl",
-   "p-butterfly",
-   "p-frog",
-   "p-lizard"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer schmeckt mit den Füßen?",
@@ -782,13 +692,7 @@
  {
   "id": "c16",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-bee",
-   "p-butterfly",
-   "p-snail",
-   "p-ladybug"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer presst bei Gefahr bitteres, gelbes Blut aus seinen Beingelenken?",
@@ -834,13 +738,7 @@
  {
   "id": "c17",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-turtle",
-   "p-hedgehog",
-   "p-lizard",
-   "p-parrot"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Wer kann bei Gefahr seinen Schwanz abwerfen?",
@@ -886,13 +784,7 @@
  {
   "id": "c18",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-owl",
-   "p-parrot",
-   "p-otter",
-   "p-frog"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer drückt beim Schlucken seine Augen nach innen, um die Beute hinunterzuschieben?",
@@ -938,13 +830,7 @@
  {
   "id": "c19",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-shark",
-   "p-crab",
-   "p-frog",
-   "p-penguin"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wessen Blut ist durch Kupfer bläulich gefärbt?",
@@ -990,13 +876,7 @@
  {
   "id": "c20",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-crab",
-   "p-bee",
-   "p-octopus",
-   "p-ladybug"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Wer hat zehn Beine – die Scheren mitgezählt?",
@@ -1042,13 +922,7 @@
  {
   "id": "c21",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-octopus",
-   "p-shark",
-   "p-crab",
-   "p-turtle"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Wer passt durch ein Loch, das kaum größer ist als sein Schnabel?",
@@ -1094,13 +968,7 @@
  {
   "id": "c22",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-eagle",
-   "p-flamingo",
-   "p-penguin",
-   "p-parrot"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Bei welchem Vogel zeigen zwei Zehen nach vorn und zwei nach hinten?",
@@ -1146,13 +1014,7 @@
  {
   "id": "c23",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-eagle",
-   "p-owl",
-   "p-penguin",
-   "p-parrot"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Welcher Vogel hat schwere, massive Knochen statt luftgefüllter?",
@@ -1198,13 +1060,7 @@
  {
   "id": "c24",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-giraffe",
-   "p-tiger",
-   "p-bear",
-   "p-panda"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Welches dieser Säugetiere hat den höchsten Blutdruck?",
@@ -1250,13 +1106,7 @@
  {
   "id": "c25",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-panda",
-   "p-fox",
-   "p-tiger",
-   "p-bear"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Wer hat auffällige weiße Flecken auf der Rückseite der Ohren?",
@@ -1302,13 +1152,7 @@
  {
   "id": "c26",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-giraffe",
-   "p-tiger",
-   "p-otter",
-   "p-panda"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wessen Neugeborenes wiegt nur etwa ein Neunhundertstel seiner Mutter?",
@@ -1354,13 +1198,7 @@
  {
   "id": "c27",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-fox",
-   "p-bear",
-   "p-tiger",
-   "p-deer"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer ist ein Sohlengänger und setzt beim Gehen die ganze Fußsohle auf?",
@@ -1406,13 +1244,7 @@
  {
   "id": "c28",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-panda",
-   "p-otter",
-   "p-tiger",
-   "p-fox"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Welches Tier zählt zu den Raubtieren, frisst aber fast nur Pflanzen?",
@@ -1458,13 +1290,7 @@
  {
   "id": "c29",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-eagle",
-   "p-flamingo",
-   "p-owl",
-   "p-penguin"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Welcher Vogel sieht etwa vier- bis fünfmal schärfer als ein Mensch?",
@@ -1510,13 +1336,7 @@
  {
   "id": "c30",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-owl",
-   "p-eagle",
-   "p-flamingo",
-   "p-parrot"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer baut riesige Nester aus Ästen, die oft viele Jahre genutzt werden?",
@@ -1562,13 +1382,7 @@
  {
   "id": "c31",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-eagle",
-   "p-parrot",
-   "p-flamingo",
-   "p-owl"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Welcher Vogel fliegt fast lautlos?",
@@ -1614,13 +1428,7 @@
  {
   "id": "c32",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-giraffe",
-   "p-owl",
-   "p-tiger",
-   "p-otter"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer hat MEHR Halswirbel als der Mensch?",
@@ -1666,13 +1474,7 @@
  {
   "id": "c33",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-hedgehog",
-   "p-squirrel",
-   "p-deer",
-   "p-snail"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer pflanzt unabsichtlich Bäume, weil er Vorräte vergräbt und vergisst?",
@@ -1718,13 +1520,7 @@
  {
   "id": "c34",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-squirrel",
-   "p-hedgehog",
-   "p-fox",
-   "p-otter"
-  ],
+  "type": "text",
   "right": 0,
   "de": {
    "q": "Wessen Schneidezähne wachsen ein Leben lang nach?",
@@ -1770,13 +1566,7 @@
  {
   "id": "c35",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-otter",
-   "p-hedgehog",
-   "p-deer",
-   "p-squirrel"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer kann kopfüber einen Baumstamm hinunterlaufen?",
@@ -1822,13 +1612,7 @@
  {
   "id": "c36",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-fox",
-   "p-hedgehog",
-   "p-deer",
-   "p-squirrel"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer kaut manchmal fremde Stoffe zu Schaum und reibt ihn sich auf den Rücken?",
@@ -1874,13 +1658,7 @@
  {
   "id": "c37",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-giraffe",
-   "p-deer",
-   "p-panda",
-   "p-tiger"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer wirft jedes Jahr sein Geweih ab und bildet ein neues?",
@@ -1926,13 +1704,7 @@
  {
   "id": "c38",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-hedgehog",
-   "p-giraffe",
-   "p-squirrel",
-   "p-deer"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Bei wem legt der Embryo nach der Paarung im Sommer eine monatelange Entwicklungspause ein?",
@@ -1978,13 +1750,7 @@
  {
   "id": "c39",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-crab",
-   "p-hedgehog",
-   "p-turtle",
-   "p-snail"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Wessen Panzer ist mit Wirbelsäule und Rippen verwachsen?",
@@ -2030,13 +1796,7 @@
  {
   "id": "c40",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-lizard",
-   "p-turtle",
-   "p-shark",
-   "p-tiger"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer hat keine Zähne, sondern einen scharfen Hornschnabel?",
@@ -2082,13 +1842,7 @@
  {
   "id": "c41",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-crab",
-   "p-ladybug",
-   "p-snail",
-   "p-turtle"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Wer ist ein Weichtier und damit mit dem Kraken verwandt?",
@@ -2134,13 +1888,7 @@
  {
   "id": "c42",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-butterfly",
-   "p-bee",
-   "p-ladybug",
-   "p-snail"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer stellt mit Drüsen am Hinterleib Wachs her?",
@@ -2186,13 +1934,7 @@
  {
   "id": "c43",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-frog",
-   "p-crab",
-   "p-lizard",
-   "p-ladybug"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer durchläuft eine Verwandlung mit Puppenstadium?",
@@ -2238,13 +1980,7 @@
  {
   "id": "c44",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-bee",
-   "p-ladybug",
-   "p-butterfly",
-   "p-parrot"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Wessen Flügel sind mit winzigen Schuppen bedeckt?",
@@ -2290,13 +2026,7 @@
  {
   "id": "c45",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-tiger",
-   "p-fox",
-   "p-bear",
-   "p-otter"
-  ],
+  "type": "text",
   "right": 1,
   "de": {
    "q": "Wer hat senkrechte Schlitzpupillen?",
@@ -2342,13 +2072,7 @@
  {
   "id": "c46",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-otter",
-   "p-panda",
-   "p-tiger",
-   "p-fox"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer gehört zur Familie der Hunde?",
@@ -2394,13 +2118,7 @@
  {
   "id": "c47",
   "lvl": 2,
-  "type": "image",
-  "img": [
-   "p-fox",
-   "p-squirrel",
-   "p-otter",
-   "p-panda"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Wer gehört zur Familie der Marder?",
@@ -2446,13 +2164,7 @@
  {
   "id": "c48",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-lizard",
-   "p-turtle",
-   "p-frog",
-   "p-shark"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wessen Haut ist mit winzigen „Hautzähnchen“ bedeckt?",
@@ -2498,13 +2210,7 @@
  {
   "id": "c49",
   "lvl": 3,
-  "type": "image",
-  "img": [
-   "p-lizard",
-   "p-turtle",
-   "p-hedgehog",
-   "p-frog"
-  ],
+  "type": "text",
   "right": 3,
   "de": {
    "q": "Wer trinkt nicht mit dem Maul, sondern nimmt Wasser über die Haut auf?",
@@ -2550,13 +2256,7 @@
  {
   "id": "c50",
   "lvl": 1,
-  "type": "image",
-  "img": [
-   "p-frog",
-   "p-octopus",
-   "p-turtle",
-   "p-otter"
-  ],
+  "type": "text",
   "right": 2,
   "de": {
    "q": "Welches dieser Tiere ist ein Reptil?",

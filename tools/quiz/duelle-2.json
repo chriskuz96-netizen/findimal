@@ -1,0 +1,990 @@
+[
+ {
+  "id": "f01",
+  "lvl": 3,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer hält hohes Tempo länger durch?",
+   "a": [
+    "Gabelbock",
+    "Gepard"
+   ],
+   "x": "Der Gepard ist zwar schneller, sprintet aber nur wenige hundert Meter. Der Gabelbock hält über 50 km/h kilometerweit durch."
+  },
+  "en": {
+   "q": "Who can keep up a high speed for longer?",
+   "a": [
+    "Pronghorn",
+    "Cheetah"
+   ],
+   "x": "The cheetah is faster but only sprints a few hundred metres. The pronghorn can keep up over 50 km/h for kilometres."
+  },
+  "fr": {
+   "q": "Qui tient une grande vitesse le plus longtemps ?",
+   "a": [
+    "Antilope d’Amérique",
+    "Guépard"
+   ],
+   "x": "Le guépard est plus rapide, mais ne sprinte que quelques centaines de mètres. L’antilope d’Amérique tient plus de 50 km/h sur des kilomètres."
+  },
+  "es": {
+   "q": "¿Quién aguanta más tiempo a gran velocidad?",
+   "a": [
+    "Berrendo",
+    "Guepardo"
+   ],
+   "x": "El guepardo es más rápido, pero solo esprinta unos cientos de metros. El berrendo mantiene más de 50 km/h durante kilómetros."
+  }
+ },
+ {
+  "id": "f02",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer ist das größte Raubtier an Land?",
+   "a": [
+    "Eisbär",
+    "Sibirischer Tiger"
+   ],
+   "x": "Eisbär-Männchen wiegen 400 bis 700 kg und sind damit die größten Landraubtiere. Sibirische Tiger erreichen etwa 300 kg."
+  },
+  "en": {
+   "q": "Who is the largest land carnivore?",
+   "a": [
+    "Polar bear",
+    "Siberian tiger"
+   ],
+   "x": "Male polar bears weigh 400 to 700 kg, making them the largest land carnivores. Siberian tigers reach about 300 kg."
+  },
+  "fr": {
+   "q": "Qui est le plus grand carnivore terrestre ?",
+   "a": [
+    "Ours polaire",
+    "Tigre de Sibérie"
+   ],
+   "x": "L’ours polaire mâle pèse 400 à 700 kg : c’est le plus grand carnivore terrestre. Le tigre de Sibérie atteint environ 300 kg."
+  },
+  "es": {
+   "q": "¿Quién es el mayor carnívoro terrestre?",
+   "a": [
+    "Oso polar",
+    "Tigre siberiano"
+   ],
+   "x": "El oso polar macho pesa de 400 a 700 kg y es el mayor carnívoro terrestre. El tigre siberiano llega a unos 300 kg."
+  }
+ },
+ {
+  "id": "f03",
+  "lvl": 3,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer ist näher mit dem Elefanten verwandt?",
+   "a": [
+    "Nashorn",
+    "Seekuh"
+   ],
+   "x": "Überraschend: Seekühe (Manatis und Dugongs) gehören zu den nächsten lebenden Verwandten der Elefanten. Nashörner sind entfernt verwandt."
+  },
+  "en": {
+   "q": "Who is more closely related to the elephant?",
+   "a": [
+    "Rhino",
+    "Manatee"
+   ],
+   "x": "Surprisingly, sea cows (manatees and dugongs) are among the closest living relatives of elephants. Rhinos are only distant relatives."
+  },
+  "fr": {
+   "q": "Qui est le plus proche parent de l’éléphant ?",
+   "a": [
+    "Rhinocéros",
+    "Lamantin"
+   ],
+   "x": "Surprise : les siréniens (lamantins et dugongs) font partie des plus proches parents vivants de l’éléphant. Le rhinocéros n’est qu’un cousin éloigné."
+  },
+  "es": {
+   "q": "¿Quién es pariente más cercano del elefante?",
+   "a": [
+    "Rinoceronte",
+    "Manatí"
+   ],
+   "x": "Sorpresa: los sirenios (manatíes y dugongos) están entre los parientes vivos más cercanos del elefante. El rinoceronte es solo un pariente lejano."
+  }
+ },
+ {
+  "id": "f04",
+  "lvl": 1,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer kann rückwärts fliegen?",
+   "a": [
+    "Spatz",
+    "Kolibri"
+   ],
+   "x": "Kolibris schlagen ihre Flügel bis zu 80-mal pro Sekunde in Achterform. So können sie in der Luft stehen und sogar rückwärts fliegen."
+  },
+  "en": {
+   "q": "Who can fly backwards?",
+   "a": [
+    "Sparrow",
+    "Hummingbird"
+   ],
+   "x": "Hummingbirds beat their wings up to 80 times a second in a figure of eight. That lets them hover and even fly backwards."
+  },
+  "fr": {
+   "q": "Qui peut voler en arrière ?",
+   "a": [
+    "Moineau",
+    "Colibri"
+   ],
+   "x": "Le colibri bat des ailes jusqu’à 80 fois par seconde en forme de huit. Il peut ainsi faire du sur-place et même voler en arrière."
+  },
+  "es": {
+   "q": "¿Quién puede volar hacia atrás?",
+   "a": [
+    "Gorrión",
+    "Colibrí"
+   ],
+   "x": "El colibrí bate las alas hasta 80 veces por segundo en forma de ocho. Así puede quedarse quieto en el aire e incluso volar hacia atrás."
+  }
+ },
+ {
+  "id": "f05",
+  "lvl": 3,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer ist näher mit dem Pferd verwandt?",
+   "a": [
+    "Kuh",
+    "Nashorn"
+   ],
+   "x": "Pferde, Nashörner und Tapire sind Unpaarhufer. Kühe sind Paarhufer – und damit näher mit Walen verwandt als mit Pferden."
+  },
+  "en": {
+   "q": "Who is more closely related to the horse?",
+   "a": [
+    "Cow",
+    "Rhino"
+   ],
+   "x": "Horses, rhinos and tapirs are odd-toed ungulates. Cows are even-toed – and so more closely related to whales than to horses."
+  },
+  "fr": {
+   "q": "Qui est le plus proche parent du cheval ?",
+   "a": [
+    "Vache",
+    "Rhinocéros"
+   ],
+   "x": "Chevaux, rhinocéros et tapirs sont des périssodactyles. La vache est un artiodactyle – plus proche des baleines que du cheval."
+  },
+  "es": {
+   "q": "¿Quién es pariente más cercano del caballo?",
+   "a": [
+    "Vaca",
+    "Rinoceronte"
+   ],
+   "x": "Caballos, rinocerontes y tapires son perisodáctilos. La vaca es un artiodáctilo, más emparentada con las ballenas que con el caballo."
+  }
+ },
+ {
+  "id": "f06",
+  "lvl": 2,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer hat mehr Knochen?",
+   "a": [
+    "Ein Erwachsener",
+    "Ein Neugeborenes"
+   ],
+   "x": "Babys kommen mit rund 300 Knochen zur Welt. Viele davon wachsen später zusammen – Erwachsene haben 206."
+  },
+  "en": {
+   "q": "Who has more bones?",
+   "a": [
+    "An adult",
+    "A newborn baby"
+   ],
+   "x": "Babies are born with around 300 bones. Many of them fuse later – adults have 206."
+  },
+  "fr": {
+   "q": "Qui a le plus d’os ?",
+   "a": [
+    "Un adulte",
+    "Un nouveau-né"
+   ],
+   "x": "Le bébé naît avec environ 300 os. Beaucoup se soudent ensuite – l’adulte en a 206."
+  },
+  "es": {
+   "q": "¿Quién tiene más huesos?",
+   "a": [
+    "Un adulto",
+    "Un recién nacido"
+   ],
+   "x": "Los bebés nacen con unos 300 huesos. Muchos se fusionan después: un adulto tiene 206."
+  }
+ },
+ {
+  "id": "f07",
+  "lvl": 3,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer kommt länger ohne zu trinken aus?",
+   "a": [
+    "Dromedar",
+    "Kängururatte"
+   ],
+   "x": "Die Kängururatte aus den Wüsten Nordamerikas trinkt oft ihr ganzes Leben lang nicht – sie gewinnt Wasser aus trockenen Samen. Dromedare halten etwa zwei Wochen durch."
+  },
+  "en": {
+   "q": "Who can go longer without drinking?",
+   "a": [
+    "Dromedary camel",
+    "Kangaroo rat"
+   ],
+   "x": "The kangaroo rat of North American deserts often never drinks in its whole life – it gets water from dry seeds. Camels last about two weeks."
+  },
+  "fr": {
+   "q": "Qui tient le plus longtemps sans boire ?",
+   "a": [
+    "Dromadaire",
+    "Rat-kangourou"
+   ],
+   "x": "Le rat-kangourou des déserts d’Amérique du Nord ne boit souvent jamais de sa vie : il tire l’eau des graines sèches. Le dromadaire tient environ deux semaines."
+  },
+  "es": {
+   "q": "¿Quién aguanta más sin beber?",
+   "a": [
+    "Dromedario",
+    "Rata canguro"
+   ],
+   "x": "La rata canguro de los desiertos de Norteamérica a menudo no bebe en toda su vida: saca el agua de semillas secas. El dromedario aguanta unas dos semanas."
+  }
+ },
+ {
+  "id": "f08",
+  "lvl": 2,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer hat seine Ohren an den Beinen?",
+   "a": [
+    "Stubenfliege",
+    "Grille"
+   ],
+   "x": "Grillen hören mit kleinen Trommelfellen an den Vorderbeinen. Stubenfliegen haben gar keine Ohren."
+  },
+  "en": {
+   "q": "Who has its ears on its legs?",
+   "a": [
+    "Housefly",
+    "Cricket"
+   ],
+   "x": "Crickets hear with tiny eardrums on their front legs. Houseflies have no ears at all."
+  },
+  "fr": {
+   "q": "Qui a les oreilles sur les pattes ?",
+   "a": [
+    "Mouche domestique",
+    "Grillon"
+   ],
+   "x": "Le grillon entend grâce à de petits tympans sur ses pattes avant. La mouche n’a pas d’oreilles du tout."
+  },
+  "es": {
+   "q": "¿Quién tiene los oídos en las patas?",
+   "a": [
+    "Mosca común",
+    "Grillo"
+   ],
+   "x": "El grillo oye con pequeños tímpanos en las patas delanteras. La mosca no tiene oídos."
+  }
+ },
+ {
+  "id": "f09",
+  "lvl": 2,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer schluckt absichtlich Steine?",
+   "a": [
+    "Löwe",
+    "Krokodil"
+   ],
+   "x": "Krokodile schlucken Steine. Im Magen helfen sie beim Zerkleinern der Nahrung und vielleicht auch beim Tauchen als Ballast."
+  },
+  "en": {
+   "q": "Who swallows stones on purpose?",
+   "a": [
+    "Lion",
+    "Crocodile"
+   ],
+   "x": "Crocodiles swallow stones. In the stomach they help grind up food and perhaps act as ballast for diving."
+  },
+  "fr": {
+   "q": "Qui avale des pierres exprès ?",
+   "a": [
+    "Lion",
+    "Crocodile"
+   ],
+   "x": "Le crocodile avale des pierres. Dans l’estomac, elles aident à broyer la nourriture et servent peut-être de lest pour plonger."
+  },
+  "es": {
+   "q": "¿Quién se traga piedras a propósito?",
+   "a": [
+    "León",
+    "Cocodrilo"
+   ],
+   "x": "Los cocodrilos tragan piedras. En el estómago ayudan a triturar la comida y quizá sirven de lastre para bucear."
+  }
+ },
+ {
+  "id": "f10",
+  "lvl": 1,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer kann im Stehen dösen?",
+   "a": [
+    "Pferd",
+    "Hund"
+   ],
+   "x": "Pferde können ihre Beingelenke einrasten lassen und so im Stehen dösen. Für den Tiefschlaf legen aber auch sie sich hin."
+  },
+  "en": {
+   "q": "Who can doze while standing up?",
+   "a": [
+    "Horse",
+    "Dog"
+   ],
+   "x": "Horses can lock their leg joints and doze standing up. For deep sleep, though, they lie down too."
+  },
+  "fr": {
+   "q": "Qui peut somnoler debout ?",
+   "a": [
+    "Cheval",
+    "Chien"
+   ],
+   "x": "Le cheval peut bloquer ses articulations et somnoler debout. Pour le sommeil profond, il se couche quand même."
+  },
+  "es": {
+   "q": "¿Quién puede dormitar de pie?",
+   "a": [
+    "Caballo",
+    "Perro"
+   ],
+   "x": "El caballo puede bloquear las articulaciones de las patas y dormitar de pie. Para el sueño profundo, también se tumba."
+  }
+ },
+ {
+  "id": "f11",
+  "lvl": 1,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer trägt sein Junges in einem Beutel?",
+   "a": [
+    "Koala",
+    "Faultier"
+   ],
+   "x": "Koalas sind Beuteltiere. Das Junge ist bei der Geburt nur so groß wie eine Bohne und wächst im Beutel monatelang weiter."
+  },
+  "en": {
+   "q": "Who carries its baby in a pouch?",
+   "a": [
+    "Koala",
+    "Sloth"
+   ],
+   "x": "Koalas are marsupials. At birth the baby is only the size of a bean and keeps growing in the pouch for months."
+  },
+  "fr": {
+   "q": "Qui porte son petit dans une poche ?",
+   "a": [
+    "Koala",
+    "Paresseux"
+   ],
+   "x": "Le koala est un marsupial. À la naissance, le petit est grand comme un haricot et grandit des mois dans la poche."
+  },
+  "es": {
+   "q": "¿Quién lleva a su cría en una bolsa?",
+   "a": [
+    "Koala",
+    "Perezoso"
+   ],
+   "x": "El koala es un marsupial. Al nacer, la cría es del tamaño de una judía y sigue creciendo en la bolsa durante meses."
+  }
+ },
+ {
+  "id": "f12",
+  "lvl": 1,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Welches Säugetier legt Eier?",
+   "a": [
+    "Ameisenigel",
+    "Igel"
+   ],
+   "x": "Der Ameisenigel aus Australien legt Eier und brütet sie in einer Bauchtasche aus. Trotz Stacheln ist er nicht mit unserem Igel verwandt, der lebende Junge bekommt."
+  },
+  "en": {
+   "q": "Which mammal lays eggs?",
+   "a": [
+    "Echidna",
+    "Hedgehog"
+   ],
+   "x": "The Australian echidna lays eggs and incubates them in a belly pouch. Despite its spines, it isn’t related to the hedgehog, which gives birth to live young."
+  },
+  "fr": {
+   "q": "Quel mammifère pond des œufs ?",
+   "a": [
+    "Échidné",
+    "Hérisson"
+   ],
+   "x": "L’échidné d’Australie pond des œufs et les couve dans une poche ventrale. Malgré ses piquants, il n’est pas parent du hérisson, qui met au monde des petits vivants."
+  },
+  "es": {
+   "q": "¿Qué mamífero pone huevos?",
+   "a": [
+    "Equidna",
+    "Erizo"
+   ],
+   "x": "El equidna australiano pone huevos y los incuba en una bolsa del vientre. Pese a sus púas, no es pariente del erizo, que pare crías vivas."
+  }
+ },
+ {
+  "id": "f13",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer ist giftig?",
+   "a": [
+    "Schnabeltier-Männchen",
+    "Biber"
+   ],
+   "x": "Männliche Schnabeltiere haben an den Hinterbeinen einen Giftsporn. Der Stich ist für Menschen extrem schmerzhaft, aber nicht tödlich."
+  },
+  "en": {
+   "q": "Who is venomous?",
+   "a": [
+    "Male platypus",
+    "Beaver"
+   ],
+   "x": "Male platypuses have a venomous spur on their hind legs. The sting is extremely painful for humans, but not deadly."
+  },
+  "fr": {
+   "q": "Qui est venimeux ?",
+   "a": [
+    "Ornithorynque mâle",
+    "Castor"
+   ],
+   "x": "L’ornithorynque mâle a un ergot venimeux aux pattes arrière. La piqûre est extrêmement douloureuse pour l’humain, mais pas mortelle."
+  },
+  "es": {
+   "q": "¿Quién es venenoso?",
+   "a": [
+    "Ornitorrinco macho",
+    "Castor"
+   ],
+   "x": "El ornitorrinco macho tiene un espolón venenoso en las patas traseras. Su picadura es muy dolorosa para los humanos, pero no mortal."
+  }
+ },
+ {
+  "id": "f14",
+  "lvl": 3,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer hat Fingerabdrücke wie wir?",
+   "a": [
+    "Koala",
+    "Hund"
+   ],
+   "x": "Koala-Fingerabdrücke sehen unseren so ähnlich, dass man sie selbst unter dem Mikroskop kaum unterscheiden kann – obwohl Koalas gar nicht eng mit uns verwandt sind."
+  },
+  "en": {
+   "q": "Who has fingerprints like ours?",
+   "a": [
+    "Koala",
+    "Dog"
+   ],
+   "x": "Koala fingerprints look so much like ours that they’re hard to tell apart even under a microscope – although koalas aren’t closely related to us at all."
+  },
+  "fr": {
+   "q": "Qui a des empreintes digitales comme les nôtres ?",
+   "a": [
+    "Koala",
+    "Chien"
+   ],
+   "x": "Les empreintes du koala ressemblent tant aux nôtres qu’on les distingue à peine au microscope – alors qu’il n’est pas proche parent de l’humain."
+  },
+  "es": {
+   "q": "¿Quién tiene huellas dactilares como las nuestras?",
+   "a": [
+    "Koala",
+    "Perro"
+   ],
+   "x": "Las huellas del koala se parecen tanto a las nuestras que cuesta distinguirlas incluso al microscopio, aunque no es pariente cercano nuestro."
+  }
+ },
+ {
+  "id": "f15",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer schwitzt am ganzen Körper?",
+   "a": [
+    "Pferd",
+    "Hund"
+   ],
+   "x": "Pferde schwitzen wie wir am ganzen Körper. Hunde haben Schweißdrüsen fast nur an den Pfoten und kühlen sich durch Hecheln."
+  },
+  "en": {
+   "q": "Who sweats all over its body?",
+   "a": [
+    "Horse",
+    "Dog"
+   ],
+   "x": "Horses sweat all over their body like we do. Dogs have sweat glands almost only on their paws and cool down by panting."
+  },
+  "fr": {
+   "q": "Qui transpire de tout son corps ?",
+   "a": [
+    "Cheval",
+    "Chien"
+   ],
+   "x": "Le cheval transpire de tout son corps, comme nous. Le chien n’a des glandes sudoripares presque qu’aux coussinets et se rafraîchit en haletant."
+  },
+  "es": {
+   "q": "¿Quién suda por todo el cuerpo?",
+   "a": [
+    "Caballo",
+    "Perro"
+   ],
+   "x": "El caballo suda por todo el cuerpo como nosotros. El perro casi solo tiene glándulas sudoríparas en las almohadillas y se refresca jadeando."
+  }
+ },
+ {
+  "id": "f16",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer bleibt länger unter Wasser?",
+   "a": [
+    "See-Elefant",
+    "Seelöwe"
+   ],
+   "x": "See-Elefanten tauchen bis etwa 2 Stunden und über 1.000 m tief. Seelöwen bleiben meist nur wenige Minuten unten."
+  },
+  "en": {
+   "q": "Who stays underwater longer?",
+   "a": [
+    "Elephant seal",
+    "Sea lion"
+   ],
+   "x": "Elephant seals dive for up to about 2 hours and over 1,000 m deep. Sea lions usually stay down only a few minutes."
+  },
+  "fr": {
+   "q": "Qui reste le plus longtemps sous l’eau ?",
+   "a": [
+    "Éléphant de mer",
+    "Otarie"
+   ],
+   "x": "L’éléphant de mer plonge jusqu’à environ 2 heures et à plus de 1 000 m. L’otarie ne reste en général que quelques minutes."
+  },
+  "es": {
+   "q": "¿Quién aguanta más bajo el agua?",
+   "a": [
+    "Elefante marino",
+    "León marino"
+   ],
+   "x": "El elefante marino bucea hasta unas 2 horas y a más de 1.000 m. El león marino suele quedarse solo unos minutos."
+  }
+ },
+ {
+  "id": "f17",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer fliegt schneller?",
+   "a": [
+    "Libelle",
+    "Honigbiene"
+   ],
+   "x": "Große Libellen erreichen über 50 km/h und fangen ihre Beute im Flug. Honigbienen fliegen etwa 25 bis 30 km/h."
+  },
+  "en": {
+   "q": "Who flies faster?",
+   "a": [
+    "Dragonfly",
+    "Honeybee"
+   ],
+   "x": "Large dragonflies reach over 50 km/h and catch their prey in flight. Honeybees fly at about 25 to 30 km/h."
+  },
+  "fr": {
+   "q": "Qui vole le plus vite ?",
+   "a": [
+    "Libellule",
+    "Abeille"
+   ],
+   "x": "Les grandes libellules dépassent 50 km/h et attrapent leurs proies en vol. L’abeille vole à environ 25 à 30 km/h."
+  },
+  "es": {
+   "q": "¿Quién vuela más rápido?",
+   "a": [
+    "Libélula",
+    "Abeja"
+   ],
+   "x": "Las libélulas grandes superan los 50 km/h y cazan en pleno vuelo. La abeja vuela a unos 25-30 km/h."
+  }
+ },
+ {
+  "id": "f18",
+  "lvl": 1,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer ist näher mit dem Hai verwandt?",
+   "a": [
+    "Delfin",
+    "Rochen"
+   ],
+   "x": "Rochen sind im Grunde platte Haie – ebenfalls mit Knorpelskelett. Delfine sind Säugetiere und atmen Luft."
+  },
+  "en": {
+   "q": "Who is more closely related to the shark?",
+   "a": [
+    "Dolphin",
+    "Ray"
+   ],
+   "x": "Rays are basically flattened sharks – also with a cartilage skeleton. Dolphins are mammals and breathe air."
+  },
+  "fr": {
+   "q": "Qui est le plus proche parent du requin ?",
+   "a": [
+    "Dauphin",
+    "Raie"
+   ],
+   "x": "La raie est en somme un requin aplati – elle aussi à squelette de cartilage. Le dauphin est un mammifère qui respire de l’air."
+  },
+  "es": {
+   "q": "¿Quién es pariente más cercano del tiburón?",
+   "a": [
+    "Delfín",
+    "Raya"
+   ],
+   "x": "La raya es básicamente un tiburón aplanado, también con esqueleto de cartílago. El delfín es un mamífero y respira aire."
+  }
+ },
+ {
+  "id": "f19",
+  "lvl": 3,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer hat mehr Arten von Farb-Sinneszellen im Auge?",
+   "a": [
+    "Fangschreckenkrebs",
+    "Mensch"
+   ],
+   "x": "Fangschreckenkrebse haben 12 Sorten Farbrezeptoren, wir nur 3. Trotzdem unterscheiden sie Farben eher schlechter – ihr Gehirn wertet sie anders aus."
+  },
+  "en": {
+   "q": "Who has more kinds of colour receptors in its eyes?",
+   "a": [
+    "Mantis shrimp",
+    "Human"
+   ],
+   "x": "Mantis shrimps have 12 kinds of colour receptors, we have only 3. Even so, they’re actually worse at telling colours apart – their brain processes them differently."
+  },
+  "fr": {
+   "q": "Qui a le plus de types de cellules des couleurs dans l’œil ?",
+   "a": [
+    "Crevette-mante",
+    "Humain"
+   ],
+   "x": "La crevette-mante a 12 sortes de récepteurs de couleur, nous seulement 3. Pourtant, elle distingue plutôt moins bien les couleurs – son cerveau les traite autrement."
+  },
+  "es": {
+   "q": "¿Quién tiene más tipos de células del color en el ojo?",
+   "a": [
+    "Camarón mantis",
+    "Humano"
+   ],
+   "x": "El camarón mantis tiene 12 tipos de receptores de color y nosotros solo 3. Aun así, distingue peor los colores: su cerebro los procesa de otra forma."
+  }
+ },
+ {
+  "id": "f20",
+  "lvl": 3,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Was wiegt zusammen mehr?",
+   "a": [
+    "Alle Ameisen",
+    "Alle Menschen"
+   ],
+   "x": "Eine Studie von 2022 schätzt: Alle Ameisen der Welt wiegen zusammen etwa ein Fünftel so viel wie alle Menschen. Es sind zwar 20 Billiarden – aber jede ist winzig."
+  },
+  "en": {
+   "q": "What weighs more in total?",
+   "a": [
+    "All ants",
+    "All humans"
+   ],
+   "x": "A 2022 study estimated that all the ants in the world together weigh about a fifth as much as all humans. There are 20 quadrillion of them – but each one is tiny."
+  },
+  "fr": {
+   "q": "Qu’est-ce qui pèse le plus au total ?",
+   "a": [
+    "Toutes les fourmis",
+    "Tous les humains"
+   ],
+   "x": "Une étude de 2022 estime que toutes les fourmis du monde pèsent ensemble environ un cinquième du poids de tous les humains. Elles sont 20 millions de milliards – mais minuscules."
+  },
+  "es": {
+   "q": "¿Qué pesa más en total?",
+   "a": [
+    "Todas las hormigas",
+    "Todos los humanos"
+   ],
+   "x": "Un estudio de 2022 calcula que todas las hormigas del mundo juntas pesan una quinta parte que todos los humanos. Son 20.000 billones, pero cada una es diminuta."
+  }
+ },
+ {
+  "id": "f21",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer brütet beim Kaiserpinguin das Ei aus?",
+   "a": [
+    "Das Männchen",
+    "Das Weibchen"
+   ],
+   "x": "Das Männchen hält das Ei zwei Monate lang auf den Füßen unter einer Bauchfalte – im antarktischen Winter, ohne zu fressen. Das Weibchen ist so lange auf dem Meer."
+  },
+  "en": {
+   "q": "Who incubates the egg in emperor penguins?",
+   "a": [
+    "The male",
+    "The female"
+   ],
+   "x": "The male holds the egg on his feet under a fold of belly skin for two months – in the Antarctic winter, without eating. The female is out at sea all that time."
+  },
+  "fr": {
+   "q": "Qui couve l’œuf chez le manchot empereur ?",
+   "a": [
+    "Le mâle",
+    "La femelle"
+   ],
+   "x": "Le mâle garde l’œuf deux mois sur ses pattes, sous un repli du ventre – en plein hiver antarctique, sans manger. La femelle est en mer pendant ce temps."
+  },
+  "es": {
+   "q": "¿Quién incuba el huevo en el pingüino emperador?",
+   "a": [
+    "El macho",
+    "La hembra"
+   ],
+   "x": "El macho sostiene el huevo dos meses sobre las patas bajo un pliegue del vientre, en pleno invierno antártico y sin comer. La hembra está mientras tanto en el mar."
+  }
+ },
+ {
+  "id": "f22",
+  "lvl": 3,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer ist näher mit uns Menschen verwandt?",
+   "a": [
+    "Seestern",
+    "Tintenfisch"
+   ],
+   "x": "Kaum zu glauben: Seesterne und Seeigel gehören zu derselben großen Tiergruppe wie die Wirbeltiere. Tintenfische sind Weichtiere und stehen uns ferner."
+  },
+  "en": {
+   "q": "Who is more closely related to us humans?",
+   "a": [
+    "Starfish",
+    "Squid"
+   ],
+   "x": "Hard to believe: starfish and sea urchins belong to the same big animal group as vertebrates. Squids are molluscs and further from us."
+  },
+  "fr": {
+   "q": "Qui est le plus proche parent de l’être humain ?",
+   "a": [
+    "Étoile de mer",
+    "Calmar"
+   ],
+   "x": "Incroyable : étoiles de mer et oursins font partie du même grand groupe que les vertébrés. Le calmar est un mollusque, plus éloigné de nous."
+  },
+  "es": {
+   "q": "¿Quién es pariente más cercano de los humanos?",
+   "a": [
+    "Estrella de mar",
+    "Calamar"
+   ],
+   "x": "Aunque cueste creerlo, estrellas y erizos de mar pertenecen al mismo gran grupo que los vertebrados. El calamar es un molusco, más lejano a nosotros."
+  }
+ },
+ {
+  "id": "f23",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer schläft mit einer Gehirnhälfte?",
+   "a": [
+    "Delfin",
+    "Hund"
+   ],
+   "x": "Delfine schlafen abwechselnd mit einer Gehirnhälfte. Die andere bleibt wach – so atmen sie weiter und achten auf Gefahren."
+  },
+  "en": {
+   "q": "Who sleeps with half its brain?",
+   "a": [
+    "Dolphin",
+    "Dog"
+   ],
+   "x": "Dolphins sleep with one half of their brain at a time. The other half stays awake – so they keep breathing and watch for danger."
+  },
+  "fr": {
+   "q": "Qui dort avec une moitié de cerveau ?",
+   "a": [
+    "Dauphin",
+    "Chien"
+   ],
+   "x": "Le dauphin dort avec une moitié du cerveau à la fois. L’autre reste éveillée – il continue ainsi à respirer et à guetter le danger."
+  },
+  "es": {
+   "q": "¿Quién duerme con medio cerebro?",
+   "a": [
+    "Delfín",
+    "Perro"
+   ],
+   "x": "El delfín duerme con una mitad del cerebro cada vez. La otra sigue despierta, así sigue respirando y vigila los peligros."
+  }
+ },
+ {
+  "id": "f24",
+  "lvl": 2,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer kann über das Wasser rennen?",
+   "a": [
+    "Grüner Leguan",
+    "Stirnlappenbasilisk"
+   ],
+   "x": "Der Basilisk rennt auf den Hinterbeinen übers Wasser: Er schlägt die Füße so schnell auf, dass er nicht einsinkt. Leguane schwimmen."
+  },
+  "en": {
+   "q": "Who can run across water?",
+   "a": [
+    "Green iguana",
+    "Plumed basilisk"
+   ],
+   "x": "The basilisk runs across water on its hind legs: it slaps its feet down so fast that it doesn’t sink. Iguanas swim."
+  },
+  "fr": {
+   "q": "Qui peut courir sur l’eau ?",
+   "a": [
+    "Iguane vert",
+    "Basilic vert"
+   ],
+   "x": "Le basilic court sur l’eau sur ses pattes arrière : il frappe la surface si vite qu’il ne s’enfonce pas. L’iguane, lui, nage."
+  },
+  "es": {
+   "q": "¿Quién puede correr sobre el agua?",
+   "a": [
+    "Iguana verde",
+    "Basilisco verde"
+   ],
+   "x": "El basilisco corre sobre el agua con las patas traseras: golpea la superficie tan rápido que no se hunde. La iguana nada."
+  }
+ },
+ {
+  "id": "f25",
+  "lvl": 2,
+  "type": "duel",
+  "right": 0,
+  "de": {
+   "q": "Wer bleibt meist ein Leben lang beim selben Partner?",
+   "a": [
+    "Höckerschwan",
+    "Stockente"
+   ],
+   "x": "Schwanenpaare bleiben meist zusammen, solange beide leben. Stockenten suchen sich jedes Jahr einen neuen Partner."
+  },
+  "en": {
+   "q": "Who usually stays with the same partner for life?",
+   "a": [
+    "Mute swan",
+    "Mallard"
+   ],
+   "x": "Swan pairs usually stay together as long as both are alive. Mallards find a new partner every year."
+  },
+  "fr": {
+   "q": "Qui reste en général avec le même partenaire toute sa vie ?",
+   "a": [
+    "Cygne tuberculé",
+    "Canard colvert"
+   ],
+   "x": "Les couples de cygnes restent en général ensemble toute leur vie. Le colvert change de partenaire chaque année."
+  },
+  "es": {
+   "q": "¿Quién suele quedarse con la misma pareja toda la vida?",
+   "a": [
+    "Cisne vulgar",
+    "Ánade real"
+   ],
+   "x": "Las parejas de cisnes suelen seguir juntas mientras viven. El ánade real busca pareja nueva cada año."
+  }
+ },
+ {
+  "id": "f26",
+  "lvl": 2,
+  "type": "duel",
+  "right": 1,
+  "de": {
+   "q": "Wer hat ein drittes Augenlid?",
+   "a": [
+    "Mensch",
+    "Katze"
+   ],
+   "x": "Katzen haben eine Nickhaut, die quer übers Auge wischt und es schützt. Bei uns ist davon nur ein kleiner Rest im Augenwinkel übrig."
+  },
+  "en": {
+   "q": "Who has a third eyelid?",
+   "a": [
+    "Human",
+    "Cat"
+   ],
+   "x": "Cats have a nictitating membrane that sweeps across the eye to protect it. In us, only a tiny remnant is left in the corner of the eye."
+  },
+  "fr": {
+   "q": "Qui a une troisième paupière ?",
+   "a": [
+    "Humain",
+    "Chat"
+   ],
+   "x": "Le chat a une membrane nictitante qui balaie l’œil pour le protéger. Chez nous, il n’en reste qu’un petit vestige au coin de l’œil."
+  },
+  "es": {
+   "q": "¿Quién tiene un tercer párpado?",
+   "a": [
+    "Humano",
+    "Gato"
+   ],
+   "x": "El gato tiene una membrana nictitante que barre el ojo para protegerlo. A nosotros solo nos queda un pequeño resto en el rabillo del ojo."
+  }
+ }
+]

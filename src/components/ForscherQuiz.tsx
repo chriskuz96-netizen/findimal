@@ -1,20 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
 import { Alert, Animated, Easing, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle, ClipPath, Defs, G, LinearGradient, RadialGradient, Rect, Stop } from 'react-native-svg';
+import Svg, { ClipPath, Defs, G, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { AdSlot } from './AdSlot';
 import { Explorer } from './Explorer';
-import { PLUS_ANIMAL_ART, PLUS_ANIMAL_BG } from './PlusAnimal';
 import { QUIZ_ART, QUIZ_ART_BG } from './QuizArt';
 import {
   answer,
   answerXp,
   byId,
   dayNo,
+  decodeRank,
+  encodeRank,
   finishRound,
   ForscherLog,
   roundCorrect,
+  rankOrder,
   roundXp,
   startRound,
   streak,
@@ -232,39 +234,21 @@ export function ForscherQuiz({
         {(phase === 'ask' || phase === 'reveal') && q && text && (
           <ScrollView contentContainerStyle={{ paddingBottom: 140 + insets.bottom }}>
             <Text style={[styles.q, { color: p.ink }]}>{text.q}</Text>
-            {q.type === 'image' ? (
-              <View style={styles.grid}>
-                {q.img!.map((id, i) => (
-                  <Pressable
-                    key={id}
-                    onPress={() => choose(i)}
-                    disabled={phase !== 'ask'}
-                    accessibilityRole="button"
-                    accessibilityLabel={text.a[i]}
-                    style={[styles.tile, { backgroundColor: p.card }, look(phase, q.right, last?.value, i, p)]}
-                  >
-                    <AnimalPicture id={id} size={96} />
-                    <Text style={[styles.tileText, { color: p.ink }]} numberOfLines={1}>
-                      {text.a[i]}
-                    </Text>
-                  </Pressable>
-                ))}
-              </View>
+            {q.type === 'rank' ? (
+              <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} p={p} />
             ) : q.type === 'duel' ? (
               // Duell: zwei Tiere nebeneinander, eins antippen
               <View style={styles.duel}>
-                {q.img!.map((id, i) => (
+                {text.a.map((a, i) => (
                   <Pressable
-                    key={id}
+                    key={i}
                     onPress={() => choose(i)}
                     disabled={phase !== 'ask'}
                     accessibilityRole="button"
-                    accessibilityLabel={text.a[i]}
                     style={[styles.duelTile, { backgroundColor: p.card }, look(phase, q.right, last?.value, i, p)]}
                   >
-                    <AnimalPicture id={id} size={118} />
-                    <Text style={[styles.duelName, { color: p.ink }]} numberOfLines={2}>
-                      {text.a[i]}
+                    <Text style={[styles.duelName, { color: p.ink }]} numberOfLines={3} adjustsFontSizeToFit>
+                      {a}
                     </Text>
                   </Pressable>
                 ))}
@@ -352,25 +336,74 @@ function look(phase: Phase, right: number, chosen: number | undefined, i: number
   return { borderColor: p.line, opacity: 0.55 };
 }
 
-// Gezeichnetes Tier im Kreis (wie die Plus-Profilbilder, ohne Goldrand)
-function AnimalPicture({ id, size }: { id: string; size: number }) {
-  const [from, to] = PLUS_ANIMAL_BG[id] ?? ['#3E8A5C', '#123826'];
-  const Art = PLUS_ANIMAL_ART[id];
-  const g = `fq-${id}`;
+// Rangliste: 4 Einträge in der richtigen Reihenfolge antippen (nochmal tippen nimmt ihn wieder raus).
+// Bei der Auflösung stehen sie richtig sortiert da: grün = an der richtigen Stelle getippt.
+function RankAnswers({
+  q,
+  text,
+  phase,
+  chosen,
+  onDone,
+  p,
+}: {
+  q: BankQuestion;
+  text: BankQuestion['t'][keyof BankQuestion['t']];
+  phase: Phase;
+  chosen?: number;
+  onDone: (value: number) => void;
+  p: Palette;
+}) {
+  const { t } = useI18n();
+  const [picked, setPicked] = useState<number[]>([]);
+  const tap = (i: number) => {
+    if (phase !== 'ask') return;
+    const at = picked.indexOf(i);
+    const next = at >= 0 ? picked.slice(0, at) : [...picked, i];
+    setPicked(next);
+    if (next.length === text.a.length) onDone(encodeRank(next));
+  };
+  if (phase === 'reveal') {
+    const mine = decodeRank(chosen ?? -1);
+    return (
+      <View style={styles.answers}>
+        {text.a.map((a, i) => {
+          const ok = mine?.[i] === i;
+          return (
+            <View key={i} style={[styles.answer, { backgroundColor: p.card, borderColor: ok ? '#2E7A4C' : '#C8543A', borderWidth: 2 }]}>
+              <View style={[styles.rankBadge, { backgroundColor: ok ? '#2E7A4C' : '#C8543A' }]}>
+                <Text style={styles.rankNum}>{i + 1}</Text>
+              </View>
+              <Text style={[styles.answerText, { color: p.ink }]}>{a}</Text>
+              {!ok && mine && <Text style={[styles.rankMine, { color: p.mute }]}>{t('fq.rankYours', { n: mine.indexOf(i) + 1 })}</Text>}
+            </View>
+          );
+        })}
+      </View>
+    );
+  }
   return (
-    <Svg width={size} height={size} viewBox="0 0 64 64">
-      <Defs>
-        <RadialGradient id={`${g}-bg`} cx="0.35" cy="0.3" r="0.8">
-          <Stop offset="0" stopColor={from} />
-          <Stop offset="1" stopColor={to} />
-        </RadialGradient>
-        <ClipPath id={`${g}-c`}>
-          <Circle cx={32} cy={32} r={29} />
-        </ClipPath>
-      </Defs>
-      <Circle cx={32} cy={32} r={29} fill={`url(#${g}-bg)`} />
-      {Art && <G clipPath={`url(#${g}-c)`}>{Art()}</G>}
-    </Svg>
+    <View style={styles.answers}>
+      <Text style={[styles.rankHint, { color: p.mute }]}>{t('fq.rankHint')}</Text>
+      {rankOrder(q).map((i) => {
+        const at = picked.indexOf(i);
+        return (
+          <Pressable
+            key={i}
+            onPress={() => tap(i)}
+            accessibilityRole="button"
+            style={({ pressed }) => [
+              styles.answer,
+              { backgroundColor: p.card, borderColor: at >= 0 ? colors.accent : p.line, opacity: pressed ? 0.8 : 1 },
+            ]}
+          >
+            <View style={[styles.rankBadge, at >= 0 ? { backgroundColor: colors.accent } : { borderWidth: 1.5, borderColor: p.line }]}>
+              {at >= 0 && <Text style={styles.rankNum}>{at + 1}</Text>}
+            </View>
+            <Text style={[styles.answerText, { color: p.ink }]}>{text.a[i]}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
   );
 }
 
@@ -469,12 +502,16 @@ const styles = StyleSheet.create({
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginHorizontal: 18 },
   tile: { width: '47.5%', alignItems: 'center', borderWidth: 2, borderRadius: 18, paddingTop: 10, paddingBottom: 8 },
   duel: { flexDirection: 'row', gap: 14, marginHorizontal: 18 },
-  duelTile: { flex: 1, alignItems: 'center', borderWidth: 2, borderRadius: 20, paddingTop: 16, paddingBottom: 12, paddingHorizontal: 6 },
-  duelName: { fontFamily: fonts.sansBold, fontSize: 15, marginTop: 8, textAlign: 'center' },
+  duelTile: { flex: 1, minHeight: 150, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderRadius: 20, padding: 14 },
+  duelName: { fontFamily: fonts.serifBold, fontSize: 21, lineHeight: 26, textAlign: 'center' },
+  rankHint: { fontFamily: fonts.sansBold, fontSize: 13, marginBottom: 2 },
+  rankBadge: { width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
+  rankNum: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
+  rankMine: { fontFamily: fonts.sansBold, fontSize: 12, marginLeft: 8 },
   vs: {
     position: 'absolute',
     left: '50%',
-    top: 52,
+    top: 53,
     marginLeft: -22,
     width: 44,
     height: 44,

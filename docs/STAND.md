@@ -70,10 +70,11 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 
 ## Forscher-Quiz (29.10.)
 - Oben auf Challenges: jeden Tag 10 Fragen mit Zeitbalken, bis +60 XP. Ersetzt die alten 3 Tagesfragen.
-- Fragearten: Text, Wahr/Falsch, 4 Tierbilder, ein großes Bild (Spur, Umriss am Himmel, Fundstück) und Duell „Tier gegen Tier“.
+- Fragearten: Text, Wahr/Falsch, ein großes Bild (Spur, Umriss am Himmel, Fundstück), Duell „wer von beiden?“ und Rangliste (4 Einträge der Reihe nach antippen).
+- Keine Tierbilder mehr im Quiz (29.10., Wunsch): so gehen beliebig viele Tiere ohne Zeichenaufwand. Nur Spuren/Umrisse/Fundstücke sind gezeichnet.
 - Fragen stehen in `tools/quiz/*.json` (4 Sprachen), daraus macht `python3 tools/make_quiz_bank.py` die Datei `src/quizBank.ts`.
-- Eigene Zeichnungen: Tiere in `tools/plus_animals.py`, Quiz-Bilder in `tools/quiz_art.py` (`python3 tools/make_quiz_art.py`).
-- Stand: 218 Fragen ≈ 22 Spieltage ohne Wiederholung. Danach kommen zuerst falsch beantwortete Fragen wieder. Neue Pakete per Update, ohne laufende Kosten.
+- Quiz-Bilder: `tools/quiz_art.py` (`python3 tools/make_quiz_art.py`).
+- Stand: 274 Fragen ≈ 27 Spieltage ohne Wiederholung. Danach kommen zuerst falsch beantwortete Fragen wieder. Neue Pakete per Update, ohne laufende Kosten.
 - Werbung: fester Banner unten im Quiz, Vollbild-Werbung erst nach der XP-Animation (nicht mit Plus).
 
 ## Natur-Tipps (Mitteilungen)

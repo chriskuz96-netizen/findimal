@@ -1,0 +1,1382 @@
+[
+ {
+  "id": "r01",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer rennt am schnellsten? Schnellstes zuerst.",
+   "a": [
+    "Gepard",
+    "Gabelbock",
+    "Feldhase",
+    "Mensch"
+   ],
+   "x": "Gepard bis etwa 110 km/h, Gabelbock fast 90, Feldhase rund 70 – und der schnellste Mensch knapp 45 km/h."
+  },
+  "en": {
+   "q": "Who runs fastest? Fastest first.",
+   "a": [
+    "Cheetah",
+    "Pronghorn",
+    "Brown hare",
+    "Human"
+   ],
+   "x": "Cheetah up to about 110 km/h, pronghorn almost 90, brown hare around 70 – and the fastest human just under 45 km/h."
+  },
+  "fr": {
+   "q": "Qui court le plus vite ? Le plus rapide d’abord.",
+   "a": [
+    "Guépard",
+    "Antilope d’Amérique",
+    "Lièvre d’Europe",
+    "Humain"
+   ],
+   "x": "Guépard jusqu’à environ 110 km/h, antilope d’Amérique près de 90, lièvre environ 70 – et l’humain le plus rapide un peu moins de 45 km/h."
+  },
+  "es": {
+   "q": "¿Quién corre más rápido? El más rápido primero.",
+   "a": [
+    "Guepardo",
+    "Berrendo",
+    "Liebre europea",
+    "Humano"
+   ],
+   "x": "Guepardo hasta unos 110 km/h, berrendo casi 90, liebre unos 70, y el humano más rápido algo menos de 45 km/h."
+  }
+ },
+ {
+  "id": "r02",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist in der Luft am schnellsten? Schnellstes zuerst.",
+   "a": [
+    "Wanderfalke (Sturzflug)",
+    "Steinadler (Sturzflug)",
+    "Mauersegler",
+    "Haussperling"
+   ],
+   "x": "Wanderfalke über 300 km/h, Steinadler rund 240 km/h im Sturzflug, Mauersegler über 100 km/h im Flug, Spatz etwa 40 km/h."
+  },
+  "en": {
+   "q": "Who is fastest in the air? Fastest first.",
+   "a": [
+    "Peregrine falcon (dive)",
+    "Golden eagle (dive)",
+    "Common swift",
+    "House sparrow"
+   ],
+   "x": "Peregrine falcon over 300 km/h, golden eagle around 240 km/h in a dive, swift over 100 km/h in flight, sparrow about 40 km/h."
+  },
+  "fr": {
+   "q": "Qui est le plus rapide dans les airs ? Le plus rapide d’abord.",
+   "a": [
+    "Faucon pèlerin (en piqué)",
+    "Aigle royal (en piqué)",
+    "Martinet noir",
+    "Moineau domestique"
+   ],
+   "x": "Faucon pèlerin plus de 300 km/h, aigle royal environ 240 km/h en piqué, martinet plus de 100 km/h en vol, moineau environ 40 km/h."
+  },
+  "es": {
+   "q": "¿Quién es más rápido en el aire? El más rápido primero.",
+   "a": [
+    "Halcón peregrino (en picado)",
+    "Águila real (en picado)",
+    "Vencejo común",
+    "Gorrión común"
+   ],
+   "x": "Halcón peregrino más de 300 km/h, águila real unos 240 km/h en picado, vencejo más de 100 km/h volando, gorrión unos 40 km/h."
+  }
+ },
+ {
+  "id": "r03",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer schwimmt am schnellsten? Schnellstes zuerst.",
+   "a": [
+    "Fächerfisch",
+    "Schwertwal",
+    "Kalifornischer Seelöwe",
+    "Mensch"
+   ],
+   "x": "Der Fächerfisch gilt als schnellster Fisch, Schwertwale schaffen gut 50 km/h, Seelöwen um 40 km/h. Die besten Menschen kommen nur auf etwa 8 km/h."
+  },
+  "en": {
+   "q": "Who swims fastest? Fastest first.",
+   "a": [
+    "Sailfish",
+    "Orca",
+    "California sea lion",
+    "Human"
+   ],
+   "x": "The sailfish is considered the fastest fish, orcas reach over 50 km/h, sea lions around 40 km/h. The best humans only manage about 8 km/h."
+  },
+  "fr": {
+   "q": "Qui nage le plus vite ? Le plus rapide d’abord.",
+   "a": [
+    "Voilier",
+    "Orque",
+    "Otarie de Californie",
+    "Humain"
+   ],
+   "x": "Le voilier passe pour le poisson le plus rapide, l’orque dépasse 50 km/h, l’otarie environ 40 km/h. Les meilleurs nageurs humains atteignent à peine 8 km/h."
+  },
+  "es": {
+   "q": "¿Quién nada más rápido? El más rápido primero.",
+   "a": [
+    "Pez vela",
+    "Orca",
+    "León marino de California",
+    "Humano"
+   ],
+   "x": "El pez vela se considera el pez más rápido, la orca supera los 50 km/h, el león marino unos 40 km/h. Los mejores humanos solo llegan a unos 8 km/h."
+  }
+ },
+ {
+  "id": "r04",
+  "lvl": 1,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist am schwersten? Schwerstes zuerst.",
+   "a": [
+    "Blauwal",
+    "Afrikanischer Elefant",
+    "Flusspferd",
+    "Eisbär"
+   ],
+   "x": "Blauwal bis etwa 150 Tonnen, Elefantenbulle rund 6 Tonnen, Flusspferd 1,5 bis 3 Tonnen, Eisbär-Männchen 400 bis 700 kg."
+  },
+  "en": {
+   "q": "Who is heaviest? Heaviest first.",
+   "a": [
+    "Blue whale",
+    "African elephant",
+    "Hippo",
+    "Polar bear"
+   ],
+   "x": "Blue whale up to about 150 tonnes, bull elephant around 6 tonnes, hippo 1.5 to 3 tonnes, male polar bear 400 to 700 kg."
+  },
+  "fr": {
+   "q": "Qui est le plus lourd ? Le plus lourd d’abord.",
+   "a": [
+    "Baleine bleue",
+    "Éléphant d’Afrique",
+    "Hippopotame",
+    "Ours polaire"
+   ],
+   "x": "Baleine bleue jusqu’à environ 150 tonnes, éléphant mâle environ 6 tonnes, hippopotame 1,5 à 3 tonnes, ours polaire mâle 400 à 700 kg."
+  },
+  "es": {
+   "q": "¿Quién pesa más? El más pesado primero.",
+   "a": [
+    "Ballena azul",
+    "Elefante africano",
+    "Hipopótamo",
+    "Oso polar"
+   ],
+   "x": "Ballena azul hasta unas 150 toneladas, elefante macho unas 6 toneladas, hipopótamo de 1,5 a 3 toneladas, oso polar macho de 400 a 700 kg."
+  }
+ },
+ {
+  "id": "r05",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer wird am ältesten? Ältestes zuerst.",
+   "a": [
+    "Grönlandhai",
+    "Riesenschildkröte",
+    "Asiatischer Elefant",
+    "Hund"
+   ],
+   "x": "Grönlandhai mehrere hundert Jahre, Riesenschildkröten weit über 100, Elefanten bis etwa 70, Hunde meist 10 bis 15 Jahre."
+  },
+  "en": {
+   "q": "Who lives longest? Oldest first.",
+   "a": [
+    "Greenland shark",
+    "Giant tortoise",
+    "Asian elephant",
+    "Dog"
+   ],
+   "x": "Greenland shark several hundred years, giant tortoises well over 100, elephants up to about 70, dogs usually 10 to 15 years."
+  },
+  "fr": {
+   "q": "Qui vit le plus longtemps ? Le plus âgé d’abord.",
+   "a": [
+    "Requin du Groenland",
+    "Tortue géante",
+    "Éléphant d’Asie",
+    "Chien"
+   ],
+   "x": "Requin du Groenland plusieurs siècles, tortue géante bien plus de 100 ans, éléphant jusqu’à environ 70, chien en général 10 à 15 ans."
+  },
+  "es": {
+   "q": "¿Quién vive más años? El más longevo primero.",
+   "a": [
+    "Tiburón de Groenlandia",
+    "Tortuga gigante",
+    "Elefante asiático",
+    "Perro"
+   ],
+   "x": "Tiburón de Groenlandia varios siglos, tortuga gigante mucho más de 100 años, elefante hasta unos 70, perro normalmente de 10 a 15 años."
+  }
+ },
+ {
+  "id": "r06",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer schläft am längsten pro Tag? Längster Schlaf zuerst.",
+   "a": [
+    "Koala",
+    "Hauskatze",
+    "Mensch",
+    "Giraffe"
+   ],
+   "x": "Koalas schlafen bis zu 20 Stunden, Katzen 12 bis 16, Erwachsene etwa 8 – und Giraffen oft weniger als 4 Stunden, in kurzen Häppchen."
+  },
+  "en": {
+   "q": "Who sleeps longest each day? Longest sleep first.",
+   "a": [
+    "Koala",
+    "Pet cat",
+    "Human",
+    "Giraffe"
+   ],
+   "x": "Koalas sleep up to 20 hours, cats 12 to 16, adults about 8 – and giraffes often less than 4 hours, in short bits."
+  },
+  "fr": {
+   "q": "Qui dort le plus par jour ? Le plus gros dormeur d’abord.",
+   "a": [
+    "Koala",
+    "Chat domestique",
+    "Humain",
+    "Girafe"
+   ],
+   "x": "Le koala dort jusqu’à 20 heures, le chat 12 à 16, l’adulte environ 8 – et la girafe souvent moins de 4 heures, par petits morceaux."
+  },
+  "es": {
+   "q": "¿Quién duerme más al día? El más dormilón primero.",
+   "a": [
+    "Koala",
+    "Gato doméstico",
+    "Humano",
+    "Jirafa"
+   ],
+   "x": "El koala duerme hasta 20 horas, el gato de 12 a 16, un adulto unas 8, y la jirafa a menudo menos de 4 horas, a ratos."
+  }
+ },
+ {
+  "id": "r07",
+  "lvl": 1,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist am höchsten (vom Boden bis zum Scheitel)? Höchstes zuerst.",
+   "a": [
+    "Giraffe",
+    "Afrikanischer Elefant",
+    "Strauß",
+    "Mensch"
+   ],
+   "x": "Giraffe bis 5,5 m, Elefant rund 4 m, Strauß bis etwa 2,7 m – der größte Vogel der Welt. Ein Mensch misst im Schnitt 1,70 m."
+  },
+  "en": {
+   "q": "Who is tallest (from the ground to the top of the head)? Tallest first.",
+   "a": [
+    "Giraffe",
+    "African elephant",
+    "Ostrich",
+    "Human"
+   ],
+   "x": "Giraffe up to 5.5 m, elephant around 4 m, ostrich up to about 2.7 m – the biggest bird in the world. A human averages 1.70 m."
+  },
+  "fr": {
+   "q": "Qui est le plus haut (du sol au sommet de la tête) ? Le plus haut d’abord.",
+   "a": [
+    "Girafe",
+    "Éléphant d’Afrique",
+    "Autruche",
+    "Humain"
+   ],
+   "x": "Girafe jusqu’à 5,5 m, éléphant environ 4 m, autruche jusqu’à 2,7 m environ – le plus grand oiseau du monde. Un humain mesure en moyenne 1,70 m."
+  },
+  "es": {
+   "q": "¿Quién es más alto (del suelo a la coronilla)? El más alto primero.",
+   "a": [
+    "Jirafa",
+    "Elefante africano",
+    "Avestruz",
+    "Humano"
+   ],
+   "x": "Jirafa hasta 5,5 m, elefante unos 4 m, avestruz hasta unos 2,7 m (el ave más grande del mundo). Un humano mide de media 1,70 m."
+  }
+ },
+ {
+  "id": "r08",
+  "lvl": 1,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wessen Ei ist am schwersten? Schwerstes zuerst.",
+   "a": [
+    "Strauß",
+    "Emu",
+    "Haushuhn",
+    "Kolibri"
+   ],
+   "x": "Ein Straußenei wiegt rund 1,5 kg – so viel wie über 20 Hühnereier. Emu-Eier etwa 600 g, Hühnereier 60 g, Kolibri-Eier nur rund ein halbes Gramm."
+  },
+  "en": {
+   "q": "Whose egg is heaviest? Heaviest first.",
+   "a": [
+    "Ostrich",
+    "Emu",
+    "Chicken",
+    "Hummingbird"
+   ],
+   "x": "An ostrich egg weighs about 1.5 kg – as much as over 20 hen’s eggs. Emu eggs about 600 g, hen’s eggs 60 g, hummingbird eggs only about half a gram."
+  },
+  "fr": {
+   "q": "Quel œuf est le plus lourd ? Le plus lourd d’abord.",
+   "a": [
+    "Autruche",
+    "Émeu",
+    "Poule",
+    "Colibri"
+   ],
+   "x": "Un œuf d’autruche pèse environ 1,5 kg – autant que plus de 20 œufs de poule. Œuf d’émeu environ 600 g, de poule 60 g, de colibri un demi-gramme à peine."
+  },
+  "es": {
+   "q": "¿De quién es el huevo más pesado? El más pesado primero.",
+   "a": [
+    "Avestruz",
+    "Emú",
+    "Gallina",
+    "Colibrí"
+   ],
+   "x": "Un huevo de avestruz pesa unos 1,5 kg, tanto como más de 20 huevos de gallina. El de emú unos 600 g, el de gallina 60 g y el de colibrí apenas medio gramo."
+  }
+ },
+ {
+  "id": "r09",
+  "lvl": 1,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer hat die meisten Beine? Die meisten zuerst.",
+   "a": [
+    "Tausendfüßer",
+    "Krabbe",
+    "Kreuzspinne",
+    "Maikäfer"
+   ],
+   "x": "Tausendfüßer haben je nach Art Dutzende bis Hunderte Beine (nie ganz 1000 – bis auf eine Art mit über 1300). Krabben haben 10, Spinnen 8, Käfer 6."
+  },
+  "en": {
+   "q": "Who has the most legs? Most first.",
+   "a": [
+    "Millipede",
+    "Crab",
+    "Garden spider",
+    "Cockchafer"
+   ],
+   "x": "Depending on the species, millipedes have dozens to hundreds of legs (one species has over 1,300). Crabs have 10, spiders 8, beetles 6."
+  },
+  "fr": {
+   "q": "Qui a le plus de pattes ? Le plus d’abord.",
+   "a": [
+    "Mille-pattes",
+    "Crabe",
+    "Épeire diadème",
+    "Hanneton"
+   ],
+   "x": "Selon l’espèce, le mille-pattes a des dizaines à des centaines de pattes (une espèce en a plus de 1300). Le crabe en a 10, l’araignée 8, le coléoptère 6."
+  },
+  "es": {
+   "q": "¿Quién tiene más patas? El que más primero.",
+   "a": [
+    "Milpiés",
+    "Cangrejo",
+    "Araña de jardín",
+    "Abejorro sanjuanero"
+   ],
+   "x": "Según la especie, el milpiés tiene de decenas a cientos de patas (una especie tiene más de 1.300). El cangrejo tiene 10, la araña 8 y el escarabajo 6."
+  }
+ },
+ {
+  "id": "r10",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist am längsten schwanger? Längste Tragzeit zuerst.",
+   "a": [
+    "Afrikanischer Elefant",
+    "Giraffe",
+    "Mensch",
+    "Hund"
+   ],
+   "x": "Elefanten tragen ihr Junges rund 22 Monate, Giraffen etwa 15, Menschen 9 – und Hunde nur gut 2 Monate."
+  },
+  "en": {
+   "q": "Who is pregnant the longest? Longest pregnancy first.",
+   "a": [
+    "African elephant",
+    "Giraffe",
+    "Human",
+    "Dog"
+   ],
+   "x": "Elephants carry their baby for about 22 months, giraffes about 15, humans 9 – and dogs only just over 2 months."
+  },
+  "fr": {
+   "q": "Qui porte son petit le plus longtemps ? La plus longue gestation d’abord.",
+   "a": [
+    "Éléphant d’Afrique",
+    "Girafe",
+    "Humain",
+    "Chien"
+   ],
+   "x": "L’éléphante porte son petit environ 22 mois, la girafe environ 15, l’humain 9 – et la chienne à peine plus de 2 mois."
+  },
+  "es": {
+   "q": "¿Quién tiene el embarazo más largo? El más largo primero.",
+   "a": [
+    "Elefante africano",
+    "Jirafa",
+    "Humano",
+    "Perro"
+   ],
+   "x": "La elefanta lleva a su cría unos 22 meses, la jirafa unos 15, el humano 9 y la perra solo algo más de 2 meses."
+  }
+ },
+ {
+  "id": "r11",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wessen Herz schlägt am schnellsten? Schnellstes zuerst.",
+   "a": [
+    "Etruskerspitzmaus",
+    "Hausmaus",
+    "Mensch",
+    "Blauwal"
+   ],
+   "x": "Die winzige Etruskerspitzmaus kommt auf über 1000 Schläge pro Minute, eine Maus auf 500 bis 600, ein Mensch auf etwa 70 – ein Blauwal beim Tauchen nur auf 2 bis 10."
+  },
+  "en": {
+   "q": "Whose heart beats fastest? Fastest first.",
+   "a": [
+    "Etruscan shrew",
+    "House mouse",
+    "Human",
+    "Blue whale"
+   ],
+   "x": "The tiny Etruscan shrew reaches over 1,000 beats a minute, a mouse 500 to 600, a human about 70 – a diving blue whale only 2 to 10."
+  },
+  "fr": {
+   "q": "Quel cœur bat le plus vite ? Le plus rapide d’abord.",
+   "a": [
+    "Pachyure étrusque",
+    "Souris domestique",
+    "Humain",
+    "Baleine bleue"
+   ],
+   "x": "La minuscule pachyure étrusque dépasse 1000 battements par minute, la souris 500 à 600, l’humain environ 70 – la baleine bleue en plongée seulement 2 à 10."
+  },
+  "es": {
+   "q": "¿Qué corazón late más rápido? El más rápido primero.",
+   "a": [
+    "Musgaño enano",
+    "Ratón doméstico",
+    "Humano",
+    "Ballena azul"
+   ],
+   "x": "El diminuto musgaño enano supera los 1.000 latidos por minuto, el ratón de 500 a 600, el humano unos 70 y la ballena azul al bucear solo de 2 a 10."
+  }
+ },
+ {
+  "id": "r12",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wessen Baby ist bei der Geburt am schwersten? Schwerstes zuerst.",
+   "a": [
+    "Blauwal",
+    "Afrikanischer Elefant",
+    "Mensch",
+    "Großer Panda"
+   ],
+   "x": "Ein Blauwalkalb wiegt rund 2,5 Tonnen, ein Elefantenbaby etwa 100 kg, ein Menschenbaby 3,5 kg – ein Pandababy nur rund 100 Gramm."
+  },
+  "en": {
+   "q": "Whose baby is heaviest at birth? Heaviest first.",
+   "a": [
+    "Blue whale",
+    "African elephant",
+    "Human",
+    "Giant panda"
+   ],
+   "x": "A blue whale calf weighs about 2.5 tonnes, a baby elephant about 100 kg, a human baby 3.5 kg – a panda cub only around 100 grams."
+  },
+  "fr": {
+   "q": "Quel bébé est le plus lourd à la naissance ? Le plus lourd d’abord.",
+   "a": [
+    "Baleine bleue",
+    "Éléphant d’Afrique",
+    "Humain",
+    "Panda géant"
+   ],
+   "x": "Un baleineau bleu pèse environ 2,5 tonnes, un éléphanteau environ 100 kg, un bébé humain 3,5 kg – un bébé panda à peine 100 grammes."
+  },
+  "es": {
+   "q": "¿Qué cría pesa más al nacer? La más pesada primero.",
+   "a": [
+    "Ballena azul",
+    "Elefante africano",
+    "Humano",
+    "Panda gigante"
+   ],
+   "x": "Una cría de ballena azul pesa unas 2,5 toneladas, la de elefante unos 100 kg, un bebé humano 3,5 kg y una cría de panda solo unos 100 gramos."
+  }
+ },
+ {
+  "id": "r13",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer fliegt am höchsten? Höchstes zuerst.",
+   "a": [
+    "Sperbergeier",
+    "Streifengans",
+    "Weißstorch",
+    "Amsel"
+   ],
+   "x": "Ein Sperbergeier stieß 1973 in über 11.000 m Höhe mit einem Flugzeug zusammen. Streifengänse überqueren den Himalaya in 7.000 bis 8.000 m. Störche ziehen meist in einigen hundert bis tausend Metern, Amseln bleiben nah am Boden."
+  },
+  "en": {
+   "q": "Who flies highest? Highest first.",
+   "a": [
+    "Rüppell’s vulture",
+    "Bar-headed goose",
+    "White stork",
+    "Blackbird"
+   ],
+   "x": "In 1973 a Rüppell’s vulture collided with a plane at over 11,000 m. Bar-headed geese cross the Himalayas at 7,000 to 8,000 m. Storks usually migrate at a few hundred to a thousand metres; blackbirds stay close to the ground."
+  },
+  "fr": {
+   "q": "Qui vole le plus haut ? Le plus haut d’abord.",
+   "a": [
+    "Vautour de Rüppell",
+    "Oie à tête barrée",
+    "Cigogne blanche",
+    "Merle noir"
+   ],
+   "x": "En 1973, un vautour de Rüppell a percuté un avion à plus de 11 000 m. L’oie à tête barrée franchit l’Himalaya à 7 000–8 000 m. La cigogne migre en général à quelques centaines ou milliers de mètres, le merle reste près du sol."
+  },
+  "es": {
+   "q": "¿Quién vuela más alto? El más alto primero.",
+   "a": [
+    "Buitre moteado",
+    "Ánsar indio",
+    "Cigüeña blanca",
+    "Mirlo"
+   ],
+   "x": "En 1973 un buitre moteado chocó con un avión a más de 11.000 m. El ánsar indio cruza el Himalaya a 7.000-8.000 m. La cigüeña migra normalmente a unos cientos o mil metros; el mirlo se queda cerca del suelo."
+  }
+ },
+ {
+  "id": "r14",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer taucht am tiefsten? Tiefstes zuerst.",
+   "a": [
+    "Cuvier-Schnabelwal",
+    "Pottwal",
+    "Kaiserpinguin",
+    "Mensch (ohne Gerät)"
+   ],
+   "x": "Cuvier-Schnabelwale tauchen fast 3.000 m tief, Pottwale über 2.000 m, Kaiserpinguine über 500 m. Freitaucher schaffen gut 100 m."
+  },
+  "en": {
+   "q": "Who dives deepest? Deepest first.",
+   "a": [
+    "Cuvier’s beaked whale",
+    "Sperm whale",
+    "Emperor penguin",
+    "Human (no equipment)"
+   ],
+   "x": "Cuvier’s beaked whales dive almost 3,000 m deep, sperm whales over 2,000 m, emperor penguins over 500 m. Free divers manage just over 100 m."
+  },
+  "fr": {
+   "q": "Qui plonge le plus profond ? Le plus profond d’abord.",
+   "a": [
+    "Baleine de Cuvier",
+    "Cachalot",
+    "Manchot empereur",
+    "Humain (sans matériel)"
+   ],
+   "x": "La baleine de Cuvier plonge à près de 3 000 m, le cachalot à plus de 2 000 m, le manchot empereur à plus de 500 m. Les apnéistes dépassent à peine 100 m."
+  },
+  "es": {
+   "q": "¿Quién bucea más hondo? El más profundo primero.",
+   "a": [
+    "Zifio de Cuvier",
+    "Cachalote",
+    "Pingüino emperador",
+    "Humano (sin equipo)"
+   ],
+   "x": "El zifio de Cuvier baja a casi 3.000 m, el cachalote a más de 2.000 m, el pingüino emperador a más de 500 m. Los apneístas pasan por poco de 100 m."
+  }
+ },
+ {
+  "id": "r15",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer hat die meisten Zähne? Die meisten zuerst.",
+   "a": [
+    "Großer Tümmler",
+    "Hund",
+    "Mensch",
+    "Großer Ameisenbär"
+   ],
+   "x": "Große Tümmler haben 80 bis 100 Zähne, Hunde 42, erwachsene Menschen 32. Der Ameisenbär hat gar keine – er schleckt Ameisen mit seiner langen Zunge auf."
+  },
+  "en": {
+   "q": "Who has the most teeth? Most first.",
+   "a": [
+    "Bottlenose dolphin",
+    "Dog",
+    "Human",
+    "Giant anteater"
+   ],
+   "x": "Bottlenose dolphins have 80 to 100 teeth, dogs 42, adult humans 32. The anteater has none at all – it licks up ants with its long tongue."
+  },
+  "fr": {
+   "q": "Qui a le plus de dents ? Le plus d’abord.",
+   "a": [
+    "Grand dauphin",
+    "Chien",
+    "Humain",
+    "Grand fourmilier"
+   ],
+   "x": "Le grand dauphin a 80 à 100 dents, le chien 42, l’humain adulte 32. Le fourmilier n’en a aucune – il lape les fourmis avec sa longue langue."
+  },
+  "es": {
+   "q": "¿Quién tiene más dientes? El que más primero.",
+   "a": [
+    "Delfín mular",
+    "Perro",
+    "Humano",
+    "Oso hormiguero gigante"
+   ],
+   "x": "El delfín mular tiene de 80 a 100 dientes, el perro 42 y el humano adulto 32. El oso hormiguero no tiene ninguno: atrapa las hormigas con su larga lengua."
+  }
+ },
+ {
+  "id": "r16",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer beißt am stärksten zu? Stärkstes zuerst.",
+   "a": [
+    "Leistenkrokodil",
+    "Flusspferd",
+    "Löwe",
+    "Mensch"
+   ],
+   "x": "Das Leistenkrokodil hat den stärksten je gemessenen Biss, etwa doppelt so stark wie ein Flusspferd. Ein Löwe beißt deutlich schwächer, ein Mensch nur mit einem Bruchteil davon."
+  },
+  "en": {
+   "q": "Who has the strongest bite? Strongest first.",
+   "a": [
+    "Saltwater crocodile",
+    "Hippo",
+    "Lion",
+    "Human"
+   ],
+   "x": "The saltwater crocodile has the strongest bite ever measured, about twice as strong as a hippo’s. A lion bites much more weakly, a human with just a fraction of that."
+  },
+  "fr": {
+   "q": "Qui a la morsure la plus puissante ? La plus forte d’abord.",
+   "a": [
+    "Crocodile marin",
+    "Hippopotame",
+    "Lion",
+    "Humain"
+   ],
+   "x": "Le crocodile marin a la morsure la plus forte jamais mesurée, environ deux fois celle de l’hippopotame. Le lion mord bien moins fort, l’humain avec une fraction seulement."
+  },
+  "es": {
+   "q": "¿Quién muerde con más fuerza? El más fuerte primero.",
+   "a": [
+    "Cocodrilo marino",
+    "Hipopótamo",
+    "León",
+    "Humano"
+   ],
+   "x": "El cocodrilo marino tiene la mordida más fuerte jamás medida, unas dos veces la del hipopótamo. El león muerde mucho más flojo y el humano con solo una fracción."
+  }
+ },
+ {
+  "id": "r17",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer hat die größte Flügelspannweite? Größte zuerst.",
+   "a": [
+    "Wanderalbatros",
+    "Andenkondor",
+    "Weißstorch",
+    "Amsel"
+   ],
+   "x": "Wanderalbatrosse messen bis 3,5 m von Flügelspitze zu Flügelspitze, Andenkondore gut 3 m, Störche etwa 2 m, Amseln knapp 40 cm."
+  },
+  "en": {
+   "q": "Who has the largest wingspan? Largest first.",
+   "a": [
+    "Wandering albatross",
+    "Andean condor",
+    "White stork",
+    "Blackbird"
+   ],
+   "x": "Wandering albatrosses measure up to 3.5 m from wingtip to wingtip, Andean condors just over 3 m, storks about 2 m, blackbirds just under 40 cm."
+  },
+  "fr": {
+   "q": "Qui a la plus grande envergure ? La plus grande d’abord.",
+   "a": [
+    "Albatros hurleur",
+    "Condor des Andes",
+    "Cigogne blanche",
+    "Merle noir"
+   ],
+   "x": "L’albatros hurleur mesure jusqu’à 3,5 m d’une pointe d’aile à l’autre, le condor un peu plus de 3 m, la cigogne environ 2 m, le merle à peine 40 cm."
+  },
+  "es": {
+   "q": "¿Quién tiene mayor envergadura? La mayor primero.",
+   "a": [
+    "Albatros viajero",
+    "Cóndor andino",
+    "Cigüeña blanca",
+    "Mirlo"
+   ],
+   "x": "El albatros viajero mide hasta 3,5 m de punta a punta de ala, el cóndor andino algo más de 3 m, la cigüeña unos 2 m y el mirlo poco menos de 40 cm."
+  }
+ },
+ {
+  "id": "r18",
+  "lvl": 1,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist am längsten? Längstes zuerst.",
+   "a": [
+    "Blauwal",
+    "Walhai",
+    "Weißer Hai",
+    "Großer Tümmler"
+   ],
+   "x": "Blauwale werden bis 30 m lang, Walhaie – die größten Fische – über 12 m, Weiße Haie bis etwa 6 m, Große Tümmler 2 bis 4 m."
+  },
+  "en": {
+   "q": "Who is longest? Longest first.",
+   "a": [
+    "Blue whale",
+    "Whale shark",
+    "Great white shark",
+    "Bottlenose dolphin"
+   ],
+   "x": "Blue whales grow up to 30 m long, whale sharks – the biggest fish – over 12 m, great whites up to about 6 m, bottlenose dolphins 2 to 4 m."
+  },
+  "fr": {
+   "q": "Qui est le plus long ? Le plus long d’abord.",
+   "a": [
+    "Baleine bleue",
+    "Requin-baleine",
+    "Grand requin blanc",
+    "Grand dauphin"
+   ],
+   "x": "La baleine bleue atteint 30 m, le requin-baleine – le plus grand poisson – plus de 12 m, le grand requin blanc environ 6 m, le grand dauphin 2 à 4 m."
+  },
+  "es": {
+   "q": "¿Quién es más largo? El más largo primero.",
+   "a": [
+    "Ballena azul",
+    "Tiburón ballena",
+    "Tiburón blanco",
+    "Delfín mular"
+   ],
+   "x": "La ballena azul llega a 30 m, el tiburón ballena (el pez más grande) a más de 12 m, el tiburón blanco a unos 6 m y el delfín mular a 2-4 m."
+  }
+ },
+ {
+  "id": "r19",
+  "lvl": 1,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist am LANGSAMSTEN unterwegs? Langsamstes zuerst.",
+   "a": [
+    "Gartenschnecke",
+    "Dreifingerfaultier",
+    "Spazierender Mensch",
+    "Galoppierendes Pferd"
+   ],
+   "x": "Eine Schnecke schafft nur ein paar Meter pro Stunde, ein Faultier etwa 200 bis 250 m. Ein Mensch spaziert mit rund 5 km/h, ein Pferd galoppiert mit über 40 km/h."
+  },
+  "en": {
+   "q": "Who moves the SLOWEST? Slowest first.",
+   "a": [
+    "Garden snail",
+    "Three-toed sloth",
+    "Walking human",
+    "Galloping horse"
+   ],
+   "x": "A snail manages only a few metres an hour, a sloth about 200 to 250 m. A human walks at about 5 km/h, a horse gallops at over 40 km/h."
+  },
+  "fr": {
+   "q": "Qui avance le plus LENTEMENT ? Le plus lent d’abord.",
+   "a": [
+    "Escargot des jardins",
+    "Paresseux à trois doigts",
+    "Humain qui se promène",
+    "Cheval au galop"
+   ],
+   "x": "L’escargot ne fait que quelques mètres par heure, le paresseux environ 200 à 250 m. L’humain marche à environ 5 km/h, le cheval galope à plus de 40 km/h."
+  },
+  "es": {
+   "q": "¿Quién va más LENTO? El más lento primero.",
+   "a": [
+    "Caracol de jardín",
+    "Perezoso de tres dedos",
+    "Humano paseando",
+    "Caballo al galope"
+   ],
+   "x": "Un caracol solo avanza unos metros por hora, un perezoso unos 200-250 m. Un humano pasea a unos 5 km/h y un caballo galopa a más de 40 km/h."
+  }
+ },
+ {
+  "id": "r20",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer hört die höchsten Töne? Höchste zuerst.",
+   "a": [
+    "Fledermaus",
+    "Delfin",
+    "Hund",
+    "Mensch"
+   ],
+   "x": "Manche Fledermäuse hören über 200.000 Schwingungen pro Sekunde (200 kHz), Delfine bis etwa 150 kHz, Hunde rund 45 kHz. Menschen hören höchstens bis 20 kHz – im Alter weniger."
+  },
+  "en": {
+   "q": "Who hears the highest sounds? Highest first.",
+   "a": [
+    "Bat",
+    "Dolphin",
+    "Dog",
+    "Human"
+   ],
+   "x": "Some bats hear over 200,000 vibrations a second (200 kHz), dolphins up to about 150 kHz, dogs around 45 kHz. Humans hear up to 20 kHz at most – less with age."
+  },
+  "fr": {
+   "q": "Qui entend les sons les plus aigus ? Le plus aigu d’abord.",
+   "a": [
+    "Chauve-souris",
+    "Dauphin",
+    "Chien",
+    "Humain"
+   ],
+   "x": "Certaines chauves-souris entendent plus de 200 000 vibrations par seconde (200 kHz), le dauphin jusqu’à environ 150 kHz, le chien environ 45 kHz. L’humain entend au mieux jusqu’à 20 kHz – moins avec l’âge."
+  },
+  "es": {
+   "q": "¿Quién oye los sonidos más agudos? El más agudo primero.",
+   "a": [
+    "Murciélago",
+    "Delfín",
+    "Perro",
+    "Humano"
+   ],
+   "x": "Algunos murciélagos oyen más de 200.000 vibraciones por segundo (200 kHz), el delfín hasta unos 150 kHz, el perro unos 45 kHz. El humano oye como mucho hasta 20 kHz, y menos con la edad."
+  }
+ },
+ {
+  "id": "r21",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wessen Körper ist am wärmsten? Wärmster zuerst.",
+   "a": [
+    "Haushuhn",
+    "Hund",
+    "Mensch",
+    "Schnabeltier"
+   ],
+   "x": "Vögel sind besonders warm: Hühner um 41 °C. Hunde haben etwa 38,5 °C, Menschen 37 °C, das Schnabeltier nur rund 32 °C."
+  },
+  "en": {
+   "q": "Whose body is warmest? Warmest first.",
+   "a": [
+    "Chicken",
+    "Dog",
+    "Human",
+    "Platypus"
+   ],
+   "x": "Birds are especially warm: chickens around 41 °C. Dogs are about 38.5 °C, humans 37 °C, the platypus only around 32 °C."
+  },
+  "fr": {
+   "q": "Quel corps est le plus chaud ? Le plus chaud d’abord.",
+   "a": [
+    "Poule",
+    "Chien",
+    "Humain",
+    "Ornithorynque"
+   ],
+   "x": "Les oiseaux sont très chauds : la poule environ 41 °C. Le chien a environ 38,5 °C, l’humain 37 °C, l’ornithorynque à peine 32 °C."
+  },
+  "es": {
+   "q": "¿Qué cuerpo está más caliente? El más caliente primero.",
+   "a": [
+    "Gallina",
+    "Perro",
+    "Humano",
+    "Ornitorrinco"
+   ],
+   "x": "Las aves son muy calientes: la gallina unos 41 °C. El perro tiene unos 38,5 °C, el humano 37 °C y el ornitorrinco solo unos 32 °C."
+  }
+ },
+ {
+  "id": "r22",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer war zuerst auf der Erde? Ältestes zuerst.",
+   "a": [
+    "Quallen",
+    "Haie",
+    "Dinosaurier",
+    "Menschen"
+   ],
+   "x": "Quallen gibt es seit über 500 Millionen Jahren, Haie seit über 400 Millionen, Dinosaurier tauchten vor rund 230 Millionen Jahren auf – unsere Art erst vor etwa 300.000 Jahren."
+  },
+  "en": {
+   "q": "Who was on Earth first? Oldest first.",
+   "a": [
+    "Jellyfish",
+    "Sharks",
+    "Dinosaurs",
+    "Humans"
+   ],
+   "x": "Jellyfish have existed for over 500 million years, sharks for over 400 million, dinosaurs appeared about 230 million years ago – our species only about 300,000 years ago."
+  },
+  "fr": {
+   "q": "Qui était sur Terre en premier ? Le plus ancien d’abord.",
+   "a": [
+    "Méduses",
+    "Requins",
+    "Dinosaures",
+    "Humains"
+   ],
+   "x": "Les méduses existent depuis plus de 500 millions d’années, les requins depuis plus de 400 millions, les dinosaures sont apparus il y a environ 230 millions d’années – notre espèce il y a environ 300 000 ans."
+  },
+  "es": {
+   "q": "¿Quién llegó antes a la Tierra? El más antiguo primero.",
+   "a": [
+    "Medusas",
+    "Tiburones",
+    "Dinosaurios",
+    "Humanos"
+   ],
+   "x": "Las medusas existen desde hace más de 500 millones de años, los tiburones desde hace más de 400 millones, los dinosaurios aparecieron hace unos 230 millones y nuestra especie hace solo unos 300.000 años."
+  }
+ },
+ {
+  "id": "r23",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Von welcher Gruppe kennt man die meisten Arten? Die meisten zuerst.",
+   "a": [
+    "Käfer",
+    "Vögel",
+    "Säugetiere",
+    "Haie"
+   ],
+   "x": "Von Käfern kennt man rund 400.000 Arten – fast jede vierte Tierart ist ein Käfer! Vögel gibt es rund 11.000 Arten, Säugetiere etwa 6.500, Haie gut 500."
+  },
+  "en": {
+   "q": "Which group has the most known species? Most first.",
+   "a": [
+    "Beetles",
+    "Birds",
+    "Mammals",
+    "Sharks"
+   ],
+   "x": "Around 400,000 beetle species are known – almost one in four animal species is a beetle! There are about 11,000 bird species, about 6,500 mammals and just over 500 sharks."
+  },
+  "fr": {
+   "q": "Quel groupe compte le plus d’espèces connues ? Le plus d’abord.",
+   "a": [
+    "Coléoptères",
+    "Oiseaux",
+    "Mammifères",
+    "Requins"
+   ],
+   "x": "On connaît environ 400 000 espèces de coléoptères – près d’une espèce animale sur quatre ! Il y a environ 11 000 espèces d’oiseaux, 6 500 de mammifères et un peu plus de 500 de requins."
+  },
+  "es": {
+   "q": "¿Qué grupo tiene más especies conocidas? El que más primero.",
+   "a": [
+    "Escarabajos",
+    "Aves",
+    "Mamíferos",
+    "Tiburones"
+   ],
+   "x": "Se conocen unas 400.000 especies de escarabajos: ¡casi una de cada cuatro especies animales! Hay unas 11.000 especies de aves, unas 6.500 de mamíferos y algo más de 500 de tiburones."
+  }
+ },
+ {
+  "id": "r24",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Welcher Vogel ist am schwersten? Schwerster zuerst.",
+   "a": [
+    "Strauß",
+    "Kaiserpinguin",
+    "Höckerschwan",
+    "Steinadler"
+   ],
+   "x": "Strauße wiegen über 100 kg, Kaiserpinguine 20 bis 40 kg, Höckerschwäne um 10 kg – einer der schwersten fliegenden Vögel. Steinadler bringen 3 bis 6 kg auf die Waage."
+  },
+  "en": {
+   "q": "Which bird is heaviest? Heaviest first.",
+   "a": [
+    "Ostrich",
+    "Emperor penguin",
+    "Mute swan",
+    "Golden eagle"
+   ],
+   "x": "Ostriches weigh over 100 kg, emperor penguins 20 to 40 kg, mute swans around 10 kg – one of the heaviest flying birds. Golden eagles weigh 3 to 6 kg."
+  },
+  "fr": {
+   "q": "Quel oiseau est le plus lourd ? Le plus lourd d’abord.",
+   "a": [
+    "Autruche",
+    "Manchot empereur",
+    "Cygne tuberculé",
+    "Aigle royal"
+   ],
+   "x": "L’autruche dépasse 100 kg, le manchot empereur pèse 20 à 40 kg, le cygne environ 10 kg – l’un des plus lourds oiseaux volants. L’aigle royal pèse 3 à 6 kg."
+  },
+  "es": {
+   "q": "¿Qué ave pesa más? La más pesada primero.",
+   "a": [
+    "Avestruz",
+    "Pingüino emperador",
+    "Cisne vulgar",
+    "Águila real"
+   ],
+   "x": "El avestruz supera los 100 kg, el pingüino emperador pesa de 20 a 40 kg, el cisne unos 10 kg (una de las aves voladoras más pesadas). El águila real pesa de 3 a 6 kg."
+  }
+ },
+ {
+  "id": "r25",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer lebt als erwachsenes Tier am KÜRZESTEN? Kürzestes Leben zuerst.",
+   "a": [
+    "Eintagsfliege",
+    "Sommer-Arbeitsbiene",
+    "Hausmaus",
+    "Hauskatze"
+   ],
+   "x": "Erwachsene Eintagsfliegen leben oft nur Stunden bis wenige Tage – als Larve aber bis zu drei Jahre. Arbeitsbienen im Sommer etwa 6 Wochen, Mäuse 1 bis 2 Jahre, Katzen um 15 Jahre."
+  },
+  "en": {
+   "q": "Who lives the SHORTEST as an adult? Shortest life first.",
+   "a": [
+    "Mayfly",
+    "Summer worker bee",
+    "House mouse",
+    "Pet cat"
+   ],
+   "x": "Adult mayflies often live only hours to a few days – but up to three years as larvae. Summer worker bees about 6 weeks, mice 1 to 2 years, cats around 15 years."
+  },
+  "fr": {
+   "q": "Qui vit le moins longtemps à l’âge adulte ? La vie la plus courte d’abord.",
+   "a": [
+    "Éphémère",
+    "Abeille ouvrière d’été",
+    "Souris domestique",
+    "Chat domestique"
+   ],
+   "x": "L’éphémère adulte ne vit souvent que quelques heures à quelques jours – mais jusqu’à trois ans à l’état de larve. L’ouvrière d’été environ 6 semaines, la souris 1 à 2 ans, le chat environ 15 ans."
+  },
+  "es": {
+   "q": "¿Quién vive MENOS de adulto? La vida más corta primero.",
+   "a": [
+    "Efímera",
+    "Abeja obrera de verano",
+    "Ratón doméstico",
+    "Gato doméstico"
+   ],
+   "x": "La efímera adulta suele vivir de horas a pocos días, pero como larva hasta tres años. La obrera de verano unas 6 semanas, el ratón de 1 a 2 años y el gato unos 15 años."
+  }
+ },
+ {
+  "id": "r26",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer legt auf einmal die meisten Eier? Die meisten zuerst.",
+   "a": [
+    "Mondfisch",
+    "Erdkröte",
+    "Meeresschildkröte",
+    "Kaiserpinguin"
+   ],
+   "x": "Ein Mondfisch-Weibchen kann rund 300 Millionen Eier tragen, eine Erdkröte legt Schnüre mit einigen tausend, Meeresschildkröten etwa 100 pro Gelege, Kaiserpinguine genau eins."
+  },
+  "en": {
+   "q": "Who lays the most eggs at once? Most first.",
+   "a": [
+    "Ocean sunfish",
+    "Common toad",
+    "Sea turtle",
+    "Emperor penguin"
+   ],
+   "x": "A female ocean sunfish can carry around 300 million eggs, a common toad lays strings with a few thousand, sea turtles about 100 per clutch, emperor penguins exactly one."
+  },
+  "fr": {
+   "q": "Qui pond le plus d’œufs en une fois ? Le plus d’abord.",
+   "a": [
+    "Poisson-lune",
+    "Crapaud commun",
+    "Tortue marine",
+    "Manchot empereur"
+   ],
+   "x": "Une femelle poisson-lune peut porter environ 300 millions d’œufs, le crapaud pond des cordons de quelques milliers, la tortue marine environ 100 par ponte, le manchot empereur un seul."
+  },
+  "es": {
+   "q": "¿Quién pone más huevos de una vez? El que más primero.",
+   "a": [
+    "Pez luna",
+    "Sapo común",
+    "Tortuga marina",
+    "Pingüino emperador"
+   ],
+   "x": "Una hembra de pez luna puede llevar unos 300 millones de huevos, el sapo pone cordones con unos miles, la tortuga marina unos 100 por puesta y el pingüino emperador, uno solo."
+  }
+ },
+ {
+  "id": "r27",
+  "lvl": 1,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist am kleinsten? Kleinstes zuerst.",
+   "a": [
+    "Bienenelfe (Kolibri)",
+    "Feldmaus",
+    "Eichhörnchen",
+    "Rotfuchs"
+   ],
+   "x": "Die Bienenelfe ist mit gut 5 cm der kleinste Vogel der Welt. Eine Feldmaus misst etwa 10 cm, ein Eichhörnchen gut 20 cm (ohne Schwanz), ein Fuchs rund 70 cm."
+  },
+  "en": {
+   "q": "Who is smallest? Smallest first.",
+   "a": [
+    "Bee hummingbird",
+    "Common vole",
+    "Red squirrel",
+    "Red fox"
+   ],
+   "x": "At just over 5 cm, the bee hummingbird is the smallest bird in the world. A vole is about 10 cm, a squirrel just over 20 cm (without tail), a fox around 70 cm."
+  },
+  "fr": {
+   "q": "Qui est le plus petit ? Le plus petit d’abord.",
+   "a": [
+    "Colibri d’Elena",
+    "Campagnol des champs",
+    "Écureuil roux",
+    "Renard roux"
+   ],
+   "x": "Avec à peine plus de 5 cm, le colibri d’Elena est le plus petit oiseau du monde. Le campagnol mesure environ 10 cm, l’écureuil un peu plus de 20 cm (sans la queue), le renard environ 70 cm."
+  },
+  "es": {
+   "q": "¿Quién es más pequeño? El más pequeño primero.",
+   "a": [
+    "Colibrí zunzuncito",
+    "Topillo campesino",
+    "Ardilla roja",
+    "Zorro rojo"
+   ],
+   "x": "Con algo más de 5 cm, el zunzuncito es el ave más pequeña del mundo. Un topillo mide unos 10 cm, una ardilla algo más de 20 cm (sin cola) y un zorro unos 70 cm."
+  }
+ },
+ {
+  "id": "r28",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer kann am längsten unter Wasser bleiben? Längste Zeit zuerst.",
+   "a": [
+    "Cuvier-Schnabelwal",
+    "Südlicher See-Elefant",
+    "Großer Tümmler",
+    "Fischotter"
+   ],
+   "x": "Rekord: ein Cuvier-Schnabelwal blieb fast 4 Stunden unten. See-Elefanten schaffen bis etwa 2 Stunden, Große Tümmler meist unter 10 Minuten, Fischotter wenige Minuten."
+  },
+  "en": {
+   "q": "Who can stay underwater longest? Longest first.",
+   "a": [
+    "Cuvier’s beaked whale",
+    "Southern elephant seal",
+    "Bottlenose dolphin",
+    "Eurasian otter"
+   ],
+   "x": "Record: a Cuvier’s beaked whale stayed down for almost 4 hours. Elephant seals manage up to about 2 hours, bottlenose dolphins usually under 10 minutes, otters a few minutes."
+  },
+  "fr": {
+   "q": "Qui peut rester le plus longtemps sous l’eau ? Le plus long d’abord.",
+   "a": [
+    "Baleine de Cuvier",
+    "Éléphant de mer du Sud",
+    "Grand dauphin",
+    "Loutre d’Europe"
+   ],
+   "x": "Record : une baleine de Cuvier est restée près de 4 heures sous l’eau. L’éléphant de mer tient jusqu’à environ 2 heures, le grand dauphin en général moins de 10 minutes, la loutre quelques minutes."
+  },
+  "es": {
+   "q": "¿Quién aguanta más bajo el agua? El que más primero.",
+   "a": [
+    "Zifio de Cuvier",
+    "Elefante marino del sur",
+    "Delfín mular",
+    "Nutria europea"
+   ],
+   "x": "Récord: un zifio de Cuvier estuvo casi 4 horas sumergido. El elefante marino aguanta hasta unas 2 horas, el delfín mular normalmente menos de 10 minutos y la nutria unos minutos."
+  }
+ },
+ {
+  "id": "r29",
+  "lvl": 2,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wer ist an Land am schnellsten? Schnellstes zuerst.",
+   "a": [
+    "Strauß",
+    "Rotfuchs",
+    "Eichhörnchen",
+    "Igel"
+   ],
+   "x": "Strauße laufen bis 70 km/h – der schnellste Vogel zu Fuß. Füchse schaffen etwa 50, Eichhörnchen gut 20 km/h. Ein Igel trippelt höchstens rund 9 km/h."
+  },
+  "en": {
+   "q": "Who is fastest on land? Fastest first.",
+   "a": [
+    "Ostrich",
+    "Red fox",
+    "Red squirrel",
+    "Hedgehog"
+   ],
+   "x": "Ostriches run up to 70 km/h – the fastest bird on foot. Foxes manage about 50, squirrels just over 20 km/h. A hedgehog scurries at about 9 km/h at most."
+  },
+  "fr": {
+   "q": "Qui est le plus rapide sur terre ? Le plus rapide d’abord.",
+   "a": [
+    "Autruche",
+    "Renard roux",
+    "Écureuil roux",
+    "Hérisson"
+   ],
+   "x": "L’autruche court jusqu’à 70 km/h – l’oiseau le plus rapide à pied. Le renard atteint environ 50, l’écureuil un peu plus de 20 km/h. Le hérisson trottine à 9 km/h au plus."
+  },
+  "es": {
+   "q": "¿Quién es más rápido en tierra? El más rápido primero.",
+   "a": [
+    "Avestruz",
+    "Zorro rojo",
+    "Ardilla roja",
+    "Erizo"
+   ],
+   "x": "El avestruz corre hasta 70 km/h, el ave más rápida a pie. El zorro llega a unos 50 y la ardilla a algo más de 20 km/h. El erizo trota como mucho a unos 9 km/h."
+  }
+ },
+ {
+  "id": "r30",
+  "lvl": 3,
+  "type": "rank",
+  "right": 0,
+  "de": {
+   "q": "Wessen Gehirn ist am schwersten? Schwerstes zuerst.",
+   "a": [
+    "Pottwal",
+    "Afrikanischer Elefant",
+    "Mensch",
+    "Schimpanse"
+   ],
+   "x": "Das Pottwal-Gehirn wiegt rund 8 kg – das schwerste im Tierreich. Elefanten haben etwa 5 kg, Menschen 1,3 bis 1,4 kg, Schimpansen knapp 400 g."
+  },
+  "en": {
+   "q": "Whose brain is heaviest? Heaviest first.",
+   "a": [
+    "Sperm whale",
+    "African elephant",
+    "Human",
+    "Chimpanzee"
+   ],
+   "x": "A sperm whale’s brain weighs about 8 kg – the heaviest in the animal kingdom. Elephants have about 5 kg, humans 1.3 to 1.4 kg, chimpanzees just under 400 g."
+  },
+  "fr": {
+   "q": "Quel cerveau est le plus lourd ? Le plus lourd d’abord.",
+   "a": [
+    "Cachalot",
+    "Éléphant d’Afrique",
+    "Humain",
+    "Chimpanzé"
+   ],
+   "x": "Le cerveau du cachalot pèse environ 8 kg – le plus lourd du règne animal. L’éléphant en a environ 5 kg, l’humain 1,3 à 1,4 kg, le chimpanzé à peine 400 g."
+  },
+  "es": {
+   "q": "¿Qué cerebro pesa más? El más pesado primero.",
+   "a": [
+    "Cachalote",
+    "Elefante africano",
+    "Humano",
+    "Chimpancé"
+   ],
+   "x": "El cerebro del cachalote pesa unos 8 kg, el más pesado del reino animal. El del elefante unos 5 kg, el humano de 1,3 a 1,4 kg y el del chimpancé poco menos de 400 g."
+  }
+ }
+]

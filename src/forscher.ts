@@ -7,8 +7,8 @@ import { BANK, BankQuestion } from './quizBank';
 
 export const ROUND_SIZE = 10;
 export const TIME_TEXT = 15; // Sekunden für Text- und Wahr/Falsch-Fragen
-export const TIME_IMAGE = 12; // Sekunden für Bildfragen (4 Tiere)
 export const TIME_DUEL = 10; // Sekunden für „Wer ist …?“ mit zwei Tieren
+export const TIME_RANK = 20; // Sekunden für eine Rangliste mit 4 Einträgen
 const XP_RIGHT = 4; // richtige Antwort
 const XP_FAST = 2; // Bonus: in den ersten 5 Sekunden
 const XP_QUICK = 1; // Bonus: in den ersten 10 Sekunden
@@ -42,12 +42,24 @@ export async function resetForscher(): Promise<void> {
 }
 
 export const byId = new Map<string, BankQuestion>(BANK.map((q) => [q.id, q]));
-export const timeFor = (q: BankQuestion) => (q.type === 'image' ? TIME_IMAGE : q.type === 'duel' ? TIME_DUEL : TIME_TEXT);
+export const timeFor = (q: BankQuestion) => (q.type === 'rank' ? TIME_RANK : q.type === 'duel' ? TIME_DUEL : TIME_TEXT);
+
+// Rangliste: die getippte Reihenfolge wird als eine Zahl gespeichert (10000 + Stellen), richtig ist immer 10123.
+// In der Fragenbank stehen die Einträge schon richtig sortiert; angezeigt werden sie gemischt.
+export const encodeRank = (picked: number[]) => 10000 + picked.reduce((n, i) => n * 10 + i, 0);
+export const decodeRank = (v: number): number[] | null => (v >= 10000 ? String(v - 10000).padStart(4, '0').split('').map(Number) : null);
+export function rankOrder(q: BankQuestion): number[] {
+  const rand = rng([...q.id].reduce((h, c) => h * 31 + c.charCodeAt(0), 7));
+  let order = [0, 1, 2, 3];
+  while (order.every((v, i) => v === i)) order = [0, 1, 2, 3].map((i) => ({ i, k: rand() })).sort((a, b) => a.k - b.k).map(({ i }) => i);
+  return order;
+}
 
 // XP für eine Antwort
 export function answerXp(q: BankQuestion, answer: number, ms: number): number {
   if (answer !== q.right) return 0;
-  return XP_RIGHT + (ms <= 5000 ? XP_FAST : ms <= 10000 ? XP_QUICK : 0);
+  const [fast, quick] = q.type === 'rank' ? [8000, 14000] : [5000, 10000]; // Ranglisten brauchen länger
+  return XP_RIGHT + (ms <= fast ? XP_FAST : ms <= quick ? XP_QUICK : 0);
 }
 
 export function roundXp(r: Round): number {
@@ -98,7 +110,7 @@ function rng(seed: number) {
 }
 
 // 10 Fragen: am liebsten lange nicht (oder nie) gesehene; 3 mittel, 4 schwer, 3 sehr schwer, aufsteigend.
-// Abwechslung: je eine Frage mit 4 Tierbildern, mit einem großen Bild (Spur, Umriss, Fundstück) und ein Duell.
+// Abwechslung: je eine Rangliste, eine Frage mit großem Bild (Spur, Umriss, Fundstück) und ein Duell.
 function pickRound(log: ForscherLog, day: number): string[] {
   const rand = rng(day * 2654435761);
   // Nie gesehene Fragen zuerst. Sind alle durch: erst die, die man falsch hatte (zum Lernen), dann die ältesten.
@@ -117,7 +129,7 @@ function pickRound(log: ForscherLog, day: number): string[] {
       max--;
     }
   };
-  for (const type of ['image', 'pic', 'duel']) take((q) => q.type === type);
+  for (const type of ['rank', 'pic', 'duel']) take((q) => q.type === type);
   for (const lvl of [1, 2, 3]) take((q) => q.lvl === lvl, want[lvl]);
   // zu wenige einer Stufe: mit beliebigen auffüllen
   for (const { q } of pool) {
