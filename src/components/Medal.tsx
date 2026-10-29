@@ -273,6 +273,90 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           </SvgText>
         </G>
       );
+    case 'quizFirst': // aufgeschlagenes Buch
+      return (
+        <G>
+          <Path d="M-12 -7 Q-6 -9 0 -6 V9 Q-6 6 -12 8 Z" fill={c('#FFF4C2')} />
+          <Path d="M12 -7 Q6 -9 0 -6 V9 Q6 6 12 8 Z" fill={c('#FFFFFF')} />
+          <Path d="M-9.5 -3 Q-6 -4.4 -2.5 -2.6 M-9.5 0.5 Q-6 -0.9 -2.5 0.9 M-9.5 4 Q-6 2.6 -2.5 4.4 M2.5 -2.6 Q6 -4.4 9.5 -3 M2.5 0.9 Q6 -0.9 9.5 0.5" stroke={c('#C7A978')} strokeWidth={0.9} fill="none" strokeLinecap="round" />
+          <SvgText x={6} y={7.6} fontSize={7} fontWeight="bold" fill={c('#E8833A')} textAnchor="middle">
+            ?
+          </SvgText>
+        </G>
+      );
+    case 'quizPerfect': // Stern mit 10
+      return (
+        <G>
+          <Path d="M0.0 -12.0 L3.3 -3.5 L12.4 -3.0 L5.3 2.7 L7.6 11.5 L0.0 6.6 L-7.6 11.5 L-5.3 2.7 L-12.4 -3.0 L-3.3 -3.5 Z" fill={c('#FFD45E')} stroke={c('#9A6B12')} strokeWidth={0.8} strokeLinejoin="round" />
+          <SvgText x={0} y={4.6} fontSize={7.5} fontWeight="bold" fill={c('#7A4A1E')} textAnchor="middle">
+            10
+          </SvgText>
+        </G>
+      );
+    case 'quizStreak7': // Kalender mit 7
+      return (
+        <G>
+          <Path d="M-10 -8 Q-11 -8 -11 -7 V10 Q-11 11 -10 11 H10 Q11 11 11 10 V-7 Q11 -8 10 -8 Z" fill={c('#FFFFFF')} />
+          <Path d="M-11 -7 Q-11 -8 -10 -8 H10 Q11 -8 11 -7 V-2 H-11 Z" fill={c('#E8833A')} />
+          <Path d="M-5 -11 V-5 M5 -11 V-5" stroke={c('#FFF4C2')} strokeWidth={2} strokeLinecap="round" />
+          <SvgText x={0} y={9} fontSize={11} fontWeight="bold" fill={c('#143F2A')} textAnchor="middle">
+            7
+          </SvgText>
+        </G>
+      );
+    case 'quizStreak30': // Lorbeerkranz mit 30
+      return (
+        <G>
+          <Path d="M-3 12 Q-13 8 -11 -6 M3 12 Q13 8 11 -6" stroke={c('#7CC46A')} strokeWidth={1.2} fill="none" />
+          {[0, 1, 2, 3, 4].map((i) => {
+            const y = 9 - i * 3.6;
+            const x = -8.5 - Math.sin(i * 0.7) * 2.4;
+            return (
+              <G key={i}>
+                <Ellipse cx={x} cy={y} rx={1.6} ry={3} transform={`rotate(${-40 + i * 8} ${x} ${y})`} fill={c('#7CC46A')} />
+                <Ellipse cx={-x} cy={y} rx={1.6} ry={3} transform={`rotate(${40 - i * 8} ${-x} ${y})`} fill={c('#7CC46A')} />
+              </G>
+            );
+          })}
+          <SvgText x={0} y={4} fontSize={10} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
+            30
+          </SvgText>
+        </G>
+      );
+    case 'quiz100': // Doktorhut
+      return (
+        <G>
+          <Path d="M-7 0 V6 Q0 10 7 6 V0 Z" fill={c('#E8DDF7')} />
+          <Path d="M0 -9 L13 -3 L0 3 L-13 -3 Z" fill={c('#FFF4C2')} stroke={c('#9A6B12')} strokeWidth={0.8} strokeLinejoin="round" />
+          <Path d="M0 -3 L9 -0.5 V7" stroke={c('#E8833A')} strokeWidth={1.2} fill="none" />
+          <Circle cx={9} cy={8.5} r={1.8} fill={c('#E8833A')} />
+          <Circle cx={0} cy={-3} r={1.2} fill={c('#9A6B12')} />
+        </G>
+      );
+    case 'quizRank': // Treppchen 2-1-3
+      return (
+        <G>
+          <Path d="M-13 0 H-4.5 V10 H-13 Z" fill={c('#D5DDE4')} />
+          <Path d="M-4.5 -7 H4.5 V10 H-4.5 Z" fill={c('#FFD45E')} />
+          <Path d="M4.5 3 H13 V10 H4.5 Z" fill={c('#E0A36A')} />
+          <SvgText x={0} y={0} fontSize={8} fontWeight="bold" fill={c('#7A4A1E')} textAnchor="middle">1</SvgText>
+          <SvgText x={-8.75} y={7} fontSize={6.5} fontWeight="bold" fill={c('#5B6670')} textAnchor="middle">2</SvgText>
+          <SvgText x={8.75} y={9} fontSize={5.5} fontWeight="bold" fill={c('#7A4A1E')} textAnchor="middle">3</SvgText>
+        </G>
+      );
+    case 'quizTracks': // Trittsiegel eines Rehs
+      return (
+        <G transform="scale(0.74) translate(-32 -31)" fill={c('#FFF3E6')}>
+          <Path d="M30.8 13 C26.5 19 24.5 30 25.2 40 C25.7 46.5 28.5 49.5 30.8 48.5Z" />
+          <Path d="M33.2 13 C37.5 19 39.5 30 38.8 40 C38.3 46.5 35.5 49.5 33.2 48.5Z" />
+        </G>
+      );
+    case 'quizFast': // Blitz
+      return (
+        <G>
+          <Path d="M3 -14 L-9 2 H-1 L-4 14 L9 -3 H1 Z" fill={c('#FFD45E')} stroke={c('#E8833A')} strokeWidth={1} strokeLinejoin="round" />
+        </G>
+      );
     case 'team3': // drei Köpfe
       return (
         <G>

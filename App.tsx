@@ -31,7 +31,7 @@ import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
 import { computeProgress, computeReward, dayKey, XP } from './src/progress';
 import { correctAnswers, loadQuiz, QuizLog } from './src/quiz';
-import { ForscherLog, forscherTotals, loadForscher } from './src/forscher';
+import { ForscherLog, forscherStats, forscherTotals, loadForscher } from './src/forscher';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
@@ -161,7 +161,7 @@ function Main() {
   const quizTotals = (log: QuizLog, f: ForscherLog) => {
     const old = correctAnswers(log);
     const now = forscherTotals(f);
-    return { xp: old * XP.quiz + now.xp, correct: old + now.correct };
+    return { xp: old * XP.quiz + now.xp, correct: old + now.correct, stats: forscherStats(f) };
   };
   const forscherRef = useRef(forscher);
   forscherRef.current = forscher;

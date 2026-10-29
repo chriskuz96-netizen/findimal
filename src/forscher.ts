@@ -84,6 +84,33 @@ export function forscherTotals(log: ForscherLog): { xp: number; correct: number 
   return { xp, correct };
 }
 
+// Kennzahlen für die Quiz-Abzeichen
+export type ForscherStats = { rounds: number; perfect: boolean; bestStreak: number; rankRight: number; picRight: number; fastRight: number };
+export function forscherStats(log: ForscherLog): ForscherStats {
+  const st: ForscherStats = { rounds: 0, perfect: false, bestStreak: 0, rankRight: 0, picRight: 0, fastRight: 0 };
+  const days = Object.keys(log.rounds)
+    .filter((d) => log.rounds[d].done)
+    .map(Number)
+    .sort((a, b) => a - b);
+  let run = 0;
+  days.forEach((d, i) => {
+    run = i > 0 && days[i - 1] === d - 1 ? run + 1 : 1;
+    st.bestStreak = Math.max(st.bestStreak, run);
+  });
+  for (const r of Object.values(log.rounds)) {
+    if (r.done) st.rounds++;
+    if (r.done && roundCorrect(r) === r.q.length) st.perfect = true;
+    r.q.forEach((id, i) => {
+      const q = byId.get(id);
+      if (!q || i >= r.a.length || r.a[i] !== q.right) return;
+      if (q.type === 'rank') st.rankRight++;
+      if (q.type === 'pic') st.picRight++;
+      if (r.ms[i] <= 5000) st.fastRight++;
+    });
+  }
+  return st;
+}
+
 export const todayRound = (log: ForscherLog, day = dayNo()): Round | undefined => log.rounds[String(day)];
 export const doneToday = (log: ForscherLog, day = dayNo()) => !!todayRound(log, day)?.done;
 

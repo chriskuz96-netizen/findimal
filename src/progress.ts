@@ -1,4 +1,5 @@
 import { Find, speciesKey } from './finds';
+import type { ForscherStats } from './forscher';
 import { GroupId, groupOf } from './groups';
 import { breedGuessed } from './names';
 import { seasonId } from './season';
@@ -61,6 +62,14 @@ export type BadgeId =
   | 'seasonAll'
   | 'rare'
   | 'quiz25'
+  | 'quizFirst'
+  | 'quizPerfect'
+  | 'quizStreak7'
+  | 'quizStreak30'
+  | 'quiz100'
+  | 'quizRank'
+  | 'quizTracks'
+  | 'quizFast'
   | 'team3'
   | 'streak30'
   | 'breeds5'
@@ -105,6 +114,14 @@ export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
   seasonAll: 'gold',
   rare: 'silver',
   quiz25: 'bronze',
+  quizFirst: 'bronze',
+  quizPerfect: 'gold',
+  quizStreak7: 'silver',
+  quizStreak30: 'gold',
+  quiz100: 'silver',
+  quizRank: 'silver',
+  quizTracks: 'silver',
+  quizFast: 'silver',
   team3: 'bronze',
   streak30: 'gold',
   breeds5: 'bronze',
@@ -223,7 +240,7 @@ const kinds = (finds: Find[], ok: (f: Find) => boolean) => new Set(finds.filter(
 // quiz: XP und richtige Antworten aus allen Quiz-Runden (Forscher-Quiz und frühere Einzelfragen)
 export function computeProgress(
   finds: Find[],
-  quiz: { xp: number; correct: number },
+  quiz: { xp: number; correct: number; stats?: ForscherStats },
   now = new Date(),
   extra: { bestRank?: number | null; maxFriends?: number } = {},
 ): Progress {
@@ -277,6 +294,7 @@ export function computeProgress(
     return h >= 5 && h < 7;
   });
 
+  const qs = quiz.stats;
   const badges: Badge[] = [
     { id: 'first', earned: finds.length >= 1 },
     { id: 'insects5', earned: countGroup('ins') >= 5 },
@@ -302,6 +320,15 @@ export function computeProgress(
     { id: 'seasonAll', earned: seasonComplete(finds) },
     { id: 'rare', earned: finds.some((f) => f.animal.gefaehrdet) },
     { id: 'quiz25', earned: quiz.correct >= 25 },
+    // Forscher-Quiz
+    { id: 'quizFirst', earned: (qs?.rounds ?? 0) >= 1 },
+    { id: 'quizStreak7', earned: (qs?.bestStreak ?? 0) >= 7 },
+    { id: 'quiz100', earned: quiz.correct >= 100 },
+    { id: 'quizRank', earned: (qs?.rankRight ?? 0) >= 10 },
+    { id: 'quizTracks', earned: (qs?.picRight ?? 0) >= 10 },
+    { id: 'quizFast', earned: (qs?.fastRight ?? 0) >= 25 },
+    { id: 'quizPerfect', earned: !!qs?.perfect },
+    { id: 'quizStreak30', earned: (qs?.bestStreak ?? 0) >= 30 },
     { id: 'team3', earned: (extra.maxFriends ?? 0) >= 3 },
     { id: 'streak30', earned: longestStreak(finds) >= 30 },
     { id: 'breeds5', earned: breedCount(finds) >= 5 },
