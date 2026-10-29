@@ -1,0 +1,2602 @@
+[
+ {
+  "id": "c01",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-crab",
+   "p-octopus",
+   "p-shark",
+   "p-snail"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Welches dieser Tiere hat drei Herzen?",
+   "a": [
+    "Krabbe",
+    "Krake",
+    "Hai",
+    "Schnecke"
+   ],
+   "x": "Kraken haben zwei Kiemenherzen und ein Körperherz, das ihr blaues Blut durch den Körper pumpt."
+  },
+  "en": {
+   "q": "Which of these animals has three hearts?",
+   "a": [
+    "Crab",
+    "Octopus",
+    "Shark",
+    "Snail"
+   ],
+   "x": "Octopuses have two gill hearts and one main heart that pumps their blue blood around the body."
+  },
+  "fr": {
+   "q": "Lequel de ces animaux a trois cœurs ?",
+   "a": [
+    "Crabe",
+    "Pieuvre",
+    "Requin",
+    "Escargot"
+   ],
+   "x": "La pieuvre a deux cœurs branchiaux et un cœur principal qui pompe son sang bleu dans le corps."
+  },
+  "es": {
+   "q": "¿Cuál de estos animales tiene tres corazones?",
+   "a": [
+    "Cangrejo",
+    "Pulpo",
+    "Tiburón",
+    "Caracol"
+   ],
+   "x": "El pulpo tiene dos corazones branquiales y uno principal que bombea su sangre azul por el cuerpo."
+  }
+ },
+ {
+  "id": "c02",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-squirrel",
+   "p-deer",
+   "p-fox",
+   "p-hedgehog"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer hält einen echten Winterschlaf?",
+   "a": [
+    "Eichhörnchen",
+    "Reh",
+    "Fuchs",
+    "Igel"
+   ],
+   "x": "Im Winterschlaf sinkt die Körpertemperatur des Igels auf etwa 5 °C. Eichhörnchen halten nur Winterruhe."
+  },
+  "en": {
+   "q": "Which animal truly hibernates?",
+   "a": [
+    "Squirrel",
+    "Roe deer",
+    "Fox",
+    "Hedgehog"
+   ],
+   "x": "In hibernation a hedgehog's body temperature drops to about 5 °C. Squirrels only rest and wake often to eat."
+  },
+  "fr": {
+   "q": "Lequel de ces animaux hiberne vraiment ?",
+   "a": [
+    "Écureuil",
+    "Chevreuil",
+    "Renard",
+    "Hérisson"
+   ],
+   "x": "En hibernation, la température du hérisson descend à environ 5 °C. L'écureuil se réveille souvent pour manger."
+  },
+  "es": {
+   "q": "¿Cuál de estos animales hiberna de verdad?",
+   "a": [
+    "Ardilla",
+    "Corzo",
+    "Zorro",
+    "Erizo"
+   ],
+   "x": "Al hibernar, el erizo baja su temperatura a unos 5 °C. La ardilla solo descansa y despierta a menudo para comer."
+  }
+ },
+ {
+  "id": "c03",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-ladybug",
+   "p-octopus",
+   "p-snail",
+   "p-crab"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Welches Tier hat genau sechs Beine?",
+   "a": [
+    "Marienkäfer",
+    "Krake",
+    "Schnecke",
+    "Krabbe"
+   ],
+   "x": "Alle Insekten haben sechs Beine – auch der Marienkäfer. Krabben haben zehn Beine, Kraken acht Arme."
+  },
+  "en": {
+   "q": "Which animal has exactly six legs?",
+   "a": [
+    "Ladybird",
+    "Octopus",
+    "Snail",
+    "Crab"
+   ],
+   "x": "All insects have six legs, including the ladybird. Crabs have ten legs and octopuses eight arms."
+  },
+  "fr": {
+   "q": "Quel animal a exactement six pattes ?",
+   "a": [
+    "Coccinelle",
+    "Pieuvre",
+    "Escargot",
+    "Crabe"
+   ],
+   "x": "Tous les insectes ont six pattes, coccinelle comprise. Le crabe en a dix et la pieuvre a huit bras."
+  },
+  "es": {
+   "q": "¿Qué animal tiene exactamente seis patas?",
+   "a": [
+    "Mariquita",
+    "Pulpo",
+    "Caracol",
+    "Cangrejo"
+   ],
+   "x": "Todos los insectos tienen seis patas, también la mariquita. El cangrejo tiene diez y el pulpo ocho brazos."
+  }
+ },
+ {
+  "id": "c04",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-turtle",
+   "p-shark",
+   "p-penguin",
+   "p-frog"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wessen Skelett besteht nicht aus Knochen, sondern aus Knorpel?",
+   "a": [
+    "Schildkröte",
+    "Hai",
+    "Pinguin",
+    "Frosch"
+   ],
+   "x": "Haie sind Knorpelfische. Knorpel ist leichter und biegsamer als Knochen – wie in unserer Nase."
+  },
+  "en": {
+   "q": "Whose skeleton is made of cartilage instead of bone?",
+   "a": [
+    "Turtle",
+    "Shark",
+    "Penguin",
+    "Frog"
+   ],
+   "x": "Sharks are cartilaginous fish. Cartilage is lighter and more flexible than bone – like in our nose."
+  },
+  "fr": {
+   "q": "Quel animal a un squelette fait de cartilage et non d'os ?",
+   "a": [
+    "Tortue",
+    "Requin",
+    "Manchot",
+    "Grenouille"
+   ],
+   "x": "Le requin est un poisson cartilagineux. Le cartilage est plus léger et souple que l'os, comme dans notre nez."
+  },
+  "es": {
+   "q": "¿Qué animal tiene un esqueleto de cartílago en vez de hueso?",
+   "a": [
+    "Tortuga",
+    "Tiburón",
+    "Pingüino",
+    "Rana"
+   ],
+   "x": "El tiburón es un pez cartilaginoso. El cartílago es más ligero y flexible que el hueso, como el de la nariz."
+  }
+ },
+ {
+  "id": "c05",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-parrot",
+   "p-eagle",
+   "p-owl",
+   "p-flamingo"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Welcher Vogel verdankt seine Farbe seiner Nahrung?",
+   "a": [
+    "Papagei",
+    "Adler",
+    "Eule",
+    "Flamingo"
+   ],
+   "x": "Flamingos fressen Algen und Kleinkrebse voller Carotinoide. Ohne diese Farbstoffe würden sie blass."
+  },
+  "en": {
+   "q": "Which bird gets its colour from its food?",
+   "a": [
+    "Parrot",
+    "Eagle",
+    "Owl",
+    "Flamingo"
+   ],
+   "x": "Flamingos eat algae and tiny shrimp full of carotenoids. Without these pigments they would turn pale."
+  },
+  "fr": {
+   "q": "Quel oiseau doit sa couleur à sa nourriture ?",
+   "a": [
+    "Perroquet",
+    "Aigle",
+    "Chouette",
+    "Flamant rose"
+   ],
+   "x": "Le flamant rose mange des algues et petites crevettes riches en caroténoïdes. Sans eux, il pâlirait."
+  },
+  "es": {
+   "q": "¿Qué ave debe su color a su alimento?",
+   "a": [
+    "Loro",
+    "Águila",
+    "Búho",
+    "Flamenco"
+   ],
+   "x": "El flamenco come algas y pequeños crustáceos con carotenoides. Sin esos pigmentos se volvería pálido."
+  }
+ },
+ {
+  "id": "c06",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-eagle",
+   "p-owl",
+   "p-parrot",
+   "p-penguin"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Welcher Vogel kann seinen Kopf um bis zu 270 Grad drehen?",
+   "a": [
+    "Adler",
+    "Eule",
+    "Papagei",
+    "Pinguin"
+   ],
+   "x": "Eulenaugen sind in ihren Höhlen fast unbeweglich. Das gleicht die Eule mit ihrem extrem beweglichen Hals aus."
+  },
+  "en": {
+   "q": "Which bird can turn its head up to 270 degrees?",
+   "a": [
+    "Eagle",
+    "Owl",
+    "Parrot",
+    "Penguin"
+   ],
+   "x": "An owl's eyes can barely move in their sockets. It makes up for this with an extremely flexible neck."
+  },
+  "fr": {
+   "q": "Quel oiseau peut tourner la tête jusqu'à 270 degrés ?",
+   "a": [
+    "Aigle",
+    "Chouette",
+    "Perroquet",
+    "Manchot"
+   ],
+   "x": "Les yeux de la chouette bougent à peine dans leurs orbites. Elle compense avec un cou très souple."
+  },
+  "es": {
+   "q": "¿Qué ave puede girar la cabeza hasta 270 grados?",
+   "a": [
+    "Águila",
+    "Búho",
+    "Loro",
+    "Pingüino"
+   ],
+   "x": "Los ojos del búho apenas se mueven en sus órbitas. Lo compensa con un cuello extremadamente flexible."
+  }
+ },
+ {
+  "id": "c07",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-otter",
+   "p-squirrel",
+   "p-panda",
+   "p-tiger"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Welches Tier hat einen verlängerten Handgelenksknochen, der wie ein zusätzlicher Daumen wirkt?",
+   "a": [
+    "Otter",
+    "Eichhörnchen",
+    "Panda",
+    "Tiger"
+   ],
+   "x": "Der „Pseudodaumen“ des Pandas ist ein vergrößerter Handgelenksknochen. Damit hält er Bambus fest."
+  },
+  "en": {
+   "q": "Which animal has an enlarged wrist bone that works like an extra thumb?",
+   "a": [
+    "Otter",
+    "Squirrel",
+    "Panda",
+    "Tiger"
+   ],
+   "x": "The panda's 'pseudo-thumb' is an enlarged wrist bone. It helps the panda grip bamboo stems."
+  },
+  "fr": {
+   "q": "Quel animal possède un os du poignet allongé qui sert de pouce supplémentaire ?",
+   "a": [
+    "Loutre",
+    "Écureuil",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "Le « faux pouce » du panda est un os du poignet agrandi. Il l'aide à tenir les tiges de bambou."
+  },
+  "es": {
+   "q": "¿Qué animal tiene un hueso de la muñeca alargado que funciona como un pulgar extra?",
+   "a": [
+    "Nutria",
+    "Ardilla",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "El «falso pulgar» del panda es un hueso de la muñeca agrandado. Le sirve para sujetar el bambú."
+  }
+ },
+ {
+  "id": "c08",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-giraffe",
+   "p-deer",
+   "p-tiger",
+   "p-panda"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Welches Tier hat eine etwa 45 cm lange, dunkelblaue Zunge?",
+   "a": [
+    "Giraffe",
+    "Reh",
+    "Tiger",
+    "Panda"
+   ],
+   "x": "Die dunkle Farbe schützt die Giraffenzunge vermutlich vor Sonnenbrand, wenn sie Akazienblätter zupft."
+  },
+  "en": {
+   "q": "Which animal has a dark blue tongue about 45 cm long?",
+   "a": [
+    "Giraffe",
+    "Roe deer",
+    "Tiger",
+    "Panda"
+   ],
+   "x": "The dark colour probably protects the giraffe's tongue from sunburn while it plucks acacia leaves."
+  },
+  "fr": {
+   "q": "Quel animal a une langue bleu foncé d'environ 45 cm ?",
+   "a": [
+    "Girafe",
+    "Chevreuil",
+    "Tigre",
+    "Panda"
+   ],
+   "x": "Sa couleur sombre protégerait la langue de la girafe du soleil quand elle cueille des feuilles d'acacia."
+  },
+  "es": {
+   "q": "¿Qué animal tiene una lengua azul oscuro de unos 45 cm?",
+   "a": [
+    "Jirafa",
+    "Corzo",
+    "Tigre",
+    "Panda"
+   ],
+   "x": "Su color oscuro protegería la lengua de la jirafa del sol mientras arranca hojas de acacia."
+  }
+ },
+ {
+  "id": "c09",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-fox",
+   "p-deer",
+   "p-squirrel",
+   "p-tiger"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Bei welchem Tier ist auch die Haut unter dem Fell gestreift?",
+   "a": [
+    "Fuchs",
+    "Reh",
+    "Eichhörnchen",
+    "Tiger"
+   ],
+   "x": "Unter den dunklen Streifen ist auch die Haut des Tigers dunkel. Rasiert sähe man das Muster noch."
+  },
+  "en": {
+   "q": "Which animal has striped skin underneath its fur too?",
+   "a": [
+    "Fox",
+    "Roe deer",
+    "Squirrel",
+    "Tiger"
+   ],
+   "x": "A tiger's skin is dark under its dark stripes, so the pattern would still show if it were shaved."
+  },
+  "fr": {
+   "q": "Chez quel animal la peau sous le pelage est-elle aussi rayée ?",
+   "a": [
+    "Renard",
+    "Chevreuil",
+    "Écureuil",
+    "Tigre"
+   ],
+   "x": "Sous les rayures sombres du tigre, la peau est foncée : rasé, il garderait son motif."
+  },
+  "es": {
+   "q": "¿En qué animal también la piel bajo el pelaje tiene rayas?",
+   "a": [
+    "Zorro",
+    "Corzo",
+    "Ardilla",
+    "Tigre"
+   ],
+   "x": "Bajo las rayas oscuras del tigre la piel también es oscura: aunque lo afeitaran, se verían las rayas."
+  }
+ },
+ {
+  "id": "c10",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-tiger",
+   "p-otter",
+   "p-fox",
+   "p-giraffe"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer kann beim Tauchen Ohren und Nasenlöcher verschließen?",
+   "a": [
+    "Tiger",
+    "Otter",
+    "Fuchs",
+    "Giraffe"
+   ],
+   "x": "Otter verschließen unter Wasser Ohren und Nase und können mehrere Minuten lang tauchen."
+  },
+  "en": {
+   "q": "Which animal can close its ears and nostrils when diving?",
+   "a": [
+    "Tiger",
+    "Otter",
+    "Fox",
+    "Giraffe"
+   ],
+   "x": "Otters seal their ears and nostrils underwater and can stay down for several minutes."
+  },
+  "fr": {
+   "q": "Quel animal peut fermer ses oreilles et ses narines en plongée ?",
+   "a": [
+    "Tigre",
+    "Loutre",
+    "Renard",
+    "Girafe"
+   ],
+   "x": "La loutre ferme oreilles et narines sous l'eau et peut plonger plusieurs minutes."
+  },
+  "es": {
+   "q": "¿Qué animal puede cerrar orejas y fosas nasales al bucear?",
+   "a": [
+    "Tigre",
+    "Nutria",
+    "Zorro",
+    "Jirafa"
+   ],
+   "x": "La nutria cierra orejas y nariz bajo el agua y puede bucear varios minutos."
+  }
+ },
+ {
+  "id": "c11",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-owl",
+   "p-otter",
+   "p-parrot",
+   "p-penguin"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer hat über den Augen eine Drüse, die Salz aus Meerwasser ausscheidet?",
+   "a": [
+    "Eule",
+    "Otter",
+    "Papagei",
+    "Pinguin"
+   ],
+   "x": "Pinguine können Meerwasser trinken: Die Salzdrüse filtert das Salz, das dann über den Schnabel abtropft."
+  },
+  "en": {
+   "q": "Which animal has a gland above its eyes that removes salt from seawater?",
+   "a": [
+    "Owl",
+    "Otter",
+    "Parrot",
+    "Penguin"
+   ],
+   "x": "Penguins can drink seawater: a salt gland filters out the salt, which then drips off the beak."
+  },
+  "fr": {
+   "q": "Quel animal a au-dessus des yeux une glande qui élimine le sel de l'eau de mer ?",
+   "a": [
+    "Chouette",
+    "Loutre",
+    "Perroquet",
+    "Manchot"
+   ],
+   "x": "Le manchot peut boire de l'eau de mer : une glande filtre le sel, qui s'écoule par le bec."
+  },
+  "es": {
+   "q": "¿Qué animal tiene sobre los ojos una glándula que elimina la sal del agua de mar?",
+   "a": [
+    "Búho",
+    "Nutria",
+    "Loro",
+    "Pingüino"
+   ],
+   "x": "El pingüino puede beber agua de mar: una glándula filtra la sal, que luego gotea por el pico."
+  }
+ },
+ {
+  "id": "c12",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-snail",
+   "p-butterfly",
+   "p-turtle",
+   "p-bee"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer hat eine Raspelzunge mit Tausenden winziger Zähnchen?",
+   "a": [
+    "Schnecke",
+    "Schmetterling",
+    "Schildkröte",
+    "Biene"
+   ],
+   "x": "Die Raspelzunge (Radula) der Schnecke wirkt wie eine Feile. Abgenutzte Zähnchen wachsen ständig nach."
+  },
+  "en": {
+   "q": "Which animal has a rasping tongue with thousands of tiny teeth?",
+   "a": [
+    "Snail",
+    "Butterfly",
+    "Turtle",
+    "Bee"
+   ],
+   "x": "A snail's radula works like a file. Worn-out teeth are constantly replaced by new ones."
+  },
+  "fr": {
+   "q": "Quel animal a une langue râpeuse couverte de milliers de petites dents ?",
+   "a": [
+    "Escargot",
+    "Papillon",
+    "Tortue",
+    "Abeille"
+   ],
+   "x": "La radula de l'escargot fonctionne comme une lime. Les dents usées sont sans cesse remplacées."
+  },
+  "es": {
+   "q": "¿Qué animal tiene una lengua raspadora con miles de dientecillos?",
+   "a": [
+    "Caracol",
+    "Mariposa",
+    "Tortuga",
+    "Abeja"
+   ],
+   "x": "La rádula del caracol funciona como una lima. Los dientes gastados se reemplazan continuamente."
+  }
+ },
+ {
+  "id": "c13",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-octopus",
+   "p-penguin",
+   "p-shark",
+   "p-otter"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Wer kann die schwachen elektrischen Felder seiner Beute spüren?",
+   "a": [
+    "Krake",
+    "Pinguin",
+    "Hai",
+    "Otter"
+   ],
+   "x": "Haie haben Lorenzinische Ampullen: Poren an der Schnauze, die den Strom der Muskeln versteckter Beute spüren."
+  },
+  "en": {
+   "q": "Which animal can sense the weak electric fields of its prey?",
+   "a": [
+    "Octopus",
+    "Penguin",
+    "Shark",
+    "Otter"
+   ],
+   "x": "Sharks have ampullae of Lorenzini: snout pores that detect electricity from the muscles of hidden prey."
+  },
+  "fr": {
+   "q": "Quel animal perçoit les faibles champs électriques de ses proies ?",
+   "a": [
+    "Pieuvre",
+    "Manchot",
+    "Requin",
+    "Loutre"
+   ],
+   "x": "Le requin a des ampoules de Lorenzini : des pores du museau qui captent l'électricité des proies cachées."
+  },
+  "es": {
+   "q": "¿Qué animal percibe los débiles campos eléctricos de sus presas?",
+   "a": [
+    "Pulpo",
+    "Pingüino",
+    "Tiburón",
+    "Nutria"
+   ],
+   "x": "El tiburón tiene ampollas de Lorenzini: poros del hocico que captan la electricidad de presas ocultas."
+  }
+ },
+ {
+  "id": "c14",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-bee",
+   "p-butterfly",
+   "p-ladybug",
+   "p-crab"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer zeigt seinen Artgenossen mit einem Tanz, wo es Futter gibt?",
+   "a": [
+    "Biene",
+    "Schmetterling",
+    "Marienkäfer",
+    "Krabbe"
+   ],
+   "x": "Mit dem Schwänzeltanz teilt die Biene Richtung und Entfernung einer Futterquelle mit."
+  },
+  "en": {
+   "q": "Which animal uses a dance to tell others where to find food?",
+   "a": [
+    "Bee",
+    "Butterfly",
+    "Ladybird",
+    "Crab"
+   ],
+   "x": "With its waggle dance, a bee tells its nestmates the direction and distance of a food source."
+  },
+  "fr": {
+   "q": "Quel animal indique aux autres par une danse où trouver de la nourriture ?",
+   "a": [
+    "Abeille",
+    "Papillon",
+    "Coccinelle",
+    "Crabe"
+   ],
+   "x": "Par sa danse frétillante, l'abeille indique la direction et la distance d'une source de nourriture."
+  },
+  "es": {
+   "q": "¿Qué animal indica con un baile dónde hay comida?",
+   "a": [
+    "Abeja",
+    "Mariposa",
+    "Mariquita",
+    "Cangrejo"
+   ],
+   "x": "Con su danza del contoneo, la abeja comunica la dirección y la distancia de una fuente de alimento."
+  }
+ },
+ {
+  "id": "c15",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-owl",
+   "p-butterfly",
+   "p-frog",
+   "p-lizard"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer schmeckt mit den Füßen?",
+   "a": [
+    "Eule",
+    "Schmetterling",
+    "Frosch",
+    "Eidechse"
+   ],
+   "x": "Schmetterlinge haben Geschmackssinneszellen an den Füßen. So prüfen Weibchen, ob eine Pflanze für ihre Eier taugt."
+  },
+  "en": {
+   "q": "Which animal tastes with its feet?",
+   "a": [
+    "Owl",
+    "Butterfly",
+    "Frog",
+    "Lizard"
+   ],
+   "x": "Butterflies have taste sensors on their feet. Females use them to check if a plant suits their eggs."
+  },
+  "fr": {
+   "q": "Quel animal goûte avec ses pattes ?",
+   "a": [
+    "Chouette",
+    "Papillon",
+    "Grenouille",
+    "Lézard"
+   ],
+   "x": "Le papillon a des capteurs du goût sur les pattes. La femelle vérifie ainsi si une plante convient à ses œufs."
+  },
+  "es": {
+   "q": "¿Qué animal saborea con las patas?",
+   "a": [
+    "Búho",
+    "Mariposa",
+    "Rana",
+    "Lagarto"
+   ],
+   "x": "La mariposa tiene sensores del gusto en las patas. Así la hembra comprueba si una planta sirve para sus huevos."
+  }
+ },
+ {
+  "id": "c16",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-bee",
+   "p-butterfly",
+   "p-snail",
+   "p-ladybug"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer presst bei Gefahr bitteres, gelbes Blut aus seinen Beingelenken?",
+   "a": [
+    "Biene",
+    "Schmetterling",
+    "Schnecke",
+    "Marienkäfer"
+   ],
+   "x": "Dieses „Reflexbluten“ schreckt Fressfeinde ab: Die gelbe Flüssigkeit des Marienkäfers schmeckt bitter."
+  },
+  "en": {
+   "q": "Which animal squeezes bitter yellow blood from its leg joints when threatened?",
+   "a": [
+    "Bee",
+    "Butterfly",
+    "Snail",
+    "Ladybird"
+   ],
+   "x": "This 'reflex bleeding' deters predators: the ladybird's yellow fluid tastes bitter and smells bad."
+  },
+  "fr": {
+   "q": "Quel animal fait sortir un sang jaune et amer de ses articulations en cas de danger ?",
+   "a": [
+    "Abeille",
+    "Papillon",
+    "Escargot",
+    "Coccinelle"
+   ],
+   "x": "Ce « saignement réflexe » repousse les prédateurs : le liquide jaune de la coccinelle est amer."
+  },
+  "es": {
+   "q": "¿Qué animal expulsa sangre amarilla y amarga por las articulaciones de las patas ante un peligro?",
+   "a": [
+    "Abeja",
+    "Mariposa",
+    "Caracol",
+    "Mariquita"
+   ],
+   "x": "Este «sangrado reflejo» ahuyenta a los depredadores: el líquido amarillo de la mariquita es amargo."
+  }
+ },
+ {
+  "id": "c17",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-turtle",
+   "p-hedgehog",
+   "p-lizard",
+   "p-parrot"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Wer kann bei Gefahr seinen Schwanz abwerfen?",
+   "a": [
+    "Schildkröte",
+    "Igel",
+    "Eidechse",
+    "Papagei"
+   ],
+   "x": "Der abgeworfene Eidechsenschwanz zappelt weiter und lenkt den Feind ab. Er wächst nach, aber kürzer."
+  },
+  "en": {
+   "q": "Which animal can shed its tail when in danger?",
+   "a": [
+    "Turtle",
+    "Hedgehog",
+    "Lizard",
+    "Parrot"
+   ],
+   "x": "A lizard's dropped tail keeps wriggling to distract the enemy. It grows back, but shorter."
+  },
+  "fr": {
+   "q": "Quel animal peut abandonner sa queue en cas de danger ?",
+   "a": [
+    "Tortue",
+    "Hérisson",
+    "Lézard",
+    "Perroquet"
+   ],
+   "x": "La queue du lézard continue de gigoter pour distraire l'ennemi. Elle repousse, mais plus courte."
+  },
+  "es": {
+   "q": "¿Qué animal puede soltar su cola ante un peligro?",
+   "a": [
+    "Tortuga",
+    "Erizo",
+    "Lagarto",
+    "Loro"
+   ],
+   "x": "La cola del lagarto sigue moviéndose y distrae al enemigo. Vuelve a crecer, pero más corta."
+  }
+ },
+ {
+  "id": "c18",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-owl",
+   "p-parrot",
+   "p-otter",
+   "p-frog"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer drückt beim Schlucken seine Augen nach innen, um die Beute hinunterzuschieben?",
+   "a": [
+    "Eule",
+    "Papagei",
+    "Otter",
+    "Frosch"
+   ],
+   "x": "Frösche ziehen beim Schlucken die Augäpfel ein. Diese drücken von oben auf den Bissen und schieben ihn in den Schlund."
+  },
+  "en": {
+   "q": "Which animal pulls its eyes inward when swallowing to push food down?",
+   "a": [
+    "Owl",
+    "Parrot",
+    "Otter",
+    "Frog"
+   ],
+   "x": "Frogs retract their eyeballs when swallowing. They press on the food from above and push it down the throat."
+  },
+  "fr": {
+   "q": "Quel animal enfonce ses yeux en avalant pour pousser sa proie vers le bas ?",
+   "a": [
+    "Chouette",
+    "Perroquet",
+    "Loutre",
+    "Grenouille"
+   ],
+   "x": "En avalant, la grenouille rentre ses yeux. Ils appuient sur la proie et la poussent dans la gorge."
+  },
+  "es": {
+   "q": "¿Qué animal hunde los ojos al tragar para empujar la comida?",
+   "a": [
+    "Búho",
+    "Loro",
+    "Nutria",
+    "Rana"
+   ],
+   "x": "Al tragar, la rana hunde los ojos. Estos presionan el bocado desde arriba y lo empujan a la garganta."
+  }
+ },
+ {
+  "id": "c19",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-shark",
+   "p-crab",
+   "p-frog",
+   "p-penguin"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wessen Blut ist durch Kupfer bläulich gefärbt?",
+   "a": [
+    "Hai",
+    "Krabbe",
+    "Frosch",
+    "Pinguin"
+   ],
+   "x": "Krabben transportieren Sauerstoff mit Hämocyanin, das Kupfer enthält. Unser Blut ist durch Eisen rot."
+  },
+  "en": {
+   "q": "Whose blood is bluish because of copper?",
+   "a": [
+    "Shark",
+    "Crab",
+    "Frog",
+    "Penguin"
+   ],
+   "x": "Crabs carry oxygen with haemocyanin, which contains copper. Our blood is red because of iron."
+  },
+  "fr": {
+   "q": "Quel animal a un sang bleuté à cause du cuivre ?",
+   "a": [
+    "Requin",
+    "Crabe",
+    "Grenouille",
+    "Manchot"
+   ],
+   "x": "Le crabe transporte l'oxygène avec l'hémocyanine, qui contient du cuivre. Notre sang est rouge grâce au fer."
+  },
+  "es": {
+   "q": "¿Qué animal tiene la sangre azulada por el cobre?",
+   "a": [
+    "Tiburón",
+    "Cangrejo",
+    "Rana",
+    "Pingüino"
+   ],
+   "x": "El cangrejo transporta oxígeno con hemocianina, que contiene cobre. Nuestra sangre es roja por el hierro."
+  }
+ },
+ {
+  "id": "c20",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-crab",
+   "p-bee",
+   "p-octopus",
+   "p-ladybug"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer hat zehn Beine – die Scheren mitgezählt?",
+   "a": [
+    "Krabbe",
+    "Biene",
+    "Krake",
+    "Marienkäfer"
+   ],
+   "x": "Krabben gehören zu den Zehnfußkrebsen. Das vorderste Beinpaar ist zu kräftigen Scheren umgebaut."
+  },
+  "en": {
+   "q": "Which animal has ten legs, counting its claws?",
+   "a": [
+    "Crab",
+    "Bee",
+    "Octopus",
+    "Ladybird"
+   ],
+   "x": "Crabs are decapods ('ten-footed'). Their front pair of legs has become strong claws."
+  },
+  "fr": {
+   "q": "Quel animal a dix pattes, pinces comprises ?",
+   "a": [
+    "Crabe",
+    "Abeille",
+    "Pieuvre",
+    "Coccinelle"
+   ],
+   "x": "Le crabe est un décapode (« dix pieds »). Sa première paire de pattes forme de puissantes pinces."
+  },
+  "es": {
+   "q": "¿Qué animal tiene diez patas, contando las pinzas?",
+   "a": [
+    "Cangrejo",
+    "Abeja",
+    "Pulpo",
+    "Mariquita"
+   ],
+   "x": "El cangrejo es un decápodo («diez pies»). Su primer par de patas se ha convertido en fuertes pinzas."
+  }
+ },
+ {
+  "id": "c21",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-octopus",
+   "p-shark",
+   "p-crab",
+   "p-turtle"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wer passt durch ein Loch, das kaum größer ist als sein Schnabel?",
+   "a": [
+    "Krake",
+    "Hai",
+    "Krabbe",
+    "Schildkröte"
+   ],
+   "x": "Kraken haben keine Knochen. Nur ihr harter Schnabel bestimmt, durch welche Öffnung sie schlüpfen können."
+  },
+  "en": {
+   "q": "Which animal can squeeze through a hole barely bigger than its beak?",
+   "a": [
+    "Octopus",
+    "Shark",
+    "Crab",
+    "Turtle"
+   ],
+   "x": "Octopuses have no bones. Only their hard beak limits which openings they can slip through."
+  },
+  "fr": {
+   "q": "Quel animal peut passer par un trou à peine plus grand que son bec ?",
+   "a": [
+    "Pieuvre",
+    "Requin",
+    "Crabe",
+    "Tortue"
+   ],
+   "x": "La pieuvre n'a pas d'os. Seul son bec dur limite les ouvertures par lesquelles elle peut se faufiler."
+  },
+  "es": {
+   "q": "¿Qué animal cabe por un agujero apenas mayor que su pico?",
+   "a": [
+    "Pulpo",
+    "Tiburón",
+    "Cangrejo",
+    "Tortuga"
+   ],
+   "x": "El pulpo no tiene huesos. Solo su pico duro limita las aberturas por las que puede colarse."
+  }
+ },
+ {
+  "id": "c22",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-eagle",
+   "p-flamingo",
+   "p-penguin",
+   "p-parrot"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Bei welchem Vogel zeigen zwei Zehen nach vorn und zwei nach hinten?",
+   "a": [
+    "Adler",
+    "Flamingo",
+    "Pinguin",
+    "Papagei"
+   ],
+   "x": "Papageien haben Kletterfüße. Damit greifen sie Äste und halten ihr Futter wie mit einer Hand."
+  },
+  "en": {
+   "q": "Which bird has two toes pointing forward and two pointing back?",
+   "a": [
+    "Eagle",
+    "Flamingo",
+    "Penguin",
+    "Parrot"
+   ],
+   "x": "Parrots have zygodactyl feet to grip branches and hold food as if with a hand."
+  },
+  "fr": {
+   "q": "Chez quel oiseau deux doigts pointent vers l'avant et deux vers l'arrière ?",
+   "a": [
+    "Aigle",
+    "Flamant rose",
+    "Manchot",
+    "Perroquet"
+   ],
+   "x": "Le perroquet a des pieds zygodactyles : il agrippe les branches et tient sa nourriture comme une main."
+  },
+  "es": {
+   "q": "¿En qué ave dos dedos apuntan hacia delante y dos hacia atrás?",
+   "a": [
+    "Águila",
+    "Flamenco",
+    "Pingüino",
+    "Loro"
+   ],
+   "x": "El loro tiene patas zigodáctilas: se agarra a las ramas y sujeta la comida como con una mano."
+  }
+ },
+ {
+  "id": "c23",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-eagle",
+   "p-owl",
+   "p-penguin",
+   "p-parrot"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Welcher Vogel hat schwere, massive Knochen statt luftgefüllter?",
+   "a": [
+    "Adler",
+    "Eule",
+    "Pinguin",
+    "Papagei"
+   ],
+   "x": "Flugvögel haben hohle Knochen. Pinguine brauchen schwere Knochen, damit sie beim Tauchen nicht auftreiben."
+  },
+  "en": {
+   "q": "Which bird has heavy, solid bones instead of air-filled ones?",
+   "a": [
+    "Eagle",
+    "Owl",
+    "Penguin",
+    "Parrot"
+   ],
+   "x": "Flying birds have hollow bones. Penguins need heavy bones so they don't float up while diving."
+  },
+  "fr": {
+   "q": "Quel oiseau a des os lourds et pleins au lieu d'os remplis d'air ?",
+   "a": [
+    "Aigle",
+    "Chouette",
+    "Manchot",
+    "Perroquet"
+   ],
+   "x": "Les oiseaux volants ont des os creux. Le manchot a besoin d'os lourds pour ne pas remonter en plongée."
+  },
+  "es": {
+   "q": "¿Qué ave tiene huesos pesados y macizos en lugar de huecos?",
+   "a": [
+    "Águila",
+    "Búho",
+    "Pingüino",
+    "Loro"
+   ],
+   "x": "Las aves voladoras tienen huesos huecos. El pingüino necesita huesos pesados para no flotar al bucear."
+  }
+ },
+ {
+  "id": "c24",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-giraffe",
+   "p-tiger",
+   "p-bear",
+   "p-panda"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Welches dieser Säugetiere hat den höchsten Blutdruck?",
+   "a": [
+    "Giraffe",
+    "Tiger",
+    "Bär",
+    "Panda"
+   ],
+   "x": "Das Giraffenherz wiegt etwa 11 kg und muss das Blut rund 2 Meter hoch bis zum Kopf pumpen."
+  },
+  "en": {
+   "q": "Which of these mammals has the highest blood pressure?",
+   "a": [
+    "Giraffe",
+    "Tiger",
+    "Bear",
+    "Panda"
+   ],
+   "x": "A giraffe's heart weighs about 11 kg and must pump blood some 2 metres up to its head."
+  },
+  "fr": {
+   "q": "Lequel de ces mammifères a la pression artérielle la plus élevée ?",
+   "a": [
+    "Girafe",
+    "Tigre",
+    "Ours",
+    "Panda"
+   ],
+   "x": "Le cœur de la girafe pèse environ 11 kg et doit pomper le sang à près de 2 mètres jusqu'à la tête."
+  },
+  "es": {
+   "q": "¿Cuál de estos mamíferos tiene la presión arterial más alta?",
+   "a": [
+    "Jirafa",
+    "Tigre",
+    "Oso",
+    "Panda"
+   ],
+   "x": "El corazón de la jirafa pesa unos 11 kg y debe bombear la sangre unos 2 metros hasta la cabeza."
+  }
+ },
+ {
+  "id": "c25",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-panda",
+   "p-fox",
+   "p-tiger",
+   "p-bear"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Wer hat auffällige weiße Flecken auf der Rückseite der Ohren?",
+   "a": [
+    "Panda",
+    "Fuchs",
+    "Tiger",
+    "Bär"
+   ],
+   "x": "Die weißen Ohrflecken des Tigers dienen vermutlich als Signal für die Jungen, die der Mutter folgen."
+  },
+  "en": {
+   "q": "Which animal has striking white spots on the back of its ears?",
+   "a": [
+    "Panda",
+    "Fox",
+    "Tiger",
+    "Bear"
+   ],
+   "x": "A tiger's white ear spots probably act as a signal for cubs following their mother."
+  },
+  "fr": {
+   "q": "Quel animal a des taches blanches bien visibles à l'arrière des oreilles ?",
+   "a": [
+    "Panda",
+    "Renard",
+    "Tigre",
+    "Ours"
+   ],
+   "x": "Les taches blanches derrière les oreilles du tigre serviraient de repère aux petits qui suivent leur mère."
+  },
+  "es": {
+   "q": "¿Qué animal tiene llamativas manchas blancas detrás de las orejas?",
+   "a": [
+    "Panda",
+    "Zorro",
+    "Tigre",
+    "Oso"
+   ],
+   "x": "Las manchas blancas de las orejas del tigre servirían de señal a las crías que siguen a su madre."
+  }
+ },
+ {
+  "id": "c26",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-giraffe",
+   "p-tiger",
+   "p-otter",
+   "p-panda"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wessen Neugeborenes wiegt nur etwa ein Neunhundertstel seiner Mutter?",
+   "a": [
+    "Giraffe",
+    "Tiger",
+    "Otter",
+    "Panda"
+   ],
+   "x": "Ein Pandababy wiegt bei der Geburt nur rund 100 g – etwa so viel wie eine Tafel Schokolade."
+  },
+  "en": {
+   "q": "Whose newborn weighs only about 1/900 of its mother?",
+   "a": [
+    "Giraffe",
+    "Tiger",
+    "Otter",
+    "Panda"
+   ],
+   "x": "A newborn panda weighs only about 100 g – roughly as much as a bar of chocolate."
+  },
+  "fr": {
+   "q": "Quel nouveau-né ne pèse qu'environ 1/900 du poids de sa mère ?",
+   "a": [
+    "Girafe",
+    "Tigre",
+    "Loutre",
+    "Panda"
+   ],
+   "x": "Un bébé panda pèse environ 100 g à la naissance, à peu près le poids d'une tablette de chocolat."
+  },
+  "es": {
+   "q": "¿Qué cría recién nacida pesa solo 1/900 de lo que pesa su madre?",
+   "a": [
+    "Jirafa",
+    "Tigre",
+    "Nutria",
+    "Panda"
+   ],
+   "x": "Un panda recién nacido pesa unos 100 g, más o menos lo que una tableta de chocolate."
+  }
+ },
+ {
+  "id": "c27",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-fox",
+   "p-bear",
+   "p-tiger",
+   "p-deer"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer ist ein Sohlengänger und setzt beim Gehen die ganze Fußsohle auf?",
+   "a": [
+    "Fuchs",
+    "Bär",
+    "Tiger",
+    "Reh"
+   ],
+   "x": "Bären laufen wie wir auf der ganzen Sohle. Fuchs und Tiger sind Zehengänger, das Reh geht auf Hufen."
+  },
+  "en": {
+   "q": "Which animal walks flat-footed, placing its whole sole on the ground?",
+   "a": [
+    "Fox",
+    "Bear",
+    "Tiger",
+    "Roe deer"
+   ],
+   "x": "Bears walk on their whole soles like us. Foxes and tigers walk on their toes, roe deer on hooves."
+  },
+  "fr": {
+   "q": "Quel animal est plantigrade et pose toute la plante du pied en marchant ?",
+   "a": [
+    "Renard",
+    "Ours",
+    "Tigre",
+    "Chevreuil"
+   ],
+   "x": "L'ours marche sur toute la plante comme nous. Renard et tigre marchent sur les doigts, le chevreuil sur ses sabots."
+  },
+  "es": {
+   "q": "¿Qué animal es plantígrado y apoya toda la planta del pie al caminar?",
+   "a": [
+    "Zorro",
+    "Oso",
+    "Tigre",
+    "Corzo"
+   ],
+   "x": "El oso camina sobre toda la planta, como nosotros. Zorro y tigre apoyan los dedos; el corzo, las pezuñas."
+  }
+ },
+ {
+  "id": "c28",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-panda",
+   "p-otter",
+   "p-tiger",
+   "p-fox"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Welches Tier zählt zu den Raubtieren, frisst aber fast nur Pflanzen?",
+   "a": [
+    "Panda",
+    "Otter",
+    "Tiger",
+    "Fuchs"
+   ],
+   "x": "Der Panda gehört zu den Bären, frisst aber zu 99 % Bambus – bis zu 12 Stunden am Tag."
+  },
+  "en": {
+   "q": "Which animal belongs to the carnivores but eats almost only plants?",
+   "a": [
+    "Panda",
+    "Otter",
+    "Tiger",
+    "Fox"
+   ],
+   "x": "The panda is a bear, yet 99% of its diet is bamboo – it eats for up to 12 hours a day."
+  },
+  "fr": {
+   "q": "Quel animal fait partie des carnivores mais mange presque uniquement des plantes ?",
+   "a": [
+    "Panda",
+    "Loutre",
+    "Tigre",
+    "Renard"
+   ],
+   "x": "Le panda est un ours, mais il se nourrit à 99 % de bambou, jusqu'à 12 heures par jour."
+  },
+  "es": {
+   "q": "¿Qué animal pertenece a los carnívoros pero come casi solo plantas?",
+   "a": [
+    "Panda",
+    "Nutria",
+    "Tigre",
+    "Zorro"
+   ],
+   "x": "El panda es un oso, pero el 99 % de su dieta es bambú: come hasta 12 horas al día."
+  }
+ },
+ {
+  "id": "c29",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-eagle",
+   "p-flamingo",
+   "p-owl",
+   "p-penguin"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Welcher Vogel sieht etwa vier- bis fünfmal schärfer als ein Mensch?",
+   "a": [
+    "Adler",
+    "Flamingo",
+    "Eule",
+    "Pinguin"
+   ],
+   "x": "Adler haben viel dichter gepackte Sehzellen als wir und erkennen Beute schon aus großer Höhe."
+  },
+  "en": {
+   "q": "Which bird sees about four to five times more sharply than a human?",
+   "a": [
+    "Eagle",
+    "Flamingo",
+    "Owl",
+    "Penguin"
+   ],
+   "x": "Eagles have far more densely packed visual cells than we do and spot prey from great heights."
+  },
+  "fr": {
+   "q": "Quel oiseau voit environ quatre à cinq fois plus net qu'un humain ?",
+   "a": [
+    "Aigle",
+    "Flamant rose",
+    "Chouette",
+    "Manchot"
+   ],
+   "x": "L'aigle a des cellules visuelles bien plus serrées que les nôtres et repère ses proies de très haut."
+  },
+  "es": {
+   "q": "¿Qué ave ve unas cuatro o cinco veces más nítido que un humano?",
+   "a": [
+    "Águila",
+    "Flamenco",
+    "Búho",
+    "Pingüino"
+   ],
+   "x": "El águila tiene células visuales mucho más densas que las nuestras y detecta presas desde gran altura."
+  }
+ },
+ {
+  "id": "c30",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-owl",
+   "p-eagle",
+   "p-flamingo",
+   "p-parrot"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer baut riesige Nester aus Ästen, die oft viele Jahre genutzt werden?",
+   "a": [
+    "Eule",
+    "Adler",
+    "Flamingo",
+    "Papagei"
+   ],
+   "x": "Adlerhorste werden jedes Jahr weiter ausgebaut und können über 2 m breit und sehr schwer werden."
+  },
+  "en": {
+   "q": "Which bird builds huge stick nests that are often used for many years?",
+   "a": [
+    "Owl",
+    "Eagle",
+    "Flamingo",
+    "Parrot"
+   ],
+   "x": "Eagles add to their nests (eyries) every year; they can grow over 2 m wide and very heavy."
+  },
+  "fr": {
+   "q": "Quel oiseau construit d'énormes nids de branches souvent utilisés pendant des années ?",
+   "a": [
+    "Chouette",
+    "Aigle",
+    "Flamant rose",
+    "Perroquet"
+   ],
+   "x": "L'aigle agrandit son aire chaque année ; elle peut dépasser 2 m de large et devenir très lourde."
+  },
+  "es": {
+   "q": "¿Qué ave construye enormes nidos de ramas que usa durante muchos años?",
+   "a": [
+    "Búho",
+    "Águila",
+    "Flamenco",
+    "Loro"
+   ],
+   "x": "El águila amplía su nido cada año; puede superar los 2 m de ancho y llegar a pesar muchísimo."
+  }
+ },
+ {
+  "id": "c31",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-eagle",
+   "p-parrot",
+   "p-flamingo",
+   "p-owl"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Welcher Vogel fliegt fast lautlos?",
+   "a": [
+    "Adler",
+    "Papagei",
+    "Flamingo",
+    "Eule"
+   ],
+   "x": "Kammartig gezackte Federkanten verwirbeln die Luft leise – so hört die Maus die Eule nicht kommen."
+  },
+  "en": {
+   "q": "Which bird flies almost silently?",
+   "a": [
+    "Eagle",
+    "Parrot",
+    "Flamingo",
+    "Owl"
+   ],
+   "x": "Comb-like edges on its feathers soften the air flow, so a mouse can't hear the owl coming."
+  },
+  "fr": {
+   "q": "Quel oiseau vole presque sans bruit ?",
+   "a": [
+    "Aigle",
+    "Perroquet",
+    "Flamant rose",
+    "Chouette"
+   ],
+   "x": "Le bord en peigne de ses plumes adoucit le flux d'air : la souris n'entend pas arriver la chouette."
+  },
+  "es": {
+   "q": "¿Qué ave vuela casi en silencio?",
+   "a": [
+    "Águila",
+    "Loro",
+    "Flamenco",
+    "Búho"
+   ],
+   "x": "Los bordes en forma de peine de sus plumas suavizan el aire: el ratón no oye llegar al búho."
+  }
+ },
+ {
+  "id": "c32",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-giraffe",
+   "p-owl",
+   "p-tiger",
+   "p-otter"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer hat MEHR Halswirbel als der Mensch?",
+   "a": [
+    "Giraffe",
+    "Eule",
+    "Tiger",
+    "Otter"
+   ],
+   "x": "Eulen haben 14 Halswirbel. Giraffen haben trotz ihres langen Halses wie fast alle Säugetiere nur 7."
+  },
+  "en": {
+   "q": "Which animal has MORE neck vertebrae than a human?",
+   "a": [
+    "Giraffe",
+    "Owl",
+    "Tiger",
+    "Otter"
+   ],
+   "x": "Owls have 14 neck vertebrae. Despite its long neck, a giraffe has only 7, like almost all mammals."
+  },
+  "fr": {
+   "q": "Lequel a PLUS de vertèbres cervicales que l'humain ?",
+   "a": [
+    "Girafe",
+    "Chouette",
+    "Tigre",
+    "Loutre"
+   ],
+   "x": "La chouette en a 14. Malgré son long cou, la girafe n'en a que 7, comme presque tous les mammifères."
+  },
+  "es": {
+   "q": "¿Quién tiene MÁS vértebras cervicales que el ser humano?",
+   "a": [
+    "Jirafa",
+    "Búho",
+    "Tigre",
+    "Nutria"
+   ],
+   "x": "El búho tiene 14. Pese a su largo cuello, la jirafa solo tiene 7, como casi todos los mamíferos."
+  }
+ },
+ {
+  "id": "c33",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-hedgehog",
+   "p-squirrel",
+   "p-deer",
+   "p-snail"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer pflanzt unabsichtlich Bäume, weil er Vorräte vergräbt und vergisst?",
+   "a": [
+    "Igel",
+    "Eichhörnchen",
+    "Reh",
+    "Schnecke"
+   ],
+   "x": "Eichhörnchen vergraben im Herbst Nüsse und Samen. Vergessene Vorräte keimen und werden zu neuen Bäumen."
+  },
+  "en": {
+   "q": "Which animal plants trees by accident by burying and forgetting food?",
+   "a": [
+    "Hedgehog",
+    "Squirrel",
+    "Roe deer",
+    "Snail"
+   ],
+   "x": "Squirrels bury nuts and seeds in autumn. Forgotten stores sprout and grow into new trees."
+  },
+  "fr": {
+   "q": "Quel animal plante des arbres sans le vouloir en oubliant ses réserves enterrées ?",
+   "a": [
+    "Hérisson",
+    "Écureuil",
+    "Chevreuil",
+    "Escargot"
+   ],
+   "x": "L'écureuil enterre noix et graines en automne. Les réserves oubliées germent et deviennent des arbres."
+  },
+  "es": {
+   "q": "¿Qué animal planta árboles sin querer al enterrar y olvidar sus provisiones?",
+   "a": [
+    "Erizo",
+    "Ardilla",
+    "Corzo",
+    "Caracol"
+   ],
+   "x": "La ardilla entierra nueces y semillas en otoño. Las reservas olvidadas germinan y se vuelven árboles."
+  }
+ },
+ {
+  "id": "c34",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-squirrel",
+   "p-hedgehog",
+   "p-fox",
+   "p-otter"
+  ],
+  "right": 0,
+  "de": {
+   "q": "Wessen Schneidezähne wachsen ein Leben lang nach?",
+   "a": [
+    "Eichhörnchen",
+    "Igel",
+    "Fuchs",
+    "Otter"
+   ],
+   "x": "Eichhörnchen sind Nagetiere. Ihre Nagezähne wachsen ständig und werden beim Nagen abgeschliffen."
+  },
+  "en": {
+   "q": "Whose front teeth keep growing throughout life?",
+   "a": [
+    "Squirrel",
+    "Hedgehog",
+    "Fox",
+    "Otter"
+   ],
+   "x": "Squirrels are rodents. Their incisors grow constantly and are worn down by gnawing."
+  },
+  "fr": {
+   "q": "Quel animal a des incisives qui poussent toute sa vie ?",
+   "a": [
+    "Écureuil",
+    "Hérisson",
+    "Renard",
+    "Loutre"
+   ],
+   "x": "L'écureuil est un rongeur. Ses incisives poussent sans cesse et s'usent en rongeant."
+  },
+  "es": {
+   "q": "¿Qué animal tiene incisivos que crecen toda la vida?",
+   "a": [
+    "Ardilla",
+    "Erizo",
+    "Zorro",
+    "Nutria"
+   ],
+   "x": "La ardilla es un roedor. Sus incisivos crecen sin parar y se desgastan al roer."
+  }
+ },
+ {
+  "id": "c35",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-otter",
+   "p-hedgehog",
+   "p-deer",
+   "p-squirrel"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer kann kopfüber einen Baumstamm hinunterlaufen?",
+   "a": [
+    "Otter",
+    "Igel",
+    "Reh",
+    "Eichhörnchen"
+   ],
+   "x": "Eichhörnchen drehen ihre Hinterfüße nach hinten und krallen sich so beim Abstieg kopfüber fest."
+  },
+  "en": {
+   "q": "Which animal can run head-first down a tree trunk?",
+   "a": [
+    "Otter",
+    "Hedgehog",
+    "Roe deer",
+    "Squirrel"
+   ],
+   "x": "Squirrels rotate their hind feet backwards so their claws can grip while climbing down head-first."
+  },
+  "fr": {
+   "q": "Quel animal peut descendre un tronc d'arbre la tête la première ?",
+   "a": [
+    "Loutre",
+    "Hérisson",
+    "Chevreuil",
+    "Écureuil"
+   ],
+   "x": "L'écureuil tourne ses pattes arrière vers l'arrière pour s'agripper en descendant la tête en bas."
+  },
+  "es": {
+   "q": "¿Qué animal puede bajar por un tronco cabeza abajo?",
+   "a": [
+    "Nutria",
+    "Erizo",
+    "Corzo",
+    "Ardilla"
+   ],
+   "x": "La ardilla gira sus patas traseras hacia atrás para agarrarse con las uñas al bajar cabeza abajo."
+  }
+ },
+ {
+  "id": "c36",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-fox",
+   "p-hedgehog",
+   "p-deer",
+   "p-squirrel"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer kaut manchmal fremde Stoffe zu Schaum und reibt ihn sich auf den Rücken?",
+   "a": [
+    "Fuchs",
+    "Igel",
+    "Reh",
+    "Eichhörnchen"
+   ],
+   "x": "Dieses „Selbstbespeicheln“ des Igels ist noch rätselhaft – vielleicht Schutz oder ein Duftsignal."
+  },
+  "en": {
+   "q": "Which animal sometimes chews strange substances into foam and spreads it on its back?",
+   "a": [
+    "Fox",
+    "Hedgehog",
+    "Roe deer",
+    "Squirrel"
+   ],
+   "x": "This 'self-anointing' by hedgehogs is still a mystery – maybe protection or a scent signal."
+  },
+  "fr": {
+   "q": "Quel animal mâche parfois des substances jusqu'à faire de la mousse et l'étale sur son dos ?",
+   "a": [
+    "Renard",
+    "Hérisson",
+    "Chevreuil",
+    "Écureuil"
+   ],
+   "x": "Cette « auto-onction » du hérisson reste un mystère : protection ou signal olfactif ?"
+  },
+  "es": {
+   "q": "¿Qué animal mastica a veces sustancias hasta hacer espuma y se la unta en el lomo?",
+   "a": [
+    "Zorro",
+    "Erizo",
+    "Corzo",
+    "Ardilla"
+   ],
+   "x": "Esta «autounción» del erizo sigue siendo un misterio: quizá protección o una señal de olor."
+  }
+ },
+ {
+  "id": "c37",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-giraffe",
+   "p-deer",
+   "p-panda",
+   "p-tiger"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer wirft jedes Jahr sein Geweih ab und bildet ein neues?",
+   "a": [
+    "Giraffe",
+    "Reh",
+    "Panda",
+    "Tiger"
+   ],
+   "x": "Der Rehbock wirft sein Geweih im Herbst ab. Das neue aus Knochen wächst unter einer Basthaut nach."
+  },
+  "en": {
+   "q": "Which animal sheds its antlers every year and grows new ones?",
+   "a": [
+    "Giraffe",
+    "Roe deer",
+    "Panda",
+    "Tiger"
+   ],
+   "x": "Roe bucks shed their antlers in autumn. New bony antlers grow back under a soft skin called velvet."
+  },
+  "fr": {
+   "q": "Quel animal perd ses bois chaque année et en refait de nouveaux ?",
+   "a": [
+    "Girafe",
+    "Chevreuil",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "Le brocard perd ses bois en automne. Les nouveaux, en os, repoussent sous une peau appelée velours."
+  },
+  "es": {
+   "q": "¿Qué animal pierde su cornamenta cada año y le crece una nueva?",
+   "a": [
+    "Jirafa",
+    "Corzo",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "El corzo macho pierde la cornamenta en otoño. La nueva, de hueso, crece bajo una piel llamada terciopelo."
+  }
+ },
+ {
+  "id": "c38",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-hedgehog",
+   "p-giraffe",
+   "p-squirrel",
+   "p-deer"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Bei wem legt der Embryo nach der Paarung im Sommer eine monatelange Entwicklungspause ein?",
+   "a": [
+    "Igel",
+    "Giraffe",
+    "Eichhörnchen",
+    "Reh"
+   ],
+   "x": "Beim Reh ruht der Keim von der Brunft im Juli/August bis Dezember. So kommen die Kitze erst im Mai/Juni."
+  },
+  "en": {
+   "q": "In which animal does the embryo pause its development for months after mating in summer?",
+   "a": [
+    "Hedgehog",
+    "Giraffe",
+    "Squirrel",
+    "Roe deer"
+   ],
+   "x": "In roe deer the embryo rests from the July/August rut until December, so fawns arrive in May/June."
+  },
+  "fr": {
+   "q": "Chez quel animal l'embryon fait-il une pause de plusieurs mois après l'accouplement estival ?",
+   "a": [
+    "Hérisson",
+    "Girafe",
+    "Écureuil",
+    "Chevreuil"
+   ],
+   "x": "Chez le chevreuil, l'embryon reste en sommeil de juillet-août à décembre ; les faons naissent en mai-juin."
+  },
+  "es": {
+   "q": "¿En qué animal el embrión pausa su desarrollo durante meses tras el apareamiento en verano?",
+   "a": [
+    "Erizo",
+    "Jirafa",
+    "Ardilla",
+    "Corzo"
+   ],
+   "x": "En el corzo, el embrión reposa desde el celo de julio-agosto hasta diciembre; las crías nacen en mayo-junio."
+  }
+ },
+ {
+  "id": "c39",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-crab",
+   "p-hedgehog",
+   "p-turtle",
+   "p-snail"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Wessen Panzer ist mit Wirbelsäule und Rippen verwachsen?",
+   "a": [
+    "Krabbe",
+    "Igel",
+    "Schildkröte",
+    "Schnecke"
+   ],
+   "x": "Eine Schildkröte kann ihren Panzer nie verlassen: Er besteht aus Knochen und ist fest mit dem Skelett verbunden."
+  },
+  "en": {
+   "q": "Whose shell is fused to its spine and ribs?",
+   "a": [
+    "Crab",
+    "Hedgehog",
+    "Turtle",
+    "Snail"
+   ],
+   "x": "A turtle can never leave its shell: it is made of bone and firmly joined to the skeleton."
+  },
+  "fr": {
+   "q": "Quel animal a une carapace soudée à sa colonne vertébrale et à ses côtes ?",
+   "a": [
+    "Crabe",
+    "Hérisson",
+    "Tortue",
+    "Escargot"
+   ],
+   "x": "La tortue ne peut jamais quitter sa carapace : elle est en os et soudée au squelette."
+  },
+  "es": {
+   "q": "¿Qué animal tiene el caparazón unido a la columna y las costillas?",
+   "a": [
+    "Cangrejo",
+    "Erizo",
+    "Tortuga",
+    "Caracol"
+   ],
+   "x": "La tortuga nunca puede salir de su caparazón: es de hueso y está unido al esqueleto."
+  }
+ },
+ {
+  "id": "c40",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-lizard",
+   "p-turtle",
+   "p-shark",
+   "p-tiger"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer hat keine Zähne, sondern einen scharfen Hornschnabel?",
+   "a": [
+    "Eidechse",
+    "Schildkröte",
+    "Hai",
+    "Tiger"
+   ],
+   "x": "Schildkröten haben seit Millionen Jahren keine Zähne. Ihr Hornschnabel schneidet Pflanzen und Beute."
+  },
+  "en": {
+   "q": "Which animal has no teeth but a sharp horny beak?",
+   "a": [
+    "Lizard",
+    "Turtle",
+    "Shark",
+    "Tiger"
+   ],
+   "x": "Turtles have had no teeth for millions of years. Their horny beak cuts plants and prey."
+  },
+  "fr": {
+   "q": "Quel animal n'a pas de dents mais un bec corné tranchant ?",
+   "a": [
+    "Lézard",
+    "Tortue",
+    "Requin",
+    "Tigre"
+   ],
+   "x": "La tortue n'a plus de dents depuis des millions d'années. Son bec corné coupe plantes et proies."
+  },
+  "es": {
+   "q": "¿Qué animal no tiene dientes sino un pico córneo afilado?",
+   "a": [
+    "Lagarto",
+    "Tortuga",
+    "Tiburón",
+    "Tigre"
+   ],
+   "x": "La tortuga no tiene dientes desde hace millones de años. Su pico córneo corta plantas y presas."
+  }
+ },
+ {
+  "id": "c41",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-crab",
+   "p-ladybug",
+   "p-snail",
+   "p-turtle"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Wer ist ein Weichtier und damit mit dem Kraken verwandt?",
+   "a": [
+    "Krabbe",
+    "Marienkäfer",
+    "Schnecke",
+    "Schildkröte"
+   ],
+   "x": "Schnecken, Muscheln und Kraken gehören zu den Weichtieren. Krabben sind dagegen Krebstiere."
+  },
+  "en": {
+   "q": "Which animal is a mollusc and therefore related to the octopus?",
+   "a": [
+    "Crab",
+    "Ladybird",
+    "Snail",
+    "Turtle"
+   ],
+   "x": "Snails, clams and octopuses are all molluscs. Crabs, on the other hand, are crustaceans."
+  },
+  "fr": {
+   "q": "Quel animal est un mollusque, donc un parent de la pieuvre ?",
+   "a": [
+    "Crabe",
+    "Coccinelle",
+    "Escargot",
+    "Tortue"
+   ],
+   "x": "Escargots, moules et pieuvres sont des mollusques. Le crabe, lui, est un crustacé."
+  },
+  "es": {
+   "q": "¿Qué animal es un molusco y, por tanto, pariente del pulpo?",
+   "a": [
+    "Cangrejo",
+    "Mariquita",
+    "Caracol",
+    "Tortuga"
+   ],
+   "x": "Caracoles, almejas y pulpos son moluscos. El cangrejo, en cambio, es un crustáceo."
+  }
+ },
+ {
+  "id": "c42",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-butterfly",
+   "p-bee",
+   "p-ladybug",
+   "p-snail"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer stellt mit Drüsen am Hinterleib Wachs her?",
+   "a": [
+    "Schmetterling",
+    "Biene",
+    "Marienkäfer",
+    "Schnecke"
+   ],
+   "x": "Arbeiterinnen schwitzen Wachsplättchen aus Drüsen am Bauch aus und bauen daraus die Waben."
+  },
+  "en": {
+   "q": "Which animal makes wax with glands on its abdomen?",
+   "a": [
+    "Butterfly",
+    "Bee",
+    "Ladybird",
+    "Snail"
+   ],
+   "x": "Worker bees secrete wax flakes from glands on their abdomen and use them to build honeycomb."
+  },
+  "fr": {
+   "q": "Quel animal fabrique de la cire grâce à des glandes sur son abdomen ?",
+   "a": [
+    "Papillon",
+    "Abeille",
+    "Coccinelle",
+    "Escargot"
+   ],
+   "x": "Les ouvrières sécrètent des écailles de cire par des glandes du ventre et bâtissent ainsi leurs rayons."
+  },
+  "es": {
+   "q": "¿Qué animal produce cera con glándulas en el abdomen?",
+   "a": [
+    "Mariposa",
+    "Abeja",
+    "Mariquita",
+    "Caracol"
+   ],
+   "x": "Las obreras segregan escamas de cera por glándulas del abdomen y con ellas construyen los panales."
+  }
+ },
+ {
+  "id": "c43",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-frog",
+   "p-crab",
+   "p-lizard",
+   "p-ladybug"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer durchläuft eine Verwandlung mit Puppenstadium?",
+   "a": [
+    "Frosch",
+    "Krabbe",
+    "Eidechse",
+    "Marienkäfer"
+   ],
+   "x": "Marienkäfer entwickeln sich über Ei, Larve und Puppe zum Käfer. Kaulquappen werden ohne Puppe zum Frosch."
+  },
+  "en": {
+   "q": "Which animal goes through a metamorphosis with a pupal stage?",
+   "a": [
+    "Frog",
+    "Crab",
+    "Lizard",
+    "Ladybird"
+   ],
+   "x": "Ladybirds go from egg to larva to pupa to beetle. Tadpoles turn into frogs without a pupa."
+  },
+  "fr": {
+   "q": "Quel animal passe par une métamorphose avec un stade de nymphe ?",
+   "a": [
+    "Grenouille",
+    "Crabe",
+    "Lézard",
+    "Coccinelle"
+   ],
+   "x": "La coccinelle passe de l'œuf à la larve, à la nymphe puis à l'adulte. Le têtard devient grenouille sans nymphe."
+  },
+  "es": {
+   "q": "¿Qué animal pasa por una metamorfosis con fase de pupa?",
+   "a": [
+    "Rana",
+    "Cangrejo",
+    "Lagarto",
+    "Mariquita"
+   ],
+   "x": "La mariquita pasa de huevo a larva, pupa y adulto. El renacuajo se convierte en rana sin pupa."
+  }
+ },
+ {
+  "id": "c44",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-bee",
+   "p-ladybug",
+   "p-butterfly",
+   "p-parrot"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Wessen Flügel sind mit winzigen Schuppen bedeckt?",
+   "a": [
+    "Biene",
+    "Marienkäfer",
+    "Schmetterling",
+    "Papagei"
+   ],
+   "x": "Schmetterlinge heißen „Schuppenflügler“. Ihre Farben entstehen durch Tausende winzige Schuppen."
+  },
+  "en": {
+   "q": "Whose wings are covered with tiny scales?",
+   "a": [
+    "Bee",
+    "Ladybird",
+    "Butterfly",
+    "Parrot"
+   ],
+   "x": "Butterflies belong to the Lepidoptera, the 'scale wings'. Their colours come from thousands of tiny scales."
+  },
+  "fr": {
+   "q": "Quel animal a des ailes couvertes de minuscules écailles ?",
+   "a": [
+    "Abeille",
+    "Coccinelle",
+    "Papillon",
+    "Perroquet"
+   ],
+   "x": "Les papillons sont des lépidoptères, « ailes à écailles ». Leurs couleurs viennent de milliers d'écailles."
+  },
+  "es": {
+   "q": "¿Qué animal tiene las alas cubiertas de diminutas escamas?",
+   "a": [
+    "Abeja",
+    "Mariquita",
+    "Mariposa",
+    "Loro"
+   ],
+   "x": "Las mariposas son lepidópteros, «alas con escamas». Sus colores vienen de miles de escamas diminutas."
+  }
+ },
+ {
+  "id": "c45",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-tiger",
+   "p-fox",
+   "p-bear",
+   "p-otter"
+  ],
+  "right": 1,
+  "de": {
+   "q": "Wer hat senkrechte Schlitzpupillen?",
+   "a": [
+    "Tiger",
+    "Fuchs",
+    "Bär",
+    "Otter"
+   ],
+   "x": "Füchse haben Schlitzpupillen wie Hauskatzen. Große Katzen wie der Tiger haben dagegen runde Pupillen."
+  },
+  "en": {
+   "q": "Which animal has vertical slit pupils?",
+   "a": [
+    "Tiger",
+    "Fox",
+    "Bear",
+    "Otter"
+   ],
+   "x": "Foxes have slit pupils like house cats. Big cats such as tigers, however, have round pupils."
+  },
+  "fr": {
+   "q": "Quel animal a des pupilles verticales en fente ?",
+   "a": [
+    "Tigre",
+    "Renard",
+    "Ours",
+    "Loutre"
+   ],
+   "x": "Le renard a des pupilles en fente comme le chat. Les grands félins comme le tigre ont des pupilles rondes."
+  },
+  "es": {
+   "q": "¿Qué animal tiene pupilas verticales en forma de rendija?",
+   "a": [
+    "Tigre",
+    "Zorro",
+    "Oso",
+    "Nutria"
+   ],
+   "x": "El zorro tiene pupilas de rendija como el gato. Los grandes felinos como el tigre las tienen redondas."
+  }
+ },
+ {
+  "id": "c46",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-otter",
+   "p-panda",
+   "p-tiger",
+   "p-fox"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer gehört zur Familie der Hunde?",
+   "a": [
+    "Otter",
+    "Panda",
+    "Tiger",
+    "Fuchs"
+   ],
+   "x": "Füchse gehören wie Wolf und Haushund zu den Hunden. Otter sind Marder, Pandas Bären, Tiger Katzen."
+  },
+  "en": {
+   "q": "Which animal belongs to the dog family?",
+   "a": [
+    "Otter",
+    "Panda",
+    "Tiger",
+    "Fox"
+   ],
+   "x": "Foxes are canids, like wolves and pet dogs. Otters are mustelids, pandas are bears and tigers are cats."
+  },
+  "fr": {
+   "q": "Quel animal appartient à la famille des chiens ?",
+   "a": [
+    "Loutre",
+    "Panda",
+    "Tigre",
+    "Renard"
+   ],
+   "x": "Le renard est un canidé comme le loup et le chien. La loutre est un mustélidé, le panda un ours, le tigre un félin."
+  },
+  "es": {
+   "q": "¿Qué animal pertenece a la familia de los perros?",
+   "a": [
+    "Nutria",
+    "Panda",
+    "Tigre",
+    "Zorro"
+   ],
+   "x": "El zorro es un cánido, como el lobo y el perro. La nutria es un mustélido, el panda un oso y el tigre un félido."
+  }
+ },
+ {
+  "id": "c47",
+  "lvl": 2,
+  "type": "image",
+  "img": [
+   "p-fox",
+   "p-squirrel",
+   "p-otter",
+   "p-panda"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Wer gehört zur Familie der Marder?",
+   "a": [
+    "Fuchs",
+    "Eichhörnchen",
+    "Otter",
+    "Panda"
+   ],
+   "x": "Otter sind ans Wasser angepasste Marder – verwandt mit Dachs, Iltis und Wiesel."
+  },
+  "en": {
+   "q": "Which animal belongs to the weasel family?",
+   "a": [
+    "Fox",
+    "Squirrel",
+    "Otter",
+    "Panda"
+   ],
+   "x": "Otters are mustelids adapted to water – relatives of badgers, polecats and weasels."
+  },
+  "fr": {
+   "q": "Quel animal appartient à la famille des mustélidés ?",
+   "a": [
+    "Renard",
+    "Écureuil",
+    "Loutre",
+    "Panda"
+   ],
+   "x": "La loutre est un mustélidé adapté à l'eau, parente du blaireau, du putois et de la belette."
+  },
+  "es": {
+   "q": "¿Qué animal pertenece a la familia de los mustélidos?",
+   "a": [
+    "Zorro",
+    "Ardilla",
+    "Nutria",
+    "Panda"
+   ],
+   "x": "La nutria es un mustélido adaptado al agua, pariente del tejón, el turón y la comadreja."
+  }
+ },
+ {
+  "id": "c48",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-lizard",
+   "p-turtle",
+   "p-frog",
+   "p-shark"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wessen Haut ist mit winzigen „Hautzähnchen“ bedeckt?",
+   "a": [
+    "Eidechse",
+    "Schildkröte",
+    "Frosch",
+    "Hai"
+   ],
+   "x": "Haihaut trägt Placoidschuppen, gebaut wie kleine Zähne. Gegen den Strich fühlt sie sich an wie Schleifpapier."
+  },
+  "en": {
+   "q": "Whose skin is covered with tiny 'skin teeth'?",
+   "a": [
+    "Lizard",
+    "Turtle",
+    "Frog",
+    "Shark"
+   ],
+   "x": "Shark skin has placoid scales built like tiny teeth. Stroked the wrong way it feels like sandpaper."
+  },
+  "fr": {
+   "q": "Quel animal a la peau couverte de minuscules « denticules » ?",
+   "a": [
+    "Lézard",
+    "Tortue",
+    "Grenouille",
+    "Requin"
+   ],
+   "x": "La peau du requin porte des écailles placoïdes, faites comme de petites dents. À rebrousse-poil, elle râpe."
+  },
+  "es": {
+   "q": "¿Qué animal tiene la piel cubierta de diminutos «dentículos»?",
+   "a": [
+    "Lagarto",
+    "Tortuga",
+    "Rana",
+    "Tiburón"
+   ],
+   "x": "La piel del tiburón tiene escamas placoideas, como dientes diminutos. A contrapelo parece papel de lija."
+  }
+ },
+ {
+  "id": "c49",
+  "lvl": 3,
+  "type": "image",
+  "img": [
+   "p-lizard",
+   "p-turtle",
+   "p-hedgehog",
+   "p-frog"
+  ],
+  "right": 3,
+  "de": {
+   "q": "Wer trinkt nicht mit dem Maul, sondern nimmt Wasser über die Haut auf?",
+   "a": [
+    "Eidechse",
+    "Schildkröte",
+    "Igel",
+    "Frosch"
+   ],
+   "x": "Frösche trinken nicht: Sie nehmen Wasser über die Haut auf, vor allem über eine dünne Stelle am Bauch."
+  },
+  "en": {
+   "q": "Which animal doesn't drink with its mouth but absorbs water through its skin?",
+   "a": [
+    "Lizard",
+    "Turtle",
+    "Hedgehog",
+    "Frog"
+   ],
+   "x": "Frogs don't drink: they soak up water through their skin, especially a thin patch on the belly."
+  },
+  "fr": {
+   "q": "Quel animal ne boit pas par la bouche mais absorbe l'eau par la peau ?",
+   "a": [
+    "Lézard",
+    "Tortue",
+    "Hérisson",
+    "Grenouille"
+   ],
+   "x": "La grenouille ne boit pas : elle absorbe l'eau par la peau, surtout par une zone fine du ventre."
+  },
+  "es": {
+   "q": "¿Qué animal no bebe por la boca sino que absorbe agua por la piel?",
+   "a": [
+    "Lagarto",
+    "Tortuga",
+    "Erizo",
+    "Rana"
+   ],
+   "x": "La rana no bebe: absorbe el agua por la piel, sobre todo por una zona fina del vientre."
+  }
+ },
+ {
+  "id": "c50",
+  "lvl": 1,
+  "type": "image",
+  "img": [
+   "p-frog",
+   "p-octopus",
+   "p-turtle",
+   "p-otter"
+  ],
+  "right": 2,
+  "de": {
+   "q": "Welches dieser Tiere ist ein Reptil?",
+   "a": [
+    "Frosch",
+    "Krake",
+    "Schildkröte",
+    "Otter"
+   ],
+   "x": "Schildkröten sind Reptilien mit trockener, schuppiger Haut. Frösche sind Amphibien, Kraken Weichtiere."
+  },
+  "en": {
+   "q": "Which of these animals is a reptile?",
+   "a": [
+    "Frog",
+    "Octopus",
+    "Turtle",
+    "Otter"
+   ],
+   "x": "Turtles are reptiles with dry, scaly skin. Frogs are amphibians and octopuses are molluscs."
+  },
+  "fr": {
+   "q": "Lequel de ces animaux est un reptile ?",
+   "a": [
+    "Grenouille",
+    "Pieuvre",
+    "Tortue",
+    "Loutre"
+   ],
+   "x": "La tortue est un reptile à peau sèche et écailleuse. La grenouille est un amphibien, la pieuvre un mollusque."
+  },
+  "es": {
+   "q": "¿Cuál de estos animales es un reptil?",
+   "a": [
+    "Rana",
+    "Pulpo",
+    "Tortuga",
+    "Nutria"
+   ],
+   "x": "La tortuga es un reptil de piel seca y escamosa. La rana es un anfibio y el pulpo un molusco."
+  }
+ }
+]

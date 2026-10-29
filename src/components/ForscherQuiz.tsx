@@ -48,6 +48,8 @@ export function ForscherQuiz({
   const { t, lang } = useI18n();
   const day = useRef(dayNo()).current;
   const [phase, setPhase] = useState<Phase>('count');
+  const phaseRef = useRef<Phase>('count');
+  phaseRef.current = phase;
   const [count, setCount] = useState(3);
   const [last, setLast] = useState<{ value: number; ms: number } | null>(null);
   const logRef = useRef(log);
@@ -117,6 +119,8 @@ export function ForscherQuiz({
   };
 
   const next = async () => {
+    if (phaseRef.current !== 'reveal') return; // schon weiter (Tippen und Zeitablauf gleichzeitig)
+    phaseRef.current = 'ask';
     const r = todayRound(logRef.current, day);
     if (r && r.a.length >= r.q.length) {
       onLog(await finishRound(logRef.current, day));
@@ -126,6 +130,22 @@ export function ForscherQuiz({
       setPhase('ask');
     }
   };
+
+  // Nach der Auflösung automatisch weiter: richtig 3,5 s, falsch / Zeit abgelaufen 6 s
+  const auto = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!visible || phase !== 'reveal' || !last) return;
+    const ms = q && last.value === q.right ? 3500 : 6000;
+    auto.setValue(0);
+    const anim = Animated.timing(auto, { toValue: 1, duration: ms, easing: Easing.linear, useNativeDriver: false });
+    anim.start();
+    const timer = setTimeout(next, ms);
+    return () => {
+      anim.stop();
+      clearTimeout(timer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible, phase, last]);
 
   // ✕: mitten in der Runde nachfragen – offene Fragen zählen dann als falsch
   const close = () => {
@@ -257,23 +277,32 @@ export function ForscherQuiz({
             )}
 
             {phase === 'reveal' && last && (
-              <>
-                <View style={[styles.explain, { backgroundColor: last.value === q.right ? 'rgba(46,122,76,0.12)' : 'rgba(200,84,58,0.10)' }]}>
-                  <Text style={[styles.verdict, { color: last.value === q.right ? '#2E7A4C' : '#C8543A' }]}>
-                    {last.value === q.right
-                      ? `${t('fq.right')} +${answerXp(q, last.value, last.ms)} XP`
-                      : last.value < 0
-                        ? t('fq.timeUp')
-                        : t('fq.wrong')}
-                  </Text>
-                  <Text style={[styles.explainText, { color: p.ink }]}>{text.x}</Text>
+              // Auflösung: geht nach ein paar Sekunden von selbst weiter (bei falscher Antwort länger zum Lesen);
+              // Antippen springt sofort weiter
+              <Pressable
+                onPress={next}
+                accessibilityRole="button"
+                accessibilityHint={t('fq.next')}
+                style={[styles.explain, { backgroundColor: last.value === q.right ? 'rgba(46,122,76,0.12)' : 'rgba(200,84,58,0.10)' }]}
+              >
+                <Text style={[styles.verdict, { color: last.value === q.right ? '#2E7A4C' : '#C8543A' }]}>
+                  {last.value === q.right
+                    ? `${t('fq.right')} +${answerXp(q, last.value, last.ms)} XP`
+                    : last.value < 0
+                      ? t('fq.timeUp')
+                      : t('fq.wrong')}
+                </Text>
+                <Text style={[styles.explainText, { color: p.ink }]}>{text.x}</Text>
+                <View style={styles.autoTrack}>
+                  <Animated.View
+                    style={[
+                      styles.autoFill,
+                      { backgroundColor: last.value === q.right ? '#2E7A4C' : '#C8543A' },
+                      { width: auto.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) },
+                    ]}
+                  />
                 </View>
-                <Pressable onPress={next} style={styles.next} accessibilityRole="button">
-                  <Text style={styles.nextText}>
-                    {round && round.a.length >= round.q.length ? t('fq.toResult') : t('fq.next')} ›
-                  </Text>
-                </Pressable>
-              </>
+              </Pressable>
             )}
           </ScrollView>
         )}
@@ -393,8 +422,8 @@ const styles = StyleSheet.create({
   explain: { marginHorizontal: 18, marginTop: 14, borderRadius: 14, padding: 14 },
   verdict: { fontFamily: fonts.sansBold, fontSize: 15, marginBottom: 4 },
   explainText: { fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 20 },
-  next: { alignSelf: 'flex-end', marginRight: 18, marginTop: 14, backgroundColor: '#1F6E47', borderRadius: 14, paddingVertical: 12, paddingHorizontal: 20 },
-  nextText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
+  autoTrack: { height: 3, borderRadius: 2, backgroundColor: 'rgba(0,0,0,0.06)', marginTop: 10, overflow: 'hidden' },
+  autoFill: { height: '100%', borderRadius: 2 },
   adBar: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingTop: 6 },
   resLabel: { fontFamily: fonts.sansBold, fontSize: 15, textAlign: 'center' },
   resBig: { fontFamily: fonts.serifBold, fontSize: 56, textAlign: 'center', marginTop: 4 },

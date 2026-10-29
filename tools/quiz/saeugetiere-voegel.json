@@ -1,0 +1,2206 @@
+[
+ {
+  "id": "a01",
+  "lvl": 1,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Welcher heimische Vogel kann kopfüber einen Baumstamm hinunterlaufen?",
+   "a": [
+    "Buntspecht",
+    "Kleiber",
+    "Gartenbaumläufer",
+    "Kohlmeise"
+   ],
+   "x": "Der Kleiber klettert als einziger heimischer Vogel auch kopfüber abwärts. Spechte und Baumläufer klettern nur aufwärts."
+  },
+  "en": {
+   "q": "Which bird native to Central Europe can walk head-first down a tree trunk?",
+   "a": [
+    "Great spotted woodpecker",
+    "Nuthatch",
+    "Short-toed treecreeper",
+    "Great tit"
+   ],
+   "x": "The nuthatch is the only native bird that also climbs head-first downwards. Woodpeckers and treecreepers only climb up."
+  },
+  "fr": {
+   "q": "Quel oiseau d'Europe centrale peut descendre un tronc la tête en bas ?",
+   "a": [
+    "Pic épeiche",
+    "Sittelle torchepot",
+    "Grimpereau des jardins",
+    "Mésange charbonnière"
+   ],
+   "x": "La sittelle est le seul oiseau de chez nous à descendre les troncs tête en bas. Pics et grimpereaux ne font que monter."
+  },
+  "es": {
+   "q": "¿Qué ave de Europa central puede bajar por un tronco cabeza abajo?",
+   "a": [
+    "Pico picapinos",
+    "Trepador azul",
+    "Agateador europeo",
+    "Carbonero común"
+   ],
+   "x": "El trepador azul es la única ave autóctona que baja por los troncos cabeza abajo. Pájaros carpinteros y agateadores solo suben."
+  }
+ },
+ {
+  "id": "a02",
+  "lvl": 1,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Milch ist ein gutes Futter für Igel.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Igel vertragen keinen Milchzucker und bekommen von Milch Durchfall. Wasser ist das richtige Getränk für sie."
+  },
+  "en": {
+   "q": "Milk is good food for hedgehogs.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Hedgehogs can't digest milk sugar (lactose); milk gives them diarrhoea. Water is the right drink for them."
+  },
+  "fr": {
+   "q": "Le lait est une bonne nourriture pour les hérissons.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Les hérissons ne digèrent pas le lactose : le lait leur donne la diarrhée. L'eau est la bonne boisson pour eux."
+  },
+  "es": {
+   "q": "La leche es un buen alimento para los erizos.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Los erizos no toleran la lactosa y la leche les provoca diarrea. Lo adecuado es darles agua."
+  }
+ },
+ {
+  "id": "a03",
+  "lvl": 1,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Fledermäuse sind die einzigen Säugetiere, die aktiv fliegen können.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Stimmt! Flughörnchen gleiten nur. Fledermäuse fliegen mit echten Flügeln aus Flughaut zwischen ihren langen Fingern."
+  },
+  "en": {
+   "q": "Bats are the only mammals capable of true powered flight.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "True! Flying squirrels only glide. Bats fly with real wings made of skin stretched between their long fingers."
+  },
+  "fr": {
+   "q": "Les chauves-souris sont les seuls mammifères capables de vrai vol battu.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Vrai ! Les écureuils volants ne font que planer. Les chauves-souris volent avec une membrane tendue entre leurs longs doigts."
+  },
+  "es": {
+   "q": "Los murciélagos son los únicos mamíferos capaces de volar activamente.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Cierto! Las ardillas voladoras solo planean. Los murciélagos vuelan con una membrana de piel entre sus largos dedos."
+  }
+ },
+ {
+  "id": "a04",
+  "lvl": 1,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Um wie viel Grad kann eine Eule ihren Kopf etwa drehen?",
+   "a": [
+    "90 Grad",
+    "180 Grad",
+    "270 Grad",
+    "360 Grad"
+   ],
+   "x": "Eulen drehen den Kopf bis etwa 270 Grad. Das gleicht aus, dass sie ihre großen Augen kaum bewegen können."
+  },
+  "en": {
+   "q": "About how far can an owl turn its head?",
+   "a": [
+    "90 degrees",
+    "180 degrees",
+    "270 degrees",
+    "360 degrees"
+   ],
+   "x": "Owls can turn their heads about 270 degrees. This makes up for their large eyes, which can barely move."
+  },
+  "fr": {
+   "q": "De combien de degrés une chouette peut-elle tourner la tête environ ?",
+   "a": [
+    "90 degrés",
+    "180 degrés",
+    "270 degrés",
+    "360 degrés"
+   ],
+   "x": "Les chouettes tournent la tête d'environ 270 degrés, car leurs grands yeux ne bougent presque pas."
+  },
+  "es": {
+   "q": "¿Aproximadamente cuántos grados puede girar la cabeza un búho?",
+   "a": [
+    "90 grados",
+    "180 grados",
+    "270 grados",
+    "360 grados"
+   ],
+   "x": "Los búhos giran la cabeza unos 270 grados, porque sus grandes ojos apenas pueden moverse."
+  }
+ },
+ {
+  "id": "a05",
+  "lvl": 1,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Welcher Vogel erreicht im Sturzflug mehr als 300 km/h?",
+   "a": [
+    "Turmfalke",
+    "Wanderfalke",
+    "Mauersegler",
+    "Habicht"
+   ],
+   "x": "Der Wanderfalke stößt mit über 300 km/h auf Beute herab und gilt damit als schnellstes Tier der Welt."
+  },
+  "en": {
+   "q": "Which bird reaches over 300 km/h in a hunting dive?",
+   "a": [
+    "Kestrel",
+    "Peregrine falcon",
+    "Common swift",
+    "Goshawk"
+   ],
+   "x": "The peregrine falcon dives at prey at over 300 km/h, making it the fastest animal in the world."
+  },
+  "fr": {
+   "q": "Quel oiseau dépasse 300 km/h en piqué ?",
+   "a": [
+    "Faucon crécerelle",
+    "Faucon pèlerin",
+    "Martinet noir",
+    "Autour des palombes"
+   ],
+   "x": "Le faucon pèlerin fond sur ses proies à plus de 300 km/h : c'est l'animal le plus rapide du monde."
+  },
+  "es": {
+   "q": "¿Qué ave supera los 300 km/h en picado?",
+   "a": [
+    "Cernícalo vulgar",
+    "Halcón peregrino",
+    "Vencejo común",
+    "Azor común"
+   ],
+   "x": "El halcón peregrino se lanza sobre sus presas a más de 300 km/h: es el animal más rápido del mundo."
+  }
+ },
+ {
+  "id": "a06",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Welches ist das größte Nagetier der Welt?",
+   "a": [
+    "Biber",
+    "Stachelschwein",
+    "Murmeltier",
+    "Wasserschwein"
+   ],
+   "x": "Das südamerikanische Wasserschwein (Capybara) kann über 50 kg wiegen. Der Biber ist das größte Nagetier Europas."
+  },
+  "en": {
+   "q": "Which is the largest rodent in the world?",
+   "a": [
+    "Beaver",
+    "Porcupine",
+    "Marmot",
+    "Capybara"
+   ],
+   "x": "The South American capybara can weigh over 50 kg. The beaver is Europe's largest rodent."
+  },
+  "fr": {
+   "q": "Quel est le plus grand rongeur du monde ?",
+   "a": [
+    "Castor",
+    "Porc-épic",
+    "Marmotte",
+    "Capybara"
+   ],
+   "x": "Le capybara d'Amérique du Sud peut dépasser 50 kg. Le castor est le plus grand rongeur d'Europe."
+  },
+  "es": {
+   "q": "¿Cuál es el roedor más grande del mundo?",
+   "a": [
+    "Castor",
+    "Puercoespín",
+    "Marmota",
+    "Capibara"
+   ],
+   "x": "El capibara sudamericano puede superar los 50 kg. El castor es el roedor más grande de Europa."
+  }
+ },
+ {
+  "id": "a07",
+  "lvl": 1,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Was macht ein frisch geschlüpftes Kuckucksküken mit den anderen Eiern im Nest?",
+   "a": [
+    "Es wirft sie aus dem Nest",
+    "Es wärmt sie mit",
+    "Es frisst sie auf",
+    "Es lässt sie liegen"
+   ],
+   "x": "Das Kuckucksküken schiebt Eier und Küken der Wirtsvögel aus dem Nest. So bekommt es das ganze Futter allein."
+  },
+  "en": {
+   "q": "What does a newly hatched cuckoo chick do with the other eggs in the nest?",
+   "a": [
+    "Pushes them out of the nest",
+    "Keeps them warm",
+    "Eats them",
+    "Leaves them alone"
+   ],
+   "x": "The cuckoo chick pushes the host's eggs and chicks out of the nest so it gets all the food for itself."
+  },
+  "fr": {
+   "q": "Que fait un poussin de coucou fraîchement éclos des autres œufs du nid ?",
+   "a": [
+    "Il les pousse hors du nid",
+    "Il les couve aussi",
+    "Il les mange",
+    "Il les ignore"
+   ],
+   "x": "Le jeune coucou pousse les œufs et oisillons de ses hôtes hors du nid pour garder toute la nourriture."
+  },
+  "es": {
+   "q": "¿Qué hace un pollo de cuco recién nacido con los otros huevos del nido?",
+   "a": [
+    "Los empuja fuera del nido",
+    "Los mantiene calientes",
+    "Se los come",
+    "Los deja en paz"
+   ],
+   "x": "El pollo de cuco empuja fuera del nido los huevos y pollos de sus anfitriones para quedarse con toda la comida."
+  }
+ },
+ {
+  "id": "a08",
+  "lvl": 1,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Welche Farbe hat das Gefieder eines Amselweibchens?",
+   "a": [
+    "Schwarz",
+    "Grau mit roter Brust",
+    "Dunkelbraun",
+    "Schwarz-weiß gefleckt"
+   ],
+   "x": "Nur das Männchen ist schwarz mit gelbem Schnabel. Das Weibchen ist dunkelbraun und dadurch beim Brüten gut getarnt."
+  },
+  "en": {
+   "q": "What colour is a female blackbird?",
+   "a": [
+    "Black",
+    "Grey with a red breast",
+    "Dark brown",
+    "Black-and-white spotted"
+   ],
+   "x": "Only the male is black with a yellow bill. The female is dark brown, which camouflages her on the nest."
+  },
+  "fr": {
+   "q": "De quelle couleur est la femelle du merle noir ?",
+   "a": [
+    "Noire",
+    "Grise à poitrine rouge",
+    "Brun foncé",
+    "Tachetée noir et blanc"
+   ],
+   "x": "Seul le mâle est noir à bec jaune. La femelle est brun foncé, ce qui la camoufle quand elle couve."
+  },
+  "es": {
+   "q": "¿De qué color es la hembra del mirlo común?",
+   "a": [
+    "Negra",
+    "Gris con pecho rojo",
+    "Marrón oscuro",
+    "Moteada de blanco y negro"
+   ],
+   "x": "Solo el macho es negro con pico amarillo. La hembra es marrón oscuro, lo que la camufla al incubar."
+  }
+ },
+ {
+  "id": "a09",
+  "lvl": 1,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Was ist ein „Gewölle“ bei Eulen?",
+   "a": [
+    "Ein Nest aus Federn",
+    "Ausgewürgte Knochen und Haare",
+    "Ein Balzruf",
+    "Das weiche Daunengefieder"
+   ],
+   "x": "Eulen schlucken Mäuse ganz und würgen Unverdauliches wie Knochen und Fell später als Ballen wieder aus."
+  },
+  "en": {
+   "q": "What is an owl pellet?",
+   "a": [
+    "A nest made of feathers",
+    "Coughed-up bones and fur",
+    "A courtship call",
+    "Soft down feathers"
+   ],
+   "x": "Owls swallow mice whole and later cough up the indigestible bones and fur as a compact pellet."
+  },
+  "fr": {
+   "q": "Qu'est-ce qu'une pelote de réjection chez la chouette ?",
+   "a": [
+    "Un nid de plumes",
+    "Des os et poils régurgités",
+    "Un chant nuptial",
+    "Le duvet des poussins"
+   ],
+   "x": "Les chouettes avalent les souris entières, puis recrachent les os et poils non digérés en boulette."
+  },
+  "es": {
+   "q": "¿Qué es una egagrópila de búho?",
+   "a": [
+    "Un nido de plumas",
+    "Huesos y pelos regurgitados",
+    "Un canto de cortejo",
+    "El plumón suave"
+   ],
+   "x": "Los búhos tragan los ratones enteros y luego regurgitan los huesos y pelos no digeridos en una bola."
+  }
+ },
+ {
+  "id": "a10",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Welcher ist der häufigste Greifvogel in Deutschland?",
+   "a": [
+    "Rotmilan",
+    "Habicht",
+    "Seeadler",
+    "Mäusebussard"
+   ],
+   "x": "Der Mäusebussard ist der häufigste Greifvogel Deutschlands. Man sieht ihn oft auf Zaunpfählen an Feldern sitzen."
+  },
+  "en": {
+   "q": "Which is the most common bird of prey in Germany?",
+   "a": [
+    "Red kite",
+    "Goshawk",
+    "White-tailed eagle",
+    "Common buzzard"
+   ],
+   "x": "The common buzzard is Germany's most common bird of prey, often seen perched on fence posts by fields."
+  },
+  "fr": {
+   "q": "Quel est le rapace le plus commun en Allemagne ?",
+   "a": [
+    "Milan royal",
+    "Autour des palombes",
+    "Pygargue à queue blanche",
+    "Buse variable"
+   ],
+   "x": "La buse variable est le rapace le plus commun d'Allemagne, souvent perchée sur des piquets au bord des champs."
+  },
+  "es": {
+   "q": "¿Cuál es el ave rapaz más común en Alemania?",
+   "a": [
+    "Milano real",
+    "Azor común",
+    "Pigargo europeo",
+    "Busardo ratonero"
+   ],
+   "x": "El busardo ratonero es la rapaz más común de Alemania; suele posarse en postes junto a los campos."
+  }
+ },
+ {
+  "id": "a11",
+  "lvl": 1,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Das Reh ist das Weibchen des Hirsches.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Falsch! Reh und Rothirsch sind zwei verschiedene Arten. Das Rehmännchen heißt Rehbock, das Weibchen Ricke."
+  },
+  "en": {
+   "q": "The roe deer is the female of the red deer.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "False! Roe deer and red deer are two separate species. Roe deer are much smaller than red deer."
+  },
+  "fr": {
+   "q": "Le chevreuil est la femelle du cerf.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Faux ! Chevreuil et cerf élaphe sont deux espèces différentes. La femelle du cerf s'appelle la biche."
+  },
+  "es": {
+   "q": "El corzo es la hembra del ciervo.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Falso! El corzo y el ciervo rojo son dos especies distintas. El corzo es mucho más pequeño."
+  }
+ },
+ {
+  "id": "a12",
+  "lvl": 1,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Welches ist die größte Hirschart der Welt?",
+   "a": [
+    "Elch",
+    "Rothirsch",
+    "Rentier",
+    "Damhirsch"
+   ],
+   "x": "Der Elch ist der größte Hirsch der Welt. Große Bullen erreichen etwa 2 m Schulterhöhe und tragen schaufelförmige Geweihe."
+  },
+  "en": {
+   "q": "Which is the largest species of deer in the world?",
+   "a": [
+    "Moose (elk)",
+    "Red deer",
+    "Reindeer",
+    "Fallow deer"
+   ],
+   "x": "The moose is the largest deer in the world. Big bulls reach about 2 m at the shoulder and carry broad, flat antlers."
+  },
+  "fr": {
+   "q": "Quelle est la plus grande espèce de cerf au monde ?",
+   "a": [
+    "Élan",
+    "Cerf élaphe",
+    "Renne",
+    "Daim"
+   ],
+   "x": "L'élan est le plus grand cervidé du monde. Les grands mâles atteignent environ 2 m au garrot et portent des bois en pelle."
+  },
+  "es": {
+   "q": "¿Cuál es la especie de ciervo más grande del mundo?",
+   "a": [
+    "Alce",
+    "Ciervo rojo",
+    "Reno",
+    "Gamo"
+   ],
+   "x": "El alce es el cérvido más grande del mundo. Los machos grandes alcanzan unos 2 m a la cruz y tienen astas en forma de pala."
+  }
+ },
+ {
+  "id": "a13",
+  "lvl": 1,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Welche ist die größte Eule Europas?",
+   "a": [
+    "Waldkauz",
+    "Schleiereule",
+    "Uhu",
+    "Waldohreule"
+   ],
+   "x": "Der Uhu ist Europas größte Eule, mit bis zu etwa 1,8 m Flügelspannweite. Er jagt sogar Igel."
+  },
+  "en": {
+   "q": "Which is the largest owl in Europe?",
+   "a": [
+    "Tawny owl",
+    "Barn owl",
+    "Eurasian eagle-owl",
+    "Long-eared owl"
+   ],
+   "x": "The eagle-owl is Europe's largest owl, with a wingspan of up to about 1.8 m. It even hunts hedgehogs."
+  },
+  "fr": {
+   "q": "Quel est le plus grand rapace nocturne d'Europe ?",
+   "a": [
+    "Chouette hulotte",
+    "Effraie des clochers",
+    "Grand-duc d'Europe",
+    "Hibou moyen-duc"
+   ],
+   "x": "Le grand-duc est le plus grand rapace nocturne d'Europe : jusqu'à environ 1,8 m d'envergure. Il chasse même le hérisson."
+  },
+  "es": {
+   "q": "¿Cuál es el búho más grande de Europa?",
+   "a": [
+    "Cárabo común",
+    "Lechuza común",
+    "Búho real",
+    "Búho chico"
+   ],
+   "x": "El búho real es el mayor búho de Europa, con hasta unos 1,8 m de envergadura. Incluso caza erizos."
+  }
+ },
+ {
+  "id": "a14",
+  "lvl": 1,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Welches dieser Tiere hält einen echten Winterschlaf?",
+   "a": [
+    "Dachs",
+    "Siebenschläfer",
+    "Eichhörnchen",
+    "Reh"
+   ],
+   "x": "Der Siebenschläfer schläft bis zu etwa 7 Monate. Dachs und Eichhörnchen halten nur Winterruhe, Rehe bleiben aktiv."
+  },
+  "en": {
+   "q": "Which of these animals truly hibernates?",
+   "a": [
+    "Badger",
+    "Edible dormouse",
+    "Red squirrel",
+    "Roe deer"
+   ],
+   "x": "The edible dormouse sleeps for up to about 7 months. Badgers and squirrels only rest more; roe deer stay active."
+  },
+  "fr": {
+   "q": "Lequel de ces animaux hiberne vraiment ?",
+   "a": [
+    "Blaireau",
+    "Loir gris",
+    "Écureuil roux",
+    "Chevreuil"
+   ],
+   "x": "Le loir dort jusqu’à environ 7 mois. Le blaireau et l’écureuil ne font qu’un repos hivernal, le chevreuil reste actif."
+  },
+  "es": {
+   "q": "¿Cuál de estos animales hiberna de verdad?",
+   "a": [
+    "Tejón",
+    "Lirón gris",
+    "Ardilla roja",
+    "Corzo"
+   ],
+   "x": "El lirón gris duerme hasta unos 7 meses. El tejón y la ardilla solo reducen su actividad; el corzo sigue activo."
+  }
+ },
+ {
+  "id": "a15",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Was passiert jedes Jahr mit dem Geweih eines Rothirsches?",
+   "a": [
+    "Es wächst einfach weiter",
+    "Es färbt sich weiß",
+    "Es bleibt für immer gleich",
+    "Es wird abgeworfen und wächst neu"
+   ],
+   "x": "Hirsche werfen ihr Geweih jedes Jahr ab. Das neue wächst in wenigen Monaten nach, geschützt von einer Haut, dem „Bast“."
+  },
+  "en": {
+   "q": "What happens to a red deer stag's antlers every year?",
+   "a": [
+    "They keep growing longer",
+    "They turn white",
+    "They never change",
+    "They are shed and regrow"
+   ],
+   "x": "Deer shed their antlers every year. New ones grow back within a few months, covered in skin called velvet."
+  },
+  "fr": {
+   "q": "Que se passe-t-il chaque année avec les bois du cerf ?",
+   "a": [
+    "Ils continuent de s'allonger",
+    "Ils deviennent blancs",
+    "Ils ne changent jamais",
+    "Ils tombent et repoussent"
+   ],
+   "x": "Le cerf perd ses bois chaque année. De nouveaux repoussent en quelques mois, couverts d'une peau appelée velours."
+  },
+  "es": {
+   "q": "¿Qué le pasa cada año a la cornamenta del ciervo?",
+   "a": [
+    "Sigue creciendo sin parar",
+    "Se vuelve blanca",
+    "Nunca cambia",
+    "Se cae y vuelve a crecer"
+   ],
+   "x": "Los ciervos pierden la cornamenta cada año. La nueva crece en pocos meses, cubierta de una piel llamada terciopelo."
+  }
+ },
+ {
+  "id": "a16",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "In welchem Land brütet etwa die Hälfte aller Rotmilane der Welt?",
+   "a": [
+    "Spanien",
+    "Deutschland",
+    "Frankreich",
+    "Polen"
+   ],
+   "x": "Etwa die Hälfte aller Rotmilane brütet in Deutschland. Man erkennt ihn am tief gegabelten, rostroten Schwanz."
+  },
+  "en": {
+   "q": "In which country do about half of the world's red kites breed?",
+   "a": [
+    "Spain",
+    "Germany",
+    "France",
+    "Poland"
+   ],
+   "x": "About half of all red kites breed in Germany. You can recognise it by its deeply forked, rusty-red tail."
+  },
+  "fr": {
+   "q": "Dans quel pays niche environ la moitié des milans royaux du monde ?",
+   "a": [
+    "Espagne",
+    "Allemagne",
+    "France",
+    "Pologne"
+   ],
+   "x": "Environ la moitié des milans royaux nichent en Allemagne. On le reconnaît à sa queue rousse profondément fourchue."
+  },
+  "es": {
+   "q": "¿En qué país cría aproximadamente la mitad de los milanos reales del mundo?",
+   "a": [
+    "España",
+    "Alemania",
+    "Francia",
+    "Polonia"
+   ],
+   "x": "Cerca de la mitad de los milanos reales cría en Alemania. Se reconoce por su cola rojiza muy ahorquillada."
+  }
+ },
+ {
+  "id": "a17",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wie lange können Mauersegler ohne Landung in der Luft bleiben?",
+   "a": [
+    "Höchstens einen Tag",
+    "Etwa eine Woche",
+    "Bis zu etwa 10 Monate",
+    "Ihr ganzes Leben lang"
+   ],
+   "x": "Manche Mauersegler bleiben bis zu etwa 10 Monate ununterbrochen in der Luft. Sie fressen und trinken im Flug und landen nur zum Brüten."
+  },
+  "en": {
+   "q": "How long can common swifts stay in the air without landing?",
+   "a": [
+    "One day at most",
+    "About a week",
+    "Up to about 10 months",
+    "Their whole life"
+   ],
+   "x": "Some swifts stay airborne for up to about 10 months non-stop. They eat and drink in flight and land only to breed."
+  },
+  "fr": {
+   "q": "Combien de temps les martinets noirs peuvent-ils rester en l'air sans se poser ?",
+   "a": [
+    "Un jour au maximum",
+    "Environ une semaine",
+    "Jusqu'à environ 10 mois",
+    "Toute leur vie"
+   ],
+   "x": "Certains martinets restent jusqu'à environ 10 mois en vol sans arrêt. Ils mangent et boivent en vol et ne se posent que pour nicher."
+  },
+  "es": {
+   "q": "¿Cuánto tiempo pueden pasar los vencejos comunes en el aire sin posarse?",
+   "a": [
+    "Un día como máximo",
+    "Una semana más o menos",
+    "Hasta unos 10 meses",
+    "Toda su vida"
+   ],
+   "x": "Algunos vencejos pasan hasta unos 10 meses volando sin parar. Comen y beben en vuelo y solo se posan para criar."
+  }
+ },
+ {
+  "id": "a18",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Warum sind die Nagezähne des Bibers orange?",
+   "a": [
+    "Eisen im Zahnschmelz",
+    "Farbstoff aus Baumrinde",
+    "Eine Zahnkrankheit",
+    "Sie sind mit Blut gefüllt"
+   ],
+   "x": "Eingelagertes Eisen färbt den Zahnschmelz orange und macht ihn besonders hart – ideal zum Fällen von Bäumen."
+  },
+  "en": {
+   "q": "Why are a beaver's front teeth orange?",
+   "a": [
+    "Iron in the enamel",
+    "Dye from tree bark",
+    "A tooth disease",
+    "They are full of blood"
+   ],
+   "x": "Iron in the enamel turns it orange and makes it extra hard – perfect for felling trees."
+  },
+  "fr": {
+   "q": "Pourquoi les incisives du castor sont-elles orange ?",
+   "a": [
+    "Du fer dans l'émail",
+    "Un pigment de l'écorce",
+    "Une maladie dentaire",
+    "Elles sont pleines de sang"
+   ],
+   "x": "Le fer présent dans l'émail le colore en orange et le rend très dur, idéal pour abattre des arbres."
+  },
+  "es": {
+   "q": "¿Por qué los incisivos del castor son naranjas?",
+   "a": [
+    "Hierro en el esmalte",
+    "Tinte de la corteza",
+    "Una enfermedad dental",
+    "Están llenos de sangre"
+   ],
+   "x": "El hierro del esmalte lo vuelve naranja y muy duro, ideal para talar árboles."
+  }
+ },
+ {
+  "id": "a19",
+  "lvl": 2,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Warum fliegen Weißstörche auf dem Weg nach Afrika nicht einfach übers Mittelmeer?",
+   "a": [
+    "Sie haben Angst vor Möwen",
+    "Sie können nicht schwimmen",
+    "Über dem Meer ist es zu kalt",
+    "Über Wasser fehlen warme Aufwinde"
+   ],
+   "x": "Störche segeln in warmen Aufwinden, die über Land entstehen, kaum aber über dem Meer. Daher ziehen sie über Gibraltar oder den Bosporus."
+  },
+  "en": {
+   "q": "Why don't white storks simply fly across the Mediterranean to Africa?",
+   "a": [
+    "They fear seagulls",
+    "They cannot swim",
+    "It is too cold over the sea",
+    "There are no rising warm air currents"
+   ],
+   "x": "Storks soar on rising warm air (thermals), which forms over land but hardly over sea. So they detour via Gibraltar or the Bosporus."
+  },
+  "fr": {
+   "q": "Pourquoi les cigognes blanches ne traversent-elles pas simplement la Méditerranée ?",
+   "a": [
+    "Elles ont peur des mouettes",
+    "Elles ne savent pas nager",
+    "Il fait trop froid sur la mer",
+    "Il n'y a pas d'ascendances chaudes"
+   ],
+   "x": "Les cigognes planent sur l'air chaud ascendant, présent sur terre mais rare sur la mer. Elles passent donc par Gibraltar ou le Bosphore."
+  },
+  "es": {
+   "q": "¿Por qué las cigüeñas blancas no cruzan directamente el Mediterráneo?",
+   "a": [
+    "Temen a las gaviotas",
+    "No saben nadar",
+    "Hace demasiado frío sobre el mar",
+    "Faltan corrientes de aire cálido"
+   ],
+   "x": "Las cigüeñas planean con corrientes térmicas, que se forman sobre tierra y apenas sobre el mar. Por eso pasan por Gibraltar o el Bósforo."
+  }
+ },
+ {
+  "id": "a20",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Welcher Vogel „pflanzt“ durch vergessene Wintervorräte viele neue Eichen?",
+   "a": [
+    "Buntspecht",
+    "Eichelhäher",
+    "Amsel",
+    "Ringeltaube"
+   ],
+   "x": "Der Eichelhäher versteckt im Herbst tausende Eicheln im Boden. Was er nicht wiederfindet, kann zu neuen Eichen keimen."
+  },
+  "en": {
+   "q": "Which bird 'plants' many new oak trees through forgotten winter stores?",
+   "a": [
+    "Great spotted woodpecker",
+    "Eurasian jay",
+    "Blackbird",
+    "Wood pigeon"
+   ],
+   "x": "In autumn the jay hides thousands of acorns in the ground. Those it never finds again can sprout into new oaks."
+  },
+  "fr": {
+   "q": "Quel oiseau « plante » de nombreux chênes grâce à ses réserves oubliées ?",
+   "a": [
+    "Pic épeiche",
+    "Geai des chênes",
+    "Merle noir",
+    "Pigeon ramier"
+   ],
+   "x": "En automne, le geai cache des milliers de glands dans le sol. Ceux qu'il oublie peuvent germer et devenir des chênes."
+  },
+  "es": {
+   "q": "¿Qué ave «planta» muchos robles nuevos con sus despensas olvidadas?",
+   "a": [
+    "Pico picapinos",
+    "Arrendajo",
+    "Mirlo común",
+    "Paloma torcaz"
+   ],
+   "x": "En otoño, el arrendajo esconde miles de bellotas en el suelo. Las que olvida pueden germinar y convertirse en robles."
+  }
+ },
+ {
+  "id": "a21",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wo brütet der Eisvogel?",
+   "a": [
+    "In einem Nest im Schilf",
+    "In einer Baumhöhle",
+    "In einer selbst gegrabenen Erdröhre",
+    "In einer Mulde am Strand"
+   ],
+   "x": "Der Eisvogel gräbt mit dem Schnabel eine oft fast meterlange Röhre in steile Uferwände. Am Ende liegt die Brutkammer."
+  },
+  "en": {
+   "q": "Where does the kingfisher nest?",
+   "a": [
+    "In a reed nest",
+    "In a tree hole",
+    "In a burrow it digs itself",
+    "In a hollow on the beach"
+   ],
+   "x": "The kingfisher digs a tunnel, often almost a metre long, into steep riverbanks with its bill. The nest chamber is at the end."
+  },
+  "fr": {
+   "q": "Où niche le martin-pêcheur ?",
+   "a": [
+    "Dans un nid de roseaux",
+    "Dans un trou d'arbre",
+    "Dans un terrier qu'il creuse",
+    "Dans un creux sur la plage"
+   ],
+   "x": "Le martin-pêcheur creuse avec son bec un tunnel souvent long de près d'un mètre dans une berge abrupte. Le nid est au fond."
+  },
+  "es": {
+   "q": "¿Dónde cría el martín pescador?",
+   "a": [
+    "En un nido entre juncos",
+    "En el hueco de un árbol",
+    "En un túnel que excava él mismo",
+    "En un hoyo en la playa"
+   ],
+   "x": "El martín pescador excava con el pico un túnel de casi un metro en taludes de ríos. Al fondo está el nido."
+  }
+ },
+ {
+  "id": "a22",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Warum können Fledermäuse kopfüber hängend schlafen, ohne sich anzustrengen?",
+   "a": [
+    "Ihr Gewicht schließt die Krallen",
+    "Sie kleben mit Speichel fest",
+    "Sie haben Saugnäpfe an den Füßen",
+    "Sie spannen dauernd die Muskeln an"
+   ],
+   "x": "Ein Sehnen-Mechanismus hält die Zehen geschlossen, solange das Körpergewicht daran zieht. So kostet das Hängen keine Kraft."
+  },
+  "en": {
+   "q": "Why can bats sleep hanging upside down without any effort?",
+   "a": [
+    "Their weight locks their claws",
+    "They stick on with saliva",
+    "They have suction pads on their feet",
+    "They keep their muscles tensed"
+   ],
+   "x": "A tendon mechanism keeps the toes closed while the body weight pulls on them, so hanging costs no effort."
+  },
+  "fr": {
+   "q": "Pourquoi les chauves-souris peuvent-elles dormir suspendues sans effort ?",
+   "a": [
+    "Leur poids verrouille leurs griffes",
+    "Elles se collent avec leur salive",
+    "Elles ont des ventouses aux pieds",
+    "Elles gardent les muscles contractés"
+   ],
+   "x": "Un mécanisme de tendons garde les orteils fermés tant que le poids du corps tire dessus : rester suspendue ne coûte aucun effort."
+  },
+  "es": {
+   "q": "¿Por qué los murciélagos pueden dormir colgados sin hacer esfuerzo?",
+   "a": [
+    "Su peso bloquea sus garras",
+    "Se pegan con saliva",
+    "Tienen ventosas en las patas",
+    "Tensan los músculos todo el rato"
+   ],
+   "x": "Un mecanismo de tendones mantiene los dedos cerrados mientras el peso del cuerpo tira de ellos: colgar no les cuesta esfuerzo."
+  }
+ },
+ {
+  "id": "a23",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wie viele Stacheln hat ein erwachsener Igel ungefähr?",
+   "a": [
+    "Etwa 70",
+    "Etwa 700",
+    "Etwa 7.000",
+    "Etwa 70.000"
+   ],
+   "x": "Ein erwachsener Igel trägt etwa 6.000 bis 8.000 Stacheln. Das sind umgewandelte Haare."
+  },
+  "en": {
+   "q": "About how many spines does an adult hedgehog have?",
+   "a": [
+    "About 70",
+    "About 700",
+    "About 7,000",
+    "About 70,000"
+   ],
+   "x": "An adult hedgehog has about 6,000 to 8,000 spines. They are actually modified hairs."
+  },
+  "fr": {
+   "q": "Combien de piquants un hérisson adulte a-t-il environ ?",
+   "a": [
+    "Environ 70",
+    "Environ 700",
+    "Environ 7 000",
+    "Environ 70 000"
+   ],
+   "x": "Un hérisson adulte porte environ 6 000 à 8 000 piquants. Ce sont des poils transformés."
+  },
+  "es": {
+   "q": "¿Aproximadamente cuántas púas tiene un erizo adulto?",
+   "a": [
+    "Unas 70",
+    "Unas 700",
+    "Unas 7.000",
+    "Unas 70.000"
+   ],
+   "x": "Un erizo adulto tiene unas 6.000 a 8.000 púas. Son pelos modificados."
+  }
+ },
+ {
+  "id": "a24",
+  "lvl": 2,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Mit welchem dieser Tiere ist die Spitzmaus am nächsten verwandt?",
+   "a": [
+    "Hausmaus",
+    "Eichhörnchen",
+    "Wildkaninchen",
+    "Maulwurf"
+   ],
+   "x": "Spitzmäuse sind trotz des Namens keine Nagetiere. Sie gehören wie Maulwurf und Igel zu den Insektenfressern."
+  },
+  "en": {
+   "q": "Which of these animals is the shrew most closely related to?",
+   "a": [
+    "House mouse",
+    "Red squirrel",
+    "Rabbit",
+    "Mole"
+   ],
+   "x": "Despite looking like mice, shrews aren't rodents. Like moles and hedgehogs, they belong to the insectivores."
+  },
+  "fr": {
+   "q": "De quel animal la musaraigne est-elle la plus proche parente ?",
+   "a": [
+    "Souris domestique",
+    "Écureuil roux",
+    "Lapin",
+    "Taupe"
+   ],
+   "x": "Malgré leur air de souris, les musaraignes ne sont pas des rongeurs. Comme la taupe et le hérisson, ce sont des insectivores."
+  },
+  "es": {
+   "q": "¿Con cuál de estos animales está más emparentada la musaraña?",
+   "a": [
+    "Ratón doméstico",
+    "Ardilla roja",
+    "Conejo",
+    "Topo"
+   ],
+   "x": "Aunque parezcan ratones, las musarañas no son roedores. Como el topo y el erizo, son insectívoros."
+  }
+ },
+ {
+  "id": "a25",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Was unterscheidet junge Feldhasen bei der Geburt von jungen Wildkaninchen?",
+   "a": [
+    "Hasen haben Fell und offene Augen",
+    "Hasen sind nackt und blind",
+    "Hasen schlüpfen aus Eiern",
+    "Es gibt keinen Unterschied"
+   ],
+   "x": "Junghasen kommen behaart und sehend in einer offenen Mulde zur Welt. Kaninchen werden nackt und blind im Bau geboren."
+  },
+  "en": {
+   "q": "How do newborn brown hares differ from newborn rabbits?",
+   "a": [
+    "Hares have fur and open eyes",
+    "Hares are naked and blind",
+    "Hares hatch from eggs",
+    "There is no difference"
+   ],
+   "x": "Young hares are born furred and with open eyes in a shallow hollow. Rabbits are born naked and blind in a burrow."
+  },
+  "fr": {
+   "q": "En quoi les levrauts nouveau-nés diffèrent-ils des lapereaux ?",
+   "a": [
+    "Ils ont du poil et les yeux ouverts",
+    "Ils sont nus et aveugles",
+    "Ils sortent d'un œuf",
+    "Il n'y a aucune différence"
+   ],
+   "x": "Les levrauts naissent poilus et les yeux ouverts dans un simple creux. Les lapereaux naissent nus et aveugles dans un terrier."
+  },
+  "es": {
+   "q": "¿En qué se diferencian los lebratos recién nacidos de las crías de conejo?",
+   "a": [
+    "Tienen pelo y ojos abiertos",
+    "Nacen desnudos y ciegos",
+    "Salen de un huevo",
+    "No hay ninguna diferencia"
+   ],
+   "x": "Los lebratos nacen con pelo y ojos abiertos en un simple hoyo. Los conejos nacen desnudos y ciegos en una madriguera."
+  }
+ },
+ {
+  "id": "a26",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Wie hält sich der Fischotter im kalten Wasser warm?",
+   "a": [
+    "Mit einer dicken Speckschicht",
+    "Mit extrem dichtem Fell",
+    "Durch ständiges Zittern",
+    "Gar nicht – er friert"
+   ],
+   "x": "Der Otter hat kaum Speck, aber eines der dichtesten Felle aller Tiere. Darin hält sich eine isolierende Luftschicht."
+  },
+  "en": {
+   "q": "How does the Eurasian otter keep warm in cold water?",
+   "a": [
+    "A thick layer of blubber",
+    "Extremely dense fur",
+    "Constant shivering",
+    "It doesn't – it just freezes"
+   ],
+   "x": "Otters have little fat but one of the densest furs of any animal. It traps an insulating layer of air."
+  },
+  "fr": {
+   "q": "Comment la loutre d'Europe se protège-t-elle de l'eau froide ?",
+   "a": [
+    "Une épaisse couche de graisse",
+    "Une fourrure extrêmement dense",
+    "En frissonnant sans cesse",
+    "Elle ne se protège pas"
+   ],
+   "x": "La loutre a peu de graisse, mais l'une des fourrures les plus denses du règne animal, qui retient une couche d'air isolante."
+  },
+  "es": {
+   "q": "¿Cómo se mantiene caliente la nutria europea en el agua fría?",
+   "a": [
+    "Una gruesa capa de grasa",
+    "Un pelaje densísimo",
+    "Tiritando sin parar",
+    "No lo hace: pasa frío"
+   ],
+   "x": "La nutria apenas tiene grasa, pero sí uno de los pelajes más densos del reino animal, que atrapa una capa de aire aislante."
+  }
+ },
+ {
+  "id": "a27",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Woher stammt der Marderhund, der heute auch in Deutschland lebt?",
+   "a": [
+    "Nordamerika",
+    "Südamerika",
+    "Ostasien",
+    "Australien"
+   ],
+   "x": "Der Marderhund stammt aus Ostasien. Er wurde in Osteuropa als Pelztier ausgesetzt und breitete sich bis zu uns aus."
+  },
+  "en": {
+   "q": "Where does the raccoon dog, now also living in Germany, originally come from?",
+   "a": [
+    "North America",
+    "South America",
+    "East Asia",
+    "Australia"
+   ],
+   "x": "The raccoon dog comes from East Asia. It was released in Eastern Europe for its fur and spread west as far as Germany."
+  },
+  "fr": {
+   "q": "D'où vient à l'origine le chien viverrin, présent aujourd'hui en Allemagne ?",
+   "a": [
+    "Amérique du Nord",
+    "Amérique du Sud",
+    "Asie de l'Est",
+    "Australie"
+   ],
+   "x": "Le chien viverrin vient d'Asie de l'Est. Relâché en Europe de l'Est pour sa fourrure, il s'est répandu jusqu'en Allemagne."
+  },
+  "es": {
+   "q": "¿De dónde procede el perro mapache, que hoy vive también en Alemania?",
+   "a": [
+    "Norteamérica",
+    "Sudamérica",
+    "Asia oriental",
+    "Australia"
+   ],
+   "x": "El perro mapache procede de Asia oriental. Se liberó en Europa del Este por su piel y se extendió hasta Alemania."
+  }
+ },
+ {
+  "id": "a28",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Welcher Vogel ist – gemeinsam mit einem nahen Verwandten – der kleinste Vogel Europas?",
+   "a": [
+    "Wintergoldhähnchen",
+    "Zaunkönig",
+    "Blaumeise",
+    "Rotkehlchen"
+   ],
+   "x": "Winter- und Sommergoldhähnchen wiegen nur etwa 5 bis 6 Gramm. Der Zaunkönig ist etwas schwerer."
+  },
+  "en": {
+   "q": "Which bird is – together with a close relative – the smallest bird in Europe?",
+   "a": [
+    "Goldcrest",
+    "Wren",
+    "Blue tit",
+    "Robin"
+   ],
+   "x": "The goldcrest and its relative the firecrest weigh only about 5 to 6 grams. The wren is a bit heavier."
+  },
+  "fr": {
+   "q": "Quel oiseau est, avec un proche parent, le plus petit oiseau d'Europe ?",
+   "a": [
+    "Roitelet huppé",
+    "Troglodyte mignon",
+    "Mésange bleue",
+    "Rougegorge familier"
+   ],
+   "x": "Le roitelet huppé et le roitelet à triple bandeau ne pèsent qu'environ 5 à 6 grammes. Le troglodyte est un peu plus lourd."
+  },
+  "es": {
+   "q": "¿Qué ave es, junto con un pariente cercano, la más pequeña de Europa?",
+   "a": [
+    "Reyezuelo sencillo",
+    "Chochín común",
+    "Herrerillo común",
+    "Petirrojo"
+   ],
+   "x": "El reyezuelo sencillo y el listado pesan solo unos 5 o 6 gramos. El chochín es algo más pesado."
+  }
+ },
+ {
+  "id": "a29",
+  "lvl": 2,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Welcher dieser Vögel legt jedes Jahr die längste Zugstrecke zurück?",
+   "a": [
+    "Weißstorch",
+    "Kuckuck",
+    "Rauchschwalbe",
+    "Küstenseeschwalbe"
+   ],
+   "x": "Die Küstenseeschwalbe pendelt jedes Jahr zwischen Arktis und Antarktis – oft mehrere zehntausend Kilometer."
+  },
+  "en": {
+   "q": "Which of these birds flies the longest migration every year?",
+   "a": [
+    "White stork",
+    "Cuckoo",
+    "Barn swallow",
+    "Arctic tern"
+   ],
+   "x": "The Arctic tern travels between the Arctic and the Antarctic every year – often tens of thousands of kilometres."
+  },
+  "fr": {
+   "q": "Lequel de ces oiseaux fait chaque année la plus longue migration ?",
+   "a": [
+    "Cigogne blanche",
+    "Coucou gris",
+    "Hirondelle rustique",
+    "Sterne arctique"
+   ],
+   "x": "La sterne arctique fait chaque année l'aller-retour entre Arctique et Antarctique : souvent des dizaines de milliers de kilomètres."
+  },
+  "es": {
+   "q": "¿Cuál de estas aves realiza cada año la migración más larga?",
+   "a": [
+    "Cigüeña blanca",
+    "Cuco común",
+    "Golondrina común",
+    "Charrán ártico"
+   ],
+   "x": "El charrán ártico viaja cada año entre el Ártico y la Antártida: a menudo decenas de miles de kilómetros."
+  }
+ },
+ {
+  "id": "a30",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Welches ist das schwerste wild lebende Landsäugetier Europas?",
+   "a": [
+    "Wisent",
+    "Elch",
+    "Braunbär",
+    "Rothirsch"
+   ],
+   "x": "Wisentbullen werden bis zu etwa 900 kg schwer. In freier Wildbahn war der Wisent ausgestorben und wurde mit Zootieren gerettet."
+  },
+  "en": {
+   "q": "Which is the heaviest wild land mammal in Europe?",
+   "a": [
+    "European bison",
+    "Moose",
+    "Brown bear",
+    "Red deer"
+   ],
+   "x": "European bison bulls can weigh up to about 900 kg. Once extinct in the wild, the species was saved with zoo animals."
+  },
+  "fr": {
+   "q": "Quel est le plus lourd mammifère terrestre sauvage d'Europe ?",
+   "a": [
+    "Bison d'Europe",
+    "Élan",
+    "Ours brun",
+    "Cerf élaphe"
+   ],
+   "x": "Les mâles du bison d'Europe pèsent jusqu'à environ 900 kg. Disparu à l'état sauvage, il a été sauvé grâce aux zoos."
+  },
+  "es": {
+   "q": "¿Cuál es el mamífero terrestre salvaje más pesado de Europa?",
+   "a": [
+    "Bisonte europeo",
+    "Alce",
+    "Oso pardo",
+    "Ciervo rojo"
+   ],
+   "x": "Los machos de bisonte europeo pesan hasta unos 900 kg. Se extinguió en libertad y se salvó gracias a animales de zoo."
+  }
+ },
+ {
+  "id": "a31",
+  "lvl": 2,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Der Kolkrabe gehört zu den Singvögeln.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Stimmt! Rabenvögel zählen zu den Singvögeln. Der Kolkrabe ist sogar der größte Singvogel der Welt."
+  },
+  "en": {
+   "q": "The common raven is a songbird.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "True! Crows and ravens belong to the songbirds. The raven is even the largest songbird in the world."
+  },
+  "fr": {
+   "q": "Le grand corbeau fait partie des oiseaux chanteurs.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Vrai ! Les corvidés sont des oiseaux chanteurs. Le grand corbeau est même le plus grand oiseau chanteur du monde."
+  },
+  "es": {
+   "q": "El cuervo grande es un ave cantora.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Cierto! Los córvidos son aves cantoras. El cuervo grande es incluso el ave cantora más grande del mundo."
+  }
+ },
+ {
+  "id": "a32",
+  "lvl": 2,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Eine Giraffe hat deutlich mehr Halswirbel als ein Mensch.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Falsch! Beide haben sieben Halswirbel, wie fast alle Säugetiere. Bei der Giraffe ist jeder Wirbel nur viel länger."
+  },
+  "en": {
+   "q": "A giraffe has far more neck vertebrae than a human.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "False! Both have seven, like almost all mammals. A giraffe's vertebrae are simply much longer."
+  },
+  "fr": {
+   "q": "La girafe a beaucoup plus de vertèbres cervicales que l'humain.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Faux ! Les deux en ont sept, comme presque tous les mammifères. Celles de la girafe sont juste bien plus longues."
+  },
+  "es": {
+   "q": "La jirafa tiene muchas más vértebras en el cuello que un humano.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Falso! Ambos tienen siete, como casi todos los mamíferos. Las de la jirafa son simplemente mucho más largas."
+  }
+ },
+ {
+  "id": "a33",
+  "lvl": 2,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Hasen und Kaninchen gehören zu den Nagetieren.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Falsch! Sie bilden eine eigene Gruppe, die Hasenartigen. Hinter den oberen Nagezähnen haben sie ein zweites Paar kleiner Zähne."
+  },
+  "en": {
+   "q": "Hares and rabbits are rodents.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "False! They form their own order, the lagomorphs. Behind their upper incisors they have a second pair of small teeth."
+  },
+  "fr": {
+   "q": "Les lièvres et les lapins sont des rongeurs.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Faux ! Ce sont des lagomorphes. Derrière leurs incisives supérieures, ils ont une seconde paire de petites dents."
+  },
+  "es": {
+   "q": "Las liebres y los conejos son roedores.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Falso! Son lagomorfos. Detrás de los incisivos superiores tienen un segundo par de pequeños dientes."
+  }
+ },
+ {
+  "id": "a34",
+  "lvl": 2,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Unter seinem weißen Fell hat der Eisbär ebenfalls weiße Haut.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Falsch! Die Haut des Eisbären ist schwarz. Seine Haare sind eigentlich farblos und durchsichtig und wirken nur weiß."
+  },
+  "en": {
+   "q": "Under its white fur, a polar bear also has white skin.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "False! A polar bear's skin is black. Its hairs are actually colourless and see-through; they only look white."
+  },
+  "fr": {
+   "q": "Sous sa fourrure blanche, l'ours polaire a aussi la peau blanche.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Faux ! Sa peau est noire. Ses poils sont en fait incolores et transparents : ils paraissent seulement blancs."
+  },
+  "es": {
+   "q": "Bajo su pelaje blanco, el oso polar también tiene la piel blanca.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Falso! Su piel es negra. Sus pelos son en realidad incoloros y transparentes; solo parecen blancos."
+  }
+ },
+ {
+  "id": "a35",
+  "lvl": 2,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Schleiereulen können Mäuse in völliger Dunkelheit allein nach Gehör fangen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Stimmt! Der herzförmige Gesichtsschleier lenkt Geräusche zu den leicht versetzten Ohren. So orten sie Beute punktgenau."
+  },
+  "en": {
+   "q": "Barn owls can catch mice in total darkness by hearing alone.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "True! The heart-shaped facial disc funnels sound to their slightly offset ears, so they can pinpoint prey."
+  },
+  "fr": {
+   "q": "L'effraie des clochers peut attraper une souris dans le noir complet, rien qu'à l'ouïe.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Vrai ! Son disque facial en cœur dirige les sons vers ses oreilles décalées, ce qui lui permet de localiser la proie avec précision."
+  },
+  "es": {
+   "q": "La lechuza común puede cazar ratones en total oscuridad solo con el oído.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Cierto! Su disco facial en forma de corazón dirige el sonido a sus oídos asimétricos y localiza la presa con precisión."
+  }
+ },
+ {
+  "id": "a36",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wo liegt die extrem lange Zunge des Grünspechts, wenn er sie nicht benutzt?",
+   "a": [
+    "Aufgerollt im Kehlsack",
+    "Gefaltet im Schnabel",
+    "Um den Schädel herum gewickelt",
+    "Im Magen"
+   ],
+   "x": "Die Zunge sitzt auf langen Knochenspangen, die hinten um den ganzen Schädel laufen. So kann er tief in Ameisennester stoßen."
+  },
+  "en": {
+   "q": "Where is the green woodpecker's extremely long tongue kept when not in use?",
+   "a": [
+    "Coiled in a throat pouch",
+    "Folded in its bill",
+    "Wrapped around its skull",
+    "In its stomach"
+   ],
+   "x": "The tongue sits on long bony rods that loop around the back of the skull. This lets it probe deep into ant nests."
+  },
+  "fr": {
+   "q": "Où se range la langue extrêmement longue du pic vert au repos ?",
+   "a": [
+    "Enroulée dans la gorge",
+    "Pliée dans le bec",
+    "Enroulée autour du crâne",
+    "Dans l'estomac"
+   ],
+   "x": "La langue repose sur de longues tiges osseuses qui font le tour du crâne. Le pic vert peut ainsi fouiller loin dans les fourmilières."
+  },
+  "es": {
+   "q": "¿Dónde guarda el pito real su larguísima lengua cuando no la usa?",
+   "a": [
+    "Enrollada en la garganta",
+    "Doblada dentro del pico",
+    "Enrollada alrededor del cráneo",
+    "En el estómago"
+   ],
+   "x": "La lengua se apoya en largos huesos que rodean el cráneo por detrás. Así puede hurgar a fondo en los hormigueros."
+  }
+ },
+ {
+  "id": "a37",
+  "lvl": 3,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Rehe paaren sich im Hochsommer, die Kitze kommen aber erst im nächsten Mai oder Juni. Warum?",
+   "a": [
+    "Die Ricke trägt zwei Kitze nacheinander",
+    "Der Embryo macht monatelang Pause",
+    "Die Kitze wachsen extrem langsam",
+    "Sie paaren sich im Frühling erneut"
+   ],
+   "x": "Beim Reh ruht der Keim nach der Befruchtung bis etwa Dezember (Keimruhe). So kommen die Kitze, wenn es viel Futter gibt."
+  },
+  "en": {
+   "q": "Roe deer mate in midsummer, but fawns are only born the next May or June. Why?",
+   "a": [
+    "The doe carries two fawns in turn",
+    "The embryo pauses for months",
+    "The fawns grow extremely slowly",
+    "They mate again in spring"
+   ],
+   "x": "In roe deer the embryo rests until around December (delayed implantation), so fawns arrive when food is plentiful."
+  },
+  "fr": {
+   "q": "Les chevreuils s'accouplent en plein été, mais les faons naissent en mai ou juin suivant. Pourquoi ?",
+   "a": [
+    "La chevrette porte deux faons à la suite",
+    "L'embryon reste en pause des mois",
+    "Les faons grandissent très lentement",
+    "Ils s'accouplent à nouveau au printemps"
+   ],
+   "x": "Chez le chevreuil, l'embryon reste en pause jusque vers décembre (implantation différée). Les faons naissent quand la nourriture abonde."
+  },
+  "es": {
+   "q": "Los corzos se aparean en pleno verano, pero las crías nacen en mayo o junio. ¿Por qué?",
+   "a": [
+    "La hembra gesta dos crías seguidas",
+    "El embrión se detiene durante meses",
+    "Las crías crecen muy despacio",
+    "Vuelven a aparearse en primavera"
+   ],
+   "x": "En el corzo, el embrión queda en pausa hasta diciembre (implantación diferida); así las crías nacen cuando abunda el alimento."
+  }
+ },
+ {
+  "id": "a38",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "In welchem Jahr wurden in Deutschland erstmals wieder wilde Wolfswelpen geboren?",
+   "a": [
+    "1975",
+    "1990",
+    "2000",
+    "2015"
+   ],
+   "x": "Im Jahr 2000 zog ein Wolfspaar in der Lausitz in Sachsen Junge groß – nach über 100 Jahren ohne Wolfsnachwuchs in Deutschland."
+  },
+  "en": {
+   "q": "In which year were wild wolf pups born in Germany again for the first time?",
+   "a": [
+    "1975",
+    "1990",
+    "2000",
+    "2015"
+   ],
+   "x": "In 2000 a wolf pair raised pups in Lusatia, Saxony – after more than 100 years without wolves breeding in Germany."
+  },
+  "fr": {
+   "q": "En quelle année des louveteaux sauvages sont-ils de nouveau nés en Allemagne ?",
+   "a": [
+    "1975",
+    "1990",
+    "2000",
+    "2015"
+   ],
+   "x": "En 2000, un couple de loups a élevé des petits en Lusace (Saxe), après plus de 100 ans sans reproduction de loups en Allemagne."
+  },
+  "es": {
+   "q": "¿En qué año volvieron a nacer lobeznos salvajes en Alemania por primera vez?",
+   "a": [
+    "1975",
+    "1990",
+    "2000",
+    "2015"
+   ],
+   "x": "En 2000 una pareja de lobos crió cachorros en Lusacia (Sajonia), tras más de 100 años sin lobos criando en Alemania."
+  }
+ },
+ {
+  "id": "a39",
+  "lvl": 3,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Woran unterscheidet man eine Europäische Wildkatze von einer getigerten Hauskatze?",
+   "a": [
+    "An Pinseln auf den Ohren",
+    "An weißen Pfoten",
+    "Am langen, dünnen Schwanz",
+    "Dicker Schwanz, stumpfe schwarze Spitze"
+   ],
+   "x": "Die Wildkatze hat einen dicken, buschigen Schwanz mit schwarzen Ringen und stumpfem schwarzem Ende. Pinselohren hat der Luchs."
+  },
+  "en": {
+   "q": "What helps tell a European wildcat from a tabby house cat?",
+   "a": [
+    "Tufts on its ears",
+    "White paws",
+    "A long, thin tail",
+    "Bushy tail with a blunt black tip"
+   ],
+   "x": "The wildcat has a thick, bushy tail with black rings and a blunt black end. Ear tufts belong to the lynx."
+  },
+  "fr": {
+   "q": "Qu'est-ce qui distingue le chat forestier d'un chat domestique tigré ?",
+   "a": [
+    "Des pinceaux aux oreilles",
+    "Des pattes blanches",
+    "Une queue longue et fine",
+    "Queue touffue à bout noir arrondi"
+   ],
+   "x": "Le chat forestier a une queue épaisse et touffue, annelée de noir, au bout noir arrondi. Les pinceaux aux oreilles, c'est le lynx."
+  },
+  "es": {
+   "q": "¿Qué distingue al gato montés europeo de un gato doméstico atigrado?",
+   "a": [
+    "Pinceles en las orejas",
+    "Patas blancas",
+    "Una cola larga y fina",
+    "Cola tupida con punta negra roma"
+   ],
+   "x": "El gato montés tiene una cola gruesa y tupida, con anillos negros y punta negra roma. Los pinceles en las orejas son del lince."
+  }
+ },
+ {
+  "id": "a40",
+  "lvl": 3,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "In welchem Jahr wurden in Deutschland erstmals Waschbären gezielt in der Natur ausgesetzt?",
+   "a": [
+    "1834",
+    "1934",
+    "1974",
+    "1994"
+   ],
+   "x": "1934 wurden am Edersee in Hessen zwei Waschbärpaare freigelassen. Heute leben in Deutschland sehr viele dieser Nordamerikaner."
+  },
+  "en": {
+   "q": "In which year were raccoons first deliberately released into the wild in Germany?",
+   "a": [
+    "1834",
+    "1934",
+    "1974",
+    "1994"
+   ],
+   "x": "In 1934 two pairs of raccoons were released at Lake Edersee in Hesse. Today these North Americans are very common in Germany."
+  },
+  "fr": {
+   "q": "En quelle année des ratons laveurs ont-ils été relâchés exprès pour la première fois en Allemagne ?",
+   "a": [
+    "1834",
+    "1934",
+    "1974",
+    "1994"
+   ],
+   "x": "En 1934, deux couples ont été relâchés au lac d'Edersee (Hesse). Aujourd'hui, ces Nord-Américains sont très nombreux en Allemagne."
+  },
+  "es": {
+   "q": "¿En qué año se soltaron a propósito los primeros mapaches en la naturaleza en Alemania?",
+   "a": [
+    "1834",
+    "1934",
+    "1974",
+    "1994"
+   ],
+   "x": "En 1934 se liberaron dos parejas junto al lago Edersee (Hesse). Hoy estos norteamericanos son muy abundantes en Alemania."
+  }
+ },
+ {
+  "id": "a41",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Welches ist das größte wild lebende Raubtier Deutschlands?",
+   "a": [
+    "Wolf",
+    "Luchs",
+    "Kegelrobbe",
+    "Seehund"
+   ],
+   "x": "Robben zählen zu den Raubtieren. Kegelrobben-Männchen an Nord- und Ostsee werden bis zu etwa 300 kg schwer."
+  },
+  "en": {
+   "q": "Which is the largest wild carnivore in Germany?",
+   "a": [
+    "Wolf",
+    "Lynx",
+    "Grey seal",
+    "Harbour seal"
+   ],
+   "x": "Seals belong to the carnivores. Male grey seals on the North Sea and Baltic coasts weigh up to about 300 kg."
+  },
+  "fr": {
+   "q": "Quel est le plus grand carnivore sauvage d'Allemagne ?",
+   "a": [
+    "Loup",
+    "Lynx",
+    "Phoque gris",
+    "Phoque veau-marin"
+   ],
+   "x": "Les phoques font partie des carnivores. Les mâles du phoque gris, en mer du Nord et Baltique, pèsent jusqu'à environ 300 kg."
+  },
+  "es": {
+   "q": "¿Cuál es el mayor carnívoro salvaje de Alemania?",
+   "a": [
+    "Lobo",
+    "Lince",
+    "Foca gris",
+    "Foca común"
+   ],
+   "x": "Las focas pertenecen a los carnívoros. Los machos de foca gris del mar del Norte y el Báltico pesan hasta unos 300 kg."
+  }
+ },
+ {
+  "id": "a42",
+  "lvl": 3,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Womit füttern Tauben ihre frisch geschlüpften Jungen?",
+   "a": [
+    "Mit „Kropfmilch“",
+    "Mit zerkauten Insekten",
+    "Mit Regenwürmern",
+    "Mit Blütennektar"
+   ],
+   "x": "Beide Eltern bilden im Kropf eine nahrhafte, käseartige „Kropfmilch“. Das ist bei Vögeln eine große Ausnahme."
+  },
+  "en": {
+   "q": "What do pigeons feed their newly hatched chicks?",
+   "a": [
+    "'Crop milk'",
+    "Chewed-up insects",
+    "Earthworms",
+    "Flower nectar"
+   ],
+   "x": "Both parents produce a nutritious, cheese-like 'crop milk' in their crop – very unusual for birds."
+  },
+  "fr": {
+   "q": "De quoi les pigeons nourrissent-ils leurs petits tout juste éclos ?",
+   "a": [
+    "Du « lait de jabot »",
+    "Des insectes mâchés",
+    "Des vers de terre",
+    "Du nectar de fleurs"
+   ],
+   "x": "Les deux parents produisent dans leur jabot un « lait » nourrissant, semblable à du fromage. C'est très rare chez les oiseaux."
+  },
+  "es": {
+   "q": "¿Con qué alimentan las palomas a sus pichones recién nacidos?",
+   "a": [
+    "Con «leche de buche»",
+    "Con insectos masticados",
+    "Con lombrices",
+    "Con néctar de flores"
+   ],
+   "x": "Ambos padres producen en el buche una «leche» nutritiva, parecida al queso. Es algo muy raro entre las aves."
+  }
+ },
+ {
+  "id": "a43",
+  "lvl": 3,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Welche Tiere sind die nächsten lebenden Verwandten des Flusspferds?",
+   "a": [
+    "Schweine",
+    "Wale",
+    "Nashörner",
+    "Elefanten"
+   ],
+   "x": "Erbgut-Vergleiche zeigen: Flusspferde sind am engsten mit Walen und Delfinen verwandt – nicht mit Schweinen, wie man lange dachte."
+  },
+  "en": {
+   "q": "Which animals are the hippopotamus's closest living relatives?",
+   "a": [
+    "Pigs",
+    "Whales",
+    "Rhinos",
+    "Elephants"
+   ],
+   "x": "DNA studies show that hippos are most closely related to whales and dolphins – not to pigs, as was long believed."
+  },
+  "fr": {
+   "q": "Quels animaux sont les plus proches parents vivants de l'hippopotame ?",
+   "a": [
+    "Les cochons",
+    "Les baleines",
+    "Les rhinocéros",
+    "Les éléphants"
+   ],
+   "x": "L'ADN le montre : les hippopotames sont les plus proches parents des baleines et dauphins, et non des cochons comme on l'a longtemps cru."
+  },
+  "es": {
+   "q": "¿Qué animales son los parientes vivos más cercanos del hipopótamo?",
+   "a": [
+    "Los cerdos",
+    "Las ballenas",
+    "Los rinocerontes",
+    "Los elefantes"
+   ],
+   "x": "El ADN lo demuestra: los hipopótamos están más emparentados con ballenas y delfines que con los cerdos, como se creyó mucho tiempo."
+  }
+ },
+ {
+  "id": "a44",
+  "lvl": 3,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Wie wirbt das Zaunkönig-Männchen um ein Weibchen?",
+   "a": [
+    "Es bringt ihr Beeren",
+    "Es tanzt auf dem Wasser",
+    "Es färbt sein Gefieder rot",
+    "Es baut mehrere Nester zur Auswahl"
+   ],
+   "x": "Das Männchen baut mehrere kugelige Rohbau-Nester. Das Weibchen sucht sich eines aus und polstert es dann weich aus."
+  },
+  "en": {
+   "q": "How does a male wren win over a female?",
+   "a": [
+    "He brings her berries",
+    "He dances on the water",
+    "His plumage turns red",
+    "He builds several nests to choose from"
+   ],
+   "x": "The male builds several unfinished, ball-shaped nests. The female chooses one and lines it with soft material."
+  },
+  "fr": {
+   "q": "Comment le troglodyte mâle séduit-il une femelle ?",
+   "a": [
+    "Il lui apporte des baies",
+    "Il danse sur l'eau",
+    "Son plumage devient rouge",
+    "Il construit plusieurs nids au choix"
+   ],
+   "x": "Le mâle construit plusieurs nids en boule inachevés. La femelle en choisit un et le garnit de matériaux doux."
+  },
+  "es": {
+   "q": "¿Cómo conquista el macho de chochín a una hembra?",
+   "a": [
+    "Le lleva bayas",
+    "Baila sobre el agua",
+    "Su plumaje se vuelve rojo",
+    "Construye varios nidos para elegir"
+   ],
+   "x": "El macho construye varios nidos esféricos sin terminar. La hembra elige uno y lo forra con material blando."
+  }
+ },
+ {
+  "id": "a45",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Was passiert mit Stockenten während der Mauser im Sommer?",
+   "a": [
+    "Sie verlieren ihre Stimme",
+    "Sie werden ganz weiß",
+    "Sie können wochenlang nicht fliegen",
+    "Sie halten einen Sommerschlaf"
+   ],
+   "x": "Enten verlieren alle Schwungfedern auf einmal und sind etwa 3 bis 4 Wochen flugunfähig. Erpel tragen dann ein schlichtes Kleid."
+  },
+  "en": {
+   "q": "What happens to mallards during their summer moult?",
+   "a": [
+    "They lose their voice",
+    "They turn completely white",
+    "They can't fly for weeks",
+    "They sleep through the summer"
+   ],
+   "x": "Ducks shed all their flight feathers at once and can't fly for about 3–4 weeks. Drakes then wear a plain, dull plumage."
+  },
+  "fr": {
+   "q": "Que se passe-t-il chez le canard colvert lors de la mue d'été ?",
+   "a": [
+    "Il perd sa voix",
+    "Il devient tout blanc",
+    "Il ne vole plus pendant des semaines",
+    "Il dort tout l'été"
+   ],
+   "x": "Les canards perdent toutes leurs rémiges d'un coup et ne volent plus pendant 3 à 4 semaines. Le mâle prend alors un plumage terne."
+  },
+  "es": {
+   "q": "¿Qué les ocurre a los ánades reales durante la muda de verano?",
+   "a": [
+    "Pierden la voz",
+    "Se vuelven totalmente blancos",
+    "No pueden volar durante semanas",
+    "Duermen todo el verano"
+   ],
+   "x": "Los patos pierden todas las plumas de vuelo a la vez y no vuelan durante 3 o 4 semanas. Los machos lucen entonces un plumaje apagado."
+  }
+ },
+ {
+  "id": "a46",
+  "lvl": 3,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Welche Tiergruppe gehört zu den nächsten lebenden Verwandten der Elefanten?",
+   "a": [
+    "Seekühe",
+    "Nashörner",
+    "Flusspferde",
+    "Tapire"
+   ],
+   "x": "Elefanten sind eng mit Seekühen (Manatis und Dugongs) verwandt – und mit den kleinen Klippschliefern."
+  },
+  "en": {
+   "q": "Which group of animals is among the elephant's closest living relatives?",
+   "a": [
+    "Sea cows (manatees)",
+    "Rhinos",
+    "Hippos",
+    "Tapirs"
+   ],
+   "x": "Elephants are closely related to sea cows (manatees and dugongs) – and to the small rock hyraxes."
+  },
+  "fr": {
+   "q": "Quel groupe d'animaux compte parmi les plus proches parents des éléphants ?",
+   "a": [
+    "Les siréniens (lamantins)",
+    "Les rhinocéros",
+    "Les hippopotames",
+    "Les tapirs"
+   ],
+   "x": "Les éléphants sont proches parents des siréniens (lamantins et dugongs) et des petits damans."
+  },
+  "es": {
+   "q": "¿Qué grupo de animales está entre los parientes más cercanos de los elefantes?",
+   "a": [
+    "Los sirenios (manatíes)",
+    "Los rinocerontes",
+    "Los hipopótamos",
+    "Los tapires"
+   ],
+   "x": "Los elefantes están emparentados con los sirenios (manatíes y dugongos) y con los pequeños damanes."
+  }
+ },
+ {
+  "id": "a47",
+  "lvl": 3,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Mauersegler sind eng mit den Schwalben verwandt.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Falsch! Sie sehen Schwalben nur ähnlich. Mauersegler sind näher mit den Kolibris verwandt als mit Schwalben."
+  },
+  "en": {
+   "q": "Common swifts are closely related to swallows.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "False! They only look similar. Swifts are more closely related to hummingbirds than to swallows."
+  },
+  "fr": {
+   "q": "Le martinet noir est un proche parent des hirondelles.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Faux ! Ils se ressemblent seulement. Les martinets sont plus proches des colibris que des hirondelles."
+  },
+  "es": {
+   "q": "El vencejo común es pariente cercano de las golondrinas.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Falso! Solo se parecen. Los vencejos están más emparentados con los colibríes que con las golondrinas."
+  }
+ },
+ {
+  "id": "a48",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Es gibt einen heimischen Singvogel, der tauchen und unter Wasser am Bachgrund entlanglaufen kann.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Stimmt! Die Wasseramsel taucht in schnellen Bächen nach Insektenlarven und läuft dabei sogar über den Grund."
+  },
+  "en": {
+   "q": "There is a Central European songbird that can dive and walk along a stream bed underwater.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "True! The white-throated dipper dives in fast streams for insect larvae and even walks along the bottom."
+  },
+  "fr": {
+   "q": "Il existe un oiseau chanteur d'Europe centrale qui plonge et marche sous l'eau au fond des ruisseaux.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Vrai ! Le cincle plongeur plonge dans les torrents pour chercher des larves d'insectes et marche même sur le fond."
+  },
+  "es": {
+   "q": "Existe un ave cantora centroeuropea que bucea y camina bajo el agua por el fondo de los arroyos.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Cierto! El mirlo acuático bucea en arroyos rápidos buscando larvas de insectos e incluso camina por el fondo."
+  }
+ },
+ {
+  "id": "a49",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Maulwürfe legen Vorratskammern mit lebenden Regenwürmern an, die sie durch einen Biss lähmen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Stimmt! Ein Biss in den Kopf macht die Würmer bewegungsunfähig. So bleiben sie als frischer Vorrat für den Winter erhalten."
+  },
+  "en": {
+   "q": "Moles keep larders of live earthworms that they have paralysed with a bite.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "True! A bite to the head immobilises the worms, keeping them fresh as a winter food supply."
+  },
+  "fr": {
+   "q": "Les taupes stockent des vers de terre vivants, paralysés par une morsure.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Vrai ! Une morsure à la tête immobilise les vers, qui restent frais comme réserve pour l'hiver."
+  },
+  "es": {
+   "q": "Los topos almacenan lombrices vivas que han paralizado con un mordisco.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Cierto! Un mordisco en la cabeza inmoviliza las lombrices, que se conservan frescas como reserva para el invierno."
+  }
+ },
+ {
+  "id": "a50",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Bei Rotkehlchen singen im Herbst und Winter auch die Weibchen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Stimmt! Im Winter verteidigen auch Rotkehlchen-Weibchen ein eigenes Revier – und tun das mit Gesang."
+  },
+  "en": {
+   "q": "In autumn and winter, female robins sing too.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "True! In winter, female robins also defend their own territory – and they do it by singing."
+  },
+  "fr": {
+   "q": "En automne et en hiver, les femelles de rougegorge chantent aussi.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Vrai ! En hiver, les femelles de rougegorge défendent elles aussi leur propre territoire, et elles le font en chantant."
+  },
+  "es": {
+   "q": "En otoño e invierno, las hembras de petirrojo también cantan.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "¡Cierto! En invierno, las hembras de petirrojo también defienden su propio territorio, y lo hacen cantando."
+  }
+ }
+]

@@ -100,7 +100,10 @@ function rng(seed: number) {
 // Mindestens 2 Bildfragen, damit es abwechslungsreich bleibt.
 function pickRound(log: ForscherLog, day: number): string[] {
   const rand = rng(day * 2654435761);
-  const age = (q: BankQuestion) => (q.id in log.seen ? day - log.seen[q.id] : 100000);
+  // Nie gesehene Fragen zuerst. Sind alle durch: erst die, die man falsch hatte (zum Lernen), dann die ältesten.
+  const wrong = new Set<string>();
+  for (const r of Object.values(log.rounds)) r.q.forEach((id, i) => i < r.a.length && byId.get(id)?.right !== r.a[i] && wrong.add(id));
+  const age = (q: BankQuestion) => (q.id in log.seen ? day - log.seen[q.id] + (wrong.has(q.id) ? 1000 : 0) : 100000);
   const pool = BANK.map((q) => ({ q, score: age(q) + rand() * 3 })).sort((a, b) => b.score - a.score);
   const want: Record<number, number> = { 1: 3, 2: 4, 3: 3 };
   const picked: BankQuestion[] = [];

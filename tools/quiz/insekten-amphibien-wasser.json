@@ -1,0 +1,2206 @@
+[
+ {
+  "id": "b01",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wie überwintert der Zitronenfalter?",
+   "a": [
+    "Als Raupe im Boden",
+    "Als Puppe an einem Zweig",
+    "Als Falter frei im Gebüsch",
+    "Er zieht in den Süden"
+   ],
+   "x": "Er überwintert ungeschützt zwischen Blättern. Ein körpereigenes Frostschutzmittel bewahrt ihn vor dem Erfrieren."
+  },
+  "en": {
+   "q": "How does the brimstone butterfly survive winter?",
+   "a": [
+    "As a caterpillar in the soil",
+    "As a pupa on a twig",
+    "As an adult, unsheltered in shrubs",
+    "It migrates south"
+   ],
+   "x": "It overwinters unprotected among leaves. A natural antifreeze in its body keeps it from freezing."
+  },
+  "fr": {
+   "q": "Comment le papillon Citron passe-t-il l'hiver ?",
+   "a": [
+    "En chenille dans le sol",
+    "En chrysalide sur une branche",
+    "En papillon, à découvert",
+    "Il migre vers le sud"
+   ],
+   "x": "Il hiverne sans abri parmi les feuilles. Un antigel naturel dans son corps l'empêche de geler."
+  },
+  "es": {
+   "q": "¿Cómo pasa el invierno la mariposa limonera?",
+   "a": [
+    "Como oruga en el suelo",
+    "Como crisálida en una rama",
+    "Como adulta, al aire libre",
+    "Migra hacia el sur"
+   ],
+   "x": "Hiberna sin refugio entre las hojas. Un anticongelante natural en su cuerpo evita que se congele."
+  }
+ },
+ {
+  "id": "b02",
+  "lvl": 1,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Wie lange leben Maikäfer-Larven (Engerlinge) im Boden?",
+   "a": [
+    "Etwa 2 Wochen",
+    "Mehrere Jahre",
+    "Nur einen Sommer",
+    "Rund 20 Jahre"
+   ],
+   "x": "Je nach Klima fressen Engerlinge 3 bis 5 Jahre lang Wurzeln. Der fertige Käfer lebt dann nur wenige Wochen."
+  },
+  "en": {
+   "q": "How long do cockchafer larvae (grubs) live in the soil?",
+   "a": [
+    "About 2 weeks",
+    "Several years",
+    "Just one summer",
+    "Around 20 years"
+   ],
+   "x": "Depending on climate, grubs feed on roots for 3 to 5 years. The adult beetle then lives only a few weeks."
+  },
+  "fr": {
+   "q": "Combien de temps les larves de hanneton (vers blancs) vivent-elles dans le sol ?",
+   "a": [
+    "Environ 2 semaines",
+    "Plusieurs années",
+    "Un seul été",
+    "Environ 20 ans"
+   ],
+   "x": "Selon le climat, les vers blancs mangent des racines pendant 3 à 5 ans. L'adulte ne vit ensuite que quelques semaines."
+  },
+  "es": {
+   "q": "¿Cuánto tiempo viven en el suelo las larvas del escarabajo de mayo?",
+   "a": [
+    "Unas 2 semanas",
+    "Varios años",
+    "Solo un verano",
+    "Unos 20 años"
+   ],
+   "x": "Según el clima, las larvas comen raíces durante 3 a 5 años. El escarabajo adulto vive después solo unas semanas."
+  }
+ },
+ {
+  "id": "b03",
+  "lvl": 1,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Zecken lassen sich meist von Bäumen auf Menschen und Tiere fallen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Ein Mythos: Zecken lauern meist in Gras und Büschen bis etwa 1 m Höhe und werden im Vorbeigehen abgestreift."
+  },
+  "en": {
+   "q": "Ticks usually drop onto people and animals from trees.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "A myth: ticks usually wait in grass and shrubs up to about 1 m high and get brushed off as you pass."
+  },
+  "fr": {
+   "q": "Les tiques se laissent généralement tomber des arbres sur les humains et les animaux.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Un mythe : les tiques attendent surtout dans l'herbe et les buissons jusqu'à 1 m environ et s'accrochent au passage."
+  },
+  "es": {
+   "q": "Las garrapatas suelen dejarse caer desde los árboles sobre personas y animales.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Es un mito: suelen esperar en la hierba y los arbustos hasta 1 m de altura y se enganchan al pasar."
+  }
+ },
+ {
+  "id": "b04",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Welches dieser Tiere ist KEIN Insekt?",
+   "a": [
+    "Ohrwurm",
+    "Silberfischchen",
+    "Wasserläufer",
+    "Kellerassel"
+   ],
+   "x": "Asseln sind Krebstiere, die an Land leben. Sie haben 14 Beine und brauchen feuchte Verstecke."
+  },
+  "en": {
+   "q": "Which of these animals is NOT an insect?",
+   "a": [
+    "Earwig",
+    "Silverfish",
+    "Pond skater",
+    "Woodlouse"
+   ],
+   "x": "Woodlice are crustaceans that live on land. They have 14 legs and need damp hiding places."
+  },
+  "fr": {
+   "q": "Lequel de ces animaux n'est PAS un insecte ?",
+   "a": [
+    "Perce-oreille",
+    "Poisson d'argent",
+    "Gerris",
+    "Cloporte"
+   ],
+   "x": "Les cloportes sont des crustacés terrestres. Ils ont 14 pattes et ont besoin de cachettes humides."
+  },
+  "es": {
+   "q": "¿Cuál de estos animales NO es un insecto?",
+   "a": [
+    "Tijereta",
+    "Pececillo de plata",
+    "Zapatero (Gerris)",
+    "Cochinilla de humedad"
+   ],
+   "x": "Las cochinillas de humedad son crustáceos terrestres. Tienen 14 patas y necesitan escondites húmedos."
+  }
+ },
+ {
+  "id": "b05",
+  "lvl": 1,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Was ist eine Blindschleiche?",
+   "a": [
+    "Eine Eidechse ohne Beine",
+    "Eine kleine Schlange",
+    "Ein großer Regenwurm",
+    "Ein Lurch wie der Molch"
+   ],
+   "x": "Sie ist eine beinlose Echse: Sie hat Augenlider, kann den Schwanz abwerfen – und blind ist sie auch nicht."
+  },
+  "en": {
+   "q": "What is a slow worm?",
+   "a": [
+    "A legless lizard",
+    "A small snake",
+    "A large earthworm",
+    "An amphibian like a newt"
+   ],
+   "x": "It is a legless lizard: it has eyelids and can shed its tail, just like other lizards."
+  },
+  "fr": {
+   "q": "Qu'est-ce qu'un orvet ?",
+   "a": [
+    "Un lézard sans pattes",
+    "Un petit serpent",
+    "Un gros ver de terre",
+    "Un amphibien comme le triton"
+   ],
+   "x": "C'est un lézard sans pattes : il a des paupières et peut perdre sa queue, comme les autres lézards."
+  },
+  "es": {
+   "q": "¿Qué es un lución?",
+   "a": [
+    "Un lagarto sin patas",
+    "Una pequeña serpiente",
+    "Una lombriz grande",
+    "Un anfibio como el tritón"
+   ],
+   "x": "Es un lagarto sin patas: tiene párpados y puede soltar la cola, como otros lagartos."
+  }
+ },
+ {
+  "id": "b06",
+  "lvl": 2,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Wovon ernähren sich erwachsene Eintagsfliegen?",
+   "a": [
+    "Von Blütennektar",
+    "Von kleinen Mücken",
+    "Von Algen",
+    "Von gar nichts"
+   ],
+   "x": "Ihre Mundwerkzeuge sind verkümmert. Erwachsene leben nur Stunden bis wenige Tage – allein zur Fortpflanzung."
+  },
+  "en": {
+   "q": "What do adult mayflies eat?",
+   "a": [
+    "Flower nectar",
+    "Small midges",
+    "Algae",
+    "Nothing at all"
+   ],
+   "x": "Their mouthparts are non-functional. Adults live only hours to a few days – just to reproduce."
+  },
+  "fr": {
+   "q": "De quoi se nourrissent les éphémères adultes ?",
+   "a": [
+    "De nectar",
+    "De petits moucherons",
+    "D'algues",
+    "De rien du tout"
+   ],
+   "x": "Leurs pièces buccales sont atrophiées. Les adultes vivent de quelques heures à quelques jours, juste pour se reproduire."
+  },
+  "es": {
+   "q": "¿De qué se alimentan las efímeras adultas?",
+   "a": [
+    "De néctar",
+    "De mosquitos pequeños",
+    "De algas",
+    "De nada"
+   ],
+   "x": "Sus piezas bucales están atrofiadas. Los adultos viven de horas a pocos días, solo para reproducirse."
+  }
+ },
+ {
+  "id": "b07",
+  "lvl": 1,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Nur die Weibchen der Stechmücken stechen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Sie brauchen Blut, damit sich ihre Eier entwickeln. Männchen saugen nur Pflanzensäfte und Nektar."
+  },
+  "en": {
+   "q": "Only female mosquitoes bite.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "They need blood for their eggs to develop. Males only feed on plant juices and nectar."
+  },
+  "fr": {
+   "q": "Seules les femelles moustiques piquent.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Elles ont besoin de sang pour que leurs œufs se développent. Les mâles se nourrissent de nectar et de sève."
+  },
+  "es": {
+   "q": "Solo las hembras de mosquito pican.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Necesitan sangre para que se desarrollen sus huevos. Los machos solo toman néctar y jugos vegetales."
+  }
+ },
+ {
+  "id": "b08",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wo nisten die meisten Wildbienenarten in Deutschland?",
+   "a": [
+    "Im Erdboden",
+    "In hohlen Pflanzenstängeln",
+    "In Bohrlöchern im Totholz",
+    "In leeren Schneckenhäusern"
+   ],
+   "x": "Mehr als die Hälfte nistet im Boden. Offene, sonnige Erdstellen im Garten helfen oft mehr als ein Insektenhotel."
+  },
+  "en": {
+   "q": "Where do most wild bee species in Germany nest?",
+   "a": [
+    "In the ground",
+    "In hollow plant stems",
+    "In holes in dead wood",
+    "In empty snail shells"
+   ],
+   "x": "More than half nest in the ground. Bare, sunny patches of soil often help more than a bee hotel."
+  },
+  "fr": {
+   "q": "Où nichent la plupart des espèces d'abeilles sauvages en Allemagne ?",
+   "a": [
+    "Dans le sol",
+    "Dans des tiges creuses",
+    "Dans des trous de bois mort",
+    "Dans des coquilles d'escargot"
+   ],
+   "x": "Plus de la moitié nichent dans le sol. Des zones de terre nue et ensoleillée aident souvent plus qu'un hôtel à insectes."
+  },
+  "es": {
+   "q": "¿Dónde anidan la mayoría de las abejas silvestres en Alemania?",
+   "a": [
+    "En el suelo",
+    "En tallos huecos",
+    "En agujeros de madera muerta",
+    "En conchas de caracol vacías"
+   ],
+   "x": "Más de la mitad anida en el suelo. Zonas de tierra desnuda y soleada ayudan a menudo más que un hotel de insectos."
+  }
+ },
+ {
+  "id": "b09",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wie pflanzt sich der Feuersalamander bei uns fort?",
+   "a": [
+    "Er legt Laichballen in Teiche",
+    "Er vergräbt Eier in feuchter Erde",
+    "Das Weibchen setzt Larven in Bächen ab",
+    "Das Männchen trägt die Eier"
+   ],
+   "x": "Die Eier entwickeln sich im Mutterleib. Im Frühjahr setzt das Weibchen Larven mit Kiemen in kühle Bäche."
+  },
+  "en": {
+   "q": "How does the fire salamander reproduce in Central Europe?",
+   "a": [
+    "It lays egg clumps in ponds",
+    "It buries eggs in damp soil",
+    "Females release larvae into streams",
+    "The male carries the eggs"
+   ],
+   "x": "The eggs develop inside the mother. In spring she releases larvae with gills into cool streams."
+  },
+  "fr": {
+   "q": "Comment la salamandre tachetée se reproduit-elle chez nous ?",
+   "a": [
+    "Elle pond des amas d'œufs en mare",
+    "Elle enterre ses œufs",
+    "La femelle dépose des larves en ruisseau",
+    "Le mâle porte les œufs"
+   ],
+   "x": "Les œufs se développent dans le corps de la mère. Au printemps, elle dépose des larves à branchies dans des ruisseaux frais."
+  },
+  "es": {
+   "q": "¿Cómo se reproduce la salamandra común en Centroeuropa?",
+   "a": [
+    "Pone masas de huevos en charcas",
+    "Entierra huevos en tierra húmeda",
+    "La hembra suelta larvas en arroyos",
+    "El macho lleva los huevos"
+   ],
+   "x": "Los huevos se desarrollan dentro de la madre. En primavera suelta larvas con branquias en arroyos frescos."
+  }
+ },
+ {
+  "id": "b10",
+  "lvl": 3,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Wie lange ist ein Alpensalamander-Weibchen trächtig?",
+   "a": [
+    "Etwa 3 Wochen",
+    "Etwa 3 Monate",
+    "Genau 1 Jahr",
+    "2 bis 4 Jahre"
+   ],
+   "x": "Je nach Höhenlage 2 bis 4 Jahre. Die Jungen kommen fertig verwandelt zur Welt – ganz ohne Wasser."
+  },
+  "en": {
+   "q": "How long is a female Alpine salamander pregnant?",
+   "a": [
+    "About 3 weeks",
+    "About 3 months",
+    "Exactly 1 year",
+    "2 to 4 years"
+   ],
+   "x": "Depending on altitude, 2 to 4 years. The young are born fully developed – no water needed."
+  },
+  "fr": {
+   "q": "Combien de temps dure la gestation de la salamandre noire (alpine) ?",
+   "a": [
+    "Environ 3 semaines",
+    "Environ 3 mois",
+    "Exactement 1 an",
+    "De 2 à 4 ans"
+   ],
+   "x": "Selon l'altitude, 2 à 4 ans. Les petits naissent entièrement formés, sans passer par l'eau."
+  },
+  "es": {
+   "q": "¿Cuánto dura la gestación de la salamandra alpina?",
+   "a": [
+    "Unas 3 semanas",
+    "Unos 3 meses",
+    "Exactamente 1 año",
+    "De 2 a 4 años"
+   ],
+   "x": "Según la altitud, de 2 a 4 años. Las crías nacen ya transformadas, sin necesidad de agua."
+  }
+ },
+ {
+  "id": "b11",
+  "lvl": 1,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Erdkröten wandern im Frühjahr meist zu dem Gewässer zurück, in dem sie selbst aufgewachsen sind.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Dabei überqueren sie oft Straßen. Krötenzäune und Amphibientunnel retten jedes Jahr viele Tiere."
+  },
+  "en": {
+   "q": "In spring, common toads usually return to the pond where they grew up.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "On the way they often cross roads. Toad fences and tunnels save many animals every year."
+  },
+  "fr": {
+   "q": "Au printemps, les crapauds communs retournent généralement à la mare où ils ont grandi.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "En chemin, ils traversent souvent des routes. Barrières et crapauducs sauvent beaucoup d'animaux chaque année."
+  },
+  "es": {
+   "q": "En primavera, los sapos comunes suelen volver a la charca donde crecieron.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "En el camino cruzan a menudo carreteras. Vallas y pasos para anfibios salvan a muchos cada año."
+  }
+ },
+ {
+  "id": "b12",
+  "lvl": 1,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Was sind die geringelten Sandhäufchen im Wattenmeer?",
+   "a": [
+    "Eier von Strandkrabben",
+    "Kot des Wattwurms",
+    "Nester von Muscheln",
+    "Bauten von Sandflöhen"
+   ],
+   "x": "Der Wattwurm frisst Sand, verdaut die Kleinstlebewesen darin und scheidet den Sand als Kringel wieder aus."
+  },
+  "en": {
+   "q": "What are the coiled little sand piles on the Wadden Sea mudflats?",
+   "a": [
+    "Shore crab eggs",
+    "Lugworm droppings",
+    "Mussel nests",
+    "Sand hopper burrows"
+   ],
+   "x": "The lugworm swallows sand, digests the tiny organisms in it and pushes the sand back out as coils."
+  },
+  "fr": {
+   "q": "Que sont les petits tortillons de sable sur les vasières de la mer des Wadden ?",
+   "a": [
+    "Des œufs de crabe",
+    "Les excréments de l'arénicole",
+    "Des nids de moules",
+    "Des terriers de puces de mer"
+   ],
+   "x": "L'arénicole avale du sable, digère les petits organismes qu'il contient et rejette le sable en tortillons."
+  },
+  "es": {
+   "q": "¿Qué son los montoncitos de arena enrollada en las marismas del mar de Wadden?",
+   "a": [
+    "Huevos de cangrejo",
+    "Excrementos del gusano Arenicola",
+    "Nidos de mejillones",
+    "Madrigueras de pulgas de mar"
+   ],
+   "x": "El gusano Arenicola traga arena, digiere los diminutos organismos que contiene y expulsa la arena en forma de rollitos."
+  }
+ },
+ {
+  "id": "b13",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wo legt die Gelbbauchunke am liebsten ihren Laich ab?",
+   "a": [
+    "In flachen Pfützen und Fahrspuren",
+    "In tiefen Seen",
+    "In schnellen Bergbächen",
+    "Im Brackwasser der Küste"
+   ],
+   "x": "Sie nutzt kleine, sonnige Tümpel – sogar wassergefüllte Reifenspuren. Dort gibt es kaum Fische oder andere Fressfeinde."
+  },
+  "en": {
+   "q": "Where does the yellow-bellied toad prefer to spawn?",
+   "a": [
+    "In shallow puddles and ruts",
+    "In deep lakes",
+    "In fast mountain streams",
+    "In brackish coastal water"
+   ],
+   "x": "It uses small, sunny pools – even water-filled tyre ruts. There are hardly any fish or other predators there."
+  },
+  "fr": {
+   "q": "Où le sonneur à ventre jaune pond-il de préférence ?",
+   "a": [
+    "Dans des flaques et ornières",
+    "Dans des lacs profonds",
+    "Dans des torrents de montagne",
+    "Dans l'eau saumâtre côtière"
+   ],
+   "x": "Il utilise de petites mares ensoleillées, même des ornières pleines d'eau. On n'y trouve presque pas de poissons ni de prédateurs."
+  },
+  "es": {
+   "q": "¿Dónde prefiere desovar el sapillo de vientre amarillo?",
+   "a": [
+    "En charcos y rodadas poco hondos",
+    "En lagos profundos",
+    "En torrentes de montaña",
+    "En aguas salobres costeras"
+   ],
+   "x": "Usa charcas pequeñas y soleadas, incluso rodadas de neumáticos con agua. Allí casi no hay peces ni depredadores."
+  }
+ },
+ {
+  "id": "b14",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "In Deutschland leben zwei heimische Giftschlangenarten.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Die Kreuzotter und die seltene Aspisviper, die bei uns nur im Südschwarzwald vorkommt."
+  },
+  "en": {
+   "q": "Germany has two native species of venomous snake.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "The common adder and the rare asp viper, which in Germany is found only in the southern Black Forest."
+  },
+  "fr": {
+   "q": "L'Allemagne compte deux espèces indigènes de serpents venimeux.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "La vipère péliade et la rare vipère aspic, qui en Allemagne ne vit que dans le sud de la Forêt-Noire."
+  },
+  "es": {
+   "q": "En Alemania viven dos especies autóctonas de serpientes venenosas.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "La víbora común europea y la rara víbora áspid, que en Alemania solo vive en el sur de la Selva Negra."
+  }
+ },
+ {
+  "id": "b15",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Woran erkennt man eine Ringelnatter meist?",
+   "a": [
+    "Ein Zickzackband auf dem Rücken",
+    "Eine Rassel am Schwanz",
+    "Senkrechte Schlitzpupillen",
+    "Gelbe Halbmondflecken am Hinterkopf"
+   ],
+   "x": "Die ungiftige Ringelnatter hat runde Pupillen und schwimmt gern. Bei Gefahr stellt sie sich oft tot."
+  },
+  "en": {
+   "q": "How can you usually recognise a grass snake?",
+   "a": [
+    "A zigzag band on its back",
+    "A rattle on its tail",
+    "Vertical slit pupils",
+    "Yellow crescents behind the head"
+   ],
+   "x": "The harmless grass snake has round pupils and loves to swim. When threatened, it often plays dead."
+  },
+  "fr": {
+   "q": "À quoi reconnaît-on généralement la couleuvre à collier ?",
+   "a": [
+    "Une bande en zigzag sur le dos",
+    "Une crécelle au bout de la queue",
+    "Des pupilles verticales en fente",
+    "Des croissants jaunes sur la nuque"
+   ],
+   "x": "Inoffensive, elle a des pupilles rondes et nage volontiers. En cas de danger, elle fait souvent la morte."
+  },
+  "es": {
+   "q": "¿Cómo se reconoce normalmente una culebra de collar?",
+   "a": [
+    "Una banda en zigzag en el lomo",
+    "Un cascabel en la cola",
+    "Pupilas verticales en rendija",
+    "Medias lunas amarillas en la nuca"
+   ],
+   "x": "Esta culebra inofensiva tiene pupilas redondas y nada muy bien. Ante el peligro, a menudo se hace la muerta."
+  }
+ },
+ {
+  "id": "b16",
+  "lvl": 3,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Was ist beim nachgewachsenen Schwanz einer Eidechse anders?",
+   "a": [
+    "Er hat doppelt so viele Wirbel",
+    "Statt Wirbeln stützt ihn ein Knorpelstab",
+    "Er ist immer länger als vorher",
+    "Er enthält eine Giftdrüse"
+   ],
+   "x": "Der neue Schwanz hat keine Wirbelknochen mehr, nur einen Knorpelstab. Er ist meist kürzer und anders gefärbt."
+  },
+  "en": {
+   "q": "What is different about a lizard's regrown tail?",
+   "a": [
+    "It has twice as many vertebrae",
+    "A cartilage rod replaces the vertebrae",
+    "It is always longer than before",
+    "It contains a venom gland"
+   ],
+   "x": "The new tail has no vertebrae, only a rod of cartilage. It is usually shorter and coloured differently."
+  },
+  "fr": {
+   "q": "Qu'a de différent la queue repoussée d'un lézard ?",
+   "a": [
+    "Elle a deux fois plus de vertèbres",
+    "Un cartilage remplace les vertèbres",
+    "Elle est toujours plus longue",
+    "Elle contient une glande à venin"
+   ],
+   "x": "La nouvelle queue n'a plus de vertèbres, seulement une tige de cartilage. Elle est souvent plus courte et d'une autre couleur."
+  },
+  "es": {
+   "q": "¿Qué tiene de diferente la cola regenerada de una lagartija?",
+   "a": [
+    "Tiene el doble de vértebras",
+    "Un cartílago sustituye a las vértebras",
+    "Siempre es más larga que antes",
+    "Contiene una glándula de veneno"
+   ],
+   "x": "La nueva cola ya no tiene vértebras, solo una varilla de cartílago. Suele ser más corta y de otro color."
+  }
+ },
+ {
+  "id": "b17",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wie atmet die Wasserspinne, die fast nur unter Wasser lebt?",
+   "a": [
+    "Mit Kiemen am Hinterleib",
+    "Sie hält stundenlang die Luft an",
+    "Aus einer selbst gebauten Luftglocke",
+    "Über die Haut aus dem Wasser"
+   ],
+   "x": "Sie spinnt zwischen Wasserpflanzen ein Gespinst und füllt es mit Luftblasen von der Oberfläche – eine Taucherglocke."
+  },
+  "en": {
+   "q": "How does the water spider Argyroneta, which lives almost only underwater, breathe?",
+   "a": [
+    "With gills on its abdomen",
+    "It holds its breath for hours",
+    "From an air bell it builds itself",
+    "Through its skin, from the water"
+   ],
+   "x": "It spins a web between water plants and fills it with air bubbles from the surface – like a diving bell."
+  },
+  "fr": {
+   "q": "Comment respire l'argyronète, araignée qui vit presque toujours sous l'eau ?",
+   "a": [
+    "Avec des branchies",
+    "Elle retient son souffle des heures",
+    "Dans une cloche d'air qu'elle construit",
+    "Par la peau, dans l'eau"
+   ],
+   "x": "Elle tisse une toile entre les plantes aquatiques et la remplit de bulles d'air prises en surface : une cloche de plongée."
+  },
+  "es": {
+   "q": "¿Cómo respira la araña de agua, que vive casi siempre bajo el agua?",
+   "a": [
+    "Con branquias en el abdomen",
+    "Aguanta la respiración durante horas",
+    "En una campana de aire que construye",
+    "A través de la piel, del agua"
+   ],
+   "x": "Teje una tela entre plantas acuáticas y la llena de burbujas de aire de la superficie: una campana de buceo."
+  }
+ },
+ {
+  "id": "b18",
+  "lvl": 2,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Der Gelbrandkäfer lebt im Wasser, kann aber auch fliegen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Nachts fliegt er oft zu neuen Gewässern. Beim Tauchen nimmt er einen Luftvorrat unter den Flügeldecken mit."
+  },
+  "en": {
+   "q": "The great diving beetle lives in water but can also fly.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "At night it often flies to new ponds. When diving, it carries an air supply under its wing cases."
+  },
+  "fr": {
+   "q": "Le dytique bordé vit dans l'eau mais peut aussi voler.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "La nuit, il s'envole souvent vers de nouvelles mares. En plongée, il garde une réserve d'air sous ses élytres."
+  },
+  "es": {
+   "q": "El ditisco vive en el agua, pero también puede volar.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "De noche vuela a menudo a nuevas charcas. Al bucear lleva una reserva de aire bajo los élitros."
+  }
+ },
+ {
+  "id": "b19",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Womit fängt eine Libellenlarve ihre Beute?",
+   "a": [
+    "Mit einer ausklappbaren Fangmaske",
+    "Mit einer klebrigen Zunge",
+    "Mit einem Netz aus Seide",
+    "Mit einem Giftstachel"
+   ],
+   "x": "Die Fangmaske ist eine umgebaute Unterlippe. Sie schnellt blitzschnell vor und packt Kaulquappen, Larven und Co."
+  },
+  "en": {
+   "q": "How does a dragonfly larva catch its prey?",
+   "a": [
+    "With an extendable 'mask'",
+    "With a sticky tongue",
+    "With a silk net",
+    "With a venomous sting"
+   ],
+   "x": "The mask is a modified lower lip. It shoots forward in a flash and grabs tadpoles, larvae and more."
+  },
+  "fr": {
+   "q": "Comment une larve de libellule attrape-t-elle ses proies ?",
+   "a": [
+    "Avec un « masque » dépliable",
+    "Avec une langue collante",
+    "Avec un filet de soie",
+    "Avec un dard venimeux"
+   ],
+   "x": "Le masque est une lèvre inférieure transformée. Il se détend comme l'éclair pour saisir têtards et larves."
+  },
+  "es": {
+   "q": "¿Cómo atrapa una larva de libélula a sus presas?",
+   "a": [
+    "Con una «máscara» extensible",
+    "Con una lengua pegajosa",
+    "Con una red de seda",
+    "Con un aguijón venenoso"
+   ],
+   "x": "La máscara es un labio inferior modificado. Se dispara en un instante y atrapa renacuajos, larvas y más."
+  }
+ },
+ {
+  "id": "b20",
+  "lvl": 3,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Libellen durchlaufen wie Schmetterlinge ein Puppenstadium.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Libellen haben keine Puppe: Die Larve klettert aus dem Wasser, häutet sich ein letztes Mal, und die Libelle schlüpft."
+  },
+  "en": {
+   "q": "Like butterflies, dragonflies go through a pupal stage.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Dragonflies have no pupa: the larva climbs out of the water, moults one last time and the adult emerges."
+  },
+  "fr": {
+   "q": "Comme les papillons, les libellules passent par un stade de chrysalide (pupe).",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Les libellules n'ont pas de pupe : la larve sort de l'eau, mue une dernière fois et l'adulte en émerge."
+  },
+  "es": {
+   "q": "Como las mariposas, las libélulas pasan por una fase de pupa.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Las libélulas no tienen pupa: la larva sale del agua, muda por última vez y emerge el adulto."
+  }
+ },
+ {
+  "id": "b21",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Was stimmt beim Großen Leuchtkäfer (Glühwürmchen)?",
+   "a": [
+    "Nur die Männchen leuchten",
+    "Die Weibchen können nicht fliegen",
+    "Sein Licht ist heiß wie eine Lampe",
+    "Er ist eigentlich eine Fliege"
+   ],
+   "x": "Die flügellosen Weibchen leuchten im Gras, um fliegende Männchen anzulocken. Das Licht entsteht chemisch und ist kalt."
+  },
+  "en": {
+   "q": "What is true about the common glow-worm?",
+   "a": [
+    "Only the males glow",
+    "The females cannot fly",
+    "Its light is hot like a lamp",
+    "It is actually a fly"
+   ],
+   "x": "The wingless females glow in the grass to attract flying males. The light is made chemically and is cold."
+  },
+  "fr": {
+   "q": "Qu'est-ce qui est vrai pour le ver luisant ?",
+   "a": [
+    "Seuls les mâles brillent",
+    "Les femelles ne volent pas",
+    "Sa lumière chauffe comme une lampe",
+    "C'est en fait une mouche"
+   ],
+   "x": "Les femelles sans ailes brillent dans l'herbe pour attirer les mâles volants. Leur lumière est chimique et froide."
+  },
+  "es": {
+   "q": "¿Qué es cierto sobre la luciérnaga común europea?",
+   "a": [
+    "Solo brillan los machos",
+    "Las hembras no pueden volar",
+    "Su luz quema como una lámpara",
+    "En realidad es una mosca"
+   ],
+   "x": "Las hembras sin alas brillan en la hierba para atraer a los machos voladores. La luz es química y fría."
+  }
+ },
+ {
+  "id": "b22",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wovon ernähren sich die Larven des Großen Leuchtkäfers?",
+   "a": [
+    "Von Blattläusen",
+    "Von Nektar",
+    "Von Schnecken",
+    "Von morschem Holz"
+   ],
+   "x": "Sie jagen Schnecken, lähmen sie mit einem giftigen Biss und fressen sie. Sie brauchen feuchte, naturnahe Gärten."
+  },
+  "en": {
+   "q": "What do glow-worm larvae feed on?",
+   "a": [
+    "Aphids",
+    "Nectar",
+    "Snails",
+    "Rotting wood"
+   ],
+   "x": "They hunt snails, paralyse them with a venomous bite and eat them. They need damp, natural gardens."
+  },
+  "fr": {
+   "q": "De quoi se nourrissent les larves de ver luisant ?",
+   "a": [
+    "De pucerons",
+    "De nectar",
+    "D'escargots",
+    "De bois pourri"
+   ],
+   "x": "Elles chassent les escargots, les paralysent d'une morsure venimeuse puis les mangent. Elles aiment les jardins humides et naturels."
+  },
+  "es": {
+   "q": "¿De qué se alimentan las larvas de la luciérnaga común?",
+   "a": [
+    "De pulgones",
+    "De néctar",
+    "De caracoles",
+    "De madera podrida"
+   ],
+   "x": "Cazan caracoles, los paralizan con una mordedura venenosa y se los comen. Necesitan jardines húmedos y naturales."
+  }
+ },
+ {
+  "id": "b23",
+  "lvl": 1,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "An der Zahl der Punkte kann man das Alter eines Marienkäfers ablesen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Ein Mythos: Die Punktzahl hängt von der Art ab – etwa beim Siebenpunkt- oder Zweipunkt-Marienkäfer."
+  },
+  "en": {
+   "q": "You can tell a ladybird's age by counting its spots.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "A myth: the number of spots depends on the species, e.g. the seven-spot or two-spot ladybird."
+  },
+  "fr": {
+   "q": "On peut connaître l'âge d'une coccinelle en comptant ses points.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Un mythe : le nombre de points dépend de l'espèce, comme chez la coccinelle à sept points ou à deux points."
+  },
+  "es": {
+   "q": "Se puede saber la edad de una mariquita contando sus puntos.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Es un mito: el número de puntos depende de la especie, como la mariquita de siete o de dos puntos."
+  }
+ },
+ {
+  "id": "b24",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Wer überlebt bei Hummeln den Winter?",
+   "a": [
+    "Das ganze Volk im Nest",
+    "Nur die Arbeiterinnen",
+    "Nur die Männchen",
+    "Nur junge Königinnen"
+   ],
+   "x": "Das Volk stirbt im Herbst. Nur junge, begattete Königinnen überwintern im Boden und gründen im Frühjahr ein neues Volk."
+  },
+  "en": {
+   "q": "Which bumblebees survive the winter?",
+   "a": [
+    "The whole colony in the nest",
+    "Only the workers",
+    "Only the males",
+    "Only young queens"
+   ],
+   "x": "The colony dies in autumn. Only young, mated queens overwinter in the ground and start a new colony in spring."
+  },
+  "fr": {
+   "q": "Quels bourdons survivent à l'hiver ?",
+   "a": [
+    "Toute la colonie au nid",
+    "Seulement les ouvrières",
+    "Seulement les mâles",
+    "Seulement les jeunes reines"
+   ],
+   "x": "La colonie meurt en automne. Seules les jeunes reines fécondées hivernent dans le sol et fondent une colonie au printemps."
+  },
+  "es": {
+   "q": "¿Qué abejorros sobreviven al invierno?",
+   "a": [
+    "Toda la colonia en el nido",
+    "Solo las obreras",
+    "Solo los machos",
+    "Solo las reinas jóvenes"
+   ],
+   "x": "La colonia muere en otoño. Solo las reinas jóvenes fecundadas hibernan en el suelo y fundan una colonia en primavera."
+  }
+ },
+ {
+  "id": "b25",
+  "lvl": 2,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Drei Hornissenstiche können einen gesunden Erwachsenen töten.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Ein alter Mythos: Hornissengift ist nicht gefährlicher als Bienengift. Riskant sind Stiche vor allem für Allergiker."
+  },
+  "en": {
+   "q": "Three hornet stings can kill a healthy adult.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "An old myth: hornet venom is no more dangerous than bee venom. Stings are mainly risky for people with allergies."
+  },
+  "fr": {
+   "q": "Trois piqûres de frelon peuvent tuer un adulte en bonne santé.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Un vieux mythe : le venin du frelon n'est pas plus dangereux que celui de l'abeille. Le risque concerne surtout les allergiques."
+  },
+  "es": {
+   "q": "Tres picaduras de avispón pueden matar a un adulto sano.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Es un viejo mito: su veneno no es más peligroso que el de la abeja. El riesgo es sobre todo para personas alérgicas."
+  }
+ },
+ {
+  "id": "b26",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Warum beschützen manche Ameisen Blattläuse?",
+   "a": [
+    "Sie bekommen süßen Honigtau",
+    "Sie fressen deren Eier",
+    "Die Läuse wärmen das Nest",
+    "Die Läuse bauen Nestkammern"
+   ],
+   "x": "Blattläuse scheiden zuckerhaltigen Honigtau aus. Ameisen 'melken' sie und halten dafür Feinde wie Marienkäfer fern."
+  },
+  "en": {
+   "q": "Why do some ants protect aphids?",
+   "a": [
+    "They get sweet honeydew",
+    "They eat the aphids' eggs",
+    "The aphids warm the nest",
+    "The aphids build nest chambers"
+   ],
+   "x": "Aphids excrete sugary honeydew. Ants 'milk' them and in return keep enemies like ladybirds away."
+  },
+  "fr": {
+   "q": "Pourquoi certaines fourmis protègent-elles les pucerons ?",
+   "a": [
+    "Elles obtiennent du miellat sucré",
+    "Elles mangent leurs œufs",
+    "Les pucerons chauffent le nid",
+    "Les pucerons creusent le nid"
+   ],
+   "x": "Les pucerons rejettent un miellat sucré. Les fourmis les « traient » et éloignent en échange les coccinelles."
+  },
+  "es": {
+   "q": "¿Por qué algunas hormigas protegen a los pulgones?",
+   "a": [
+    "Obtienen melaza dulce",
+    "Se comen sus huevos",
+    "Los pulgones calientan el nido",
+    "Los pulgones excavan el nido"
+   ],
+   "x": "Los pulgones excretan una melaza azucarada. Las hormigas los «ordeñan» y a cambio alejan a enemigos como las mariquitas."
+  }
+ },
+ {
+  "id": "b27",
+  "lvl": 2,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Molche verbringen das ganze Jahr im Wasser.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Bergmolch, Teichmolch und Co. gehen meist nur zur Paarungszeit im Frühjahr ins Wasser und leben sonst an Land."
+  },
+  "en": {
+   "q": "Newts spend the whole year in the water.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Alpine newts, smooth newts and co. mostly enter the water only to breed in spring and otherwise live on land."
+  },
+  "fr": {
+   "q": "Les tritons passent toute l'année dans l'eau.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Les tritons alpestres, ponctués et autres ne vont en général à l'eau qu'au printemps pour se reproduire et vivent sinon à terre."
+  },
+  "es": {
+   "q": "Los tritones pasan todo el año en el agua.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "El tritón alpino y otros suelen ir al agua solo para reproducirse en primavera; el resto del año viven en tierra."
+  }
+ },
+ {
+  "id": "b28",
+  "lvl": 1,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Auf welcher Pflanze fressen die Raupen des Tagpfauenauges?",
+   "a": [
+    "Brennnessel",
+    "Kohl",
+    "Eiche",
+    "Löwenzahn"
+   ],
+   "x": "Brennnesseln sind Kinderstube für Tagpfauenauge, Kleinen Fuchs und Admiral. Lass im Garten eine wilde Ecke stehen!"
+  },
+  "en": {
+   "q": "Which plant do peacock butterfly caterpillars feed on?",
+   "a": [
+    "Stinging nettle",
+    "Cabbage",
+    "Oak",
+    "Dandelion"
+   ],
+   "x": "Nettles are a nursery for the peacock, small tortoiseshell and red admiral. Leave a wild corner in your garden!"
+  },
+  "fr": {
+   "q": "De quelle plante se nourrissent les chenilles du paon-du-jour ?",
+   "a": [
+    "Ortie",
+    "Chou",
+    "Chêne",
+    "Pissenlit"
+   ],
+   "x": "Les orties sont la nurserie du paon-du-jour, de la petite tortue et du vulcain. Laissez un coin sauvage au jardin !"
+  },
+  "es": {
+   "q": "¿De qué planta se alimentan las orugas de la mariposa pavo real?",
+   "a": [
+    "Ortiga",
+    "Col",
+    "Roble",
+    "Diente de león"
+   ],
+   "x": "Las ortigas son la guardería de la pavo real, la ortiguera y la vanesa atalanta. ¡Deja un rincón salvaje en el jardín!"
+  }
+ },
+ {
+  "id": "b29",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Woher stammen viele Distelfalter, die im Frühjahr bei uns auftauchen?",
+   "a": [
+    "Aus Skandinavien",
+    "Aus Sibirien",
+    "Aus Nordafrika und Südeuropa",
+    "Aus Nordamerika"
+   ],
+   "x": "Distelfalter wandern in mehreren Generationen von Afrika bis Nordeuropa – ein Staffellauf über Tausende Kilometer."
+  },
+  "en": {
+   "q": "Where do many painted ladies that appear in Central Europe in spring come from?",
+   "a": [
+    "From Scandinavia",
+    "From Siberia",
+    "From North Africa and southern Europe",
+    "From North America"
+   ],
+   "x": "Painted ladies migrate over several generations from Africa to northern Europe – a relay over thousands of kilometres."
+  },
+  "fr": {
+   "q": "D'où viennent beaucoup de belles-dames qui arrivent au printemps en Europe centrale ?",
+   "a": [
+    "De Scandinavie",
+    "De Sibérie",
+    "D'Afrique du Nord et d'Europe du Sud",
+    "D'Amérique du Nord"
+   ],
+   "x": "La belle-dame migre sur plusieurs générations de l'Afrique au nord de l'Europe : un relais de milliers de kilomètres."
+  },
+  "es": {
+   "q": "¿De dónde vienen muchas vanesas de los cardos que llegan en primavera a Centroeuropa?",
+   "a": [
+    "De Escandinavia",
+    "De Siberia",
+    "Del norte de África y el sur de Europa",
+    "De Norteamérica"
+   ],
+   "x": "Migran en varias generaciones desde África hasta el norte de Europa: un relevo de miles de kilómetros."
+  }
+ },
+ {
+  "id": "b30",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wie kümmern sich Wolfspinnen-Weibchen um ihren Nachwuchs?",
+   "a": [
+    "Sie tragen die Jungen auf dem Rücken",
+    "Sie füttern sie mit Blütennektar",
+    "Sie legen die Eier ins Wasser",
+    "Sie legen die Eier in Vogelnester"
+   ],
+   "x": "Erst schleppen sie den Eikokon an den Spinnwarzen mit. Die geschlüpften Jungen reiten dann einige Tage auf ihrem Rücken."
+  },
+  "en": {
+   "q": "How do female wolf spiders care for their young?",
+   "a": [
+    "They carry them on their back",
+    "They feed them flower nectar",
+    "They lay their eggs in water",
+    "They lay their eggs in bird nests"
+   ],
+   "x": "First they drag the egg sac along on their spinnerets. The hatched young then ride on their back for some days."
+  },
+  "fr": {
+   "q": "Comment les femelles d'araignée-loup s'occupent-elles de leurs petits ?",
+   "a": [
+    "Elles les portent sur le dos",
+    "Elles les nourrissent de nectar",
+    "Elles pondent dans l'eau",
+    "Elles pondent dans des nids d'oiseaux"
+   ],
+   "x": "Elles traînent d'abord leur cocon accroché aux filières. Puis les petits voyagent quelques jours sur leur dos."
+  },
+  "es": {
+   "q": "¿Cómo cuidan las hembras de araña lobo a sus crías?",
+   "a": [
+    "Las llevan sobre la espalda",
+    "Las alimentan con néctar",
+    "Ponen los huevos en el agua",
+    "Ponen los huevos en nidos de aves"
+   ],
+   "x": "Primero arrastran el saco de huevos sujeto a las hileras. Luego las crías viajan unos días sobre su espalda."
+  }
+ },
+ {
+  "id": "b31",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Kreuzspinnen fressen ihr altes Netz oft auf, bevor sie ein neues bauen.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "So recyceln sie die wertvollen Eiweiße der Spinnenseide. Viele bauen ihr Netz fast täglich neu."
+  },
+  "en": {
+   "q": "Garden spiders often eat their old web before building a new one.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "This way they recycle the valuable proteins in the silk. Many rebuild their web almost every day."
+  },
+  "fr": {
+   "q": "L'épeire diadème mange souvent sa vieille toile avant d'en tisser une nouvelle.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Elle recycle ainsi les précieuses protéines de la soie. Beaucoup refont leur toile presque chaque jour."
+  },
+  "es": {
+   "q": "La araña de jardín (epeira) suele comerse su vieja tela antes de tejer otra.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Así recicla las valiosas proteínas de la seda. Muchas rehacen su tela casi a diario."
+  }
+ },
+ {
+  "id": "b32",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Was fehlt dem Weberknecht im Gegensatz zu echten Spinnen?",
+   "a": [
+    "Augen",
+    "Mundwerkzeuge",
+    "Spinndrüsen",
+    "Beine mit Gelenken"
+   ],
+   "x": "Weberknechte sind Spinnentiere, aber keine Webspinnen: Sie bauen keine Netze, und ihr Körper wirkt wie aus einem Stück."
+  },
+  "en": {
+   "q": "What does a harvestman lack, unlike true spiders?",
+   "a": [
+    "Eyes",
+    "Mouthparts",
+    "Silk glands",
+    "Jointed legs"
+   ],
+   "x": "Harvestmen are arachnids but not spiders: they build no webs, and their body looks like one single piece."
+  },
+  "fr": {
+   "q": "Que n'a pas l'opilion (faucheux), contrairement aux vraies araignées ?",
+   "a": [
+    "Des yeux",
+    "Des pièces buccales",
+    "Des glandes à soie",
+    "Des pattes articulées"
+   ],
+   "x": "Les opilions sont des arachnides mais pas des araignées : ils ne tissent pas de toile et leur corps semble d'une seule pièce."
+  },
+  "es": {
+   "q": "¿Qué le falta al opilión, a diferencia de las arañas?",
+   "a": [
+    "Ojos",
+    "Piezas bucales",
+    "Glándulas de seda",
+    "Patas articuladas"
+   ],
+   "x": "Los opiliones son arácnidos, pero no arañas: no tejen telas y su cuerpo parece de una sola pieza."
+  }
+ },
+ {
+  "id": "b33",
+  "lvl": 2,
+  "type": "tf",
+  "right": 1,
+  "de": {
+   "q": "Teilt man einen Regenwurm, entstehen daraus zwei vollständige Würmer.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Meist überlebt höchstens das vordere Stück und bildet ein neues Hinterende. Das hintere Stück stirbt in der Regel."
+  },
+  "en": {
+   "q": "If you cut an earthworm in two, you get two complete worms.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Usually only the front part may survive and grow a new rear end. The back part normally dies."
+  },
+  "fr": {
+   "q": "Si l'on coupe un ver de terre en deux, on obtient deux vers complets.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "En général, seule la partie avant peut survivre et refaire une nouvelle queue. La partie arrière meurt le plus souvent."
+  },
+  "es": {
+   "q": "Si se corta una lombriz en dos, salen dos lombrices completas.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Normalmente solo la parte delantera puede sobrevivir y regenerar un nuevo extremo trasero. La trasera suele morir."
+  }
+ },
+ {
+  "id": "b34",
+  "lvl": 3,
+  "type": "tf",
+  "right": 0,
+  "de": {
+   "q": "Haie haben keine Schwimmblase.",
+   "a": [
+    "Wahr",
+    "Falsch"
+   ],
+   "x": "Auftrieb gibt Haien vor allem eine große, ölreiche Leber. Viele müssen schwimmen, um nicht abzusinken."
+  },
+  "en": {
+   "q": "Sharks have no swim bladder.",
+   "a": [
+    "True",
+    "False"
+   ],
+   "x": "Instead, a large oil-rich liver gives sharks buoyancy. Many must keep swimming so they don't sink."
+  },
+  "fr": {
+   "q": "Les requins n'ont pas de vessie natatoire.",
+   "a": [
+    "Vrai",
+    "Faux"
+   ],
+   "x": "Un grand foie riche en huile les aide à flotter. Beaucoup doivent nager sans cesse pour ne pas couler."
+  },
+  "es": {
+   "q": "Los tiburones no tienen vejiga natatoria.",
+   "a": [
+    "Verdadero",
+    "Falso"
+   ],
+   "x": "Un hígado grande y rico en aceite les ayuda a flotar. Muchos deben nadar para no hundirse."
+  }
+ },
+ {
+  "id": "b35",
+  "lvl": 1,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Wer bringt beim Seepferdchen die Jungen zur Welt?",
+   "a": [
+    "Das Weibchen",
+    "Das Männchen",
+    "Beide abwechselnd",
+    "Niemand – Eier liegen im Sand"
+   ],
+   "x": "Das Weibchen legt die Eier in die Bruttasche des Männchens. Dort entwickeln sie sich, bis er die Jungen 'gebärt'."
+  },
+  "en": {
+   "q": "Which seahorse parent gives birth to the young?",
+   "a": [
+    "The female",
+    "The male",
+    "Both, taking turns",
+    "Neither – eggs lie in the sand"
+   ],
+   "x": "The female puts her eggs into the male's brood pouch. They develop there until he 'gives birth' to the young."
+  },
+  "fr": {
+   "q": "Chez l'hippocampe, qui met les petits au monde ?",
+   "a": [
+    "La femelle",
+    "Le mâle",
+    "Les deux à tour de rôle",
+    "Personne : les œufs sont au sol"
+   ],
+   "x": "La femelle dépose ses œufs dans la poche incubatrice du mâle. Ils s'y développent jusqu'à ce qu'il « accouche »."
+  },
+  "es": {
+   "q": "¿Quién da a luz a las crías del caballito de mar?",
+   "a": [
+    "La hembra",
+    "El macho",
+    "Ambos, por turnos",
+    "Nadie: los huevos están en la arena"
+   ],
+   "x": "La hembra deposita los huevos en la bolsa incubadora del macho. Allí se desarrollan hasta que él «da a luz»."
+  }
+ },
+ {
+  "id": "b36",
+  "lvl": 1,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wozu hängt man im Garten mit Holzwolle gefüllte Tontöpfe kopfüber auf?",
+   "a": [
+    "Als Falle für Schnecken",
+    "Als Winterquartier für Igel",
+    "Als Versteck für Ohrwürmer",
+    "Als Futterstelle für Vögel"
+   ],
+   "x": "Ohrwürmer verstecken sich tagsüber darin und fressen nachts Blattläuse. In Ohren kriechen sie übrigens nicht gezielt."
+  },
+  "en": {
+   "q": "Why do gardeners hang clay pots filled with wood wool upside down?",
+   "a": [
+    "As a trap for slugs",
+    "As a winter home for hedgehogs",
+    "As a shelter for earwigs",
+    "As a bird feeder"
+   ],
+   "x": "Earwigs hide in them by day and eat aphids at night. And no, they don't deliberately crawl into ears."
+  },
+  "fr": {
+   "q": "Pourquoi suspend-on au jardin des pots en terre remplis de fibre de bois, à l'envers ?",
+   "a": [
+    "Pour piéger les limaces",
+    "Pour abriter les hérissons l'hiver",
+    "Pour abriter les perce-oreilles",
+    "Pour nourrir les oiseaux"
+   ],
+   "x": "Les perce-oreilles s'y cachent le jour et mangent des pucerons la nuit. Ils n'entrent pas exprès dans les oreilles."
+  },
+  "es": {
+   "q": "¿Para qué se cuelgan boca abajo macetas de barro con viruta de madera?",
+   "a": [
+    "Como trampa para babosas",
+    "Como refugio invernal para erizos",
+    "Como refugio para tijeretas",
+    "Como comedero para pájaros"
+   ],
+   "x": "Las tijeretas se esconden en ellas de día y comen pulgones de noche. Y no, no se meten a propósito en los oídos."
+  }
+ },
+ {
+  "id": "b37",
+  "lvl": 1,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Schwebfliegen sehen oft aus wie Wespen. Was stimmt?",
+   "a": [
+    "Sie stechen stärker als Wespen",
+    "Sie haben vier Flügel wie Wespen",
+    "Sie sind junge Wespen",
+    "Sie sind harmlos und ahmen Wespen nach"
+   ],
+   "x": "Die Tarnung schreckt Feinde ab. Die Larven vieler Schwebfliegen fressen Blattläuse – echte Gartenhelfer!"
+  },
+  "en": {
+   "q": "Hoverflies often look like wasps. What is true?",
+   "a": [
+    "They sting harder than wasps",
+    "They have four wings like wasps",
+    "They are young wasps",
+    "They're harmless wasp mimics"
+   ],
+   "x": "The disguise scares off enemies. The larvae of many hoverflies eat aphids – real garden helpers!"
+  },
+  "fr": {
+   "q": "Les syrphes ressemblent souvent à des guêpes. Qu'est-ce qui est vrai ?",
+   "a": [
+    "Ils piquent plus fort que les guêpes",
+    "Ils ont quatre ailes comme les guêpes",
+    "Ce sont de jeunes guêpes",
+    "Inoffensifs, ils imitent les guêpes"
+   ],
+   "x": "Ce déguisement effraie les ennemis. Les larves de nombreux syrphes mangent des pucerons : de vrais alliés du jardin !"
+  },
+  "es": {
+   "q": "Los sírfidos suelen parecer avispas. ¿Qué es cierto?",
+   "a": [
+    "Pican más fuerte que las avispas",
+    "Tienen cuatro alas como las avispas",
+    "Son avispas jóvenes",
+    "Son inofensivos e imitan a avispas"
+   ],
+   "x": "El disfraz asusta a los enemigos. Las larvas de muchos sírfidos comen pulgones: ¡grandes ayudantes del jardín!"
+  }
+ },
+ {
+  "id": "b38",
+  "lvl": 1,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Welche Tiergruppe hat weltweit die meisten bekannten Arten?",
+   "a": [
+    "Vögel",
+    "Fische",
+    "Käfer",
+    "Schmetterlinge"
+   ],
+   "x": "Mit rund 350.000 bis 400.000 beschriebenen Arten sind Käfer die artenreichste Tiergruppe der Erde."
+  },
+  "en": {
+   "q": "Which animal group has the most known species worldwide?",
+   "a": [
+    "Birds",
+    "Fish",
+    "Beetles",
+    "Butterflies and moths"
+   ],
+   "x": "With around 350,000 to 400,000 described species, beetles are the most species-rich animal group on Earth."
+  },
+  "fr": {
+   "q": "Quel groupe d'animaux compte le plus d'espèces connues au monde ?",
+   "a": [
+    "Les oiseaux",
+    "Les poissons",
+    "Les coléoptères",
+    "Les papillons"
+   ],
+   "x": "Avec environ 350 000 à 400 000 espèces décrites, les coléoptères sont le groupe animal le plus riche en espèces."
+  },
+  "es": {
+   "q": "¿Qué grupo de animales tiene más especies conocidas en el mundo?",
+   "a": [
+    "Las aves",
+    "Los peces",
+    "Los escarabajos",
+    "Las mariposas"
+   ],
+   "x": "Con unas 350.000 a 400.000 especies descritas, los escarabajos son el grupo animal con más especies de la Tierra."
+  }
+ },
+ {
+  "id": "b39",
+  "lvl": 2,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Wo laicht der Europäische Aal?",
+   "a": [
+    "Im Bodensee",
+    "In der Sargassosee",
+    "Im Wattenmeer",
+    "In Gebirgsbächen"
+   ],
+   "x": "Aale wandern Tausende Kilometer in die Sargassosee im Atlantik. Ihre Larven treiben mit der Strömung zurück nach Europa."
+  },
+  "en": {
+   "q": "Where does the European eel spawn?",
+   "a": [
+    "In Lake Constance",
+    "In the Sargasso Sea",
+    "In the Wadden Sea",
+    "In mountain streams"
+   ],
+   "x": "Eels travel thousands of kilometres to the Sargasso Sea in the Atlantic. Their larvae drift back to Europe on currents."
+  },
+  "fr": {
+   "q": "Où se reproduit l'anguille européenne ?",
+   "a": [
+    "Dans le lac de Constance",
+    "Dans la mer des Sargasses",
+    "Dans la mer des Wadden",
+    "Dans les torrents de montagne"
+   ],
+   "x": "Les anguilles parcourent des milliers de kilomètres jusqu'à la mer des Sargasses. Leurs larves dérivent ensuite vers l'Europe."
+  },
+  "es": {
+   "q": "¿Dónde desova la anguila europea?",
+   "a": [
+    "En el lago de Constanza",
+    "En el mar de los Sargazos",
+    "En el mar de Wadden",
+    "En arroyos de montaña"
+   ],
+   "x": "Las anguilas recorren miles de kilómetros hasta el mar de los Sargazos. Sus larvas vuelven a Europa con las corrientes."
+  }
+ },
+ {
+  "id": "b40",
+  "lvl": 2,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Woran erkennen Lachse ihren Heimatfluss, um dort zu laichen?",
+   "a": [
+    "An der Farbe des Wassers",
+    "Am Rauschen von Wasserfällen",
+    "Am Geruch des Wassers",
+    "Sie folgen den Aalen"
+   ],
+   "x": "Junge Lachse prägen sich den Geruch ihres Heimatgewässers ein. Jahre später finden sie damit aus dem Meer zurück."
+  },
+  "en": {
+   "q": "How do salmon recognise their home river to spawn there?",
+   "a": [
+    "By the colour of the water",
+    "By the sound of waterfalls",
+    "By the smell of the water",
+    "They follow the eels"
+   ],
+   "x": "Young salmon memorise the smell of their home waters. Years later, they use it to find their way back from the sea."
+  },
+  "fr": {
+   "q": "Comment les saumons reconnaissent-ils leur rivière natale pour y frayer ?",
+   "a": [
+    "À la couleur de l'eau",
+    "Au bruit des cascades",
+    "À l'odeur de l'eau",
+    "Ils suivent les anguilles"
+   ],
+   "x": "Les jeunes saumons mémorisent l'odeur de leur rivière natale. Des années plus tard, elle les guide depuis la mer."
+  },
+  "es": {
+   "q": "¿Cómo reconocen los salmones su río natal para desovar allí?",
+   "a": [
+    "Por el color del agua",
+    "Por el ruido de las cascadas",
+    "Por el olor del agua",
+    "Siguen a las anguilas"
+   ],
+   "x": "Los salmones jóvenes memorizan el olor de su río natal. Años después, lo usan para volver desde el mar."
+  }
+ },
+ {
+  "id": "b41",
+  "lvl": 2,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Welche Gartenbeleuchtung lockt nachts am wenigsten Insekten an?",
+   "a": [
+    "Kaltweißes Licht",
+    "Bläuliches Licht",
+    "Lampen mit UV-Anteil",
+    "Warmweißes, gelbliches Licht"
+   ],
+   "x": "Insekten fliegen vor allem auf blaues und UV-Licht. Besser: warmweiße, nach unten gerichtete Lampen – oder gar kein Licht."
+  },
+  "en": {
+   "q": "Which garden lighting attracts the fewest insects at night?",
+   "a": [
+    "Cool white light",
+    "Bluish light",
+    "Lamps that emit UV",
+    "Warm white, yellowish light"
+   ],
+   "x": "Insects are drawn mostly to blue and UV light. Better: warm white lamps pointing downwards – or no light at all."
+  },
+  "fr": {
+   "q": "Quel éclairage de jardin attire le moins d'insectes la nuit ?",
+   "a": [
+    "Lumière blanc froid",
+    "Lumière bleutée",
+    "Lampes émettant des UV",
+    "Lumière blanc chaud, jaunâtre"
+   ],
+   "x": "Les insectes sont surtout attirés par la lumière bleue et UV. Mieux : des lampes blanc chaud dirigées vers le bas, ou pas de lumière."
+  },
+  "es": {
+   "q": "¿Qué iluminación de jardín atrae menos insectos por la noche?",
+   "a": [
+    "Luz blanca fría",
+    "Luz azulada",
+    "Lámparas con luz UV",
+    "Luz blanca cálida, amarillenta"
+   ],
+   "x": "Los insectos acuden sobre todo a la luz azul y UV. Mejor: lámparas cálidas orientadas hacia abajo, o ninguna luz."
+  }
+ },
+ {
+  "id": "b42",
+  "lvl": 2,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Was macht das Männchen des Dreistachligen Stichlings zur Laichzeit?",
+   "a": [
+    "Es trägt die Eier im Maul",
+    "Es vergräbt die Eier und schwimmt weg",
+    "Es klebt die Eier an Wasservögel",
+    "Es baut ein Nest und bewacht die Brut"
+   ],
+   "x": "Das Männchen bekommt einen roten Bauch, baut ein Nest aus Pflanzenteilen und fächelt den Eiern frisches Wasser zu."
+  },
+  "en": {
+   "q": "What does the male three-spined stickleback do in the breeding season?",
+   "a": [
+    "Carries the eggs in its mouth",
+    "Buries the eggs and swims off",
+    "Sticks the eggs onto waterbirds",
+    "Builds a nest and guards the brood"
+   ],
+   "x": "The male turns red-bellied, builds a nest from plant material and fans fresh water over the eggs."
+  },
+  "fr": {
+   "q": "Que fait le mâle de l'épinoche à trois épines pendant la reproduction ?",
+   "a": [
+    "Il porte les œufs dans sa bouche",
+    "Il enterre les œufs et s'en va",
+    "Il colle les œufs sur des oiseaux",
+    "Il construit un nid et garde les œufs"
+   ],
+   "x": "Le mâle prend un ventre rouge, construit un nid de débris végétaux et ventile les œufs avec de l'eau fraîche."
+  },
+  "es": {
+   "q": "¿Qué hace el macho del espinoso durante la reproducción?",
+   "a": [
+    "Lleva los huevos en la boca",
+    "Entierra los huevos y se va",
+    "Pega los huevos a aves acuáticas",
+    "Construye un nido y cuida la puesta"
+   ],
+   "x": "El macho se vuelve de vientre rojo, construye un nido con restos de plantas y abanica los huevos con agua fresca."
+  }
+ },
+ {
+  "id": "b43",
+  "lvl": 2,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wie verschließt die Weinbergschnecke im Winter ihr Haus?",
+   "a": [
+    "Mit einem Deckel aus Kalk",
+    "Mit einem eingerollten Blatt",
+    "Mit einem Pfropfen aus Erde",
+    "Gar nicht – es bleibt offen"
+   ],
+   "x": "Sie gräbt sich ein und verschließt die Öffnung mit einem Kalkdeckel. In Deutschland stehen Weinbergschnecken unter Schutz."
+  },
+  "en": {
+   "q": "How does the Roman snail seal its shell in winter?",
+   "a": [
+    "With a lid made of lime",
+    "With a rolled-up leaf",
+    "With a plug of soil",
+    "Not at all – it stays open"
+   ],
+   "x": "It digs in and seals the opening with a chalky lid. In Germany, Roman snails are a protected species."
+  },
+  "fr": {
+   "q": "Comment l'escargot de Bourgogne ferme-t-il sa coquille en hiver ?",
+   "a": [
+    "Avec un couvercle de calcaire",
+    "Avec une feuille enroulée",
+    "Avec un bouchon de terre",
+    "Il ne la ferme pas"
+   ],
+   "x": "Il s'enterre et ferme l'ouverture avec un couvercle calcaire. En Allemagne, cette espèce est protégée."
+  },
+  "es": {
+   "q": "¿Cómo cierra su concha en invierno el caracol de Borgoña?",
+   "a": [
+    "Con una tapa de cal",
+    "Con una hoja enrollada",
+    "Con un tapón de tierra",
+    "No la cierra"
+   ],
+   "x": "Se entierra y cierra la abertura con una tapa calcárea. En Alemania es una especie protegida."
+  }
+ },
+ {
+  "id": "b44",
+  "lvl": 3,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Was bedroht den heimischen Edelkrebs am stärksten?",
+   "a": [
+    "Zu kalte Winter",
+    "Die eingeschleppte Krebspest",
+    "Der Biber",
+    "Zu viele Wasserpflanzen"
+   ],
+   "x": "Amerikanische Krebse wie der Signalkrebs tragen den Erreger, ohne zu erkranken. Für heimische Krebse ist er meist tödlich."
+  },
+  "en": {
+   "q": "What is the biggest threat to the native noble crayfish?",
+   "a": [
+    "Cold winters",
+    "Introduced crayfish plague",
+    "Beavers",
+    "Too many water plants"
+   ],
+   "x": "American species like the signal crayfish carry the pathogen without falling ill. For native crayfish it is usually fatal."
+  },
+  "fr": {
+   "q": "Quelle est la plus grande menace pour l'écrevisse à pattes rouges ?",
+   "a": [
+    "Les hivers froids",
+    "La peste de l'écrevisse importée",
+    "Le castor",
+    "Trop de plantes aquatiques"
+   ],
+   "x": "Des écrevisses américaines comme l'écrevisse signal portent le pathogène sans être malades. Il tue souvent les espèces indigènes."
+  },
+  "es": {
+   "q": "¿Cuál es la mayor amenaza para el cangrejo de río europeo?",
+   "a": [
+    "Los inviernos fríos",
+    "La peste del cangrejo introducida",
+    "El castor",
+    "El exceso de plantas acuáticas"
+   ],
+   "x": "Especies americanas como el cangrejo señal portan el patógeno sin enfermar. Para los cangrejos autóctonos suele ser mortal."
+  }
+ },
+ {
+  "id": "b45",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wie frisst ein Seestern eine Miesmuschel?",
+   "a": [
+    "Er knackt sie mit Zähnen",
+    "Er schlägt sie gegen Steine",
+    "Er stülpt seinen Magen in die Muschel",
+    "Er saugt sie durch die Arme auf"
+   ],
+   "x": "Er zieht die Schalen mit seinen Saugfüßchen einen Spalt auf, stülpt den Magen hinein und verdaut die Muschel darin."
+  },
+  "en": {
+   "q": "How does a starfish eat a mussel?",
+   "a": [
+    "It cracks it with its teeth",
+    "It smashes it against rocks",
+    "It pushes its stomach into the mussel",
+    "It sucks it up through its arms"
+   ],
+   "x": "It pulls the shells slightly apart with its tube feet, pushes its stomach inside and digests the mussel right there."
+  },
+  "fr": {
+   "q": "Comment une étoile de mer mange-t-elle une moule ?",
+   "a": [
+    "Elle la casse avec ses dents",
+    "Elle la frappe contre un rocher",
+    "Elle glisse son estomac dans la moule",
+    "Elle l'aspire par ses bras"
+   ],
+   "x": "Elle entrouvre les valves avec ses pieds ambulacraires, y glisse son estomac et digère la moule sur place."
+  },
+  "es": {
+   "q": "¿Cómo se come una estrella de mar a un mejillón?",
+   "a": [
+    "Lo rompe con los dientes",
+    "Lo golpea contra las rocas",
+    "Mete su estómago dentro del mejillón",
+    "Lo absorbe por los brazos"
+   ],
+   "x": "Abre un poco las valvas con sus pies ambulacrales, introduce el estómago y digiere el mejillón allí mismo."
+  }
+ },
+ {
+  "id": "b46",
+  "lvl": 3,
+  "type": "text",
+  "right": 0,
+  "de": {
+   "q": "Wie verbreiten sich die Larven heimischer Großmuscheln wie der Teichmuschel?",
+   "a": [
+    "Sie heften sich an Fische",
+    "Sie werden vom Wind verweht",
+    "Sie kriechen durch den Boden",
+    "Sie treiben in Schaumflocken"
+   ],
+   "x": "Die winzigen Larven (Glochidien) klammern sich an Kiemen oder Flossen von Fischen und lassen sich eine Weile mitnehmen."
+  },
+  "en": {
+   "q": "How do the larvae of native freshwater mussels like the swan mussel spread?",
+   "a": [
+    "They attach to fish",
+    "They are blown by the wind",
+    "They crawl through the soil",
+    "They drift in flecks of foam"
+   ],
+   "x": "The tiny larvae (glochidia) cling to the gills or fins of fish and hitch a ride for a while."
+  },
+  "fr": {
+   "q": "Comment se dispersent les larves des grandes moules d'eau douce comme l'anodonte ?",
+   "a": [
+    "Elles s'accrochent aux poissons",
+    "Elles sont portées par le vent",
+    "Elles rampent dans le sol",
+    "Elles flottent dans l'écume"
+   ],
+   "x": "Les minuscules larves (glochidies) s'accrochent aux branchies ou aux nageoires des poissons et voyagent un moment avec eux."
+  },
+  "es": {
+   "q": "¿Cómo se dispersan las larvas de los grandes mejillones de agua dulce, como la anodonta?",
+   "a": [
+    "Se adhieren a peces",
+    "Las lleva el viento",
+    "Se arrastran por el suelo",
+    "Flotan en la espuma"
+   ],
+   "x": "Las diminutas larvas (gloquidios) se aferran a las branquias o aletas de los peces y viajan con ellos un tiempo."
+  }
+ },
+ {
+  "id": "b47",
+  "lvl": 3,
+  "type": "text",
+  "right": 1,
+  "de": {
+   "q": "Wie bohrt man Nistlöcher für Wildbienen am besten in Holz?",
+   "a": [
+    "Ins Stirnholz (Schnittfläche)",
+    "Seitlich ins Längsholz",
+    "In weiches Fichtenholz",
+    "Mit 3 bis 5 cm Durchmesser"
+   ],
+   "x": "Löcher im Stirnholz reißen leicht ein, dann kann die Brut verpilzen. Besser: trockenes Hartholz, seitlich, wenige mm breit."
+  },
+  "en": {
+   "q": "What is the best way to drill nest holes for wild bees in wood?",
+   "a": [
+    "Into the end grain (cut face)",
+    "Into the side of the wood",
+    "Into soft spruce wood",
+    "3 to 5 cm wide"
+   ],
+   "x": "Holes in end grain crack easily and the brood can go mouldy. Better: dry hardwood, drilled from the side, a few mm wide."
+  },
+  "fr": {
+   "q": "Comment percer au mieux des trous de nidification pour abeilles sauvages dans le bois ?",
+   "a": [
+    "Dans le bois de bout (la coupe)",
+    "Sur le côté, dans le fil du bois",
+    "Dans de l'épicéa tendre",
+    "Avec 3 à 5 cm de diamètre"
+   ],
+   "x": "Les trous dans le bois de bout se fendent et le couvain peut moisir. Mieux : bois dur sec, percé sur le côté, de quelques mm."
+  },
+  "es": {
+   "q": "¿Cómo se perforan mejor los nidos para abejas silvestres en madera?",
+   "a": [
+    "En la testa (cara del corte)",
+    "En el costado de la madera",
+    "En madera blanda de abeto",
+    "Con 3 a 5 cm de diámetro"
+   ],
+   "x": "Los agujeros en la testa se agrietan y la cría puede enmohecerse. Mejor: madera dura y seca, perforada de lado, de pocos mm."
+  }
+ },
+ {
+  "id": "b48",
+  "lvl": 3,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Viele Wildbienen sind 'oligolektisch'. Was bedeutet das?",
+   "a": [
+    "Sie leben einzeln, ohne Staat",
+    "Sie fliegen nur nachts",
+    "Sie haben keinen Stachel",
+    "Sie sammeln nur an wenigen Pflanzen"
+   ],
+   "x": "Solche Spezialisten brauchen z. B. Glockenblumen oder Weiden. Fehlen diese Pflanzen, verschwindet auch die Biene."
+  },
+  "en": {
+   "q": "Many wild bees are 'oligolectic'. What does that mean?",
+   "a": [
+    "They live alone, without a colony",
+    "They only fly at night",
+    "They have no sting",
+    "They collect pollen from few plants"
+   ],
+   "x": "Such specialists need e.g. bellflowers or willows. If these plants disappear, so does the bee."
+  },
+  "fr": {
+   "q": "Beaucoup d'abeilles sauvages sont « oligolectiques ». Qu'est-ce que cela signifie ?",
+   "a": [
+    "Elles vivent seules, sans colonie",
+    "Elles ne volent que la nuit",
+    "Elles n'ont pas de dard",
+    "Elles butinent peu de plantes"
+   ],
+   "x": "Ces spécialistes ont besoin par exemple de campanules ou de saules. Si ces plantes disparaissent, l'abeille aussi."
+  },
+  "es": {
+   "q": "Muchas abejas silvestres son «oligolécticas». ¿Qué significa?",
+   "a": [
+    "Viven solas, sin colonia",
+    "Solo vuelan de noche",
+    "No tienen aguijón",
+    "Recogen polen de pocas plantas"
+   ],
+   "x": "Estas especialistas necesitan, por ejemplo, campánulas o sauces. Si esas plantas desaparecen, la abeja también."
+  }
+ },
+ {
+  "id": "b49",
+  "lvl": 3,
+  "type": "text",
+  "right": 2,
+  "de": {
+   "q": "Wie lange entwickeln sich Hirschkäfer-Larven im morschen Holz?",
+   "a": [
+    "Etwa 2 Wochen",
+    "Nur einen Sommer",
+    "Meist 3 bis 8 Jahre",
+    "Rund 30 Jahre"
+   ],
+   "x": "Die Larven fressen jahrelang morsches Holz, oft von alten Eichen. Der fertige Käfer lebt dann nur wenige Wochen."
+  },
+  "en": {
+   "q": "How long do stag beetle larvae develop in rotting wood?",
+   "a": [
+    "About 2 weeks",
+    "Just one summer",
+    "Usually 3 to 8 years",
+    "Around 30 years"
+   ],
+   "x": "The larvae feed on rotting wood, often of old oaks, for years. The adult beetle then lives only a few weeks."
+  },
+  "fr": {
+   "q": "Combien de temps les larves de lucane cerf-volant se développent-elles dans le bois mort ?",
+   "a": [
+    "Environ 2 semaines",
+    "Un seul été",
+    "En général 3 à 8 ans",
+    "Environ 30 ans"
+   ],
+   "x": "Les larves mangent du bois pourri, souvent de vieux chênes, pendant des années. L'adulte ne vit ensuite que quelques semaines."
+  },
+  "es": {
+   "q": "¿Cuánto tiempo se desarrollan las larvas del ciervo volante en la madera podrida?",
+   "a": [
+    "Unas 2 semanas",
+    "Solo un verano",
+    "Normalmente de 3 a 8 años",
+    "Unos 30 años"
+   ],
+   "x": "Las larvas comen madera podrida, a menudo de robles viejos, durante años. El adulto vive luego solo unas semanas."
+  }
+ },
+ {
+  "id": "b50",
+  "lvl": 3,
+  "type": "text",
+  "right": 3,
+  "de": {
+   "q": "Wo sitzen die Ohren des Grünen Heupferds?",
+   "a": [
+    "Am Kopf",
+    "An den Fühlern",
+    "Am Hinterleib",
+    "An den Vorderbeinen"
+   ],
+   "x": "Laubheuschrecken hören mit Trommelfellen an den Vorderbeinen. Kurzfühlerschrecken wie Grashüpfer haben sie am Hinterleib."
+  },
+  "en": {
+   "q": "Where are the ears of the great green bush-cricket?",
+   "a": [
+    "On its head",
+    "On its antennae",
+    "On its abdomen",
+    "On its front legs"
+   ],
+   "x": "Bush-crickets hear with eardrums on their front legs. Grasshoppers, by contrast, have theirs on the abdomen."
+  },
+  "fr": {
+   "q": "Où se trouvent les oreilles de la grande sauterelle verte ?",
+   "a": [
+    "Sur la tête",
+    "Sur les antennes",
+    "Sur l'abdomen",
+    "Sur les pattes avant"
+   ],
+   "x": "Les sauterelles entendent grâce à des tympans sur les pattes avant. Les criquets, eux, les ont sur l'abdomen."
+  },
+  "es": {
+   "q": "¿Dónde tiene los oídos el saltamontes verde (Tettigonia)?",
+   "a": [
+    "En la cabeza",
+    "En las antenas",
+    "En el abdomen",
+    "En las patas delanteras"
+   ],
+   "x": "Los tetigónidos oyen con tímpanos en las patas delanteras. Los saltamontes de antenas cortas los tienen en el abdomen."
+  }
+ }
+]
