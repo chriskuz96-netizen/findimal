@@ -138,6 +138,7 @@ function rng(seed: number) {
 
 // 10 Fragen: am liebsten lange nicht (oder nie) gesehene; 3 mittel, 4 schwer, 3 sehr schwer, aufsteigend.
 // Abwechslung: je eine Rangliste, eine Frage mit großem Bild (Spur, Umriss, Fundstück) und ein Duell.
+// Solange es ungesehene Fragen gibt, kommt keine doppelt (die Mischung darf dafür abweichen).
 function pickRound(log: ForscherLog, day: number): string[] {
   const rand = rng(day * 2654435761);
   // Nie gesehene Fragen zuerst. Sind alle durch: erst die, die man falsch hatte (zum Lernen), dann die ältesten.
@@ -147,22 +148,29 @@ function pickRound(log: ForscherLog, day: number): string[] {
   const pool = BANK.map((q) => ({ q, score: age(q) + rand() * 3 })).sort((a, b) => b.score - a.score);
   const want: Record<number, number> = { 1: 3, 2: 4, 3: 3 };
   const picked: BankQuestion[] = [];
-  const take = (ok: (q: BankQuestion) => boolean, max = 1) => {
+  const fresh = (q: BankQuestion) => !(q.id in log.seen);
+  // quota: Mischung der Stufen einhalten (fällt weg, sobald eine Stufe keine neuen Fragen mehr hat)
+  const take = (ok: (q: BankQuestion) => boolean, max = 1, quota = true) => {
     for (const { q } of pool) {
-      if (max <= 0) break;
-      if (picked.includes(q) || !ok(q) || want[q.lvl] <= 0) continue;
+      if (max <= 0 || picked.length >= ROUND_SIZE) break;
+      if (picked.includes(q) || !ok(q) || (quota && want[q.lvl] <= 0)) continue;
       picked.push(q);
       want[q.lvl]--;
       max--;
     }
   };
-  for (const type of ['rank', 'pic', 'duel']) take((q) => q.type === type);
-  for (const lvl of [1, 2, 3]) take((q) => q.lvl === lvl, want[lvl]);
-  // zu wenige einer Stufe: mit beliebigen auffüllen
-  for (const { q } of pool) {
-    if (picked.length >= ROUND_SIZE) break;
-    if (!picked.includes(q)) picked.push(q);
-  }
+  // 1. je eine Rangliste, ein Bild und ein Duell (nur neue – lieber keine als eine wiederholte)
+  for (const type of ['rank', 'pic', 'duel']) take((q) => q.type === type && fresh(q));
+  // 2. neue Fragen in der gewünschten Mischung, dann neue Fragen jeder Stufe:
+  //    so wiederholt sich nichts, solange es noch ungesehene Fragen gibt
+  // höchstens eine Rangliste pro Runde (die dauern am längsten)
+  const oneRank = (q: BankQuestion) => q.type !== 'rank' || !picked.some((x) => x.type === 'rank');
+  for (const lvl of [1, 2, 3]) take((q) => q.lvl === lvl && fresh(q) && oneRank(q), want[lvl]);
+  take((q) => fresh(q) && oneRank(q), ROUND_SIZE, false);
+  // 3. alle gesehen: zuerst die falsch beantworteten, dann die ältesten (Reihenfolge von pool)
+  for (const lvl of [1, 2, 3]) take((q) => q.lvl === lvl && oneRank(q), want[lvl]);
+  take(oneRank, ROUND_SIZE, false);
+  take(() => true, ROUND_SIZE, false);
   // aufsteigend schwer; gleiche Stufe gemischt
   return picked
     .slice(0, ROUND_SIZE)
