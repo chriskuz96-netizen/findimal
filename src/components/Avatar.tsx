@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, ClipPath, Defs, G, Path, RadialGradient, Stop } from 'react-native-svg';
 
+import { SERVER_URL } from '../config';
 import { useFindPhoto } from '../finds';
 import { PLUS_AVATARS } from '../plus';
 import { BadgeId } from '../progress';
@@ -8,16 +10,18 @@ import { PLUS_ANIMAL_ART, PLUS_ANIMAL_BG } from './PlusAnimal';
 import { colors, fonts } from '../theme';
 import { BADGE_TIER, Medal } from './Medal';
 
-// Foto aus der eigenen Sammlung als Profilbild (Plus): 'f-<Fund-ID>'. Bleibt auf dem Handy –
-// in der Rangliste sehen andere stattdessen den Anfangsbuchstaben (siehe board.ts).
+// Foto aus der eigenen Sammlung als Profilbild (Plus): 'f-<Fund-ID>' auf dem eigenen Handy.
+// In der Rangliste steht dafür 'u:<Code>.<Kennung>' – das geprüfte Vorschaubild vom Server (siehe board.ts).
 export const PHOTO_PREFIX = 'f-';
 export const isPhotoAvatar = (id: string | null | undefined) => !!id && id.startsWith(PHOTO_PREFIX);
 
 // Profilbild: Plus-Tier (mit goldenem Rahmen), eigenes Foto (Plus), Abzeichen oder Anfangsbuchstabe.
 export function Avatar({ id, name, size }: { id: string | null; name: string; size: number }) {
   if (isPhotoAvatar(id)) return <PhotoAvatar findId={id!.slice(PHOTO_PREFIX.length)} name={name} size={size} />;
-  // so sehen andere in der Rangliste jemanden mit eigenem Foto: Buchstabe im goldenen Plus-Rahmen
-  if (id === 'p-letter') return <PhotoAvatar findId="" name={name} size={size} />;
+  // Foto eines anderen aus der Rangliste (vom Server)
+  if (id?.startsWith('u:')) return <PhotoRing uri={remotePhoto(id)} name={name} size={size} />;
+  // Foto noch nicht hochgeladen oder nicht erlaubt: Buchstabe im goldenen Plus-Rahmen
+  if (id === 'p-letter') return <PhotoRing uri={null} name={name} size={size} />;
   const plus = id ? PLUS_AVATARS.find((a) => a.id === id) : undefined;
   if (plus) return <PlusAvatar size={size} id={plus.id} />;
   if (id && Object.prototype.hasOwnProperty.call(BADGE_TIER, id)) return <Medal id={id as BadgeId} size={size} />;
@@ -29,16 +33,27 @@ export function Avatar({ id, name, size }: { id: string | null; name: string; si
   );
 }
 
-// Eigenes Foto im Kreis mit goldenem Plus-Ring und Stern (wie die Plus-Tiere)
+// 'u:K7QX2M.ab12cd34' -> https://…/profilbild/K7QX2M?v=ab12cd34
+function remotePhoto(id: string): string | null {
+  const m = /^u:([A-Z0-9]{6})\.([a-f0-9]{1,12})$/.exec(id);
+  return m ? `${SERVER_URL.replace(/\/$/, '')}/profilbild/${m[1]}?v=${m[2]}` : null;
+}
+
 function PhotoAvatar({ findId, name, size }: { findId: string; name: string; size: number }) {
-  const uri = useFindPhoto(findId);
+  return <PhotoRing uri={useFindPhoto(findId)} name={name} size={size} />;
+}
+
+// Foto im Kreis mit goldenem Plus-Ring und Stern (wie die Plus-Tiere); ohne Foto der Anfangsbuchstabe
+function PhotoRing({ uri: src, name, size }: { uri: string | null; name: string; size: number }) {
+  const [failed, setFailed] = useState(false);
+  const uri = failed ? null : src;
   const ring = Math.max(2, Math.round(size * 0.06));
   const star = Math.round(size * 0.24);
   return (
     <View style={{ width: size, height: size }}>
       <View style={[styles.photoRing, { width: size, height: size, borderRadius: size / 2, padding: ring }]}>
         {uri ? (
-          <Image source={{ uri }} style={{ width: size - ring * 2, height: size - ring * 2, borderRadius: size / 2 }} />
+          <Image source={{ uri }} onError={() => setFailed(true)} style={{ width: size - ring * 2, height: size - ring * 2, borderRadius: size / 2 }} />
         ) : (
           <View style={[styles.letter, { flex: 1, borderRadius: size / 2, borderWidth: 0 }]}>
             <Text style={[styles.letterText, { fontSize: size * 0.38 }]}>{name[0]?.toUpperCase() ?? '?'}</Text>

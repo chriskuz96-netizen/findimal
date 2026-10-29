@@ -18,10 +18,10 @@ import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
-import { allowAutoJoin, autoJoin, codeFromUrl } from './src/board';
+import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
-import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
+import { addFind, counts, Find, forgetFinds, loadFindPhoto, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { Animal, checkAppKey, getAppKey, translateAnimal } from './src/identify';
 import { updateBeforeSetup } from './src/firstUpdate';
 import { LangProvider, useI18n } from './src/i18n';
@@ -303,6 +303,11 @@ function Main() {
   const chooseAvatar = (id: string) => {
     saveAvatar(id);
     setAvatar(id);
+    // eigenes Foto: für die Rangliste hochladen (wird dort geprüft); abgelehnt -> kurzer Hinweis
+    if (isPhotoAvatar(id))
+      ensurePhotoAvatar(id, () => loadFindPhoto(id.slice(PHOTO_PREFIX.length))).then((r) => {
+        if (r === 'rejected') Alert.alert(t('pro.photoRejectedTitle'), t('pro.photoRejected'));
+      });
   };
 
   useEffect(() => {

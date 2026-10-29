@@ -1,12 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Linking from 'expo-linking';
+import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
 
 import { SERVER_URL } from './config';
 import { getAppKey } from './identify';
 import { bonusPhotos, getDeviceId, setBonusPhotos } from './usage';
 
-// Rangliste mit Freunden. Auf dem Server liegen nur Spitzname, XP, Stufe,
-// Anzahl Arten und das Abzeichen-Bild – keine Fotos und keine Fundorte.
+// Rangliste mit Freunden. Auf dem Server liegen nur Spitzname, XP, Stufe, Anzahl Arten und das
+// Profilbild – keine Fundorte. Ein eigenes Foto (Plus) geht nur als kleines Vorschaubild hin und
+// wird dort vorher geprüft (nur Tiere/Natur, keine Menschen).
 
 export type Me = { id: string; secret: string };
 export type Person = { id: string; name: string; xp: number; level: number; species: number; avatar: string };
@@ -29,12 +31,73 @@ const random = (n: number, chars: string) =>
 export const cleanCode = (code: string) => code.toUpperCase().replace(/[^A-Z0-9]/g, '');
 export const isCode = (code: string) => /^[A-HJ-NP-Z2-9]{6}$/.test(code);
 
-// Eigene Fotos als Profilbild bleiben auf dem Handy: an den Server geht nur 'p-letter'
-// (Anfangsbuchstabe mit goldenem Plus-Rahmen; ältere App-Versionen zeigen einfach den Buchstaben)
-const publicAvatar = (a: unknown) => (typeof a === 'string' && a.startsWith('f-') ? 'p-letter' : a);
+// Eigenes Foto als Profilbild ('f-<Fund>'): an den Server geht der Verweis auf das hochgeladene Vorschaubild
+// ('u:<Code>.<Kennung>'). Solange es (noch) nicht hochgeladen oder nicht erlaubt ist: 'p-letter'
+// (Anfangsbuchstabe im goldenen Plus-Rahmen; ältere App-Versionen zeigen einfach den Buchstaben).
+const PHOTO_KEY = 'findimal-board-photo';
+type PhotoUpload = { find: string; avatar: string; rejected?: boolean };
+let photoUpload: PhotoUpload | null | undefined;
+async function loadPhotoUpload(): Promise<PhotoUpload | null> {
+  if (photoUpload === undefined) {
+    try {
+      const raw = await AsyncStorage.getItem(PHOTO_KEY);
+      photoUpload = raw ? (JSON.parse(raw) as PhotoUpload) : null;
+    } catch {
+      photoUpload = null;
+    }
+  }
+  return photoUpload;
+}
+async function publicAvatar(a: unknown): Promise<unknown> {
+  if (typeof a !== 'string' || !a.startsWith('f-')) return a;
+  await uploading; // läuft gerade ein Hochladen: abwarten, sonst würde der Buchstabe das neue Foto überschreiben
+  const up = await loadPhotoUpload();
+  return up && up.find === a.slice(2) && !up.rejected ? up.avatar : 'p-letter';
+}
+
+// Foto-Profilbild hochladen (falls noch nicht geschehen). photo: das gespeicherte Foto (data:-URI).
+// 'ok' = hochgeladen, 'rejected' = Prüfung nicht bestanden, 'skip' = nichts zu tun / nicht dabei, 'error' = später nochmal
+let uploading: Promise<unknown> | null = null;
+export function ensurePhotoAvatar(avatar: string, photo: () => Promise<string | null>): Promise<'ok' | 'rejected' | 'skip' | 'error'> {
+  // nur ein Hochladen gleichzeitig (Profil und Rangliste können es beide anstoßen)
+  const run = (uploading ?? Promise.resolve()).then(() => uploadPhoto(avatar, photo));
+  uploading = run.finally(() => {
+    if (uploading === done) uploading = null;
+  });
+  const done = uploading;
+  return run;
+}
+async function uploadPhoto(avatar: string, photo: () => Promise<string | null>): Promise<'ok' | 'rejected' | 'skip' | 'error'> {
+  if (!avatar.startsWith('f-')) return 'skip';
+  const find = avatar.slice(2);
+  const [me, up] = await Promise.all([loadMe(), loadPhotoUpload()]);
+  if (!me || up?.find === find) return 'skip';
+  try {
+    const uri = await photo();
+    if (!uri) return 'skip';
+    // quadratisch aus der Mitte, 160 × 160 – neu gespeichert, also ohne Ortsdaten im Bild
+    const full = await ImageManipulator.manipulate(uri).renderAsync();
+    const side = Math.min(full.width, full.height);
+    const small = await ImageManipulator.manipulate(uri)
+      .crop({ originX: (full.width - side) / 2, originY: (full.height - side) / 2, width: side, height: side })
+      .resize({ width: 160, height: 160 })
+      .renderAsync();
+    const saved = await small.saveAsync({ compress: 0.6, format: SaveFormat.JPEG, base64: true });
+    if (!saved.base64) return 'error';
+    const res = await call({ mode: 'board_photo', ...me, image: saved.base64 });
+    if (!res.ok) return 'error';
+    const data = (await res.json()) as { ok: boolean; avatar?: string };
+    photoUpload = data.ok && data.avatar ? { find, avatar: data.avatar } : { find, avatar: 'p-letter', rejected: true };
+    await AsyncStorage.setItem(PHOTO_KEY, JSON.stringify(photoUpload)).catch(() => {});
+    await AsyncStorage.removeItem(SENT_KEY).catch(() => {}); // beim nächsten Abgleich das neue Bild mitschicken
+    return photoUpload.rejected ? 'rejected' : 'ok';
+  } catch {
+    return 'error';
+  }
+}
 
 async function call(body: object): Promise<Response> {
-  if ('avatar' in body) body = { ...body, avatar: publicAvatar((body as { avatar?: unknown }).avatar) };
+  if ('avatar' in body) body = { ...body, avatar: await publicAvatar((body as { avatar?: unknown }).avatar) };
   return fetch(SERVER_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey(), 'X-Findimal-Device': await getDeviceId() },
@@ -93,6 +156,9 @@ export async function join(stats: MyStats): Promise<{ me: Me | null; error: Join
     if (!res.ok) return { me: null, error: 'offline' };
     await AsyncStorage.setItem(ME_KEY, JSON.stringify(me)).catch(() => {});
     await AsyncStorage.setItem(SENT_KEY, JSON.stringify(stats)).catch(() => {});
+    // neuer Code: ein früher hochgeladenes Foto gehört zum alten Code – neu hochladen
+    photoUpload = null;
+    await AsyncStorage.removeItem(PHOTO_KEY).catch(() => {});
     await AsyncStorage.removeItem(OPTOUT_KEY).catch(() => {});
     return { me, error: null };
   }

@@ -98,6 +98,12 @@ async function storePhoto(id: string, photo: Photo): Promise<void> {
   }
 }
 
+// Foto eines Fundes einmal holen (z. B. zum Hochladen als Profilbild)
+export async function loadFindPhoto(id: string): Promise<string | null> {
+  if (photoCache.has(id)) return photoCache.get(id)!;
+  return AsyncStorage.getItem(photoKey(id)).catch(() => null);
+}
+
 // Lädt das Foto eines Fundes (für <Image source={{ uri }} />).
 export function useFindPhoto(id: string): string | null {
   const [uri, setUri] = useState<string | null>(photoCache.get(id) ?? null);

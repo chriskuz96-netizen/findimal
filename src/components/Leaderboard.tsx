@@ -17,12 +17,14 @@ import {
   loadRemoved,
   Me,
   MyStats,
+  ensurePhotoAvatar,
   Person,
   report,
   saveFriends,
   saveRemoved,
   syncMe,
 } from '../board';
+import { loadFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
 import { usePlus } from '../plus';
 import { XP } from '../progress';
@@ -80,6 +82,8 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const statsKey = JSON.stringify(stats);
   const refresh = useCallback(async () => {
     if (!me) return;
+    // eigenes Foto als Profilbild: (falls noch nicht geschehen) erst hochladen, damit alle es sehen
+    if (stats.avatar.startsWith('f-')) await ensurePhotoAvatar(stats.avatar, () => loadFindPhoto(stats.avatar.slice(2)));
     await syncMe(me, stats);
     // Wer mich hinzugefügt hat, landet auch in meiner Liste
     const bonusBefore = await bonusPhotos();
