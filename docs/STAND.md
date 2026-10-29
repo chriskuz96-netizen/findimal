@@ -78,6 +78,13 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Nach jeder Antwort bleibt die Erklärung stehen, bis man „Weiter“ oder irgendwo hintippt (automatisch weiter war zu stressig, 29.10.).
 - Werbung: fester Banner unten im Quiz, Vollbild-Werbung erst nach der XP-Animation (nicht mit Plus).
 
+## Plus: eigenes Foto als Profilbild (30.10.)
+- Im Profil → Profilbild → „Deine Fotos (Plus)“. Auf dem eigenen Handy wird das Original gezeigt.
+- Für die Rangliste lädt die App ein Vorschaubild hoch (160 × 160, ohne Ortsdaten). Der Server prüft es mit der KI
+  (nur Tiere/Natur, keine Menschen), höchstens 5 Versuche am Tag. Abgelehnt: andere sehen den Buchstaben im goldenen Rahmen.
+- Server: `board_photo`, Bild unter `ph:<Code>` im KV, abrufbar unter `/profilbild/<Code>`; wird beim Austreten gelöscht
+  und bei 3 Meldungen ausgeblendet. Datenschutzseite ist angepasst.
+
 ## Natur-Tipps (Mitteilungen)
 - `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
 - Kein Push-Server, kein Token. Frage nach dem ersten Fund, Schalter im Profil, Test-Knopf nur in `__DEV__`.
