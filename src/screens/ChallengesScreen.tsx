@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { Alert, Animated, Easing, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle, G, Path } from 'react-native-svg';
+import Svg, { Circle, Defs, G, LinearGradient, Path, Rect, Stop } from 'react-native-svg';
 
 import { AdSlot } from '../components/AdSlot';
 import { Avatar } from '../components/Avatar';
@@ -13,16 +13,20 @@ import { LevelUp, claimParty } from '../components/LevelUp';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
+import { useLoop } from '../hooks/useLoop';
 import { Badge, dayKey, levelAt, Progress, seasonKey, XP } from '../progress';
 import { seasonDaysLeft } from '../season';
 import { WeekTask, weekStart } from '../weekly';
-import { answeredToday, nextQuestion, question as questionAt, QUESTIONS_PER_DAY, QuizLog, todayAnswered } from '../quiz';
+import { ForscherQuiz } from '../components/ForscherQuiz';
+import { showInterstitial } from '../ads';
+import { doneToday, ForscherLog, ROUND_SIZE, roundCorrect, roundXp, streak, todayRound, XP_MAX } from '../forscher';
+import { usePlus } from '../plus';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
   progress: Progress;
-  quiz: QuizLog; // bisherige Antworten
-  onAnswer: (question: number, answer: number) => void;
+  forscher: ForscherLog; // Forscher-Quiz (Tagesrunden)
+  onForscher: (log: ForscherLog) => void;
   avatar: string; // Abzeichen als Profilbild ('' = keins)
   name: string;
   species: number; // Anzahl verschiedener Arten (für die Rangliste)
@@ -38,30 +42,25 @@ type Props = {
 };
 
 const MEDALS_PER_FRAME = 4;
-type Slot = 'goal' | 'week' | 'mid';
+type Slot = 'quiz' | 'goal' | 'week' | 'mid';
 const SEEN_DONE = 'findimal-seen-done'; // geschaffte Aufgaben, deren „Geschafft!“ schon gezeigt wurde
 
-export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, species, invite, onInviteDone, onRank, onFriends, active = true, freshBadges = [], onSeeBadges, onOpenProfile, onBonus }: Props) {
+export function ChallengesScreen({ progress, forscher, onForscher, avatar, name, species, invite, onInviteDone, onRank, onFriends, active: shownActive = true, freshBadges = [], onSeeBadges, onOpenProfile, onBonus }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
   const goal = progress.season;
   const week = progress.week;
   const seasonLeft = seasonDaysLeft(new Date());
-  // Quiz: die gerade gezeigte Frage bleibt nach dem Antworten stehen, bis man "Nächste Frage" tippt
-  // höchstens 3 Fragen pro Tag
-  const canAsk = (log: QuizLog) => answeredToday(log) < QUESTIONS_PER_DAY;
-  const [shown, setShown] = useState<number | null>(() => (canAsk(quiz) ? nextQuestion(quiz) : null));
-  const allDone = nextQuestion(quiz) === null;
-  // heute beantwortete Fragen + die gerade offene Frage
-  const today = todayAnswered(quiz);
-  const items = shown !== null && !today.includes(shown) ? [...today, shown] : today;
-  const quizDone = !canAsk(quiz) || allDone; // für heute fertig
-  // angezeigte Frage: standardmäßig die letzte (aktuelle), mit Zurück/Weiter blätterbar
-  const [posState, setPos] = useState<number | null>(null);
-  const pos = Math.max(0, Math.min(posState ?? items.length - 1, items.length - 1));
-  const cur = items.length ? items[pos] : null;
-  const todayXp = today.filter((i) => quiz[`q${i}`] === questionAt(i, lang).right).length * XP.quiz;
+  // Forscher-Quiz: eigenes Fenster; solange es offen ist, gilt die Seite als verdeckt
+  // (die XP zählen erst nach dem Schließen hoch)
+  const { plus } = usePlus();
+  const [quizOpen, setQuizOpen] = useState(false);
+  const active = shownActive && !quizOpen;
+  const quizDone = doneToday(forscher);
+  const quizRound = todayRound(forscher);
+  // nach dem Quiz: erst die XP-Animation (und ggf. die Stufen-Feier), dann kurz Werbung (nicht mit Plus)
+  const adPending = useRef(false);
   const badgeName = (b: Badge) => t(`badge.${b.id}`);
   const badgeHint = (b: Badge) => t(`badge.${b.id}.hint`);
   const span = (progress.nextLevelXp ?? progress.xp) - progress.levelStart;
@@ -78,6 +77,14 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const [shownXp, setShownXp] = useState(progress.xp);
   const [shownLevel, setShownLevel] = useState(progress.level);
   const [party, setParty] = useState<number | null>(null); // neue Stufe: große Feier
+  useEffect(() => {
+    if (!adPending.current || !active || party !== null) return;
+    const timer = setTimeout(() => {
+      adPending.current = false;
+      showInterstitial();
+    }, 4500);
+    return () => clearTimeout(timer);
+  }, [active, party]);
   const [base, setBase] = useState(share); // alter Stand; alles darüber ist neu
   const lastXp = useRef<number | null>(null);
   // Scrollstand und Höhe des großen Kopfs (für die schmale Leiste)
@@ -225,15 +232,16 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   const now = new Date();
   const goalKey = `goal-${seasonKey(now)}`;
   const weekKey = `week-${dayKey(weekStart(now))}`;
+  const quizKey = `quiz-${dayKey(now)}`;
   const [seenDone, setSeenDone] = useState<string[] | null>(null);
   // fresh: „Geschafft!“ zeigen (bis man die Seite verlässt); hold: Karte steht noch oben
-  const [fresh, setFresh] = useState({ goal: false, week: false });
-  const [hold, setHold] = useState({ goal: false, week: false });
+  const [fresh, setFresh] = useState({ quiz: false, goal: false, week: false });
+  const [hold, setHold] = useState({ quiz: false, goal: false, week: false });
   // Gleiten statt Springen: erst gleiten die Teile per Verschiebung an ihren neuen Platz
   // (Karte nach unten, Rangliste/Quiz nach oben), dann wird in einem Schritt umsortiert –
   // zusammen mit frischen Verschiebungen (0), damit nichts ruckelt.
-  const lay = useRef<Record<Slot, { y: number; h: number } | undefined>>({ goal: undefined, week: undefined, mid: undefined });
-  const makeShift = () => ({ goal: new Animated.Value(0), week: new Animated.Value(0), mid: new Animated.Value(0) });
+  const lay = useRef<Record<Slot, { y: number; h: number } | undefined>>({ quiz: undefined, goal: undefined, week: undefined, mid: undefined });
+  const makeShift = () => ({ quiz: new Animated.Value(0), goal: new Animated.Value(0), week: new Animated.Value(0), mid: new Animated.Value(0) });
   const [shift, setShift] = useState(makeShift);
   const moving = useRef(false);
   const track = (k: Slot) => (e: LayoutChangeEvent) => {
@@ -247,8 +255,8 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
   useEffect(() => {
     if (!active) {
       // Seite verlassen: Hinweis ist gesehen, Karte steht beim nächsten Mal schon unten
-      setFresh((f) => (f.goal || f.week ? { goal: false, week: false } : f));
-      setHold((f) => (f.goal || f.week ? { goal: false, week: false } : f));
+      setFresh((f) => (f.quiz || f.goal || f.week ? { quiz: false, goal: false, week: false } : f));
+      setHold((f) => (f.quiz || f.goal || f.week ? { quiz: false, goal: false, week: false } : f));
       if (moving.current) {
         moving.current = false;
         setShift(makeShift());
@@ -256,41 +264,45 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       return;
     }
     if (!seenDone) return;
+    const qz = quizDone && !seenDone.includes(quizKey);
     const g = goal.done && !seenDone.includes(goalKey);
     const w = week.done && !seenDone.includes(weekKey);
-    if (!g && !w) return;
-    setFresh({ goal: g, week: w });
-    setHold({ goal: g, week: w });
-    const next = [...seenDone, ...(g ? [goalKey] : []), ...(w ? [weekKey] : [])].slice(-20);
+    if (!qz && !g && !w) return;
+    setFresh({ quiz: qz, goal: g, week: w });
+    setHold({ quiz: qz, goal: g, week: w });
+    const next = [...seenDone, ...(qz ? [quizKey] : []), ...(g ? [goalKey] : []), ...(w ? [weekKey] : [])].slice(-20);
     setSeenDone(next);
     AsyncStorage.setItem(SEEN_DONE, JSON.stringify(next)).catch(() => {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, seenDone === null, goal.done, week.done, goalKey, weekKey]);
+  }, [active, seenDone === null, quizDone, goal.done, week.done, quizKey, goalKey, weekKey]);
   // Nach 5 Sekunden nach unten gleiten – läuft gerade die Stufen-Feier, erst danach (dann nach 2,5 s)
   const afterParty = useRef(false);
   useEffect(() => {
     if (party !== null) afterParty.current = true;
   }, [party]);
   useEffect(() => {
-    if (!active || party !== null || (!hold.goal && !hold.week) || moving.current) return;
+    if (!active || party !== null || (!hold.quiz && !hold.goal && !hold.week) || moving.current) return;
+    const qz = hold.quiz;
     const g = hold.goal;
     const w = hold.week;
     let anim: Animated.CompositeAnimation | null = null;
     const timer = setTimeout(() => {
       // Reihenfolge jetzt und danach; neue Plätze aus den bekannten Höhen ausrechnen
-      const order = (topG: boolean, topW: boolean): Slot[] => [
+      const order = (topQ: boolean, topG: boolean, topW: boolean): Slot[] => [
+        ...(topQ ? ['quiz' as Slot] : []),
         ...(topG ? ['goal' as Slot] : []),
         ...(topW ? ['week' as Slot] : []),
         'mid',
+        ...(!topQ ? ['quiz' as Slot] : []),
         ...(!topG ? ['goal' as Slot] : []),
         ...(!topW ? ['week' as Slot] : []),
       ];
       const L = lay.current;
-      const before = order(!goal.done || g, !week.done || w);
-      if (before.some((k) => !L[k])) return setHold({ goal: false, week: false });
+      const before = order(!quizDone || qz, !goal.done || g, !week.done || w);
+      if (before.some((k) => !L[k])) return setHold({ quiz: false, goal: false, week: false });
       let y = Math.min(...before.map((k) => L[k]!.y));
       const moves: Animated.CompositeAnimation[] = [];
-      for (const k of order(!goal.done, !week.done)) {
+      for (const k of order(!quizDone, !goal.done, !week.done)) {
         const by = y - L[k]!.y;
         y += L[k]!.h;
         // ohne nativen Treiber: sonst bleibt die Verschiebung auf dem iPhone nach dem Umsortieren teils hängen
@@ -303,7 +315,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       anim.start(() => {
         moving.current = false;
         setShift(makeShift());
-        setHold({ goal: false, week: false });
+        setHold({ quiz: false, goal: false, week: false });
       });
     }, afterParty.current ? 2500 : 5000);
     return () => {
@@ -311,15 +323,39 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
       anim?.stop();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, party, hold.goal, hold.week]);
-  const slot = (k: 'goal' | 'week', card: ReactNode) => (
+  }, [active, party, hold.quiz, hold.goal, hold.week]);
+  const slot = (k: 'quiz' | 'goal' | 'week', card: ReactNode) => (
     <Animated.View key={k} onLayout={track(k)} style={{ transform: [{ translateY: shift[k] }], zIndex: 2 }}>
       {card}
     </Animated.View>
   );
+  const quizTop = !quizDone || hold.quiz;
   const goalTop = !goal.done || hold.goal;
   const weekTop = !week.done || hold.week;
   const doneNow = <Text style={styles.doneNow}>✓ {t('ch.doneNow')}</Text>;
+
+  // Forscher-Quiz: offen = auffällige orange Karte ganz oben (pulsiert leicht), geschafft = wie die anderen Aufgaben
+  const days = streak(forscher);
+  const quizCard = quizDone ? (
+    <Pressable onPress={() => setQuizOpen(true)} accessibilityRole="button">
+      <View style={[styles.card, { backgroundColor: p.card, borderColor: DONE }, styles.doneCard]}>
+        <View style={styles.misHead}>
+          <Text style={[styles.small, { color: p.mute, flex: 1 }]}>{t('fq.doneKicker')}</Text>
+          <XpPill text={`+${quizRound ? roundXp(quizRound) : 0} XP`} done />
+        </View>
+        {fresh.quiz && doneNow}
+        <Text style={[styles.misText, { color: p.ink, fontSize: 16 }]}>
+          {t('fq.doneText', { n: quizRound ? roundCorrect(quizRound) : 0, max: ROUND_SIZE })}
+        </Text>
+      </View>
+    </Pressable>
+  ) : (
+    <QuizCard
+      started={!!quizRound && quizRound.a.length > 0}
+      days={days}
+      onPress={() => setQuizOpen(true)}
+    />
+  );
 
   // Saison-Ziel und Wochen-Aufgabe (offen: oben, geschafft: unter dem Quiz)
   const goalCard = (
@@ -421,6 +457,7 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
         </View>
 
         {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft. Offene oben, geschaffte rutschen unter das Quiz */}
+        {quizTop && slot('quiz', quizCard)}
         {goalTop && slot('goal', goalCard)}
         {weekTop && slot('week', weekCard)}
 
@@ -436,103 +473,13 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
             p={p}
           />
 
-          {/* Anzeigen-Platz zwischen Rangliste und Quiz */}
+          {/* Anzeigen-Platz unter der Rangliste */}
           <AdSlot p={p} placement='challenges' />
-
-          {/* Frage des Forschers: drei am Tag; die heutigen bleiben sichtbar */}
-          <View style={styles.blk}>
-            <View style={styles.quizHead}>
-              <Explorer size={44} />
-              <View style={{ flex: 1 }}>
-                <Text style={[styles.h3, { color: p.ink }]}>{t('ch.quiz')}</Text>
-                <Text style={[styles.small, { color: p.mute }]}>
-                  {quizDone
-                    ? t(allDone ? 'ch.quizAll' : 'ch.quizTomorrow')
-                    : today.length
-                      ? t('ch.quizProgress', { n: today.length, max: QUESTIONS_PER_DAY })
-                      : t('ch.quizSub', { n: QUESTIONS_PER_DAY })}
-                </Text>
-              </View>
-              {/* wie bei den Zielen: orange = noch zu holen, grün = verdient */}
-              <XpPill text={`+${quizDone ? todayXp : QUESTIONS_PER_DAY * XP.quiz} XP`} done={quizDone} />
-            </View>
-            {cur !== null &&
-              (() => {
-                const q = questionAt(cur, lang);
-                const given = quiz[`q${cur}`];
-                const answered = given !== undefined;
-                return (
-                  <>
-                    <Text style={[styles.question, { color: p.ink }]}>{q.q}</Text>
-                    {/* Antworten in einer Reihe (bei langen Antworten umgebrochen) */}
-                    <View style={styles.answers}>
-                      {q.answers.map((a, i) => {
-                        const isRight = i === q.right;
-                        const mine = i === given;
-                        const look = !answered
-                          ? { borderColor: p.line }
-                          : isRight
-                            ? { backgroundColor: p.button, borderColor: p.button }
-                            : mine
-                              ? { borderColor: colors.coral }
-                              : { borderColor: p.line, opacity: 0.5 };
-                        const textColor = answered && isRight ? colors.white : p.ink;
-                        return (
-                          <Pressable
-                            key={a}
-                            disabled={answered}
-                            onPress={() => onAnswer(cur, i)}
-                            style={[styles.answer, look]}
-                            accessibilityRole="button"
-                          >
-                            <Text style={[styles.letterText, { color: textColor }]}>{String.fromCharCode(65 + i)}</Text>
-                            <Text style={[styles.answerText, { color: textColor }]}>
-                              {a}
-                              {answered && isRight ? ' ✓' : answered && mine ? ' ✗' : ''}
-                            </Text>
-                          </Pressable>
-                        );
-                      })}
-                    </View>
-                    {answered && (
-                      <Text style={[styles.sub, { color: p.mute, marginTop: 6 }]}>
-                        {given === q.right ? q.explain : t('ch.wrong', { a: q.answers[q.right] })}
-                      </Text>
-                    )}
-                  </>
-                );
-              })()}
-            {/* Blättern: zurück zu früheren Fragen von heute, weiter zur nächsten */}
-            <View style={styles.quizNav}>
-              {pos > 0 ? (
-                <Pressable onPress={() => setPos(pos - 1)} hitSlop={8} accessibilityRole="button">
-                  <Text style={[styles.next, { color: p.moss }]}>‹ {t('ch.prevQuestion')}</Text>
-                </Pressable>
-              ) : (
-                <View />
-              )}
-              {pos < items.length - 1 ? (
-                <Pressable onPress={() => setPos(pos + 1)} hitSlop={8} accessibilityRole="button">
-                  <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-                </Pressable>
-              ) : cur !== null && quiz[`q${cur}`] !== undefined && canAsk(quiz) && !allDone ? (
-                <Pressable
-                  onPress={() => {
-                    setShown(nextQuestion(quiz));
-                    setPos(items.length); // zur neuen Frage
-                  }}
-                  hitSlop={8}
-                  accessibilityRole="button"
-                >
-                  <Text style={[styles.next, { color: p.moss }]}>{t('ch.nextQuestion')} ›</Text>
-                </Pressable>
-              ) : null}
-            </View>
-          </View>
 
         </Animated.View>
 
         {/* geschaffte Aufgaben */}
+        {!quizTop && slot('quiz', quizCard)}
         {!goalTop && slot('goal', goalCard)}
         {!weekTop && slot('week', weekCard)}
 
@@ -580,6 +527,18 @@ export function ChallengesScreen({ progress, quiz, onAnswer, avatar, name, speci
           {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
         </Text>
       </ScrollView>
+
+      {/* Forscher-Quiz im eigenen Fenster */}
+      <ForscherQuiz
+        visible={quizOpen}
+        log={forscher}
+        onLog={onForscher}
+        onClose={() => {
+          if (doneToday(forscher) && !plus) adPending.current = true;
+          setQuizOpen(false);
+        }}
+        p={p}
+      />
       <LevelUp level={party} onClose={() => setParty(null)} />
       {/* Schmale Leiste: erscheint, sobald der große Kopf weggescrollt ist, und bleibt oben stehen */}
       <Animated.View
@@ -704,7 +663,64 @@ function BadgeView({
   );
 }
 
+// Offenes Forscher-Quiz: orange Karte mit dem Forscher, leuchtet sanft – antippen startet sofort
+function QuizCard({ started, days, onPress }: { started: boolean; days: number; onPress: () => void }) {
+  const { t } = useI18n();
+  const pulse = useLoop(2200);
+  const glow = pulse.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.35, 0.9, 0.35] });
+  return (
+    <Pressable onPress={onPress} accessibilityRole="button" style={({ pressed }) => [styles.quizCard, { opacity: pressed ? 0.9 : 1 }]}>
+      <Animated.View pointerEvents="none" style={[styles.quizGlow, { opacity: glow }]} />
+      <View style={styles.quizInner}>
+        <Svg style={StyleSheet.absoluteFill} width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
+          <Defs>
+            <LinearGradient id="qcard" x1="0" y1="0" x2="1" y2="1">
+              <Stop offset="0" stopColor="#F6A55B" />
+              <Stop offset="0.55" stopColor={colors.accent} />
+              <Stop offset="1" stopColor="#D9692A" />
+            </LinearGradient>
+          </Defs>
+          <Rect width={100} height={100} fill="url(#qcard)" />
+        </Svg>
+        <View style={styles.quizTop}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.quizKicker}>{t('fq.cardKicker', { n: ROUND_SIZE })}</Text>
+            <Text style={styles.quizTitle}>{t('fq.title')}</Text>
+          </View>
+          <Explorer size={52} />
+        </View>
+        <Text style={styles.quizText}>{started ? t('fq.cardContinue') : t('fq.cardText', { n: ROUND_SIZE })}</Text>
+        <View style={styles.quizRow}>
+          {days > 0 && (
+            <View style={styles.quizChip}>
+              <Text style={styles.quizChipText}>{days === 1 ? t('fq.days1') : t('fq.days', { n: days })}</Text>
+            </View>
+          )}
+          <View style={styles.quizChip}>
+            <Text style={styles.quizChipText}>{t('fq.upTo', { xp: XP_MAX })}</Text>
+          </View>
+          <View style={styles.quizGo}>
+            <Text style={styles.quizGoText}>{started ? t('fq.goOn') : t('fq.go')} ›</Text>
+          </View>
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
 const styles = StyleSheet.create({
+  quizCard: { marginHorizontal: spacing.gutter, marginTop: 14 },
+  quizGlow: { position: 'absolute', left: -4, right: -4, top: -4, bottom: -4, borderRadius: 26, borderWidth: 3, borderColor: colors.accentLight, shadowColor: colors.accent, shadowOpacity: 0.8, shadowRadius: 12, shadowOffset: { width: 0, height: 0 } },
+  quizInner: { borderRadius: 22, overflow: 'hidden', padding: 16 },
+  quizTop: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  quizKicker: { fontFamily: fonts.sansBold, fontSize: 11, letterSpacing: 1, color: colors.ink, opacity: 0.75 },
+  quizTitle: { fontFamily: fonts.serifBold, fontSize: 23, color: colors.ink, marginTop: 2 },
+  quizText: { fontFamily: fonts.sans, fontSize: 14.5, color: colors.ink, marginTop: 6, lineHeight: 20 },
+  quizRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 12 },
+  quizChip: { backgroundColor: 'rgba(255,255,255,0.55)', borderRadius: 10, paddingHorizontal: 9, paddingVertical: 5 },
+  quizChipText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
+  quizGo: { marginLeft: 'auto', backgroundColor: colors.ink, borderRadius: 14, paddingHorizontal: 16, paddingVertical: 10 },
+  quizGoText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.accentLight },
   hx: {
     paddingHorizontal: spacing.gutter,
     paddingBottom: 24,

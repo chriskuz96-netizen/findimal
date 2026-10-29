@@ -220,9 +220,10 @@ const kinds = (finds: Find[], ok: (f: Find) => boolean) => new Set(finds.filter(
 
 // extra.bestRank: bester Platz, den man in der weltweiten Rangliste je hatte (null = nie dabei)
 // extra.maxFriends: höchste Zahl an Freunden in der Rangliste
+// quiz: XP und richtige Antworten aus allen Quiz-Runden (Forscher-Quiz und frühere Einzelfragen)
 export function computeProgress(
   finds: Find[],
-  quizCorrect: number,
+  quiz: { xp: number; correct: number },
   now = new Date(),
   extra: { bestRank?: number | null; maxFriends?: number } = {},
 ): Progress {
@@ -237,7 +238,7 @@ export function computeProgress(
 
   // Neue Art gibt viel XP, eine schon bekannte Art nur wenig
   const seen = new Set<string>();
-  let xp = quizCorrect * XP.quiz + Math.min(extra.maxFriends ?? 0, 10) * XP.friend;
+  let xp = quiz.xp + Math.min(extra.maxFriends ?? 0, 10) * XP.friend;
   for (const f of finds) {
     const k = speciesKey(f.animal);
     if (!seen.has(k)) {
@@ -300,7 +301,7 @@ export function computeProgress(
     { id: 'seasons4', earned: new Set(finds.map((f) => seasonId(new Date(f.date)))).size >= 4 },
     { id: 'seasonAll', earned: seasonComplete(finds) },
     { id: 'rare', earned: finds.some((f) => f.animal.gefaehrdet) },
-    { id: 'quiz25', earned: quizCorrect >= 25 },
+    { id: 'quiz25', earned: quiz.correct >= 25 },
     { id: 'team3', earned: (extra.maxFriends ?? 0) >= 3 },
     { id: 'streak30', earned: longestStreak(finds) >= 30 },
     { id: 'breeds5', earned: breedCount(finds) >= 5 },

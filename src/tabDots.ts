@@ -1,12 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
 
-import { answeredToday, nextQuestion, QUESTIONS_PER_DAY, QuizLog } from './quiz';
+import { doneToday, ForscherLog } from './forscher';
 import { seasonId, seasonRange } from './season';
 import { Tab } from './components/TabBar';
 
 // Kleine Punkte an der Menüleiste für wirklich Neues:
-// - Challenges: neues Abzeichen, oder heute gibt es neue Quizfragen und man war heute noch nicht dort
+// - Challenges: neues Abzeichen, oder das Forscher-Quiz ist heute noch offen
 // - Saison: eine neue Jahreszeit hat begonnen und man hat sie noch nicht angeschaut
 // - Sammlung: ein neuer Fund ist dazugekommen, seit man zuletzt in der Sammlung war
 // Sobald man den Bereich öffnet, verschwindet der Punkt.
@@ -18,7 +18,7 @@ const today = (d = new Date()) => d.toDateString();
 const seasonKey = (d = new Date()) => `${seasonId(d)}-${seasonRange(d).start.getFullYear()}`;
 
 // newestFind: Datum (ISO) des neuesten Fundes
-export function useTabDots(tab: Tab, quiz: QuizLog, freshBadges: number, newestFind?: string): Tab[] {
+export function useTabDots(tab: Tab, forscher: ForscherLog, freshBadges: number, newestFind?: string): Tab[] {
   const [seen, setSeen] = useState<Seen | null>(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export function useTabDots(tab: Tab, quiz: QuizLog, freshBadges: number, newestF
 
   if (!seen) return [];
   const dots: Tab[] = [];
-  const newQuiz = nextQuestion(quiz) !== null && answeredToday(quiz) < QUESTIONS_PER_DAY && seen.challenges !== today();
+  const newQuiz = !doneToday(forscher);
   if (tab !== 'challenges' && (freshBadges > 0 || newQuiz)) dots.push('challenges');
   if (tab !== 'season' && seen.season !== seasonKey()) dots.push('season');
   if (tab !== 'collection' && newestFind && newestFind !== seen.collection) dots.push('collection');

@@ -29,8 +29,9 @@ import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/
 import { loadZone } from './src/zone';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
-import { computeProgress, computeReward, dayKey } from './src/progress';
-import { answerQuiz, correctAnswers, loadQuiz, QuizLog } from './src/quiz';
+import { computeProgress, computeReward, dayKey, XP } from './src/progress';
+import { correctAnswers, loadQuiz, QuizLog } from './src/quiz';
+import { ForscherLog, forscherTotals, loadForscher } from './src/forscher';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
@@ -155,6 +156,15 @@ function Main() {
   const [maxFriends, setMaxFriends] = useState(0);
   const quizRef = useRef<QuizLog>({});
   quizRef.current = quiz;
+  // Forscher-Quiz (Tagesrunden) und frühere Einzelfragen zusammen: XP und richtige Antworten
+  const [forscher, setForscher] = useState<ForscherLog>({ rounds: {}, seen: {} });
+  const quizTotals = (log: QuizLog, f: ForscherLog) => {
+    const old = correctAnswers(log);
+    const now = forscherTotals(f);
+    return { xp: old * XP.quiz + now.xp, correct: old + now.correct };
+  };
+  const forscherRef = useRef(forscher);
+  forscherRef.current = forscher;
 
   // true, sobald Funde, Quiz und Rangliste geladen sind
   const [loaded, setLoaded] = useState(false);
@@ -169,6 +179,7 @@ function Main() {
     Promise.all([
       loadFinds().then(setFinds),
       loadQuiz().then(setQuiz),
+      loadForscher().then(setForscher),
       loadBestRank().then(setBestRank),
       loadMaxFriends().then(setMaxFriends),
     ]).finally(() => setLoaded(true));
@@ -258,7 +269,7 @@ function Main() {
   const now = new Date();
   // nur echte Funde zählen für Punkte, Arten und Challenges (Internetbilder, Zeichnungen usw. nicht)
   const realFinds = finds.filter(counts);
-  const progress = computeProgress(realFinds, correctAnswers(quiz), now, { bestRank, maxFriends });
+  const progress = computeProgress(realFinds, quizTotals(quiz, forscher), now, { bestRank, maxFriends });
   // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
   // Plus-Tiere nur, solange Plus aktiv ist
   const avatarBadge =
@@ -280,7 +291,7 @@ function Main() {
   }, [loaded]);
   const freshBadges = seenBadges ? earnedIds.filter((id) => !seenBadges.includes(id)) : [];
   const newestFind = finds.reduce<string | undefined>((a, f) => (!a || f.date > a ? f.date : a), undefined);
-  const dots = useTabDots(tab, quiz, freshBadges.length, newestFind);
+  const dots = useTabDots(tab, forscher, freshBadges.length, newestFind);
   const seeBadges = (ids: string[]) => {
     if (!seenBadges || ids.every((id) => seenBadges.includes(id))) return;
     const next = [...seenBadges, ...ids.filter((id) => !seenBadges.includes(id))];
@@ -393,7 +404,7 @@ function Main() {
   // So sieht man beim Zurückwischen die richtige Seite darunter statt einer weißen Fläche.
   // Fund speichern (neu oder als Ersatz, z. B. nach „Stimmt nicht?“) und Belohnung berechnen
   const saveIdentified = async (animal: Animal, replaceId: string | null, shot: Photo) => {
-    const quizXp = correctAnswers(quizRef.current);
+    const quizXp = quizTotals(quizRef.current, forscherRef.current);
     // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
     const others = findsRef.current.filter((f) => f.id !== replaceId && counts(f));
     const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
@@ -438,6 +449,7 @@ function Main() {
         setSeenBadges([]);
         refreshFreeLeft();
         setQuiz({});
+        setForscher({ rounds: {}, seen: {} });
         setAvatar('');
         setBestRank(null);
         setMaxFriends(0);
@@ -522,8 +534,8 @@ function Main() {
             onOpenProfile={() => setShowProfile(true)}
             onBonus={refreshFreeLeft}
             progress={progress}
-            quiz={quiz}
-            onAnswer={(q, i) => answerQuiz(quizRef.current, q, i).then(setQuiz)}
+            forscher={forscher}
+            onForscher={setForscher}
             avatar={avatarBadge ?? ''}
             name={name}
             species={new Set(realFinds.map((f) => speciesKey(f.animal))).size}
