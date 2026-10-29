@@ -75,6 +75,7 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Fragen stehen in `tools/quiz/*.json` (4 Sprachen), daraus macht `python3 tools/make_quiz_bank.py` die Datei `src/quizBank.ts`.
 - Quiz-Bilder: `tools/quiz_art.py` (`python3 tools/make_quiz_art.py`).
 - Stand: 274 Fragen ≈ 27 Spieltage ohne Wiederholung. Danach kommen zuerst falsch beantwortete Fragen wieder. Neue Pakete per Update, ohne laufende Kosten.
+- Nach jeder Antwort bleibt die Erklärung stehen, bis man „Weiter“ oder irgendwo hintippt (automatisch weiter war zu stressig, 29.10.).
 - Werbung: fester Banner unten im Quiz, Vollbild-Werbung erst nach der XP-Animation (nicht mit Plus).
 
 ## Natur-Tipps (Mitteilungen)

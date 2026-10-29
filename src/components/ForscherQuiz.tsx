@@ -137,22 +137,6 @@ export function ForscherQuiz({
     }
   };
 
-  // Nach der Auflösung automatisch weiter: richtig 3,5 s, falsch / Zeit abgelaufen 6 s
-  const auto = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    if (!visible || phase !== 'reveal' || !last) return;
-    const ms = q && last.value === q.right ? 3500 : 6000;
-    auto.setValue(0);
-    const anim = Animated.timing(auto, { toValue: 1, duration: ms, easing: Easing.linear, useNativeDriver: false });
-    anim.start();
-    const timer = setTimeout(next, ms);
-    return () => {
-      anim.stop();
-      clearTimeout(timer);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible, phase, last]);
-
   // ✕: mitten in der Runde nachfragen – offene Fragen zählen dann als falsch
   const close = () => {
     const r = todayRound(logRef.current, day);
@@ -236,85 +220,83 @@ export function ForscherQuiz({
 
         {(phase === 'ask' || phase === 'reveal') && q && text && (
           <ScrollView scrollEnabled={!rankDrag} contentContainerStyle={{ paddingBottom: 140 + insets.bottom }}>
-            <Text style={[styles.q, { color: p.ink }]}>{text.q}</Text>
-            {q.type === 'rank' ? (
-              <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} orderRef={rankRef} onDrag={setRankDrag} p={p} />
-            ) : q.type === 'duel' ? (
-              // Duell: zwei Tiere nebeneinander, eins antippen
-              <View style={styles.duel}>
-                {text.a.map((a, i) => (
-                  <Pressable
-                    key={i}
-                    onPress={() => choose(i)}
-                    disabled={phase !== 'ask'}
-                    accessibilityRole="button"
-                    style={[styles.duelTile, { backgroundColor: p.card }, look(phase, q.right, last?.value, i, p)]}
-                  >
-                    <Text style={[styles.duelName, { color: p.ink }]} numberOfLines={3} adjustsFontSizeToFit>
-                      {a}
-                    </Text>
-                  </Pressable>
-                ))}
-                <View style={styles.vs} pointerEvents="none">
-                  <Text style={styles.vsText}>VS</Text>
-                </View>
-              </View>
-            ) : (
-              <View style={[styles.answers, q.type === 'tf' && { flexDirection: 'row' }]}>
-                {q.type === 'pic' && <QuizPicture id={q.img![0]} />}
-                {text.a.map((a, i) => {
-                  const st = look(phase, q.right, last?.value, i, p);
-                  const right = phase === 'reveal' && i === q.right;
-                  return (
+            {/* nach der Auflösung: irgendwo hintippen geht weiter */}
+            <View onStartShouldSetResponder={() => phaseRef.current === 'reveal'} onResponderRelease={next}>
+              <Text style={[styles.q, { color: p.ink }]}>{text.q}</Text>
+              {q.type === 'rank' ? (
+                <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} orderRef={rankRef} onDrag={setRankDrag} p={p} />
+              ) : q.type === 'duel' ? (
+                // Duell: zwei Tiere nebeneinander, eins antippen
+                <View style={styles.duel}>
+                  {text.a.map((a, i) => (
                     <Pressable
                       key={i}
                       onPress={() => choose(i)}
                       disabled={phase !== 'ask'}
                       accessibilityRole="button"
-                      style={({ pressed }) => [
-                        styles.answer,
-                        q.type === 'tf' && styles.tf,
-                        { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.8 : 1 },
-                        st,
-                        right && { backgroundColor: '#2E7A4C' },
-                      ]}
+                      style={[styles.duelTile, { backgroundColor: p.card }, look(phase, q.right, last?.value, i, p)]}
                     >
-                      {q.type !== 'tf' && <Text style={[styles.letter, right && { color: '#CFE3D6' }]}>{'ABCD'[i]}</Text>}
-                      <Text style={[styles.answerText, { color: right ? colors.white : p.ink }, q.type === 'tf' && { textAlign: 'center' }]}>{a}</Text>
+                      <Text style={[styles.duelName, { color: p.ink }]} numberOfLines={3} adjustsFontSizeToFit>
+                        {a}
+                      </Text>
                     </Pressable>
-                  );
-                })}
-              </View>
-            )}
-
-            {phase === 'reveal' && last && (
-              // Auflösung: geht nach ein paar Sekunden von selbst weiter (bei falscher Antwort länger zum Lesen);
-              // Antippen springt sofort weiter
-              <Pressable
-                onPress={next}
-                accessibilityRole="button"
-                accessibilityHint={t('fq.next')}
-                style={[styles.explain, { backgroundColor: last.value === q.right ? 'rgba(46,122,76,0.12)' : 'rgba(200,84,58,0.10)' }]}
-              >
-                <Text style={[styles.verdict, { color: last.value === q.right ? '#2E7A4C' : '#C8543A' }]}>
-                  {last.value === q.right
-                    ? `${t('fq.right')} +${answerXp(q, last.value, last.ms)} XP`
-                    : last.value < 0
-                      ? t('fq.timeUp')
-                      : t('fq.wrong')}
-                </Text>
-                <Text style={[styles.explainText, { color: p.ink }]}>{text.x}</Text>
-                <View style={styles.autoTrack}>
-                  <Animated.View
-                    style={[
-                      styles.autoFill,
-                      { backgroundColor: last.value === q.right ? '#2E7A4C' : '#C8543A' },
-                      { width: auto.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) },
-                    ]}
-                  />
+                  ))}
+                  <View style={styles.vs} pointerEvents="none">
+                    <Text style={styles.vsText}>VS</Text>
+                  </View>
                 </View>
-              </Pressable>
-            )}
+              ) : (
+                <View style={[styles.answers, q.type === 'tf' && { flexDirection: 'row' }]}>
+                  {q.type === 'pic' && <QuizPicture id={q.img![0]} />}
+                  {text.a.map((a, i) => {
+                    const st = look(phase, q.right, last?.value, i, p);
+                    const right = phase === 'reveal' && i === q.right;
+                    return (
+                      <Pressable
+                        key={i}
+                        onPress={() => choose(i)}
+                        disabled={phase !== 'ask'}
+                        accessibilityRole="button"
+                        style={({ pressed }) => [
+                          styles.answer,
+                          q.type === 'tf' && styles.tf,
+                          { backgroundColor: p.card, borderColor: p.line, opacity: pressed ? 0.8 : 1 },
+                          st,
+                          right && { backgroundColor: '#2E7A4C' },
+                        ]}
+                      >
+                        {q.type !== 'tf' && <Text style={[styles.letter, right && { color: '#CFE3D6' }]}>{'ABCD'[i]}</Text>}
+                        <Text style={[styles.answerText, { color: right ? colors.white : p.ink }, q.type === 'tf' && { textAlign: 'center' }]}>{a}</Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              )}
+
+              {phase === 'reveal' && last && (
+                // Auflösung: bleibt stehen, bis man weitertippt (in Ruhe lesen, kein Zeitdruck)
+                <Pressable
+                  onPress={next}
+                  accessibilityRole="button"
+                  accessibilityHint={t('fq.next')}
+                  style={[styles.explain, { backgroundColor: last.value === q.right ? 'rgba(46,122,76,0.12)' : 'rgba(200,84,58,0.10)' }]}
+                >
+                  <Text style={[styles.verdict, { color: last.value === q.right ? '#2E7A4C' : '#C8543A' }]}>
+                    {last.value === q.right
+                      ? `${t('fq.right')} +${answerXp(q, last.value, last.ms)} XP`
+                      : last.value < 0
+                        ? t('fq.timeUp')
+                        : t('fq.wrong')}
+                  </Text>
+                  <Text style={[styles.explainText, { color: p.ink }]}>{text.x}</Text>
+                </Pressable>
+              )}
+              {phase === 'reveal' && last && (
+                <Pressable onPress={next} accessibilityRole="button" style={({ pressed }) => [styles.next, { opacity: pressed ? 0.85 : 1 }]}>
+                  <Text style={styles.nextText}>{round && round.a.length >= round.q.length ? t('fq.toResult') : t('fq.next')} ›</Text>
+                </Pressable>
+              )}
+            </View>
           </ScrollView>
         )}
 
@@ -619,8 +601,8 @@ const styles = StyleSheet.create({
   explain: { marginHorizontal: 18, marginTop: 14, borderRadius: 14, padding: 14 },
   verdict: { fontFamily: fonts.sansBold, fontSize: 15, marginBottom: 4 },
   explainText: { fontFamily: fonts.sans, fontSize: 14.5, lineHeight: 20 },
-  autoTrack: { height: 3, borderRadius: 2, backgroundColor: 'rgba(0,0,0,0.06)', marginTop: 10, overflow: 'hidden' },
-  autoFill: { height: '100%', borderRadius: 2 },
+  next: { marginHorizontal: 18, marginTop: 14, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
+  nextText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
   adBar: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingTop: 6 },
   resLabel: { fontFamily: fonts.sansBold, fontSize: 15, textAlign: 'center' },
   resBig: { fontFamily: fonts.serifBold, fontSize: 56, textAlign: 'center', marginTop: 4 },
