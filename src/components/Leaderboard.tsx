@@ -245,8 +245,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
 
   // Lange drücken auf einen anderen Eintrag:
   // - bei den Freunden „Entfernen“: nur aus den Freunden (weltweit bleibt er sichtbar)
-  // - weltweit „Ausblenden“: nur aus der weltweiten Liste
-  // - „Melden“: aus beiden
+  // - „Melden“: aus beiden (nach 3 Meldungen nimmt ihn auch der Server aus der weltweiten Liste)
   const unfriend = (person: Person) => {
     const next = friends.filter((f) => f !== person.id);
     if (next.length !== friends.length) {
@@ -271,7 +270,8 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
       ...(me && canRequest && view === 'world' && !friends.includes(person.id) && !pending.includes(person.id)
         ? [{ text: t('lb.addFriend'), onPress: () => askFriend(person) }]
         : []),
-      { text: view === 'friends' ? t('lb.remove') : t('lb.hide'), onPress: () => (view === 'friends' ? unfriend(person) : hideWorld(person)) },
+      // Entfernen nur bei den Freunden; aus der weltweiten Liste verschwindet jemand nur durch Melden
+      ...(view === 'friends' ? [{ text: t('lb.remove'), onPress: () => unfriend(person) }] : []),
       ...(me
         ? [
             {
