@@ -12,7 +12,8 @@ import { Lang, Translate } from './i18n';
 export type Animal = {
   tier_gefunden: boolean;
   // was fotografiert wurde: echtes Tier oder z. B. eine Zeichnung (kommt dann nicht in die Sammlung)
-  bildart?: 'echt' | 'zeichnung' | 'spielzeug' | 'bildschirm' | 'druck' | 'internet';
+  // 'fremd': nicht selbst fotografiert (Antwort auf die Rückfrage in der App, nicht von der KI)
+  bildart?: 'echt' | 'zeichnung' | 'spielzeug' | 'bildschirm' | 'druck' | 'internet' | 'fremd';
   name: string;
   rasse?: string; // nur bei Haus- und Nutztieren, z. B. "Golden Retriever"
   rasse_sicher?: boolean; // false = Rasse nur geschätzt
