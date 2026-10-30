@@ -14,6 +14,8 @@ import {
   link,
   loadFriends,
   loadMe,
+  loadHidden,
+  loadPending,
   loadRemoved,
   Me,
   MyStats,
@@ -21,6 +23,10 @@ import {
   Person,
   report,
   saveFriends,
+  answerRequest,
+  requestFriend,
+  saveHidden,
+  savePending,
   saveRemoved,
   syncMe,
 } from '../board';
@@ -63,16 +69,22 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const [adding, setAdding] = useState(false);
   const [view, setView] = useState<'friends' | 'world'>('friends');
   const [top, setTop] = useState<Person[] | null>(null);
+  const [pending, setPending] = useState<string[]>([]); // eigene Anfragen, noch nicht angenommen
+  const [hidden, setHidden] = useState<string[]>([]); // weltweit ausgeblendet/gemeldet
+  const [requests, setRequests] = useState<Person[]>([]); // Anfragen an mich
+  const [canRequest, setCanRequest] = useState(false); // kennt der Server Freundschaftsanfragen schon?
 
   useEffect(() => {
-    Promise.all([loadMe(), loadFriends(), loadRemoved()]).then(([m, f, r]) => {
+    Promise.all([loadMe(), loadFriends(), loadRemoved(), loadPending(), loadHidden()]).then(([m, f, r, pe, h]) => {
       setMe(m);
       setFriends(f);
       setRemoved(r);
+      setPending(pe);
+      setHidden(h);
     });
   }, []);
 
-  // Zahl der Freunde melden (für das Abzeichen "Teamplayer")
+  // Zahl der Freunde melden (für Freundes-XP und das Abzeichen "Teamplayer")
   useEffect(() => {
     if (me) onFriends(friends.length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -87,15 +99,24 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     await syncMe(me, stats);
     // Wer mich hinzugefügt hat, landet auch in meiner Liste
     const bonusBefore = await bonusPhotos();
-    const all = await inbox(me);
+    const { ids: all, requests: asked } = await inbox(me);
     if ((await bonusPhotos()) > bonusBefore && Date.now() - lastOwnBonus > 15_000) {
       // jemand ist meiner Einladung gefolgt: Extra-Foto für mich
       Alert.alert(t('lb.title'), t(plusRef.current ? 'lb.bonusInviterPlus' : 'lb.bonusInviter', { xp: XP.friend }));
       onBonus?.();
     }
-    const incoming = all.filter(
-      (id) => id !== me.id && !friends.includes(id) && !removed.includes(id),
-    );
+    // Anfragen an mich (ohne die, die schon Freunde sind)
+    setCanRequest(asked !== null);
+    const open = (asked ?? []).filter((id) => id !== me.id && !friends.includes(id));
+    fetchPeople(open).then((list) => setRequests(list ?? []));
+    // Wer mich hinzugefügt oder meine Anfrage angenommen hat, landet in meiner Liste
+    // (selbst entfernte nur, wenn ich sie selbst angefragt hatte)
+    const incoming = all.filter((id) => id !== me.id && !friends.includes(id) && (!removed.includes(id) || pending.includes(id)));
+    if (pending.some((id) => all.includes(id))) {
+      const still = pending.filter((id) => !all.includes(id));
+      setPending(still);
+      savePending(still);
+    }
     if (incoming.length) {
       const next = [...friends, ...incoming];
       setFriends(next);
@@ -106,7 +127,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     setPeople(list);
     setError(list ? null : t('lb.offline'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [me, friends, removed, statsKey]);
+  }, [me, friends, removed, pending, statsKey]);
 
   useEffect(() => {
     refresh();
@@ -177,40 +198,80 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     setBusy(false);
     if (!found) return setError(t('lb.offline'));
     if (!found.length) return setError(t('lb.badCode'));
-    const next = [...friends, id];
-    setFriends(next);
-    saveFriends(next);
-    link(me, id).then((bonus) => {
-      if (!bonus) return;
-      onBonus?.();
-      Alert.alert(t('lb.title'), t(plusRef.current ? 'lb.bonusNewPlus' : 'lb.bonusNew', { name: found[0].name, xp: XP.friend }));
-    });
-    if (removed.includes(id)) {
-      const back = removed.filter((r) => r !== id);
-      setRemoved(back);
-      saveRemoved(back);
-    }
+    addFriend(found[0]);
     setCode('');
     setAdding(false);
     setError(null);
   };
 
-  // Lange drücken auf einen anderen Eintrag: entfernen/ausblenden oder melden.
-  // Ausgeblendete Einträge sieht man weder bei den Freunden noch weltweit.
-  const hide = (person: Person) => {
+  // Freund per Code hinzufügen: wer seinen Code teilt, ist einverstanden – gilt sofort
+  const addFriend = (person: Person, confirm = false) => {
+    if (!me || person.id === me.id || friends.includes(person.id)) return;
+    const next = [...friends, person.id];
+    setFriends(next);
+    saveFriends(next);
+    link(me, person.id).then((bonus) => {
+      if (bonus) {
+        onBonus?.();
+        Alert.alert(t('lb.title'), t(plusRef.current ? 'lb.bonusNewPlus' : 'lb.bonusNew', { name: person.name, xp: XP.friend }));
+      } else if (confirm) Alert.alert(t('lb.title'), t('lb.added', { name: person.name }));
+    });
+    if (removed.includes(person.id)) {
+      const back = removed.filter((r) => r !== person.id);
+      setRemoved(back);
+      saveRemoved(back);
+    }
+  };
+
+  // Aus der weltweiten Liste: Freundschaftsanfrage – Freunde werdet ihr erst, wenn der andere zustimmt
+  const askFriend = async (person: Person) => {
+    if (!me || pending.includes(person.id) || friends.includes(person.id)) return;
+    const r = await requestFriend(me, person.id);
+    if (r === 'error') return Alert.alert(t('lb.title'), t('lb.offline'));
+    if (r === 'linked') return addFriend(person, true); // hatte mich schon hinzugefügt
+    const next = [...pending, person.id];
+    setPending(next);
+    savePending(next);
+    Alert.alert(t('lb.title'), t('lb.requested', { name: person.name }));
+  };
+
+  // Anfrage an mich beantworten
+  const answer = (person: Person, accept: boolean) => {
+    if (!me) return;
+    setRequests((r) => r.filter((x) => x.id !== person.id));
+    answerRequest(me, person.id, accept);
+    if (accept) addFriend(person);
+  };
+
+  // Lange drücken auf einen anderen Eintrag:
+  // - bei den Freunden „Entfernen“: nur aus den Freunden (weltweit bleibt er sichtbar)
+  // - weltweit „Ausblenden“: nur aus der weltweiten Liste
+  // - „Melden“: aus beiden
+  const unfriend = (person: Person) => {
     const next = friends.filter((f) => f !== person.id);
     if (next.length !== friends.length) {
       setFriends(next);
       saveFriends(next);
     }
-    const gone = [...removed, person.id];
-    setRemoved(gone);
-    saveRemoved(gone);
+    if (!removed.includes(person.id)) {
+      const gone = [...removed, person.id];
+      setRemoved(gone);
+      saveRemoved(gone);
+    }
+  };
+  const hideWorld = (person: Person) => {
+    if (hidden.includes(person.id)) return;
+    const h = [...hidden, person.id];
+    setHidden(h);
+    saveHidden(h);
   };
   const onPerson = (person: Person) =>
     Alert.alert(person.name, undefined, [
       { text: t('common.cancel'), style: 'cancel' },
-      { text: view === 'friends' ? t('lb.remove') : t('lb.hide'), onPress: () => hide(person) },
+      ...(me && canRequest && view === 'world' && !friends.includes(person.id) && !pending.includes(person.id)
+        ? [{ text: t('lb.addFriend'), onPress: () => askFriend(person) }]
+        : []),
+      { text: view === 'friends' ? t('lb.remove') : t('lb.hide'), onPress: () => (view === 'friends' ? unfriend(person) : hideWorld(person)) },
       ...(me
         ? [
             {
@@ -218,7 +279,8 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               style: 'destructive' as const,
               onPress: () => {
                 report(me, person.id);
-                hide(person);
+                unfriend(person);
+                hideWorld(person);
                 Alert.alert(t('lb.report'), t('lb.reported'));
               },
             },
@@ -267,7 +329,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   // Freunde: ich + Freunde nach XP; Weltweit: Top 50 vom Server (ich ggf. unten angehängt)
   const self: Person | null = me ? { id: me.id, ...stats } : null;
   const friendRows = self ? [self, ...(people ?? []).filter((x) => x.id !== self.id)].sort((a, b) => b.xp - a.xp) : [];
-  const worldRows = (top ?? []).filter((x) => !removed.includes(x.id)).map((x) => (self && x.id === self.id ? self : x));
+  const worldRows = (top ?? []).filter((x) => !hidden.includes(x.id)).map((x) => (self && x.id === self.id ? self : x));
   const meInWorld = !!self && worldRows.some((x) => x.id === self.id);
   const rows = view === 'friends' ? friendRows : worldRows;
 
@@ -287,6 +349,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
           >
             <Text style={[styles.segText, { color: view === v ? colors.white : p.ink }]}>
               {t(v === 'friends' ? 'lb.friends' : 'lb.world')}
+              {v === 'friends' && requests.length > 0 ? ` (${requests.length})` : ''}
             </Text>
           </Pressable>
         ))}
@@ -304,6 +367,30 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
         </>
       )}
 
+      {/* Freundschaftsanfragen an mich */}
+      {me && view === 'friends' && requests.length > 0 && (
+        <View style={[styles.reqBox, { borderColor: colors.accent }]}>
+          <Text style={[styles.reqTitle, { color: p.ink }]}>{t('lb.requests')}</Text>
+          {requests.map((x) => (
+            <View key={x.id} style={styles.reqRow}>
+              <Avatar id={x.avatar || null} name={x.name} size={32} />
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.name, { color: p.ink }]} numberOfLines={1}>
+                  {x.name}
+                </Text>
+                <Text style={[styles.small, { color: p.mute }]}>{t('lb.line', { level: x.level, species: x.species })}</Text>
+              </View>
+              <Pressable onPress={() => answer(x, false)} hitSlop={6} style={[styles.reqBtn, { borderColor: p.line }]} accessibilityRole="button">
+                <Text style={[styles.reqBtnText, { color: p.mute }]}>{t('lb.decline')}</Text>
+              </Pressable>
+              <Pressable onPress={() => answer(x, true)} hitSlop={6} style={[styles.reqBtn, { backgroundColor: p.button, borderColor: p.button }]} accessibilityRole="button">
+                <Text style={[styles.reqBtnText, { color: colors.white }]}>{t('lb.accept')}</Text>
+              </Pressable>
+            </View>
+          ))}
+        </View>
+      )}
+
       {/* Liste */}
       {(me || view === 'world') && (
         <View style={{ marginTop: 6 }}>
@@ -315,6 +402,10 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               isMe={x.id === me?.id}
               selfAvatar={stats.avatar}
               onLongPress={x.id !== me?.id ? () => onPerson(x) : undefined}
+              // weltweit: Fremde mit einem Tipp als Freund hinzufügen
+              onAdd={me && canRequest && view === 'world' && x.id !== me.id && !friends.includes(x.id) && !pending.includes(x.id) ? () => askFriend(x) : undefined}
+              isFriend={view === 'world' && friends.includes(x.id)}
+              isPending={view === 'world' && pending.includes(x.id)}
               p={p}
             />
           ))}
@@ -415,12 +506,18 @@ function Row({
   isMe,
   selfAvatar,
   onLongPress,
+  onAdd,
+  isFriend,
+  isPending,
   p,
 }: {
   person: Person;
   rank: string;
   isMe: boolean;
   selfAvatar?: string; // eigene Zeile: Profilbild vom Handy (auch ein eigenes Foto, das nie hochgeladen wird)
+  onAdd?: () => void; // „+“: als Freund hinzufügen (weltweite Liste)
+  isFriend?: boolean; // weltweite Liste: schon ein Freund (kleines Häkchen)
+  isPending?: boolean; // weltweite Liste: Anfrage gesendet, wartet auf Zustimmung
   onLongPress?: () => void;
   p: Palette;
 }) {
@@ -437,6 +534,19 @@ function Row({
         <Text style={[styles.small, { color: p.mute }]}>{t('lb.line', { level: x.level, species: x.species })}</Text>
       </View>
       <Text style={[styles.xp, { color: p.ink }]}>{x.xp.toLocaleString(locale)} XP</Text>
+      {onAdd ? (
+        <Pressable onPress={onAdd} hitSlop={8} style={styles.addBtn} accessibilityRole="button" accessibilityLabel={t('lb.addFriendA11y', { name: x.name })}>
+          <Text style={styles.addText}>+</Text>
+        </Pressable>
+      ) : isPending ? (
+        <View style={[styles.addBtn, { borderColor: p.line }]} accessibilityLabel={t('lb.pending')}>
+          <Text style={[styles.addText, { color: p.mute, fontSize: 13 }]}>⏳</Text>
+        </View>
+      ) : isFriend ? (
+        <View style={[styles.addBtn, styles.friendMark]} accessibilityLabel={t('lb.isFriend')}>
+          <Text style={[styles.addText, { color: colors.white, fontSize: 14 }]}>✓</Text>
+        </View>
+      ) : null}
     </Pressable>
   );
 }
@@ -462,6 +572,14 @@ const styles = StyleSheet.create({
   letterText: { fontFamily: fonts.serifBold, fontSize: 16, color: colors.ink },
   name: { fontFamily: fonts.sansBold, fontSize: 15 },
   xp: { fontFamily: fonts.sansBold, fontSize: 14 },
+  addBtn: { width: 28, height: 28, borderRadius: 14, borderWidth: 1.5, borderColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
+  addText: { fontFamily: fonts.sansBold, fontSize: 18, color: colors.accent, marginTop: -1 },
+  friendMark: { backgroundColor: '#2E7A4C', borderColor: '#2E7A4C' },
+  reqBox: { marginTop: 10, borderWidth: 1.5, borderRadius: 14, padding: 10 },
+  reqTitle: { fontFamily: fonts.sansBold, fontSize: 14, marginBottom: 4 },
+  reqRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 5 },
+  reqBtn: { borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 6 },
+  reqBtnText: { fontFamily: fonts.sansBold, fontSize: 13 },
   seg: { flexDirection: 'row', borderWidth: 1, borderRadius: 99, padding: 3, marginTop: 10 },
   segBtn: { flex: 1, borderRadius: 99, paddingVertical: 7, alignItems: 'center' },
   segText: { fontFamily: fonts.sansBold, fontSize: 14 },

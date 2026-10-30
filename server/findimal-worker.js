@@ -373,6 +373,7 @@ async function board(env, body, request) {
       await env.DB.delete('p:' + id);
       await env.DB.delete('f:' + id);
       await env.DB.delete('ph:' + id);
+      await env.DB.delete('rq:' + id);
       await updateTop(env, id, null);
       return json({ ok: true });
     }
@@ -422,11 +423,40 @@ async function board(env, body, request) {
       }
       return json({ ok: true });
     }
-    // Wer hat mich hinzugefügt?
+    // Freundschaftsanfrage (z. B. aus der weltweiten Liste): der andere muss erst zustimmen.
+    // Offene Anfragen an <Code> stehen unter "rq:<Code>". Hat der andere mich schon hinzugefügt, gilt es sofort.
+    if (body.mode === 'board_request') {
+      const friend = String(body.friend || '');
+      if (!CODE.test(friend) || friend === id) return json({ fehler: 'Ungültig.' }, 400);
+      if (!(await env.DB.get('p:' + friend))) return json({ fehler: 'Unbekannt.' }, 404);
+      const mine = (await env.DB.get('f:' + id, 'json')) || [];
+      if (mine.includes(friend)) {
+        const theirs = (await env.DB.get('f:' + friend, 'json')) || [];
+        if (!theirs.includes(id)) await env.DB.put('f:' + friend, JSON.stringify([...theirs, id].slice(-200)));
+        return json({ ok: true, status: 'linked' });
+      }
+      const open = (await env.DB.get('rq:' + friend, 'json')) || [];
+      if (!open.includes(id)) await env.DB.put('rq:' + friend, JSON.stringify([...open, id].slice(-100)));
+      return json({ ok: true, status: 'requested' });
+    }
+    // Anfrage beantworten: angenommen -> der Anfragende sieht mich ab jetzt (über seinen Eingang)
+    if (body.mode === 'board_answer') {
+      const from = String(body.from || '');
+      if (!CODE.test(from)) return json({ fehler: 'Ungültig.' }, 400);
+      const open = (await env.DB.get('rq:' + id, 'json')) || [];
+      if (open.includes(from)) await env.DB.put('rq:' + id, JSON.stringify(open.filter((x) => x !== from)));
+      if (body.accept) {
+        const theirs = (await env.DB.get('f:' + from, 'json')) || [];
+        if (!theirs.includes(id)) await env.DB.put('f:' + from, JSON.stringify([...theirs, id].slice(-200)));
+      }
+      return json({ ok: true });
+    }
+    // Wer hat mich hinzugefügt – und wer fragt noch an?
     if (body.mode === 'board_inbox') {
       const dev = deviceOf(request);
       const bonus = dev ? Number(await env.DB.get('bonus:' + dev)) || 0 : 0; // offene Extra-Fotos
-      return json({ ids: (await env.DB.get('f:' + id, 'json')) || [], bonus });
+      const [ids, requests] = await Promise.all([env.DB.get('f:' + id, 'json'), env.DB.get('rq:' + id, 'json')]);
+      return json({ ids: ids || [], bonus, requests: requests || [] });
     }
     return json({ fehler: 'Ungültig.' }, 400);
   }

@@ -68,7 +68,8 @@ export function AvatarSheet({ visible, name, avatar, earned, photos, onSelect, o
             <Text style={[styles.closeText, { color: p.ink }]}>✕</Text>
           </Pressable>
         </View>
-        <ScrollView contentContainerStyle={{ paddingBottom: 8 }}>
+        {/* ohne Scrollbalken: der lag sonst über „Freischalten“ */}
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 8 }}>
           {/* Buchstabe und verdiente Abzeichen */}
           <View style={styles.h4Row}>
             <Icon name="medal" size={18} color={colors.accent} />

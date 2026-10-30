@@ -18,6 +18,8 @@ const ME_KEY = 'findimal-board';
 const FRIENDS_KEY = 'findimal-friends';
 const SENT_KEY = 'findimal-board-sent';
 const REMOVED_KEY = 'findimal-friends-removed'; // entfernte Freunde nicht wieder automatisch aufnehmen
+const PENDING_KEY = 'findimal-friends-pending'; // eigene offene Freundschaftsanfragen (warten auf Zustimmung)
+const HIDDEN_KEY = 'findimal-board-hidden'; // weltweit ausgeblendet oder gemeldet (Entfernen bei Freunden blendet nicht aus)
 // Automatisch in der Rangliste: nur wer sich bei der Einrichtung einen Entdecker-Namen gegeben hat
 // (ältere Nutzer haben evtl. ihren echten Namen eingetippt – die machen weiter selbst mit).
 const AUTO_KEY = 'findimal-board-auto';
@@ -140,6 +142,19 @@ export async function saveRemoved(ids: string[]): Promise<void> {
   await AsyncStorage.setItem(REMOVED_KEY, JSON.stringify(ids)).catch(() => {});
 }
 
+async function loadList(key: string): Promise<string[]> {
+  try {
+    const raw = await AsyncStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+export const loadPending = () => loadList(PENDING_KEY);
+export const savePending = (ids: string[]) => AsyncStorage.setItem(PENDING_KEY, JSON.stringify(ids)).catch(() => {});
+export const loadHidden = () => loadList(HIDDEN_KEY);
+export const saveHidden = (ids: string[]) => AsyncStorage.setItem(HIDDEN_KEY, JSON.stringify(ids)).catch(() => {});
+
 // Mitmachen: eigenen Freundescode anlegen und die eigenen Werte hochladen.
 // Liefert einen Fehlergrund oder null bei Erfolg.
 export type JoinError = 'offline' | 'nodb' | 'old' | 'key';
@@ -180,7 +195,7 @@ export async function syncMe(me: Me, stats: MyStats): Promise<void> {
 // Aussteigen: Eintrag auf dem Server löschen und alles lokal vergessen.
 export async function leave(me: Me): Promise<void> {
   await call({ mode: 'board_delete', ...me }).catch(() => null);
-  await AsyncStorage.multiRemove([ME_KEY, FRIENDS_KEY, SENT_KEY, REMOVED_KEY]).catch(() => {});
+  await AsyncStorage.multiRemove([ME_KEY, FRIENDS_KEY, SENT_KEY, REMOVED_KEY, PENDING_KEY]).catch(() => {});
   await AsyncStorage.setItem(OPTOUT_KEY, '1').catch(() => {});
 }
 
@@ -224,16 +239,38 @@ export async function report(me: Me, target: string): Promise<void> {
   await call({ mode: 'board_report', ...me, target }).catch(() => null);
 }
 
-// Codes von allen, die einen selbst hinzugefügt haben
-export async function inbox(me: Me): Promise<string[]> {
+// Codes von allen, die einen selbst hinzugefügt haben (ids), und offene Freundschaftsanfragen an mich.
+// requests = null: der Server kennt noch keine Anfragen (älterer Stand) – dann gibt es kein „+“ in der Weltliste.
+export async function inbox(me: Me): Promise<{ ids: string[]; requests: string[] | null }> {
   try {
     const res = await call({ mode: 'board_inbox', ...me });
-    if (!res.ok) return [];
-    const data = (await res.json()) as { ids?: string[]; bonus?: number };
+    if (!res.ok) return { ids: [], requests: [] };
+    const data = (await res.json()) as { ids?: string[]; bonus?: number; requests?: string[] };
     if (typeof data.bonus === 'number') await setBonusPhotos(data.bonus); // offene Extra-Fotos
-    return (data.ids ?? []).filter(isCode);
+    return { ids: (data.ids ?? []).filter(isCode), requests: Array.isArray(data.requests) ? data.requests.filter(isCode) : null };
   } catch {
-    return [];
+    return { ids: [], requests: [] };
+  }
+}
+
+// Freundschaftsanfrage senden (z. B. aus der weltweiten Liste): 'linked' = der andere hatte mich schon hinzugefügt
+export async function requestFriend(me: Me, friend: string): Promise<'requested' | 'linked' | 'error'> {
+  try {
+    const res = await call({ mode: 'board_request', ...me, friend });
+    if (!res.ok) return 'error';
+    const data = (await res.json()) as { status?: string };
+    return data.status === 'linked' ? 'linked' : 'requested';
+  } catch {
+    return 'error';
+  }
+}
+
+// Anfrage annehmen oder ablehnen
+export async function answerRequest(me: Me, from: string, accept: boolean): Promise<boolean> {
+  try {
+    return (await call({ mode: 'board_answer', ...me, from, accept })).ok;
+  } catch {
+    return false;
   }
 }
 
