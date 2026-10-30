@@ -31,7 +31,7 @@ import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
 import { computeProgress, computeReward, dayKey, favoriteGroup, seasonKey, seasonXp, XP } from './src/progress';
 import { correctAnswers, loadQuiz, QuizLog } from './src/quiz';
-import { ForscherLog, forscherStats, forscherTotals, loadForscher, roundXp } from './src/forscher';
+import { doneToday, ForscherLog, forscherStats, forscherTotals, loadForscher, roundXp } from './src/forscher';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
@@ -545,6 +545,8 @@ function Main() {
             onWatchVideo={() => watchVideo(t)}
             onTakePhoto={() => startPhoto((cb, open) => takePhoto(t, cb, open))}
             onPickPhoto={() => startPhoto((cb, open) => pickPhoto(cb, open))}
+            quizOpen={!doneToday(forscher)}
+            onOpenQuiz={() => setTab('challenges')}
           />
         )}
         {tab === 'collection' && (

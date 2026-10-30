@@ -34,6 +34,8 @@ type Props = {
   onTakePhoto: () => void;
   onPickPhoto: () => void;
   firstVisit?: boolean; // gerade erst eingerichtet
+  quizOpen?: boolean; // Forscher-Quiz heute noch nicht gespielt
+  onOpenQuiz?: () => void; // zur Challenges-Seite
 };
 
 // größte bisher gebrauchte Höhe von „Jetzt in deiner Nähe“ (bleibt beim Tab-Wechsel erhalten)
@@ -53,6 +55,8 @@ export function StartScreen({
   onTakePhoto,
   onPickPhoto,
   firstVisit,
+  quizOpen,
+  onOpenQuiz,
 }: Props) {
   const insets = useSafeAreaInsets();
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
@@ -63,7 +67,9 @@ export function StartScreen({
   const { width, height } = useWindowDimensions();
   const [nearbyHeight, setNearbyHeight] = useState(maxNearby);
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
-  const camSize = Math.min(168, Math.max(120, height * 0.21));
+  const hint = !!quizOpen && !!onOpenQuiz;
+  // kleine iPhones: mit Quiz-Hinweis etwas kleinere Kamera, damit oben und unten Luft bleibt
+  const camSize = Math.min(168, Math.max(hint && height < 760 ? 108 : 120, height * 0.21 - (hint && height < 760 ? 26 : 0)));
 
   return (
     <View style={[styles.screen, { backgroundColor: p.bg }]}>
@@ -108,7 +114,18 @@ export function StartScreen({
           <Text style={styles.title}>Findimal</Text>
         </View>
 
-        <View style={[styles.center, { paddingTop: insets.top }]}>
+        {/* ganz kleiner Hinweis: das Forscher-Quiz ist heute noch offen (führt zu den Challenges) */}
+        {hint && (
+          <View style={[styles.quizHintWrap, { top: insets.top + 58 }]} pointerEvents="box-none">
+            <Pressable onPress={onOpenQuiz} hitSlop={8} accessibilityRole="button" style={({ pressed }) => [styles.quizHint, { opacity: pressed ? 0.7 : 1 }]}>
+              <View style={styles.quizDot} />
+              <Text style={styles.quizHintText}>{t('start.quiz')} ›</Text>
+            </Pressable>
+          </View>
+        )}
+
+        {/* mit Quiz-Hinweis oben etwas mehr Platz, damit er die Kamera nicht berührt */}
+        <View style={[styles.center, { paddingTop: insets.top + (hint ? 34 : 0) }]}>
           <CameraButton size={camSize} onPress={onTakePhoto} label={t('a11y.takePhoto')} />
           {/* "oder Foto auswählen", links daneben der Marienkäfer */}
           <View style={styles.pickRow}>
@@ -221,6 +238,10 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 10,
   },
+  quizHintWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', zIndex: 2 },
+  quizHint: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: 99, paddingHorizontal: 10, paddingVertical: 4 },
+  quizDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.accent },
+  quizHintText: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.white, opacity: 0.9 },
   freeVideoRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 3 },
   freeVideo: {
     fontFamily: fonts.sansBold,
