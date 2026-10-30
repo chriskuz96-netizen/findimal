@@ -392,7 +392,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
             </View>
           )}
         </View>
-        {rescueN > 0 && <RescueButton n={rescueN} onPress={rescue} />}
+        {rescueN > 0 && <RescueButton onPress={rescue} />}
       </View>
     </Pressable>
   ) : (
@@ -715,12 +715,16 @@ function BadgeView({
 
 // Offenes Forscher-Quiz: orange Karte mit dem Forscher, leuchtet sanft – antippen startet sofort
 // Serie retten: großer Knopf in der Quiz-Karte (wichtig, sonst schaut niemand das Video)
-function RescueButton({ n, onPress }: { n: number; onPress: () => void }) {
+function RescueButton({ onPress }: { onPress: () => void }) {
   const { t } = useI18n();
   return (
     <Pressable onPress={onPress} accessibilityRole="button" style={({ pressed }) => [styles.rescueCta, { opacity: pressed ? 0.85 : 1 }]}>
-      <Text style={styles.rescueCtaText}>{n === 1 ? t('fq.rescue1') : t('fq.rescue', { n })}</Text>
-      <Text style={styles.rescueCtaBtn}>{t('fq.rescueBtn')} ›</Text>
+      <Text style={styles.rescueCtaText}>{t('fq.rescue')}</Text>
+      {/* Video-Zeichen statt Erklärtext */}
+      <View style={styles.rescueCtaBtn}>
+        <Icon name="play" size={15} color={colors.white} />
+        <Text style={styles.rescueCtaBtnText}>{t('fq.rescueBtn')}</Text>
+      </View>
     </Pressable>
   );
 }
@@ -778,8 +782,9 @@ function QuizCard({
             </View>
           )}
         </View>
-        <Text style={styles.quizText}>{started ? t('fq.cardContinue') : t('fq.cardText', { n: ROUND_SIZE })}</Text>
-        {danger && <RescueButton n={rescueN} onPress={onRescue} />}
+        {/* in Gefahr: statt des Satzes nur der Retten-Knopf (nicht zu viel Text) */}
+        {!danger && <Text style={styles.quizText}>{started ? t('fq.cardContinue') : t('fq.cardText', { n: ROUND_SIZE })}</Text>}
+        {danger && <RescueButton onPress={onRescue} />}
         <View style={styles.quizRow}>
           <View style={styles.quizChip}>
             <Text style={styles.quizChipText}>{t('fq.upTo', { xp: XP_MAX })}</Text>
@@ -801,7 +806,8 @@ const styles = StyleSheet.create({
   streakLabel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight, marginTop: -1 },
   rescueCta: { marginTop: 12, backgroundColor: colors.white, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 11, flexDirection: 'row', alignItems: 'center', gap: 10 },
   rescueCtaText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 19, color: colors.ink },
-  rescueCtaBtn: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white, backgroundColor: '#B2442E', borderRadius: 12, overflow: 'hidden', paddingHorizontal: 11, paddingVertical: 7 },
+  rescueCtaBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: '#B2442E', borderRadius: 12, paddingHorizontal: 11, paddingVertical: 7 },
+  rescueCtaBtnText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
   doneRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   doneStreak: { flexDirection: 'row', alignItems: 'center', gap: 3 },
   doneStreakText: { fontFamily: fonts.serifBold, fontSize: 18 },
