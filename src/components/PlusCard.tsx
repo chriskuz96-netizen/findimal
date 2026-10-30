@@ -16,7 +16,9 @@ export function PlusCard({ name, style, onGet }: { name: string; style?: ViewSty
       {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
         <View key={k} style={styles.row}>
           <Text style={styles.check}>✓</Text>
-          <Text style={styles.text}>{t(k)}</Text>
+          <Text style={styles.text} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>
+            {t(k)}
+          </Text>
         </View>
       ))}
       {/* ein paar der Plus-Profilbilder als Vorgeschmack */}
