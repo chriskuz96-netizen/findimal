@@ -3,6 +3,8 @@ import { Alert, Animated, Easing, Modal, PanResponder, Pressable, ScrollView, St
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { ClipPath, Defs, G, LinearGradient, Rect, Stop } from 'react-native-svg';
 
+import { showRewarded } from '../ads';
+import { usePlus } from '../plus';
 import { AdSlot } from './AdSlot';
 import { Explorer } from './Explorer';
 import { QUIZ_ART, QUIZ_ART_BG } from './QuizArt';
@@ -15,9 +17,14 @@ import {
   encodeRank,
   finishRound,
   ForscherLog,
+  grantJoker,
+  JOKER_EXTRA_MS,
+  jokerHidden,
+  jokerKind,
   roundCorrect,
   rankOrder,
   roundXp,
+  spendJoker,
   startRound,
   streak,
   timeFor,
@@ -32,7 +39,7 @@ import { colors, fonts, Palette, spacing } from '../theme';
 // Unten fest ein Werbeplatz (mit Abstand zu den Antworten, damit niemand aus Versehen draufkommt).
 
 const DARK = '#143F2A';
-type Phase = 'count' | 'ask' | 'reveal' | 'result';
+type Phase = 'intro' | 'count' | 'ask' | 'reveal' | 'result';
 
 export function ForscherQuiz({
   visible,
@@ -49,6 +56,7 @@ export function ForscherQuiz({
 }) {
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
+  const { plus } = usePlus();
   const day = useRef(dayNo()).current;
   const [phase, setPhase] = useState<Phase>('count');
   const phaseRef = useRef<Phase>('count');
@@ -62,17 +70,24 @@ export function ForscherQuiz({
   const [pos, setPos] = useState(0);
   const q: BankQuestion | undefined = round ? byId.get(round.q[pos]) : undefined;
 
-  // Beim Öffnen: Runde anlegen; schon fertig → gleich die Auswertung, sonst Countdown
+  // Beim Öffnen: Runde anlegen; schon fertig → gleich die Auswertung, sonst Countdown.
+  // Vor einer neuen Runde bekommen Gratis-Nutzer den Joker angeboten (per Video), Plus-Kunden haben ihn immer.
   useEffect(() => {
     if (!visible) return;
     setLast(null);
     const r = todayRound(logRef.current, day);
     if (r?.done) return setPhase('result');
-    setPhase('count');
+    setPhase(!plus && (!r || (r.a.length === 0 && r.j === undefined)) ? 'intro' : 'count');
     setCount(3);
-    startRound(logRef.current, day).then(onLog);
+    startRound(logRef.current, day).then(async (l) => onLog(plus ? await grantJoker(l, day) : l));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
+
+  // Joker per Video holen (danach Countdown); ohne Joker gleich los
+  const takeJoker = async () => {
+    if (await showRewarded()) onLog(await grantJoker(await startRound(logRef.current, day), day));
+    setPhase('count');
+  };
 
   // Countdown 3 – 2 – 1 – Los!
   const pop = useRef(new Animated.Value(0)).current;
@@ -101,27 +116,49 @@ export function ForscherQuiz({
   const small = screenH < 760; // kleine iPhones: bei der Auflösung ohne Bild, damit alles auf eine Seite passt
   const askedAt = useRef(0);
   const busy = useRef(false);
+  const deadline = useRef(0);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Zeit um: bei einer Rangliste zählt, was gerade dasteht
+  const timeUp = useRef(() => {});
+  timeUp.current = () => q && choose(q.type === 'rank' && rankRef.current ? encodeRank(rankRef.current) : -1);
+  const stopTimer = () => {
+    timeLeft.stopAnimation();
+    if (timer.current) clearTimeout(timer.current);
+  };
+  // Balken von „remaining / total“ bis 0 laufen lassen
+  const runTimer = (remaining: number, total: number) => {
+    stopTimer();
+    deadline.current = Date.now() + remaining;
+    timeLeft.setValue(remaining / total);
+    Animated.timing(timeLeft, { toValue: 0, duration: remaining, easing: Easing.linear, useNativeDriver: false }).start();
+    timer.current = setTimeout(() => timeUp.current(), remaining);
+  };
   useEffect(() => {
     if (!visible || phase !== 'ask' || !q) return;
     busy.current = false;
     askedAt.current = Date.now();
-    const secs = timeFor(q);
-    timeLeft.setValue(1);
-    const anim = Animated.timing(timeLeft, { toValue: 0, duration: secs * 1000, easing: Easing.linear, useNativeDriver: false });
-    anim.start();
-    // Zeit um: bei einer Rangliste zählt, was gerade dasteht
-    const timer = setTimeout(() => choose(q.type === 'rank' && rankRef.current ? encodeRank(rankRef.current) : -1), secs * 1000);
-    return () => {
-      anim.stop();
-      clearTimeout(timer);
-    };
+    runTimer(timeFor(q) * 1000, timeFor(q) * 1000);
+    return stopTimer;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible, phase, q?.id]);
+
+  // Joker: einmal pro Runde, bei der gerade gezeigten Frage
+  const jokerHere = !!round && round.j === pos;
+  const rankJoker = useRef<(() => void) | null>(null);
+  const playJoker = async () => {
+    if (phase !== 'ask' || !q || busy.current || round?.j !== -1) return;
+    const kind = jokerKind(q);
+    if (kind === 'time') runTimer(Math.max(0, deadline.current - Date.now()) + JOKER_EXTRA_MS, timeFor(q) * 1000 + JOKER_EXTRA_MS);
+    if (kind === 'place') rankJoker.current?.();
+    onLog(await spendJoker(logRef.current, day));
+  };
+  const hidden = jokerHere && q && jokerKind(q) === 'half' ? jokerHidden(q) : [];
 
   const choose = async (value: number) => {
     if (busy.current || phase !== 'ask') return;
     busy.current = true;
-    const ms = Math.min(timeFor(q!) * 1000, Date.now() - askedAt.current);
+    const limit = timeFor(q!) * 1000 + (jokerHere && jokerKind(q!) === 'time' ? JOKER_EXTRA_MS : 0);
+    const ms = Math.min(limit, Date.now() - askedAt.current);
     timeLeft.stopAnimation();
     setLast({ value, ms });
     setPhase('reveal');
@@ -144,7 +181,7 @@ export function ForscherQuiz({
   // ✕: mitten in der Runde nachfragen – offene Fragen zählen dann als falsch
   const close = () => {
     const r = todayRound(logRef.current, day);
-    if (!r || r.done || phase === 'result' || (phase === 'count' && r.a.length === 0)) return onClose();
+    if (!r || r.done || phase === 'result' || ((phase === 'count' || phase === 'intro') && r.a.length === 0)) return onClose();
     Alert.alert(t('fq.quitTitle'), t('fq.quitText'), [
       { text: t('common.cancel'), style: 'cancel' },
       {
@@ -164,7 +201,7 @@ export function ForscherQuiz({
 
   return (
     <Modal visible={visible} animationType="slide" presentationStyle="fullScreen" onRequestClose={close}>
-      <View style={{ flex: 1, backgroundColor: phase === 'count' ? DARK : p.bg }}>
+      <View style={{ flex: 1, backgroundColor: phase === 'count' || phase === 'intro' ? DARK : p.bg }}>
         {/* Kopf: Schließen, Titel, XP, Fortschritt, Zeit */}
         {phase !== 'result' && (
           <View style={[styles.head, { paddingTop: insets.top + 10 }]}>
@@ -177,7 +214,7 @@ export function ForscherQuiz({
                 <Text style={styles.xpText}>+{xpSoFar} XP</Text>
               </View>
             </View>
-            {phase !== 'count' && round && (
+            {phase !== 'count' && phase !== 'intro' && round && (
               <>
                 <View style={styles.segs}>
                   {round.q.map((id, i) => {
@@ -195,9 +232,23 @@ export function ForscherQuiz({
                     );
                   })}
                 </View>
-                <Text style={styles.qn}>
-                  {t('fq.question', { n: pos + 1, max: round.q.length })} · {lvlText}
-                </Text>
+                <View style={styles.qnRow}>
+                  <Text style={styles.qn}>
+                    {t('fq.question', { n: pos + 1, max: round.q.length })} · {lvlText}
+                  </Text>
+                  {/* Joker: noch frei → Knopf (was er bei dieser Frage macht, steht drauf) */}
+                  {phase === 'ask' && round.j === -1 && q && (
+                    <Pressable
+                      onPress={playJoker}
+                      hitSlop={8}
+                      accessibilityRole="button"
+                      accessibilityLabel={t('fq.jokerA11y')}
+                      style={({ pressed }) => [styles.jokerBtn, { opacity: pressed ? 0.8 : 1 }]}
+                    >
+                      <Text style={styles.jokerText}>{t(`fq.joker_${jokerKind(q)}` as 'fq.joker_half')}</Text>
+                    </Pressable>
+                  )}
+                </View>
                 <View style={styles.timer}>
                   <Animated.View
                     style={[styles.timerFill, { width: timeLeft.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}
@@ -205,6 +256,21 @@ export function ForscherQuiz({
                 </View>
               </>
             )}
+          </View>
+        )}
+
+        {phase === 'intro' && (
+          <View style={[styles.countWrap, { paddingHorizontal: 28 }]}>
+            <Explorer size={84} />
+            <Text style={styles.introTitle}>{t('fq.introTitle')}</Text>
+            <Text style={styles.introText}>{t('fq.jokerInfo')}</Text>
+            <Pressable onPress={takeJoker} accessibilityRole="button" style={({ pressed }) => [styles.introJoker, { opacity: pressed ? 0.85 : 1 }]}>
+              <Text style={styles.introJokerText}>{t('fq.jokerVideo')}</Text>
+              <Text style={styles.introJokerSub}>{t('fq.jokerVideoSub')}</Text>
+            </Pressable>
+            <Pressable onPress={() => setPhase('count')} hitSlop={8} accessibilityRole="button" style={styles.introSkip}>
+              <Text style={styles.introSkipText}>{t('fq.noJoker')} ›</Text>
+            </Pressable>
           </View>
         )}
 
@@ -219,6 +285,7 @@ export function ForscherQuiz({
             >
               {count > 0 ? count : t('fq.ready')}
             </Animated.Text>
+            {round?.j === -1 && <Text style={styles.jokerReady}>{t('fq.jokerReady')}</Text>}
           </View>
         )}
 
@@ -238,7 +305,7 @@ export function ForscherQuiz({
                 {text.q}
               </Text>
               {q.type === 'rank' ? (
-                <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} orderRef={rankRef} p={p} />
+                <RankAnswers key={q.id} q={q} text={text} phase={phase} chosen={last?.value} onDone={choose} orderRef={rankRef} jokerRef={rankJoker} p={p} />
               ) : q.type === 'duel' ? (
                 // Duell: zwei Tiere nebeneinander, eins antippen
                 <View style={styles.duel}>
@@ -268,11 +335,13 @@ export function ForscherQuiz({
                     {text.a.map((a, i) => {
                       const right = phase === 'reveal' && i === q.right;
                       const wrong = phase === 'reveal' && i === last?.value && i !== q.right;
+                      const gone = hidden.includes(i); // 50:50-Joker: Kachel bleibt als Lücke stehen
                       return (
                         <Pressable
                           key={i}
                           onPress={() => choose(i)}
-                          disabled={phase !== 'ask'}
+                          disabled={phase !== 'ask' || gone}
+                          accessibilityElementsHidden={gone}
                           accessibilityRole="button"
                           style={({ pressed }) => [
                             styles.ansTile,
@@ -281,6 +350,7 @@ export function ForscherQuiz({
                             right && { backgroundColor: '#2E7A4C', borderColor: '#2E7A4C' },
                             wrong && { backgroundColor: '#C8543A', borderColor: '#C8543A' },
                             phase === 'reveal' && !right && !wrong && { opacity: 0.45 },
+                            gone && { opacity: 0 },
                           ]}
                         >
                           <Text
@@ -310,7 +380,7 @@ export function ForscherQuiz({
                 >
                   <Text style={[styles.verdict, { color: last.value === q.right ? '#2E7A4C' : '#C8543A' }]}>
                     {last.value === q.right
-                      ? `${t('fq.right')} +${answerXp(q, last.value, last.ms)} XP`
+                      ? `${t('fq.right')} +${answerXp(q, last.value, last.ms, jokerHere)} XP`
                       : last.value < 0
                         ? t('fq.timeUp')
                         : t('fq.wrong')}
@@ -330,7 +400,7 @@ export function ForscherQuiz({
         {phase === 'result' && round && <Result round={round} log={log} p={p} onDone={onClose} bottom={adH} />}
 
         {/* fester Werbeplatz unten (nicht beim Countdown, nicht mit Plus) */}
-        {phase !== 'count' && (
+        {phase !== 'count' && phase !== 'intro' && (
           <View style={[styles.adBar, { paddingBottom: insets.bottom + 6, backgroundColor: p.bg }]} onLayout={(e) => setAdH(e.nativeEvent.layout.height)}>
             <AdSlot p={p} placement="challenges" compact />
           </View>
@@ -361,6 +431,7 @@ function RankAnswers({
   chosen,
   onDone,
   orderRef,
+  jokerRef,
   p,
 }: {
   q: BankQuestion;
@@ -369,6 +440,7 @@ function RankAnswers({
   chosen?: number;
   onDone: (value: number) => void;
   orderRef: React.MutableRefObject<number[] | null>; // aktuelle Reihenfolge (für den Zeitablauf)
+  jokerRef: React.MutableRefObject<(() => void) | null>; // Joker: einen Platz richtig setzen und festhalten
   p: Palette;
 }) {
   const { t } = useI18n();
@@ -379,18 +451,37 @@ function RankAnswers({
   const [dragging, setDragging] = useState<number | null>(null);
   const [, redraw] = useState(0);
   orderRef.current = order.current;
+  // Joker: der erste falsch stehende Platz bekommt den richtigen Eintrag, der bleibt dann fest (grün)
+  const locked = useRef<number | null>(null);
+  const keepLocked = (list: number[]) => {
+    const l = locked.current;
+    if (l === null) return list;
+    const rest = list.filter((v) => v !== l);
+    rest.splice(l, 0, l);
+    return rest;
+  };
 
   const place = (except?: number) =>
     order.current.forEach((item, slot) => {
       if (item !== except) Animated.spring(ys[item], { toValue: slot * ROW, useNativeDriver: false, speed: 22, bounciness: 4 }).start();
     });
 
+  jokerRef.current = () => {
+    const slot = order.current.findIndex((item, s) => item !== s);
+    if (slot < 0) return;
+    locked.current = slot;
+    order.current = keepLocked(order.current);
+    orderRef.current = order.current;
+    place();
+    redraw((v) => v + 1);
+  };
+
   const responders = useRef(
     text.a.map((_, item) => {
       let start = 0;
       return PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
-        onMoveShouldSetPanResponder: () => true,
+        onStartShouldSetPanResponder: () => locked.current !== item,
+        onMoveShouldSetPanResponder: () => locked.current !== item,
         onPanResponderTerminationRequest: () => false,
         onPanResponderGrant: () => {
           start = order.current.indexOf(item) * ROW;
@@ -402,8 +493,9 @@ function RankAnswers({
           const target = Math.max(0, Math.min(n - 1, Math.round(y / ROW)));
           const from = order.current.indexOf(item);
           if (target !== from) {
-            const next = order.current.filter((v) => v !== item);
-            next.splice(target, 0, item);
+            const moved = order.current.filter((v) => v !== item);
+            moved.splice(target, 0, item);
+            const next = keepLocked(moved);
             order.current = next;
             orderRef.current = next;
             place(item);
@@ -465,12 +557,15 @@ function RankAnswers({
                 styles.rankRow,
                 { backgroundColor: p.card, borderColor: dragging === item ? colors.accent : p.line, transform: [{ translateY: ys[item] }] },
                 dragging === item && styles.rankLift,
+                locked.current === item && { borderColor: '#2E7A4C', borderWidth: 2 },
               ]}
             >
               <Text selectable={false} style={[styles.answerText, { color: p.ink }]} numberOfLines={2}>
                 {a}
               </Text>
-              <Text selectable={false} style={[styles.grip, { color: p.mute }]}>⋮⋮</Text>
+              <Text selectable={false} style={[styles.grip, { color: locked.current === item ? '#2E7A4C' : p.mute }]}>
+                {locked.current === item ? '✓' : '⋮⋮'}
+              </Text>
             </Animated.View>
           ))}
         </View>
@@ -582,7 +677,18 @@ const styles = StyleSheet.create({
   xpText: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.accentLight },
   segs: { flexDirection: 'row', gap: 4, marginTop: 14 },
   seg: { flex: 1, height: 6, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.18)' },
-  qn: { fontFamily: fonts.sansBold, fontSize: 12, color: '#CFE3D6', marginTop: 10 },
+  qnRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 10, minHeight: 24 },
+  qn: { fontFamily: fonts.sansBold, fontSize: 12, color: '#CFE3D6' },
+  jokerBtn: { backgroundColor: colors.accentLight, borderRadius: 12, paddingHorizontal: 10, paddingVertical: 4 },
+  jokerText: { fontFamily: fonts.sansBold, fontSize: 12.5, color: DARK },
+  jokerReady: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.accentLight, marginTop: 12 },
+  introTitle: { fontFamily: fonts.serifBold, fontSize: 26, color: colors.white, marginTop: 18, textAlign: 'center' },
+  introText: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, color: '#CFE3D6', marginTop: 10, textAlign: 'center' },
+  introJoker: { alignSelf: 'stretch', marginTop: 26, backgroundColor: colors.accentLight, borderRadius: 18, paddingVertical: 14, alignItems: 'center' },
+  introJokerText: { fontFamily: fonts.sansBold, fontSize: 17, color: DARK },
+  introJokerSub: { fontFamily: fonts.sans, fontSize: 13, color: DARK, opacity: 0.75, marginTop: 2 },
+  introSkip: { marginTop: 18, paddingVertical: 6 },
+  introSkipText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white, opacity: 0.85 },
   timer: { height: 8, borderRadius: 6, backgroundColor: 'rgba(255,255,255,0.15)', marginTop: 8, overflow: 'hidden' },
   timerFill: { height: '100%', borderRadius: 6, backgroundColor: colors.accent },
   countWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingBottom: 80 },

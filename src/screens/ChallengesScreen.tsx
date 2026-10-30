@@ -19,8 +19,8 @@ import { Badge, dayKey, levelAt, Progress, seasonKey, XP } from '../progress';
 import { seasonDaysLeft } from '../season';
 import { WeekTask, weekStart } from '../weekly';
 import { ForscherQuiz } from '../components/ForscherQuiz';
-import { showInterstitial } from '../ads';
-import { doneToday, ForscherLog, ROUND_SIZE, roundCorrect, roundXp, streak, todayRound, XP_MAX } from '../forscher';
+import { showInterstitial, showRewarded } from '../ads';
+import { doneToday, ForscherLog, rescuable, rescueStreak, ROUND_SIZE, roundCorrect, roundXp, streak, todayRound, XP_MAX } from '../forscher';
 import { usePlus } from '../plus';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
@@ -64,6 +64,22 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
   const quizRound = todayRound(forscher);
   // nach dem Quiz: erst die XP-Animation (und ggf. die Stufen-Feier), dann kurz Werbung (nicht mit Plus)
   const adPending = useRef(false);
+  // Serie retten: Plus-Kunden automatisch (einmal pro Woche), sonst per Video über der Quiz-Karte
+  const [rescueNote, setRescueNote] = useState<string | null>(null);
+  useEffect(() => {
+    if (!plus || !rescuable(forscher)) return;
+    rescueStreak(forscher).then((l) => {
+      onForscher(l);
+      setRescueNote(t('fq.rescuedPlus'));
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [forscher, plus]);
+  const rescueN = plus ? 0 : rescuable(forscher);
+  const rescue = async () => {
+    if (!(await showRewarded())) return;
+    onForscher(await rescueStreak(forscher));
+    setRescueNote(t('fq.rescued'));
+  };
   const badgeName = (b: Badge) => t(`badge.${b.id}`);
   const badgeHint = (b: Badge) => t(`badge.${b.id}.hint`);
   const span = (progress.nextLevelXp ?? progress.xp) - progress.levelStart;
@@ -348,6 +364,19 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
 
   // Forscher-Quiz: offen = auffällige orange Karte ganz oben (pulsiert leicht), geschafft = wie die anderen Aufgaben
   const days = streak(forscher);
+  const rescueBar =
+    rescueN > 0 ? (
+      <View style={[styles.rescue, { backgroundColor: p.card, borderColor: colors.accent }]}>
+        <Text style={[styles.rescueText, { color: p.ink }]}>{rescueN === 1 ? t('fq.rescue1') : t('fq.rescue', { n: rescueN })}</Text>
+        <Pressable onPress={rescue} hitSlop={6} accessibilityRole="button" style={({ pressed }) => [styles.rescueBtn, { opacity: pressed ? 0.85 : 1 }]}>
+          <Text style={styles.rescueBtnText}>{t('fq.rescueBtn')} ›</Text>
+        </Pressable>
+      </View>
+    ) : rescueNote ? (
+      <View style={[styles.rescue, { backgroundColor: p.card, borderColor: DONE }]}>
+        <Text style={[styles.rescueText, { color: p.ink }]}>✓ {rescueNote}</Text>
+      </View>
+    ) : null;
   const quizCard = quizDone ? (
     <Pressable onPress={() => setQuizOpen(true)} accessibilityRole="button">
       <View style={[styles.card, { backgroundColor: p.card, borderColor: DONE }, styles.doneCard]}>
@@ -469,7 +498,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
         </View>
 
         {/* Aufgaben: orange Marke = Belohnung, grüner Rahmen = geschafft. Offene oben, geschaffte rutschen unter das Quiz */}
-        {quizTop && slot('quiz', quizCard)}
+        {quizTop && slot('quiz', <View>{quizCard}{rescueBar}</View>)}
         {goalTop && slot('goal', goalCard)}
         {weekTop && slot('week', weekCard)}
 
@@ -492,7 +521,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
         </Animated.View>
 
         {/* geschaffte Aufgaben */}
-        {!quizTop && slot('quiz', quizCard)}
+        {!quizTop && slot('quiz', <View>{quizCard}{rescueBar}</View>)}
         {!goalTop && slot('goal', goalCard)}
         {!weekTop && slot('week', weekCard)}
 
@@ -547,7 +576,8 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
         log={forscher}
         onLog={onForscher}
         onClose={() => {
-          if (doneToday(forscher) && !plus) adPending.current = true;
+          // keine Vollbild-Werbung, wenn heute schon ein Joker-Video lief
+          if (doneToday(forscher) && !plus && todayRound(forscher)?.j === undefined) adPending.current = true;
           setQuizOpen(false);
         }}
         p={p}
@@ -725,6 +755,10 @@ function QuizCard({ started, days, onPress }: { started: boolean; days: number; 
 
 const styles = StyleSheet.create({
   quizCard: { marginHorizontal: spacing.gutter, marginTop: 14 },
+  rescue: { marginHorizontal: spacing.gutter, marginTop: 8, borderWidth: 1.5, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 10, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  rescueText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 19 },
+  rescueBtn: { backgroundColor: colors.accent, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8 },
+  rescueBtnText: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.white },
   quizGlow: { position: 'absolute', left: -4, right: -4, top: -4, bottom: -4, borderRadius: 26, borderWidth: 3, borderColor: colors.accentLight, shadowColor: colors.accent, shadowOpacity: 0.8, shadowRadius: 12, shadowOffset: { width: 0, height: 0 } },
   quizInner: { borderRadius: 22, overflow: 'hidden', padding: 16, backgroundColor: colors.accent },
   quizBg: { position: 'absolute', left: 0, top: 0 },

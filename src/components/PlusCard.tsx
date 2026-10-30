@@ -13,7 +13,7 @@ export function PlusCard({ name, style, onGet }: { name: string; style?: ViewSty
     <View style={[styles.card, style]}>
       <Text style={styles.title}>★ {t('plus.title')}</Text>
       <Text style={styles.sub}>{plus ? t('plus.active') : t('plus.sub')}</Text>
-      {(['plus.b1', 'plus.b2', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
+      {(['plus.b1', 'plus.b2', 'plus.b6', 'plus.b3', 'plus.b4', 'plus.b5'] as const).map((k) => (
         <View key={k} style={styles.row}>
           <Text style={styles.check}>✓</Text>
           <Text style={styles.text} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>

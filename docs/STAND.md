@@ -92,6 +92,15 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - „Entfernen“ bei Freunden lässt die Person in der weltweiten Liste. Weltweit verschwindet jemand nur durch Melden
   (bei einem selbst sofort, für alle nach 3 Meldungen).
 
+## Joker und „Serie retten“ (30.10.)
+- Joker im Forscher-Quiz, einmal pro Runde (`Round.j`: -1 = frei, sonst Frage-Nr.): 4 Antworten → 50:50,
+  2 Antworten → +10 Sek., Treppchen → ein Platz richtig und fest. Antwort mit Joker ohne Schnelligkeitsbonus.
+- Gratis: vor einer neuen Runde Startbildschirm „Mit Joker spielen (kurzes Video)“ / „Ohne Joker los“.
+  Plus: Joker automatisch. Wer per Video einen Joker hatte, bekommt nach dem Quiz keine Vollbild-Werbung.
+- Serie retten: gestern verpasst, vorgestern in Serie → einmal pro Woche (`ForscherLog.saved`). Gratis per Video
+  (Leiste unter der Quiz-Karte), Plus automatisch. Gerettete Tage zählen für die Serie, bringen keine XP.
+- Videos: `showRewarded()` in `src/ads.ts` gibt die Belohnung bis AdMob sofort (Testversion) – mit AdMob anschließen.
+
 ## Saison-Rangliste (30.10.)
 - Dritter Reiter „Saison“: meiste XP in der laufenden Jahreszeit (`seasonXp` in `src/progress.ts`: Funde, Saison-Ziel,
   Wochen-Aufgaben und Quiz-XP dieser Saison). Server führt `stop:<Saison>` (Top 100, bleibt nach Saisonende stehen).

@@ -14,9 +14,11 @@ const XP_FAST = 2; // Bonus: in den ersten 5 Sekunden
 const XP_QUICK = 1; // Bonus: in den ersten 10 Sekunden
 export const XP_MAX = ROUND_SIZE * (XP_RIGHT + XP_FAST); // 60
 
-// a: Antwort je Frage (-1 = Zeit abgelaufen), ms: benötigte Zeit, done: Runde abgeschlossen
-export type Round = { q: string[]; a: number[]; ms: number[]; done?: boolean };
-export type ForscherLog = { rounds: Record<string, Round>; seen: Record<string, number> };
+// a: Antwort je Frage (-1 = Zeit abgelaufen), ms: benötigte Zeit, done: Runde abgeschlossen,
+// j: Joker (-1 = noch frei, sonst die Frage, bei der er eingesetzt wurde; fehlt = kein Joker in dieser Runde)
+export type Round = { q: string[]; a: number[]; ms: number[]; done?: boolean; j?: number };
+// saved: verpasste Tage, an denen die Serie gerettet wurde (zählen für die Serie, bringen keine XP)
+export type ForscherLog = { rounds: Record<string, Round>; seen: Record<string, number>; saved?: number[] };
 
 const KEY = 'findimal-forscher';
 const EMPTY: ForscherLog = { rounds: {}, seen: {} };
@@ -27,7 +29,7 @@ export async function loadForscher(): Promise<ForscherLog> {
   try {
     const raw = await AsyncStorage.getItem(KEY);
     const log = raw ? (JSON.parse(raw) as ForscherLog) : EMPTY;
-    return { rounds: log.rounds ?? {}, seen: log.seen ?? {} };
+    return { rounds: log.rounds ?? {}, seen: log.seen ?? {}, saved: log.saved ?? [] };
   } catch {
     return EMPTY;
   }
@@ -44,6 +46,22 @@ export async function resetForscher(): Promise<void> {
 export const byId = new Map<string, BankQuestion>(BANK.map((q) => [q.id, q]));
 export const timeFor = (q: BankQuestion) => (q.type === 'rank' ? TIME_RANK : q.type === 'duel' ? TIME_DUEL : TIME_TEXT);
 
+// Joker (einmal pro Runde): bei 4 Antworten fallen zwei falsche weg, bei 2 Antworten gibt es 10 Sekunden mehr,
+// beim Treppchen steht ein Platz schon richtig. Eine Antwort mit Joker bekommt keinen Schnelligkeitsbonus.
+export const JOKER_EXTRA_MS = 10000;
+export type JokerKind = 'half' | 'time' | 'place';
+export const jokerKind = (q: BankQuestion): JokerKind => (q.type === 'rank' ? 'place' : q.t.de.a.length >= 4 ? 'half' : 'time');
+// die zwei falschen Antworten, die beim 50:50 wegfallen (immer dieselben für eine Frage)
+export function jokerHidden(q: BankQuestion): number[] {
+  const rand = rng([...q.id].reduce((h, c) => h * 31 + c.charCodeAt(0), 11));
+  return [0, 1, 2, 3]
+    .filter((i) => i !== q.right)
+    .map((i) => ({ i, k: rand() }))
+    .sort((a, b) => a.k - b.k)
+    .slice(0, 2)
+    .map(({ i }) => i);
+}
+
 // Rangliste: die getippte Reihenfolge wird als eine Zahl gespeichert (10000 + Stellen), richtig ist immer 10123.
 // In der Fragenbank stehen die Einträge schon richtig sortiert; angezeigt werden sie gemischt.
 export const encodeRank = (picked: number[]) => 10000 + picked.reduce((n, i) => n * 10 + i, 0);
@@ -56,8 +74,9 @@ export function rankOrder(q: BankQuestion): number[] {
 }
 
 // XP für eine Antwort
-export function answerXp(q: BankQuestion, answer: number, ms: number): number {
+export function answerXp(q: BankQuestion, answer: number, ms: number, joker = false): number {
   if (answer !== q.right) return 0;
+  if (joker) return XP_RIGHT;
   const [fast, quick] = q.type === 'rank' ? [8000, 14000] : [5000, 10000]; // Ranglisten brauchen länger
   return XP_RIGHT + (ms <= fast ? XP_FAST : ms <= quick ? XP_QUICK : 0);
 }
@@ -65,7 +84,7 @@ export function answerXp(q: BankQuestion, answer: number, ms: number): number {
 export function roundXp(r: Round): number {
   return r.q.reduce((sum, id, i) => {
     const q = byId.get(id);
-    return q && i < r.a.length ? sum + answerXp(q, r.a[i], r.ms[i]) : sum;
+    return q && i < r.a.length ? sum + answerXp(q, r.a[i], r.ms[i], r.j === i) : sum;
   }, 0);
 }
 
@@ -88,10 +107,9 @@ export function forscherTotals(log: ForscherLog): { xp: number; correct: number 
 export type ForscherStats = { rounds: number; perfect: boolean; bestStreak: number; rankRight: number; picRight: number; fastRight: number };
 export function forscherStats(log: ForscherLog): ForscherStats {
   const st: ForscherStats = { rounds: 0, perfect: false, bestStreak: 0, rankRight: 0, picRight: 0, fastRight: 0 };
-  const days = Object.keys(log.rounds)
-    .filter((d) => log.rounds[d].done)
-    .map(Number)
-    .sort((a, b) => a - b);
+  const days = [...new Set([...Object.keys(log.rounds).filter((d) => log.rounds[d].done).map(Number), ...(log.saved ?? [])])].sort(
+    (a, b) => a - b,
+  );
   let run = 0;
   days.forEach((d, i) => {
     run = i > 0 && days[i - 1] === d - 1 ? run + 1 : 1;
@@ -105,7 +123,7 @@ export function forscherStats(log: ForscherLog): ForscherStats {
       if (!q || i >= r.a.length || r.a[i] !== q.right) return;
       if (q.type === 'rank') st.rankRight++;
       if (q.type === 'pic') st.picRight++;
-      if (r.ms[i] <= 5000) st.fastRight++;
+      if (r.ms[i] <= 5000 && r.j !== i) st.fastRight++; // mit Joker zählt es nicht als schnell
     });
   }
   return st;
@@ -114,15 +132,50 @@ export function forscherStats(log: ForscherLog): ForscherStats {
 export const todayRound = (log: ForscherLog, day = dayNo()): Round | undefined => log.rounds[String(day)];
 export const doneToday = (log: ForscherLog, day = dayNo()) => !!todayRound(log, day)?.done;
 
+// Zählt ein Tag für die Serie? (Runde geschafft oder Serie gerettet)
+const kept = (log: ForscherLog, d: number) => !!log.rounds[String(d)]?.done || !!log.saved?.includes(d);
+
 // Tage in Folge mit geschaffter Runde (zählt bis gestern weiter, solange heute noch offen ist)
 export function streak(log: ForscherLog, day = dayNo()): number {
-  let d = log.rounds[String(day)]?.done ? day : day - 1;
+  let d = kept(log, day) ? day : day - 1;
   let n = 0;
-  while (log.rounds[String(d)]?.done) {
+  while (kept(log, d)) {
     n++;
     d--;
   }
   return n;
+}
+
+// Serie retten: gestern verpasst, vorgestern noch in Serie – höchstens einmal pro Woche.
+// Liefert die Länge der Serie, die man retten kann (0 = nichts zu retten).
+export function rescuable(log: ForscherLog, day = dayNo()): number {
+  if (kept(log, day - 1) || !kept(log, day - 2)) return 0;
+  if ((log.saved ?? []).some((d) => d >= day - 7)) return 0;
+  return streak(log, day - 1);
+}
+
+export async function rescueStreak(log: ForscherLog, day = dayNo()): Promise<ForscherLog> {
+  if (!rescuable(log, day)) return log;
+  const next: ForscherLog = { ...log, saved: [...(log.saved ?? []), day - 1] };
+  await save(next);
+  return next;
+}
+
+// Joker für die heutige Runde freischalten (Video angesehen oder Plus) und einsetzen
+export async function grantJoker(log: ForscherLog, day: number): Promise<ForscherLog> {
+  const r = log.rounds[String(day)];
+  if (!r || r.done || r.j !== undefined) return log;
+  const next: ForscherLog = { ...log, rounds: { ...log.rounds, [String(day)]: { ...r, j: -1 } } };
+  await save(next);
+  return next;
+}
+
+export async function spendJoker(log: ForscherLog, day: number): Promise<ForscherLog> {
+  const r = log.rounds[String(day)];
+  if (!r || r.done || r.j !== -1) return log;
+  const next: ForscherLog = { ...log, rounds: { ...log.rounds, [String(day)]: { ...r, j: r.a.length } } };
+  await save(next);
+  return next;
 }
 
 // Zufall mit festem Startwert: dieselbe Runde, egal wie oft man die App öffnet
@@ -192,7 +245,7 @@ export async function answer(log: ForscherLog, day: number, value: number, ms: n
   if (!r || r.done || r.a.length >= r.q.length) return log;
   const id = r.q[r.a.length];
   const round: Round = { ...r, a: [...r.a, value], ms: [...r.ms, Math.round(ms)] };
-  const next: ForscherLog = { rounds: { ...log.rounds, [String(day)]: round }, seen: { ...log.seen, [id]: day } };
+  const next: ForscherLog = { ...log, rounds: { ...log.rounds, [String(day)]: round }, seen: { ...log.seen, [id]: day } };
   await save(next);
   return next;
 }
@@ -205,7 +258,7 @@ export async function finishRound(log: ForscherLog, day: number): Promise<Forsch
   const round: Round = { ...r, a: [...r.a, ...Array(missing).fill(-1)], ms: [...r.ms, ...Array(missing).fill(0)], done: true };
   const seen = { ...log.seen };
   for (const id of r.q) seen[id] = day;
-  const next: ForscherLog = { rounds: { ...log.rounds, [String(day)]: round }, seen };
+  const next: ForscherLog = { ...log, rounds: { ...log.rounds, [String(day)]: round }, seen };
   await save(next);
   return next;
 }

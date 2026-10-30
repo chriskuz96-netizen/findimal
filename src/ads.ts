@@ -3,3 +3,10 @@
 export function showInterstitial(): void {
   // TODO AdMob: Interstitial laden und zeigen (familiengeeignet, höchstens alle paar Minuten).
 }
+
+// Belohnungs-Video (freiwillig, z. B. für den Joker im Quiz oder „Serie retten“). Liefert true, wenn es bis
+// zum Ende angesehen wurde. Kommt mit AdMob – bis dahin gibt es die Belohnung in der Testversion gleich.
+export async function showRewarded(): Promise<boolean> {
+  // TODO AdMob: Rewarded-Anzeige laden und zeigen (familiengeeignet), erst bei „belohnt“ true liefern.
+  return true;
+}
