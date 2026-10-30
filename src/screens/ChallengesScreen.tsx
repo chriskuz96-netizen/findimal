@@ -583,8 +583,8 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
         log={forscher}
         onLog={onForscher}
         onClose={() => {
-          // keine Vollbild-Werbung, wenn heute schon ein Joker-Video lief
-          if (doneToday(forscher) && !plus && todayRound(forscher)?.j === undefined) adPending.current = true;
+          // nach einem Belohnungs-Video heute (Joker, Serie retten) fällt die Vollbild-Werbung aus (prüft showInterstitial)
+          if (doneToday(forscher) && !plus) adPending.current = true;
           setQuizOpen(false);
         }}
         p={p}
@@ -762,10 +762,13 @@ function QuizCard({
         <View style={styles.quizTop}>
           <View style={{ flex: 1 }}>
             <Text style={styles.quizKicker}>{t('fq.cardKicker', { n: ROUND_SIZE })}</Text>
-            <Text style={styles.quizTitle}>{t('fq.title')}</Text>
+            <Text style={styles.quizTitle} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75}>
+              {t('fq.title')}
+            </Text>
           </View>
-          {/* Serie groß oben rechts (in Gefahr: rot), ohne Serie der Forscher */}
-          {shown > 0 ? (
+          <Explorer size={shown > 0 ? 44 : 52} />
+          {/* Serie groß oben rechts (in Gefahr: rot) */}
+          {shown > 0 && (
             <View style={[styles.streak, danger && { backgroundColor: '#B2442E' }]}>
               <View style={styles.streakTop}>
                 <Icon name="flame" size={22} color={danger ? colors.white : colors.accentLight} />
@@ -773,8 +776,6 @@ function QuizCard({
               </View>
               <Text style={styles.streakLabel}>{danger ? t('fq.streakDanger') : shown === 1 ? t('fq.streakDay') : t('fq.streakDays')}</Text>
             </View>
-          ) : (
-            <Explorer size={52} />
           )}
         </View>
         <Text style={styles.quizText}>{started ? t('fq.cardContinue') : t('fq.cardText', { n: ROUND_SIZE })}</Text>

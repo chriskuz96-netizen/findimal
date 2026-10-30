@@ -96,7 +96,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Joker im Forscher-Quiz, einmal pro Runde (`Round.j`: -1 = frei, sonst Frage-Nr.): 4 Antworten → 50:50,
   2 Antworten → +10 Sek., Treppchen → ein Platz richtig und fest. Antwort mit Joker ohne Schnelligkeitsbonus.
 - Gratis: vor einer neuen Runde Startbildschirm „Mit Joker spielen (kurzes Video)“ / „Ohne Joker los“.
-  Plus: Joker automatisch. Wer per Video einen Joker hatte, bekommt nach dem Quiz keine Vollbild-Werbung.
+  Plus: Joker automatisch. Wer heute schon ein Belohnungs-Video gesehen hat (Joker, Serie retten,
+  Extra-Foto), bekommt heute keine große Werbung mehr (Vollbild nach dem Quiz, halbe Werbeseite) – `rewardedToday()`.
 - Serie retten: gestern verpasst, vorgestern in Serie → einmal pro Woche (`ForscherLog.saved`). Gratis per Video
   (Leiste unter der Quiz-Karte), Plus automatisch. Gerettete Tage zählen für die Serie, bringen keine XP.
 - Videos: `showRewarded()` in `src/ads.ts` gibt die Belohnung bis AdMob sofort (Testversion) – mit AdMob anschließen.

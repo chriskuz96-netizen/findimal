@@ -43,7 +43,7 @@ export const BIG_AD_FROM_PHOTO = 3;
 
 export async function bigAdDue(): Promise<boolean> {
   try {
-    if ((await usedToday()) < BIG_AD_FROM_PHOTO) return false;
+    if ((await usedToday()) < BIG_AD_FROM_PHOTO || (await rewardedToday())) return false;
     return (await AsyncStorage.getItem(BIG_AD_KEY)) !== today();
   } catch {
     return false;
@@ -72,6 +72,22 @@ export async function videosToday(): Promise<number> {
 export async function addVideoToday(): Promise<void> {
   const n = await videosToday();
   await AsyncStorage.setItem(VIDEO_KEY, JSON.stringify({ day: today(), count: n + 1 })).catch(() => {});
+}
+
+// Wer heute schon ein Belohnungs-Video angesehen hat (Joker, Serie retten, Extra-Foto),
+// bekommt heute keine große Werbung mehr (halbe Werbeseite, Vollbild nach dem Quiz)
+const REWARDED_KEY = 'findimal-rewarded-day';
+
+export async function markRewardedToday(): Promise<void> {
+  await AsyncStorage.setItem(REWARDED_KEY, today()).catch(() => {});
+}
+
+export async function rewardedToday(): Promise<boolean> {
+  try {
+    return (await AsyncStorage.getItem(REWARDED_KEY)) === today() || (await videosToday()) > 0;
+  } catch {
+    return false;
+  }
 }
 
 // Extra-Fotos aus Freundes-Einladungen (der Server zählt verbindlich, hier nur zur Anzeige)
