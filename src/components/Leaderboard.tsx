@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Alert, Platform, Pressable, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Alert, Modal, Platform, Pressable, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import {
   cleanCode,
@@ -72,6 +72,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const [pending, setPending] = useState<string[]>([]); // eigene Anfragen, noch nicht angenommen
   const [reported, setReported] = useState<string[]>([]); // selbst gemeldet: weltweit weg
   const [requests, setRequests] = useState<Person[]>([]); // Anfragen an mich
+  const [card, setCard] = useState<{ person: Person; rank: string } | null>(null); // große Profilkarte
   const [canRequest, setCanRequest] = useState(false); // kennt der Server Freundschaftsanfragen schon?
 
   useEffect(() => {
@@ -264,6 +265,23 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     setReported(next);
     saveReported(next);
   };
+  const onReport = (person: Person) => {
+    if (!me) return;
+    Alert.alert(t('lb.report'), t('lb.reportAsk', { name: person.name }), [
+      { text: t('common.cancel'), style: 'cancel' },
+      {
+        text: t('lb.report'),
+        style: 'destructive',
+        onPress: () => {
+          report(me, person.id);
+          unfriend(person);
+          hideWorld(person);
+          setCard(null);
+          Alert.alert(t('lb.report'), t('lb.reported'));
+        },
+      },
+    ]);
+  };
   const onPerson = (person: Person) =>
     Alert.alert(person.name, undefined, [
       { text: t('common.cancel'), style: 'cancel' },
@@ -333,8 +351,83 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const meInWorld = !!self && worldRows.some((x) => x.id === self.id);
   const rows = view === 'friends' ? friendRows : worldRows;
 
+  // Große Profilkarte: Bild, Name, Stufe, XP, Arten, Platz – und was man mit der Person machen kann
+  const cardPerson = card?.person;
+  const cardIsMe = !!cardPerson && cardPerson.id === me?.id;
+  const cardFriend = !!cardPerson && friends.includes(cardPerson.id);
+  const cardPending = !!cardPerson && pending.includes(cardPerson.id);
+  const profileCard = cardPerson && (
+    <Modal visible transparent animationType="fade" onRequestClose={() => setCard(null)}>
+      <Pressable style={styles.cardDim} onPress={() => setCard(null)} accessibilityLabel={t('fq.close')} />
+      <View style={styles.cardWrap} pointerEvents="box-none">
+        <View style={[styles.pcard, { backgroundColor: p.card }]}>
+          <View style={styles.pcardHead}>
+            <Pressable onPress={() => setCard(null)} hitSlop={12} style={styles.pcardClose} accessibilityRole="button" accessibilityLabel={t('fq.close')}>
+              <Text style={styles.pcardCloseText}>✕</Text>
+            </Pressable>
+            <Avatar id={(cardIsMe ? stats.avatar : cardPerson.avatar) || null} name={cardPerson.name} size={132} />
+            <Text style={styles.pcardName} numberOfLines={2} adjustsFontSizeToFit>
+              {cardPerson.name}
+              {cardIsMe ? ` (${t('lb.you')})` : ''}
+            </Text>
+            <Text style={styles.pcardLevel}>
+              {t('ch.level', { n: cardPerson.level })} · {t(`level.${Math.min(Math.max(cardPerson.level, 1), 12) - 1}` as 'level.0')}
+            </Text>
+          </View>
+          <View style={styles.pcardStats}>
+            {[
+              [cardPerson.xp.toLocaleString(locale), 'XP'],
+              [String(cardPerson.species), t('col.species')],
+              [card!.rank === '–' ? '–' : `${card!.rank}.`, t(view === 'friends' ? 'lb.rankFriends' : 'lb.rankWorld')],
+            ].map(([v, l]) => (
+              <View key={l} style={styles.pcardStat}>
+                <Text style={[styles.pcardValue, { color: p.ink }]}>{v}</Text>
+                <Text style={[styles.small, { color: p.mute }]}>{l}</Text>
+              </View>
+            ))}
+          </View>
+          {me && !cardIsMe && (
+            <View style={{ gap: 8, marginTop: 4 }}>
+              {cardFriend ? (
+                <View style={[styles.pcardInfo, { backgroundColor: 'rgba(46,122,76,0.12)' }]}>
+                  <Text style={[styles.pcardInfoText, { color: '#2E7A4C' }]}>✓ {t('lb.isFriend')}</Text>
+                </View>
+              ) : cardPending ? (
+                <View style={[styles.pcardInfo, { backgroundColor: p.bg }]}>
+                  <Text style={[styles.pcardInfoText, { color: p.mute }]}>⏳ {t('lb.pending')}</Text>
+                </View>
+              ) : canRequest ? (
+                <Pressable onPress={() => askFriend(cardPerson)} style={[styles.btn, { backgroundColor: p.button, marginTop: 0, marginHorizontal: 18 }]} accessibilityRole="button">
+                  <Text style={styles.btnText}>{t('lb.addFriend')}</Text>
+                </Pressable>
+              ) : null}
+              <View style={styles.pcardLinks}>
+                {cardFriend && (
+                  <Pressable
+                    onPress={() => {
+                      unfriend(cardPerson);
+                      setCard(null);
+                    }}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                  >
+                    <Text style={[styles.pcardLink, { color: p.mute }]}>{t('lb.removeFriend')}</Text>
+                  </Pressable>
+                )}
+                <Pressable onPress={() => onReport(cardPerson)} hitSlop={8} accessibilityRole="button">
+                  <Text style={[styles.pcardLink, { color: '#C8543A' }]}>{t('lb.report')}</Text>
+                </Pressable>
+              </View>
+            </View>
+          )}
+        </View>
+      </View>
+    </Modal>
+  );
+
   return (
     <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line }]}>
+      {profileCard}
       <Text style={[styles.h3, { color: p.ink }]}>{t('lb.title')}</Text>
 
       {/* Umschalter Freunde / Weltweit */}
@@ -401,6 +494,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               rank={String(i + 1)}
               isMe={x.id === me?.id}
               selfAvatar={stats.avatar}
+              onPress={() => setCard({ person: x, rank: String(i + 1) })}
               onLongPress={x.id !== me?.id ? () => onPerson(x) : undefined}
               // weltweit: Fremde mit einem Tipp als Freund hinzufügen
               onAdd={me && canRequest && view === 'world' && x.id !== me.id && !friends.includes(x.id) && !pending.includes(x.id) ? () => askFriend(x) : undefined}
@@ -412,7 +506,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
           {view === 'world' && self && top && !meInWorld && (
             <>
               <Text style={[styles.small, { color: p.mute, textAlign: 'center' }]}>···</Text>
-              <Row person={self} rank="–" isMe selfAvatar={stats.avatar} p={p} />
+              <Row person={self} rank="–" isMe selfAvatar={stats.avatar} onPress={() => setCard({ person: self, rank: '–' })} p={p} />
             </>
           )}
           {((view === 'friends' && people === null) || (view === 'world' && top === null)) && !error && (
@@ -505,6 +599,7 @@ function Row({
   rank,
   isMe,
   selfAvatar,
+  onPress,
   onLongPress,
   onAdd,
   isFriend,
@@ -515,6 +610,7 @@ function Row({
   rank: string;
   isMe: boolean;
   selfAvatar?: string; // eigene Zeile: Profilbild vom Handy (auch ein eigenes Foto, das nie hochgeladen wird)
+  onPress?: () => void; // Tippen: große Profilkarte
   onAdd?: () => void; // „+“: als Freund hinzufügen (weltweite Liste)
   isFriend?: boolean; // weltweite Liste: schon ein Freund (kleines Häkchen)
   isPending?: boolean; // weltweite Liste: Anfrage gesendet, wartet auf Zustimmung
@@ -523,7 +619,7 @@ function Row({
 }) {
   const { t, locale } = useI18n();
   return (
-    <Pressable onLongPress={onLongPress} style={[styles.row, isMe && { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
+    <Pressable onPress={onPress} onLongPress={onLongPress} accessibilityRole="button" style={[styles.row, isMe && { backgroundColor: 'rgba(232,131,58,0.12)' }]}>
       <Text style={[styles.rank, { color: rank === '1' ? colors.accent : p.mute }]}>{rank}</Text>
       <Avatar id={(isMe ? selfAvatar : x.avatar) || null} name={x.name} size={32} />
       <View style={{ flex: 1 }}>
@@ -575,6 +671,21 @@ const styles = StyleSheet.create({
   addBtn: { width: 28, height: 28, borderRadius: 14, borderWidth: 1.5, borderColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
   addText: { fontFamily: fonts.sansBold, fontSize: 18, color: colors.accent, marginTop: -1 },
   friendMark: { backgroundColor: '#2E7A4C', borderColor: '#2E7A4C' },
+  cardDim: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)' },
+  cardWrap: { flex: 1, justifyContent: 'center', paddingHorizontal: 24 },
+  pcard: { borderRadius: 26, overflow: 'hidden', paddingBottom: 18 },
+  pcardHead: { backgroundColor: '#143F2A', alignItems: 'center', paddingTop: 26, paddingBottom: 20, paddingHorizontal: 16 },
+  pcardClose: { position: 'absolute', right: 14, top: 12, width: 32, height: 32, borderRadius: 16, backgroundColor: 'rgba(255,255,255,0.14)', alignItems: 'center', justifyContent: 'center' },
+  pcardCloseText: { color: colors.white, fontSize: 15, fontFamily: fonts.sansBold },
+  pcardName: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white, marginTop: 12, textAlign: 'center' },
+  pcardLevel: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.accentLight, marginTop: 4 },
+  pcardStats: { flexDirection: 'row', paddingVertical: 16, paddingHorizontal: 12 },
+  pcardStat: { flex: 1, alignItems: 'center' },
+  pcardValue: { fontFamily: fonts.serifBold, fontSize: 24 },
+  pcardInfo: { marginHorizontal: 18, borderRadius: 14, paddingVertical: 12, alignItems: 'center' },
+  pcardInfoText: { fontFamily: fonts.sansBold, fontSize: 15 },
+  pcardLinks: { flexDirection: 'row', justifyContent: 'center', gap: 28, marginTop: 6 },
+  pcardLink: { fontFamily: fonts.sansBold, fontSize: 14, textDecorationLine: 'underline' },
   reqBox: { marginTop: 10, borderWidth: 1.5, borderRadius: 14, padding: 10 },
   reqTitle: { fontFamily: fonts.sansBold, fontSize: 14, marginBottom: 4 },
   reqRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 5 },
