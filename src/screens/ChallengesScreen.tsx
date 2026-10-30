@@ -655,6 +655,7 @@ const SEEN_XP_KEY = 'findimal-seen-xp';
 
 // Grün für "geschafft" (Rahmen und Marke)
 const DONE = '#6FBF8A';
+const DANGER = '#FF8F73'; // Serie in Gefahr (auf dunklem Grund gut lesbar)
 
 function XpPill({ text, done }: { text: string; done: boolean }) {
   return (
@@ -722,7 +723,7 @@ function RescueButton({ onPress }: { onPress: () => void }) {
       <Text style={styles.rescueCtaText}>{t('fq.rescue')}</Text>
       {/* Video-Zeichen statt Erklärtext */}
       <View style={styles.rescueCtaBtn}>
-        <Icon name="play" size={15} color={colors.white} />
+        <Icon name="play" size={14} color={colors.accentLight} />
         <Text style={styles.rescueCtaBtnText}>{t('fq.rescueBtn')}</Text>
       </View>
     </Pressable>
@@ -771,14 +772,16 @@ function QuizCard({
             </Text>
           </View>
           <Explorer size={shown > 0 ? 44 : 52} />
-          {/* Serie groß oben rechts (in Gefahr: rot) */}
+          {/* Serie groß oben rechts (in Gefahr: nur Flamme und Wort rot, sonst ruhig) */}
           {shown > 0 && (
-            <View style={[styles.streak, danger && { backgroundColor: '#B2442E' }]}>
+            <View style={styles.streak}>
               <View style={styles.streakTop}>
-                <Icon name="flame" size={22} color={danger ? colors.white : colors.accentLight} />
+                <Icon name="flame" size={22} color={danger ? DANGER : colors.accentLight} />
                 <Text style={styles.streakNum}>{shown}</Text>
               </View>
-              <Text style={styles.streakLabel}>{danger ? t('fq.streakDanger') : shown === 1 ? t('fq.streakDay') : t('fq.streakDays')}</Text>
+              <Text style={[styles.streakLabel, danger && { color: DANGER }]}>
+                {danger ? t('fq.streakDanger') : shown === 1 ? t('fq.streakDay') : t('fq.streakDays')}
+              </Text>
             </View>
           )}
         </View>
@@ -804,10 +807,10 @@ const styles = StyleSheet.create({
   streakTop: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   streakNum: { fontFamily: fonts.serifBold, fontSize: 26, lineHeight: 30, color: colors.white },
   streakLabel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight, marginTop: -1 },
-  rescueCta: { marginTop: 12, backgroundColor: colors.white, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 11, flexDirection: 'row', alignItems: 'center', gap: 10 },
-  rescueCtaText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 19, color: colors.ink },
-  rescueCtaBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: '#B2442E', borderRadius: 12, paddingHorizontal: 11, paddingVertical: 7 },
-  rescueCtaBtnText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white },
+  rescueCta: { marginTop: 12, backgroundColor: 'rgba(255,255,255,0.55)', borderRadius: 14, paddingLeft: 14, paddingRight: 6, paddingVertical: 6, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  rescueCtaText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 14, color: colors.ink },
+  rescueCtaBtn: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: colors.ink, borderRadius: 10, paddingHorizontal: 11, paddingVertical: 6 },
+  rescueCtaBtnText: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.accentLight },
   doneRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   doneStreak: { flexDirection: 'row', alignItems: 'center', gap: 3 },
   doneStreakText: { fontFamily: fonts.serifBold, fontSize: 18 },
