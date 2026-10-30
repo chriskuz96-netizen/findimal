@@ -92,6 +92,12 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - „Entfernen“ bei Freunden lässt die Person in der weltweiten Liste. Weltweit verschwindet jemand nur durch Melden
   (bei einem selbst sofort, für alle nach 3 Meldungen).
 
+## Bilder ohne Kameradaten (30.10.)
+- Aus der Fotoauswahl und ohne Kameradaten (Make/Model/Objektiv/Aufnahmezeit, `hasCameraData` in `src/camera.ts`):
+  wird bestimmt, aber als `bildart: 'fremd'` gespeichert → „Nur zum Nachschlagen“, keine XP/Rangliste/Abzeichen.
+  Prüfung läuft nur auf dem Handy (keine Kosten). Kamera-Fotos der App und eigene Mediathek-Fotos sind nicht betroffen.
+- In der Web-Vorschau haben Bilder nie Kameradaten → dort ist jedes hochgeladene Bild „Nachschlagen“.
+
 ## Joker und „Serie retten“ (30.10.)
 - Joker im Forscher-Quiz, einmal pro Runde (`Round.j`: -1 = frei, sonst Frage-Nr.): 4 Antworten → 50:50,
   2 Antworten → +10 Sek., Treppchen → ein Platz richtig und fest. Antwort mit Joker ohne Schnelligkeitsbonus.

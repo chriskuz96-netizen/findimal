@@ -156,11 +156,9 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const shareRef = useRef<View>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
-  // Bild ohne Kameradaten (aus dem Netz, Screenshot, WhatsApp …): erst fragen, ob man es selbst fotografiert hat.
-  // „Nein“: wird trotzdem bestimmt, zählt aber nicht (keine Punkte) – wie ein erkanntes Internetbild.
-  const [own, setOwn] = useState<'ask' | 'yes' | 'no' | null>(photo?.foreign && !saved ? 'ask' : null);
-  const ownRef = useRef(own);
-  ownRef.current = own;
+  // Bild ohne Kameradaten (aus dem Netz, Screenshot, Chat …): wird bestimmt, zählt aber nicht (keine Punkte) –
+  // wie ein erkanntes Internetbild. Die Prüfung läuft auf dem Handy (camera.ts), kostet also nichts.
+  const foreign = useRef(!!photo?.foreign && !saved).current;
 
   // Laufende Bestimmung (zum Abbrechen) und Stand davor (bei einem weiteren Foto)
   const pending = useRef<IdentifyCancel | null>(null);
@@ -175,7 +173,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
       const c = newCancel();
       pending.current = c;
       identify(list, t, lang, c, korrektur).then(async (r) => {
-        if (ownRef.current === 'no' && r.ok && r.animal.tier_gefunden && !notReal(r.animal)) r = { ...r, animal: { ...r.animal, bildart: 'fremd' } };
+        if (foreign && r.ok && r.animal.tier_gefunden && !notReal(r.animal)) r = { ...r, animal: { ...r.animal, bildart: 'fremd' } };
         // abgebrochen oder von einer neueren Bestimmung überholt: nichts anzeigen, nichts speichern
         if (pending.current !== c || (!r.ok && r.cancelled)) return;
         pending.current = null;
@@ -206,10 +204,8 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   );
 
   useEffect(() => {
-    if (photo && own !== 'ask') run([photo]);
-    // nach der Antwort auf die Rückfrage genau einmal starten
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [photo, run, own === 'ask']);
+    if (photo) run([photo]);
+  }, [photo, run]);
 
   // fresh = true: kein Tier erkannt, das neue Foto ersetzt das alte statt es zu ergänzen
   const adding = useRef(false); // kein zweites Foto, solange eins noch geholt wird
@@ -292,15 +288,14 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   const unsure = canAddPhoto && animal.sicherheit !== 'sicher';
   const noAnimal = !!morePhoto && !!result?.ok && !animal;
   const busy = !!onIdentified && !result; // wird gerade bestimmt: nur Abbrechen möglich
-  const asking = own === 'ask'; // Rückfrage „selbst fotografiert?“ steht noch aus
   // Wartezeit in Sekunden: längeres Warten bekommt neue Texte, Abbrechen erscheint erst später
   const [waited, setWaited] = useState(0);
   useEffect(() => {
-    if (!busy || asking) return setWaited(0);
+    if (!busy) return setWaited(0);
     const start = Date.now();
     const timer = setInterval(() => setWaited(Math.floor((Date.now() - start) / 1000)), 1000);
     return () => clearInterval(timer);
-  }, [busy, asking]);
+  }, [busy]);
   const waitText =
     waited >= 35 ? t('res.looking5') : waited >= 22 ? t('res.looking4') : waited >= 12 ? t('res.looking3') : waited >= 6 ? t('res.looking2') : t('res.looking');
   const canCancel = busy && waited >= CANCEL_AFTER;
@@ -326,20 +321,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
                 accessibilityLabel={t('res.yourPhoto')}
               />
             )}
-            {!result && asking && (
-              <View style={styles.loading}>
-                <Explorer size={56} />
-                <Text style={[styles.loadingTitle, { textAlign: 'center', paddingHorizontal: 24 }]}>{t('res.ownTitle')}</Text>
-                <Text style={styles.loadingText}>{t('res.ownText')}</Text>
-                <Pressable onPress={() => setOwn('yes')} accessibilityRole="button" style={({ pressed }) => [styles.ownYes, { opacity: pressed ? 0.85 : 1 }]}>
-                  <Text style={styles.ownYesText}>{t('res.ownYes')}</Text>
-                </Pressable>
-                <Pressable onPress={() => setOwn('no')} accessibilityRole="button" hitSlop={8} style={styles.ownNo}>
-                  <Text style={styles.ownNoText}>{t('res.ownNo')}</Text>
-                </Pressable>
-              </View>
-            )}
-            {!result && !asking && (
+            {!result && (
               <View style={styles.loading}>
                 <Explorer size={64} />
                 <Text style={styles.loadingTitle}>{t('res.wait')}</Text>
@@ -399,7 +381,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
                       {animal.bildart === 'internet' ? t('res.fake.netz') : t(`res.fake.${animal.bildart}` as 'res.fake.zeichnung')}
                     </Text>
                   </View>
-                  <Text style={[styles.body, { color: p.ink }]}>{t(animal.bildart === 'internet' || animal.bildart === 'fremd' ? 'res.fakeNetText' : 'res.fakeText')}</Text>
+                  <Text style={[styles.body, { color: p.ink }]}>{t(animal.bildart === 'fremd' ? 'res.fakeFremdText' : animal.bildart === 'internet' ? 'res.fakeNetText' : 'res.fakeText')}</Text>
                 </View>
               )}
               {animal && (
@@ -905,10 +887,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   cancelBtn: { marginTop: 14 },
-  ownYes: { marginTop: 16, backgroundColor: colors.accentLight, borderRadius: 16, paddingHorizontal: 22, paddingVertical: 12 },
-  ownYesText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.ink },
-  ownNo: { marginTop: 12, paddingVertical: 4 },
-  ownNoText: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white, opacity: 0.85, textDecorationLine: 'underline' },
   cancelText: { fontFamily: fonts.sans, fontSize: 13, color: colors.white, opacity: 0.6, textDecorationLine: 'underline' },
   cancelHint: { fontFamily: fonts.sans, fontSize: 10.5, color: colors.white, opacity: 0.45, marginTop: 3 },
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.white },
