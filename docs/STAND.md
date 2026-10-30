@@ -85,6 +85,12 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Server: `board_photo`, Bild unter `ph:<Code>` im KV, abrufbar unter `/profilbild/<Code>`; wird beim Austreten gelöscht
   und bei 3 Meldungen ausgeblendet. Datenschutzseite ist angepasst.
 
+## Rangliste: Freundschaftsanfragen (30.10.)
+- Weltweite Liste: „+“ schickt eine Anfrage (`board_request`, offen unter `rq:<Code>`). Der andere sieht sie bei „Freunde“
+  und kann annehmen/ablehnen (`board_answer`). Per Code/Einladungslink geht es weiter sofort.
+- „Entfernen“ bei Freunden lässt die Person in der weltweiten Liste. Weltweit verschwindet jemand nur durch Melden
+  (bei einem selbst sofort, für alle nach 3 Meldungen).
+
 ## Natur-Tipps (Mitteilungen)
 - `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
 - Kein Push-Server, kein Token. Frage nach dem ersten Fund, Schalter im Profil, Test-Knopf nur in `__DEV__`.
