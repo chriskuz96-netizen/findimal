@@ -7,6 +7,7 @@ import Svg, { Circle, Defs, G, LinearGradient, Path, Rect, Stop } from 'react-na
 import { AdSlot } from '../components/AdSlot';
 import { Avatar } from '../components/Avatar';
 import { Explorer } from '../components/Explorer';
+import { Icon } from '../components/Icon';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Leaderboard } from '../components/Leaderboard';
 import type { SeasonAwards, SeasonStats } from '../board';
@@ -364,15 +365,9 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
 
   // Forscher-Quiz: offen = auffällige orange Karte ganz oben (pulsiert leicht), geschafft = wie die anderen Aufgaben
   const days = streak(forscher);
+  // nach dem Retten kurz bestätigen (das Angebot selbst steht groß in der Quiz-Karte)
   const rescueBar =
-    rescueN > 0 ? (
-      <View style={[styles.rescue, { backgroundColor: p.card, borderColor: colors.accent }]}>
-        <Text style={[styles.rescueText, { color: p.ink }]}>{rescueN === 1 ? t('fq.rescue1') : t('fq.rescue', { n: rescueN })}</Text>
-        <Pressable onPress={rescue} hitSlop={6} accessibilityRole="button" style={({ pressed }) => [styles.rescueBtn, { opacity: pressed ? 0.85 : 1 }]}>
-          <Text style={styles.rescueBtnText}>{t('fq.rescueBtn')} ›</Text>
-        </Pressable>
-      </View>
-    ) : rescueNote ? (
+    rescueN === 0 && rescueNote ? (
       <View style={[styles.rescue, { backgroundColor: p.card, borderColor: DONE }]}>
         <Text style={[styles.rescueText, { color: p.ink }]}>✓ {rescueNote}</Text>
       </View>
@@ -385,15 +380,27 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
           <XpPill text={`+${quizRound ? roundXp(quizRound) : 0} XP`} done />
         </View>
         {fresh.quiz && doneNow}
-        <Text style={[styles.misText, { color: p.ink, fontSize: 16 }]}>
-          {t('fq.doneText', { n: quizRound ? roundCorrect(quizRound) : 0, max: ROUND_SIZE })}
-        </Text>
+        <View style={styles.doneRow}>
+          <Text style={[styles.misText, { color: p.ink, fontSize: 16, flex: 1 }]}>
+            {t('fq.doneText', { n: quizRound ? roundCorrect(quizRound) : 0, max: ROUND_SIZE })}
+          </Text>
+          {/* Serie auch nach der Runde sichtbar */}
+          {days > 0 && (
+            <View style={styles.doneStreak}>
+              <Icon name="flame" size={16} color={colors.accent} />
+              <Text style={[styles.doneStreakText, { color: p.ink }]}>{days}</Text>
+            </View>
+          )}
+        </View>
+        {rescueN > 0 && <RescueButton n={rescueN} onPress={rescue} />}
       </View>
     </Pressable>
   ) : (
     <QuizCard
       started={!!quizRound && quizRound.a.length > 0}
       days={days}
+      rescueN={rescueN}
+      onRescue={rescue}
       onPress={() => setQuizOpen(true)}
     />
   );
@@ -707,12 +714,37 @@ function BadgeView({
 }
 
 // Offenes Forscher-Quiz: orange Karte mit dem Forscher, leuchtet sanft – antippen startet sofort
-function QuizCard({ started, days, onPress }: { started: boolean; days: number; onPress: () => void }) {
+// Serie retten: großer Knopf in der Quiz-Karte (wichtig, sonst schaut niemand das Video)
+function RescueButton({ n, onPress }: { n: number; onPress: () => void }) {
+  const { t } = useI18n();
+  return (
+    <Pressable onPress={onPress} accessibilityRole="button" style={({ pressed }) => [styles.rescueCta, { opacity: pressed ? 0.85 : 1 }]}>
+      <Text style={styles.rescueCtaText}>{n === 1 ? t('fq.rescue1') : t('fq.rescue', { n })}</Text>
+      <Text style={styles.rescueCtaBtn}>{t('fq.rescueBtn')} ›</Text>
+    </Pressable>
+  );
+}
+
+function QuizCard({
+  started,
+  days,
+  rescueN,
+  onRescue,
+  onPress,
+}: {
+  started: boolean;
+  days: number;
+  rescueN: number; // > 0: gestern verpasst, Serie dieser Länge kann man retten
+  onRescue: () => void;
+  onPress: () => void;
+}) {
   const { t } = useI18n();
   const pulse = useLoop(2200);
   const glow = pulse.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.35, 0.9, 0.35] });
   // Verlauf in fester Größe (auf dem iPhone füllt ein Svg mit 100 % die Karte nicht zuverlässig aus)
   const [size, setSize] = useState({ width: 0, height: 0 });
+  const danger = rescueN > 0;
+  const shown = danger ? rescueN : days;
   return (
     <Pressable onPress={onPress} accessibilityRole="button" style={({ pressed }) => [styles.quizCard, { opacity: pressed ? 0.9 : 1 }]}>
       <Animated.View pointerEvents="none" style={[styles.quizGlow, { opacity: glow }]} />
@@ -732,15 +764,22 @@ function QuizCard({ started, days, onPress }: { started: boolean; days: number; 
             <Text style={styles.quizKicker}>{t('fq.cardKicker', { n: ROUND_SIZE })}</Text>
             <Text style={styles.quizTitle}>{t('fq.title')}</Text>
           </View>
-          <Explorer size={52} />
+          {/* Serie groß oben rechts (in Gefahr: rot), ohne Serie der Forscher */}
+          {shown > 0 ? (
+            <View style={[styles.streak, danger && { backgroundColor: '#B2442E' }]}>
+              <View style={styles.streakTop}>
+                <Icon name="flame" size={22} color={danger ? colors.white : colors.accentLight} />
+                <Text style={styles.streakNum}>{shown}</Text>
+              </View>
+              <Text style={styles.streakLabel}>{danger ? t('fq.streakDanger') : shown === 1 ? t('fq.streakDay') : t('fq.streakDays')}</Text>
+            </View>
+          ) : (
+            <Explorer size={52} />
+          )}
         </View>
         <Text style={styles.quizText}>{started ? t('fq.cardContinue') : t('fq.cardText', { n: ROUND_SIZE })}</Text>
+        {danger && <RescueButton n={rescueN} onPress={onRescue} />}
         <View style={styles.quizRow}>
-          {days > 0 && (
-            <View style={styles.quizChip}>
-              <Text style={styles.quizChipText}>{days === 1 ? t('fq.days1') : t('fq.days', { n: days })}</Text>
-            </View>
-          )}
           <View style={styles.quizChip}>
             <Text style={styles.quizChipText}>{t('fq.upTo', { xp: XP_MAX })}</Text>
           </View>
@@ -755,10 +794,18 @@ function QuizCard({ started, days, onPress }: { started: boolean; days: number; 
 
 const styles = StyleSheet.create({
   quizCard: { marginHorizontal: spacing.gutter, marginTop: 14 },
+  streak: { backgroundColor: colors.ink, borderRadius: 16, paddingHorizontal: 12, paddingVertical: 7, alignItems: 'center', minWidth: 74 },
+  streakTop: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  streakNum: { fontFamily: fonts.serifBold, fontSize: 26, lineHeight: 30, color: colors.white },
+  streakLabel: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.accentLight, marginTop: -1 },
+  rescueCta: { marginTop: 12, backgroundColor: colors.white, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 11, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  rescueCtaText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 19, color: colors.ink },
+  rescueCtaBtn: { fontFamily: fonts.sansBold, fontSize: 14, color: colors.white, backgroundColor: '#B2442E', borderRadius: 12, overflow: 'hidden', paddingHorizontal: 11, paddingVertical: 7 },
+  doneRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  doneStreak: { flexDirection: 'row', alignItems: 'center', gap: 3 },
+  doneStreakText: { fontFamily: fonts.serifBold, fontSize: 18 },
   rescue: { marginHorizontal: spacing.gutter, marginTop: 8, borderWidth: 1.5, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 10, flexDirection: 'row', alignItems: 'center', gap: 10 },
   rescueText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 19 },
-  rescueBtn: { backgroundColor: colors.accent, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8 },
-  rescueBtnText: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.white },
   quizGlow: { position: 'absolute', left: -4, right: -4, top: -4, bottom: -4, borderRadius: 26, borderWidth: 3, borderColor: colors.accentLight, shadowColor: colors.accent, shadowOpacity: 0.8, shadowRadius: 12, shadowOffset: { width: 0, height: 0 } },
   quizInner: { borderRadius: 22, overflow: 'hidden', padding: 16, backgroundColor: colors.accent },
   quizBg: { position: 'absolute', left: 0, top: 0 },
