@@ -19,7 +19,9 @@ const FRIENDS_KEY = 'findimal-friends';
 const SENT_KEY = 'findimal-board-sent';
 const REMOVED_KEY = 'findimal-friends-removed'; // entfernte Freunde nicht wieder automatisch aufnehmen
 const PENDING_KEY = 'findimal-friends-pending'; // eigene offene Freundschaftsanfragen (warten auf Zustimmung)
-const HIDDEN_KEY = 'findimal-board-hidden'; // weltweit ausgeblendet oder gemeldet (Entfernen bei Freunden blendet nicht aus)
+// selbst gemeldet: weltweit sofort weg (für alle erst nach 3 Meldungen). Frühere Ausblendungen
+// ('findimal-board-hidden', 'findimal-friends-removed') gelten weltweit nicht mehr.
+const REPORTED_KEY = 'findimal-board-reported';
 // Automatisch in der Rangliste: nur wer sich bei der Einrichtung einen Entdecker-Namen gegeben hat
 // (ältere Nutzer haben evtl. ihren echten Namen eingetippt – die machen weiter selbst mit).
 const AUTO_KEY = 'findimal-board-auto';
@@ -152,8 +154,8 @@ async function loadList(key: string): Promise<string[]> {
 }
 export const loadPending = () => loadList(PENDING_KEY);
 export const savePending = (ids: string[]) => AsyncStorage.setItem(PENDING_KEY, JSON.stringify(ids)).catch(() => {});
-export const loadHidden = () => loadList(HIDDEN_KEY);
-export const saveHidden = (ids: string[]) => AsyncStorage.setItem(HIDDEN_KEY, JSON.stringify(ids)).catch(() => {});
+export const loadReported = () => loadList(REPORTED_KEY);
+export const saveReported = (ids: string[]) => AsyncStorage.setItem(REPORTED_KEY, JSON.stringify(ids)).catch(() => {});
 
 // Mitmachen: eigenen Freundescode anlegen und die eigenen Werte hochladen.
 // Liefert einen Fehlergrund oder null bei Erfolg.

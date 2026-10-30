@@ -14,7 +14,7 @@ import {
   link,
   loadFriends,
   loadMe,
-  loadHidden,
+  loadReported,
   loadPending,
   loadRemoved,
   Me,
@@ -25,7 +25,7 @@ import {
   saveFriends,
   answerRequest,
   requestFriend,
-  saveHidden,
+  saveReported,
   savePending,
   saveRemoved,
   syncMe,
@@ -70,17 +70,17 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const [view, setView] = useState<'friends' | 'world'>('friends');
   const [top, setTop] = useState<Person[] | null>(null);
   const [pending, setPending] = useState<string[]>([]); // eigene Anfragen, noch nicht angenommen
-  const [hidden, setHidden] = useState<string[]>([]); // weltweit ausgeblendet/gemeldet
+  const [reported, setReported] = useState<string[]>([]); // selbst gemeldet: weltweit weg
   const [requests, setRequests] = useState<Person[]>([]); // Anfragen an mich
   const [canRequest, setCanRequest] = useState(false); // kennt der Server Freundschaftsanfragen schon?
 
   useEffect(() => {
-    Promise.all([loadMe(), loadFriends(), loadRemoved(), loadPending(), loadHidden()]).then(([m, f, r, pe, h]) => {
+    Promise.all([loadMe(), loadFriends(), loadRemoved(), loadPending(), loadReported()]).then(([m, f, r, pe, rep]) => {
       setMe(m);
       setFriends(f);
       setRemoved(r);
       setPending(pe);
-      setHidden(h);
+      setReported(rep);
     });
   }, []);
 
@@ -259,10 +259,10 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     }
   };
   const hideWorld = (person: Person) => {
-    if (hidden.includes(person.id)) return;
-    const h = [...hidden, person.id];
-    setHidden(h);
-    saveHidden(h);
+    if (reported.includes(person.id)) return;
+    const next = [...reported, person.id];
+    setReported(next);
+    saveReported(next);
   };
   const onPerson = (person: Person) =>
     Alert.alert(person.name, undefined, [
@@ -329,7 +329,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   // Freunde: ich + Freunde nach XP; Weltweit: Top 50 vom Server (ich ggf. unten angehängt)
   const self: Person | null = me ? { id: me.id, ...stats } : null;
   const friendRows = self ? [self, ...(people ?? []).filter((x) => x.id !== self.id)].sort((a, b) => b.xp - a.xp) : [];
-  const worldRows = (top ?? []).filter((x) => !hidden.includes(x.id)).map((x) => (self && x.id === self.id ? self : x));
+  const worldRows = (top ?? []).filter((x) => !reported.includes(x.id)).map((x) => (self && x.id === self.id ? self : x));
   const meInWorld = !!self && worldRows.some((x) => x.id === self.id);
   const rows = view === 'friends' ? friendRows : worldRows;
 
