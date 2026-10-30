@@ -32,6 +32,8 @@ import { disableTips, enableTips, loadTips, testTip } from '../notify';
 import { loadZone } from '../zone';
 import { favoriteGroup, Progress } from '../progress';
 import { GroupIcon } from '../groups';
+import { Icon } from '../components/Icon';
+import { seasonName } from '../components/Leaderboard';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
@@ -40,6 +42,7 @@ type Props = {
   avatar: string | null; // Abzeichen oder Plus-Tier
   progress: Progress;
   finds: Find[];
+  season: { season: string; sxp: number; best: { s: string; r: number } | null }; // diese Saison und beste Platzierung
   onBack: () => void;
   onRename: (name: string) => void;
   onChangeRegion: () => void;
@@ -49,10 +52,10 @@ type Props = {
 
 // Profil: Name, Profilbild, Stufe, Statistik, Region und Zurücksetzen.
 export function ProfileScreen(props: Props) {
-  const { name, region, avatar, progress, finds, onBack, onRename, onChangeRegion, onSelectAvatar, onReset } = props;
+  const { name, region, avatar, progress, finds, season, onBack, onRename, onChangeRegion, onSelectAvatar, onReset } = props;
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
-  const { t, lang } = useI18n();
+  const { t, lang, locale } = useI18n();
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
   const [picking, setPicking] = useState(false); // Auswahlfenster fürs Profilbild
@@ -258,17 +261,32 @@ export function ProfileScreen(props: Props) {
               {progress.nextLevelXp ? `${progress.xp} / ${progress.nextLevelXp} XP` : `${progress.xp} XP`}
             </Text>
           </View>
-          {/* Meist fotografierte Tiergruppe (sehen auch andere auf der Profilkarte in der Rangliste) */}
-          {fav && (
-            <View style={styles.favRow}>
-              <View style={styles.favIcon}>
-                <GroupIcon id={fav.id} size={17} color={colors.accentLight} />
+          {/* Meist fotografiert, diese Saison, beste Saison: eine Zeile mit drei Feldern (wie auf der Profilkarte in der Rangliste) */}
+          <View style={[styles.more, { borderColor: p.line }]}>
+            {(
+              [
+                [fav ? <GroupIcon id={fav.id} size={14} color={colors.accentLight} /> : null, fav ? t(`g.${fav.id}` as 'g.bird') : '–', t('lb.fav')],
+                [<Icon name="star" size={13} color={colors.accentLight} />, `${season.sxp.toLocaleString(locale)} XP`, seasonName(season.season, t)],
+                [
+                  <Icon name="trophy" size={13} color={colors.accentLight} />,
+                  season.best ? t('pro.rankShort', { rank: season.best.r }) : '–',
+                  season.best ? seasonName(season.best.s, t) : t('lb.bestSeason'),
+                ],
+              ] as const
+            ).map(([icon, value, label], i) => (
+              <View key={i} style={styles.moreItem}>
+                <View style={styles.moreTop}>
+                  {icon && <View style={styles.moreIcon}>{icon}</View>}
+                  <Text style={[styles.moreValue, { color: p.ink }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75}>
+                    {value}
+                  </Text>
+                </View>
+                <Text style={[styles.moreLabel, { color: p.mute }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8}>
+                  {label}
+                </Text>
               </View>
-              <Text style={[styles.favText, { color: p.ink }]}>
-                {t('lb.fav')}: <Text style={{ fontFamily: fonts.sansBold }}>{t(`g.${fav.id}` as 'g.bird')}</Text> ({fav.n})
-              </Text>
-            </View>
-          )}
+            ))}
+          </View>
         </Card>
 
         {/* Findimal Plus: was dazugehört */}
@@ -392,9 +410,12 @@ const styles = StyleSheet.create({
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.accentLight },
   pr: { flexDirection: 'row', alignItems: 'center', gap: 14 },
   prText: { flex: 1, minWidth: 0, alignItems: 'flex-start' },
-  favRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12 },
-  favIcon: { width: 30, height: 30, borderRadius: 15, backgroundColor: '#143F2A', alignItems: 'center', justifyContent: 'center' },
-  favText: { flex: 1, fontFamily: fonts.sans, fontSize: 14.5 },
+  more: { flexDirection: 'row', marginTop: 12, paddingTop: 10, borderTopWidth: 1 },
+  moreItem: { flex: 1, alignItems: 'center', paddingHorizontal: 2 },
+  moreTop: { flexDirection: 'row', alignItems: 'center', gap: 5, maxWidth: '100%' },
+  moreIcon: { width: 22, height: 22, borderRadius: 11, backgroundColor: '#143F2A', alignItems: 'center', justifyContent: 'center' },
+  moreValue: { flexShrink: 1, fontFamily: fonts.sansBold, fontSize: 14.5 },
+  moreLabel: { fontFamily: fonts.sans, fontSize: 11.5, marginTop: 3 },
   avatarEdit: {
     position: 'absolute',
     right: -2,

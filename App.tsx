@@ -467,6 +467,7 @@ function Main() {
       avatar={avatarBadge}
       progress={progress}
       finds={realFinds}
+      season={seasonInfo}
       onBack={() => setShowProfile(false)}
       onRename={(n) => {
         saveName(n);
