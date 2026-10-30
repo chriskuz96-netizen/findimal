@@ -20,6 +20,7 @@ import { GroupIcon, GroupId, groupOf, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
 import { displayName } from '../names';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
+import { levelTitle } from '../progress';
 
 type Props = {
   finds: Find[];
@@ -86,7 +87,7 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
               {/* gleiche Schreibweise wie in Challenges und Profil: Stufe orange, Titel weiß */}
               <Text style={styles.meLevel} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75}>
                 <Text style={styles.meCaps}>{t('ch.level', { n: level })}</Text> ·{' '}
-                <Text style={{ color: colors.white }}>{t(`level.${level - 1}` as 'level.0')}</Text>
+                <Text style={{ color: colors.white }}>{levelTitle(level, t)}</Text>
               </Text>
             </View>
             <Avatar id={avatar} name={name} size={32} />

@@ -4,6 +4,7 @@ import { Animated, Easing, Modal, Pressable, StyleSheet, Text, useWindowDimensio
 
 import { useI18n } from '../i18n';
 import { colors, fonts } from '../theme';
+import { levelTitle } from '../progress';
 
 // Große Feier bei einer neuen Stufe: Konfetti, die neue Stufe springt groß auf, darunter der Rang.
 // Verschwindet nach knapp 4 Sekunden von selbst (oder früher per Tippen).
@@ -130,7 +131,7 @@ export function LevelUp({ level, onClose }: { level: number | null; onClose: () 
           <Animated.View style={{ alignItems: 'center', opacity: text, transform: [{ translateY: rise }] }}>
             <Text style={styles.kicker}>{t('lvl.up')}</Text>
             <Text style={styles.caps}>{t('ch.level', { n: level })}</Text>
-            <Text style={styles.name}>{t(`level.${level - 1}` as 'level.0')}</Text>
+            <Text style={styles.name}>{levelTitle(level, t)}</Text>
           </Animated.View>
         </View>
       </Animated.View>

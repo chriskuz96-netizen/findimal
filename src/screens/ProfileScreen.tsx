@@ -30,7 +30,7 @@ import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
 import { loadZone } from '../zone';
-import { favoriteGroup, Progress } from '../progress';
+import { favoriteGroup, levelTitle, Progress } from '../progress';
 import { GroupIcon } from '../groups';
 import { Icon } from '../components/Icon';
 import { seasonName } from '../components/Leaderboard';
@@ -233,7 +233,7 @@ export function ProfileScreen(props: Props) {
               {/* wie auf der Challenges-Seite: STUFE orange, Stufenname weiß */}
               <Text style={styles.nick}>
                 <Text style={styles.nickCaps}>{t('ch.level', { n: progress.level })}</Text> ·{' '}
-                <Text style={{ color: colors.white }}>{t(`level.${progress.level - 1}` as 'level.0')}</Text>
+                <Text style={{ color: colors.white }}>{levelTitle(progress.level, t)}</Text>
               </Text>
               {/* Ort: antippen zum Ändern */}
               <PlaceChip

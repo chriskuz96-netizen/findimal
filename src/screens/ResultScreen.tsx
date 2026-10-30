@@ -26,7 +26,7 @@ import { Find, speciesKey, useFindPhoto } from '../finds';
 import { useI18n } from '../i18n';
 import { Animal, cancelIdentify, hasDetails, identify, IdentifyCancel, IdentifyResult, Korrektur, loadDetails, newCancel } from '../identify';
 import { breedGuessed, displayName } from '../names';
-import { Progress, Reward } from '../progress';
+import { levelTitle, Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 import { usePlus } from '../plus';
 import { bigAdDue, markBigAdShown } from '../usage';
@@ -692,7 +692,7 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
     badge: t('rew.badge'),
   };
   const lvl = reward.after.level;
-  const lvlName = t(`level.${shownLevel - 1}` as 'level.0');
+  const lvlName = levelTitle(shownLevel, t);
   const maxLevel = !reward.after.nextLevelXp && shownLevel === lvl;
 
   if (gone) return null;

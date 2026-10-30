@@ -37,7 +37,7 @@ import {
 import { photoForAvatar } from '../avatarPhoto';
 import { useI18n } from '../i18n';
 import { usePlus } from '../plus';
-import { previousSeasonKey, SEASON_REWARDS, seasonReward, XP } from '../progress';
+import { levelTitle, previousSeasonKey, SEASON_REWARDS, seasonReward, XP } from '../progress';
 import { GroupIcon, GroupId } from '../groups';
 import { seasonDaysLeft } from '../season';
 import { bonusPhotos } from '../usage';
@@ -426,7 +426,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               {cardIsMe ? ` (${t('lb.you')})` : ''}
             </Text>
             <Text style={styles.pcardLevel}>
-              {t('ch.level', { n: cardPerson.level })} · {t(`level.${Math.min(Math.max(cardPerson.level, 1), 12) - 1}` as 'level.0')}
+              {t('ch.level', { n: cardPerson.level })} · {levelTitle(cardPerson.level, t)}
             </Text>
           </View>
           <View style={styles.pcardStats}>

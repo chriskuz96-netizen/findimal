@@ -16,7 +16,7 @@ import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
 import { useI18n } from '../i18n';
 import { useLoop } from '../hooks/useLoop';
-import { Badge, dayKey, levelAt, Progress, seasonKey, XP } from '../progress';
+import { Badge, dayKey, levelAt, levelTitle, Progress, seasonKey, XP } from '../progress';
 import { seasonDaysLeft } from '../season';
 import { WeekTask, weekStart } from '../weekly';
 import { ForscherQuiz } from '../components/ForscherQuiz';
@@ -478,7 +478,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
               </Text>
               <Text style={styles.levelSmall}>
                 <Text style={styles.levelCaps}>{t('ch.level', { n: shownLevel })}</Text> ·{' '}
-                <Text style={{ color: colors.white }}>{t(`level.${shownLevel - 1}` as 'level.0')}</Text>
+                <Text style={{ color: colors.white }}>{levelTitle(shownLevel, t)}</Text>
               </Text>
             </View>
             <View style={{ alignItems: 'flex-end' }}>

@@ -4,6 +4,7 @@ import { GroupId, groupOf } from './groups';
 import { breedGuessed } from './names';
 import { seasonId } from './season';
 import { taskDone, thisWeek, weekStart, weekTask, WeekTask, weeksDone } from './weekly';
+import type { Translate } from './i18n';
 
 // Alles rund um Erfahrungspunkte (XP), Stufen, Saison-Ziel und Abzeichen.
 // Wird immer frisch aus den Funden (und Quiz-Antworten) berechnet, damit nichts
@@ -18,8 +19,10 @@ export const XP = {
   friend: 50, // je Freund in der Rangliste (höchstens 10)
 };
 
-// XP ab der jeweiligen Stufe (Namen: Texte 'level.0' bis 'level.11')
-const LEVELS = [0, 100, 200, 400, 700, 1100, 1600, 2200, 3000, 4000, 5200, 6600];
+// XP ab der jeweiligen Stufe (Namen: Texte 'level.0' bis 'level.19'). Nach Stufe 20 geht es endlos weiter:
+// alle 4.000 XP ein Stern („Findimal-Legende ★1“, „★2“ …) – man levelt nie „ins Nichts“.
+const LEVELS = [0, 100, 200, 400, 700, 1100, 1600, 2200, 3000, 4000, 5200, 6600, 8200, 10000, 12000, 14500, 17000, 20000, 23500, 27000];
+const STAR_STEP = 4000;
 
 // ---------- Datum-Helfer (lokale Zeit) ----------
 
@@ -439,7 +442,18 @@ export function computeProgress(
 export function levelAt(xp: number): { level: number; levelStart: number; nextLevelXp: number | null } {
   let level = 0;
   while (level + 1 < LEVELS.length && xp >= LEVELS[level + 1]) level++;
-  return { level: level + 1, levelStart: LEVELS[level], nextLevelXp: LEVELS[level + 1] ?? null };
+  if (level + 1 < LEVELS.length) return { level: level + 1, levelStart: LEVELS[level], nextLevelXp: LEVELS[level + 1] };
+  // ab Stufe 20: Legenden-Sterne
+  const stars = Math.floor((xp - LEVELS[LEVELS.length - 1]) / STAR_STEP);
+  const start = LEVELS[LEVELS.length - 1] + stars * STAR_STEP;
+  return { level: LEVELS.length + stars, levelStart: start, nextLevelXp: start + STAR_STEP };
+}
+
+// Name einer Stufe; ab Stufe 21 „Findimal-Legende ★1“, „★2“ …
+export function levelTitle(level: number, t: Translate): string {
+  const n = Math.max(1, Math.floor(level));
+  const stars = n - LEVELS.length;
+  return stars > 0 ? `${t(`level.${LEVELS.length - 1}` as 'level.0')} ★${stars}` : t(`level.${n - 1}` as 'level.0');
 }
 
 export type RewardItem = 'find' | 'newSpecies' | 'season' | 'week' | 'badge';
