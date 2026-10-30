@@ -22,7 +22,7 @@ import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar, loadMe, loadSe
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
-import { Animal, checkAppKey, getAppKey, translateAnimal } from './src/identify';
+import { Animal, checkAppKey, getAppKey, translateAnimal, warmUp } from './src/identify';
 import { updateBeforeSetup } from './src/firstUpdate';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
@@ -129,6 +129,7 @@ function Main() {
       // (sonst sieht man „Moment …“ beim Hochfahren durchscheinen). Fährt sie nach dem Foto weg,
       // kommt direkt „Moment …“ statt kurz die Startseite.
       const onOpen = () => {
+        warmUp(); // Verbindung zum Server schon aufbauen, während man fotografiert
         under = setTimeout(() => setPreparing((cur) => cur ?? ''), 700);
       };
       const p = await get((uri) => {

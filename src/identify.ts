@@ -128,6 +128,24 @@ export async function checkAppKey(key: string): Promise<'ok' | 'wrong' | 'offlin
   }
 }
 
+// Verbindung vorwärmen: sobald Kamera oder Fotoauswahl aufgeht, schon einmal kurz beim Server anklopfen.
+// Das Handy baut dabei die sichere Verbindung auf und hält sie offen – das Foto geht danach schneller raus.
+// Ein „ping“ kostet nichts (keine KI, kein Speicher, zählt nicht als Foto). Höchstens alle 20 Sekunden.
+let lastWarm = 0;
+export function warmUp(): void {
+  if (!SERVER_URL || Date.now() - lastWarm < 20000) return;
+  lastWarm = Date.now();
+  getAppKey()
+    .then((key) =>
+      fetch(SERVER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': key },
+        body: JSON.stringify({ mode: 'ping' }),
+      }),
+    )
+    .catch(() => {});
+}
+
 // Fragt einmalig nach dem Findimal-Code (APP_KEY aus Cloudflare) und speichert ihn.
 function askForAppKey(t: Translate): Promise<string | null> {
   return new Promise((resolve) => {
