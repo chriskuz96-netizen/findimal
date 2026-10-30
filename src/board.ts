@@ -270,6 +270,15 @@ export async function requestFriend(me: Me, friend: string): Promise<'requested'
   }
 }
 
+// Eigene Anfrage zurückziehen
+export async function withdrawRequest(me: Me, friend: string): Promise<boolean> {
+  try {
+    return (await call({ mode: 'board_unrequest', ...me, friend })).ok;
+  } catch {
+    return false;
+  }
+}
+
 // Anfrage annehmen oder ablehnen
 export async function answerRequest(me: Me, from: string, accept: boolean): Promise<boolean> {
   try {

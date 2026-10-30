@@ -30,6 +30,7 @@ import {
   requestFriend,
   saveReported,
   savePending,
+  withdrawRequest,
   saveRemoved,
   syncMe,
 } from '../board';
@@ -268,6 +269,21 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     Alert.alert(t('lb.title'), t('lb.requested', { name: person.name }));
   };
 
+  // Eigene Anfrage zurückziehen. Die Person kommt auf die Entfernt-Liste: nimmt sie die Anfrage
+  // doch noch an (bevor der Server sie gelöscht hat), landet sie trotzdem nicht bei meinen Freunden.
+  const withdraw = (person: Person) => {
+    if (!me || !pending.includes(person.id)) return;
+    const next = pending.filter((id) => id !== person.id);
+    setPending(next);
+    savePending(next);
+    if (!removed.includes(person.id)) {
+      const gone = [...removed, person.id];
+      setRemoved(gone);
+      saveRemoved(gone);
+    }
+    withdrawRequest(me, person.id);
+  };
+
   // Anfrage an mich beantworten
   const answer = (person: Person, accept: boolean) => {
     if (!me) return;
@@ -317,6 +333,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
       ...(me && canRequest && view !== 'friends' && !friends.includes(person.id) && !pending.includes(person.id)
         ? [{ text: t('lb.addFriend'), onPress: () => askFriend(person) }]
         : []),
+      ...(me && pending.includes(person.id) ? [{ text: t('lb.withdraw'), onPress: () => withdraw(person) }] : []),
       // Entfernen nur bei den Freunden; aus der weltweiten Liste verschwindet jemand nur durch Melden
       ...(view === 'friends' ? [{ text: t('lb.remove'), onPress: () => unfriend(person) }] : []),
       ...(me
@@ -504,6 +521,11 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
                     <Text style={[styles.pcardLink, { color: p.mute }]}>{t('lb.removeFriend')}</Text>
                   </Pressable>
                 )}
+                {cardPending && (
+                  <Pressable onPress={() => withdraw(cardPerson)} hitSlop={8} accessibilityRole="button">
+                    <Text style={[styles.pcardLink, { color: p.mute }]}>{t('lb.withdraw')}</Text>
+                  </Pressable>
+                )}
                 <Pressable onPress={() => setConfirmReport(true)} hitSlop={8} accessibilityRole="button">
                   <Text style={[styles.pcardLink, { color: '#C8543A' }]}>{t('lb.report')}</Text>
                 </Pressable>
@@ -598,9 +620,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               selfAvatar={stats.avatar}
               onPress={() => setCard({ person: x, rank: String(i + 1) })}
               onLongPress={x.id !== me?.id ? () => onPerson(x) : undefined}
-              // weltweit: Fremde mit einem Tipp als Freund hinzufügen
               value={view === 'season' ? x.sxp ?? 0 : undefined}
-              onAdd={me && canRequest && pub && x.id !== me.id && !friends.includes(x.id) && !pending.includes(x.id) ? () => askFriend(x) : undefined}
               isFriend={pub && friends.includes(x.id)}
               isPending={pub && pending.includes(x.id)}
               p={p}
@@ -708,7 +728,6 @@ function Row({
   onPress,
   onLongPress,
   value,
-  onAdd,
   isFriend,
   isPending,
   p,
@@ -719,7 +738,6 @@ function Row({
   selfAvatar?: string; // eigene Zeile: Profilbild vom Handy (auch ein eigenes Foto, das nie hochgeladen wird)
   onPress?: () => void; // Tippen: große Profilkarte
   value?: number; // statt der Gesamt-XP anzeigen (Saison-XP)
-  onAdd?: () => void; // „+“: als Freund hinzufügen (weltweite Liste)
   isFriend?: boolean; // weltweite Liste: schon ein Freund (kleines Häkchen)
   isPending?: boolean; // weltweite Liste: Anfrage gesendet, wartet auf Zustimmung
   onLongPress?: () => void;
@@ -738,11 +756,7 @@ function Row({
         <Text style={[styles.small, { color: p.mute }]}>{t('lb.line', { level: x.level, species: x.species })}</Text>
       </View>
       <Text style={[styles.xp, { color: p.ink }]}>{(value ?? x.xp).toLocaleString(locale)} XP</Text>
-      {onAdd ? (
-        <Pressable onPress={onAdd} hitSlop={8} style={styles.addBtn} accessibilityRole="button" accessibilityLabel={t('lb.addFriendA11y', { name: x.name })}>
-          <Text style={styles.addText}>+</Text>
-        </Pressable>
-      ) : isPending ? (
+      {isPending ? (
         <View style={[styles.addBtn, { borderColor: p.line }]} accessibilityLabel={t('lb.pending')}>
           <Text style={[styles.addText, { color: p.mute, fontSize: 13 }]}>⏳</Text>
         </View>

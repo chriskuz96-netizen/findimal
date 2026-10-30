@@ -86,7 +86,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   und bei 3 Meldungen ausgeblendet. Datenschutzseite ist angepasst.
 
 ## Rangliste: Freundschaftsanfragen (30.10.)
-- Weltweite Liste: „+“ schickt eine Anfrage (`board_request`, offen unter `rq:<Code>`). Der andere sieht sie bei „Freunde“
+- Anfrage über die Profilkarte („Freundschaftsanfrage senden“; `board_request`, offen unter `rq:<Code>`). Kein „+“ mehr in
+  den Listen, dort nur ⏳ (angefragt) bzw. ✓ (Freund). „Anfrage zurückziehen“ in der Karte (`board_unrequest`). Der andere sieht sie bei „Freunde“
   und kann annehmen/ablehnen (`board_answer`). Per Code/Einladungslink geht es weiter sofort.
 - „Entfernen“ bei Freunden lässt die Person in der weltweiten Liste. Weltweit verschwindet jemand nur durch Melden
   (bei einem selbst sofort, für alle nach 3 Meldungen).

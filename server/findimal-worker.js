@@ -485,6 +485,14 @@ async function board(env, body, request) {
       if (!open.includes(id)) await env.DB.put('rq:' + friend, JSON.stringify([...open, id].slice(-100)));
       return json({ ok: true, status: 'requested' });
     }
+    // Eigene Anfrage zurückziehen (z. B. aus Versehen gesendet)
+    if (body.mode === 'board_unrequest') {
+      const friend = String(body.friend || '');
+      if (!CODE.test(friend)) return json({ fehler: 'Ungültig.' }, 400);
+      const open = (await env.DB.get('rq:' + friend, 'json')) || [];
+      if (open.includes(id)) await env.DB.put('rq:' + friend, JSON.stringify(open.filter((x) => x !== id)));
+      return json({ ok: true });
+    }
     // Anfrage beantworten: angenommen -> der Anfragende sieht mich ab jetzt (über seinen Eingang)
     if (body.mode === 'board_answer') {
       const from = String(body.from || '');
