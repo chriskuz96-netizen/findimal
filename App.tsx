@@ -18,7 +18,7 @@ import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
-import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar, loadSeasonAwards, SeasonAwards } from './src/board';
+import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar, loadMe, loadSeasonAwards, SeasonAwards, syncMe } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
@@ -358,6 +358,27 @@ function Main() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name, loaded, askCode]);
+
+  // Eigene Werte (XP, Saison, meist fotografiert …) für die Rangliste gleich beim Start und bei Änderungen
+  // hochladen – nicht erst auf der Challenges-Seite. So sehen alle auf der Profilkarte den aktuellen Stand.
+  // syncMe schickt nur, wenn sich etwas geändert hat.
+  const boardStats = {
+    name: name ?? '',
+    xp: progress.xp,
+    level: progress.level,
+    species: new Set(realFinds.map((f) => speciesKey(f.animal))).size,
+    avatar: avatarBadge ?? '',
+    ...seasonInfo,
+  };
+  const boardKey = JSON.stringify(boardStats);
+  useEffect(() => {
+    if (!name || !loaded || askCode) return;
+    const timer = setTimeout(() => {
+      loadMe().then((me) => me && syncMe(me, boardStats));
+    }, 3000);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boardKey, loaded, askCode]);
 
   // Kein Ort eingestellt ("Später" gewählt): beim Öffnen der App einmal am Tag wieder nach dem Ort fragen
   const regionChecked = useRef(false);
