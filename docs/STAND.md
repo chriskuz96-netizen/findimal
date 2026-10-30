@@ -131,6 +131,19 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   verteilen, die Links in `docs/APPSTORE.md` anpassen. Am besten vor dem Start, wenn nur Tester betroffen sind.
 - GitHub-Projekt ist öffentlich (Server-Adresse sichtbar, Geheimnisse nicht) – ggf. auf privat stellen.
 
+## Android gleichzeitig starten (entschieden 30.10.)
+- Google Play verlangt bei neuen privaten Konten vor der Freigabe einen geschlossenen Test mit mindestens 12 Testern
+  über 14 Tage. Deshalb: Konto (einmalig 25 $) bis ca. 7.11. anlegen, Identität bestätigen lassen, bis ca. 10.11.
+  ersten Android-Build in den geschlossenen Test, 15–20 Tester mit Android-Handy einladen. Freigabe dann ca. Ende
+  November / Anfang Dezember.
+- Code: `app.json` hat `android.package` (`com.chriskuz.findimal`), aber noch kein `adaptiveIcon` – vor dem ersten
+  Build ergänzen. Android-Build mit EAS noch nie gelaufen: Kamera, Fotoauswahl, Mitteilungen (Android-Kanal),
+  Tastatur in Onboarding/Region/Code, Teilen-Link der Rangliste prüfen.
+- Abo über Google Play Billing (gleiche Bibliothek wie für Apple wählen, die beides kann), AdMob-App auch für Android
+  anlegen, Familien-Richtlinie von Google beachten (Zielgruppe im Fragebogen).
+- Server-Schutz: Apple App Attest gibt es nur auf dem iPhone – für Android braucht der Server die Play Integrity API.
+- Kontrollzentrum-Knopf gibt es nur auf dem iPhone.
+
 ## Aus dem Test vom 15.10. (vor dem Start erledigen)
 - Server: Profilbild-ID beim Speichern gegen erlaubte Werte prüfen (App ist schon abgesichert).
 - Rangliste: XP werden ungeprüft übernommen → Sprünge begrenzen, `board_*` pro IP begrenzen.
