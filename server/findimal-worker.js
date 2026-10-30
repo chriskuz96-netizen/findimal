@@ -299,7 +299,22 @@ async function sha256(text) {
 }
 
 const TOP_SIZE = 100;
-const publicEntry = (id, e) => ({ id, name: e.name, xp: e.xp, level: e.level, species: e.species, avatar: e.avatar });
+const publicEntry = (id, e) => ({
+  id,
+  name: e.name,
+  xp: e.xp,
+  level: e.level,
+  species: e.species,
+  avatar: e.avatar,
+  // Saison: XP der laufenden Jahreszeit, meist fotografierte Gruppe, beste Saison-Platzierung
+  season: e.season || '',
+  sxp: e.sxp || 0,
+  fav: e.fav || '',
+  favN: e.favN || 0,
+  best: e.best || null,
+});
+const SEASON = /^(spring|summer|autumn|winter)-20\d\d$/;
+const GROUP_IDS = ['mam', 'bird', 'ins', 'amp', 'mol', 'ara', 'fish', 'rep'];
 
 // Weltweite Bestenliste als eine Liste (KV kann nicht sortieren). entry = null entfernt den Eintrag.
 // Spitznamen prüfen: keine Schimpfwörter, keine Links, E-Mails oder Telefonnummern
@@ -332,11 +347,30 @@ async function updateTop(env, id, entry) {
   await env.DB.put('top', JSON.stringify(next));
 }
 
+// Saison-Rangliste: je Jahreszeit eine Liste "stop:<Saison>" (Top 100 nach Saison-XP). Sie bleibt nach dem
+// Saisonende stehen – daraus holen sich die Apps ihre Belohnung. entry = null entfernt den Eintrag.
+async function updateSeasonTop(env, id, entry, season) {
+  if (!SEASON.test(season || '')) return;
+  const key = 'stop:' + season;
+  const top = (await env.DB.get(key, 'json')) || [];
+  const was = top.some((x) => x.id === id);
+  const rest = top.filter((x) => x.id !== id);
+  const fits = entry && !entry.hidden && entry.sxp > 0 && (rest.length < TOP_SIZE || entry.sxp > rest[rest.length - 1].sxp);
+  if (!was && !fits) return;
+  const next = fits ? [...rest, publicEntry(id, entry)].sort((a, b) => b.sxp - a.sxp).slice(0, TOP_SIZE) : rest;
+  await env.DB.put(key, JSON.stringify(next));
+}
+
 async function board(env, body, request) {
   if (!env.DB) return json({ fehler: 'keine_datenbank' }, 503);
 
   if (body.mode === 'board_top') {
     return json({ people: (await env.DB.get('top', 'json')) || [] });
+  }
+  if (body.mode === 'board_stop') {
+    const season = String(body.season || '');
+    if (!SEASON.test(season)) return json({ fehler: 'Ungültig.' }, 400);
+    return json({ people: (await env.DB.get('stop:' + season, 'json')) || [] });
   }
 
   // Alles außer "board_get" braucht Code + Geheimnis (nur der Besitzer darf seinen Eintrag ändern)
@@ -357,6 +391,15 @@ async function board(env, body, request) {
         species: int(body.species, 100_000),
         // "u:<Code>.…" (eigenes Foto) setzt nur board_photo – und nur für den eigenen Code
         avatar: ((a) => (a.startsWith('u:') && !a.startsWith(`u:${id}.`) ? '' : a))(String(body.avatar || '').slice(0, 20)),
+        // Saison (selbst berechnet wie die XP): Jahreszeit, XP darin, Lieblingsgruppe, beste Platzierung
+        season: SEASON.test(String(body.season || '')) ? String(body.season) : '',
+        sxp: int(body.sxp, 1_000_000),
+        fav: GROUP_IDS.includes(body.fav) ? body.fav : '',
+        favN: int(body.favN, 100_000),
+        best:
+          body.best && SEASON.test(String(body.best.s || '')) && int(body.best.r, 100) > 0
+            ? { s: String(body.best.s), r: int(body.best.r, 100) }
+            : null,
         updated: Date.now(),
         created: old ? old.created || 0 : Date.now(), // seit wann dabei (für den Einladungs-Bonus)
         dev: deviceOf(request) || (old && old.dev) || '', // Handy (nur für den Bonus, nie öffentlich)
@@ -364,6 +407,7 @@ async function board(env, body, request) {
       };
       await env.DB.put('p:' + id, JSON.stringify(entry));
       await updateTop(env, id, entry);
+      await updateSeasonTop(env, id, entry, entry.season);
       return json({ ok: true });
     }
     if (!old) return json({ fehler: 'Unbekannt.' }, 404);
@@ -375,6 +419,7 @@ async function board(env, body, request) {
       await env.DB.delete('ph:' + id);
       await env.DB.delete('rq:' + id);
       await updateTop(env, id, null);
+      await updateSeasonTop(env, id, null, old.season);
       return json({ ok: true });
     }
     // Freund hinzugefügt: beim Freund vermerken, damit er einen auch sieht
@@ -419,6 +464,7 @@ async function board(env, body, request) {
         if (entry && !entry.hidden) {
           await env.DB.put('p:' + target, JSON.stringify({ ...entry, hidden: true }));
           await updateTop(env, target, null);
+          await updateSeasonTop(env, target, null, entry.season);
         }
       }
       return json({ ok: true });
@@ -506,6 +552,7 @@ async function boardPhoto(env, body, id, old) {
   const entry = { ...old, avatar, updated: Date.now() };
   await env.DB.put('p:' + id, JSON.stringify(entry));
   await updateTop(env, id, entry);
+  await updateSeasonTop(env, id, entry, entry.season);
   return json({ ok: true, avatar });
 }
 

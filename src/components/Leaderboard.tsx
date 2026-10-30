@@ -24,6 +24,9 @@ import {
   report,
   saveFriends,
   answerRequest,
+  checkSeasonAward,
+  fetchSeasonTop,
+  SeasonAwards,
   requestFriend,
   saveReported,
   savePending,
@@ -33,7 +36,9 @@ import {
 import { photoForAvatar } from '../avatarPhoto';
 import { useI18n } from '../i18n';
 import { usePlus } from '../plus';
-import { XP } from '../progress';
+import { previousSeasonKey, SEASON_REWARDS, seasonReward, XP } from '../progress';
+import { GroupIcon, GroupId } from '../groups';
+import { seasonDaysLeft } from '../season';
 import { bonusPhotos } from '../usage';
 import { colors, fonts, Palette, spacing } from '../theme';
 import { Icon } from './Icon';
@@ -46,14 +51,22 @@ type Props = {
   onRank: (rank: number) => void;
   onFriends: (n: number) => void;
   onBonus?: () => void; // Extra-Foto durch eine Einladung bekommen
+  onSeasonAward?: (awards: SeasonAwards) => void; // Belohnung für die abgelaufene Saison gemerkt
   p: Palette;
 };
 
 // "K7QX2M" -> "K7Q X2M" (leichter vorzulesen)
 const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 
+// "autumn-2026" -> "Herbst 2026", "winter-2026" -> "Winter 2026/27"
+export function seasonName(key: string, t: (k: never, v?: Record<string, string | number>) => string): string {
+  const [id, y] = key.split('-');
+  const year = id === 'winter' ? `${y}/${String(Number(y) + 1).slice(2)}` : y;
+  return `${t(`sn.${id}` as never)} ${year}`;
+}
+
 // Rangliste mit Freunden: eigener Freundescode, Freunde hinzufügen, nach XP sortiert.
-export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, onBonus, p }: Props) {
+export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, onBonus, onSeasonAward, p }: Props) {
   const { t, locale, lang } = useI18n();
   // Plus hat unbegrenzte Fotos: dann nur XP erwähnen (das Gratis-Foto bekommt nur der Freund)
   const { plus } = usePlus();
@@ -67,7 +80,8 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const [error, setError] = useState<string | null>(null);
   const [code, setCode] = useState('');
   const [adding, setAdding] = useState(false);
-  const [view, setView] = useState<'friends' | 'world'>('friends');
+  const [view, setView] = useState<'friends' | 'world' | 'season'>('friends');
+  const [seasonTop, setSeasonTop] = useState<Person[] | null>(null); // weltweite Saison-Rangliste
   const [top, setTop] = useState<Person[] | null>(null);
   const [pending, setPending] = useState<string[]>([]); // eigene Anfragen, noch nicht angenommen
   const [reported, setReported] = useState<string[]>([]); // selbst gemeldet: weltweit weg
@@ -100,6 +114,13 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     // eigenes Foto als Profilbild: (falls noch nicht geschehen) erst hochladen, damit alle es sehen
     if (stats.avatar.startsWith('f-')) await ensurePhotoAvatar(stats.avatar, () => photoForAvatar(stats.avatar));
     await syncMe(me, stats);
+    // Saison vorbei? Platz in der abgelaufenen Saison nachsehen und die Belohnung gutschreiben (einmal)
+    const award = await checkSeasonAward(me, previousSeasonKey(new Date()), seasonReward);
+    if (award) {
+      onSeasonAward?.(award.awards);
+      if (award.xp > 0)
+        Alert.alert(t('lb.awardTitle'), t('lb.award', { season: seasonName(previousSeasonKey(new Date()), t), rank: award.rank, xp: award.xp }));
+    }
     // Wer mich hinzugefügt hat, landet auch in meiner Liste
     const bonusBefore = await bonusPhotos();
     const { ids: all, requests: asked } = await inbox(me);
@@ -161,6 +182,15 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [invite, me]);
+
+  // Saison-Rangliste laden, sobald sie angeschaut wird
+  useEffect(() => {
+    if (view !== 'season' || !stats.season) return;
+    const load = () => fetchSeasonTop(stats.season!).then(setSeasonTop);
+    if (me) syncMe(me, stats).then(load);
+    else load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, me, statsKey]);
 
   // Weltweite Rangliste laden, sobald sie angeschaut wird
   useEffect(() => {
@@ -284,7 +314,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const onPerson = (person: Person) =>
     Alert.alert(person.name, undefined, [
       { text: t('common.cancel'), style: 'cancel' },
-      ...(me && canRequest && view === 'world' && !friends.includes(person.id) && !pending.includes(person.id)
+      ...(me && canRequest && view !== 'friends' && !friends.includes(person.id) && !pending.includes(person.id)
         ? [{ text: t('lb.addFriend'), onPress: () => askFriend(person) }]
         : []),
       // Entfernen nur bei den Freunden; aus der weltweiten Liste verschwindet jemand nur durch Melden
@@ -347,14 +377,23 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const self: Person | null = me ? { id: me.id, ...stats } : null;
   const friendRows = self ? [self, ...(people ?? []).filter((x) => x.id !== self.id)].sort((a, b) => b.xp - a.xp) : [];
   const worldRows = (top ?? []).filter((x) => !reported.includes(x.id)).map((x) => (self && x.id === self.id ? self : x));
-  const meInWorld = !!self && worldRows.some((x) => x.id === self.id);
-  const rows = view === 'friends' ? friendRows : worldRows;
+  // Saison: wer in dieser Saison XP gesammelt hat (nach Saison-XP)
+  const seasonRows = (seasonTop ?? [])
+    .filter((x) => !reported.includes(x.id) && x.season === stats.season)
+    .map((x) => (self && x.id === self.id ? self : x));
+  const pub = view !== 'friends'; // öffentliche Listen: weltweit und Saison
+  const pubRows = view === 'season' ? seasonRows : worldRows;
+  const meInWorld = !!self && pubRows.some((x) => x.id === self.id);
+  const rows = view === 'friends' ? friendRows : pubRows;
+  const pubList = view === 'season' ? seasonTop : top;
 
   // Große Profilkarte: Bild, Name, Stufe, XP, Arten, Platz – und was man mit der Person machen kann
   const cardPerson = card?.person;
   const cardIsMe = !!cardPerson && cardPerson.id === me?.id;
   const cardFriend = !!cardPerson && friends.includes(cardPerson.id);
   const cardPending = !!cardPerson && pending.includes(cardPerson.id);
+  // Platz in der Saison-Rangliste (falls geladen)
+  const cardSeasonRank = cardPerson && seasonTop ? seasonTop.filter((x) => x.season === stats.season).findIndex((x) => x.id === cardPerson.id) + 1 : 0;
   const profileCard = cardPerson && (
     <Modal visible transparent animationType="fade" onRequestClose={closeCard}>
       <Pressable style={styles.cardDim} onPress={closeCard} accessibilityLabel={t('fq.close')} />
@@ -384,6 +423,40 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
                 <Text style={[styles.small, { color: p.mute }]}>{l}</Text>
               </View>
             ))}
+          </View>
+          {/* Mehr über die Person: meist fotografierte Gruppe, diese Saison, beste Saison */}
+          <View style={[styles.pcardMore, { borderColor: p.line }]}>
+            {!!cardPerson.fav && (cardPerson.favN ?? 0) > 0 && (
+              <View style={styles.pcardLine}>
+                <View style={styles.pcardIcon}>
+                  <GroupIcon id={cardPerson.fav as GroupId} size={18} color={colors.accentLight} />
+                </View>
+                <Text style={[styles.pcardLineText, { color: p.ink }]}>
+                  {t('lb.fav')}: <Text style={styles.pcardBold}>{t(`g.${cardPerson.fav}` as 'g.bird')}</Text> ({cardPerson.favN})
+                </Text>
+              </View>
+            )}
+            {cardPerson.season === stats.season && (cardPerson.sxp ?? 0) > 0 && (
+              <View style={styles.pcardLine}>
+                <View style={styles.pcardIcon}>
+                  <Icon name="star" size={16} color={colors.accentLight} />
+                </View>
+                <Text style={[styles.pcardLineText, { color: p.ink }]}>
+                  {t('lb.seasonXp')}: <Text style={styles.pcardBold}>{(cardPerson.sxp ?? 0).toLocaleString(locale)}</Text>
+                  {cardSeasonRank > 0 ? ` · ${t('lb.seasonRank', { rank: cardSeasonRank })}` : ''}
+                </Text>
+              </View>
+            )}
+            {!!cardPerson.best && (
+              <View style={styles.pcardLine}>
+                <View style={styles.pcardIcon}>
+                  <Icon name="trophy" size={16} color={colors.accentLight} />
+                </View>
+                <Text style={[styles.pcardLineText, { color: p.ink }]}>
+                  {t('lb.bestSeason')}: <Text style={styles.pcardBold}>{t('lb.bestValue', { rank: cardPerson.best.r, season: seasonName(cardPerson.best.s, t) })}</Text>
+                </Text>
+              </View>
+            )}
           </View>
           {me && !cardIsMe && reportDone && (
             <View style={[styles.pcardInfo, { backgroundColor: p.bg }]}>
@@ -449,7 +522,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
 
       {/* Umschalter Freunde / Weltweit */}
       <View style={[styles.seg, { borderColor: p.line }]}>
-        {(['friends', 'world'] as const).map((v) => (
+        {(['friends', 'world', 'season'] as const).map((v) => (
           <Pressable
             key={v}
             onPress={() => setView(v)}
@@ -458,7 +531,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
             style={[styles.segBtn, view === v && { backgroundColor: p.button }]}
           >
             <Text style={[styles.segText, { color: view === v ? colors.white : p.ink }]}>
-              {t(v === 'friends' ? 'lb.friends' : 'lb.world')}
+              {t(v === 'friends' ? 'lb.friends' : v === 'world' ? 'lb.world' : 'lb.season')}
               {v === 'friends' && requests.length > 0 ? ` (${requests.length})` : ''}
             </Text>
           </Pressable>
@@ -501,8 +574,20 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
         </View>
       )}
 
+      {/* Saison: wie lange noch und was es am Ende gibt */}
+      {view === 'season' && !!stats.season && (
+        <View style={[styles.seasonBox, { backgroundColor: p.bg }]}>
+          <Text style={[styles.seasonHead, { color: p.ink }]}>
+            {seasonName(stats.season, t)} · {t('lb.seasonLeft', { n: seasonDaysLeft(new Date()) })}
+          </Text>
+          <Text style={[styles.small, { color: p.mute, marginTop: 3 }]}>
+            {t('lb.seasonRewards')} {SEASON_REWARDS.map((r) => `${r.upTo === 1 ? '1.' : `Top ${r.upTo}`} +${r.xp}`).join(' · ')} XP
+          </Text>
+        </View>
+      )}
+
       {/* Liste */}
-      {(me || view === 'world') && (
+      {(me || pub) && (
         <View style={{ marginTop: 6 }}>
           {rows.map((x, i) => (
             <Row
@@ -514,19 +599,20 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               onPress={() => setCard({ person: x, rank: String(i + 1) })}
               onLongPress={x.id !== me?.id ? () => onPerson(x) : undefined}
               // weltweit: Fremde mit einem Tipp als Freund hinzufügen
-              onAdd={me && canRequest && view === 'world' && x.id !== me.id && !friends.includes(x.id) && !pending.includes(x.id) ? () => askFriend(x) : undefined}
-              isFriend={view === 'world' && friends.includes(x.id)}
-              isPending={view === 'world' && pending.includes(x.id)}
+              value={view === 'season' ? x.sxp ?? 0 : undefined}
+              onAdd={me && canRequest && pub && x.id !== me.id && !friends.includes(x.id) && !pending.includes(x.id) ? () => askFriend(x) : undefined}
+              isFriend={pub && friends.includes(x.id)}
+              isPending={pub && pending.includes(x.id)}
               p={p}
             />
           ))}
-          {view === 'world' && self && top && !meInWorld && (
+          {pub && self && pubList && !meInWorld && (
             <>
               <Text style={[styles.small, { color: p.mute, textAlign: 'center' }]}>···</Text>
-              <Row person={self} rank="–" isMe selfAvatar={stats.avatar} onPress={() => setCard({ person: self, rank: '–' })} p={p} />
+              <Row person={self} rank="–" isMe selfAvatar={stats.avatar} value={view === 'season' ? stats.sxp ?? 0 : undefined} onPress={() => setCard({ person: self, rank: '–' })} p={p} />
             </>
           )}
-          {((view === 'friends' && people === null) || (view === 'world' && top === null)) && !error && (
+          {((view === 'friends' && people === null) || (pub && pubList === null)) && !error && (
             <ActivityIndicator color={colors.accent} style={{ marginTop: 6 }} />
           )}
           {view === 'friends' && people !== null && friends.length === 0 && (
@@ -535,7 +621,10 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
           {view === 'world' && top !== null && top.length === 0 && (
             <Text style={[styles.sub, { color: p.mute }]}>{t('lb.worldEmpty')}</Text>
           )}
-          {view === 'world' && !me && (
+          {view === 'season' && seasonTop !== null && seasonRows.length === 0 && (
+            <Text style={[styles.sub, { color: p.mute }]}>{t('lb.seasonEmpty')}</Text>
+          )}
+          {pub && !me && (
             <Text style={[styles.small, { color: p.mute, marginTop: 6 }]}>{t('lb.worldHint')}</Text>
           )}
         </View>
@@ -618,6 +707,7 @@ function Row({
   selfAvatar,
   onPress,
   onLongPress,
+  value,
   onAdd,
   isFriend,
   isPending,
@@ -628,6 +718,7 @@ function Row({
   isMe: boolean;
   selfAvatar?: string; // eigene Zeile: Profilbild vom Handy (auch ein eigenes Foto, das nie hochgeladen wird)
   onPress?: () => void; // Tippen: große Profilkarte
+  value?: number; // statt der Gesamt-XP anzeigen (Saison-XP)
   onAdd?: () => void; // „+“: als Freund hinzufügen (weltweite Liste)
   isFriend?: boolean; // weltweite Liste: schon ein Freund (kleines Häkchen)
   isPending?: boolean; // weltweite Liste: Anfrage gesendet, wartet auf Zustimmung
@@ -646,7 +737,7 @@ function Row({
         </Text>
         <Text style={[styles.small, { color: p.mute }]}>{t('lb.line', { level: x.level, species: x.species })}</Text>
       </View>
-      <Text style={[styles.xp, { color: p.ink }]}>{x.xp.toLocaleString(locale)} XP</Text>
+      <Text style={[styles.xp, { color: p.ink }]}>{(value ?? x.xp).toLocaleString(locale)} XP</Text>
       {onAdd ? (
         <Pressable onPress={onAdd} hitSlop={8} style={styles.addBtn} accessibilityRole="button" accessibilityLabel={t('lb.addFriendA11y', { name: x.name })}>
           <Text style={styles.addText}>+</Text>
@@ -703,6 +794,13 @@ const styles = StyleSheet.create({
   pcardInfoText: { fontFamily: fonts.sansBold, fontSize: 15 },
   pcardLinks: { flexDirection: 'row', justifyContent: 'center', gap: 28, marginTop: 6 },
   pcardLink: { fontFamily: fonts.sansBold, fontSize: 14, textDecorationLine: 'underline' },
+  pcardMore: { marginHorizontal: 18, borderTopWidth: 1, paddingTop: 10, marginBottom: 8, gap: 8 },
+  pcardLine: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  pcardIcon: { width: 30, height: 30, borderRadius: 15, backgroundColor: '#143F2A', alignItems: 'center', justifyContent: 'center' },
+  pcardLineText: { flex: 1, fontFamily: fonts.sans, fontSize: 14.5 },
+  pcardBold: { fontFamily: fonts.sansBold },
+  seasonBox: { marginTop: 10, borderRadius: 12, padding: 10 },
+  seasonHead: { fontFamily: fonts.sansBold, fontSize: 14 },
   reqBox: { marginTop: 10, borderWidth: 1.5, borderRadius: 14, padding: 10 },
   reqTitle: { fontFamily: fonts.sansBold, fontSize: 14, marginBottom: 4 },
   reqRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 5 },

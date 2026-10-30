@@ -11,8 +11,11 @@ import { bonusPhotos, getDeviceId, setBonusPhotos } from './usage';
 // wird dort vorher geprüft (nur Tiere/Natur, keine Menschen).
 
 export type Me = { id: string; secret: string };
-export type Person = { id: string; name: string; xp: number; level: number; species: number; avatar: string };
-export type MyStats = { name: string; xp: number; level: number; species: number; avatar: string };
+// Saison-Angaben: season (z. B. "autumn-2026"), sxp = XP in dieser Saison, fav/favN = meist fotografierte
+// Tiergruppe, best = beste Saison-Platzierung (r = Platz, s = Saison)
+export type SeasonStats = { season?: string; sxp?: number; fav?: string; favN?: number; best?: { s: string; r: number } | null };
+export type Person = { id: string; name: string; xp: number; level: number; species: number; avatar: string } & SeasonStats;
+export type MyStats = { name: string; xp: number; level: number; species: number; avatar: string } & SeasonStats;
 
 const ME_KEY = 'findimal-board';
 const FRIENDS_KEY = 'findimal-friends';
@@ -316,6 +319,47 @@ export function codeFromUrl(url: string | null): string | null {
 }
 
 // Weltweite Rangliste: die 100 Entdecker mit den meisten XP
+// Weltweite Saison-Rangliste (auch abgelaufene Saisons – die bleiben für die Belohnung stehen)
+export async function fetchSeasonTop(season: string): Promise<Person[] | null> {
+  try {
+    const res = await call({ mode: 'board_stop', season });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { people?: Person[] };
+    return data.people ?? [];
+  } catch {
+    return null;
+  }
+}
+
+// Belohnungen für abgelaufene Saisons: { "summer-2026": { rank: 7, xp: 200 } } (rank 0 = nicht in den Top 100)
+export type SeasonAwards = Record<string, { rank: number; xp: number }>;
+const AWARDS_KEY = 'findimal-season-awards';
+export async function loadSeasonAwards(): Promise<SeasonAwards> {
+  try {
+    const raw = await AsyncStorage.getItem(AWARDS_KEY);
+    return raw ? (JSON.parse(raw) as SeasonAwards) : {};
+  } catch {
+    return {};
+  }
+}
+// Einmal pro Saison: Platz in der Liste der abgelaufenen Saison nachsehen und die Belohnung merken.
+// Liefert die neue Belohnung (oder null, wenn schon geprüft / offline).
+export async function checkSeasonAward(
+  me: Me,
+  season: string,
+  reward: (rank: number) => number,
+): Promise<{ awards: SeasonAwards; rank: number; xp: number } | null> {
+  const awards = await loadSeasonAwards();
+  if (awards[season]) return null;
+  const list = await fetchSeasonTop(season);
+  if (!list) return null; // offline: später nochmal
+  const rank = list.findIndex((x) => x.id === me.id) + 1;
+  const xp = reward(rank);
+  const next = { ...awards, [season]: { rank, xp } };
+  await AsyncStorage.setItem(AWARDS_KEY, JSON.stringify(next)).catch(() => {});
+  return { awards: next, rank, xp };
+}
+
 export async function fetchTop(): Promise<Person[] | null> {
   try {
     const res = await call({ mode: 'board_top' });

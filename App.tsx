@@ -18,7 +18,7 @@ import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
-import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar } from './src/board';
+import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar, loadSeasonAwards, SeasonAwards } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
@@ -29,9 +29,9 @@ import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/
 import { loadZone } from './src/zone';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
-import { computeProgress, computeReward, dayKey, XP } from './src/progress';
+import { computeProgress, computeReward, dayKey, favoriteGroup, seasonKey, seasonXp, XP } from './src/progress';
 import { correctAnswers, loadQuiz, QuizLog } from './src/quiz';
-import { ForscherLog, forscherStats, forscherTotals, loadForscher } from './src/forscher';
+import { ForscherLog, forscherStats, forscherTotals, loadForscher, roundXp } from './src/forscher';
 import { ChallengesScreen } from './src/screens/ChallengesScreen';
 import { CollectionScreen } from './src/screens/CollectionScreen';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
@@ -156,6 +156,12 @@ function Main() {
   // Bester Platz in der weltweiten Rangliste (Abzeichen Top 100/50/10/Nr. 1 bleiben)
   const [bestRank, setBestRank] = useState<number | null>(null);
   const [maxFriends, setMaxFriends] = useState(0);
+  // Belohnungen für abgelaufene Saisons (Platz in der weltweiten Saison-Rangliste)
+  const [seasonAwards, setSeasonAwards] = useState<SeasonAwards>({});
+  useEffect(() => {
+    loadSeasonAwards().then(setSeasonAwards);
+  }, []);
+  const awardXp = Object.values(seasonAwards).reduce((sum, a) => sum + a.xp, 0);
   const quizRef = useRef<QuizLog>({});
   quizRef.current = quiz;
   // Forscher-Quiz (Tagesrunden) und frühere Einzelfragen zusammen: XP und richtige Antworten
@@ -271,7 +277,25 @@ function Main() {
   const now = new Date();
   // nur echte Funde zählen für Punkte, Arten und Challenges (Internetbilder, Zeichnungen usw. nicht)
   const realFinds = finds.filter(counts);
-  const progress = computeProgress(realFinds, quizTotals(quiz, forscher), now, { bestRank, maxFriends });
+  const progress = computeProgress(realFinds, quizTotals(quiz, forscher), now, { bestRank, maxFriends, awardXp });
+  // Für die Saison-Rangliste und die Profilkarte: XP dieser Jahreszeit, meist fotografierte Gruppe, beste Platzierung
+  const fav = favoriteGroup(realFinds);
+  const bestSeason = Object.entries(seasonAwards)
+    .filter(([, a]) => a.rank > 0)
+    .sort((a, b) => a[1].rank - b[1].rank)[0];
+  const seasonInfo = {
+    season: seasonKey(now),
+    sxp: seasonXp(
+      realFinds,
+      Object.entries(forscher.rounds)
+        .filter(([, r]) => r.done)
+        .map(([day, r]) => ({ date: new Date(Number(day) * 86400000 + 12 * 3600000), xp: roundXp(r) })),
+      now,
+    ),
+    fav: fav?.id ?? '',
+    favN: fav?.n ?? 0,
+    best: bestSeason ? { s: bestSeason[0], r: bestSeason[1].rank } : null,
+  };
   // Profilbild nur, solange das Abzeichen noch verdient ist (z. B. nach Löschen von Funden)
   // Plus-Tiere und eigene Fotos nur, solange Plus aktiv ist (Foto nur, solange der Fund noch da ist)
   const avatarBadge =
@@ -415,7 +439,7 @@ function Main() {
     const quizXp = quizTotals(quizRef.current, forscherRef.current);
     // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
     const others = findsRef.current.filter((f) => f.id !== replaceId && counts(f));
-    const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends });
+    const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends, awardXp });
     const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
     let id = replaceId;
     let next: Find[];
@@ -432,7 +456,7 @@ function Main() {
       tipsAfterSave.current = false;
       setTimeout(askTips, 300);
     }
-    const after = computeProgress(next.filter(counts), quizXp, new Date(), { bestRank, maxFriends });
+    const after = computeProgress(next.filter(counts), quizXp, new Date(), { bestRank, maxFriends, awardXp });
     return { id: id!, reward: computeReward(before, after, isNew) };
   };
 
@@ -559,6 +583,8 @@ function Main() {
               saveMaxFriends(n);
             }}
             onInviteDone={() => setInvite(null)}
+            seasonInfo={seasonInfo}
+            onSeasonAward={setSeasonAwards}
           />
         )}
         {tab === 'season' && (

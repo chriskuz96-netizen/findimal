@@ -91,6 +91,14 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - „Entfernen“ bei Freunden lässt die Person in der weltweiten Liste. Weltweit verschwindet jemand nur durch Melden
   (bei einem selbst sofort, für alle nach 3 Meldungen).
 
+## Saison-Rangliste (30.10.)
+- Dritter Reiter „Saison“: meiste XP in der laufenden Jahreszeit (`seasonXp` in `src/progress.ts`: Funde, Saison-Ziel,
+  Wochen-Aufgaben und Quiz-XP dieser Saison). Server führt `stop:<Saison>` (Top 100, bleibt nach Saisonende stehen).
+- Saisonende: beim ersten Öffnen danach schaut die App ihren Platz in der alten Liste nach und schreibt einmalig
+  Extra-XP gut (`SEASON_REWARDS`: 1. +500, Top 3 +300, Top 10 +200, Top 50 +100, Top 100 +50; gemerkt unter
+  `findimal-season-awards`).
+- Profil zeigt „Meist fotografiert“ (Tiergruppe). Profilkarte zeigt außerdem Saison-XP, Saison-Platz und beste Saison.
+
 ## Natur-Tipps (Mitteilungen)
 - `src/notify.ts` plant lokal (expo-notifications) die nächsten 8 Sonntage 10 Uhr, Texte in `src/tips.ts`.
 - Kein Push-Server, kein Token. Frage nach dem ersten Fund, Schalter im Profil, Test-Knopf nur in `__DEV__`.

@@ -3,7 +3,7 @@ import type { ForscherStats } from './forscher';
 import { GroupId, groupOf } from './groups';
 import { breedGuessed } from './names';
 import { seasonId } from './season';
-import { thisWeek, WeekTask, weeksDone } from './weekly';
+import { taskDone, thisWeek, weekStart, weekTask, WeekTask, weeksDone } from './weekly';
 
 // Alles rund um Erfahrungspunkte (XP), Stufen, Saison-Ziel und Abzeichen.
 // Wird immer frisch aus den Funden (und Quiz-Antworten) berechnet, damit nichts
@@ -33,6 +33,78 @@ export function dayKey(d: Date): string {
 export function seasonKey(d: Date): string {
   const y = d.getMonth() <= 1 ? d.getFullYear() - 1 : d.getFullYear();
   return `${seasonId(d)}-${y}`;
+}
+
+// Jahreszeit davor (z. B. für die Belohnung der abgelaufenen Saison)
+export function previousSeasonKey(now: Date): string {
+  return seasonKey(new Date(now.getFullYear(), now.getMonth() - 3, 15));
+}
+
+// ---------- Saison-Rangliste ----------
+
+// Belohnung am Saisonende nach Platz in der weltweiten Saison-Rangliste
+export const SEASON_REWARDS: { upTo: number; xp: number }[] = [
+  { upTo: 1, xp: 500 },
+  { upTo: 3, xp: 300 },
+  { upTo: 10, xp: 200 },
+  { upTo: 50, xp: 100 },
+  { upTo: 100, xp: 50 },
+];
+export const seasonReward = (rank: number) => (rank > 0 ? SEASON_REWARDS.find((r) => rank <= r.upTo)?.xp ?? 0 : 0);
+
+// XP aus der laufenden Jahreszeit: Funde (neue Art / bekannte Art), Saison-Ziel, Wochen-Aufgaben und Quiz.
+// Abzeichen, Freunde und Saison-Belohnungen zählen nicht (die sind nicht an eine Jahreszeit gebunden).
+// quiz: XP je Quiz-Tag (Datum des Tages).
+export function seasonXp(finds: Find[], quiz: { date: Date; xp: number }[], now: Date): number {
+  const season = seasonKey(now);
+  const inSeason = (d: Date) => seasonKey(d) === season;
+  // gleiche Art am gleichen Tag nur einmal (wie bei den Gesamt-XP)
+  const once = new Set<string>();
+  const list = [...finds]
+    .sort((a, b) => (a.date < b.date ? -1 : 1))
+    .filter((f) => {
+      const k = `${speciesKey(f.animal)}|${dayKey(new Date(f.date))}`;
+      if (once.has(k)) return false;
+      once.add(k);
+      return true;
+    });
+  let xp = 0;
+  const seen = new Set<string>();
+  const groups = new Set<GroupId>();
+  for (const f of list) {
+    const k = speciesKey(f.animal);
+    const fresh = !seen.has(k);
+    seen.add(k);
+    const d = new Date(f.date);
+    if (!inSeason(d)) continue;
+    xp += fresh ? XP.newSpecies : XP.find;
+    const g = groupOf(f.animal.gruppe);
+    if (g) groups.add(g.id);
+  }
+  if (groups.size >= 3) xp += XP.season;
+  // Wochen-Aufgaben, deren Woche in dieser Jahreszeit beginnt
+  const weeks = new Map<string, Find[]>();
+  for (const f of list) {
+    const w = weekStart(new Date(f.date));
+    if (!inSeason(w)) continue;
+    const key = dayKey(w);
+    weeks.set(key, [...(weeks.get(key) ?? []), f]);
+  }
+  for (const [key, fs] of weeks) if (taskDone(weekTask(new Date(`${key}T12:00:00`)), fs)) xp += XP.week;
+  for (const q of quiz) if (inSeason(q.date)) xp += q.xp;
+  return xp;
+}
+
+// Am meisten fotografierte Tiergruppe (z. B. Vögel) und wie oft
+export function favoriteGroup(finds: Find[]): { id: GroupId; n: number } | null {
+  const count = new Map<GroupId, number>();
+  for (const f of finds) {
+    const g = groupOf(f.animal.gruppe);
+    if (g) count.set(g.id, (count.get(g.id) ?? 0) + 1);
+  }
+  let best: { id: GroupId; n: number } | null = null;
+  for (const [id, n] of count) if (!best || n > best.n) best = { id, n };
+  return best;
 }
 
 // ---------- Abzeichen ----------
@@ -242,7 +314,7 @@ export function computeProgress(
   finds: Find[],
   quiz: { xp: number; correct: number; stats?: ForscherStats },
   now = new Date(),
-  extra: { bestRank?: number | null; maxFriends?: number } = {},
+  extra: { bestRank?: number | null; maxFriends?: number; awardXp?: number } = {},
 ): Progress {
   // Gleiche Art am gleichen Tag zählt nur einmal (für XP und Abzeichen)
   const dayOnce = new Set<string>();
@@ -255,7 +327,8 @@ export function computeProgress(
 
   // Neue Art gibt viel XP, eine schon bekannte Art nur wenig
   const seen = new Set<string>();
-  let xp = quiz.xp + Math.min(extra.maxFriends ?? 0, 10) * XP.friend;
+  // dazu die Belohnungen für gute Saison-Platzierungen
+  let xp = quiz.xp + Math.min(extra.maxFriends ?? 0, 10) * XP.friend + (extra.awardXp ?? 0);
   for (const f of finds) {
     const k = speciesKey(f.animal);
     if (!seen.has(k)) {

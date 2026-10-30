@@ -9,6 +9,7 @@ import { Avatar } from '../components/Avatar';
 import { Explorer } from '../components/Explorer';
 import { HeaderBackground } from '../components/HeaderBackground';
 import { Leaderboard } from '../components/Leaderboard';
+import type { SeasonAwards, SeasonStats } from '../board';
 import { LevelUp, claimParty } from '../components/LevelUp';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
@@ -39,13 +40,15 @@ type Props = {
   onSeeBadges?: (ids: string[]) => void;
   onOpenProfile?: () => void;
   onBonus?: () => void; // Extra-Foto durch eine Einladung
+  seasonInfo?: SeasonStats; // Saison-XP, meist fotografierte Gruppe, beste Saison-Platzierung
+  onSeasonAward?: (awards: SeasonAwards) => void; // Belohnung für die abgelaufene Saison
 };
 
 const MEDALS_PER_FRAME = 4;
 type Slot = 'quiz' | 'goal' | 'week' | 'mid';
 const SEEN_DONE = 'findimal-seen-done'; // geschaffte Aufgaben, deren „Geschafft!“ schon gezeigt wurde
 
-export function ChallengesScreen({ progress, forscher, onForscher, avatar, name, species, invite, onInviteDone, onRank, onFriends, active: shownActive = true, freshBadges = [], onSeeBadges, onOpenProfile, onBonus }: Props) {
+export function ChallengesScreen({ progress, forscher, onForscher, avatar, name, species, invite, onInviteDone, onRank, onFriends, active: shownActive = true, freshBadges = [], onSeeBadges, onOpenProfile, onBonus, seasonInfo, onSeasonAward }: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang } = useI18n();
@@ -473,7 +476,8 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
         <Animated.View onLayout={track('mid')} style={{ transform: [{ translateY: shift.mid }] }}>
           {/* Rangliste mit Freunden */}
           <Leaderboard
-            stats={{ name, xp: progress.xp, level: progress.level, species, avatar }}
+            stats={{ name, xp: progress.xp, level: progress.level, species, avatar, ...seasonInfo }}
+            onSeasonAward={onSeasonAward}
             invite={invite}
             onInviteDone={onInviteDone}
             onRank={onRank}

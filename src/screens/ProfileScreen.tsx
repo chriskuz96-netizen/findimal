@@ -30,7 +30,8 @@ import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
 import { loadZone } from '../zone';
-import { Progress } from '../progress';
+import { favoriteGroup, Progress } from '../progress';
+import { GroupIcon } from '../groups';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
@@ -81,6 +82,7 @@ export function ProfileScreen(props: Props) {
   };
   const earned = progress.badges.filter((b) => b.earned);
   const species = new Set(finds.map((f) => speciesKey(f.animal))).size;
+  const fav = favoriteGroup(finds);
   // Rangliste: dabei sein oder nicht (gleich wie „Mitmachen“ / „Rangliste verlassen“ in den Challenges)
   const [board, setBoard] = useState<Me | null | undefined>(undefined);
   const [boardBusy, setBoardBusy] = useState(false);
@@ -256,6 +258,17 @@ export function ProfileScreen(props: Props) {
               {progress.nextLevelXp ? `${progress.xp} / ${progress.nextLevelXp} XP` : `${progress.xp} XP`}
             </Text>
           </View>
+          {/* Meist fotografierte Tiergruppe (sehen auch andere auf der Profilkarte in der Rangliste) */}
+          {fav && (
+            <View style={styles.favRow}>
+              <View style={styles.favIcon}>
+                <GroupIcon id={fav.id} size={17} color={colors.accentLight} />
+              </View>
+              <Text style={[styles.favText, { color: p.ink }]}>
+                {t('lb.fav')}: <Text style={{ fontFamily: fonts.sansBold }}>{t(`g.${fav.id}` as 'g.bird')}</Text> ({fav.n})
+              </Text>
+            </View>
+          )}
         </Card>
 
         {/* Findimal Plus: was dazugehört */}
@@ -379,6 +392,9 @@ const styles = StyleSheet.create({
   backText: { fontFamily: fonts.sansBold, fontSize: 16, color: colors.accentLight },
   pr: { flexDirection: 'row', alignItems: 'center', gap: 14 },
   prText: { flex: 1, minWidth: 0, alignItems: 'flex-start' },
+  favRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12 },
+  favIcon: { width: 30, height: 30, borderRadius: 15, backgroundColor: '#143F2A', alignItems: 'center', justifyContent: 'center' },
+  favText: { flex: 1, fontFamily: fonts.sans, fontSize: 14.5 },
   avatarEdit: {
     position: 'absolute',
     right: -2,
