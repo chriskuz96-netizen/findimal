@@ -381,6 +381,8 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
         </View>
         {fresh.quiz && doneNow}
         <View style={styles.doneRow}>
+          {/* der Forscher bleibt auch nach der Runde zu sehen */}
+          <Explorer size={40} />
           <Text style={[styles.misText, { color: p.ink, fontSize: 16, flex: 1 }]}>
             {t('fq.doneText', { n: quizRound ? roundCorrect(quizRound) : 0, max: ROUND_SIZE })}
           </Text>
