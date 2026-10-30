@@ -73,6 +73,8 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const [reported, setReported] = useState<string[]>([]); // selbst gemeldet: weltweit weg
   const [requests, setRequests] = useState<Person[]>([]); // Anfragen an mich
   const [card, setCard] = useState<{ person: Person; rank: string } | null>(null); // große Profilkarte
+  const [confirmReport, setConfirmReport] = useState(false); // Karte: „Wirklich melden?“
+  const [reportDone, setReportDone] = useState(false); // Karte: „Danke, wird geprüft“
   const [canRequest, setCanRequest] = useState(false); // kennt der Server Freundschaftsanfragen schon?
 
   useEffect(() => {
@@ -265,22 +267,19 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     setReported(next);
     saveReported(next);
   };
-  const onReport = (person: Person) => {
+  // Melden aus der Karte: Rückfrage direkt in der Karte, danach kurz „Danke“
+  const doReport = (person: Person) => {
     if (!me) return;
-    Alert.alert(t('lb.report'), t('lb.reportAsk', { name: person.name }), [
-      { text: t('common.cancel'), style: 'cancel' },
-      {
-        text: t('lb.report'),
-        style: 'destructive',
-        onPress: () => {
-          report(me, person.id);
-          unfriend(person);
-          hideWorld(person);
-          setCard(null);
-          Alert.alert(t('lb.report'), t('lb.reported'));
-        },
-      },
-    ]);
+    report(me, person.id);
+    unfriend(person);
+    hideWorld(person);
+    setConfirmReport(false);
+    setReportDone(true);
+  };
+  const closeCard = () => {
+    setCard(null);
+    setConfirmReport(false);
+    setReportDone(false);
   };
   const onPerson = (person: Person) =>
     Alert.alert(person.name, undefined, [
@@ -357,12 +356,12 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
   const cardFriend = !!cardPerson && friends.includes(cardPerson.id);
   const cardPending = !!cardPerson && pending.includes(cardPerson.id);
   const profileCard = cardPerson && (
-    <Modal visible transparent animationType="fade" onRequestClose={() => setCard(null)}>
-      <Pressable style={styles.cardDim} onPress={() => setCard(null)} accessibilityLabel={t('fq.close')} />
+    <Modal visible transparent animationType="fade" onRequestClose={closeCard}>
+      <Pressable style={styles.cardDim} onPress={closeCard} accessibilityLabel={t('fq.close')} />
       <View style={styles.cardWrap} pointerEvents="box-none">
         <View style={[styles.pcard, { backgroundColor: p.card }]}>
           <View style={styles.pcardHead}>
-            <Pressable onPress={() => setCard(null)} hitSlop={12} style={styles.pcardClose} accessibilityRole="button" accessibilityLabel={t('fq.close')}>
+            <Pressable onPress={closeCard} hitSlop={12} style={styles.pcardClose} accessibilityRole="button" accessibilityLabel={t('fq.close')}>
               <Text style={styles.pcardCloseText}>✕</Text>
             </Pressable>
             <Avatar id={(cardIsMe ? stats.avatar : cardPerson.avatar) || null} name={cardPerson.name} size={132} />
@@ -386,7 +385,25 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
               </View>
             ))}
           </View>
-          {me && !cardIsMe && (
+          {me && !cardIsMe && reportDone && (
+            <View style={[styles.pcardInfo, { backgroundColor: p.bg }]}>
+              <Text style={[styles.pcardInfoText, { color: p.ink, textAlign: 'center', paddingHorizontal: 12 }]}>{t('lb.reported')}</Text>
+            </View>
+          )}
+          {me && !cardIsMe && !reportDone && confirmReport && (
+            <View style={{ gap: 10, marginTop: 4, paddingHorizontal: 18 }}>
+              <Text style={[styles.sub, { color: p.ink, textAlign: 'center' }]}>{t('lb.reportAsk', { name: cardPerson.name })}</Text>
+              <View style={{ flexDirection: 'row', gap: 10 }}>
+                <Pressable onPress={() => setConfirmReport(false)} style={[styles.btn, { flex: 1, marginTop: 0, backgroundColor: p.bg }]} accessibilityRole="button">
+                  <Text style={[styles.btnText, { color: p.ink }]}>{t('common.cancel')}</Text>
+                </Pressable>
+                <Pressable onPress={() => doReport(cardPerson)} style={[styles.btn, { flex: 1, marginTop: 0, backgroundColor: '#C8543A' }]} accessibilityRole="button">
+                  <Text style={styles.btnText}>{t('lb.reportYes')}</Text>
+                </Pressable>
+              </View>
+            </View>
+          )}
+          {me && !cardIsMe && !reportDone && !confirmReport && (
             <View style={{ gap: 8, marginTop: 4 }}>
               {cardFriend ? (
                 <View style={[styles.pcardInfo, { backgroundColor: 'rgba(46,122,76,0.12)' }]}>
@@ -406,7 +423,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
                   <Pressable
                     onPress={() => {
                       unfriend(cardPerson);
-                      setCard(null);
+                      closeCard();
                     }}
                     hitSlop={8}
                     accessibilityRole="button"
@@ -414,7 +431,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
                     <Text style={[styles.pcardLink, { color: p.mute }]}>{t('lb.removeFriend')}</Text>
                   </Pressable>
                 )}
-                <Pressable onPress={() => onReport(cardPerson)} hitSlop={8} accessibilityRole="button">
+                <Pressable onPress={() => setConfirmReport(true)} hitSlop={8} accessibilityRole="button">
                   <Text style={[styles.pcardLink, { color: '#C8543A' }]}>{t('lb.report')}</Text>
                 </Pressable>
               </View>
