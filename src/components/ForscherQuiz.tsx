@@ -609,14 +609,14 @@ function QuizPicture({ id, size }: { id: string; size: number }) {
 }
 
 // Ein gelernter Fakt als Stichpunkt: „Elch: größter Hirsch der Welt“ – das Tier fett, der Fakt dahinter
-function LearnItem({ q, p }: { q: BankQuestion; p: Palette }) {
+function LearnItem({ q, p, roomy }: { q: BankQuestion; p: Palette; roomy: boolean }) {
   const { lang } = useI18n();
   const k = q.t[lang].k;
   const cut = k.search(/[:：]/);
   return (
-    <View style={styles.fact}>
-      <Text style={[styles.factDot, { color: p.moss }]}>•</Text>
-      <Text style={[styles.factText, { color: p.ink }]}>
+    <View style={[styles.fact, roomy && styles.factRoomy]}>
+      <Text style={[styles.factDot, roomy && styles.factDotRoomy, { color: p.moss }]}>•</Text>
+      <Text style={[styles.factText, roomy && styles.factTextRoomy, { color: p.ink }]}>
         {cut > 0 ? (
           <>
             <Text style={styles.factHead}>{k.slice(0, cut + 1)}</Text>
@@ -664,11 +664,21 @@ function Result({
   const facts = [...wrong, ...byLvl(qs.filter((q) => !missed.includes(q.id)))].slice(0, Math.max(5, wrong.length));
   return (
     <View style={{ flex: 1, paddingBottom: bottom + 8 }}>
-      <ScrollView alwaysBounceVertical={false} contentContainerStyle={{ paddingTop: insets.top + (small ? 12 : 28), paddingBottom: 12 }}>
+      {/* auf großen iPhones alles größer und senkrecht mittig, damit unten keine leere Fläche bleibt */}
+      <ScrollView
+        alwaysBounceVertical={false}
+        contentContainerStyle={{ flexGrow: 1, justifyContent: small ? 'flex-start' : 'center', paddingTop: insets.top + (small ? 12 : 20), paddingBottom: 12 }}
+      >
+        {/* Forscher-Figur nur, wenn genug Platz ist (große iPhones, höchstens 7 Fakten) */}
+        {!small && facts.length <= 7 && (
+          <View style={styles.resExplorer}>
+            <Explorer size={96} />
+          </View>
+        )}
         <Text style={[styles.resLabel, { color: p.mute }]}>{t('fq.resultTitle')}</Text>
         {/* Ergebnis, XP, Serie und Tempo in einer Zeile (bricht bei langen Texten sauber um) */}
         <View style={styles.resRow}>
-          <Text style={[styles.resBig, small && styles.resBigSmall, { color: p.ink }]}>
+          <Text style={[styles.resBig, small ? styles.resBigSmall : styles.resBigRoomy, { color: p.ink }]}>
             {correct} / {round.q.length}
           </Text>
           <View style={styles.resPill}>
@@ -684,10 +694,10 @@ function Result({
             </View>
           )}
         </View>
-        <View style={[styles.learn, { backgroundColor: p.card }]}>
-          <Text style={[styles.learnTitle, { color: p.ink }]}>{missed.length ? t('fq.learned') : t('fq.perfect')}</Text>
+        <View style={[styles.learn, !small && styles.learnRoomy, { backgroundColor: p.card }]}>
+          <Text style={[styles.learnTitle, !small && styles.learnTitleRoomy, { color: p.ink }]}>{missed.length ? t('fq.learned') : t('fq.perfect')}</Text>
           {facts.map((q) => (
-            <LearnItem key={q.id} q={q} p={p} />
+            <LearnItem key={q.id} q={q} p={p} roomy={!small} />
           ))}
         </View>
       </ScrollView>
@@ -784,6 +794,8 @@ const styles = StyleSheet.create({
   resRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 6, marginTop: 6, marginHorizontal: spacing.gutter },
   resBig: { fontFamily: fonts.serifBold, fontSize: 34, marginRight: 4 },
   resBigSmall: { fontSize: 27, marginRight: 0 },
+  resBigRoomy: { fontSize: 40 },
+  resExplorer: { alignItems: 'center', marginBottom: 12 },
   resPill: { backgroundColor: colors.accent, borderRadius: 12, paddingHorizontal: 11, paddingVertical: 6 },
   resPillText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.ink },
   chip: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 7 },
@@ -791,9 +803,14 @@ const styles = StyleSheet.create({
   chipText: { fontFamily: fonts.sansBold, fontSize: 13 },
   learn: { marginHorizontal: spacing.gutter, marginTop: 14, borderRadius: 18, paddingHorizontal: 16, paddingTop: 12, paddingBottom: 10 },
   learnTitle: { fontFamily: fonts.serifBold, fontSize: 16, marginBottom: 4 },
+  learnRoomy: { marginTop: 22, paddingHorizontal: 18, paddingTop: 18, paddingBottom: 14 },
+  learnTitleRoomy: { fontSize: 19, marginBottom: 8 },
   fact: { flexDirection: 'row', paddingVertical: 2 },
   factDot: { fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 19, width: 14 },
   factText: { flex: 1, fontFamily: fonts.sans, fontSize: 14, lineHeight: 19 },
+  factRoomy: { paddingVertical: 6 },
+  factDotRoomy: { fontSize: 17, lineHeight: 24, width: 18 },
+  factTextRoomy: { fontSize: 16.5, lineHeight: 24 },
   factHead: { fontFamily: fonts.sansBold },
   done: { marginHorizontal: spacing.gutter, marginTop: 16, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
   doneText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
