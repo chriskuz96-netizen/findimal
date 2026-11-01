@@ -98,9 +98,9 @@ export function NearbyList({
                 </View>
                 <Text
                   style={[styles.name, { color: p.ink }]}
-                  numberOfLines={1}
+                  numberOfLines={2}
                   adjustsFontSizeToFit
-                  minimumFontScale={0.7}
+                  minimumFontScale={0.85}
                 >
                   {a.name}
                 </Text>

@@ -154,7 +154,9 @@ const NEARBY_SYSTEM = `Du bist der Tierexperte der App Findimal.
 Schlage drei häufige, wild lebende Tiere vor, die man in der genannten Region zur genannten Jahres- und
 Tageszeit mit etwas Glück selbst entdecken kann (keine Haustiere, keine seltenen oder gefährlichen Arten).
 Wähle möglichst verschiedene Tiergruppen. Antworte kurz und freundlich.
-"wo" sind höchstens fünf Wörter (z. B. "Hecken und Laubhaufen"), "tipp" ist ein kurzer Satz.`;
+"wo" sind höchstens fünf Wörter (z. B. "Hecken und Laubhaufen"), "tipp" ist ein kurzer Satz.
+"name" ist der gebräuchliche Name der Art in der Antwortsprache, höchstens drei Wörter. Erfinde keine Namen:
+Gibt es keinen gebräuchlichen Namen, nimm einen bekannten Gruppennamen (z. B. "Schabe" oder "Laubfrosch").`;
 
 const NEARBY_SCHEMA = {
   type: 'object',
