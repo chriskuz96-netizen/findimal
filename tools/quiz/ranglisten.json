@@ -43,6 +43,16 @@
     "Humano"
    ],
    "x": "Guepardo hasta unos 110 km/h, berrendo casi 90, liebre unos 70, y el humano más rápido algo menos de 45 km/h."
+  },
+  "pt": {
+   "q": "Quem corre mais rápido? O mais rápido primeiro.",
+   "a": [
+    "Guepardo",
+    "Antilocapra",
+    "Lebre-europeia",
+    "Humano"
+   ],
+   "x": "Guepardo até uns 110 km/h, antilocapra quase 90, lebre uns 70, e o humano mais rápido pouco menos de 45 km/h."
   }
  },
  {
@@ -89,6 +99,16 @@
     "Gorrión común"
    ],
    "x": "Halcón peregrino más de 300 km/h, águila real unos 240 km/h en picado, vencejo más de 100 km/h volando, gorrión unos 40 km/h."
+  },
+  "pt": {
+   "q": "Quem é mais rápido no ar? O mais rápido primeiro.",
+   "a": [
+    "Falcão-peregrino (em mergulho)",
+    "Águia-real (em mergulho)",
+    "Andorinhão-preto",
+    "Pardal"
+   ],
+   "x": "Falcão-peregrino mais de 300 km/h, águia-real uns 240 km/h em mergulho, andorinhão mais de 100 km/h voando, pardal uns 40 km/h."
   }
  },
  {
@@ -135,6 +155,16 @@
     "Humano"
    ],
    "x": "La orca supera los 50 km/h, el león marino unos 40 y la nutria algo más de 10 km/h. Los mejores nadadores humanos llegan a casi 9 km/h."
+  },
+  "pt": {
+   "q": "Quem nada mais rápido? O mais rápido primeiro.",
+   "a": [
+    "Orca",
+    "Leão-marinho-da-califórnia",
+    "Lontra-europeia",
+    "Humano"
+   ],
+   "x": "A orca passa dos 50 km/h, o leão-marinho uns 40 e a lontra pouco mais de 10 km/h. Os melhores nadadores humanos chegam a quase 9 km/h."
   }
  },
  {
@@ -181,6 +211,16 @@
     "Oso polar"
    ],
    "x": "Ballena azul hasta unas 150 toneladas, elefante macho unas 6 toneladas, hipopótamo de 1,5 a 3 toneladas, oso polar macho de 400 a 700 kg."
+  },
+  "pt": {
+   "q": "Quem pesa mais? O mais pesado primeiro.",
+   "a": [
+    "Baleia-azul",
+    "Elefante-africano",
+    "Hipopótamo",
+    "Urso-polar"
+   ],
+   "x": "Baleia-azul até umas 150 toneladas, elefante macho umas 6 toneladas, hipopótamo de 1,5 a 3 toneladas, urso-polar macho de 400 a 700 kg."
   }
  },
  {
@@ -227,6 +267,16 @@
     "Perro"
    ],
    "x": "Tiburón de Groenlandia varios siglos, tortuga gigante mucho más de 100 años, elefante hasta unos 70, perro normalmente de 10 a 15 años."
+  },
+  "pt": {
+   "q": "Quem vive mais anos? O mais longevo primeiro.",
+   "a": [
+    "Tubarão-da-groenlândia",
+    "Tartaruga-gigante",
+    "Elefante-asiático",
+    "Cachorro"
+   ],
+   "x": "Tubarão-da-groenlândia vários séculos, tartaruga-gigante bem mais de 100 anos, elefante até uns 70, cachorro normalmente de 10 a 15 anos."
   }
  },
  {
@@ -273,6 +323,16 @@
     "Jirafa"
    ],
    "x": "El koala duerme hasta 20 horas, el gato de 12 a 16, un adulto unas 8, y la jirafa a menudo menos de 4 horas, a ratos."
+  },
+  "pt": {
+   "q": "Quem dorme mais por dia? O mais dorminhoco primeiro.",
+   "a": [
+    "Coala",
+    "Gato doméstico",
+    "Humano",
+    "Girafa"
+   ],
+   "x": "O coala dorme até 20 horas, o gato de 12 a 16, um adulto umas 8, e a girafa muitas vezes menos de 4 horas, aos pouquinhos."
   }
  },
  {
@@ -319,6 +379,16 @@
     "Humano"
    ],
    "x": "Jirafa hasta 5,5 m, elefante unos 4 m, avestruz hasta unos 2,7 m (el ave más grande del mundo). Un humano mide de media 1,70 m."
+  },
+  "pt": {
+   "q": "Quem é mais alto (do chão ao topo da cabeça)? O mais alto primeiro.",
+   "a": [
+    "Girafa",
+    "Elefante-africano",
+    "Avestruz",
+    "Humano"
+   ],
+   "x": "Girafa até 5,5 m, elefante uns 4 m, avestruz até uns 2,7 m (a maior ave do mundo). Um humano mede em média 1,70 m."
   }
  },
  {
@@ -365,6 +435,16 @@
     "Colibrí"
    ],
    "x": "Un huevo de avestruz pesa unos 1,5 kg, tanto como más de 20 huevos de gallina. El de emú unos 600 g, el de gallina 60 g y el de colibrí apenas medio gramo."
+  },
+  "pt": {
+   "q": "De quem é o ovo mais pesado? O mais pesado primeiro.",
+   "a": [
+    "Avestruz",
+    "Emu",
+    "Galinha",
+    "Beija-flor"
+   ],
+   "x": "Um ovo de avestruz pesa uns 1,5 kg – tanto quanto mais de 20 ovos de galinha. O de emu uns 600 g, o de galinha 60 g e o de beija-flor só meio grama."
   }
  },
  {
@@ -411,6 +491,16 @@
     "Abejorro sanjuanero"
    ],
    "x": "Según la especie, el milpiés tiene de decenas a cientos de patas (una especie tiene más de 1.300). El cangrejo tiene 10, la araña 8 y el escarabajo 6."
+  },
+  "pt": {
+   "q": "Quem tem mais patas? Quem tem mais primeiro.",
+   "a": [
+    "Piolho-de-cobra",
+    "Caranguejo",
+    "Aranha-de-jardim",
+    "Besouro-de-junho"
+   ],
+   "x": "Conforme a espécie, o piolho-de-cobra tem de dezenas a centenas de patas (uma espécie tem mais de 1.300). O caranguejo tem 10, a aranha 8 e o besouro 6."
   }
  },
  {
@@ -457,6 +547,16 @@
     "Perro"
    ],
    "x": "La elefanta lleva a su cría unos 22 meses, la jirafa unos 15, el humano 9 y la perra solo algo más de 2 meses."
+  },
+  "pt": {
+   "q": "Quem tem a gestação mais longa? A mais longa primeiro.",
+   "a": [
+    "Elefante-africano",
+    "Girafa",
+    "Humano",
+    "Cachorro"
+   ],
+   "x": "A elefanta carrega o filhote por uns 22 meses, a girafa uns 15, o humano 9 e a cadela pouco mais de 2 meses."
   }
  },
  {
@@ -503,6 +603,16 @@
     "Ballena azul"
    ],
    "x": "El diminuto musgaño enano supera los 1.000 latidos por minuto, el ratón de 500 a 600, el humano unos 70 y la ballena azul al bucear solo de 2 a 10."
+  },
+  "pt": {
+   "q": "Qual coração bate mais rápido? O mais rápido primeiro.",
+   "a": [
+    "Musaranho-pigmeu",
+    "Camundongo",
+    "Humano",
+    "Baleia-azul"
+   ],
+   "x": "O minúsculo musaranho-pigmeu passa de 1.000 batidas por minuto, o camundongo de 500 a 600, o humano umas 70 e a baleia-azul, mergulhando, só de 2 a 10."
   }
  },
  {
@@ -549,6 +659,16 @@
     "Panda gigante"
    ],
    "x": "Una cría de ballena azul pesa unas 2,5 toneladas, la de elefante unos 100 kg, un bebé humano 3,5 kg y una cría de panda solo unos 100 gramos."
+  },
+  "pt": {
+   "q": "Qual filhote pesa mais ao nascer? O mais pesado primeiro.",
+   "a": [
+    "Baleia-azul",
+    "Elefante-africano",
+    "Humano",
+    "Panda-gigante"
+   ],
+   "x": "Um filhote de baleia-azul pesa umas 2,5 toneladas, o de elefante uns 100 kg, um bebê humano 3,5 kg e um filhote de panda só uns 100 gramas."
   }
  },
  {
@@ -595,6 +715,16 @@
     "Mirlo"
    ],
    "x": "En 1973 un buitre moteado chocó con un avión a más de 11.000 m. El ánsar indio cruza el Himalaya a 7.000-8.000 m. La cigüeña migra normalmente a unos cientos o mil metros; el mirlo se queda cerca del suelo."
+  },
+  "pt": {
+   "q": "Quem voa mais alto? O mais alto primeiro.",
+   "a": [
+    "Abutre-de-rüppell",
+    "Ganso-de-cabeça-listrada",
+    "Cegonha-branca",
+    "Melro"
+   ],
+   "x": "Em 1973, um abutre-de-rüppell bateu num avião a mais de 11.000 m. O ganso-de-cabeça-listrada cruza o Himalaia a 7.000–8.000 m. A cegonha migra normalmente a algumas centenas ou mil metros; o melro fica perto do chão."
   }
  },
  {
@@ -641,6 +771,16 @@
     "Humano (sin equipo)"
    ],
    "x": "El zifio de Cuvier baja a casi 3.000 m, el cachalote a más de 2.000 m, el pingüino emperador a más de 500 m. Los apneístas pasan por poco de 100 m."
+  },
+  "pt": {
+   "q": "Quem mergulha mais fundo? O mais fundo primeiro.",
+   "a": [
+    "Baleia-bicuda-de-cuvier",
+    "Cachalote",
+    "Pinguim-imperador",
+    "Humano (sem equipamento)"
+   ],
+   "x": "A baleia-bicuda-de-cuvier desce a quase 3.000 m, o cachalote a mais de 2.000 m, o pinguim-imperador a mais de 500 m. Os mergulhadores livres passam por pouco dos 100 m."
   }
  },
  {
@@ -687,6 +827,16 @@
     "Oso hormiguero gigante"
    ],
    "x": "El delfín mular tiene de 80 a 100 dientes, el perro 42 y el humano adulto 32. El oso hormiguero no tiene ninguno: atrapa las hormigas con su larga lengua."
+  },
+  "pt": {
+   "q": "Quem tem mais dentes? Quem tem mais primeiro.",
+   "a": [
+    "Golfinho-nariz-de-garrafa",
+    "Cachorro",
+    "Humano",
+    "Tamanduá-bandeira"
+   ],
+   "x": "O golfinho-nariz-de-garrafa tem de 80 a 100 dentes, o cachorro 42 e o humano adulto 32. O tamanduá não tem nenhum: pega as formigas com a língua comprida."
   }
  },
  {
@@ -733,6 +883,16 @@
     "Humano"
    ],
    "x": "El cocodrilo marino tiene la mordida más fuerte jamás medida, unas dos veces la del hipopótamo. El león muerde mucho más flojo y el humano con solo una fracción."
+  },
+  "pt": {
+   "q": "Quem morde mais forte? O mais forte primeiro.",
+   "a": [
+    "Crocodilo-de-água-salgada",
+    "Hipopótamo",
+    "Leão",
+    "Humano"
+   ],
+   "x": "O crocodilo-de-água-salgada tem a mordida mais forte já medida, umas duas vezes a do hipopótamo. O leão morde bem mais fraco, e o humano com só uma fração disso."
   }
  },
  {
@@ -779,6 +939,16 @@
     "Mirlo"
    ],
    "x": "El albatros viajero mide hasta 3,5 m de punta a punta de ala, el cóndor andino algo más de 3 m, la cigüeña unos 2 m y el mirlo poco menos de 40 cm."
+  },
+  "pt": {
+   "q": "Quem tem a maior envergadura? A maior primeiro.",
+   "a": [
+    "Albatroz-errante",
+    "Condor-dos-andes",
+    "Cegonha-branca",
+    "Melro"
+   ],
+   "x": "O albatroz-errante mede até 3,5 m de ponta a ponta das asas, o condor-dos-andes pouco mais de 3 m, a cegonha uns 2 m e o melro pouco menos de 40 cm."
   }
  },
  {
@@ -825,6 +995,16 @@
     "Delfín mular"
    ],
    "x": "La ballena azul llega a 30 m, el tiburón ballena (el pez más grande) a más de 12 m, el tiburón blanco a unos 6 m y el delfín mular a 2-4 m."
+  },
+  "pt": {
+   "q": "Quem é mais comprido? O mais comprido primeiro.",
+   "a": [
+    "Baleia-azul",
+    "Tubarão-baleia",
+    "Tubarão-branco",
+    "Golfinho-nariz-de-garrafa"
+   ],
+   "x": "A baleia-azul chega a 30 m, o tubarão-baleia (o maior peixe) a mais de 12 m, o tubarão-branco a uns 6 m e o golfinho a 2–4 m."
   }
  },
  {
@@ -871,6 +1051,16 @@
     "Caballo al galope"
    ],
    "x": "Un caracol solo avanza unos metros por hora, un perezoso unos 200-250 m. Un humano pasea a unos 5 km/h y un caballo galopa a más de 40 km/h."
+  },
+  "pt": {
+   "q": "Quem é mais LENTO? O mais lento primeiro.",
+   "a": [
+    "Caracol-de-jardim",
+    "Preguiça-de-três-dedos",
+    "Humano passeando",
+    "Cavalo a galope"
+   ],
+   "x": "Um caracol avança só alguns metros por hora, uma preguiça uns 200–250 m. Um humano passeia a uns 5 km/h e um cavalo galopa a mais de 40 km/h."
   }
  },
  {
@@ -917,6 +1107,16 @@
     "Humano"
    ],
    "x": "Algunos murciélagos oyen más de 200.000 vibraciones por segundo (200 kHz), el delfín hasta unos 150 kHz, el perro unos 45 kHz. El humano oye como mucho hasta 20 kHz, y menos con la edad."
+  },
+  "pt": {
+   "q": "Quem ouve os sons mais agudos? O mais agudo primeiro.",
+   "a": [
+    "Morcego",
+    "Golfinho",
+    "Cachorro",
+    "Humano"
+   ],
+   "x": "Alguns morcegos ouvem mais de 200.000 vibrações por segundo (200 kHz), o golfinho até uns 150 kHz, o cachorro uns 45 kHz. O humano ouve no máximo até 20 kHz – e menos com a idade."
   }
  },
  {
@@ -963,6 +1163,16 @@
     "Ornitorrinco"
    ],
    "x": "Las aves son muy calientes: la gallina unos 41 °C. El perro tiene unos 38,5 °C, el humano 37 °C y el ornitorrinco solo unos 32 °C."
+  },
+  "pt": {
+   "q": "Qual corpo é mais quente? O mais quente primeiro.",
+   "a": [
+    "Galinha",
+    "Cachorro",
+    "Humano",
+    "Ornitorrinco"
+   ],
+   "x": "As aves são bem quentes: a galinha uns 41 °C. O cachorro tem uns 38,5 °C, o humano 37 °C e o ornitorrinco só uns 32 °C."
   }
  },
  {
@@ -1009,6 +1219,16 @@
     "Humanos"
    ],
    "x": "Las medusas existen desde hace más de 500 millones de años, los tiburones desde hace más de 400 millones, los dinosaurios aparecieron hace unos 230 millones y nuestra especie hace solo unos 300.000 años."
+  },
+  "pt": {
+   "q": "Quem surgiu antes na Terra? O mais antigo primeiro.",
+   "a": [
+    "Águas-vivas",
+    "Tubarões",
+    "Dinossauros",
+    "Humanos"
+   ],
+   "x": "As águas-vivas existem há mais de 500 milhões de anos, os tubarões há mais de 400 milhões, os dinossauros surgiram há uns 230 milhões e nossa espécie há só uns 300.000 anos."
   }
  },
  {
@@ -1055,6 +1275,16 @@
     "Elefante africano"
    ],
    "x": "El ratón puede tener hasta 50 crías al año, el conejo de 20 a 30 y el zorro una camada de 4 a 6. Una elefanta solo tiene una cría cada 4 o 5 años."
+  },
+  "pt": {
+   "q": "Quem tem mais filhotes por ano? Quem tem mais primeiro.",
+   "a": [
+    "Camundongo",
+    "Coelho-selvagem",
+    "Raposa-vermelha",
+    "Elefante-africano"
+   ],
+   "x": "O camundongo pode ter até 50 filhotes por ano, o coelho de 20 a 30 e a raposa uma ninhada de 4 a 6. Uma elefanta tem só um filhote a cada 4 ou 5 anos."
   }
  },
  {
@@ -1101,6 +1331,16 @@
     "Águila real"
    ],
    "x": "El avestruz supera los 100 kg, el pingüino emperador pesa de 20 a 40 kg, el cisne unos 10 kg (una de las aves voladoras más pesadas). El águila real pesa de 3 a 6 kg."
+  },
+  "pt": {
+   "q": "Qual ave pesa mais? A mais pesada primeiro.",
+   "a": [
+    "Avestruz",
+    "Pinguim-imperador",
+    "Cisne-branco",
+    "Águia-real"
+   ],
+   "x": "O avestruz passa dos 100 kg, o pinguim-imperador pesa de 20 a 40 kg, o cisne uns 10 kg (uma das aves voadoras mais pesadas). A águia-real pesa de 3 a 6 kg."
   }
  },
  {
@@ -1147,6 +1387,16 @@
     "Gato doméstico"
    ],
    "x": "La efímera adulta suele vivir de horas a pocos días, pero como larva hasta tres años. La obrera de verano unas 6 semanas, el ratón de 1 a 2 años y el gato unos 15 años."
+  },
+  "pt": {
+   "q": "Quem vive MENOS como adulto? A vida mais curta primeiro.",
+   "a": [
+    "Efêmera",
+    "Abelha operária de verão",
+    "Camundongo",
+    "Gato doméstico"
+   ],
+   "x": "A efêmera adulta costuma viver de horas a poucos dias, mas como larva até três anos. A operária de verão umas 6 semanas, o camundongo de 1 a 2 anos e o gato uns 15 anos."
   }
  },
  {
@@ -1193,6 +1443,16 @@
     "Pingüino emperador"
    ],
    "x": "Una hembra de pez luna puede llevar unos 300 millones de huevos, el sapo pone cordones con unos miles, la tortuga marina unos 100 por puesta y el pingüino emperador, uno solo."
+  },
+  "pt": {
+   "q": "Quem põe mais ovos de uma vez? Quem põe mais primeiro.",
+   "a": [
+    "Peixe-lua",
+    "Sapo-comum",
+    "Tartaruga-marinha",
+    "Pinguim-imperador"
+   ],
+   "x": "Uma fêmea de peixe-lua pode carregar uns 300 milhões de ovos, o sapo põe cordões com alguns milhares, a tartaruga-marinha uns 100 por ninhada e o pinguim-imperador só um."
   }
  },
  {
@@ -1239,6 +1499,16 @@
     "Zorro rojo"
    ],
    "x": "Con algo más de 5 cm, el zunzuncito es el ave más pequeña del mundo. Un topillo mide unos 10 cm, una ardilla algo más de 20 cm (sin cola) y un zorro unos 70 cm."
+  },
+  "pt": {
+   "q": "Quem é menor? O menor primeiro.",
+   "a": [
+    "Beija-flor-abelha",
+    "Rato-do-campo",
+    "Esquilo-vermelho",
+    "Raposa-vermelha"
+   ],
+   "x": "Com pouco mais de 5 cm, o beija-flor-abelha é a menor ave do mundo. Um rato-do-campo mede uns 10 cm, um esquilo pouco mais de 20 cm (sem cauda) e uma raposa uns 70 cm."
   }
  },
  {
@@ -1285,6 +1555,16 @@
     "Nutria europea"
    ],
    "x": "Récord: un zifio de Cuvier estuvo casi 4 horas sumergido. El elefante marino aguanta hasta unas 2 horas, el delfín mular normalmente menos de 10 minutos y la nutria unos minutos."
+  },
+  "pt": {
+   "q": "Quem aguenta mais tempo debaixo d’água? Quem aguenta mais primeiro.",
+   "a": [
+    "Baleia-bicuda-de-cuvier",
+    "Elefante-marinho-do-sul",
+    "Golfinho-nariz-de-garrafa",
+    "Lontra-europeia"
+   ],
+   "x": "Recorde: uma baleia-bicuda-de-cuvier ficou quase 4 horas submersa. O elefante-marinho aguenta até umas 2 horas, o golfinho normalmente menos de 10 minutos e a lontra alguns minutos."
   }
  },
  {
@@ -1331,6 +1611,16 @@
     "Erizo"
    ],
    "x": "El avestruz corre hasta 70 km/h, el ave más rápida a pie. El zorro llega a unos 50 y la ardilla a algo más de 20 km/h. El erizo trota como mucho a unos 9 km/h."
+  },
+  "pt": {
+   "q": "Quem é mais rápido em terra? O mais rápido primeiro.",
+   "a": [
+    "Avestruz",
+    "Raposa-vermelha",
+    "Esquilo-vermelho",
+    "Ouriço"
+   ],
+   "x": "O avestruz corre até 70 km/h, a ave mais rápida a pé. A raposa chega a uns 50 e o esquilo a pouco mais de 20 km/h. O ouriço trota no máximo a uns 9 km/h."
   }
  },
  {
@@ -1377,6 +1667,16 @@
     "Chimpancé"
    ],
    "x": "El cerebro del cachalote pesa unos 8 kg, el más pesado del reino animal. El del elefante unos 5 kg, el humano de 1,3 a 1,4 kg y el del chimpancé poco menos de 400 g."
+  },
+  "pt": {
+   "q": "Qual cérebro pesa mais? O mais pesado primeiro.",
+   "a": [
+    "Cachalote",
+    "Elefante-africano",
+    "Humano",
+    "Chimpanzé"
+   ],
+   "x": "O cérebro do cachalote pesa uns 8 kg, o mais pesado do reino animal. O do elefante uns 5 kg, o humano de 1,3 a 1,4 kg e o do chimpanzé pouco menos de 400 g."
   }
  }
 ]

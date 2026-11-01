@@ -43,6 +43,16 @@
     "Carbonero común"
    ],
    "x": "El trepador azul es la única ave autóctona que baja por los troncos cabeza abajo. Pájaros carpinteros y agateadores solo suben."
+  },
+  "pt": {
+   "q": "Qual ave da Europa Central consegue descer um tronco de cabeça para baixo?",
+   "a": [
+    "Pica-pau-malhado-grande",
+    "Trepadeira-azul",
+    "Trepadeira-comum",
+    "Chapim-real"
+   ],
+   "x": "A trepadeira-azul é a única ave nativa que desce os troncos de cabeça para baixo. Pica-paus e trepadeiras só sobem."
   }
  },
  {
@@ -81,6 +91,14 @@
     "Falso"
    ],
    "x": "Los erizos no toleran la lactosa y la leche les provoca diarrea. Lo adecuado es darles agua."
+  },
+  "pt": {
+   "q": "Leite é um bom alimento para ouriços.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Os ouriços não toleram lactose, e o leite causa diarreia neles. O certo é dar água."
   }
  },
  {
@@ -119,6 +137,14 @@
     "Falso"
    ],
    "x": "¡Cierto! Las ardillas voladoras solo planean. Los murciélagos vuelan con una membrana de piel entre sus largos dedos."
+  },
+  "pt": {
+   "q": "Os morcegos são os únicos mamíferos capazes de voar de verdade.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Certo! Os esquilos-voadores só planam. Os morcegos voam com uma membrana de pele entre os dedos longos."
   }
  },
  {
@@ -165,6 +191,16 @@
     "360 grados"
    ],
    "x": "Los búhos giran la cabeza unos 270 grados, porque sus grandes ojos apenas pueden moverse."
+  },
+  "pt": {
+   "q": "Mais ou menos quantos graus uma coruja consegue girar a cabeça?",
+   "a": [
+    "90 graus",
+    "180 graus",
+    "270 graus",
+    "360 graus"
+   ],
+   "x": "As corujas giram a cabeça uns 270 graus, porque os olhos grandes quase não se mexem."
   }
  },
  {
@@ -211,6 +247,16 @@
     "Azor común"
    ],
    "x": "El halcón peregrino se lanza sobre sus presas a más de 300 km/h: es el animal más rápido del mundo."
+  },
+  "pt": {
+   "q": "Qual ave passa dos 300 km/h em mergulho?",
+   "a": [
+    "Peneireiro",
+    "Falcão-peregrino",
+    "Andorinhão-preto",
+    "Açor"
+   ],
+   "x": "O falcão-peregrino se lança sobre as presas a mais de 300 km/h: é o animal mais rápido do mundo."
   }
  },
  {
@@ -257,6 +303,16 @@
     "Capibara"
    ],
    "x": "El capibara sudamericano puede superar los 50 kg. El castor es el roedor más grande de Europa."
+  },
+  "pt": {
+   "q": "Qual é o maior roedor do mundo?",
+   "a": [
+    "Castor",
+    "Porco-espinho",
+    "Marmota",
+    "Capivara"
+   ],
+   "x": "A capivara sul-americana pode passar dos 50 kg. O castor é o maior roedor da Europa."
   }
  },
  {
@@ -303,6 +359,16 @@
     "Los deja en paz"
    ],
    "x": "El pollo de cuco empuja fuera del nido los huevos y pollos de sus anfitriones para quedarse con toda la comida."
+  },
+  "pt": {
+   "q": "O que um filhote de cuco recém-nascido faz com os outros ovos do ninho?",
+   "a": [
+    "Empurra-os para fora do ninho",
+    "Mantém-nos aquecidos",
+    "Come-os",
+    "Deixa-os em paz"
+   ],
+   "x": "O filhote de cuco empurra para fora do ninho os ovos e filhotes dos anfitriões, para ficar com toda a comida."
   }
  },
  {
@@ -349,6 +415,16 @@
     "Moteada de blanco y negro"
    ],
    "x": "Solo el macho es negro con pico amarillo. La hembra es marrón oscuro, lo que la camufla al incubar."
+  },
+  "pt": {
+   "q": "De que cor é a fêmea do melro?",
+   "a": [
+    "Preta",
+    "Cinza com peito vermelho",
+    "Marrom-escura",
+    "Pintada de branco e preto"
+   ],
+   "x": "Só o macho é preto com bico amarelo. A fêmea é marrom-escura, o que a camufla ao chocar."
   }
  },
  {
@@ -395,6 +471,16 @@
     "El plumón suave"
    ],
    "x": "Los búhos tragan los ratones enteros y luego regurgitan los huesos y pelos no digeridos en una bola."
+  },
+  "pt": {
+   "q": "O que é uma egagrópila de coruja?",
+   "a": [
+    "Um ninho de penas",
+    "Ossos e pelos regurgitados",
+    "Um canto de corte",
+    "A penugem macia"
+   ],
+   "x": "As corujas engolem os ratos inteiros e depois regurgitam numa bola os ossos e pelos não digeridos."
   }
  },
  {
@@ -441,6 +527,16 @@
     "Busardo ratonero"
    ],
    "x": "El busardo ratonero es la rapaz más común de Alemania; suele posarse en postes junto a los campos."
+  },
+  "pt": {
+   "q": "Qual é a ave de rapina mais comum na Alemanha?",
+   "a": [
+    "Milhafre-real",
+    "Açor",
+    "Águia-rabalva",
+    "Águia-de-asa-redonda"
+   ],
+   "x": "A águia-de-asa-redonda é a ave de rapina mais comum da Alemanha; costuma pousar em postes ao lado dos campos."
   }
  },
  {
@@ -479,6 +575,14 @@
     "Falso"
    ],
    "x": "¡Falso! El corzo y el ciervo rojo son dos especies distintas. El corzo es mucho más pequeño."
+  },
+  "pt": {
+   "q": "O corço é a fêmea do veado.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Falso! O corço e o veado-vermelho são duas espécies diferentes. O corço é bem menor."
   }
  },
  {
@@ -525,6 +629,16 @@
     "Gamo"
    ],
    "x": "El alce es el cérvido más grande del mundo. Los machos grandes alcanzan unos 2 m a la cruz y tienen astas en forma de pala."
+  },
+  "pt": {
+   "q": "Qual é a maior espécie de cervo do mundo?",
+   "a": [
+    "Alce",
+    "Veado-vermelho",
+    "Rena",
+    "Gamo"
+   ],
+   "x": "O alce é o maior cervídeo do mundo. Os machos grandes chegam a uns 2 m na cernelha e têm chifres em forma de pá."
   }
  },
  {
@@ -571,6 +685,16 @@
     "Búho chico"
    ],
    "x": "El búho real es el mayor búho de Europa, con hasta unos 1,8 m de envergadura. Incluso caza erizos."
+  },
+  "pt": {
+   "q": "Qual é a maior coruja da Europa?",
+   "a": [
+    "Coruja-do-mato",
+    "Suindara",
+    "Bufo-real",
+    "Bufo-pequeno"
+   ],
+   "x": "O bufo-real é a maior coruja da Europa, com até uns 1,8 m de envergadura. Ele caça até ouriços."
   }
  },
  {
@@ -617,6 +741,16 @@
     "Corzo"
    ],
    "x": "El lirón gris duerme hasta unos 7 meses. El tejón y la ardilla solo reducen su actividad; el corzo sigue activo."
+  },
+  "pt": {
+   "q": "Qual destes animais hiberna de verdade?",
+   "a": [
+    "Texugo",
+    "Arganaz",
+    "Esquilo-vermelho",
+    "Corço"
+   ],
+   "x": "O arganaz dorme até uns 7 meses. O texugo e o esquilo só diminuem a atividade; o corço continua ativo."
   }
  },
  {
@@ -663,6 +797,16 @@
     "Se cae y vuelve a crecer"
    ],
    "x": "Los ciervos pierden la cornamenta cada año. La nueva crece en pocos meses, cubierta de una piel llamada terciopelo."
+  },
+  "pt": {
+   "q": "O que acontece todo ano com os chifres do veado?",
+   "a": [
+    "Continuam crescendo sem parar",
+    "Ficam brancos",
+    "Nunca mudam",
+    "Caem e crescem de novo"
+   ],
+   "x": "Os veados perdem os chifres todo ano. Os novos crescem em poucos meses, cobertos por uma pele chamada veludo."
   }
  },
  {
@@ -709,6 +853,16 @@
     "Polonia"
    ],
    "x": "Cerca de la mitad de los milanos reales cría en Alemania. Se reconoce por su cola rojiza muy ahorquillada."
+  },
+  "pt": {
+   "q": "Em que país se reproduz mais ou menos a metade dos milhafres-reais do mundo?",
+   "a": [
+    "Espanha",
+    "Alemanha",
+    "França",
+    "Polônia"
+   ],
+   "x": "Cerca de metade dos milhafres-reais se reproduz na Alemanha. Ele é reconhecido pela cauda avermelhada bem bifurcada."
   }
  },
  {
@@ -755,6 +909,16 @@
     "Toda su vida"
    ],
    "x": "Algunos vencejos pasan hasta unos 10 meses volando sin parar. Comen y beben en vuelo y solo se posan para criar."
+  },
+  "pt": {
+   "q": "Quanto tempo os andorinhões-pretos podem passar no ar sem pousar?",
+   "a": [
+    "No máximo um dia",
+    "Mais ou menos uma semana",
+    "Até uns 10 meses",
+    "A vida inteira"
+   ],
+   "x": "Alguns andorinhões passam até uns 10 meses voando sem parar. Comem e bebem em voo e só pousam para se reproduzir."
   }
  },
  {
@@ -801,6 +965,16 @@
     "Están llenos de sangre"
    ],
    "x": "El hierro del esmalte lo vuelve naranja y muy duro, ideal para talar árboles."
+  },
+  "pt": {
+   "q": "Por que os dentes da frente do castor são laranja?",
+   "a": [
+    "Ferro no esmalte",
+    "Tinta da casca das árvores",
+    "Uma doença dental",
+    "Estão cheios de sangue"
+   ],
+   "x": "O ferro no esmalte deixa os dentes laranja e muito duros – ideais para derrubar árvores."
   }
  },
  {
@@ -847,6 +1021,16 @@
     "Faltan corrientes de aire cálido"
    ],
    "x": "Las cigüeñas planean con corrientes térmicas, que se forman sobre tierra y apenas sobre el mar. Por eso pasan por Gibraltar o el Bósforo."
+  },
+  "pt": {
+   "q": "Por que as cegonhas-brancas não atravessam direto o Mediterrâneo?",
+   "a": [
+    "Têm medo das gaivotas",
+    "Não sabem nadar",
+    "É frio demais sobre o mar",
+    "Faltam correntes de ar quente"
+   ],
+   "x": "As cegonhas planam com correntes térmicas, que se formam sobre a terra e quase não sobre o mar. Por isso passam por Gibraltar ou pelo Bósforo."
   }
  },
  {
@@ -893,6 +1077,16 @@
     "Paloma torcaz"
    ],
    "x": "En otoño, el arrendajo esconde miles de bellotas en el suelo. Las que olvida pueden germinar y convertirse en robles."
+  },
+  "pt": {
+   "q": "Que ave “planta” muitos carvalhos novos com suas despensas esquecidas?",
+   "a": [
+    "Pica-pau-malhado-grande",
+    "Gaio",
+    "Melro",
+    "Pombo-torcaz"
+   ],
+   "x": "No outono, o gaio esconde milhares de bolotas no chão. As que ele esquece podem germinar e virar carvalhos."
   }
  },
  {
@@ -939,6 +1133,16 @@
     "En un hoyo en la playa"
    ],
    "x": "El martín pescador excava con el pico un túnel de casi un metro en taludes de ríos. Al fondo está el nido."
+  },
+  "pt": {
+   "q": "Onde o guarda-rios faz o ninho?",
+   "a": [
+    "Num ninho entre juncos",
+    "No oco de uma árvore",
+    "Num túnel que ele mesmo cava",
+    "Num buraco na praia"
+   ],
+   "x": "O guarda-rios cava com o bico um túnel de quase um metro em barrancos de rios. No fundo fica o ninho."
   }
  },
  {
@@ -985,6 +1189,16 @@
     "Tensan los músculos todo el rato"
    ],
    "x": "Un mecanismo de tendones mantiene los dedos cerrados mientras el peso del cuerpo tira de ellos: colgar no les cuesta esfuerzo."
+  },
+  "pt": {
+   "q": "Por que os morcegos conseguem dormir pendurados sem fazer força?",
+   "a": [
+    "O peso deles trava as garras",
+    "Grudam-se com saliva",
+    "Têm ventosas nos pés",
+    "Contraem os músculos o tempo todo"
+   ],
+   "x": "Um mecanismo de tendões mantém os dedos fechados enquanto o peso do corpo puxa: ficar pendurado não custa esforço."
   }
  },
  {
@@ -1031,6 +1245,16 @@
     "Unas 70.000"
    ],
    "x": "Un erizo adulto tiene unas 6.000 a 8.000 púas. Son pelos modificados."
+  },
+  "pt": {
+   "q": "Mais ou menos quantos espinhos tem um ouriço adulto?",
+   "a": [
+    "Uns 70",
+    "Uns 700",
+    "Uns 7.000",
+    "Uns 70.000"
+   ],
+   "x": "Um ouriço adulto tem uns 6.000 a 8.000 espinhos. São pelos modificados."
   }
  },
  {
@@ -1077,6 +1301,16 @@
     "Topo"
    ],
    "x": "Aunque parezcan ratones, las musarañas no son roedores. Como el topo y el erizo, son insectívoros."
+  },
+  "pt": {
+   "q": "Com qual destes animais o musaranho é mais aparentado?",
+   "a": [
+    "Camundongo",
+    "Esquilo-vermelho",
+    "Coelho",
+    "Toupeira"
+   ],
+   "x": "Embora pareçam ratos, os musaranhos não são roedores. Como a toupeira e o ouriço, são insetívoros."
   }
  },
  {
@@ -1123,6 +1357,16 @@
     "No hay ninguna diferencia"
    ],
    "x": "Los lebratos nacen con pelo y ojos abiertos en un simple hoyo. Los conejos nacen desnudos y ciegos en una madriguera."
+  },
+  "pt": {
+   "q": "Em que os filhotes de lebre recém-nascidos são diferentes dos filhotes de coelho?",
+   "a": [
+    "Têm pelo e olhos abertos",
+    "Nascem pelados e cegos",
+    "Saem de um ovo",
+    "Não há diferença"
+   ],
+   "x": "Os filhotes de lebre nascem com pelo e olhos abertos num buraco simples. Os de coelho nascem pelados e cegos numa toca."
   }
  },
  {
@@ -1169,6 +1413,16 @@
     "No lo hace: pasa frío"
    ],
    "x": "La nutria apenas tiene grasa, pero sí uno de los pelajes más densos del reino animal, que atrapa una capa de aire aislante."
+  },
+  "pt": {
+   "q": "Como a lontra-europeia se mantém aquecida na água fria?",
+   "a": [
+    "Uma grossa camada de gordura",
+    "Um pelo densíssimo",
+    "Tremendo sem parar",
+    "Não se mantém: passa frio"
+   ],
+   "x": "A lontra quase não tem gordura, mas tem um dos pelos mais densos do reino animal, que prende uma camada de ar isolante."
   }
  },
  {
@@ -1215,6 +1469,16 @@
     "Australia"
    ],
    "x": "El perro mapache procede de Asia oriental. Se liberó en Europa del Este por su piel y se extendió hasta Alemania."
+  },
+  "pt": {
+   "q": "De onde vem o cão-guaxinim, que hoje também vive na Alemanha?",
+   "a": [
+    "América do Norte",
+    "América do Sul",
+    "Ásia Oriental",
+    "Austrália"
+   ],
+   "x": "O cão-guaxinim vem da Ásia Oriental. Foi solto no Leste Europeu por causa da pele e se espalhou até a Alemanha."
   }
  },
  {
@@ -1261,6 +1525,16 @@
     "Petirrojo"
    ],
    "x": "El reyezuelo sencillo y el listado pesan solo unos 5 o 6 gramos. El chochín es algo más pesado."
+  },
+  "pt": {
+   "q": "Qual ave é, junto com um parente próximo, a menor da Europa?",
+   "a": [
+    "Estrelinha-de-poupa",
+    "Carriça",
+    "Chapim-azul",
+    "Pisco-de-peito-ruivo"
+   ],
+   "x": "A estrelinha-de-poupa e a estrelinha-real pesam só uns 5 ou 6 gramas. A carriça é um pouco mais pesada."
   }
  },
  {
@@ -1307,6 +1581,16 @@
     "Charrán ártico"
    ],
    "x": "El charrán ártico viaja cada año entre el Ártico y la Antártida: a menudo decenas de miles de kilómetros."
+  },
+  "pt": {
+   "q": "Qual destas aves faz a migração mais longa todo ano?",
+   "a": [
+    "Cegonha-branca",
+    "Cuco",
+    "Andorinha-das-chaminés",
+    "Andorinha-do-mar-ártica"
+   ],
+   "x": "A andorinha-do-mar-ártica viaja todo ano entre o Ártico e a Antártida: muitas vezes dezenas de milhares de quilômetros."
   }
  },
  {
@@ -1353,6 +1637,16 @@
     "Ciervo rojo"
    ],
    "x": "Los machos de bisonte europeo pesan hasta unos 900 kg. Se extinguió en libertad y se salvó gracias a animales de zoo."
+  },
+  "pt": {
+   "q": "Qual é o mamífero terrestre selvagem mais pesado da Europa?",
+   "a": [
+    "Bisão-europeu",
+    "Alce",
+    "Urso-pardo",
+    "Veado-vermelho"
+   ],
+   "x": "Os machos de bisão-europeu pesam até uns 900 kg. Ele foi extinto na natureza e salvo graças a animais de zoológico."
   }
  },
  {
@@ -1391,6 +1685,14 @@
     "Falso"
    ],
    "x": "¡Cierto! Los córvidos son aves cantoras. El cuervo grande es incluso el ave cantora más grande del mundo."
+  },
+  "pt": {
+   "q": "O corvo é uma ave canora.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Certo! Os corvídeos são aves canoras. O corvo é até a maior ave canora do mundo."
   }
  },
  {
@@ -1429,6 +1731,14 @@
     "Falso"
    ],
    "x": "¡Verdadero! La madre lo deja allí a propósito y vuelve a amamantarlo. Por favor, no lo toques: olería a humano."
+  },
+  "pt": {
+   "q": "Um filhote de corço deitado sozinho no capim alto normalmente não foi abandonado.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Verdadeiro! A mãe o deixa ali de propósito e volta para amamentá-lo. Por favor, não toque: ele ficaria com cheiro de gente."
   }
  },
  {
@@ -1467,6 +1777,14 @@
     "Falso"
    ],
    "x": "¡Falso! Son lagomorfos. Detrás de los incisivos superiores tienen un segundo par de pequeños dientes."
+  },
+  "pt": {
+   "q": "Lebres e coelhos são roedores.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Falso! São lagomorfos. Atrás dos dentes da frente de cima, eles têm um segundo par de dentinhos."
   }
  },
  {
@@ -1505,6 +1823,14 @@
     "Falso"
    ],
    "x": "¡Falso! Su piel es negra. Sus pelos son en realidad incoloros y transparentes; solo parecen blancos."
+  },
+  "pt": {
+   "q": "Debaixo do pelo branco, o urso-polar também tem a pele branca.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Falso! A pele dele é preta. Os pelos, na verdade, são incolores e transparentes; só parecem brancos."
   }
  },
  {
@@ -1543,6 +1869,14 @@
     "Falso"
    ],
    "x": "¡Cierto! Su disco facial en forma de corazón dirige el sonido a sus oídos asimétricos y localiza la presa con precisión."
+  },
+  "pt": {
+   "q": "A suindara consegue caçar ratos no escuro total só pela audição.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Certo! O disco facial em forma de coração leva o som aos ouvidos assimétricos e localiza a presa com precisão."
   }
  },
  {
@@ -1589,6 +1923,16 @@
     "En el estómago"
    ],
    "x": "La lengua se apoya en largos huesos que rodean el cráneo por detrás. Así puede hurgar a fondo en los hormigueros."
+  },
+  "pt": {
+   "q": "Onde o peto-real guarda a língua comprida quando não está usando?",
+   "a": [
+    "Enrolada na garganta",
+    "Dobrada dentro do bico",
+    "Enrolada em volta do crânio",
+    "No estômago"
+   ],
+   "x": "A língua se apoia em ossos longos que contornam o crânio por trás. Assim ele consegue fuçar fundo nos formigueiros."
   }
  },
  {
@@ -1635,6 +1979,16 @@
     "Vuelven a aparearse en primavera"
    ],
    "x": "En el corzo, el embrión queda en pausa hasta diciembre (implantación diferida); así las crías nacen cuando abunda el alimento."
+  },
+  "pt": {
+   "q": "Os corços acasalam em pleno verão, mas os filhotes nascem em maio ou junho. Por quê?",
+   "a": [
+    "A fêmea gesta dois filhotes seguidos",
+    "O embrião fica parado por meses",
+    "Os filhotes crescem muito devagar",
+    "Eles acasalam de novo na primavera"
+   ],
+   "x": "No corço, o embrião fica em pausa até dezembro (implantação tardia); assim os filhotes nascem quando há bastante comida."
   }
  },
  {
@@ -1681,6 +2035,16 @@
     "2015"
    ],
    "x": "En 2000 una pareja de lobos crió cachorros en Lusacia (Sajonia), tras más de 100 años sin lobos criando en Alemania."
+  },
+  "pt": {
+   "q": "Em que ano nasceram de novo filhotes de lobo selvagens na Alemanha pela primeira vez?",
+   "a": [
+    "1975",
+    "1990",
+    "2000",
+    "2015"
+   ],
+   "x": "Em 2000, um casal de lobos criou filhotes na Lusácia (Saxônia), depois de mais de 100 anos sem lobos se reproduzindo na Alemanha."
   }
  },
  {
@@ -1727,6 +2091,16 @@
     "Cola tupida con punta negra roma"
    ],
    "x": "El gato montés tiene una cola gruesa y tupida, con anillos negros y punta negra roma. Los pinceles en las orejas son del lince."
+  },
+  "pt": {
+   "q": "O que diferencia o gato-selvagem-europeu de um gato doméstico tigrado?",
+   "a": [
+    "Tufos nas orelhas",
+    "Patas brancas",
+    "Uma cauda longa e fina",
+    "Cauda peluda com ponta preta arredondada"
+   ],
+   "x": "O gato-selvagem tem uma cauda grossa e peluda, com anéis pretos e ponta preta arredondada. Os tufos nas orelhas são do lince."
   }
  },
  {
@@ -1773,6 +2147,16 @@
     "1994"
    ],
    "x": "En 1934 se liberaron dos parejas junto al lago Edersee (Hesse). Hoy estos norteamericanos son muy abundantes en Alemania."
+  },
+  "pt": {
+   "q": "Em que ano os primeiros guaxinins foram soltos de propósito na natureza na Alemanha?",
+   "a": [
+    "1834",
+    "1934",
+    "1974",
+    "1994"
+   ],
+   "x": "Em 1934, dois casais foram soltos perto do lago Edersee (Hesse). Hoje esses norte-americanos são muito comuns na Alemanha."
   }
  },
  {
@@ -1819,6 +2203,16 @@
     "Foca común"
    ],
    "x": "Las focas pertenecen a los carnívoros. Los machos de foca gris del mar del Norte y el Báltico pesan hasta unos 300 kg."
+  },
+  "pt": {
+   "q": "Qual é o maior carnívoro selvagem da Alemanha?",
+   "a": [
+    "Lobo",
+    "Lince",
+    "Foca-cinzenta",
+    "Foca-comum"
+   ],
+   "x": "As focas pertencem aos carnívoros. Os machos de foca-cinzenta do mar do Norte e do Báltico pesam até uns 300 kg."
   }
  },
  {
@@ -1865,6 +2259,16 @@
     "Con néctar de flores"
    ],
    "x": "Ambos padres producen en el buche una «leche» nutritiva, parecida al queso. Es algo muy raro entre las aves."
+  },
+  "pt": {
+   "q": "Com o que os pombos alimentam os filhotes recém-nascidos?",
+   "a": [
+    "Com “leite de papo”",
+    "Com insetos mastigados",
+    "Com minhocas",
+    "Com néctar de flores"
+   ],
+   "x": "Os dois pais produzem no papo um “leite” nutritivo, parecido com queijo. Isso é muito raro entre as aves."
   }
  },
  {
@@ -1911,6 +2315,16 @@
     "Los elefantes"
    ],
    "x": "El ADN lo demuestra: los hipopótamos están más emparentados con ballenas y delfines que con los cerdos, como se creyó mucho tiempo."
+  },
+  "pt": {
+   "q": "Quais animais são os parentes vivos mais próximos do hipopótamo?",
+   "a": [
+    "Os porcos",
+    "As baleias",
+    "Os rinocerontes",
+    "Os elefantes"
+   ],
+   "x": "O DNA mostra: os hipopótamos são mais aparentados com baleias e golfinhos do que com os porcos, como se pensou por muito tempo."
   }
  },
  {
@@ -1957,6 +2371,16 @@
     "Construye varios nidos para elegir"
    ],
    "x": "El macho construye varios nidos esféricos sin terminar. La hembra elige uno y lo forra con material blando."
+  },
+  "pt": {
+   "q": "Como o macho da carriça conquista uma fêmea?",
+   "a": [
+    "Leva frutinhas para ela",
+    "Dança sobre a água",
+    "Sua plumagem fica vermelha",
+    "Constrói vários ninhos para ela escolher"
+   ],
+   "x": "O macho constrói vários ninhos redondos inacabados. A fêmea escolhe um e o forra com material macio."
   }
  },
  {
@@ -2003,6 +2427,16 @@
     "Duermen todo el verano"
    ],
    "x": "Los patos pierden todas las plumas de vuelo a la vez y no vuelan durante 3 o 4 semanas. Los machos lucen entonces un plumaje apagado."
+  },
+  "pt": {
+   "q": "O que acontece com os patos-reais durante a muda de verão?",
+   "a": [
+    "Perdem a voz",
+    "Ficam totalmente brancos",
+    "Não conseguem voar por semanas",
+    "Dormem o verão inteiro"
+   ],
+   "x": "Os patos perdem todas as penas de voo ao mesmo tempo e não voam por 3 ou 4 semanas. Os machos ficam então com uma plumagem sem graça."
   }
  },
  {
@@ -2049,6 +2483,16 @@
     "Los tapires"
    ],
    "x": "Los elefantes están emparentados con los sirenios (manatíes y dugongos) y con los pequeños damanes."
+  },
+  "pt": {
+   "q": "Que grupo de animais está entre os parentes mais próximos dos elefantes?",
+   "a": [
+    "Os sirênios (peixes-boi)",
+    "Os rinocerontes",
+    "Os hipopótamos",
+    "As antas"
+   ],
+   "x": "Os elefantes são aparentados com os sirênios (peixes-boi e dugongos) e com os pequenos híraces."
   }
  },
  {
@@ -2087,6 +2531,14 @@
     "Falso"
    ],
    "x": "¡Falso! Solo se parecen. Los vencejos están más emparentados con los colibríes que con las golondrinas."
+  },
+  "pt": {
+   "q": "O andorinhão-preto é parente próximo das andorinhas.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Falso! Eles só se parecem. Os andorinhões são mais aparentados com os beija-flores do que com as andorinhas."
   }
  },
  {
@@ -2125,6 +2577,14 @@
     "Falso"
    ],
    "x": "¡Cierto! El mirlo acuático bucea en arroyos rápidos buscando larvas de insectos e incluso camina por el fondo."
+  },
+  "pt": {
+   "q": "Existe uma ave canora da Europa Central que mergulha e anda debaixo d’água no fundo dos riachos.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Certo! O melro-d’água mergulha em riachos rápidos procurando larvas de insetos e até caminha pelo fundo."
   }
  },
  {
@@ -2163,6 +2623,14 @@
     "Falso"
    ],
    "x": "¡Cierto! Un mordisco en la cabeza inmoviliza las lombrices, que se conservan frescas como reserva para el invierno."
+  },
+  "pt": {
+   "q": "As toupeiras guardam minhocas vivas que paralisaram com uma mordida.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Certo! Uma mordida na cabeça imobiliza as minhocas, que ficam frescas como reserva para o inverno."
   }
  },
  {
@@ -2201,6 +2669,14 @@
     "Falso"
    ],
    "x": "¡Cierto! En invierno, las hembras de petirrojo también defienden su propio territorio, y lo hacen cantando."
+  },
+  "pt": {
+   "q": "No outono e no inverno, as fêmeas do pisco-de-peito-ruivo também cantam.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Certo! No inverno, as fêmeas também defendem seu próprio território – e fazem isso cantando."
   }
  }
 ]

@@ -43,6 +43,16 @@
     "Los castores tienen los dientes naranjas"
    ],
    "x": "Muchos tiburones tienen que nadar, pero no todos: el tiburón nodriza o la pintarroja descansan en el fondo y bombean agua por sus branquias."
+  },
+  "pt": {
+   "q": "Qual afirmação é FALSA?",
+   "a": [
+    "As corujas não conseguem mexer os olhos",
+    "Todos os tubarões precisam nadar sem parar para respirar",
+    "Os polvos têm sangue azul",
+    "Os castores têm dentes laranja"
+   ],
+   "x": "Muitos tubarões precisam nadar, mas não todos: o tubarão-lixa ou o cação-pintado descansam no fundo e bombeiam água pelas brânquias."
   }
  },
  {
@@ -89,6 +99,16 @@
     "Los abejorros vuelan incluso con frío"
    ],
    "x": "Los murciélagos ven bien. De noche se orientan además con el eco de los ultrasonidos."
+  },
+  "pt": {
+   "q": "Qual afirmação é FALSA?",
+   "a": [
+    "As formigas carregam várias vezes o próprio peso",
+    "Os pica-paus batucam mais de 10 vezes por segundo",
+    "Os morcegos são cegos",
+    "As mamangavas voam até no frio"
+   ],
+   "x": "Os morcegos enxergam bem. À noite, eles se orientam também pelo eco dos ultrassons."
   }
  },
  {
@@ -135,6 +155,16 @@
     "Medio tarro"
    ],
    "x": "¡Solo una doceava parte de cucharadita! Para un tarro de miel, las abejas recorren juntas una distancia de varias vueltas a la Tierra."
+  },
+  "pt": {
+   "q": "Adivinhe: quanto mel uma abelha operária produz na vida toda?",
+   "a": [
+    "Um doze avos de colher de chá",
+    "Uma colher de chá",
+    "Uma colher de sopa",
+    "Meio pote"
+   ],
+   "x": "Só um doze avos de colher de chá! Para um pote de mel, as abelhas voam juntas uma distância de várias voltas ao redor da Terra."
   }
  },
  {
@@ -181,6 +211,16 @@
     "Un millón"
    ],
    "x": "Un murciélago enano pesa solo unos 5 gramos, pero en una noche caza de cientos a más de mil mosquitos y otros insectos pequeños."
+  },
+  "pt": {
+   "q": "Adivinhe: quantos insetos um pequeno morcego-anão come numa noite?",
+   "a": [
+    "Uns 5",
+    "Uns 50",
+    "De centenas a mais de mil",
+    "Um milhão"
+   ],
+   "x": "Um morcego-anão pesa só uns 5 gramas, mas numa noite caça de centenas a mais de mil mosquitos e outros insetos pequenos."
   }
  },
  {
@@ -227,6 +267,16 @@
     "Un kilo"
    ],
    "x": "Un erizo recién nacido pesa de 12 a 25 gramos. Sus púas son blandas y están cubiertas por una capa de piel para que el parto no duela; salen a las pocas horas."
+  },
+  "pt": {
+   "q": "Adivinhe: quanto pesa um ouriço ao nascer?",
+   "a": [
+    "Uns 2 gramas",
+    "Uns 20 gramas",
+    "Uns 200 gramas",
+    "Um quilo"
+   ],
+   "x": "Um ouriço recém-nascido pesa de 12 a 25 gramas. Os espinhos são moles e cobertos por uma camada de pele, para o parto não doer; eles saem em poucas horas."
   }
  },
  {
@@ -273,6 +323,16 @@
     "Unos 2,5 millones"
    ],
    "x": "Unas 25.000, el récord entre las aves, muchas de ellas en el largo cuello. Un colibrí tiene solo unas 1.000."
+  },
+  "pt": {
+   "q": "Adivinhe: quantas penas tem um cisne-branco?",
+   "a": [
+    "Umas 2.500",
+    "Umas 25.000",
+    "Umas 250.000",
+    "Uns 2,5 milhões"
+   ],
+   "x": "Cerca de 25.000 – o recorde entre as aves, muitas delas no pescoço comprido. Um beija-flor tem só umas 1.000."
   }
  },
  {
@@ -319,6 +379,16 @@
     "Una cola más larga para vivir en tierra"
    ],
    "x": "Primero crecen las patas traseras y luego las delanteras. Al final la cola se reabsorbe y se recicla como material."
+  },
+  "pt": {
+   "q": "O que cresce primeiro num girino?",
+   "a": [
+    "As patas de trás",
+    "As patas da frente",
+    "Uma língua para pegar moscas",
+    "Uma cauda mais longa para viver em terra"
+   ],
+   "x": "Primeiro crescem as patas de trás, depois as da frente. No fim, a cauda é reabsorvida e reciclada como material."
   }
  },
  {
@@ -365,6 +435,16 @@
     "Búho real"
    ],
    "x": "Los calamares de las profundidades tienen ojos del tamaño de un balón, unos 27 cm. Así ven en la oscuridad a los cachalotes que los cazan."
+  },
+  "pt": {
+   "q": "Que animal tem os maiores olhos do mundo?",
+   "a": [
+    "Baleia-azul",
+    "Lula-colossal",
+    "Avestruz",
+    "Bufo-real"
+   ],
+   "x": "As lulas das profundezas têm olhos do tamanho de uma bola, uns 27 cm. Assim elas enxergam no escuro os cachalotes que as caçam."
   }
  },
  {
@@ -411,6 +491,16 @@
     "El topo"
    ],
    "x": "Los zorros se mudan con gusto a madrigueras de tejón. A veces viven los dos a la vez, en túneles distintos."
+  },
+  "pt": {
+   "q": "Quem costuma cavar a toca onde depois mora uma raposa?",
+   "a": [
+    "O texugo",
+    "O coelho",
+    "O javali",
+    "A toupeira"
+   ],
+   "x": "As raposas adoram se mudar para tocas de texugo. Às vezes os dois moram lá ao mesmo tempo, em túneis diferentes."
   }
  },
  {
@@ -457,6 +547,16 @@
     "Para que los enemigos los tomen por ramas"
    ],
    "x": "Sobre una pata, el flamenco mantiene el equilibrio casi sin esfuerzo muscular. Además pierde menos calor por la pata recogida."
+  },
+  "pt": {
+   "q": "Por que os flamingos muitas vezes ficam numa perna só?",
+   "a": [
+    "Economizam força e calor",
+    "A outra perna está cansada",
+    "Enxergam melhor os peixes",
+    "Para os inimigos acharem que são galhos"
+   ],
+   "x": "Numa perna só, o flamingo se equilibra quase sem esforço muscular. Além disso, perde menos calor pela perna recolhida."
   }
  },
  {
@@ -503,6 +603,16 @@
     "Tiburón"
    ],
    "x": "El calamar es un molusco, pariente del caracol. El caballito de mar y la anguila parecen raros, pero son peces de verdad."
+  },
+  "pt": {
+   "q": "Que animal NÃO é um peixe?",
+   "a": [
+    "Cavalo-marinho",
+    "Enguia",
+    "Lula",
+    "Tubarão"
+   ],
+   "x": "A lula é um molusco, parente do caracol. O cavalo-marinho e a enguia parecem estranhos, mas são peixes de verdade."
   }
  },
  {
@@ -549,6 +659,16 @@
     "Pingüino"
    ],
    "x": "El pingüino es un ave que no vuela. El ornitorrinco pone huevos, pero amamanta a sus crías y es un mamífero."
+  },
+  "pt": {
+   "q": "Que animal NÃO é um mamífero?",
+   "a": [
+    "Morcego",
+    "Golfinho",
+    "Ornitorrinco",
+    "Pinguim"
+   ],
+   "x": "O pinguim é uma ave que não voa. O ornitorrinco põe ovos, mas amamenta os filhotes e é um mamífero."
   }
  },
  {
@@ -595,6 +715,16 @@
     "Unas 10.000 veces"
    ],
    "x": "Una pulga salta unos 30 cm, más de cien veces su longitud. Un humano tendría que saltar más que lo que mide un campo de fútbol."
+  },
+  "pt": {
+   "q": "Adivinhe: quanto pula uma pulga em relação ao seu tamanho?",
+   "a": [
+    "O dobro do tamanho",
+    "Umas 10 vezes",
+    "Mais de 100 vezes",
+    "Umas 10.000 vezes"
+   ],
+   "x": "Uma pulga pula uns 30 cm – mais de cem vezes o seu comprimento. Um humano teria de pular mais que o comprimento de um campo de futebol."
   }
  },
  {
@@ -641,6 +771,16 @@
     "Huevo – oruga – mariposa – crisálida"
    ],
    "x": "Del huevo sale la oruga, que come y crece, se convierte en crisálida, y dentro todo su cuerpo se transforma en mariposa."
+  },
+  "pt": {
+   "q": "Qual é a ordem certa na borboleta?",
+   "a": [
+    "Ovo – lagarta – crisálida – borboleta",
+    "Ovo – crisálida – lagarta – borboleta",
+    "Lagarta – ovo – crisálida – borboleta",
+    "Ovo – lagarta – borboleta – crisálida"
+   ],
+   "x": "Do ovo sai a lagarta, que come e cresce, vira crisálida, e lá dentro todo o corpo se transforma em borboleta."
   }
  },
  {
@@ -679,6 +819,14 @@
     "Falso"
    ],
    "x": "¡Un mito! Los peces de colores recuerdan cosas durante meses e incluso se les puede entrenar con sonidos o colores."
+  },
+  "pt": {
+   "q": "Verdadeiro ou falso? O peixinho-dourado tem memória de só três segundos.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Um mito! Os peixinhos-dourados lembram coisas por meses e podem até ser treinados com sons ou cores."
   }
  },
  {
@@ -725,6 +873,16 @@
     "El avestruz esconde la cabeza en la arena ante el peligro"
    ],
    "x": "Un mito: ante el peligro, el avestruz se tumba en el suelo o huye corriendo a hasta 70 km/h."
+  },
+  "pt": {
+   "q": "Qual afirmação é FALSA?",
+   "a": [
+    "Os crocodilos já viviam na época dos dinossauros",
+    "O caracol rasteja sobre um único pé",
+    "As mamangavas podem picar",
+    "O avestruz enterra a cabeça na areia quando há perigo"
+   ],
+   "x": "Um mito: em perigo, o avestruz se deita no chão ou foge correndo a até 70 km/h."
   }
  },
  {
@@ -771,6 +929,16 @@
     "Diez veces su longitud"
    ],
    "x": "Hasta el doble de la longitud de su cuerpo (sin la cola), en una fracción de segundo. La punta pegajosa sujeta incluso insectos grandes."
+  },
+  "pt": {
+   "q": "Adivinhe: até onde o camaleão lança a língua?",
+   "a": [
+    "Metade do comprimento dele",
+    "Mais ou menos o comprimento dele",
+    "Até o dobro do comprimento dele",
+    "Dez vezes o comprimento dele"
+   ],
+   "x": "Até o dobro do comprimento do corpo (sem a cauda), numa fração de segundo. A ponta grudenta segura até insetos grandes."
   }
  },
  {
@@ -817,6 +985,16 @@
     "Unos 20.000 billones"
    ],
    "x": "Según una estimación de 2022: unos 20.000 billones, un 2 seguido de 16 ceros. Son unos 2,5 millones de hormigas por persona."
+  },
+  "pt": {
+   "q": "Adivinhe: quantas formigas vivem mais ou menos na Terra?",
+   "a": [
+    "Uns 20 milhões",
+    "Uns 20 bilhões",
+    "Uns 20 trilhões",
+    "Uns 20 quatrilhões"
+   ],
+   "x": "Segundo uma estimativa de 2022: uns 20 quatrilhões – um 2 com 16 zeros. São cerca de 2,5 milhões de formigas por pessoa."
   }
  },
  {
@@ -863,6 +1041,16 @@
     "Contra las quemaduras del sol"
    ],
    "x": "Los experimentos muestran que los tábanos se posan mucho menos en superficies rayadas: el dibujo los confunde al acercarse."
+  },
+  "pt": {
+   "q": "Pelo que se sabe hoje, para que servem provavelmente as listras da zebra?",
+   "a": [
+    "Para afastar as moscas que picam",
+    "Para se camuflar no capim alto",
+    "Para os leões as confundirem com pedras",
+    "Contra queimaduras de sol"
+   ],
+   "x": "Experimentos mostram que as mutucas pousam muito menos em superfícies listradas: o desenho as confunde na aproximação."
   }
  },
  {
@@ -909,6 +1097,16 @@
     "No lo hacen: solo de cerca"
    ],
    "x": "Los elefantes emiten infrasonidos. Esos sonidos graves llegan a kilómetros, y otros elefantes los notan incluso con las patas a través del suelo."
+  },
+  "pt": {
+   "q": "Como os elefantes se comunicam a muitos quilômetros?",
+   "a": [
+    "Com sons muito graves que não ouvimos",
+    "Mexendo as orelhas como sinais",
+    "Com nuvens de cheiro no vento",
+    "Não se comunicam: só de perto"
+   ],
+   "x": "Os elefantes emitem infrassons. Esses sons graves chegam a quilômetros, e outros elefantes os sentem até pelas patas, através do chão."
   }
  },
  {
@@ -947,6 +1145,14 @@
     "Falso"
    ],
    "x": "Sus músculos de vuelo necesitan calor. Por eso, por la mañana, toman el sol con las alas abiertas o tiritan para calentarse."
+  },
+  "pt": {
+   "q": "Verdadeiro ou falso? Muitas borboletas só conseguem voar depois de se aquecer.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Os músculos de voo precisam de calor. Por isso, de manhã, elas tomam sol de asas abertas ou tremem para se aquecer."
   }
  },
  {
@@ -985,6 +1191,14 @@
     "Falso"
    ],
    "x": "Sí, le dan al pelo un tono verdoso, buen camuflaje en la selva. Hasta viven en él polillas especiales."
+  },
+  "pt": {
+   "q": "Verdadeiro ou falso? No pelo do bicho-preguiça crescem algas.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Sim, elas dão ao pelo um tom esverdeado – boa camuflagem na floresta. Até mariposas especiais vivem nele."
   }
  },
  {
@@ -1023,6 +1237,14 @@
     "Falso"
    ],
    "x": "Su lengua está unida al suelo de la boca. Ayuda a tragar y, junto con una válvula, cierra la garganta cuando abren la boca bajo el agua."
+  },
+  "pt": {
+   "q": "Verdadeiro ou falso? Os crocodilos não conseguem pôr a língua para fora.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "A língua é presa ao fundo da boca. Ela ajuda a engolir e, junto com uma válvula, fecha a garganta quando abrem a boca debaixo d’água."
   }
  }
 ]

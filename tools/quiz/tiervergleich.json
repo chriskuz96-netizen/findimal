@@ -43,6 +43,16 @@
     "Caracol"
    ],
    "x": "El pulpo tiene dos corazones branquiales y uno principal que bombea su sangre azul por el cuerpo."
+  },
+  "pt": {
+   "q": "Qual destes animais tem três corações?",
+   "a": [
+    "Caranguejo",
+    "Polvo",
+    "Tubarão",
+    "Caracol"
+   ],
+   "x": "O polvo tem dois corações das brânquias e um principal, que bombeia o sangue azul pelo corpo."
   }
  },
  {
@@ -89,6 +99,16 @@
     "Erizo"
    ],
    "x": "Al hibernar, el erizo baja su temperatura a unos 5 °C. La ardilla solo descansa y despierta a menudo para comer."
+  },
+  "pt": {
+   "q": "Qual destes animais hiberna de verdade?",
+   "a": [
+    "Esquilo",
+    "Corço",
+    "Raposa",
+    "Ouriço"
+   ],
+   "x": "Ao hibernar, o ouriço baixa a temperatura para uns 5 °C. O esquilo só descansa e acorda muitas vezes para comer."
   }
  },
  {
@@ -135,6 +155,16 @@
     "Cangrejo"
    ],
    "x": "Todos los insectos tienen seis patas, también la mariquita. El cangrejo tiene diez y el pulpo ocho brazos."
+  },
+  "pt": {
+   "q": "Que animal tem exatamente seis patas?",
+   "a": [
+    "Joaninha",
+    "Polvo",
+    "Caracol",
+    "Caranguejo"
+   ],
+   "x": "Todos os insetos têm seis patas, inclusive a joaninha. O caranguejo tem dez e o polvo oito braços."
   }
  },
  {
@@ -181,6 +211,16 @@
     "Rana"
    ],
    "x": "El tiburón es un pez cartilaginoso. El cartílago es más ligero y flexible que el hueso, como el de la nariz."
+  },
+  "pt": {
+   "q": "Que animal tem esqueleto de cartilagem em vez de osso?",
+   "a": [
+    "Tartaruga",
+    "Tubarão",
+    "Pinguim",
+    "Rã"
+   ],
+   "x": "O tubarão é um peixe cartilaginoso. A cartilagem é mais leve e flexível que o osso, como a do nariz."
   }
  },
  {
@@ -227,6 +267,16 @@
     "Flamenco"
    ],
    "x": "El flamenco come algas y pequeños crustáceos con carotenoides. Sin esos pigmentos se volvería pálido."
+  },
+  "pt": {
+   "q": "Que ave deve sua cor ao alimento?",
+   "a": [
+    "Papagaio",
+    "Águia",
+    "Coruja",
+    "Flamingo"
+   ],
+   "x": "O flamingo come algas e pequenos crustáceos com carotenoides. Sem esses pigmentos, ele ficaria pálido."
   }
  },
  {
@@ -273,6 +323,16 @@
     "Pingüino emperador"
    ],
    "x": "Un huevo de kiwi pesa alrededor de una quinta parte de lo que pesa la hembra. El de avestruz es el huevo más grande de todos, pero pequeño para un ave tan enorme."
+  },
+  "pt": {
+   "q": "Que ave põe o maior ovo em relação ao corpo?",
+   "a": [
+    "Quiuí",
+    "Avestruz",
+    "Galinha",
+    "Pinguim-imperador"
+   ],
+   "x": "Um ovo de quiuí pesa cerca de um quinto do peso da fêmea. O de avestruz é o maior ovo de todos, mas pequeno para uma ave tão enorme."
   }
  },
  {
@@ -319,6 +379,16 @@
     "Tigre"
    ],
    "x": "El «falso pulgar» del panda es un hueso de la muñeca agrandado. Le sirve para sujetar el bambú."
+  },
+  "pt": {
+   "q": "Que animal tem um osso do punho alongado que funciona como um polegar extra?",
+   "a": [
+    "Lontra",
+    "Esquilo",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "O “falso polegar” do panda é um osso do punho aumentado. Serve para segurar o bambu."
   }
  },
  {
@@ -365,6 +435,16 @@
     "Panda"
    ],
    "x": "Su color oscuro protegería la lengua de la jirafa del sol mientras arranca hojas de acacia."
+  },
+  "pt": {
+   "q": "Que animal tem uma língua azul-escura de uns 45 cm?",
+   "a": [
+    "Girafa",
+    "Corço",
+    "Tigre",
+    "Panda"
+   ],
+   "x": "A cor escura protegeria a língua da girafa do sol enquanto ela arranca folhas de acácia."
   }
  },
  {
@@ -411,6 +491,16 @@
     "Tigre"
    ],
    "x": "Bajo las rayas oscuras del tigre la piel también es oscura: aunque lo afeitaran, se verían las rayas."
+  },
+  "pt": {
+   "q": "Em que animal a pele debaixo do pelo também é listrada?",
+   "a": [
+    "Raposa",
+    "Corço",
+    "Esquilo",
+    "Tigre"
+   ],
+   "x": "Debaixo das listras escuras do tigre a pele também é escura: mesmo raspado, as listras apareceriam."
   }
  },
  {
@@ -457,6 +547,16 @@
     "Jirafa"
    ],
    "x": "La nutria cierra orejas y nariz bajo el agua y puede bucear varios minutos."
+  },
+  "pt": {
+   "q": "Que animal consegue fechar orelhas e narinas ao mergulhar?",
+   "a": [
+    "Tigre",
+    "Lontra",
+    "Raposa",
+    "Girafa"
+   ],
+   "x": "A lontra fecha orelhas e nariz debaixo d’água e consegue mergulhar por vários minutos."
   }
  },
  {
@@ -503,6 +603,16 @@
     "Pingüino"
    ],
    "x": "El pingüino puede beber agua de mar: una glándula filtra la sal, que luego gotea por el pico."
+  },
+  "pt": {
+   "q": "Que animal tem sobre os olhos uma glândula que tira o sal da água do mar?",
+   "a": [
+    "Coruja",
+    "Lontra",
+    "Papagaio",
+    "Pinguim"
+   ],
+   "x": "O pinguim pode beber água do mar: uma glândula filtra o sal, que depois pinga pelo bico."
   }
  },
  {
@@ -549,6 +659,16 @@
     "Abeja"
    ],
    "x": "La rádula del caracol funciona como una lima. Los dientes gastados se reemplazan continuamente."
+  },
+  "pt": {
+   "q": "Que animal tem uma língua raspadora com milhares de dentinhos?",
+   "a": [
+    "Caracol",
+    "Borboleta",
+    "Tartaruga",
+    "Abelha"
+   ],
+   "x": "A rádula do caracol funciona como uma lixa. Os dentes gastos são substituídos sem parar."
   }
  },
  {
@@ -595,6 +715,16 @@
     "Nutria"
    ],
    "x": "El tiburón tiene ampollas de Lorenzini: poros del hocico que captan la electricidad de presas ocultas."
+  },
+  "pt": {
+   "q": "Que animal percebe os fracos campos elétricos das presas?",
+   "a": [
+    "Polvo",
+    "Pinguim",
+    "Tubarão",
+    "Lontra"
+   ],
+   "x": "O tubarão tem ampolas de Lorenzini: poros no focinho que captam a eletricidade de presas escondidas."
   }
  },
  {
@@ -641,6 +771,16 @@
     "Cangrejo"
    ],
    "x": "Con su danza del contoneo, la abeja comunica la dirección y la distancia de una fuente de alimento."
+  },
+  "pt": {
+   "q": "Que animal mostra com uma dança onde há comida?",
+   "a": [
+    "Abelha",
+    "Borboleta",
+    "Joaninha",
+    "Caranguejo"
+   ],
+   "x": "Com a dança do requebrado, a abelha conta a direção e a distância de uma fonte de alimento."
   }
  },
  {
@@ -687,6 +827,16 @@
     "Lagarto"
    ],
    "x": "La mariposa tiene sensores del gusto en las patas. Así la hembra comprueba si una planta sirve para sus huevos."
+  },
+  "pt": {
+   "q": "Que animal sente o gosto com as patas?",
+   "a": [
+    "Coruja",
+    "Borboleta",
+    "Rã",
+    "Lagarto"
+   ],
+   "x": "A borboleta tem sensores de gosto nas patas. Assim a fêmea confere se uma planta serve para os ovos."
   }
  },
  {
@@ -733,6 +883,16 @@
     "Mariquita"
    ],
    "x": "Este «sangrado reflejo» ahuyenta a los depredadores: el líquido amarillo de la mariquita es amargo."
+  },
+  "pt": {
+   "q": "Que animal solta sangue amarelo e amargo pelas articulações das patas quando está em perigo?",
+   "a": [
+    "Abelha",
+    "Borboleta",
+    "Caracol",
+    "Joaninha"
+   ],
+   "x": "Esse “sangramento reflexo” espanta os predadores: o líquido amarelo da joaninha é amargo."
   }
  },
  {
@@ -779,6 +939,16 @@
     "Loro"
    ],
    "x": "La cola del lagarto sigue moviéndose y distrae al enemigo. Vuelve a crecer, pero más corta."
+  },
+  "pt": {
+   "q": "Que animal consegue soltar a cauda quando está em perigo?",
+   "a": [
+    "Tartaruga",
+    "Ouriço",
+    "Lagarto",
+    "Papagaio"
+   ],
+   "x": "A cauda do lagarto continua se mexendo e distrai o inimigo. Ela cresce de novo, mas mais curta."
   }
  },
  {
@@ -825,6 +995,16 @@
     "Rana"
    ],
    "x": "Al tragar, la rana hunde los ojos. Estos presionan el bocado desde arriba y lo empujan a la garganta."
+  },
+  "pt": {
+   "q": "Que animal afunda os olhos ao engolir para empurrar a comida?",
+   "a": [
+    "Coruja",
+    "Papagaio",
+    "Lontra",
+    "Rã"
+   ],
+   "x": "Ao engolir, a rã afunda os olhos. Eles pressionam o bocado de cima e o empurram para a garganta."
   }
  },
  {
@@ -871,6 +1051,16 @@
     "Pingüino"
    ],
    "x": "El cangrejo transporta oxígeno con hemocianina, que contiene cobre. Nuestra sangre es roja por el hierro."
+  },
+  "pt": {
+   "q": "Que animal tem sangue azulado por causa do cobre?",
+   "a": [
+    "Tubarão",
+    "Caranguejo",
+    "Rã",
+    "Pinguim"
+   ],
+   "x": "O caranguejo transporta oxigênio com hemocianina, que contém cobre. Nosso sangue é vermelho por causa do ferro."
   }
  },
  {
@@ -917,6 +1107,16 @@
     "Mariquita"
    ],
    "x": "El cangrejo es un decápodo («diez pies»). Su primer par de patas se ha convertido en fuertes pinzas."
+  },
+  "pt": {
+   "q": "Que animal tem dez patas, contando as pinças?",
+   "a": [
+    "Caranguejo",
+    "Abelha",
+    "Polvo",
+    "Joaninha"
+   ],
+   "x": "O caranguejo é um decápode (“dez pés”). Seu primeiro par de patas virou pinças fortes."
   }
  },
  {
@@ -963,6 +1163,16 @@
     "Tortuga"
    ],
    "x": "El pulpo no tiene huesos. Solo su pico duro limita las aberturas por las que puede colarse."
+  },
+  "pt": {
+   "q": "Que animal passa por um buraco pouco maior que o seu bico?",
+   "a": [
+    "Polvo",
+    "Tubarão",
+    "Caranguejo",
+    "Tartaruga"
+   ],
+   "x": "O polvo não tem ossos. Só o bico duro limita as aberturas por onde ele consegue passar."
   }
  },
  {
@@ -1009,6 +1219,16 @@
     "Loro"
    ],
    "x": "El loro tiene patas zigodáctilas: se agarra a las ramas y sujeta la comida como con una mano."
+  },
+  "pt": {
+   "q": "Em que ave dois dedos apontam para a frente e dois para trás?",
+   "a": [
+    "Águia",
+    "Flamingo",
+    "Pinguim",
+    "Papagaio"
+   ],
+   "x": "O papagaio tem pés zigodáctilos: agarra-se aos galhos e segura a comida como se fosse uma mão."
   }
  },
  {
@@ -1055,6 +1275,16 @@
     "Loro"
    ],
    "x": "Las aves voladoras tienen huesos huecos. El pingüino necesita huesos pesados para no flotar al bucear."
+  },
+  "pt": {
+   "q": "Que ave tem ossos pesados e maciços em vez de ocos?",
+   "a": [
+    "Águia",
+    "Coruja",
+    "Pinguim",
+    "Papagaio"
+   ],
+   "x": "As aves que voam têm ossos ocos. O pinguim precisa de ossos pesados para não boiar ao mergulhar."
   }
  },
  {
@@ -1101,6 +1331,16 @@
     "Panda"
    ],
    "x": "El corazón de la jirafa pesa unos 11 kg y debe bombear la sangre unos 2 metros hasta la cabeza."
+  },
+  "pt": {
+   "q": "Qual destes mamíferos tem a pressão arterial mais alta?",
+   "a": [
+    "Girafa",
+    "Tigre",
+    "Urso",
+    "Panda"
+   ],
+   "x": "O coração da girafa pesa uns 11 kg e precisa bombear o sangue uns 2 metros até a cabeça."
   }
  },
  {
@@ -1147,6 +1387,16 @@
     "Oso"
    ],
    "x": "Las manchas blancas de las orejas del tigre servirían de señal a las crías que siguen a su madre."
+  },
+  "pt": {
+   "q": "Que animal tem manchas brancas chamativas atrás das orelhas?",
+   "a": [
+    "Panda",
+    "Raposa",
+    "Tigre",
+    "Urso"
+   ],
+   "x": "As manchas brancas nas orelhas do tigre serviriam de sinal para os filhotes que seguem a mãe."
   }
  },
  {
@@ -1193,6 +1443,16 @@
     "Panda"
    ],
    "x": "Un panda recién nacido pesa unos 100 g, más o menos lo que una tableta de chocolate."
+  },
+  "pt": {
+   "q": "Qual filhote recém-nascido pesa só 1/900 do peso da mãe?",
+   "a": [
+    "Girafa",
+    "Tigre",
+    "Lontra",
+    "Panda"
+   ],
+   "x": "Um panda recém-nascido pesa uns 100 g – mais ou menos o mesmo que uma barra de chocolate."
   }
  },
  {
@@ -1239,6 +1499,16 @@
     "Corzo"
    ],
    "x": "El oso camina sobre toda la planta, como nosotros. Zorro y tigre apoyan los dedos; el corzo, las pezuñas."
+  },
+  "pt": {
+   "q": "Que animal é plantígrado e apoia a planta inteira do pé ao andar?",
+   "a": [
+    "Raposa",
+    "Urso",
+    "Tigre",
+    "Corço"
+   ],
+   "x": "O urso anda sobre a planta inteira do pé, como nós. Raposa e tigre apoiam os dedos; o corço, os cascos."
   }
  },
  {
@@ -1285,6 +1555,16 @@
     "Zorro"
    ],
    "x": "El panda es un oso, pero el 99 % de su dieta es bambú: come hasta 12 horas al día."
+  },
+  "pt": {
+   "q": "Que animal pertence aos carnívoros, mas come quase só plantas?",
+   "a": [
+    "Panda",
+    "Lontra",
+    "Tigre",
+    "Raposa"
+   ],
+   "x": "O panda é um urso, mas 99 % da dieta dele é bambu: ele come até 12 horas por dia."
   }
  },
  {
@@ -1331,6 +1611,16 @@
     "Pingüino"
    ],
    "x": "El águila tiene células visuales mucho más densas que las nuestras y detecta presas desde gran altura."
+  },
+  "pt": {
+   "q": "Que ave enxerga umas quatro ou cinco vezes mais nítido que um humano?",
+   "a": [
+    "Águia",
+    "Flamingo",
+    "Coruja",
+    "Pinguim"
+   ],
+   "x": "A águia tem células visuais muito mais densas que as nossas e avista presas de grandes alturas."
   }
  },
  {
@@ -1377,6 +1667,16 @@
     "Loro"
    ],
    "x": "El águila amplía su nido cada año; puede superar los 2 m de ancho y llegar a pesar muchísimo."
+  },
+  "pt": {
+   "q": "Que ave constrói enormes ninhos de galhos que usa por muitos anos?",
+   "a": [
+    "Coruja",
+    "Águia",
+    "Flamingo",
+    "Papagaio"
+   ],
+   "x": "A águia aumenta o ninho todo ano; ele pode passar de 2 m de largura e chegar a pesar muitíssimo."
   }
  },
  {
@@ -1423,6 +1723,16 @@
     "Búho"
    ],
    "x": "Los bordes en forma de peine de sus plumas suavizan el aire: el ratón no oye llegar al búho."
+  },
+  "pt": {
+   "q": "Que ave voa quase em silêncio?",
+   "a": [
+    "Águia",
+    "Papagaio",
+    "Flamingo",
+    "Coruja"
+   ],
+   "x": "As bordas das penas em forma de pente suavizam o ar: o rato não ouve a coruja chegar."
   }
  },
  {
@@ -1469,6 +1779,16 @@
     "Nutria"
    ],
    "x": "El búho tiene 14. Pese a su largo cuello, la jirafa solo tiene 7, como casi todos los mamíferos."
+  },
+  "pt": {
+   "q": "Quem tem MAIS vértebras no pescoço que o ser humano?",
+   "a": [
+    "Girafa",
+    "Coruja",
+    "Tigre",
+    "Lontra"
+   ],
+   "x": "A coruja tem 14. Apesar do pescoço comprido, a girafa tem só 7, como quase todos os mamíferos."
   }
  },
  {
@@ -1515,6 +1835,16 @@
     "Caracol"
    ],
    "x": "La ardilla entierra nueces y semillas en otoño. Las reservas olvidadas germinan y se vuelven árboles."
+  },
+  "pt": {
+   "q": "Que animal planta árvores sem querer ao enterrar e esquecer suas provisões?",
+   "a": [
+    "Ouriço",
+    "Esquilo",
+    "Corço",
+    "Caracol"
+   ],
+   "x": "O esquilo enterra nozes e sementes no outono. As reservas esquecidas germinam e viram árvores."
   }
  },
  {
@@ -1561,6 +1891,16 @@
     "Nutria"
    ],
    "x": "La ardilla es un roedor. Sus incisivos crecen sin parar y se desgastan al roer."
+  },
+  "pt": {
+   "q": "Que animal tem dentes da frente que crescem a vida toda?",
+   "a": [
+    "Esquilo",
+    "Ouriço",
+    "Raposa",
+    "Lontra"
+   ],
+   "x": "O esquilo é um roedor. Os dentes da frente crescem sem parar e se desgastam ao roer."
   }
  },
  {
@@ -1607,6 +1947,16 @@
     "Ardilla"
    ],
    "x": "La ardilla gira sus patas traseras hacia atrás para agarrarse con las uñas al bajar cabeza abajo."
+  },
+  "pt": {
+   "q": "Que animal consegue descer um tronco de cabeça para baixo?",
+   "a": [
+    "Lontra",
+    "Ouriço",
+    "Corço",
+    "Esquilo"
+   ],
+   "x": "O esquilo gira as patas traseiras para trás para se agarrar com as unhas ao descer de cabeça para baixo."
   }
  },
  {
@@ -1653,6 +2003,16 @@
     "Ardilla"
    ],
    "x": "Esta «autounción» del erizo sigue siendo un misterio: quizá protección o una señal de olor."
+  },
+  "pt": {
+   "q": "Que animal às vezes mastiga substâncias até fazer espuma e a espalha nas costas?",
+   "a": [
+    "Raposa",
+    "Ouriço",
+    "Corço",
+    "Esquilo"
+   ],
+   "x": "Essa “autounção” do ouriço ainda é um mistério: talvez proteção ou um sinal de cheiro."
   }
  },
  {
@@ -1699,6 +2059,16 @@
     "Tigre"
    ],
    "x": "El corzo macho pierde la cornamenta en otoño. La nueva, de hueso, crece bajo una piel llamada terciopelo."
+  },
+  "pt": {
+   "q": "Que animal perde os chifres todo ano e ganha chifres novos?",
+   "a": [
+    "Girafa",
+    "Corço",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "O corço macho perde os chifres no outono. Os novos, de osso, crescem debaixo de uma pele chamada veludo."
   }
  },
  {
@@ -1745,6 +2115,16 @@
     "Ardilla"
    ],
    "x": "El corzo lanza fuertes gritos parecidos a ladridos cuando siente peligro. Muchos paseantes creen que es un perro."
+  },
+  "pt": {
+   "q": "Que animal “late” na floresta quando se assusta?",
+   "a": [
+    "Corço",
+    "Javali",
+    "Texugo",
+    "Esquilo"
+   ],
+   "x": "O corço solta gritos fortes parecidos com latidos quando sente perigo. Muita gente que passeia acha que é um cachorro."
   }
  },
  {
@@ -1791,6 +2171,16 @@
     "Caracol"
    ],
    "x": "La tortuga nunca puede salir de su caparazón: es de hueso y está unido al esqueleto."
+  },
+  "pt": {
+   "q": "Que animal tem a carapaça ligada à coluna e às costelas?",
+   "a": [
+    "Caranguejo",
+    "Ouriço",
+    "Tartaruga",
+    "Caracol"
+   ],
+   "x": "A tartaruga nunca pode sair da carapaça: ela é de osso e ligada ao esqueleto."
   }
  },
  {
@@ -1837,6 +2227,16 @@
     "Tigre"
    ],
    "x": "La tortuga no tiene dientes desde hace millones de años. Su pico córneo corta plantas y presas."
+  },
+  "pt": {
+   "q": "Que animal não tem dentes, e sim um bico córneo afiado?",
+   "a": [
+    "Lagarto",
+    "Tartaruga",
+    "Tubarão",
+    "Tigre"
+   ],
+   "x": "A tartaruga não tem dentes há milhões de anos. O bico córneo corta plantas e presas."
   }
  },
  {
@@ -1883,6 +2283,16 @@
     "Tortuga"
    ],
    "x": "Caracoles, almejas y pulpos son moluscos. El cangrejo, en cambio, es un crustáceo."
+  },
+  "pt": {
+   "q": "Que animal é um molusco e, portanto, parente do polvo?",
+   "a": [
+    "Caranguejo",
+    "Joaninha",
+    "Caracol",
+    "Tartaruga"
+   ],
+   "x": "Caracóis, mexilhões e polvos são moluscos. O caranguejo, por outro lado, é um crustáceo."
   }
  },
  {
@@ -1929,6 +2339,16 @@
     "Caracol"
    ],
    "x": "Las obreras segregan escamas de cera por glándulas del abdomen y con ellas construyen los panales."
+  },
+  "pt": {
+   "q": "Que animal produz cera com glândulas no abdômen?",
+   "a": [
+    "Borboleta",
+    "Abelha",
+    "Joaninha",
+    "Caracol"
+   ],
+   "x": "As operárias soltam escamas de cera por glândulas do abdômen e constroem os favos com elas."
   }
  },
  {
@@ -1975,6 +2395,16 @@
     "Mariquita"
    ],
    "x": "La mariquita pasa de huevo a larva, pupa y adulto. El renacuajo se convierte en rana sin pupa."
+  },
+  "pt": {
+   "q": "Que animal passa por uma metamorfose com fase de pupa?",
+   "a": [
+    "Rã",
+    "Caranguejo",
+    "Lagarto",
+    "Joaninha"
+   ],
+   "x": "A joaninha passa de ovo a larva, pupa e adulto. O girino vira rã sem pupa."
   }
  },
  {
@@ -2021,6 +2451,16 @@
     "Loro"
    ],
    "x": "Las mariposas son lepidópteros, «alas con escamas». Sus colores vienen de miles de escamas diminutas."
+  },
+  "pt": {
+   "q": "Que animal tem as asas cobertas de escamas minúsculas?",
+   "a": [
+    "Abelha",
+    "Joaninha",
+    "Borboleta",
+    "Papagaio"
+   ],
+   "x": "As borboletas são lepidópteros, “asas com escamas”. As cores vêm de milhares de escamas minúsculas."
   }
  },
  {
@@ -2067,6 +2507,16 @@
     "Nutria"
    ],
    "x": "El zorro tiene pupilas de rendija como el gato. Los grandes felinos como el tigre las tienen redondas."
+  },
+  "pt": {
+   "q": "Que animal tem pupilas verticais em fenda?",
+   "a": [
+    "Tigre",
+    "Raposa",
+    "Urso",
+    "Lontra"
+   ],
+   "x": "A raposa tem pupilas em fenda, como o gato. Os grandes felinos, como o tigre, têm pupilas redondas."
   }
  },
  {
@@ -2113,6 +2563,16 @@
     "Zorro"
    ],
    "x": "El zorro es un cánido, como el lobo y el perro. La nutria es un mustélido, el panda un oso y el tigre un félido."
+  },
+  "pt": {
+   "q": "Que animal pertence à família dos cães?",
+   "a": [
+    "Lontra",
+    "Panda",
+    "Tigre",
+    "Raposa"
+   ],
+   "x": "A raposa é um canídeo, como o lobo e o cachorro. A lontra é um mustelídeo, o panda um urso e o tigre um felino."
   }
  },
  {
@@ -2159,6 +2619,16 @@
     "Panda"
    ],
    "x": "La nutria es un mustélido adaptado al agua, pariente del tejón, el turón y la comadreja."
+  },
+  "pt": {
+   "q": "Que animal pertence à família dos mustelídeos?",
+   "a": [
+    "Raposa",
+    "Esquilo",
+    "Lontra",
+    "Panda"
+   ],
+   "x": "A lontra é um mustelídeo adaptado à água, parente do texugo, do furão e da doninha."
   }
  },
  {
@@ -2205,6 +2675,16 @@
     "Tiburón"
    ],
    "x": "La piel del tiburón tiene escamas placoideas, como dientes diminutos. A contrapelo parece papel de lija."
+  },
+  "pt": {
+   "q": "Que animal tem a pele coberta de minúsculos “dentinhos”?",
+   "a": [
+    "Lagarto",
+    "Tartaruga",
+    "Rã",
+    "Tubarão"
+   ],
+   "x": "A pele do tubarão tem escamas placoides, como dentes minúsculos. Passando a mão ao contrário, parece lixa."
   }
  },
  {
@@ -2251,6 +2731,16 @@
     "Rana"
    ],
    "x": "La rana no bebe: absorbe el agua por la piel, sobre todo por una zona fina del vientre."
+  },
+  "pt": {
+   "q": "Que animal não bebe pela boca, mas absorve água pela pele?",
+   "a": [
+    "Lagarto",
+    "Tartaruga",
+    "Ouriço",
+    "Rã"
+   ],
+   "x": "A rã não bebe: absorve a água pela pele, sobretudo por uma área fina da barriga."
   }
  },
  {
@@ -2297,6 +2787,16 @@
     "Nutria"
    ],
    "x": "La tortuga es un reptil de piel seca y escamosa. La rana es un anfibio y el pulpo un molusco."
+  },
+  "pt": {
+   "q": "Qual destes animais é um réptil?",
+   "a": [
+    "Rã",
+    "Polvo",
+    "Tartaruga",
+    "Lontra"
+   ],
+   "x": "A tartaruga é um réptil de pele seca e escamosa. A rã é um anfíbio e o polvo um molusco."
   }
  }
 ]

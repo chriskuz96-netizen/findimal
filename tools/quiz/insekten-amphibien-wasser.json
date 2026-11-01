@@ -43,6 +43,16 @@
     "Migra hacia el sur"
    ],
    "x": "Hiberna sin refugio entre las hojas. Un anticongelante natural en su cuerpo evita que se congele."
+  },
+  "pt": {
+   "q": "Como a borboleta-limão passa o inverno?",
+   "a": [
+    "Como lagarta no chão",
+    "Como crisálida num galho",
+    "Como adulta, ao ar livre",
+    "Migra para o sul"
+   ],
+   "x": "Ela hiberna sem abrigo entre as folhas. Um anticongelante natural no corpo impede que congele."
   }
  },
  {
@@ -89,6 +99,16 @@
     "Unos 20 años"
    ],
    "x": "Según el clima, las larvas comen raíces durante 3 a 5 años. El escarabajo adulto vive después solo unas semanas."
+  },
+  "pt": {
+   "q": "Quanto tempo as larvas do besouro-de-maio vivem no solo?",
+   "a": [
+    "Umas 2 semanas",
+    "Vários anos",
+    "Só um verão",
+    "Uns 20 anos"
+   ],
+   "x": "Conforme o clima, as larvas comem raízes por 3 a 5 anos. O besouro adulto vive depois só algumas semanas."
   }
  },
  {
@@ -127,6 +147,14 @@
     "Falso"
    ],
    "x": "Es un mito: suelen esperar en la hierba y los arbustos hasta 1 m de altura y se enganchan al pasar."
+  },
+  "pt": {
+   "q": "Os carrapatos costumam cair das árvores sobre pessoas e animais.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "É um mito: eles esperam na grama e nos arbustos até 1 m de altura e se agarram quando alguém passa."
   }
  },
  {
@@ -173,6 +201,16 @@
     "Cochinilla de humedad"
    ],
    "x": "Las cochinillas de humedad son crustáceos terrestres. Tienen 14 patas y necesitan escondites húmedos."
+  },
+  "pt": {
+   "q": "Qual destes animais NÃO é um inseto?",
+   "a": [
+    "Tesourinha",
+    "Traça-prateada",
+    "Alfaiate (Gerris)",
+    "Tatuzinho-de-jardim"
+   ],
+   "x": "Os tatuzinhos são crustáceos terrestres. Têm 14 patas e precisam de esconderijos úmidos."
   }
  },
  {
@@ -219,6 +257,16 @@
     "Un anfibio como el tritón"
    ],
    "x": "Es un lagarto sin patas: tiene párpados y puede soltar la cola, como otros lagartos."
+  },
+  "pt": {
+   "q": "O que é um licranço?",
+   "a": [
+    "Um lagarto sem patas",
+    "Uma pequena cobra",
+    "Uma minhoca grande",
+    "Um anfíbio como o tritão"
+   ],
+   "x": "É um lagarto sem patas: tem pálpebras e pode soltar a cauda, como outros lagartos."
   }
  },
  {
@@ -265,6 +313,16 @@
     "De nada"
    ],
    "x": "Sus piezas bucales están atrofiadas. Los adultos viven de horas a pocos días, solo para reproducirse."
+  },
+  "pt": {
+   "q": "De que se alimentam as efêmeras adultas?",
+   "a": [
+    "De néctar",
+    "De mosquitinhos",
+    "De algas",
+    "De nada"
+   ],
+   "x": "Suas peças bucais são atrofiadas. Os adultos vivem de horas a poucos dias, só para se reproduzir."
   }
  },
  {
@@ -303,6 +361,14 @@
     "Falso"
    ],
    "x": "Necesitan sangre para que se desarrollen sus huevos. Los machos solo toman néctar y jugos vegetales."
+  },
+  "pt": {
+   "q": "Só as fêmeas dos mosquitos picam.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Elas precisam de sangue para que os ovos se desenvolvam. Os machos tomam só néctar e seiva de plantas."
   }
  },
  {
@@ -349,6 +415,16 @@
     "En conchas de caracol vacías"
    ],
    "x": "Más de la mitad anida en el suelo. Zonas de tierra desnuda y soleada ayudan a menudo más que un hotel de insectos."
+  },
+  "pt": {
+   "q": "Onde faz ninho a maioria das abelhas silvestres na Alemanha?",
+   "a": [
+    "No solo",
+    "Em caules ocos",
+    "Em buracos de madeira morta",
+    "Em conchas vazias de caracol"
+   ],
+   "x": "Mais da metade faz ninho no solo. Pedaços de terra nua e ensolarada muitas vezes ajudam mais que um hotel de insetos."
   }
  },
  {
@@ -395,6 +471,16 @@
     "El macho lleva los huevos"
    ],
    "x": "Los huevos se desarrollan dentro de la madre. En primavera suelta larvas con branquias en arroyos frescos."
+  },
+  "pt": {
+   "q": "Como a salamandra-de-fogo se reproduz na Europa Central?",
+   "a": [
+    "Põe massas de ovos em poças",
+    "Enterra ovos na terra úmida",
+    "A fêmea solta larvas em riachos",
+    "O macho carrega os ovos"
+   ],
+   "x": "Os ovos se desenvolvem dentro da mãe. Na primavera, ela solta larvas com brânquias em riachos frescos."
   }
  },
  {
@@ -441,6 +527,16 @@
     "De 2 a 4 años"
    ],
    "x": "Según la altitud, de 2 a 4 años. Las crías nacen ya transformadas, sin necesidad de agua."
+  },
+  "pt": {
+   "q": "Quanto dura a gestação da salamandra-alpina?",
+   "a": [
+    "Umas 3 semanas",
+    "Uns 3 meses",
+    "Exatamente 1 ano",
+    "De 2 a 4 anos"
+   ],
+   "x": "Conforme a altitude, de 2 a 4 anos. Os filhotes já nascem transformados, sem precisar de água."
   }
  },
  {
@@ -479,6 +575,14 @@
     "Falso"
    ],
    "x": "En el camino cruzan a menudo carreteras. Vallas y pasos para anfibios salvan a muchos cada año."
+  },
+  "pt": {
+   "q": "Na primavera, os sapos-comuns costumam voltar à poça onde cresceram.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "No caminho, eles muitas vezes atravessam estradas. Cercas e passagens para anfíbios salvam muitos deles todo ano."
   }
  },
  {
@@ -525,6 +629,16 @@
     "Madrigueras de pulgas de mar"
    ],
    "x": "El gusano Arenicola traga arena, digiere los diminutos organismos que contiene y expulsa la arena en forma de rollitos."
+  },
+  "pt": {
+   "q": "O que são os montinhos de areia enrolada nas planícies de maré do mar de Wadden?",
+   "a": [
+    "Ovos de caranguejo",
+    "Fezes do verme Arenicola",
+    "Ninhos de mexilhões",
+    "Tocas de pulgas-do-mar"
+   ],
+   "x": "O verme Arenicola engole areia, digere os organismos minúsculos que ela contém e solta a areia em forma de rolinhos."
   }
  },
  {
@@ -571,6 +685,16 @@
     "En aguas salobres costeras"
    ],
    "x": "Usa charcas pequeñas y soleadas, incluso rodadas de neumáticos con agua. Allí casi no hay peces ni depredadores."
+  },
+  "pt": {
+   "q": "Onde o sapinho-de-barriga-amarela prefere desovar?",
+   "a": [
+    "Em poças rasas e marcas de pneu",
+    "Em lagos fundos",
+    "Em riachos de montanha",
+    "Em água salobra na costa"
+   ],
+   "x": "Ele usa poças pequenas e ensolaradas, até marcas de pneu com água. Ali quase não há peixes nem predadores."
   }
  },
  {
@@ -609,6 +733,14 @@
     "Falso"
    ],
    "x": "La víbora común europea y la rara víbora áspid, que en Alemania solo vive en el sur de la Selva Negra."
+  },
+  "pt": {
+   "q": "Na Alemanha vivem duas espécies nativas de cobras venenosas.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "A víbora-europeia e a rara víbora-áspide, que na Alemanha só vive no sul da Floresta Negra."
   }
  },
  {
@@ -655,6 +787,16 @@
     "Medias lunas amarillas en la nuca"
    ],
    "x": "Esta culebra inofensiva tiene pupilas redondas y nada muy bien. Ante el peligro, a menudo se hace la muerta."
+  },
+  "pt": {
+   "q": "Como normalmente se reconhece uma cobra-de-colar?",
+   "a": [
+    "Uma faixa em zigue-zague nas costas",
+    "Um chocalho na cauda",
+    "Pupilas verticais em fenda",
+    "Meias-luas amarelas na nuca"
+   ],
+   "x": "Essa cobra inofensiva tem pupilas redondas e nada muito bem. Em perigo, muitas vezes finge de morta."
   }
  },
  {
@@ -701,6 +843,16 @@
     "Contiene una glándula de veneno"
    ],
    "x": "La nueva cola ya no tiene vértebras, solo una varilla de cartílago. Suele ser más corta y de otro color."
+  },
+  "pt": {
+   "q": "O que a cauda que cresce de novo num lagarto tem de diferente?",
+   "a": [
+    "Tem o dobro de vértebras",
+    "Uma cartilagem substitui as vértebras",
+    "É sempre mais longa que antes",
+    "Contém uma glândula de veneno"
+   ],
+   "x": "A cauda nova não tem mais vértebras, só uma haste de cartilagem. Costuma ser mais curta e de outra cor."
   }
  },
  {
@@ -747,6 +899,16 @@
     "A través de la piel, del agua"
    ],
    "x": "Teje una tela entre plantas acuáticas y la llena de burbujas de aire de la superficie: una campana de buceo."
+  },
+  "pt": {
+   "q": "Como respira a aranha-d’água, que vive quase sempre debaixo d’água?",
+   "a": [
+    "Com brânquias no abdômen",
+    "Prende a respiração por horas",
+    "Num sino de ar que ela constrói",
+    "Pela pele, tirando ar da água"
+   ],
+   "x": "Ela tece uma teia entre plantas aquáticas e a enche de bolhas de ar da superfície: um sino de mergulho."
   }
  },
  {
@@ -785,6 +947,14 @@
     "Falso"
    ],
    "x": "De noche vuela a menudo a nuevas charcas. Al bucear lleva una reserva de aire bajo los élitros."
+  },
+  "pt": {
+   "q": "O besouro-mergulhador vive na água, mas também sabe voar.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "À noite, muitas vezes voa para novas lagoas. Ao mergulhar, leva uma reserva de ar debaixo dos élitros."
   }
  },
  {
@@ -831,6 +1001,16 @@
     "Con un aguijón venenoso"
    ],
    "x": "La máscara es un labio inferior modificado. Se dispara en un instante y atrapa renacuajos, larvas y más."
+  },
+  "pt": {
+   "q": "Como a larva da libélula pega suas presas?",
+   "a": [
+    "Com uma “máscara” que se estica",
+    "Com uma língua grudenta",
+    "Com uma rede de seda",
+    "Com um ferrão venenoso"
+   ],
+   "x": "A máscara é um lábio inferior modificado. Ela dispara num instante e pega girinos, larvas e mais."
   }
  },
  {
@@ -869,6 +1049,14 @@
     "Falso"
    ],
    "x": "Las libélulas no tienen pupa: la larva sale del agua, muda por última vez y emerge el adulto."
+  },
+  "pt": {
+   "q": "Como as borboletas, as libélulas passam por uma fase de pupa.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "As libélulas não têm pupa: a larva sai da água, faz a última muda e o adulto emerge."
   }
  },
  {
@@ -915,6 +1103,16 @@
     "En realidad es una mosca"
    ],
    "x": "Las hembras sin alas brillan en la hierba para atraer a los machos voladores. La luz es química y fría."
+  },
+  "pt": {
+   "q": "O que é verdade sobre o vaga-lume-comum europeu?",
+   "a": [
+    "Só os machos brilham",
+    "As fêmeas não voam",
+    "Sua luz esquenta como uma lâmpada",
+    "Na verdade é uma mosca"
+   ],
+   "x": "As fêmeas sem asas brilham na grama para atrair os machos voadores. A luz é química e fria."
   }
  },
  {
@@ -961,6 +1159,16 @@
     "De madera podrida"
    ],
    "x": "Cazan caracoles, los paralizan con una mordedura venenosa y se los comen. Necesitan jardines húmedos y naturales."
+  },
+  "pt": {
+   "q": "De que se alimentam as larvas do vaga-lume-comum europeu?",
+   "a": [
+    "De pulgões",
+    "De néctar",
+    "De caracóis",
+    "De madeira podre"
+   ],
+   "x": "Elas caçam caracóis, paralisam-nos com uma mordida venenosa e os comem. Precisam de jardins úmidos e naturais."
   }
  },
  {
@@ -999,6 +1207,14 @@
     "Falso"
    ],
    "x": "Es un mito: el número de puntos depende de la especie, como la mariquita de siete o de dos puntos."
+  },
+  "pt": {
+   "q": "Dá para saber a idade de uma joaninha contando suas pintas.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "É um mito: o número de pintas depende da espécie, como a joaninha-de-sete-pintas ou a de duas pintas."
   }
  },
  {
@@ -1045,6 +1261,16 @@
     "Solo las reinas jóvenes"
    ],
    "x": "La colonia muere en otoño. Solo las reinas jóvenes fecundadas hibernan en el suelo y fundan una colonia en primavera."
+  },
+  "pt": {
+   "q": "Quais mamangavas sobrevivem ao inverno?",
+   "a": [
+    "A colônia inteira no ninho",
+    "Só as operárias",
+    "Só os machos",
+    "Só as rainhas jovens"
+   ],
+   "x": "A colônia morre no outono. Só as rainhas jovens fecundadas hibernam no solo e fundam uma colônia na primavera."
   }
  },
  {
@@ -1083,6 +1309,14 @@
     "Falso"
    ],
    "x": "Es un viejo mito: su veneno no es más peligroso que el de la abeja. El riesgo es sobre todo para personas alérgicas."
+  },
+  "pt": {
+   "q": "Três picadas de vespão podem matar um adulto saudável.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "É um velho mito: o veneno do vespão não é mais perigoso que o da abelha. O risco é sobretudo para pessoas alérgicas."
   }
  },
  {
@@ -1129,6 +1363,16 @@
     "Los pulgones excavan el nido"
    ],
    "x": "Los pulgones excretan una melaza azucarada. Las hormigas los «ordeñan» y a cambio alejan a enemigos como las mariquitas."
+  },
+  "pt": {
+   "q": "Por que algumas formigas protegem os pulgões?",
+   "a": [
+    "Ganham melada doce",
+    "Comem os ovos deles",
+    "Os pulgões aquecem o ninho",
+    "Os pulgões cavam o ninho"
+   ],
+   "x": "Os pulgões soltam uma melada açucarada. As formigas os “ordenham” e, em troca, afastam inimigos como as joaninhas."
   }
  },
  {
@@ -1167,6 +1411,14 @@
     "Falso"
    ],
    "x": "El tritón alpino y otros suelen ir al agua solo para reproducirse en primavera; el resto del año viven en tierra."
+  },
+  "pt": {
+   "q": "Os tritões passam o ano todo na água.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "O tritão-alpino e outros costumam ir à água só para se reproduzir na primavera; no resto do ano vivem em terra."
   }
  },
  {
@@ -1213,6 +1465,16 @@
     "Diente de león"
    ],
    "x": "Las ortigas son la guardería de la pavo real, la ortiguera y la vanesa atalanta. ¡Deja un rincón salvaje en el jardín!"
+  },
+  "pt": {
+   "q": "De que planta se alimentam as lagartas da borboleta-pavão?",
+   "a": [
+    "Urtiga",
+    "Couve",
+    "Carvalho",
+    "Dente-de-leão"
+   ],
+   "x": "As urtigas são o berçário da borboleta-pavão, da borboleta-da-urtiga e do almirante-vermelho. Deixe um cantinho selvagem no jardim!"
   }
  },
  {
@@ -1259,6 +1521,16 @@
     "De Norteamérica"
    ],
    "x": "Migran en varias generaciones desde África hasta el norte de Europa: un relevo de miles de kilómetros."
+  },
+  "pt": {
+   "q": "De onde vêm muitas borboletas-dos-cardos que chegam na primavera à Europa Central?",
+   "a": [
+    "Da Escandinávia",
+    "Da Sibéria",
+    "Do norte da África e do sul da Europa",
+    "Da América do Norte"
+   ],
+   "x": "Elas migram em várias gerações da África até o norte da Europa: um revezamento de milhares de quilômetros."
   }
  },
  {
@@ -1305,6 +1577,16 @@
     "Ponen los huevos en nidos de aves"
    ],
    "x": "Primero arrastran el saco de huevos sujeto a las hileras. Luego las crías viajan unos días sobre su espalda."
+  },
+  "pt": {
+   "q": "Como as fêmeas da aranha-lobo cuidam dos filhotes?",
+   "a": [
+    "Carregam-nos nas costas",
+    "Alimentam-nos com néctar",
+    "Põem os ovos na água",
+    "Põem os ovos em ninhos de aves"
+   ],
+   "x": "Primeiro elas arrastam o saco de ovos preso às fiandeiras. Depois os filhotes viajam alguns dias nas costas da mãe."
   }
  },
  {
@@ -1343,6 +1625,14 @@
     "Falso"
    ],
    "x": "Así recicla las valiosas proteínas de la seda. Muchas rehacen su tela casi a diario."
+  },
+  "pt": {
+   "q": "A aranha-de-jardim costuma comer sua teia velha antes de tecer outra.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Assim ela recicla as valiosas proteínas da seda. Muitas refazem a teia quase todo dia."
   }
  },
  {
@@ -1389,6 +1679,16 @@
     "Patas articuladas"
    ],
    "x": "Los opiliones son arácnidos, pero no arañas: no tejen telas y su cuerpo parece de una sola pieza."
+  },
+  "pt": {
+   "q": "O que o opilião NÃO tem, ao contrário das aranhas?",
+   "a": [
+    "Olhos",
+    "Peças bucais",
+    "Glândulas de seda",
+    "Patas articuladas"
+   ],
+   "x": "Os opiliões são aracnídeos, mas não aranhas: não tecem teias e o corpo parece de uma peça só."
   }
  },
  {
@@ -1427,6 +1727,14 @@
     "Falso"
    ],
    "x": "Normalmente solo la parte delantera puede sobrevivir y regenerar un nuevo extremo trasero. La trasera suele morir."
+  },
+  "pt": {
+   "q": "Se cortarmos uma minhoca ao meio, surgem duas minhocas inteiras.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Normalmente só a parte da frente pode sobreviver e regenerar uma nova parte de trás. A parte de trás costuma morrer."
   }
  },
  {
@@ -1465,6 +1773,14 @@
     "Falso"
    ],
    "x": "Un hígado grande y rico en aceite les ayuda a flotar. Muchos deben nadar para no hundirse."
+  },
+  "pt": {
+   "q": "Os tubarões não têm bexiga natatória.",
+   "a": [
+    "Verdadeiro",
+    "Falso"
+   ],
+   "x": "Um fígado grande e cheio de óleo ajuda a flutuar. Muitos precisam nadar para não afundar."
   }
  },
  {
@@ -1511,6 +1827,16 @@
     "Nadie: los huevos están en la arena"
    ],
    "x": "La hembra deposita los huevos en la bolsa incubadora del macho. Allí se desarrollan hasta que él «da a luz»."
+  },
+  "pt": {
+   "q": "Quem dá à luz os filhotes do cavalo-marinho?",
+   "a": [
+    "A fêmea",
+    "O macho",
+    "Os dois, revezando",
+    "Ninguém: os ovos ficam na areia"
+   ],
+   "x": "A fêmea deposita os ovos na bolsa incubadora do macho. Ali eles se desenvolvem até que ele “dá à luz”."
   }
  },
  {
@@ -1557,6 +1883,16 @@
     "Como comedero para pájaros"
    ],
    "x": "Las tijeretas se esconden en ellas de día y comen pulgones de noche. Y no, no se meten a propósito en los oídos."
+  },
+  "pt": {
+   "q": "Para que se penduram vasos de barro de cabeça para baixo, cheios de palha?",
+   "a": [
+    "Como armadilha para lesmas",
+    "Como abrigo de inverno para ouriços",
+    "Como abrigo para tesourinhas",
+    "Como comedouro para pássaros"
+   ],
+   "x": "As tesourinhas se escondem neles de dia e comem pulgões à noite. E não, elas não entram de propósito nos ouvidos."
   }
  },
  {
@@ -1603,6 +1939,16 @@
     "Son inofensivos e imitan a avispas"
    ],
    "x": "El disfraz asusta a los enemigos. Las larvas de muchos sírfidos comen pulgones: ¡grandes ayudantes del jardín!"
+  },
+  "pt": {
+   "q": "As moscas-das-flores muitas vezes parecem vespas. O que é verdade?",
+   "a": [
+    "Picam mais forte que as vespas",
+    "Têm quatro asas como as vespas",
+    "São vespas jovens",
+    "São inofensivas e imitam vespas"
+   ],
+   "x": "O disfarce assusta os inimigos. As larvas de muitas moscas-das-flores comem pulgões – ótimas ajudantes do jardim!"
   }
  },
  {
@@ -1649,6 +1995,16 @@
     "Las mariposas"
    ],
    "x": "Con unas 350.000 a 400.000 especies descritas, los escarabajos son el grupo animal con más especies de la Tierra."
+  },
+  "pt": {
+   "q": "Qual grupo de animais tem mais espécies conhecidas no mundo?",
+   "a": [
+    "As aves",
+    "Os peixes",
+    "Os besouros",
+    "As borboletas"
+   ],
+   "x": "Com cerca de 350.000 a 400.000 espécies descritas, os besouros são o grupo animal com mais espécies da Terra."
   }
  },
  {
@@ -1695,6 +2051,16 @@
     "En arroyos de montaña"
    ],
    "x": "Las anguilas recorren miles de kilómetros hasta el mar de los Sargazos. Sus larvas vuelven a Europa con las corrientes."
+  },
+  "pt": {
+   "q": "Onde a enguia-europeia desova?",
+   "a": [
+    "No lago de Constança",
+    "No mar dos Sargaços",
+    "No mar de Wadden",
+    "Em riachos de montanha"
+   ],
+   "x": "As enguias percorrem milhares de quilômetros até o mar dos Sargaços. Suas larvas voltam à Europa com as correntes."
   }
  },
  {
@@ -1741,6 +2107,16 @@
     "Siguen a las anguilas"
    ],
    "x": "Los salmones jóvenes memorizan el olor de su río natal. Años después, lo usan para volver desde el mar."
+  },
+  "pt": {
+   "q": "Como os salmões reconhecem o rio onde nasceram para desovar lá?",
+   "a": [
+    "Pela cor da água",
+    "Pelo barulho das cachoeiras",
+    "Pelo cheiro da água",
+    "Seguem as enguias"
+   ],
+   "x": "Os salmões jovens memorizam o cheiro do rio natal. Anos depois, usam isso para voltar do mar."
   }
  },
  {
@@ -1787,6 +2163,16 @@
     "Luz blanca cálida, amarillenta"
    ],
    "x": "Los insectos acuden sobre todo a la luz azul y UV. Mejor: lámparas cálidas orientadas hacia abajo, o ninguna luz."
+  },
+  "pt": {
+   "q": "Que iluminação de jardim atrai menos insetos à noite?",
+   "a": [
+    "Luz branca fria",
+    "Luz azulada",
+    "Lâmpadas com luz UV",
+    "Luz branca quente, amarelada"
+   ],
+   "x": "Os insetos vêm sobretudo à luz azul e UV. Melhor: lâmpadas quentes voltadas para baixo – ou luz nenhuma."
   }
  },
  {
@@ -1833,6 +2219,16 @@
     "Construye un nido y cuida la puesta"
    ],
    "x": "El macho se vuelve de vientre rojo, construye un nido con restos de plantas y abanica los huevos con agua fresca."
+  },
+  "pt": {
+   "q": "O que faz o macho do esgana-gata na reprodução?",
+   "a": [
+    "Carrega os ovos na boca",
+    "Enterra os ovos e vai embora",
+    "Gruda os ovos em aves aquáticas",
+    "Constrói um ninho e cuida da desova"
+   ],
+   "x": "O macho fica com a barriga vermelha, constrói um ninho com restos de plantas e abana os ovos com água fresca."
   }
  },
  {
@@ -1879,6 +2275,16 @@
     "No la cierra"
    ],
    "x": "Se entierra y cierra la abertura con una tapa calcárea. En Alemania es una especie protegida."
+  },
+  "pt": {
+   "q": "Como o caracol-de-borgonha fecha a concha no inverno?",
+   "a": [
+    "Com uma tampa de cal",
+    "Com uma folha enrolada",
+    "Com um tampão de terra",
+    "Ele não fecha"
+   ],
+   "x": "Ele se enterra e fecha a abertura com uma tampa de calcário. Na Alemanha é uma espécie protegida."
   }
  },
  {
@@ -1925,6 +2331,16 @@
     "El exceso de plantas acuáticas"
    ],
    "x": "Especies americanas como el cangrejo señal portan el patógeno sin enfermar. Para los cangrejos autóctonos suele ser mortal."
+  },
+  "pt": {
+   "q": "Qual é a maior ameaça para o lagostim-europeu?",
+   "a": [
+    "Os invernos frios",
+    "A peste do lagostim, trazida de fora",
+    "O castor",
+    "Plantas aquáticas demais"
+   ],
+   "x": "Espécies americanas, como o lagostim-sinal, carregam o patógeno sem adoecer. Para os lagostins nativos costuma ser mortal."
   }
  },
  {
@@ -1971,6 +2387,16 @@
     "Lo absorbe por los brazos"
    ],
    "x": "Abre un poco las valvas con sus pies ambulacrales, introduce el estómago y digiere el mejillón allí mismo."
+  },
+  "pt": {
+   "q": "Como uma estrela-do-mar come um mexilhão?",
+   "a": [
+    "Quebra-o com os dentes",
+    "Bate-o contra as pedras",
+    "Coloca o estômago dentro do mexilhão",
+    "Suga-o pelos braços"
+   ],
+   "x": "Ela abre um pouco as conchas com os pés ambulacrais, coloca o estômago para dentro e digere o mexilhão ali mesmo."
   }
  },
  {
@@ -2017,6 +2443,16 @@
     "Flotan en la espuma"
    ],
    "x": "Las diminutas larvas (gloquidios) se aferran a las branquias o aletas de los peces y viajan con ellos un tiempo."
+  },
+  "pt": {
+   "q": "Como se espalham as larvas dos grandes mexilhões de água doce, como a anodonta?",
+   "a": [
+    "Prendem-se a peixes",
+    "São levadas pelo vento",
+    "Rastejam pelo fundo",
+    "Flutuam na espuma"
+   ],
+   "x": "As larvas minúsculas (gloquídios) se agarram às brânquias ou nadadeiras dos peixes e viajam com eles por um tempo."
   }
  },
  {
@@ -2063,6 +2499,16 @@
     "Con 3 a 5 cm de diámetro"
    ],
    "x": "Los agujeros en la testa se agrietan y la cría puede enmohecerse. Mejor: madera dura y seca, perforada de lado, de pocos mm."
+  },
+  "pt": {
+   "q": "Qual é o melhor jeito de furar ninhos de madeira para abelhas silvestres?",
+   "a": [
+    "No topo (face do corte)",
+    "Na lateral da madeira",
+    "Em madeira macia de abeto",
+    "Com 3 a 5 cm de diâmetro"
+   ],
+   "x": "Furos no topo racham e a cria pode mofar. Melhor: madeira dura e seca, furada pela lateral, com poucos milímetros."
   }
  },
  {
@@ -2109,6 +2555,16 @@
     "Recogen polen de pocas plantas"
    ],
    "x": "Estas especialistas necesitan, por ejemplo, campánulas o sauces. Si esas plantas desaparecen, la abeja también."
+  },
+  "pt": {
+   "q": "Muitas abelhas silvestres são “oligoléticas”. O que isso significa?",
+   "a": [
+    "Vivem sozinhas, sem colônia",
+    "Só voam à noite",
+    "Não têm ferrão",
+    "Coletam pólen de poucas plantas"
+   ],
+   "x": "Essas especialistas precisam, por exemplo, de campânulas ou salgueiros. Se essas plantas somem, a abelha também some."
   }
  },
  {
@@ -2155,6 +2611,16 @@
     "Unos 30 años"
    ],
    "x": "Las larvas comen madera podrida, a menudo de robles viejos, durante años. El adulto vive luego solo unas semanas."
+  },
+  "pt": {
+   "q": "Quanto tempo as larvas do besouro-veado se desenvolvem na madeira podre?",
+   "a": [
+    "Umas 2 semanas",
+    "Só um verão",
+    "Normalmente de 3 a 8 anos",
+    "Uns 30 anos"
+   ],
+   "x": "As larvas comem madeira podre, muitas vezes de carvalhos velhos, por anos. O adulto vive depois só algumas semanas."
   }
  },
  {
@@ -2201,6 +2667,16 @@
     "En las patas delanteras"
    ],
    "x": "Los tetigónidos oyen con tímpanos en las patas delanteras. Los saltamontes de antenas cortas los tienen en el abdomen."
+  },
+  "pt": {
+   "q": "Onde a esperança-verde (Tettigonia) tem os ouvidos?",
+   "a": [
+    "Na cabeça",
+    "Nas antenas",
+    "No abdômen",
+    "Nas patas da frente"
+   ],
+   "x": "As esperanças ouvem com tímpanos nas patas da frente. Os gafanhotos de antenas curtas os têm no abdômen."
   }
  }
 ]

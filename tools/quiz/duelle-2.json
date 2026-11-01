@@ -35,6 +35,14 @@
     "Guepardo"
    ],
    "x": "El guepardo es más rápido, pero solo esprinta unos cientos de metros. El berrendo mantiene más de 50 km/h durante kilómetros."
+  },
+  "pt": {
+   "q": "Quem aguenta mais tempo em alta velocidade?",
+   "a": [
+    "Antilocapra",
+    "Guepardo"
+   ],
+   "x": "O guepardo é mais rápido, mas só dispara por algumas centenas de metros. A antilocapra mantém mais de 50 km/h por quilômetros."
   }
  },
  {
@@ -73,6 +81,14 @@
     "Tigre siberiano"
    ],
    "x": "El oso polar macho pesa de 400 a 700 kg y es el mayor carnívoro terrestre. El tigre siberiano llega a unos 300 kg."
+  },
+  "pt": {
+   "q": "Quem é o maior carnívoro terrestre?",
+   "a": [
+    "Urso-polar",
+    "Tigre-siberiano"
+   ],
+   "x": "O urso-polar macho pesa de 400 a 700 kg e é o maior carnívoro terrestre. O tigre-siberiano chega a uns 300 kg."
   }
  },
  {
@@ -111,6 +127,14 @@
     "Foca común"
    ],
    "x": "Las focas pertenecen a los carnívoros «caniformes», como osos y mustélidos. La hiena parece un perro, pero está más emparentada con los gatos."
+  },
+  "pt": {
+   "q": "Quem é parente mais próximo do cachorro?",
+   "a": [
+    "Hiena-malhada",
+    "Foca-comum"
+   ],
+   "x": "As focas pertencem aos carnívoros “caniformes”, como ursos e mustelídeos. A hiena parece um cachorro, mas é mais aparentada com os gatos."
   }
  },
  {
@@ -149,6 +173,14 @@
     "Colibrí"
    ],
    "x": "El colibrí bate las alas hasta 80 veces por segundo en forma de ocho. Así puede quedarse quieto en el aire e incluso volar hacia atrás."
+  },
+  "pt": {
+   "q": "Quem consegue voar para trás?",
+   "a": [
+    "Pardal",
+    "Beija-flor"
+   ],
+   "x": "O beija-flor bate as asas até 80 vezes por segundo, num movimento em forma de oito. Assim ele para no ar e até voa para trás."
   }
  },
  {
@@ -187,6 +219,14 @@
     "Rinoceronte"
    ],
    "x": "Caballos, rinocerontes y tapires son perisodáctilos. La vaca es un artiodáctilo, más emparentada con las ballenas que con el caballo."
+  },
+  "pt": {
+   "q": "Quem é parente mais próximo do cavalo?",
+   "a": [
+    "Vaca",
+    "Rinoceronte"
+   ],
+   "x": "Cavalos, rinocerontes e antas são perissodáctilos. A vaca é um artiodáctilo, mais aparentada com as baleias do que com o cavalo."
   }
  },
  {
@@ -225,6 +265,14 @@
     "Un recién nacido"
    ],
    "x": "Los bebés nacen con unos 300 huesos. Muchos se fusionan después: un adulto tiene 206."
+  },
+  "pt": {
+   "q": "Quem tem mais ossos?",
+   "a": [
+    "Um adulto",
+    "Um recém-nascido"
+   ],
+   "x": "Os bebês nascem com cerca de 300 ossos. Muitos se fundem depois: um adulto tem 206."
   }
  },
  {
@@ -263,6 +311,14 @@
     "Rata canguro"
    ],
    "x": "La rata canguro de los desiertos de Norteamérica a menudo no bebe en toda su vida: saca el agua de semillas secas. El dromedario aguanta unas dos semanas."
+  },
+  "pt": {
+   "q": "Quem aguenta mais tempo sem beber?",
+   "a": [
+    "Dromedário",
+    "Rato-canguru"
+   ],
+   "x": "O rato-canguru dos desertos da América do Norte muitas vezes não bebe a vida inteira: ele tira a água de sementes secas. O dromedário aguenta umas duas semanas."
   }
  },
  {
@@ -301,6 +357,14 @@
     "Conejo silvestre"
    ],
    "x": "El conejo se come enseguida unas bolitas blandas. En la segunda pasada saca las vitaminas y nutrientes de su comida vegetal, difícil de digerir."
+  },
+  "pt": {
+   "q": "Quem come de propósito parte das próprias fezes?",
+   "a": [
+    "Corço",
+    "Coelho-selvagem"
+   ],
+   "x": "O coelho come logo umas bolinhas moles. Na segunda passagem, ele aproveita as vitaminas e os nutrientes da comida vegetal, difícil de digerir."
   }
  },
  {
@@ -339,6 +403,14 @@
     "Cocodrilo"
    ],
    "x": "Los cocodrilos tragan piedras. En el estómago ayudan a triturar la comida y quizá sirven de lastre para bucear."
+  },
+  "pt": {
+   "q": "Quem engole pedras de propósito?",
+   "a": [
+    "Leão",
+    "Crocodilo"
+   ],
+   "x": "Os crocodilos engolem pedras. No estômago elas ajudam a triturar a comida e talvez sirvam de lastro para mergulhar."
   }
  },
  {
@@ -377,6 +449,14 @@
     "Perro"
    ],
    "x": "El caballo puede bloquear las articulaciones de las patas y dormitar de pie. Para el sueño profundo, también se tumba."
+  },
+  "pt": {
+   "q": "Quem consegue cochilar em pé?",
+   "a": [
+    "Cavalo",
+    "Cachorro"
+   ],
+   "x": "O cavalo consegue travar as articulações das pernas e cochilar em pé. Para o sono profundo, ele também se deita."
   }
  },
  {
@@ -415,6 +495,14 @@
     "Perezoso"
    ],
    "x": "El koala es un marsupial. Al nacer, la cría es del tamaño de una judía y sigue creciendo en la bolsa durante meses."
+  },
+  "pt": {
+   "q": "Quem carrega o filhote numa bolsa?",
+   "a": [
+    "Coala",
+    "Bicho-preguiça"
+   ],
+   "x": "O coala é um marsupial. Ao nascer, o filhote tem o tamanho de um feijão e continua crescendo na bolsa por meses."
   }
  },
  {
@@ -453,6 +541,14 @@
     "Erizo"
    ],
    "x": "El equidna australiano pone huevos y los incuba en una bolsa del vientre. Pese a sus púas, no es pariente del erizo, que pare crías vivas."
+  },
+  "pt": {
+   "q": "Que mamífero põe ovos?",
+   "a": [
+    "Equidna",
+    "Ouriço"
+   ],
+   "x": "A equidna australiana põe ovos e os choca numa bolsa na barriga. Apesar dos espinhos, não é parente do ouriço, que tem filhotes vivos."
   }
  },
  {
@@ -491,6 +587,14 @@
     "Castor"
    ],
    "x": "El ornitorrinco macho tiene un espolón venenoso en las patas traseras. Su picadura es muy dolorosa para los humanos, pero no mortal."
+  },
+  "pt": {
+   "q": "Quem é venenoso?",
+   "a": [
+    "Ornitorrinco macho",
+    "Castor"
+   ],
+   "x": "O ornitorrinco macho tem um esporão venenoso nas patas traseras. A picada é muito dolorosa para humanos, mas não mata."
   }
  },
  {
@@ -529,6 +633,14 @@
     "Perro"
    ],
    "x": "Las huellas del koala se parecen tanto a las nuestras que cuesta distinguirlas incluso al microscopio, aunque no es pariente cercano nuestro."
+  },
+  "pt": {
+   "q": "Quem tem impressões digitais como as nossas?",
+   "a": [
+    "Coala",
+    "Cachorro"
+   ],
+   "x": "As digitais do coala são tão parecidas com as nossas que é difícil diferenciá-las até no microscópio – embora ele não seja nosso parente próximo."
   }
  },
  {
@@ -567,6 +679,14 @@
     "Perro"
    ],
    "x": "El caballo suda por todo el cuerpo como nosotros. El perro casi solo tiene glándulas sudoríparas en las almohadillas y se refresca jadeando."
+  },
+  "pt": {
+   "q": "Quem sua pelo corpo todo?",
+   "a": [
+    "Cavalo",
+    "Cachorro"
+   ],
+   "x": "O cavalo sua pelo corpo todo, como nós. O cachorro tem glândulas de suor quase só nas almofadinhas das patas e se refresca ofegando."
   }
  },
  {
@@ -605,6 +725,14 @@
     "León marino"
    ],
    "x": "El elefante marino bucea hasta unas 2 horas y a más de 1.000 m. El león marino suele quedarse solo unos minutos."
+  },
+  "pt": {
+   "q": "Quem aguenta mais tempo debaixo d’água?",
+   "a": [
+    "Elefante-marinho",
+    "Leão-marinho"
+   ],
+   "x": "O elefante-marinho mergulha por até cerca de 2 horas e a mais de 1.000 m. O leão-marinho costuma ficar só alguns minutos."
   }
  },
  {
@@ -643,6 +771,14 @@
     "Abeja"
    ],
    "x": "Las libélulas grandes superan los 50 km/h y cazan en pleno vuelo. La abeja vuela a unos 25-30 km/h."
+  },
+  "pt": {
+   "q": "Quem voa mais rápido?",
+   "a": [
+    "Libélula",
+    "Abelha"
+   ],
+   "x": "Libélulas grandes passam dos 50 km/h e caçam em pleno voo. A abelha voa a uns 25–30 km/h."
   }
  },
  {
@@ -681,6 +817,14 @@
     "Raya"
    ],
    "x": "La raya es básicamente un tiburón aplanado, también con esqueleto de cartílago. El delfín es un mamífero y respira aire."
+  },
+  "pt": {
+   "q": "Quem é parente mais próximo do tubarão?",
+   "a": [
+    "Golfinho",
+    "Raia"
+   ],
+   "x": "A raia é basicamente um tubarão achatado, também com esqueleto de cartilagem. O golfinho é um mamífero e respira ar."
   }
  },
  {
@@ -719,6 +863,14 @@
     "Humano"
    ],
    "x": "El camarón mantis tiene 12 tipos de receptores de color y nosotros solo 3. Aun así, distingue peor los colores: su cerebro los procesa de otra forma."
+  },
+  "pt": {
+   "q": "Quem tem mais tipos de células de cor no olho?",
+   "a": [
+    "Tamarutaca",
+    "Humano"
+   ],
+   "x": "A tamarutaca tem 12 tipos de receptores de cor, e nós só 3. Mesmo assim, ela diferencia cores pior: seu cérebro processa as cores de outro jeito."
   }
  },
  {
@@ -757,6 +909,14 @@
     "Todos los humanos"
    ],
    "x": "Un estudio de 2022 calcula que todas las hormigas del mundo juntas pesan una quinta parte que todos los humanos. Son 20.000 billones, pero cada una es diminuta."
+  },
+  "pt": {
+   "q": "O que pesa mais no total?",
+   "a": [
+    "Todas as formigas",
+    "Todos os humanos"
+   ],
+   "x": "Um estudo de 2022 calcula que todas as formigas do mundo juntas pesam um quinto do peso de todos os humanos. São 20 quatrilhões, mas cada uma é minúscula."
   }
  },
  {
@@ -795,6 +955,14 @@
     "La hembra"
    ],
    "x": "El macho sostiene el huevo dos meses sobre las patas bajo un pliegue del vientre, en pleno invierno antártico y sin comer. La hembra está mientras tanto en el mar."
+  },
+  "pt": {
+   "q": "Quem choca o ovo no pinguim-imperador?",
+   "a": [
+    "O macho",
+    "A fêmea"
+   ],
+   "x": "O macho segura o ovo por dois meses sobre os pés, debaixo de uma dobra da barriga, em pleno inverno antártico e sem comer. A fêmea fica enquanto isso no mar."
   }
  },
  {
@@ -833,6 +1001,14 @@
     "Calamar"
    ],
    "x": "Aunque cueste creerlo, estrellas y erizos de mar pertenecen al mismo gran grupo que los vertebrados. El calamar es un molusco, más lejano a nosotros."
+  },
+  "pt": {
+   "q": "Quem é parente mais próximo dos humanos?",
+   "a": [
+    "Estrela-do-mar",
+    "Lula"
+   ],
+   "x": "Parece incrível, mas estrelas-do-mar e ouriços-do-mar pertencem ao mesmo grande grupo que os vertebrados. A lula é um molusco, mais distante de nós."
   }
  },
  {
@@ -871,6 +1047,14 @@
     "Perro"
    ],
    "x": "El delfín duerme con una mitad del cerebro cada vez. La otra sigue despierta, así sigue respirando y vigila los peligros."
+  },
+  "pt": {
+   "q": "Quem dorme com metade do cérebro?",
+   "a": [
+    "Golfinho",
+    "Cachorro"
+   ],
+   "x": "O golfinho dorme com uma metade do cérebro de cada vez. A outra continua acordada – assim ele segue respirando e fica atento aos perigos."
   }
  },
  {
@@ -909,6 +1093,14 @@
     "Basilisco verde"
    ],
    "x": "El basilisco corre sobre el agua con las patas traseras: golpea la superficie tan rápido que no se hunde. La iguana nada."
+  },
+  "pt": {
+   "q": "Quem consegue correr sobre a água?",
+   "a": [
+    "Iguana-verde",
+    "Basilisco-verde"
+   ],
+   "x": "O basilisco corre sobre a água com as patas traseiras: bate na superfície tão rápido que não afunda. A iguana nada."
   }
  },
  {
@@ -947,6 +1139,14 @@
     "Ánade real"
    ],
    "x": "Las parejas de cisnes suelen seguir juntas mientras viven. El ánade real busca pareja nueva cada año."
+  },
+  "pt": {
+   "q": "Quem costuma ficar com o mesmo par a vida toda?",
+   "a": [
+    "Cisne-branco",
+    "Pato-real"
+   ],
+   "x": "Os casais de cisnes costumam ficar juntos enquanto vivem. O pato-real procura um novo par todo ano."
   }
  },
  {
@@ -985,6 +1185,14 @@
     "Gato"
    ],
    "x": "El gato tiene una membrana nictitante que barre el ojo para protegerlo. A nosotros solo nos queda un pequeño resto en el rabillo del ojo."
+  },
+  "pt": {
+   "q": "Quem tem uma terceira pálpebra?",
+   "a": [
+    "Humano",
+    "Gato"
+   ],
+   "x": "O gato tem uma membrana nictitante que passa pelo olho para protegê-lo. Em nós sobrou só um pequeno resto no canto do olho."
   }
  }
 ]

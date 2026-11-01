@@ -3,23 +3,24 @@ import { createContext, ReactNode, useContext, useEffect, useState } from 'react
 
 import { NICKNAMES, StringKey, STRINGS } from './strings';
 
-export type Lang = 'de' | 'en' | 'fr' | 'es';
+export type Lang = 'de' | 'en' | 'fr' | 'es' | 'pt';
 
 export const LANGS: { id: Lang; label: string }[] = [
   { id: 'de', label: 'Deutsch' },
   { id: 'en', label: 'English' },
   { id: 'fr', label: 'Français' },
   { id: 'es', label: 'Español' },
+  { id: 'pt', label: 'Português' },
 ];
 
 // Für Datumsangaben
-export const LOCALES: Record<Lang, string> = { de: 'de-DE', en: 'en-GB', fr: 'fr-FR', es: 'es-ES' };
+export const LOCALES: Record<Lang, string> = { de: 'de-DE', en: 'en-GB', fr: 'fr-FR', es: 'es-ES', pt: 'pt-BR' };
 
 // Sprache des iPhones (z. B. "de-DE" -> "de"), sonst Englisch
 function deviceLang(): Lang {
   try {
     const code = Intl.DateTimeFormat().resolvedOptions().locale.slice(0, 2).toLowerCase();
-    return (['de', 'en', 'fr', 'es'] as const).find((l) => l === code) ?? 'en';
+    return (['de', 'en', 'fr', 'es', 'pt'] as const).find((l) => l === code) ?? 'en';
   } catch {
     return 'de';
   }
@@ -54,7 +55,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     AsyncStorage.getItem(LANG_KEY)
       .then((v) => {
-        if (v === 'de' || v === 'en' || v === 'fr' || v === 'es') setLangState(v);
+        if (v === 'de' || v === 'en' || v === 'fr' || v === 'es' || v === 'pt') setLangState(v);
       })
       .catch(() => {});
   }, []);

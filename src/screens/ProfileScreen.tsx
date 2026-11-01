@@ -268,11 +268,11 @@ export function ProfileScreen(props: Props) {
             {(
               [
                 [fav ? <GroupIcon id={fav.id} size={14} color={colors.accentLight} /> : null, fav ? t(`g.${fav.id}` as 'g.bird') : '–', t('lb.fav')],
-                [<Icon name="star" size={13} color={colors.accentLight} />, `${season.sxp.toLocaleString(locale)} XP`, seasonName(season.season, t, neutral)],
+                [<Icon name="star" size={13} color={colors.accentLight} />, `${season.sxp.toLocaleString(locale)} XP`, seasonName(season.season, t, neutral, true)],
                 [
                   <Icon name="trophy" size={13} color={colors.accentLight} />,
                   season.best ? t('pro.rankShort', { rank: season.best.r }) : '–',
-                  season.best ? seasonName(season.best.s, t, neutral) : t('lb.bestSeason'),
+                  season.best ? seasonName(season.best.s, t, neutral, true) : t('lb.bestSeason'),
                 ],
               ] as const
             ).map(([icon, value, label], i) => (

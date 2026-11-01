@@ -35,6 +35,14 @@
     "Loro"
    ],
    "x": "En picado, el águila real supera los 200 km/h. Los loros suelen volar a 30 a 60 km/h."
+  },
+  "pt": {
+   "q": "Quem é mais rápido?",
+   "a": [
+    "Águia",
+    "Papagaio"
+   ],
+   "x": "Em mergulho, a águia-real passa dos 200 km/h. Os papagaios costumam voar a 30 a 60 km/h."
   }
  },
  {
@@ -73,6 +81,14 @@
     "Tigre"
    ],
    "x": "Los tigres dormitan de 16 a 20 horas al día. Las jirafas solo duermen unas pocas horas, a menudo de pie y en siestas cortas."
+  },
+  "pt": {
+   "q": "Quem dorme mais por dia?",
+   "a": [
+    "Girafa",
+    "Tigre"
+   ],
+   "x": "O tigre cochila de 16 a 20 horas por dia. A girafa dorme só poucas horas, muitas vezes em pé e em sonecas curtas."
   }
  },
  {
@@ -111,6 +127,14 @@
     "Lagartija"
    ],
    "x": "Las comparaciones de ADN lo muestran: las tortugas están más emparentadas con aves y cocodrilos que con lagartijas y serpientes."
+  },
+  "pt": {
+   "q": "Quem é parente mais próximo das aves?",
+   "a": [
+    "Tartaruga",
+    "Lagarto"
+   ],
+   "x": "Comparações de DNA mostram: as tartarugas são mais aparentadas com aves e crocodilos do que com lagartos e cobras."
   }
  },
  {
@@ -149,6 +173,14 @@
     "Caracol"
    ],
    "x": "Cangrejos e insectos son artrópodos con caparazón y patas articuladas. Los insectos incluso evolucionaron a partir de crustáceos."
+  },
+  "pt": {
+   "q": "Quem é parente mais próximo dos insetos?",
+   "a": [
+    "Caranguejo",
+    "Caracol"
+   ],
+   "x": "Caranguejos e insetos são artrópodes, com carapaça e patas articuladas. Os insetos até evoluíram a partir de crustáceos."
   }
  },
  {
@@ -187,6 +219,14 @@
     "Tigre"
    ],
    "x": "Un panda come de 12 a 38 kg de bambú al día, porque aporta muy poca energía. Un tigre se arregla con 5 a 7 kg de carne al día de media."
+  },
+  "pt": {
+   "q": "Quem come mais quilos por dia?",
+   "a": [
+    "Panda",
+    "Tigre"
+   ],
+   "x": "Um panda come de 12 a 38 kg de bambu por dia, porque ele dá muito pouca energia. Um tigre se vira, em média, com 5 a 7 kg de carne por dia."
   }
  },
  {
@@ -225,6 +265,14 @@
     "Rana"
    ],
    "x": "Las lagartijas sacan la lengua para captar olores y los llevan a un órgano olfativo en el paladar. Las ranas solo la usan para cazar."
+  },
+  "pt": {
+   "q": "Quem cheira com a língua?",
+   "a": [
+    "Lagarto",
+    "Rã"
+   ],
+   "x": "Os lagartos põem a língua para fora para captar cheiros e os levam a um órgão do olfato no céu da boca. As rãs usam a língua só para caçar."
   }
  },
  {
@@ -263,6 +311,14 @@
     "Lagartija"
    ],
    "x": "Las ranas absorben oxígeno por su piel fina y húmeda; en invierno, en el fondo del estanque, casi solo así. Las lagartijas tienen piel seca con escamas."
+  },
+  "pt": {
+   "q": "Quem também respira pela pele?",
+   "a": [
+    "Rã",
+    "Lagarto"
+   ],
+   "x": "As rãs absorvem oxigênio pela pele fina e úmida; no inverno, no fundo do lago, quase só assim. Os lagartos têm pele seca com escamas."
   }
  },
  {
@@ -301,6 +357,14 @@
     "Abeja"
    ],
    "x": "Las abejas ven la luz UV. Muchas flores tienen dibujos UV que llevan al néctar como pistas de aterrizaje, invisibles para nosotros."
+  },
+  "pt": {
+   "q": "Quem enxerga a luz ultravioleta?",
+   "a": [
+    "Urso-pardo",
+    "Abelha"
+   ],
+   "x": "As abelhas veem a luz UV. Muitas flores têm desenhos em UV que levam ao néctar como pistas de pouso – invisíveis para nós."
   }
  },
  {
@@ -339,6 +403,14 @@
     "Cangrejo"
    ],
    "x": "Las abejas tienen dos grandes ojos compuestos y tres ojillos simples en lo alto de la cabeza: cinco en total. Los cangrejos tienen dos ojos con pedúnculo."
+  },
+  "pt": {
+   "q": "Quem tem mais olhos?",
+   "a": [
+    "Abelha",
+    "Caranguejo"
+   ],
+   "x": "As abelhas têm dois grandes olhos compostos e três olhinhos simples no alto da cabeça – cinco no total. Os caranguejos têm dois olhos em pedúnculos."
   }
  },
  {
@@ -377,6 +449,14 @@
     "Tortuga"
    ],
    "x": "Una hembra de pulpo pone hasta cientos de miles de huevos y los vigila durante semanas sin comer. Las tortugas marinas ponen unos 100 huevos por puesta."
+  },
+  "pt": {
+   "q": "Quem põe mais ovos de uma vez?",
+   "a": [
+    "Polvo",
+    "Tartaruga"
+   ],
+   "x": "Uma fêmea de polvo põe até centenas de milhares de ovos e os vigia por semanas sem comer. As tartarugas marinhas põem cerca de 100 ovos por ninhada."
   }
  },
  {
@@ -415,6 +495,14 @@
     "Loro"
    ],
    "x": "El tiburón de Groenlandia puede vivir varios cientos de años: es el vertebrado más longevo conocido. Los loros grandes llegan a 60 u 80 años."
+  },
+  "pt": {
+   "q": "Quem vive mais?",
+   "a": [
+    "Tubarão-da-groenlândia",
+    "Papagaio"
+   ],
+   "x": "O tubarão-da-groenlândia pode viver várias centenas de anos – é o vertebrado mais longevo conhecido. Os papagaios grandes chegam a 60 ou 80 anos."
   }
  },
  {
@@ -453,6 +541,14 @@
     "Tortuga"
    ],
    "x": "Los tiburones existen desde hace más de 400 millones de años, más que los árboles. Las tortugas, solo desde hace unos 220 millones."
+  },
+  "pt": {
+   "q": "Quem surgiu antes na Terra?",
+   "a": [
+    "Tubarão",
+    "Tartaruga"
+   ],
+   "x": "Os tubarões existem há mais de 400 milhões de anos – mais tempo que as árvores. As tartarugas, só há cerca de 220 milhões."
   }
  },
  {
@@ -491,6 +587,14 @@
     "Pingüino"
    ],
    "x": "El pingüino papúa alcanza unos 35 km/h bajo el agua, más que cualquier otra ave en el agua. La nutria nada a algo más de 10 km/h."
+  },
+  "pt": {
+   "q": "Quem nada mais rápido?",
+   "a": [
+    "Lontra",
+    "Pinguim"
+   ],
+   "x": "O pinguim-gentoo chega a uns 35 km/h debaixo d’água – mais que qualquer outra ave na água. A lontra nada a pouco mais de 10 km/h."
   }
  },
  {
@@ -529,6 +633,14 @@
     "Rana"
    ],
    "x": "La rana de bosque norteamericana se congela en dos tercios en invierno: su corazón y su respiración se detienen. El azúcar protege sus células y en primavera se descongela. El erizo necesita un nido sin heladas."
+  },
+  "pt": {
+   "q": "Quem sobrevive quase todo congelado?",
+   "a": [
+    "Ouriço",
+    "Rã"
+   ],
+   "x": "A rã-da-floresta da América do Norte congela em dois terços no inverno: o coração e a respiração param. O açúcar protege suas células, e na primavera ela descongela. O ouriço precisa de um ninho sem geada."
   }
  },
  {
@@ -567,6 +679,14 @@
     "Loro"
    ],
    "x": "Las aves son los dinosaurios que viven hoy. Las lagartijas parecen prehistóricas, pero solo son parientes lejanas."
+  },
+  "pt": {
+   "q": "Quem descende dos dinossauros?",
+   "a": [
+    "Lagarto",
+    "Papagaio"
+   ],
+   "x": "As aves são os dinossauros que vivem hoje. Os lagartos parecem pré-históricos, mas são só parentes distantes."
   }
  },
  {
@@ -605,6 +725,14 @@
     "Panda"
    ],
    "x": "El tigre esprinta a 50 o 65 km/h en distancias cortas. El panda llega a unos 30 km/h si hace falta."
+  },
+  "pt": {
+   "q": "Quem é mais rápido em terra?",
+   "a": [
+    "Tigre",
+    "Panda"
+   ],
+   "x": "O tigre corre a 50 ou 65 km/h em distâncias curtas. O panda chega a uns 30 km/h, se precisar."
   }
  },
  {
@@ -643,6 +771,14 @@
     "Carpa"
    ],
    "x": "En muchos cíclidos, uno de los padres guarda los huevos en la boca sin comer nada. Las crías incluso vuelven a la boca si hay peligro. La carpa simplemente pone sus huevos en las plantas."
+  },
+  "pt": {
+   "q": "Quem leva os ovos na boca até os filhotes nascerem?",
+   "a": [
+    "Ciclídeo incubador bucal",
+    "Carpa"
+   ],
+   "x": "Em muitos ciclídeos, um dos pais guarda os ovos na boca sem comer nada. Os filhotes até voltam para a boca se houver perigo. A carpa simplesmente põe os ovos nas plantas."
   }
  },
  {
@@ -681,6 +817,14 @@
     "Pulpo"
    ],
    "x": "Unos dos tercios de las neuronas del pulpo están en sus brazos. Cada brazo puede tocar, saborear y agarrar casi como si tuviera cabeza propia."
+  },
+  "pt": {
+   "q": "Quem tem a maioria dos neurônios nos braços?",
+   "a": [
+    "Papagaio",
+    "Polvo"
+   ],
+   "x": "Cerca de dois terços dos neurônios do polvo estão nos braços. Cada braço consegue tocar, sentir sabores e agarrar quase como se tivesse cabeça própria."
   }
  },
  {
@@ -719,6 +863,14 @@
     "Oso pardo"
    ],
    "x": "Una jirafa adulta pesa de 800 a 1.200 kg. Incluso los osos pardos muy grandes suelen pesar bastante menos."
+  },
+  "pt": {
+   "q": "Quem pesa mais?",
+   "a": [
+    "Girafa",
+    "Urso-pardo"
+   ],
+   "x": "Uma girafa adulta pesa de 800 a 1.200 kg. Mesmo ursos-pardos muito grandes costumam pesar bem menos."
   }
  },
  {
@@ -757,6 +909,14 @@
     "Abeja"
    ],
    "x": "En verano, una colmena tiene de 30.000 a 50.000 abejas, casi todas hijas de la única reina. Las mariquitas viven solas."
+  },
+  "pt": {
+   "q": "Quem vive em uma colônia com milhares de irmãs?",
+   "a": [
+    "Joaninha",
+    "Abelha"
+   ],
+   "x": "No verão, uma colmeia tem de 30.000 a 50.000 abelhas, quase todas filhas da única rainha. As joaninhas vivem sozinhas."
   }
  },
  {
@@ -795,6 +955,14 @@
     "Erizo"
    ],
    "x": "Los animales pequeños tienen el corazón rápido: el del erizo despierto late unas 200 veces por minuto; el del oso, solo unas 40 o 50."
+  },
+  "pt": {
+   "q": "Qual coração bate mais rápido?",
+   "a": [
+    "Urso-pardo",
+    "Ouriço"
+   ],
+   "x": "Animais pequenos têm o coração rápido: o do ouriço acordado bate cerca de 200 vezes por minuto; o do urso, só 40 ou 50."
   }
  },
  {
@@ -833,6 +1001,14 @@
     "Águila"
    ],
    "x": "Los ojos del búho tienen muchísimos bastones, células para la luz tenue. El águila, en cambio, ve con más nitidez de día."
+  },
+  "pt": {
+   "q": "Quem enxerga melhor ao anoitecer?",
+   "a": [
+    "Coruja",
+    "Águia"
+   ],
+   "x": "Os olhos da coruja têm muitíssimos bastonetes, células para a luz fraca. A águia, por outro lado, enxerga com mais nitidez de dia."
   }
  },
  {
@@ -871,6 +1047,14 @@
     "Oso pardo"
    ],
    "x": "Muchas tortugas terrestres viven de 50 a más de 100 años. Los osos pardos en libertad suelen llegar a 20 o 30 años."
+  },
+  "pt": {
+   "q": "Quem vive mais?",
+   "a": [
+    "Tartaruga",
+    "Urso-pardo"
+   ],
+   "x": "Muitas tartarugas terrestres vivem de 50 a mais de 100 anos. Os ursos-pardos na natureza costumam chegar a 20 ou 30 anos."
   }
  },
  {
@@ -909,6 +1093,14 @@
     "Pulpo"
    ],
    "x": "El pulpo tiene miles de células de color en la piel que abre y cierra en una fracción de segundo, para camuflarse y mostrar su humor."
+  },
+  "pt": {
+   "q": "Quem muda de cor num instante?",
+   "a": [
+    "Papagaio",
+    "Polvo"
+   ],
+   "x": "O polvo tem milhares de células de cor na pele, que abre e fecha em uma fração de segundo – para se camuflar e mostrar o humor."
   }
  }
 ]

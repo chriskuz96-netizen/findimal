@@ -1,7 +1,7 @@
 # Findimal – Texte für App Store und TestFlight
 
 Zum Kopieren in App Store Connect. Zeichengrenzen von Apple sind eingehalten.
-Stand: Oktober 2026.
+Stand: November 2026.
 
 ---
 
@@ -305,6 +305,81 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 9. Findimal Plus: descubre sin límites
 
 **URL de soporte:** https://findimal.chriskuz96.workers.dev/hilfe?l=es
+
+---
+
+## Português (Brasil)
+
+**Nome:** `Findimal`
+
+**Subtítulo** (máx. 30): `Descubra e colecione animais`
+
+**Palavras-chave** (máx. 100):
+```
+identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jardim,quiz,bichos
+```
+
+**Texto promocional:**
+> Descubra que bicho é esse: tire uma foto, veja o nome do animal na hora, ganhe medalhas e jogue o Quiz do explorador todo dia.
+
+**Descrição:**
+
+> Que bicho é esse no jardim? Que pássaro está cantando na árvore? Com o Findimal você tira uma foto – e descobre na hora que animal encontrou.
+>
+> O Findimal transforma cada passeio numa pequena expedição. Para famílias, crianças e qualquer pessoa curiosa pela natureza.
+>
+> POR QUE O FINDIMAL EXISTE
+> Os animais são muito importantes para nós. Quem olha com atenção descobre quanta vida existe bem na porta de casa – e o que a gente conhece e ama, a gente protege. Com o Findimal queremos que mais pessoas se encantem pelos animais e saiam mais vezes para a natureza. Então: celular na mão, olhos bem abertos… e muito tempo ao ar livre!
+>
+> FOTOGRAFAR E IDENTIFICAR
+> • Tire uma foto ou escolha uma da galeria – o Findimal diz que animal é
+> • Insetos, aves, mamíferos, aranhas, caracóis, peixes, répteis e anfíbios
+> • Também a raça de animais de estimação e de fazenda
+> • Não ficou claro? Uma segunda foto de outro ângulo ajuda
+>
+> SE ENCANTAR E APRENDER
+> • Uma ficha de cada animal: tamanho, habitat, alimentação e mais
+> • “Você sabia?” – uma curiosidade surpreendente de cada achado
+> • Quiz do explorador: 10 perguntas difíceis por dia, com coringa 50:50
+>
+> COLECIONAR E EXPLORAR
+> • Sua própria coleção, organizada por grupos de animais
+> • “Perto de você agora”: animais que você pode encontrar agora na sua região
+>
+> TEMPORADAS E CUIDADO COM OS ANIMAIS
+> • Animais da temporada: o que está acontecendo lá fora agora – onde você mora
+> • Dicas simples para ajudar os animais no jardim e na natureza
+> • A promessa Findimal: observar os animais sem incomodá-los
+>
+> DESAFIOS COM AMIGOS
+> • Pontos de experiência, níveis e medalhas
+> • Meta da temporada: descubra animais de três grupos
+> • Ranking com amigos e ranking da temporada – convide pelo link
+>
+> SEUS DADOS FICAM COM VOCÊ
+> Não precisa de conta. Sua coleção e suas fotos ficam no seu celular.
+>
+> FINDIMAL PLUS
+> Identifique 3 animais por dia de graça. O Findimal Plus oferece fotos ilimitadas, sem anúncios, coringa no quiz e 24 fotos de perfil exclusivas de animais com moldura dourada.
+> O Findimal Plus é uma assinatura mensal ou anual; o preço aparece na App Store. A assinatura é renovada automaticamente, a menos que você a cancele nos ajustes da sua conta Apple pelo menos 24 horas antes do fim do período atual.
+>
+> Aviso: o Findimal usa inteligência artificial e pode errar. Não toque em animais que você não conhece com certeza e nunca coma nada só porque um app o reconheceu.
+>
+> Privacidade: https://findimal.chriskuz96.workers.dev/datenschutz?l=pt
+> Termos de uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+
+**Textos das capturas de tela:**
+1. Tire uma foto – descubra o animal
+2. Ficha e “Você sabia?”
+3. Sua coleção, organizada por grupos
+4. Explore e desafie seus amigos
+5. Quiz diário, metas e medalhas
+6. Temporada: o que acontece lá fora
+7. Proteger os animais – como ajudar agora
+8. Uma dica da natureza por semana – sem spam
+9. Findimal Plus: descubra sem limites
+
+**URL de suporte:** https://findimal.chriskuz96.workers.dev/hilfe?l=pt
 
 ---
 

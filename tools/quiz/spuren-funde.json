@@ -46,6 +46,16 @@
     "Liebre"
    ],
    "x": "Cuatro dedos con uñas y una almohadilla pequeña: un zorro. Es típico el óvalo estrecho: entre la almohadilla y los dedos queda un hueco en forma de X."
+  },
+  "pt": {
+   "q": "De quem é esta pegada?",
+   "a": [
+    "Raposa",
+    "Corço",
+    "Texugo",
+    "Lebre"
+   ],
+   "x": "Quatro dedos com unhas e uma almofadinha pequena: uma raposa. O típico é o oval estreito: entre a almofadinha e os dedos fica um vão em forma de X."
   }
  },
  {
@@ -95,6 +105,16 @@
     "Tejón"
    ],
    "x": "Dos mitades de pezuña estrechas y puntiagudas: la huella de un corzo. El jabalí tiene pezuñas más anchas y, detrás, casi siempre dos marcas de los espolones."
+  },
+  "pt": {
+   "q": "Quem passou pela lama?",
+   "a": [
+    "Javali",
+    "Corço",
+    "Cachorro",
+    "Texugo"
+   ],
+   "x": "Duas metades de casco estreitas e pontudas: a pegada de um corço. O javali tem cascos mais largos e, atrás, quase sempre duas marcas dos dedos de trás."
   }
  },
  {
@@ -144,6 +164,16 @@
     "Rebeco"
    ],
    "x": "Los dos puntos son los espolones. En el jabalí están bajos y separados y casi siempre se marcan; en corzos y ciervos, normalmente solo en suelo blando."
+  },
+  "pt": {
+   "q": "Dois cascos e dois pontos atrás: quem foi?",
+   "a": [
+    "Corço",
+    "Veado",
+    "Javali",
+    "Camurça"
+   ],
+   "x": "Os dois pontos são os dedos de trás. No javali eles ficam baixos e afastados e quase sempre marcam; em corços e veados, normalmente só em chão mole."
   }
  },
  {
@@ -193,6 +223,16 @@
     "Liebre"
    ],
    "x": "Cinco dedos casi en fila delante de una almohadilla ancha: un tejón. Con las largas uñas de las patas delanteras excava enormes madrigueras."
+  },
+  "pt": {
+   "q": "De quem é esta pegada?",
+   "a": [
+    "Raposa",
+    "Texugo",
+    "Lontra",
+    "Lebre"
+   ],
+   "x": "Cinco dedos quase em fila na frente de uma almofada larga: um texugo. Com as unhas compridas das patas da frente ele cava tocas enormes."
   }
  },
  {
@@ -242,6 +282,16 @@
     "Zorro"
    ],
    "x": "La liebre apoya sus largas patas traseras delante de las delanteras, y las delanteras quedan una detrás de otra. La ardilla pone también las delanteras una al lado de la otra."
+  },
+  "pt": {
+   "q": "Estas pegadas na neve (direção para cima): quem saltou aqui?",
+   "a": [
+    "Esquilo",
+    "Lebre",
+    "Corço",
+    "Raposa"
+   ],
+   "x": "A lebre apoia as patas traseiras compridas na frente das dianteiras, e as dianteiras ficam uma atrás da outra. O esquilo põe também as dianteiras uma ao lado da outra."
   }
  },
  {
@@ -291,6 +341,16 @@
     "Garza real"
    ],
    "x": "Tres dedos hacia delante unidos por membranas: un pato. Cornejas, palomas y garzas no tienen membranas."
+  },
+  "pt": {
+   "q": "Quem deixou esta pegada na margem?",
+   "a": [
+    "Gralha",
+    "Pombo",
+    "Pato-real",
+    "Garça-real"
+   ],
+   "x": "Três dedos para a frente unidos por membranas: um pato. Gralhas, pombos e garças não têm membranas."
   }
  },
  {
@@ -340,6 +400,16 @@
     "Focha"
    ],
    "x": "Tres dedos finos hacia delante y uno largo hacia atrás: típico de aves como la corneja, que así se agarran a las ramas. Patos y cisnes tienen membranas, la focha lóbulos."
+  },
+  "pt": {
+   "q": "Que ave deixou esta pegada?",
+   "a": [
+    "Pato-real",
+    "Gralha",
+    "Cisne-branco",
+    "Galeirão"
+   ],
+   "x": "Três dedos finos para a frente e um comprido para trás: típico de aves como a gralha, que assim se agarram aos galhos. Patos e cisnes têm membranas, o galeirão tem lobos."
   }
  },
  {
@@ -389,6 +459,16 @@
     "Vencejo común"
    ],
    "x": "Alas anchas con los «dedos» abiertos y una cola corta y redonda: el busardo ratonero. A menudo acecha ratones posado en un poste junto a los campos. El milano real tendría la cola muy ahorquillada."
+  },
+  "pt": {
+   "q": "Quem voa em círculos sobre o campo?",
+   "a": [
+    "Milhafre-real",
+    "Águia-de-asa-redonda",
+    "Cegonha-branca",
+    "Andorinhão-preto"
+   ],
+   "x": "Asas largas com os “dedos” abertos e uma cauda curta e redonda: a águia-de-asa-redonda. Muitas vezes espreita ratos pousada num poste ao lado dos campos. O milhafre-real teria a cauda bem bifurcada."
   }
  },
  {
@@ -438,6 +518,16 @@
     "Azor"
    ],
    "x": "La cola muy ahorquillada delata al milano real. Al planear la gira sin parar y la usa como un timón."
+  },
+  "pt": {
+   "q": "Quem é? Repare na cauda!",
+   "a": [
+    "Águia-de-asa-redonda",
+    "Milhafre-real",
+    "Peneireiro",
+    "Açor"
+   ],
+   "x": "A cauda bem bifurcada denuncia o milhafre-real. Ao planar, ele a gira sem parar e a usa como leme."
   }
  },
  {
@@ -487,6 +577,16 @@
     "Busardo ratonero"
    ],
    "x": "Cuello largo hacia delante y patas largas hacia atrás: la cigüeña blanca. La garza recoge el cuello al volar y el cisne tiene patas cortas."
+  },
+  "pt": {
+   "q": "Quem voa com o pescoço esticado?",
+   "a": [
+    "Garça-real",
+    "Cegonha-branca",
+    "Cisne-branco",
+    "Águia-de-asa-redonda"
+   ],
+   "x": "Pescoço comprido para a frente e pernas compridas para trás: a cegonha-branca. A garça recolhe o pescoço ao voar e o cisne tem pernas curtas."
   }
  },
  {
@@ -536,6 +636,16 @@
     "Cormorán"
    ],
    "x": "Las garzas doblan el cuello en forma de S y recogen la cabeza al volar. Cigüeñas y grullas vuelan con el cuello estirado."
+  },
+  "pt": {
+   "q": "Pernas compridas para trás, mas o pescoço recolhido. Quem é?",
+   "a": [
+    "Cegonha-branca",
+    "Grou-comum",
+    "Garça-real",
+    "Corvo-marinho"
+   ],
+   "x": "As garças dobram o pescoço em forma de S e recolhem a cabeça ao voar. Cegonhas e grous voam com o pescoço esticado."
   }
  },
  {
@@ -585,6 +695,16 @@
     "Cernícalo"
    ],
    "x": "Alas en forma de hoz y una cola corta ahorquillada: el vencejo común. Sus patas son diminutas: casi nunca se posa en el suelo y prefiere agarrarse a las paredes."
+  },
+  "pt": {
+   "q": "Quem passa voando sobre os telhados com asas em forma de foice?",
+   "a": [
+    "Andorinha-das-chaminés",
+    "Andorinhão-preto",
+    "Andorinha-dos-beirais",
+    "Peneireiro"
+   ],
+   "x": "Asas em forma de foice e cauda curta bifurcada: o andorinhão-preto. As patas são minúsculas: quase nunca pousa no chão e prefere se agarrar às paredes."
   }
  },
  {
@@ -634,6 +754,16 @@
     "Cuco"
    ],
    "x": "Las largas plumas de la cola son de la golondrina común. El vencejo tiene alas más largas en forma de hoz y la cola corta."
+  },
+  "pt": {
+   "q": "Penas compridas na cauda e asas pontudas: quem é?",
+   "a": [
+    "Andorinhão-preto",
+    "Andorinha-das-chaminés",
+    "Milhafre-real",
+    "Cuco"
+   ],
+   "x": "As penas compridas da cauda são da andorinha-das-chaminés. O andorinhão tem asas mais longas em forma de foice e a cauda curta."
   }
  },
  {
@@ -683,6 +813,16 @@
     "Ardilla"
    ],
    "x": "La forma de reloj de arena es típica del castor, con las virutas alrededor. Derriba árboles sobre todo para llegar a la corteza, las ramitas y los brotes: su comida."
+  },
+  "pt": {
+   "q": "Quem roeu esta árvore assim?",
+   "a": [
+    "Castor",
+    "Javali",
+    "Pica-pau",
+    "Esquilo"
+   ],
+   "x": "A forma de ampulheta é típica do castor, com as lascas em volta. Ele derruba árvores sobretudo para alcançar a casca, os raminhos e os brotos – sua comida."
   }
  },
  {
@@ -732,6 +872,16 @@
     "Tejón"
    ],
    "x": "Las toperas son altas y redondas, y el túnel baja recto por el centro. Los montículos del topillo son más planos y su túnel queda a un lado."
+  },
+  "pt": {
+   "q": "Quem levantou estes montinhos de terra no gramado?",
+   "a": [
+    "Rato-do-campo",
+    "Toupeira",
+    "Ouriço",
+    "Texugo"
+   ],
+   "x": "Os montes da toupeira são altos e redondos, e o túnel desce reto pelo meio. Os montinhos do rato-do-campo são mais baixos e o túnel fica de lado."
   }
  },
  {
@@ -781,6 +931,16 @@
     "Trepador azul"
    ],
    "x": "Los pájaros carpinteros excavan nidos nuevos cada año. Los viejos sirven de hogar a muchos otros: carboneros, trepadores, murciélagos o ardillas."
+  },
+  "pt": {
+   "q": "Quem fez este buraco redondo no tronco?",
+   "a": [
+    "Esquilo",
+    "Coruja-do-mato",
+    "Pica-pau-malhado-grande",
+    "Trepadeira-azul"
+   ],
+   "x": "Os pica-paus cavam ninhos novos todo ano. Os velhos viram lar de muitos outros: chapins, trepadeiras, morcegos ou esquilos."
   }
  },
  {
@@ -830,6 +990,16 @@
     "Seda de araña"
    ],
    "x": "Las avispas raspan madera, la mastican con saliva y construyen paredes como de papel. Las avispas fueron las primeras en fabricar papel."
+  },
+  "pt": {
+   "q": "Com o que as vespas constroem um ninho assim?",
+   "a": [
+    "Cera de abelha",
+    "Barro",
+    "Madeira mastigada",
+    "Seda de aranha"
+   ],
+   "x": "As vespas raspam madeira, mastigam com saliva e constroem paredes como de papel. As vespas foram as primeiras a fabricar papel."
   }
  },
  {
@@ -879,6 +1049,16 @@
     "Escarabajo de la corteza"
    ],
    "x": "En un gran hormiguero de hormigas de bosque pueden vivir hasta un millón de hormigas. Bajo el montículo, el nido suele llegar igual de hondo en la tierra."
+  },
+  "pt": {
+   "q": "Quem constrói montes assim com agulhas e raminhos?",
+   "a": [
+    "Toupeira",
+    "Formiga-ruiva-da-floresta",
+    "Javali",
+    "Besouro-da-casca"
+   ],
+   "x": "Num grande formigueiro de formigas-da-floresta podem viver até um milhão de formigas. Embaixo do monte, o ninho costuma descer o mesmo tanto na terra."
   }
  },
  {
@@ -928,6 +1108,16 @@
     "Un nido de araña"
    ],
    "x": "La larva del cercópido sopla aire en su savia y se construye un escondite de espuma, contra la sequedad y los enemigos. La llamada «saliva de cuco» no tiene nada que ver con el cuco."
+  },
+  "pt": {
+   "q": "O que se esconde nesta espuma no caule?",
+   "a": [
+    "Saliva de cuco",
+    "Uma larva de cigarrinha-espumosa",
+    "Ovos de caracol",
+    "Um ninho de aranha"
+   ],
+   "x": "A larva da cigarrinha-espumosa sopra ar na própria seiva e constrói um esconderijo de espuma contra o ressecamento e os inimigos. A tal “saliva de cuco” não tem nada a ver com o cuco."
   }
  },
  {
@@ -977,6 +1167,16 @@
     "Un escarabajo que pasa el invierno"
    ],
    "x": "La avispa de las agallas pone su huevo en la hoja y el roble forma a su alrededor esta «agalla». Dentro vive y come la larva. Antes se hacía tinta con las agallas."
+  },
+  "pt": {
+   "q": "Quem vive nesta bolinha na folha do carvalho?",
+   "a": [
+    "Uma lagarta de borboleta",
+    "Uma larva de vespa-das-galhas",
+    "Uma aranha jovem",
+    "Um besouro passando o inverno"
+   ],
+   "x": "A vespa-das-galhas põe o ovo na folha, e o carvalho forma em volta essa “galha”. Lá dentro a larva vive e come. Antigamente se fazia tinta com as galhas."
   }
  },
  {
@@ -1026,6 +1226,16 @@
     "Una bola de pelo de gato"
    ],
    "x": "Una egagrópila: pelo y huesos que el búho ha regurgitado. Por los diminutos cráneos se puede saber incluso qué especies de ratones viven en la zona."
+  },
+  "pt": {
+   "q": "Cinza, peludo e com ossinhos: o que você encontrou debaixo da árvore?",
+   "a": [
+    "Cocô de raposa",
+    "Uma egagrópila de coruja",
+    "Um ninho de rato",
+    "Uma bola de pelo de gato"
+   ],
+   "x": "Uma egagrópila: pelos e ossos que a coruja regurgitou. Pelos crânios minúsculos dá até para saber quais espécies de ratos vivem na região."
   }
  }
 ]

@@ -6,7 +6,8 @@ import { Lang } from './i18n';
 export type Question = { q: string; answers: string[]; right: number; explain: string };
 
 // Gleiche Reihenfolge und gleiche richtige Antwort in allen Sprachen.
-const QUESTIONS: Record<Lang, Question[]> = {
+// (frühere Einzelfragen – nur in den ersten vier Sprachen; neuere Sprachen nehmen die englischen)
+const QUESTIONS: Partial<Record<Lang, Question[]>> & { de: Question[]; en: Question[] } = {
   de: [
     { q: 'Welches Tier ist kein Insekt?', answers: ['Biene', 'Spinne', 'Käfer'], right: 1, explain: 'Richtig! Spinnen haben acht Beine, Insekten sechs.' },
     { q: 'Was fressen Igel am liebsten?', answers: ['Äpfel', 'Milch', 'Käfer und Würmer'], right: 2, explain: 'Genau! Und Milch macht Igel sogar krank.' },
@@ -104,7 +105,7 @@ export async function loadQuiz(): Promise<QuizLog> {
 }
 
 export function question(index: number, lang: Lang): Question {
-  return QUESTIONS[lang][index];
+  return (QUESTIONS[lang] ?? QUESTIONS.en)[index];
 }
 
 // Nächste noch nicht beantwortete Frage (oder null, wenn alle beantwortet sind)

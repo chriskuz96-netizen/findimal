@@ -369,6 +369,84 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
       ],
     },
   },
+  pt: {
+    spring: {
+      name: 'Primavera na Europa Central',
+      phenomena: [
+        { title: 'O melro canta', text: 'Antes do amanhecer ele canta para marcar território, muitas vezes em antenas e telhados.', where: 'Jardins e parques, cedo' },
+        { title: 'As joaninhas acordam', text: 'Depois do inverno, elas costumam tomar sol juntas em muros e postes quentes.', where: 'Muros ensolarados, ao meio-dia' },
+        { title: 'Primeiras borboletas', text: 'A borboleta-limão passa o inverno como adulta, por isso é uma das primeiras do ano.', where: 'Bordas da floresta em dias de sol' },
+        { title: 'Caracóis passeando', text: 'Depois de uma chuva morna de primavera, os caracóis aparecem por toda parte.', where: 'Beiras de caminhos e muros, após a chuva' },
+      ],
+      spectacle: [
+        { short: '🐸 Sapos a caminho', title: 'Os sapos migram', text: 'Em noites amenas e úmidas, os sapos-comuns vão para suas lagoas, muitas vezes atravessando estradas. Muitos voluntários ajudam na travessia.', where: 'Lagoas e trilhas da floresta, ao anoitecer' },
+        { short: '🪺 As cegonhas voltam', title: 'As cegonhas voltam', text: 'Depois do inverno na África ou na Espanha, as cegonhas-brancas voltam a ocupar seus ninhos em telhados e postes.', where: 'Vilarejos e prados úmidos' },
+      ],
+      help: [
+        { title: 'Pendurar uma caixa-ninho', text: 'De preferência já em março, num lugar tranquilo e sem sol direto.' },
+        { title: 'Deixar os dentes-de-leão florirem', text: 'As primeiras flores são o primeiro alimento de abelhas silvestres e mamangavas.' },
+        { title: 'Não mexer nas cercas vivas', text: 'Agora as aves fazem ninho. Evite podar as cercas vivas até o fim do verão.' },
+        { title: 'Ajudar os sapos', text: 'Dirigir devagar perto das travessias de sapos e apoiar as cercas de proteção.' },
+      ],
+    },
+    summer: {
+      name: 'Verão na Europa Central',
+      phenomena: [
+        { title: 'Libélulas no lago', text: 'A libélula-azul patrulha os lagos de jardim e caça pequenos insetos em pleno voo.', where: 'Lagos e riachos, com sol' },
+        { title: 'Lagartos ao sol', text: 'De manhã eles se aquecem em pedras e muros. Chegue devagar!', where: 'Muros e pedras ensolarados' },
+        { title: 'As abelhas coletam', text: 'As abelhas recolhem néctar e pólen: na lavanda e no trevo dá para chegar bem perto.', where: 'Jardins floridos, lavanda' },
+        { title: 'Rãzinhas novas', text: 'Os girinos viram rãs minúsculas que saem da água para explorar a terra.', where: 'Margens e prados úmidos' },
+      ],
+      spectacle: [
+        { short: '✨ Vaga-lumes', title: 'Os vaga-lumes brilham', text: 'Nas noites quentes de junho os vaga-lumes acendem. Os machos voam, as fêmeas brilham no chão.', where: 'Bordas da floresta, ao escurecer' },
+        { short: '🐦 Andorinhões', title: 'Os andorinhões caçam', text: 'Com gritos agudos, passam rente aos telhados. Até dormem voando e partem no começo de agosto.', where: 'Sobre as cidades, ao entardecer' },
+      ],
+      help: [
+        { title: 'Colocar um bebedouro', text: 'Um prato raso com água e umas pedrinhas para pousar ajuda as abelhas no calor.' },
+        { title: 'Deixar um cantinho selvagem', text: 'Não corte um pedaço do gramado: flores para insetos, abrigo para animais pequenos.' },
+        { title: 'Apague a luz', text: 'Menos luz do lado de fora protege os insetos noturnos e os morcegos.' },
+        { title: 'Nada de veneno', text: 'Sem pesticidas, joaninhas, ouriços e aves ficam saudáveis.' },
+      ],
+    },
+    autumn: {
+      name: 'Outono na Europa Central',
+      phenomena: [
+        { title: 'Os esquilos guardam comida', text: 'Agora eles escondem nozes para o inverno e estão muito ativos.', where: 'Parques e jardins' },
+        { title: 'O pisco-de-peito-ruivo', text: 'Ele é curioso e muitas vezes chega bem perto quando você junta folhas no jardim.', where: 'Jardins e cercas vivas' },
+        { title: 'Época das teias', text: 'As teias agora estão maiores. Em manhãs de neblina, brilham com o orvalho.', where: 'Cercas e cercas vivas, cedo' },
+        { title: 'Os ouriços comem muito', text: 'Eles precisam de energia antes de hibernar. Um monte de folhas no jardim é um abrigo perfeito.', where: 'Cercas vivas e jardins, ao anoitecer' },
+      ],
+      spectacle: [
+        { short: '🕊️ Grous migrando', title: 'Os grous migram', text: 'Eles voam para o sul em grandes formações em V. Escute os chamados que parecem trombetas.', where: 'No céu, de manhã e à tarde' },
+        { short: '🦌 Brama', title: 'A brama dos veados', text: 'Até meados de outubro os veados bramam para impressionar os rivais. Observe só de longe.', where: 'Bordas da floresta ao anoitecer' },
+      ],
+      help: [
+        { title: 'Deixe as folhas', text: 'Ouriços, besouros e aranhas passam o inverno debaixo das folhas. Deixe um canto sem varrer.' },
+        { title: 'Deixe os caules', text: 'As abelhas silvestres hibernam em caules ocos. Pode só na primavera.' },
+        { title: 'Ajude os ouriços do jeito certo', text: 'Nunca dê leite, faz mal para eles. Um prato raso com água ajuda mais.' },
+        { title: 'Apague a luz', text: 'Menos luz do lado de fora protege os insetos noturnos e os morcegos.' },
+      ],
+    },
+    winter: {
+      name: 'Inverno na Europa Central',
+      phenomena: [
+        { title: 'O chapim-real no comedouro', text: 'Cabeça preta, barriga amarela: é a visita mais frequente do comedouro.', where: 'Jardins e varandas, de dia' },
+        { title: 'O chapim-azul', text: 'Pequeno, azul e amarelo e ágil: até se pendura de cabeça para baixo nas bolas de sebo.', where: 'Comedouros e jardins' },
+        { title: 'Patos no lago', text: 'Patos-reais e muitos visitantes do norte se reúnem em águas sem gelo.', where: 'Lagos e rios' },
+        { title: 'Os esquilos não dormem', text: 'Os esquilos não hibernam. Eles procuram as nozes que esconderam no outono.', where: 'Parques e florestas' },
+      ],
+      spectacle: [
+        { short: '🐾 Pegadas na neve', title: 'Pegadas na neve', text: 'As raposas estão muito ativas na época de acasalamento. Na neve, as pegadas seguem em fila, como num fio.', where: 'Beiras de campos e trilhas da floresta' },
+        { short: '🍒 Visitas de inverno', title: 'Visitas do norte', text: 'Em alguns invernos chegam tagarelas da Escandinávia e atacam os arbustos com frutinhas.', where: 'Arbustos com frutinhas nas cidades' },
+      ],
+      help: [
+        { title: 'Alimentar bem as aves', text: 'Sementes de girassol e bolas de sebo sem rede, nada de pão. Mantenha o comedouro limpo.' },
+        { title: 'Não acordar os dorminhocos', text: 'Não mexa agora nos montes de folhas e galhos: lá dentro dormem ouriços.' },
+        { title: 'Água sem gelo', text: 'Um prato raso com água fresca ajuda as aves quando gela.' },
+        { title: 'Limpar as caixas-ninho', text: 'Tire os ninhos velhos antes do fim de fevereiro para que possam criar na primavera.' },
+      ],
+    },
+  },
 };
 
 export type Phenomenon = { icon: GroupId; title: string; text: string; where: string; match: string[] };

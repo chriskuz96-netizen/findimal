@@ -62,9 +62,10 @@ const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 
 // "autumn-2026" -> "Herbst 2026", "winter-2026" -> "Winter 2026/27"
 // neutral: nach Monaten benennen („Saison Sep.–Nov. 2026“) – in den Tropen und auf der Südhalbkugel
-export function seasonName(key: string, t: (k: never, v?: Record<string, string | number>) => string, neutral = false): string {
+export function seasonName(key: string, t: (k: never, v?: Record<string, string | number>) => string, neutral = false, short = false): string {
   const [id, y] = key.split('-');
   const year = id === 'winter' ? `${y}/${String(Number(y) + 1).slice(2)}` : y;
+  if (neutral && short) return `${t(`sn.range.${id}` as never)} ${year}`; // kurz für enge Felder: „Sep.–Nov. 2026“
   if (neutral) return t('sn.neutral' as never, { range: t(`sn.range.${id}` as never), year });
   return `${t(`sn.${id}` as never)} ${year}`;
 }

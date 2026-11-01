@@ -48,6 +48,21 @@ const ES_ADJ: [string, string][] = [
   ['Brillante', 'Brillante'], ['Orgulloso', 'Orgullosa'], ['Juguetón', 'Juguetona'], ['Dormilón', 'Dormilona'], ['Intrépido', 'Intrépida'],
 ];
 
+const PT_NOUNS: Animal[] = [
+  { n: 'Lobo', g: 'm' }, { n: 'Ouriço', g: 'm' }, { n: 'Lince', g: 'm' }, { n: 'Texugo', g: 'm' }, { n: 'Castor', g: 'm' },
+  { n: 'Falcão', g: 'm' }, { n: 'Sabiá', g: 'm' }, { n: 'Besouro', g: 'm' }, { n: 'Tucano', g: 'm' }, { n: 'Pica-pau', g: 'm' },
+  { n: 'Beija-flor', g: 'm' }, { n: 'Esquilo', g: 'm' }, { n: 'Quati', g: 'm' }, { n: 'Tamanduá', g: 'm' }, { n: 'Vaga-lume', g: 'm' },
+  { n: 'Raposa', g: 'f' }, { n: 'Coruja', g: 'f' }, { n: 'Libélula', g: 'f' }, { n: 'Abelha', g: 'f' }, { n: 'Lontra', g: 'f' },
+  { n: 'Joaninha', g: 'f' }, { n: 'Capivara', g: 'f' }, { n: 'Arara', g: 'f' }, { n: 'Borboleta', g: 'f' }, { n: 'Andorinha', g: 'f' },
+  { n: 'Tartaruga', g: 'f' }, { n: 'Formiga', g: 'f' }, { n: 'Lagartixa', g: 'f' }, { n: 'Cegonha', g: 'f' }, { n: 'Onça', g: 'f' },
+];
+const PT_ADJ: [string, string][] = [
+  ['Esperto', 'Esperta'], ['Curioso', 'Curiosa'], ['Valente', 'Valente'], ['Veloz', 'Veloz'], ['Levado', 'Levada'],
+  ['Tranquilo', 'Tranquila'], ['Alegre', 'Alegre'], ['Ágil', 'Ágil'], ['Selvagem', 'Selvagem'], ['Pequeno', 'Pequena'],
+  ['Sabido', 'Sabida'], ['Ousado', 'Ousada'], ['Sonhador', 'Sonhadora'], ['Feliz', 'Feliz'], ['Silencioso', 'Silenciosa'],
+  ['Brilhante', 'Brilhante'], ['Orgulhoso', 'Orgulhosa'], ['Brincalhão', 'Brincalhona'], ['Dorminhoco', 'Dorminhoca'], ['Destemido', 'Destemida'],
+];
+
 const pick = <T,>(list: T[]) => list[Math.floor(Math.random() * list.length)];
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -56,9 +71,9 @@ export function randomNickname(lang: Lang): string {
     const a = pick(DE_ANIMALS);
     return `${cap(pick(DE_ADJ))}${DE_END[a.g]} ${a.n}`;
   }
-  if (lang === 'fr' || lang === 'es') {
-    const a = pick(lang === 'fr' ? FR_NOUNS : ES_NOUNS);
-    const [m, f] = pick(lang === 'fr' ? FR_ADJ : ES_ADJ);
+  if (lang === 'fr' || lang === 'es' || lang === 'pt') {
+    const a = pick(lang === 'fr' ? FR_NOUNS : lang === 'es' ? ES_NOUNS : PT_NOUNS);
+    const [m, f] = pick(lang === 'fr' ? FR_ADJ : lang === 'es' ? ES_ADJ : PT_ADJ);
     return `${a.n} ${a.g === 'f' ? f : m}`;
   }
   return `${pick(EN_ADJ)} ${pick(EN_ANIMALS)}`;

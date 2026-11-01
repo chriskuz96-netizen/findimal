@@ -72,7 +72,7 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Oben auf Challenges: jeden Tag 10 Fragen mit Zeitbalken, bis +60 XP. Ersetzt die alten 3 Tagesfragen.
 - Fragearten: Text, Wahr/Falsch, ein großes Bild (Spur, Umriss am Himmel, Fundstück), Duell „wer von beiden?“ und Rangliste (Treppchen 1–4, Einträge per Finger an die richtige Stelle schieben, dann „Fertig“; bei Zeitablauf zählt, was dasteht).
 - Keine Tierbilder mehr im Quiz (29.10., Wunsch): so gehen beliebig viele Tiere ohne Zeichenaufwand. Nur Spuren/Umrisse/Fundstücke sind gezeichnet.
-- Fragen stehen in `tools/quiz/*.json` (4 Sprachen), daraus macht `python3 tools/make_quiz_bank.py` die Datei `src/quizBank.ts`.
+- Fragen stehen in `tools/quiz/*.json` (5 Sprachen), daraus macht `python3 tools/make_quiz_bank.py` die Datei `src/quizBank.ts`.
 - Quiz-Bilder: `tools/quiz_art.py` (`python3 tools/make_quiz_art.py`).
 - Stand: 274 Fragen ≈ 27 Spieltage ohne Wiederholung. Danach kommen zuerst falsch beantwortete Fragen wieder. Neue Pakete per Update, ohne laufende Kosten.
 - Nach jeder Antwort bleibt die Erklärung stehen, bis man „Weiter“ oder irgendwo hintippt (automatisch weiter war zu stressig, 29.10.).
@@ -91,6 +91,17 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   und kann annehmen/ablehnen (`board_answer`). Per Code/Einladungslink geht es weiter sofort.
 - „Entfernen“ bei Freunden lässt die Person in der weltweiten Liste. Weltweit verschwindet jemand nur durch Melden
   (bei einem selbst sofort, für alle nach 3 Meldungen).
+
+## Sprachen (1.11.)
+- 5 Sprachen: Deutsch, Englisch, Französisch, Spanisch, **Portugiesisch (Brasilien)** (neu: App-Texte, alle 274 Quizfragen,
+  Saison, Tipps, Spitznamen, Datenschutz/Hilfe/Einladung auf dem Server, App-Store-Text in `docs/APPSTORE.md`).
+- Neue Sprache hinzufügen: `src/i18n/strings.ts` (Typ `Strings` erzwingt alle Schlüssel), `src/i18n/index.tsx` (Lang, LANGS, LOCALES),
+  `tools/quiz/*.json` + `tools/make_quiz_bank.py`, `src/season.ts`, `src/tips.ts`, `src/nicknames.ts`; Server: `LANGUAGES`,
+  `INVITE_TEXT`, `PRIVACY`, `HELP`, `PRIVACY_DATE`, `NAMES` in `infoPage`.
+- China-Festland: nicht machbar (ICP-Lizenz, Anthropic dort nicht verfügbar, workers.dev meist gesperrt).
+  Möglich: Chinesisch traditionell (Taiwan, Hongkong) und vereinfacht (Singapur, Auslands-Chinesen).
+- Als Nächstes in Europa: Italienisch, Niederländisch, Polnisch.
+- Datenschutz (alle Sprachen, Stand November 2026): Saison-Abschnitt nennt jetzt die grobe Klimazone (Breite auf 10° gerundet).
 
 ## Saison weltweit (1.11.)
 - Saison-Seite außerhalb Mitteleuropas: KI pro Land, Monat, Sprache – jetzt zusätzlich pro Breitengrad-Streifen
