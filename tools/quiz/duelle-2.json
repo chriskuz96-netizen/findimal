@@ -10,7 +10,8 @@
     "Gabelbock",
     "Gepard"
    ],
-   "x": "Der Gepard ist zwar schneller, sprintet aber nur wenige hundert Meter. Der Gabelbock hält über 50 km/h kilometerweit durch."
+   "x": "Der Gepard ist zwar schneller, sprintet aber nur wenige hundert Meter. Der Gabelbock hält über 50 km/h kilometerweit durch.",
+   "k": "Gabelbock: läuft kilometerweit über 50 km/h"
   },
   "en": {
    "q": "Who can keep up a high speed for longer?",
@@ -18,7 +19,8 @@
     "Pronghorn",
     "Cheetah"
    ],
-   "x": "The cheetah is faster but only sprints a few hundred metres. The pronghorn can keep up over 50 km/h for kilometres."
+   "x": "The cheetah is faster but only sprints a few hundred metres. The pronghorn can keep up over 50 km/h for kilometres.",
+   "k": "Pronghorn: runs over 50 km/h for kilometres"
   },
   "fr": {
    "q": "Qui tient une grande vitesse le plus longtemps ?",
@@ -26,7 +28,8 @@
     "Antilope d’Amérique",
     "Guépard"
    ],
-   "x": "Le guépard est plus rapide, mais ne sprinte que quelques centaines de mètres. L’antilope d’Amérique tient plus de 50 km/h sur des kilomètres."
+   "x": "Le guépard est plus rapide, mais ne sprinte que quelques centaines de mètres. L’antilope d’Amérique tient plus de 50 km/h sur des kilomètres.",
+   "k": "Antilope d’Amérique : plus de 50 km/h sur des km"
   },
   "es": {
    "q": "¿Quién aguanta más tiempo a gran velocidad?",
@@ -34,7 +37,8 @@
     "Berrendo",
     "Guepardo"
    ],
-   "x": "El guepardo es más rápido, pero solo esprinta unos cientos de metros. El berrendo mantiene más de 50 km/h durante kilómetros."
+   "x": "El guepardo es más rápido, pero solo esprinta unos cientos de metros. El berrendo mantiene más de 50 km/h durante kilómetros.",
+   "k": "Berrendo: más de 50 km/h durante kilómetros"
   },
   "pt": {
    "q": "Quem aguenta mais tempo em alta velocidade?",
@@ -42,7 +46,8 @@
     "Antilocapra",
     "Guepardo"
    ],
-   "x": "O guepardo é mais rápido, mas só dispara por algumas centenas de metros. A antilocapra mantém mais de 50 km/h por quilômetros."
+   "x": "O guepardo é mais rápido, mas só dispara por algumas centenas de metros. A antilocapra mantém mais de 50 km/h por quilômetros.",
+   "k": "Antilocapra: mais de 50 km/h por quilômetros"
   },
   "ja": {
    "q": "速いスピードを長く続けられるのはどっち？",
@@ -50,7 +55,8 @@
     "プロングホーン",
     "チーター"
    ],
-   "x": "チーターのほうが速いですが、全力で走れるのは数百メートルだけ。プロングホーンは時速50キロ以上で何キロも走り続けられます。"
+   "x": "チーターのほうが速いですが、全力で走れるのは数百メートルだけ。プロングホーンは時速50キロ以上で何キロも走り続けられます。",
+   "k": "プロングホーン：時速50キロで何キロも走る"
   },
   "it": {
    "q": "Chi riesce a mantenere a lungo un’alta velocità?",
@@ -58,7 +64,8 @@
     "Antilocapra",
     "Ghepardo"
    ],
-   "x": "Il ghepardo è più veloce, ma scatta solo per poche centinaia di metri. L’antilocapra tiene oltre 50 km/h per chilometri."
+   "x": "Il ghepardo è più veloce, ma scatta solo per poche centinaia di metri. L’antilocapra tiene oltre 50 km/h per chilometri.",
+   "k": "Antilocapra: oltre 50 km/h per chilometri"
   }
  },
  {
@@ -72,7 +79,8 @@
     "Eisbär",
     "Sibirischer Tiger"
    ],
-   "x": "Eisbär-Männchen wiegen 400 bis 700 kg und sind damit die größten Landraubtiere. Sibirische Tiger erreichen etwa 300 kg."
+   "x": "Eisbär-Männchen wiegen 400 bis 700 kg und sind damit die größten Landraubtiere. Sibirische Tiger erreichen etwa 300 kg.",
+   "k": "Eisbär: größtes Raubtier an Land"
   },
   "en": {
    "q": "Who is the largest land carnivore?",
@@ -80,7 +88,8 @@
     "Polar bear",
     "Siberian tiger"
    ],
-   "x": "Male polar bears weigh 400 to 700 kg, making them the largest land carnivores. Siberian tigers reach about 300 kg."
+   "x": "Male polar bears weigh 400 to 700 kg, making them the largest land carnivores. Siberian tigers reach about 300 kg.",
+   "k": "Polar bear: largest land carnivore"
   },
   "fr": {
    "q": "Qui est le plus grand carnivore terrestre ?",
@@ -88,7 +97,8 @@
     "Ours polaire",
     "Tigre de Sibérie"
    ],
-   "x": "L’ours polaire mâle pèse 400 à 700 kg : c’est le plus grand carnivore terrestre. Le tigre de Sibérie atteint environ 300 kg."
+   "x": "L’ours polaire mâle pèse 400 à 700 kg : c’est le plus grand carnivore terrestre. Le tigre de Sibérie atteint environ 300 kg.",
+   "k": "Ours polaire : plus grand carnivore terrestre"
   },
   "es": {
    "q": "¿Quién es el mayor carnívoro terrestre?",
@@ -96,7 +106,8 @@
     "Oso polar",
     "Tigre siberiano"
    ],
-   "x": "El oso polar macho pesa de 400 a 700 kg y es el mayor carnívoro terrestre. El tigre siberiano llega a unos 300 kg."
+   "x": "El oso polar macho pesa de 400 a 700 kg y es el mayor carnívoro terrestre. El tigre siberiano llega a unos 300 kg.",
+   "k": "Oso polar: mayor carnívoro terrestre"
   },
   "pt": {
    "q": "Quem é o maior carnívoro terrestre?",
@@ -104,7 +115,8 @@
     "Urso-polar",
     "Tigre-siberiano"
    ],
-   "x": "O urso-polar macho pesa de 400 a 700 kg e é o maior carnívoro terrestre. O tigre-siberiano chega a uns 300 kg."
+   "x": "O urso-polar macho pesa de 400 a 700 kg e é o maior carnívoro terrestre. O tigre-siberiano chega a uns 300 kg.",
+   "k": "Urso-polar: maior carnívoro terrestre"
   },
   "ja": {
    "q": "陸上で最大の肉食動物はどっち？",
@@ -112,7 +124,8 @@
     "ホッキョクグマ",
     "アムールトラ"
    ],
-   "x": "オスのホッキョクグマは400〜700キロ。陸上最大の肉食動物です。アムールトラは約300キロです。"
+   "x": "オスのホッキョクグマは400〜700キロ。陸上最大の肉食動物です。アムールトラは約300キロです。",
+   "k": "ホッキョクグマ：陸上最大の肉食動物"
   },
   "it": {
    "q": "Chi è il più grande carnivoro terrestre?",
@@ -120,7 +133,8 @@
     "Orso polare",
     "Tigre siberiana"
    ],
-   "x": "I maschi di orso polare pesano 400–700 kg: sono i più grandi carnivori terrestri. Le tigri siberiane arrivano a circa 300 kg."
+   "x": "I maschi di orso polare pesano 400–700 kg: sono i più grandi carnivori terrestri. Le tigri siberiane arrivano a circa 300 kg.",
+   "k": "Orso polare: il più grande carnivoro terrestre"
   }
  },
  {
@@ -134,7 +148,8 @@
     "Tüpfelhyäne",
     "Seehund"
    ],
-   "x": "Robben gehören zu den „hundeartigen“ Raubtieren, wie Bären und Marder. Hyänen sehen zwar hundeähnlich aus, sind aber näher mit Katzen verwandt."
+   "x": "Robben gehören zu den „hundeartigen“ Raubtieren, wie Bären und Marder. Hyänen sehen zwar hundeähnlich aus, sind aber näher mit Katzen verwandt.",
+   "k": "Hyänen: näher mit Katzen als mit Hunden verwandt"
   },
   "en": {
    "q": "Who is more closely related to the dog?",
@@ -142,7 +157,8 @@
     "Spotted hyena",
     "Harbour seal"
    ],
-   "x": "Seals belong to the “dog-like” carnivores, along with bears and weasels. Hyenas look like dogs but are more closely related to cats."
+   "x": "Seals belong to the “dog-like” carnivores, along with bears and weasels. Hyenas look like dogs but are more closely related to cats.",
+   "k": "Hyenas: closer to cats than to dogs"
   },
   "fr": {
    "q": "Qui est le plus proche parent du chien ?",
@@ -150,7 +166,8 @@
     "Hyène tachetée",
     "Phoque veau-marin"
    ],
-   "x": "Les phoques font partie des carnivores « caniformes », comme les ours et les martres. La hyène ressemble à un chien mais est plus proche des chats."
+   "x": "Les phoques font partie des carnivores « caniformes », comme les ours et les martres. La hyène ressemble à un chien mais est plus proche des chats.",
+   "k": "Hyènes : plus proches des chats que des chiens"
   },
   "es": {
    "q": "¿Quién es pariente más cercano del perro?",
@@ -158,7 +175,8 @@
     "Hiena manchada",
     "Foca común"
    ],
-   "x": "Las focas pertenecen a los carnívoros «caniformes», como osos y mustélidos. La hiena parece un perro, pero está más emparentada con los gatos."
+   "x": "Las focas pertenecen a los carnívoros «caniformes», como osos y mustélidos. La hiena parece un perro, pero está más emparentada con los gatos.",
+   "k": "Hienas: más cerca de los gatos que de los perros"
   },
   "pt": {
    "q": "Quem é parente mais próximo do cachorro?",
@@ -166,7 +184,8 @@
     "Hiena-malhada",
     "Foca-comum"
    ],
-   "x": "As focas pertencem aos carnívoros “caniformes”, como ursos e mustelídeos. A hiena parece um cachorro, mas é mais aparentada com os gatos."
+   "x": "As focas pertencem aos carnívoros “caniformes”, como ursos e mustelídeos. A hiena parece um cachorro, mas é mais aparentada com os gatos.",
+   "k": "Hienas: mais perto dos gatos que dos cachorros"
   },
   "ja": {
    "q": "イヌに近い親せきはどっち？",
@@ -174,7 +193,8 @@
     "ブチハイエナ",
     "ゼニガタアザラシ"
    ],
-   "x": "アザラシはクマやイタチと同じ「イヌ型」の肉食動物です。ハイエナはイヌに似ていますが、ネコに近い親せきです。"
+   "x": "アザラシはクマやイタチと同じ「イヌ型」の肉食動物です。ハイエナはイヌに似ていますが、ネコに近い親せきです。",
+   "k": "ハイエナ：イヌよりネコに近い"
   },
   "it": {
    "q": "Chi è più vicino parente del cane?",
@@ -182,7 +202,8 @@
     "Iena maculata",
     "Foca comune"
    ],
-   "x": "Le foche appartengono ai carnivori «simili al cane», insieme a orsi e mustelidi. Le iene sembrano cani, ma sono più vicine ai gatti."
+   "x": "Le foche appartengono ai carnivori «simili al cane», insieme a orsi e mustelidi. Le iene sembrano cani, ma sono più vicine ai gatti.",
+   "k": "Iene: più vicine ai gatti che ai cani"
   }
  },
  {
@@ -196,7 +217,8 @@
     "Spatz",
     "Kolibri"
    ],
-   "x": "Kolibris schlagen ihre Flügel bis zu 80-mal pro Sekunde in Achterform. So können sie in der Luft stehen und sogar rückwärts fliegen."
+   "x": "Kolibris schlagen ihre Flügel bis zu 80-mal pro Sekunde in Achterform. So können sie in der Luft stehen und sogar rückwärts fliegen.",
+   "k": "Kolibri: kann rückwärts fliegen"
   },
   "en": {
    "q": "Who can fly backwards?",
@@ -204,7 +226,8 @@
     "Sparrow",
     "Hummingbird"
    ],
-   "x": "Hummingbirds beat their wings up to 80 times a second in a figure of eight. That lets them hover and even fly backwards."
+   "x": "Hummingbirds beat their wings up to 80 times a second in a figure of eight. That lets them hover and even fly backwards.",
+   "k": "Hummingbird: can fly backwards"
   },
   "fr": {
    "q": "Qui peut voler en arrière ?",
@@ -212,7 +235,8 @@
     "Moineau",
     "Colibri"
    ],
-   "x": "Le colibri bat des ailes jusqu’à 80 fois par seconde en forme de huit. Il peut ainsi faire du sur-place et même voler en arrière."
+   "x": "Le colibri bat des ailes jusqu’à 80 fois par seconde en forme de huit. Il peut ainsi faire du sur-place et même voler en arrière.",
+   "k": "Colibri : vole en arrière"
   },
   "es": {
    "q": "¿Quién puede volar hacia atrás?",
@@ -220,7 +244,8 @@
     "Gorrión",
     "Colibrí"
    ],
-   "x": "El colibrí bate las alas hasta 80 veces por segundo en forma de ocho. Así puede quedarse quieto en el aire e incluso volar hacia atrás."
+   "x": "El colibrí bate las alas hasta 80 veces por segundo en forma de ocho. Así puede quedarse quieto en el aire e incluso volar hacia atrás.",
+   "k": "Colibrí: vuela hacia atrás"
   },
   "pt": {
    "q": "Quem consegue voar para trás?",
@@ -228,7 +253,8 @@
     "Pardal",
     "Beija-flor"
    ],
-   "x": "O beija-flor bate as asas até 80 vezes por segundo, num movimento em forma de oito. Assim ele para no ar e até voa para trás."
+   "x": "O beija-flor bate as asas até 80 vezes por segundo, num movimento em forma de oito. Assim ele para no ar e até voa para trás.",
+   "k": "Beija-flor: voa para trás"
   },
   "ja": {
    "q": "後ろ向きに飛べるのはどっち？",
@@ -236,7 +262,8 @@
     "スズメ",
     "ハチドリ"
    ],
-   "x": "ハチドリは1秒に最大80回、8の字に羽ばたきます。だから空中で止まったり、後ろ向きに飛んだりできます。"
+   "x": "ハチドリは1秒に最大80回、8の字に羽ばたきます。だから空中で止まったり、後ろ向きに飛んだりできます。",
+   "k": "ハチドリ：後ろ向きに飛べる"
   },
   "it": {
    "q": "Chi sa volare all’indietro?",
@@ -244,7 +271,8 @@
     "Passero",
     "Colibrì"
    ],
-   "x": "I colibrì battono le ali fino a 80 volte al secondo disegnando un otto. Così restano sospesi in aria e volano persino all’indietro."
+   "x": "I colibrì battono le ali fino a 80 volte al secondo disegnando un otto. Così restano sospesi in aria e volano persino all’indietro.",
+   "k": "Colibrì: vola all’indietro"
   }
  },
  {
@@ -258,7 +286,8 @@
     "Kuh",
     "Nashorn"
    ],
-   "x": "Pferde, Nashörner und Tapire sind Unpaarhufer. Kühe sind Paarhufer – und damit näher mit Walen verwandt als mit Pferden."
+   "x": "Pferde, Nashörner und Tapire sind Unpaarhufer. Kühe sind Paarhufer – und damit näher mit Walen verwandt als mit Pferden.",
+   "k": "Kühe: näher mit Walen als mit Pferden verwandt"
   },
   "en": {
    "q": "Who is more closely related to the horse?",
@@ -266,7 +295,8 @@
     "Cow",
     "Rhino"
    ],
-   "x": "Horses, rhinos and tapirs are odd-toed ungulates. Cows are even-toed – and so more closely related to whales than to horses."
+   "x": "Horses, rhinos and tapirs are odd-toed ungulates. Cows are even-toed – and so more closely related to whales than to horses.",
+   "k": "Cows: closer to whales than to horses"
   },
   "fr": {
    "q": "Qui est le plus proche parent du cheval ?",
@@ -274,7 +304,8 @@
     "Vache",
     "Rhinocéros"
    ],
-   "x": "Chevaux, rhinocéros et tapirs sont des périssodactyles. La vache est un artiodactyle – plus proche des baleines que du cheval."
+   "x": "Chevaux, rhinocéros et tapirs sont des périssodactyles. La vache est un artiodactyle – plus proche des baleines que du cheval.",
+   "k": "Vaches : plus proches des baleines que des chevaux"
   },
   "es": {
    "q": "¿Quién es pariente más cercano del caballo?",
@@ -282,7 +313,8 @@
     "Vaca",
     "Rinoceronte"
    ],
-   "x": "Caballos, rinocerontes y tapires son perisodáctilos. La vaca es un artiodáctilo, más emparentada con las ballenas que con el caballo."
+   "x": "Caballos, rinocerontes y tapires son perisodáctilos. La vaca es un artiodáctilo, más emparentada con las ballenas que con el caballo.",
+   "k": "Vacas: más cerca de las ballenas que de los caballos"
   },
   "pt": {
    "q": "Quem é parente mais próximo do cavalo?",
@@ -290,7 +322,8 @@
     "Vaca",
     "Rinoceronte"
    ],
-   "x": "Cavalos, rinocerontes e antas são perissodáctilos. A vaca é um artiodáctilo, mais aparentada com as baleias do que com o cavalo."
+   "x": "Cavalos, rinocerontes e antas são perissodáctilos. A vaca é um artiodáctilo, mais aparentada com as baleias do que com o cavalo.",
+   "k": "Vacas: mais perto das baleias que dos cavalos"
   },
   "ja": {
    "q": "ウマに近い親せきはどっち？",
@@ -298,7 +331,8 @@
     "ウシ",
     "サイ"
    ],
-   "x": "ウマ、サイ、バクは奇蹄類です。ウシは偶蹄類で、ウマよりクジラのほうに近い親せきです。"
+   "x": "ウマ、サイ、バクは奇蹄類です。ウシは偶蹄類で、ウマよりクジラのほうに近い親せきです。",
+   "k": "ウシ：ウマよりクジラに近い"
   },
   "it": {
    "q": "Chi è più vicino parente del cavallo?",
@@ -306,7 +340,8 @@
     "Mucca",
     "Rinoceronte"
    ],
-   "x": "Cavalli, rinoceronti e tapiri sono perissodattili. Le mucche sono artiodattili, e quindi più vicine alle balene che ai cavalli."
+   "x": "Cavalli, rinoceronti e tapiri sono perissodattili. Le mucche sono artiodattili, e quindi più vicine alle balene che ai cavalli.",
+   "k": "Mucche: più vicine alle balene che ai cavalli"
   }
  },
  {
@@ -320,7 +355,8 @@
     "Ein Erwachsener",
     "Ein Neugeborenes"
    ],
-   "x": "Babys kommen mit rund 300 Knochen zur Welt. Viele davon wachsen später zusammen – Erwachsene haben 206."
+   "x": "Babys kommen mit rund 300 Knochen zur Welt. Viele davon wachsen später zusammen – Erwachsene haben 206.",
+   "k": "Babys: haben rund 300 Knochen, Erwachsene 206"
   },
   "en": {
    "q": "Who has more bones?",
@@ -328,7 +364,8 @@
     "An adult",
     "A newborn baby"
    ],
-   "x": "Babies are born with around 300 bones. Many of them fuse later – adults have 206."
+   "x": "Babies are born with around 300 bones. Many of them fuse later – adults have 206.",
+   "k": "Babies: about 300 bones, adults 206"
   },
   "fr": {
    "q": "Qui a le plus d’os ?",
@@ -336,7 +373,8 @@
     "Un adulte",
     "Un nouveau-né"
    ],
-   "x": "Le bébé naît avec environ 300 os. Beaucoup se soudent ensuite – l’adulte en a 206."
+   "x": "Le bébé naît avec environ 300 os. Beaucoup se soudent ensuite – l’adulte en a 206.",
+   "k": "Bébés : environ 300 os, adultes 206"
   },
   "es": {
    "q": "¿Quién tiene más huesos?",
@@ -344,7 +382,8 @@
     "Un adulto",
     "Un recién nacido"
    ],
-   "x": "Los bebés nacen con unos 300 huesos. Muchos se fusionan después: un adulto tiene 206."
+   "x": "Los bebés nacen con unos 300 huesos. Muchos se fusionan después: un adulto tiene 206.",
+   "k": "Bebés: unos 300 huesos, adultos 206"
   },
   "pt": {
    "q": "Quem tem mais ossos?",
@@ -352,7 +391,8 @@
     "Um adulto",
     "Um recém-nascido"
    ],
-   "x": "Os bebês nascem com cerca de 300 ossos. Muitos se fundem depois: um adulto tem 206."
+   "x": "Os bebês nascem com cerca de 300 ossos. Muitos se fundem depois: um adulto tem 206.",
+   "k": "Bebês: uns 300 ossos, adultos 206"
   },
   "ja": {
    "q": "骨の数が多いのはどっち？",
@@ -360,7 +400,8 @@
     "大人",
     "生まれたての赤ちゃん"
    ],
-   "x": "赤ちゃんは約300個の骨をもって生まれます。その多くがあとでくっつき、大人は206個になります。"
+   "x": "赤ちゃんは約300個の骨をもって生まれます。その多くがあとでくっつき、大人は206個になります。",
+   "k": "赤ちゃん：骨は約300個、大人は206個"
   },
   "it": {
    "q": "Chi ha più ossa?",
@@ -368,7 +409,8 @@
     "Un adulto",
     "Un neonato"
    ],
-   "x": "I neonati nascono con circa 300 ossa. Molte si saldano in seguito: gli adulti ne hanno 206."
+   "x": "I neonati nascono con circa 300 ossa. Molte si saldano in seguito: gli adulti ne hanno 206.",
+   "k": "Neonati: circa 300 ossa, adulti 206"
   }
  },
  {
@@ -382,7 +424,8 @@
     "Dromedar",
     "Kängururatte"
    ],
-   "x": "Die Kängururatte aus den Wüsten Nordamerikas trinkt oft ihr ganzes Leben lang nicht – sie gewinnt Wasser aus trockenen Samen. Dromedare halten etwa zwei Wochen durch."
+   "x": "Die Kängururatte aus den Wüsten Nordamerikas trinkt oft ihr ganzes Leben lang nicht – sie gewinnt Wasser aus trockenen Samen. Dromedare halten etwa zwei Wochen durch.",
+   "k": "Kängururatte: trinkt oft ihr Leben lang nicht"
   },
   "en": {
    "q": "Who can go longer without drinking?",
@@ -390,7 +433,8 @@
     "Dromedary camel",
     "Kangaroo rat"
    ],
-   "x": "The kangaroo rat of North American deserts often never drinks in its whole life – it gets water from dry seeds. Camels last about two weeks."
+   "x": "The kangaroo rat of North American deserts often never drinks in its whole life – it gets water from dry seeds. Camels last about two weeks.",
+   "k": "Kangaroo rat: often never drinks in its life"
   },
   "fr": {
    "q": "Qui tient le plus longtemps sans boire ?",
@@ -398,7 +442,8 @@
     "Dromadaire",
     "Rat-kangourou"
    ],
-   "x": "Le rat-kangourou des déserts d’Amérique du Nord ne boit souvent jamais de sa vie : il tire l’eau des graines sèches. Le dromadaire tient environ deux semaines."
+   "x": "Le rat-kangourou des déserts d’Amérique du Nord ne boit souvent jamais de sa vie : il tire l’eau des graines sèches. Le dromadaire tient environ deux semaines.",
+   "k": "Rat-kangourou : souvent ne boit jamais"
   },
   "es": {
    "q": "¿Quién aguanta más sin beber?",
@@ -406,7 +451,8 @@
     "Dromedario",
     "Rata canguro"
    ],
-   "x": "La rata canguro de los desiertos de Norteamérica a menudo no bebe en toda su vida: saca el agua de semillas secas. El dromedario aguanta unas dos semanas."
+   "x": "La rata canguro de los desiertos de Norteamérica a menudo no bebe en toda su vida: saca el agua de semillas secas. El dromedario aguanta unas dos semanas.",
+   "k": "Rata canguro: a menudo nunca bebe"
   },
   "pt": {
    "q": "Quem aguenta mais tempo sem beber?",
@@ -414,7 +460,8 @@
     "Dromedário",
     "Rato-canguru"
    ],
-   "x": "O rato-canguru dos desertos da América do Norte muitas vezes não bebe a vida inteira: ele tira a água de sementes secas. O dromedário aguenta umas duas semanas."
+   "x": "O rato-canguru dos desertos da América do Norte muitas vezes não bebe a vida inteira: ele tira a água de sementes secas. O dromedário aguenta umas duas semanas.",
+   "k": "Rato-canguru: muitas vezes nunca bebe"
   },
   "ja": {
    "q": "水を飲まずに長く過ごせるのはどっち？",
@@ -422,7 +469,8 @@
     "ヒトコブラクダ",
     "カンガルーネズミ"
    ],
-   "x": "北アメリカの砂漠にすむカンガルーネズミは、一生水を飲まないことも。かわいた種から水分をとります。ラクダは2週間ほどです。"
+   "x": "北アメリカの砂漠にすむカンガルーネズミは、一生水を飲まないことも。かわいた種から水分をとります。ラクダは2週間ほどです。",
+   "k": "カンガルーネズミ：一生水を飲まないことも"
   },
   "it": {
    "q": "Chi resiste più a lungo senza bere?",
@@ -430,7 +478,8 @@
     "Dromedario",
     "Ratto canguro"
    ],
-   "x": "Il ratto canguro dei deserti nordamericani spesso non beve mai in tutta la vita: ricava l’acqua dai semi secchi. I cammelli resistono circa due settimane."
+   "x": "Il ratto canguro dei deserti nordamericani spesso non beve mai in tutta la vita: ricava l’acqua dai semi secchi. I cammelli resistono circa due settimane.",
+   "k": "Ratto canguro: spesso non beve mai"
   }
  },
  {
@@ -444,7 +493,8 @@
     "Reh",
     "Wildkaninchen"
    ],
-   "x": "Kaninchen fressen weiche Kotkügelchen direkt wieder auf. So holen sie beim zweiten Durchgang die Vitamine und Nährstoffe aus der schwer verdaulichen Pflanzenkost."
+   "x": "Kaninchen fressen weiche Kotkügelchen direkt wieder auf. So holen sie beim zweiten Durchgang die Vitamine und Nährstoffe aus der schwer verdaulichen Pflanzenkost.",
+   "k": "Kaninchen: fressen einen Teil ihres Kots"
   },
   "en": {
    "q": "Who eats some of its own droppings on purpose?",
@@ -452,7 +502,8 @@
     "Roe deer",
     "Wild rabbit"
    ],
-   "x": "Rabbits eat soft droppings straight away. On the second pass they get the vitamins and nutrients out of their hard-to-digest plant food."
+   "x": "Rabbits eat soft droppings straight away. On the second pass they get the vitamins and nutrients out of their hard-to-digest plant food.",
+   "k": "Rabbits: eat some of their own droppings"
   },
   "fr": {
    "q": "Qui mange exprès une partie de ses crottes ?",
@@ -460,7 +511,8 @@
     "Chevreuil",
     "Lapin de garenne"
    ],
-   "x": "Le lapin mange tout de suite certaines crottes molles. Au second passage, il tire vitamines et nutriments de sa nourriture végétale difficile à digérer."
+   "x": "Le lapin mange tout de suite certaines crottes molles. Au second passage, il tire vitamines et nutriments de sa nourriture végétale difficile à digérer.",
+   "k": "Lapins : mangent une partie de leurs crottes"
   },
   "es": {
    "q": "¿Quién se come a propósito parte de sus excrementos?",
@@ -468,7 +520,8 @@
     "Corzo",
     "Conejo silvestre"
    ],
-   "x": "El conejo se come enseguida unas bolitas blandas. En la segunda pasada saca las vitaminas y nutrientes de su comida vegetal, difícil de digerir."
+   "x": "El conejo se come enseguida unas bolitas blandas. En la segunda pasada saca las vitaminas y nutrientes de su comida vegetal, difícil de digerir.",
+   "k": "Conejos: se comen parte de sus excrementos"
   },
   "pt": {
    "q": "Quem come de propósito parte das próprias fezes?",
@@ -476,7 +529,8 @@
     "Corço",
     "Coelho-selvagem"
    ],
-   "x": "O coelho come logo umas bolinhas moles. Na segunda passagem, ele aproveita as vitaminas e os nutrientes da comida vegetal, difícil de digerir."
+   "x": "O coelho come logo umas bolinhas moles. Na segunda passagem, ele aproveita as vitaminas e os nutrientes da comida vegetal, difícil de digerir.",
+   "k": "Coelhos: comem parte das próprias fezes"
   },
   "ja": {
    "q": "自分のフンの一部をわざと食べるのはどっち？",
@@ -484,7 +538,8 @@
     "ノロジカ",
     "アナウサギ"
    ],
-   "x": "ウサギはやわらかいフンをすぐに食べます。2回目の消化で、消化しにくい植物からビタミンや栄養をとり出すのです。"
+   "x": "ウサギはやわらかいフンをすぐに食べます。2回目の消化で、消化しにくい植物からビタミンや栄養をとり出すのです。",
+   "k": "ウサギ：自分のフンを食べる"
   },
   "it": {
    "q": "Chi mangia di proposito una parte dei propri escrementi?",
@@ -492,7 +547,8 @@
     "Capriolo",
     "Coniglio selvatico"
    ],
-   "x": "I conigli mangiano subito le feci molli. Al secondo passaggio estraggono vitamine e nutrienti dal loro cibo vegetale difficile da digerire."
+   "x": "I conigli mangiano subito le feci molli. Al secondo passaggio estraggono vitamine e nutrienti dal loro cibo vegetale difficile da digerire.",
+   "k": "Conigli: mangiano parte delle loro feci"
   }
  },
  {
@@ -506,7 +562,8 @@
     "Löwe",
     "Krokodil"
    ],
-   "x": "Krokodile schlucken Steine. Im Magen helfen sie beim Zerkleinern der Nahrung und vielleicht auch beim Tauchen als Ballast."
+   "x": "Krokodile schlucken Steine. Im Magen helfen sie beim Zerkleinern der Nahrung und vielleicht auch beim Tauchen als Ballast.",
+   "k": "Krokodile: schlucken absichtlich Steine"
   },
   "en": {
    "q": "Who swallows stones on purpose?",
@@ -514,7 +571,8 @@
     "Lion",
     "Crocodile"
    ],
-   "x": "Crocodiles swallow stones. In the stomach they help grind up food and perhaps act as ballast for diving."
+   "x": "Crocodiles swallow stones. In the stomach they help grind up food and perhaps act as ballast for diving.",
+   "k": "Crocodiles: swallow stones on purpose"
   },
   "fr": {
    "q": "Qui avale des pierres exprès ?",
@@ -522,7 +580,8 @@
     "Lion",
     "Crocodile"
    ],
-   "x": "Le crocodile avale des pierres. Dans l’estomac, elles aident à broyer la nourriture et servent peut-être de lest pour plonger."
+   "x": "Le crocodile avale des pierres. Dans l’estomac, elles aident à broyer la nourriture et servent peut-être de lest pour plonger.",
+   "k": "Crocodiles : avalent des pierres exprès"
   },
   "es": {
    "q": "¿Quién se traga piedras a propósito?",
@@ -530,7 +589,8 @@
     "León",
     "Cocodrilo"
    ],
-   "x": "Los cocodrilos tragan piedras. En el estómago ayudan a triturar la comida y quizá sirven de lastre para bucear."
+   "x": "Los cocodrilos tragan piedras. En el estómago ayudan a triturar la comida y quizá sirven de lastre para bucear.",
+   "k": "Cocodrilos: tragan piedras a propósito"
   },
   "pt": {
    "q": "Quem engole pedras de propósito?",
@@ -538,7 +598,8 @@
     "Leão",
     "Crocodilo"
    ],
-   "x": "Os crocodilos engolem pedras. No estômago elas ajudam a triturar a comida e talvez sirvam de lastro para mergulhar."
+   "x": "Os crocodilos engolem pedras. No estômago elas ajudam a triturar a comida e talvez sirvam de lastro para mergulhar.",
+   "k": "Crocodilos: engolem pedras de propósito"
   },
   "ja": {
    "q": "わざと石を飲みこむのはどっち？",
@@ -546,7 +607,8 @@
     "ライオン",
     "ワニ"
    ],
-   "x": "ワニは石を飲みこみます。胃の中で食べものをすりつぶすのを助け、潜るときのおもりにもなるのかもしれません。"
+   "x": "ワニは石を飲みこみます。胃の中で食べものをすりつぶすのを助け、潜るときのおもりにもなるのかもしれません。",
+   "k": "ワニ：わざと石を飲みこむ"
   },
   "it": {
    "q": "Chi inghiotte sassi di proposito?",
@@ -554,7 +616,8 @@
     "Leone",
     "Coccodrillo"
    ],
-   "x": "I coccodrilli inghiottono sassi. Nello stomaco aiutano a sminuzzare il cibo e forse fanno da zavorra per le immersioni."
+   "x": "I coccodrilli inghiottono sassi. Nello stomaco aiutano a sminuzzare il cibo e forse fanno da zavorra per le immersioni.",
+   "k": "Coccodrilli: inghiottono sassi apposta"
   }
  },
  {
@@ -568,7 +631,8 @@
     "Pferd",
     "Hund"
    ],
-   "x": "Pferde können ihre Beingelenke einrasten lassen und so im Stehen dösen. Für den Tiefschlaf legen aber auch sie sich hin."
+   "x": "Pferde können ihre Beingelenke einrasten lassen und so im Stehen dösen. Für den Tiefschlaf legen aber auch sie sich hin.",
+   "k": "Pferde: dösen im Stehen"
   },
   "en": {
    "q": "Who can doze while standing up?",
@@ -576,7 +640,8 @@
     "Horse",
     "Dog"
    ],
-   "x": "Horses can lock their leg joints and doze standing up. For deep sleep, though, they lie down too."
+   "x": "Horses can lock their leg joints and doze standing up. For deep sleep, though, they lie down too.",
+   "k": "Horses: doze standing up"
   },
   "fr": {
    "q": "Qui peut somnoler debout ?",
@@ -584,7 +649,8 @@
     "Cheval",
     "Chien"
    ],
-   "x": "Le cheval peut bloquer ses articulations et somnoler debout. Pour le sommeil profond, il se couche quand même."
+   "x": "Le cheval peut bloquer ses articulations et somnoler debout. Pour le sommeil profond, il se couche quand même.",
+   "k": "Chevaux : somnolent debout"
   },
   "es": {
    "q": "¿Quién puede dormitar de pie?",
@@ -592,7 +658,8 @@
     "Caballo",
     "Perro"
    ],
-   "x": "El caballo puede bloquear las articulaciones de las patas y dormitar de pie. Para el sueño profundo, también se tumba."
+   "x": "El caballo puede bloquear las articulaciones de las patas y dormitar de pie. Para el sueño profundo, también se tumba.",
+   "k": "Caballos: dormitan de pie"
   },
   "pt": {
    "q": "Quem consegue cochilar em pé?",
@@ -600,7 +667,8 @@
     "Cavalo",
     "Cachorro"
    ],
-   "x": "O cavalo consegue travar as articulações das pernas e cochilar em pé. Para o sono profundo, ele também se deita."
+   "x": "O cavalo consegue travar as articulações das pernas e cochilar em pé. Para o sono profundo, ele também se deita.",
+   "k": "Cavalos: cochilam em pé"
   },
   "ja": {
    "q": "立ったままうとうとできるのはどっち？",
@@ -608,7 +676,8 @@
     "ウマ",
     "イヌ"
    ],
-   "x": "ウマは脚の関節をロックして、立ったままうとうとできます。でも深く眠るときは横になります。"
+   "x": "ウマは脚の関節をロックして、立ったままうとうとできます。でも深く眠るときは横になります。",
+   "k": "ウマ：立ったまま眠る"
   },
   "it": {
    "q": "Chi sa sonnecchiare in piedi?",
@@ -616,7 +685,8 @@
     "Cavallo",
     "Cane"
    ],
-   "x": "I cavalli bloccano le articolazioni delle zampe e sonnecchiano in piedi. Per il sonno profondo però si sdraiano anche loro."
+   "x": "I cavalli bloccano le articolazioni delle zampe e sonnecchiano in piedi. Per il sonno profondo però si sdraiano anche loro.",
+   "k": "Cavalli: sonnecchiano in piedi"
   }
  },
  {
@@ -630,7 +700,8 @@
     "Koala",
     "Faultier"
    ],
-   "x": "Koalas sind Beuteltiere. Das Junge ist bei der Geburt nur so groß wie eine Bohne und wächst im Beutel monatelang weiter."
+   "x": "Koalas sind Beuteltiere. Das Junge ist bei der Geburt nur so groß wie eine Bohne und wächst im Beutel monatelang weiter.",
+   "k": "Koala-Baby: bei der Geburt so groß wie eine Bohne"
   },
   "en": {
    "q": "Who carries its baby in a pouch?",
@@ -638,7 +709,8 @@
     "Koala",
     "Sloth"
    ],
-   "x": "Koalas are marsupials. At birth the baby is only the size of a bean and keeps growing in the pouch for months."
+   "x": "Koalas are marsupials. At birth the baby is only the size of a bean and keeps growing in the pouch for months.",
+   "k": "Koala baby: born the size of a bean"
   },
   "fr": {
    "q": "Qui porte son petit dans une poche ?",
@@ -646,7 +718,8 @@
     "Koala",
     "Paresseux"
    ],
-   "x": "Le koala est un marsupial. À la naissance, le petit est grand comme un haricot et grandit des mois dans la poche."
+   "x": "Le koala est un marsupial. À la naissance, le petit est grand comme un haricot et grandit des mois dans la poche.",
+   "k": "Bébé koala : naît gros comme un haricot"
   },
   "es": {
    "q": "¿Quién lleva a su cría en una bolsa?",
@@ -654,7 +727,8 @@
     "Koala",
     "Perezoso"
    ],
-   "x": "El koala es un marsupial. Al nacer, la cría es del tamaño de una judía y sigue creciendo en la bolsa durante meses."
+   "x": "El koala es un marsupial. Al nacer, la cría es del tamaño de una judía y sigue creciendo en la bolsa durante meses.",
+   "k": "Bebé koala: nace como una judía"
   },
   "pt": {
    "q": "Quem carrega o filhote numa bolsa?",
@@ -662,7 +736,8 @@
     "Coala",
     "Bicho-preguiça"
    ],
-   "x": "O coala é um marsupial. Ao nascer, o filhote tem o tamanho de um feijão e continua crescendo na bolsa por meses."
+   "x": "O coala é um marsupial. Ao nascer, o filhote tem o tamanho de um feijão e continua crescendo na bolsa por meses.",
+   "k": "Bebê coala: nasce do tamanho de um feijão"
   },
   "ja": {
    "q": "赤ちゃんを袋に入れて育てるのはどっち？",
@@ -670,7 +745,8 @@
     "コアラ",
     "ナマケモノ"
    ],
-   "x": "コアラは有袋類。生まれたときの赤ちゃんは豆粒ほどで、何か月も袋の中で育ちます。"
+   "x": "コアラは有袋類。生まれたときの赤ちゃんは豆粒ほどで、何か月も袋の中で育ちます。",
+   "k": "コアラの赤ちゃん：生まれたときは豆粒ほど"
   },
   "it": {
    "q": "Chi porta il piccolo in un marsupio?",
@@ -678,7 +754,8 @@
     "Koala",
     "Bradipo"
    ],
-   "x": "I koala sono marsupiali. Alla nascita il piccolo è grande come un fagiolo e cresce per mesi nel marsupio."
+   "x": "I koala sono marsupiali. Alla nascita il piccolo è grande come un fagiolo e cresce per mesi nel marsupio.",
+   "k": "Cucciolo di koala: nasce grande come un fagiolo"
   }
  },
  {
@@ -692,7 +769,8 @@
     "Ameisenigel",
     "Igel"
    ],
-   "x": "Der Ameisenigel aus Australien legt Eier und brütet sie in einer Bauchtasche aus. Trotz Stacheln ist er nicht mit unserem Igel verwandt, der lebende Junge bekommt."
+   "x": "Der Ameisenigel aus Australien legt Eier und brütet sie in einer Bauchtasche aus. Trotz Stacheln ist er nicht mit unserem Igel verwandt, der lebende Junge bekommt.",
+   "k": "Ameisenigel: Säugetier, das Eier legt"
   },
   "en": {
    "q": "Which mammal lays eggs?",
@@ -700,7 +778,8 @@
     "Echidna",
     "Hedgehog"
    ],
-   "x": "The Australian echidna lays eggs and incubates them in a belly pouch. Despite its spines, it isn’t related to the hedgehog, which gives birth to live young."
+   "x": "The Australian echidna lays eggs and incubates them in a belly pouch. Despite its spines, it isn’t related to the hedgehog, which gives birth to live young.",
+   "k": "Echidna: a mammal that lays eggs"
   },
   "fr": {
    "q": "Quel mammifère pond des œufs ?",
@@ -708,7 +787,8 @@
     "Échidné",
     "Hérisson"
    ],
-   "x": "L’échidné d’Australie pond des œufs et les couve dans une poche ventrale. Malgré ses piquants, il n’est pas parent du hérisson, qui met au monde des petits vivants."
+   "x": "L’échidné d’Australie pond des œufs et les couve dans une poche ventrale. Malgré ses piquants, il n’est pas parent du hérisson, qui met au monde des petits vivants.",
+   "k": "Échidné : mammifère qui pond des œufs"
   },
   "es": {
    "q": "¿Qué mamífero pone huevos?",
@@ -716,7 +796,8 @@
     "Equidna",
     "Erizo"
    ],
-   "x": "El equidna australiano pone huevos y los incuba en una bolsa del vientre. Pese a sus púas, no es pariente del erizo, que pare crías vivas."
+   "x": "El equidna australiano pone huevos y los incuba en una bolsa del vientre. Pese a sus púas, no es pariente del erizo, que pare crías vivas.",
+   "k": "Equidna: mamífero que pone huevos"
   },
   "pt": {
    "q": "Que mamífero põe ovos?",
@@ -724,7 +805,8 @@
     "Equidna",
     "Ouriço"
    ],
-   "x": "A equidna australiana põe ovos e os choca numa bolsa na barriga. Apesar dos espinhos, não é parente do ouriço, que tem filhotes vivos."
+   "x": "A equidna australiana põe ovos e os choca numa bolsa na barriga. Apesar dos espinhos, não é parente do ouriço, que tem filhotes vivos.",
+   "k": "Équidna: mamífero que põe ovos"
   },
   "ja": {
    "q": "卵を産む哺乳類はどっち？",
@@ -732,7 +814,8 @@
     "ハリモグラ",
     "ハリネズミ"
    ],
-   "x": "オーストラリアのハリモグラは卵を産み、おなかの袋で温めます。トゲがあってもハリネズミの親せきではありません。ハリネズミは赤ちゃんを産みます。"
+   "x": "オーストラリアのハリモグラは卵を産み、おなかの袋で温めます。トゲがあってもハリネズミの親せきではありません。ハリネズミは赤ちゃんを産みます。",
+   "k": "ハリモグラ：卵を産む哺乳類"
   },
   "it": {
    "q": "Quale mammifero depone le uova?",
@@ -740,7 +823,8 @@
     "Echidna",
     "Riccio"
    ],
-   "x": "L’echidna australiana depone uova e le cova in una tasca sulla pancia. Nonostante gli aculei non è parente del riccio, che partorisce piccoli vivi."
+   "x": "L’echidna australiana depone uova e le cova in una tasca sulla pancia. Nonostante gli aculei non è parente del riccio, che partorisce piccoli vivi.",
+   "k": "Echidna: mammifero che depone uova"
   }
  },
  {
@@ -754,7 +838,8 @@
     "Schnabeltier-Männchen",
     "Biber"
    ],
-   "x": "Männliche Schnabeltiere haben an den Hinterbeinen einen Giftsporn. Der Stich ist für Menschen extrem schmerzhaft, aber nicht tödlich."
+   "x": "Männliche Schnabeltiere haben an den Hinterbeinen einen Giftsporn. Der Stich ist für Menschen extrem schmerzhaft, aber nicht tödlich.",
+   "k": "Schnabeltier-Männchen: haben einen Giftsporn"
   },
   "en": {
    "q": "Who is venomous?",
@@ -762,7 +847,8 @@
     "Male platypus",
     "Beaver"
    ],
-   "x": "Male platypuses have a venomous spur on their hind legs. The sting is extremely painful for humans, but not deadly."
+   "x": "Male platypuses have a venomous spur on their hind legs. The sting is extremely painful for humans, but not deadly.",
+   "k": "Male platypus: has a venomous spur"
   },
   "fr": {
    "q": "Qui est venimeux ?",
@@ -770,7 +856,8 @@
     "Ornithorynque mâle",
     "Castor"
    ],
-   "x": "L’ornithorynque mâle a un ergot venimeux aux pattes arrière. La piqûre est extrêmement douloureuse pour l’humain, mais pas mortelle."
+   "x": "L’ornithorynque mâle a un ergot venimeux aux pattes arrière. La piqûre est extrêmement douloureuse pour l’humain, mais pas mortelle.",
+   "k": "Ornithorynque mâle : ergot venimeux"
   },
   "es": {
    "q": "¿Quién es venenoso?",
@@ -778,7 +865,8 @@
     "Ornitorrinco macho",
     "Castor"
    ],
-   "x": "El ornitorrinco macho tiene un espolón venenoso en las patas traseras. Su picadura es muy dolorosa para los humanos, pero no mortal."
+   "x": "El ornitorrinco macho tiene un espolón venenoso en las patas traseras. Su picadura es muy dolorosa para los humanos, pero no mortal.",
+   "k": "Ornitorrinco macho: espolón venenoso"
   },
   "pt": {
    "q": "Quem é venenoso?",
@@ -786,7 +874,8 @@
     "Ornitorrinco macho",
     "Castor"
    ],
-   "x": "O ornitorrinco macho tem um esporão venenoso nas patas traseras. A picada é muito dolorosa para humanos, mas não mata."
+   "x": "O ornitorrinco macho tem um esporão venenoso nas patas traseras. A picada é muito dolorosa para humanos, mas não mata.",
+   "k": "Ornitorrinco macho: tem esporão venenoso"
   },
   "ja": {
    "q": "毒があるのはどっち？",
@@ -794,7 +883,8 @@
     "カモノハシのオス",
     "ビーバー"
    ],
-   "x": "カモノハシのオスは後ろ脚に毒のけづめがあります。人が刺されるとものすごく痛いですが、命に別状はありません。"
+   "x": "カモノハシのオスは後ろ脚に毒のけづめがあります。人が刺されるとものすごく痛いですが、命に別状はありません。",
+   "k": "カモノハシのオス：毒のけづめがある"
   },
   "it": {
    "q": "Chi è velenoso?",
@@ -802,7 +892,8 @@
     "Ornitorinco maschio",
     "Castoro"
    ],
-   "x": "Il maschio di ornitorinco ha uno sperone velenoso sulle zampe posteriori. Per l’uomo la puntura è dolorosissima, ma non mortale."
+   "x": "Il maschio di ornitorinco ha uno sperone velenoso sulle zampe posteriori. Per l’uomo la puntura è dolorosissima, ma non mortale.",
+   "k": "Ornitorinco maschio: sperone velenoso"
   }
  },
  {
@@ -816,7 +907,8 @@
     "Koala",
     "Hund"
    ],
-   "x": "Koala-Fingerabdrücke sehen unseren so ähnlich, dass man sie selbst unter dem Mikroskop kaum unterscheiden kann – obwohl Koalas gar nicht eng mit uns verwandt sind."
+   "x": "Koala-Fingerabdrücke sehen unseren so ähnlich, dass man sie selbst unter dem Mikroskop kaum unterscheiden kann – obwohl Koalas gar nicht eng mit uns verwandt sind.",
+   "k": "Koalas: haben Fingerabdrücke wie wir"
   },
   "en": {
    "q": "Who has fingerprints like ours?",
@@ -824,7 +916,8 @@
     "Koala",
     "Dog"
    ],
-   "x": "Koala fingerprints look so much like ours that they’re hard to tell apart even under a microscope – although koalas aren’t closely related to us at all."
+   "x": "Koala fingerprints look so much like ours that they’re hard to tell apart even under a microscope – although koalas aren’t closely related to us at all.",
+   "k": "Koalas: have fingerprints like ours"
   },
   "fr": {
    "q": "Qui a des empreintes digitales comme les nôtres ?",
@@ -832,7 +925,8 @@
     "Koala",
     "Chien"
    ],
-   "x": "Les empreintes du koala ressemblent tant aux nôtres qu’on les distingue à peine au microscope – alors qu’il n’est pas proche parent de l’humain."
+   "x": "Les empreintes du koala ressemblent tant aux nôtres qu’on les distingue à peine au microscope – alors qu’il n’est pas proche parent de l’humain.",
+   "k": "Koalas : empreintes digitales comme les nôtres"
   },
   "es": {
    "q": "¿Quién tiene huellas dactilares como las nuestras?",
@@ -840,7 +934,8 @@
     "Koala",
     "Perro"
    ],
-   "x": "Las huellas del koala se parecen tanto a las nuestras que cuesta distinguirlas incluso al microscopio, aunque no es pariente cercano nuestro."
+   "x": "Las huellas del koala se parecen tanto a las nuestras que cuesta distinguirlas incluso al microscopio, aunque no es pariente cercano nuestro.",
+   "k": "Koalas: huellas dactilares como las nuestras"
   },
   "pt": {
    "q": "Quem tem impressões digitais como as nossas?",
@@ -848,7 +943,8 @@
     "Coala",
     "Cachorro"
    ],
-   "x": "As digitais do coala são tão parecidas com as nossas que é difícil diferenciá-las até no microscópio – embora ele não seja nosso parente próximo."
+   "x": "As digitais do coala são tão parecidas com as nossas que é difícil diferenciá-las até no microscópio – embora ele não seja nosso parente próximo.",
+   "k": "Coalas: impressões digitais como as nossas"
   },
   "ja": {
    "q": "私たちのような指紋があるのはどっち？",
@@ -856,7 +952,8 @@
     "コアラ",
     "イヌ"
    ],
-   "x": "コアラの指紋は人間とそっくりで、顕微鏡でも見分けにくいほど。私たちとは近い親せきでもないのに、です。"
+   "x": "コアラの指紋は人間とそっくりで、顕微鏡でも見分けにくいほど。私たちとは近い親せきでもないのに、です。",
+   "k": "コアラ：人と同じような指紋"
   },
   "it": {
    "q": "Chi ha impronte digitali come le nostre?",
@@ -864,7 +961,8 @@
     "Koala",
     "Cane"
    ],
-   "x": "Le impronte dei koala somigliano tanto alle nostre da essere difficili da distinguere anche al microscopio, anche se non siamo affatto parenti stretti."
+   "x": "Le impronte dei koala somigliano tanto alle nostre da essere difficili da distinguere anche al microscopio, anche se non siamo affatto parenti stretti.",
+   "k": "Koala: impronte digitali come le nostre"
   }
  },
  {
@@ -878,7 +976,8 @@
     "Pferd",
     "Hund"
    ],
-   "x": "Pferde schwitzen wie wir am ganzen Körper. Hunde haben Schweißdrüsen fast nur an den Pfoten und kühlen sich durch Hecheln."
+   "x": "Pferde schwitzen wie wir am ganzen Körper. Hunde haben Schweißdrüsen fast nur an den Pfoten und kühlen sich durch Hecheln.",
+   "k": "Pferde: schwitzen am ganzen Körper"
   },
   "en": {
    "q": "Who sweats all over its body?",
@@ -886,7 +985,8 @@
     "Horse",
     "Dog"
    ],
-   "x": "Horses sweat all over their body like we do. Dogs have sweat glands almost only on their paws and cool down by panting."
+   "x": "Horses sweat all over their body like we do. Dogs have sweat glands almost only on their paws and cool down by panting.",
+   "k": "Horses: sweat all over their body"
   },
   "fr": {
    "q": "Qui transpire de tout son corps ?",
@@ -894,7 +994,8 @@
     "Cheval",
     "Chien"
    ],
-   "x": "Le cheval transpire de tout son corps, comme nous. Le chien n’a des glandes sudoripares presque qu’aux coussinets et se rafraîchit en haletant."
+   "x": "Le cheval transpire de tout son corps, comme nous. Le chien n’a des glandes sudoripares presque qu’aux coussinets et se rafraîchit en haletant.",
+   "k": "Chevaux : transpirent sur tout le corps"
   },
   "es": {
    "q": "¿Quién suda por todo el cuerpo?",
@@ -902,7 +1003,8 @@
     "Caballo",
     "Perro"
    ],
-   "x": "El caballo suda por todo el cuerpo como nosotros. El perro casi solo tiene glándulas sudoríparas en las almohadillas y se refresca jadeando."
+   "x": "El caballo suda por todo el cuerpo como nosotros. El perro casi solo tiene glándulas sudoríparas en las almohadillas y se refresca jadeando.",
+   "k": "Caballos: sudan por todo el cuerpo"
   },
   "pt": {
    "q": "Quem sua pelo corpo todo?",
@@ -910,7 +1012,8 @@
     "Cavalo",
     "Cachorro"
    ],
-   "x": "O cavalo sua pelo corpo todo, como nós. O cachorro tem glândulas de suor quase só nas almofadinhas das patas e se refresca ofegando."
+   "x": "O cavalo sua pelo corpo todo, como nós. O cachorro tem glândulas de suor quase só nas almofadinhas das patas e se refresca ofegando.",
+   "k": "Cavalos: suam no corpo todo"
   },
   "ja": {
    "q": "全身で汗をかくのはどっち？",
@@ -918,7 +1021,8 @@
     "ウマ",
     "イヌ"
    ],
-   "x": "ウマは人と同じように全身で汗をかきます。イヌの汗腺はほぼ足の裏だけで、ハアハアと息をして体を冷やします。"
+   "x": "ウマは人と同じように全身で汗をかきます。イヌの汗腺はほぼ足の裏だけで、ハアハアと息をして体を冷やします。",
+   "k": "ウマ：全身で汗をかく"
   },
   "it": {
    "q": "Chi suda su tutto il corpo?",
@@ -926,7 +1030,8 @@
     "Cavallo",
     "Cane"
    ],
-   "x": "I cavalli sudano su tutto il corpo come noi. I cani hanno ghiandole sudoripare quasi solo sulle zampe e si rinfrescano ansimando."
+   "x": "I cavalli sudano su tutto il corpo come noi. I cani hanno ghiandole sudoripare quasi solo sulle zampe e si rinfrescano ansimando.",
+   "k": "Cavalli: sudano su tutto il corpo"
   }
  },
  {
@@ -940,7 +1045,8 @@
     "See-Elefant",
     "Seelöwe"
    ],
-   "x": "See-Elefanten tauchen bis etwa 2 Stunden und über 1.000 m tief. Seelöwen bleiben meist nur wenige Minuten unten."
+   "x": "See-Elefanten tauchen bis etwa 2 Stunden und über 1.000 m tief. Seelöwen bleiben meist nur wenige Minuten unten.",
+   "k": "See-Elefant: taucht bis zu 2 Stunden"
   },
   "en": {
    "q": "Who stays underwater longer?",
@@ -948,7 +1054,8 @@
     "Elephant seal",
     "Sea lion"
    ],
-   "x": "Elephant seals dive for up to about 2 hours and over 1,000 m deep. Sea lions usually stay down only a few minutes."
+   "x": "Elephant seals dive for up to about 2 hours and over 1,000 m deep. Sea lions usually stay down only a few minutes.",
+   "k": "Elephant seal: dives for up to 2 hours"
   },
   "fr": {
    "q": "Qui reste le plus longtemps sous l’eau ?",
@@ -956,7 +1063,8 @@
     "Éléphant de mer",
     "Otarie"
    ],
-   "x": "L’éléphant de mer plonge jusqu’à environ 2 heures et à plus de 1 000 m. L’otarie ne reste en général que quelques minutes."
+   "x": "L’éléphant de mer plonge jusqu’à environ 2 heures et à plus de 1 000 m. L’otarie ne reste en général que quelques minutes.",
+   "k": "Éléphant de mer : plonge jusqu’à 2 heures"
   },
   "es": {
    "q": "¿Quién aguanta más bajo el agua?",
@@ -964,7 +1072,8 @@
     "Elefante marino",
     "León marino"
    ],
-   "x": "El elefante marino bucea hasta unas 2 horas y a más de 1.000 m. El león marino suele quedarse solo unos minutos."
+   "x": "El elefante marino bucea hasta unas 2 horas y a más de 1.000 m. El león marino suele quedarse solo unos minutos.",
+   "k": "Elefante marino: bucea hasta 2 horas"
   },
   "pt": {
    "q": "Quem aguenta mais tempo debaixo d’água?",
@@ -972,7 +1081,8 @@
     "Elefante-marinho",
     "Leão-marinho"
    ],
-   "x": "O elefante-marinho mergulha por até cerca de 2 horas e a mais de 1.000 m. O leão-marinho costuma ficar só alguns minutos."
+   "x": "O elefante-marinho mergulha por até cerca de 2 horas e a mais de 1.000 m. O leão-marinho costuma ficar só alguns minutos.",
+   "k": "Elefante-marinho: mergulha até 2 horas"
   },
   "ja": {
    "q": "水中に長くいられるのはどっち？",
@@ -980,7 +1090,8 @@
     "ゾウアザラシ",
     "アシカ"
    ],
-   "x": "ゾウアザラシは最大約2時間、水深1000メートル以上まで潜ります。アシカはふつう数分で上がってきます。"
+   "x": "ゾウアザラシは最大約2時間、水深1000メートル以上まで潜ります。アシカはふつう数分で上がってきます。",
+   "k": "ゾウアザラシ：最大2時間潜る"
   },
   "it": {
    "q": "Chi resta più a lungo sott’acqua?",
@@ -988,7 +1099,8 @@
     "Elefante marino",
     "Leone marino"
    ],
-   "x": "Gli elefanti marini si immergono fino a circa 2 ore e a oltre 1.000 m di profondità. I leoni marini di solito restano giù solo pochi minuti."
+   "x": "Gli elefanti marini si immergono fino a circa 2 ore e a oltre 1.000 m di profondità. I leoni marini di solito restano giù solo pochi minuti.",
+   "k": "Elefante marino: si immerge fino a 2 ore"
   }
  },
  {
@@ -1002,7 +1114,8 @@
     "Libelle",
     "Honigbiene"
    ],
-   "x": "Große Libellen erreichen über 50 km/h und fangen ihre Beute im Flug. Honigbienen fliegen etwa 25 bis 30 km/h."
+   "x": "Große Libellen erreichen über 50 km/h und fangen ihre Beute im Flug. Honigbienen fliegen etwa 25 bis 30 km/h.",
+   "k": "Libellen: fliegen über 50 km/h"
   },
   "en": {
    "q": "Who flies faster?",
@@ -1010,7 +1123,8 @@
     "Dragonfly",
     "Honeybee"
    ],
-   "x": "Large dragonflies reach over 50 km/h and catch their prey in flight. Honeybees fly at about 25 to 30 km/h."
+   "x": "Large dragonflies reach over 50 km/h and catch their prey in flight. Honeybees fly at about 25 to 30 km/h.",
+   "k": "Dragonflies: fly over 50 km/h"
   },
   "fr": {
    "q": "Qui vole le plus vite ?",
@@ -1018,7 +1132,8 @@
     "Libellule",
     "Abeille"
    ],
-   "x": "Les grandes libellules dépassent 50 km/h et attrapent leurs proies en vol. L’abeille vole à environ 25 à 30 km/h."
+   "x": "Les grandes libellules dépassent 50 km/h et attrapent leurs proies en vol. L’abeille vole à environ 25 à 30 km/h.",
+   "k": "Libellules : volent à plus de 50 km/h"
   },
   "es": {
    "q": "¿Quién vuela más rápido?",
@@ -1026,7 +1141,8 @@
     "Libélula",
     "Abeja"
    ],
-   "x": "Las libélulas grandes superan los 50 km/h y cazan en pleno vuelo. La abeja vuela a unos 25-30 km/h."
+   "x": "Las libélulas grandes superan los 50 km/h y cazan en pleno vuelo. La abeja vuela a unos 25-30 km/h.",
+   "k": "Libélulas: vuelan a más de 50 km/h"
   },
   "pt": {
    "q": "Quem voa mais rápido?",
@@ -1034,7 +1150,8 @@
     "Libélula",
     "Abelha"
    ],
-   "x": "Libélulas grandes passam dos 50 km/h e caçam em pleno voo. A abelha voa a uns 25–30 km/h."
+   "x": "Libélulas grandes passam dos 50 km/h e caçam em pleno voo. A abelha voa a uns 25–30 km/h.",
+   "k": "Libélulas: voam a mais de 50 km/h"
   },
   "ja": {
    "q": "飛ぶのが速いのはどっち？",
@@ -1042,7 +1159,8 @@
     "トンボ",
     "ミツバチ"
    ],
-   "x": "大きなトンボは時速50キロ以上で飛び、飛びながら獲物をつかまえます。ミツバチは時速25〜30キロほどです。"
+   "x": "大きなトンボは時速50キロ以上で飛び、飛びながら獲物をつかまえます。ミツバチは時速25〜30キロほどです。",
+   "k": "トンボ：時速50キロ以上で飛ぶ"
   },
   "it": {
    "q": "Chi vola più veloce?",
@@ -1050,7 +1168,8 @@
     "Libellula",
     "Ape mellifera"
    ],
-   "x": "Le grandi libellule superano i 50 km/h e catturano le prede in volo. Le api volano a circa 25–30 km/h."
+   "x": "Le grandi libellule superano i 50 km/h e catturano le prede in volo. Le api volano a circa 25–30 km/h.",
+   "k": "Libellule: volano oltre 50 km/h"
   }
  },
  {
@@ -1064,7 +1183,8 @@
     "Delfin",
     "Rochen"
    ],
-   "x": "Rochen sind im Grunde platte Haie – ebenfalls mit Knorpelskelett. Delfine sind Säugetiere und atmen Luft."
+   "x": "Rochen sind im Grunde platte Haie – ebenfalls mit Knorpelskelett. Delfine sind Säugetiere und atmen Luft.",
+   "k": "Rochen: plattgedrückte Haie"
   },
   "en": {
    "q": "Who is more closely related to the shark?",
@@ -1072,7 +1192,8 @@
     "Dolphin",
     "Ray"
    ],
-   "x": "Rays are basically flattened sharks – also with a cartilage skeleton. Dolphins are mammals and breathe air."
+   "x": "Rays are basically flattened sharks – also with a cartilage skeleton. Dolphins are mammals and breathe air.",
+   "k": "Rays: flattened sharks"
   },
   "fr": {
    "q": "Qui est le plus proche parent du requin ?",
@@ -1080,7 +1201,8 @@
     "Dauphin",
     "Raie"
    ],
-   "x": "La raie est en somme un requin aplati – elle aussi à squelette de cartilage. Le dauphin est un mammifère qui respire de l’air."
+   "x": "La raie est en somme un requin aplati – elle aussi à squelette de cartilage. Le dauphin est un mammifère qui respire de l’air.",
+   "k": "Raies : des requins aplatis"
   },
   "es": {
    "q": "¿Quién es pariente más cercano del tiburón?",
@@ -1088,7 +1210,8 @@
     "Delfín",
     "Raya"
    ],
-   "x": "La raya es básicamente un tiburón aplanado, también con esqueleto de cartílago. El delfín es un mamífero y respira aire."
+   "x": "La raya es básicamente un tiburón aplanado, también con esqueleto de cartílago. El delfín es un mamífero y respira aire.",
+   "k": "Rayas: tiburones aplastados"
   },
   "pt": {
    "q": "Quem é parente mais próximo do tubarão?",
@@ -1096,7 +1219,8 @@
     "Golfinho",
     "Raia"
    ],
-   "x": "A raia é basicamente um tubarão achatado, também com esqueleto de cartilagem. O golfinho é um mamífero e respira ar."
+   "x": "A raia é basicamente um tubarão achatado, também com esqueleto de cartilagem. O golfinho é um mamífero e respira ar.",
+   "k": "Raias: tubarões achatados"
   },
   "ja": {
    "q": "サメに近い親せきはどっち？",
@@ -1104,7 +1228,8 @@
     "イルカ",
     "エイ"
    ],
-   "x": "エイは平たくなったサメのようなもの。骨格も同じく軟骨です。イルカは哺乳類で、空気を吸って呼吸します。"
+   "x": "エイは平たくなったサメのようなもの。骨格も同じく軟骨です。イルカは哺乳類で、空気を吸って呼吸します。",
+   "k": "エイ：平たくなったサメ"
   },
   "it": {
    "q": "Chi è più vicino parente dello squalo?",
@@ -1112,7 +1237,8 @@
     "Delfino",
     "Razza"
    ],
-   "x": "Le razze sono in pratica squali appiattiti, anche loro con lo scheletro di cartilagine. I delfini sono mammiferi e respirano aria."
+   "x": "Le razze sono in pratica squali appiattiti, anche loro con lo scheletro di cartilagine. I delfini sono mammiferi e respirano aria.",
+   "k": "Razze: squali appiattiti"
   }
  },
  {
@@ -1126,7 +1252,8 @@
     "Fangschreckenkrebs",
     "Mensch"
    ],
-   "x": "Fangschreckenkrebse haben 12 Sorten Farbrezeptoren, wir nur 3. Trotzdem unterscheiden sie Farben eher schlechter – ihr Gehirn wertet sie anders aus."
+   "x": "Fangschreckenkrebse haben 12 Sorten Farbrezeptoren, wir nur 3. Trotzdem unterscheiden sie Farben eher schlechter – ihr Gehirn wertet sie anders aus.",
+   "k": "Fangschreckenkrebs: 12 Farbrezeptoren, wir nur 3"
   },
   "en": {
    "q": "Who has more kinds of colour receptors in its eyes?",
@@ -1134,7 +1261,8 @@
     "Mantis shrimp",
     "Human"
    ],
-   "x": "Mantis shrimps have 12 kinds of colour receptors, we have only 3. Even so, they’re actually worse at telling colours apart – their brain processes them differently."
+   "x": "Mantis shrimps have 12 kinds of colour receptors, we have only 3. Even so, they’re actually worse at telling colours apart – their brain processes them differently.",
+   "k": "Mantis shrimp: 12 colour receptors, we have 3"
   },
   "fr": {
    "q": "Qui a le plus de types de cellules des couleurs dans l’œil ?",
@@ -1142,7 +1270,8 @@
     "Crevette-mante",
     "Humain"
    ],
-   "x": "La crevette-mante a 12 sortes de récepteurs de couleur, nous seulement 3. Pourtant, elle distingue plutôt moins bien les couleurs – son cerveau les traite autrement."
+   "x": "La crevette-mante a 12 sortes de récepteurs de couleur, nous seulement 3. Pourtant, elle distingue plutôt moins bien les couleurs – son cerveau les traite autrement.",
+   "k": "Squille : 12 récepteurs de couleur, nous 3"
   },
   "es": {
    "q": "¿Quién tiene más tipos de células del color en el ojo?",
@@ -1150,7 +1279,8 @@
     "Camarón mantis",
     "Humano"
    ],
-   "x": "El camarón mantis tiene 12 tipos de receptores de color y nosotros solo 3. Aun así, distingue peor los colores: su cerebro los procesa de otra forma."
+   "x": "El camarón mantis tiene 12 tipos de receptores de color y nosotros solo 3. Aun así, distingue peor los colores: su cerebro los procesa de otra forma.",
+   "k": "Galera pavo real: 12 receptores de color, nosotros 3"
   },
   "pt": {
    "q": "Quem tem mais tipos de células de cor no olho?",
@@ -1158,7 +1288,8 @@
     "Tamarutaca",
     "Humano"
    ],
-   "x": "A tamarutaca tem 12 tipos de receptores de cor, e nós só 3. Mesmo assim, ela diferencia cores pior: seu cérebro processa as cores de outro jeito."
+   "x": "A tamarutaca tem 12 tipos de receptores de cor, e nós só 3. Mesmo assim, ela diferencia cores pior: seu cérebro processa as cores de outro jeito.",
+   "k": "Tamarutaca: 12 receptores de cor, nós 3"
   },
   "ja": {
    "q": "目の色を感じる細胞の種類が多いのはどっち？",
@@ -1166,7 +1297,8 @@
     "シャコ",
     "人間"
    ],
-   "x": "シャコには色を感じる細胞が12種類、私たちには3種類しかありません。それでも、色の見分けはむしろ苦手。脳での処理のしかたがちがうのです。"
+   "x": "シャコには色を感じる細胞が12種類、私たちには3種類しかありません。それでも、色の見分けはむしろ苦手。脳での処理のしかたがちがうのです。",
+   "k": "シャコ：色の受容体12種類、人は3種類"
   },
   "it": {
    "q": "Chi ha più tipi di recettori del colore negli occhi?",
@@ -1174,7 +1306,8 @@
     "Canocchia pavone",
     "Essere umano"
    ],
-   "x": "La canocchia pavone ha 12 tipi di recettori del colore, noi solo 3. Eppure distingue i colori peggio: il suo cervello li elabora in modo diverso."
+   "x": "La canocchia pavone ha 12 tipi di recettori del colore, noi solo 3. Eppure distingue i colori peggio: il suo cervello li elabora in modo diverso.",
+   "k": "Canocchia pavone: 12 recettori del colore, noi 3"
   }
  },
  {
@@ -1188,7 +1321,8 @@
     "Alle Ameisen",
     "Alle Menschen"
    ],
-   "x": "Eine Studie von 2022 schätzt: Alle Ameisen der Welt wiegen zusammen etwa ein Fünftel so viel wie alle Menschen. Es sind zwar 20 Billiarden – aber jede ist winzig."
+   "x": "Eine Studie von 2022 schätzt: Alle Ameisen der Welt wiegen zusammen etwa ein Fünftel so viel wie alle Menschen. Es sind zwar 20 Billiarden – aber jede ist winzig.",
+   "k": "Alle Ameisen: wiegen ein Fünftel aller Menschen"
   },
   "en": {
    "q": "What weighs more in total?",
@@ -1196,7 +1330,8 @@
     "All ants",
     "All humans"
    ],
-   "x": "A 2022 study estimated that all the ants in the world together weigh about a fifth as much as all humans. There are 20 quadrillion of them – but each one is tiny."
+   "x": "A 2022 study estimated that all the ants in the world together weigh about a fifth as much as all humans. There are 20 quadrillion of them – but each one is tiny.",
+   "k": "All ants: weigh a fifth of all humans"
   },
   "fr": {
    "q": "Qu’est-ce qui pèse le plus au total ?",
@@ -1204,7 +1339,8 @@
     "Toutes les fourmis",
     "Tous les humains"
    ],
-   "x": "Une étude de 2022 estime que toutes les fourmis du monde pèsent ensemble environ un cinquième du poids de tous les humains. Elles sont 20 millions de milliards – mais minuscules."
+   "x": "Une étude de 2022 estime que toutes les fourmis du monde pèsent ensemble environ un cinquième du poids de tous les humains. Elles sont 20 millions de milliards – mais minuscules.",
+   "k": "Toutes les fourmis : un cinquième du poids des humains"
   },
   "es": {
    "q": "¿Qué pesa más en total?",
@@ -1212,7 +1348,8 @@
     "Todas las hormigas",
     "Todos los humanos"
    ],
-   "x": "Un estudio de 2022 calcula que todas las hormigas del mundo juntas pesan una quinta parte que todos los humanos. Son 20.000 billones, pero cada una es diminuta."
+   "x": "Un estudio de 2022 calcula que todas las hormigas del mundo juntas pesan una quinta parte que todos los humanos. Son 20.000 billones, pero cada una es diminuta.",
+   "k": "Todas las hormigas: pesan un quinto de los humanos"
   },
   "pt": {
    "q": "O que pesa mais no total?",
@@ -1220,7 +1357,8 @@
     "Todas as formigas",
     "Todos os humanos"
    ],
-   "x": "Um estudo de 2022 calcula que todas as formigas do mundo juntas pesam um quinto do peso de todos os humanos. São 20 quatrilhões, mas cada uma é minúscula."
+   "x": "Um estudo de 2022 calcula que todas as formigas do mundo juntas pesam um quinto do peso de todos os humanos. São 20 quatrilhões, mas cada uma é minúscula.",
+   "k": "Todas as formigas: pesam um quinto dos humanos"
   },
   "ja": {
    "q": "全部合わせると重いのはどっち？",
@@ -1228,7 +1366,8 @@
     "世界中のアリ",
     "世界中の人間"
    ],
-   "x": "2022年の研究では、世界中のアリを合わせた重さは、人間全体の約5分の1と推定されています。2京匹もいますが、1匹1匹はとても小さいのです。"
+   "x": "2022年の研究では、世界中のアリを合わせた重さは、人間全体の約5分の1と推定されています。2京匹もいますが、1匹1匹はとても小さいのです。",
+   "k": "世界のアリ：人類の5分の1の重さ"
   },
   "it": {
    "q": "Cosa pesa di più in totale?",
@@ -1236,7 +1375,8 @@
     "Tutte le formiche",
     "Tutti gli esseri umani"
    ],
-   "x": "Secondo uno studio del 2022, tutte le formiche del mondo insieme pesano circa un quinto di tutti gli esseri umani. Sono 20 biliardi, ma ognuna è minuscola."
+   "x": "Secondo uno studio del 2022, tutte le formiche del mondo insieme pesano circa un quinto di tutti gli esseri umani. Sono 20 biliardi, ma ognuna è minuscola.",
+   "k": "Tutte le formiche: un quinto del peso degli umani"
   }
  },
  {
@@ -1250,7 +1390,8 @@
     "Das Männchen",
     "Das Weibchen"
    ],
-   "x": "Das Männchen hält das Ei zwei Monate lang auf den Füßen unter einer Bauchfalte – im antarktischen Winter, ohne zu fressen. Das Weibchen ist so lange auf dem Meer."
+   "x": "Das Männchen hält das Ei zwei Monate lang auf den Füßen unter einer Bauchfalte – im antarktischen Winter, ohne zu fressen. Das Weibchen ist so lange auf dem Meer.",
+   "k": "Kaiserpinguin: das Männchen brütet das Ei aus"
   },
   "en": {
    "q": "Who incubates the egg in emperor penguins?",
@@ -1258,7 +1399,8 @@
     "The male",
     "The female"
    ],
-   "x": "The male holds the egg on his feet under a fold of belly skin for two months – in the Antarctic winter, without eating. The female is out at sea all that time."
+   "x": "The male holds the egg on his feet under a fold of belly skin for two months – in the Antarctic winter, without eating. The female is out at sea all that time.",
+   "k": "Emperor penguin: the male incubates the egg"
   },
   "fr": {
    "q": "Qui couve l’œuf chez le manchot empereur ?",
@@ -1266,7 +1408,8 @@
     "Le mâle",
     "La femelle"
    ],
-   "x": "Le mâle garde l’œuf deux mois sur ses pattes, sous un repli du ventre – en plein hiver antarctique, sans manger. La femelle est en mer pendant ce temps."
+   "x": "Le mâle garde l’œuf deux mois sur ses pattes, sous un repli du ventre – en plein hiver antarctique, sans manger. La femelle est en mer pendant ce temps.",
+   "k": "Manchot empereur : le mâle couve l’œuf"
   },
   "es": {
    "q": "¿Quién incuba el huevo en el pingüino emperador?",
@@ -1274,7 +1417,8 @@
     "El macho",
     "La hembra"
    ],
-   "x": "El macho sostiene el huevo dos meses sobre las patas bajo un pliegue del vientre, en pleno invierno antártico y sin comer. La hembra está mientras tanto en el mar."
+   "x": "El macho sostiene el huevo dos meses sobre las patas bajo un pliegue del vientre, en pleno invierno antártico y sin comer. La hembra está mientras tanto en el mar.",
+   "k": "Pingüino emperador: el macho incuba el huevo"
   },
   "pt": {
    "q": "Quem choca o ovo no pinguim-imperador?",
@@ -1282,7 +1426,8 @@
     "O macho",
     "A fêmea"
    ],
-   "x": "O macho segura o ovo por dois meses sobre os pés, debaixo de uma dobra da barriga, em pleno inverno antártico e sem comer. A fêmea fica enquanto isso no mar."
+   "x": "O macho segura o ovo por dois meses sobre os pés, debaixo de uma dobra da barriga, em pleno inverno antártico e sem comer. A fêmea fica enquanto isso no mar.",
+   "k": "Pinguim-imperador: o macho choca o ovo"
   },
   "ja": {
    "q": "コウテイペンギンで卵を温めるのはどっち？",
@@ -1290,7 +1435,8 @@
     "オス",
     "メス"
    ],
-   "x": "オスは2か月間、卵を足の上にのせておなかの皮でおおいます。南極の冬に、何も食べずに。その間メスは海にいます。"
+   "x": "オスは2か月間、卵を足の上にのせておなかの皮でおおいます。南極の冬に、何も食べずに。その間メスは海にいます。",
+   "k": "コウテイペンギン：オスが卵を温める"
   },
   "it": {
    "q": "Chi cova l’uovo nel pinguino imperatore?",
@@ -1298,7 +1444,8 @@
     "Il maschio",
     "La femmina"
    ],
-   "x": "Il maschio tiene l’uovo sui piedi sotto una piega della pancia per due mesi, nell’inverno antartico e senza mangiare. Nel frattempo la femmina è in mare."
+   "x": "Il maschio tiene l’uovo sui piedi sotto una piega della pancia per due mesi, nell’inverno antartico e senza mangiare. Nel frattempo la femmina è in mare.",
+   "k": "Pinguino imperatore: il maschio cova l’uovo"
   }
  },
  {
@@ -1312,7 +1459,8 @@
     "Seestern",
     "Tintenfisch"
    ],
-   "x": "Kaum zu glauben: Seesterne und Seeigel gehören zu derselben großen Tiergruppe wie die Wirbeltiere. Tintenfische sind Weichtiere und stehen uns ferner."
+   "x": "Kaum zu glauben: Seesterne und Seeigel gehören zu derselben großen Tiergruppe wie die Wirbeltiere. Tintenfische sind Weichtiere und stehen uns ferner.",
+   "k": "Seesterne: näher mit uns verwandt als Tintenfische"
   },
   "en": {
    "q": "Who is more closely related to us humans?",
@@ -1320,7 +1468,8 @@
     "Starfish",
     "Squid"
    ],
-   "x": "Hard to believe: starfish and sea urchins belong to the same big animal group as vertebrates. Squids are molluscs and further from us."
+   "x": "Hard to believe: starfish and sea urchins belong to the same big animal group as vertebrates. Squids are molluscs and further from us.",
+   "k": "Starfish: closer to us than squids are"
   },
   "fr": {
    "q": "Qui est le plus proche parent de l’être humain ?",
@@ -1328,7 +1477,8 @@
     "Étoile de mer",
     "Calmar"
    ],
-   "x": "Incroyable : étoiles de mer et oursins font partie du même grand groupe que les vertébrés. Le calmar est un mollusque, plus éloigné de nous."
+   "x": "Incroyable : étoiles de mer et oursins font partie du même grand groupe que les vertébrés. Le calmar est un mollusque, plus éloigné de nous.",
+   "k": "Étoiles de mer : plus proches de nous que les calmars"
   },
   "es": {
    "q": "¿Quién es pariente más cercano de los humanos?",
@@ -1336,7 +1486,8 @@
     "Estrella de mar",
     "Calamar"
    ],
-   "x": "Aunque cueste creerlo, estrellas y erizos de mar pertenecen al mismo gran grupo que los vertebrados. El calamar es un molusco, más lejano a nosotros."
+   "x": "Aunque cueste creerlo, estrellas y erizos de mar pertenecen al mismo gran grupo que los vertebrados. El calamar es un molusco, más lejano a nosotros.",
+   "k": "Estrellas de mar: más cerca de nosotros que los calamares"
   },
   "pt": {
    "q": "Quem é parente mais próximo dos humanos?",
@@ -1344,7 +1495,8 @@
     "Estrela-do-mar",
     "Lula"
    ],
-   "x": "Parece incrível, mas estrelas-do-mar e ouriços-do-mar pertencem ao mesmo grande grupo que os vertebrados. A lula é um molusco, mais distante de nós."
+   "x": "Parece incrível, mas estrelas-do-mar e ouriços-do-mar pertencem ao mesmo grande grupo que os vertebrados. A lula é um molusco, mais distante de nós.",
+   "k": "Estrelas-do-mar: mais perto de nós que as lulas"
   },
   "ja": {
    "q": "私たち人間に近い親せきはどっち？",
@@ -1352,7 +1504,8 @@
     "ヒトデ",
     "イカ"
    ],
-   "x": "信じられないけれど、ヒトデやウニは脊椎動物と同じ大きな動物グループに入ります。イカは軟体動物で、私たちからは遠い存在です。"
+   "x": "信じられないけれど、ヒトデやウニは脊椎動物と同じ大きな動物グループに入ります。イカは軟体動物で、私たちからは遠い存在です。",
+   "k": "ヒトデ：イカより人間に近い"
   },
   "it": {
    "q": "Chi è più vicino parente di noi esseri umani?",
@@ -1360,7 +1513,8 @@
     "Stella marina",
     "Calamaro"
    ],
-   "x": "Difficile da credere: stelle e ricci di mare fanno parte dello stesso grande gruppo dei vertebrati. I calamari sono molluschi e più lontani da noi."
+   "x": "Difficile da credere: stelle e ricci di mare fanno parte dello stesso grande gruppo dei vertebrati. I calamari sono molluschi e più lontani da noi.",
+   "k": "Stelle marine: più vicine a noi dei calamari"
   }
  },
  {
@@ -1374,7 +1528,8 @@
     "Delfin",
     "Hund"
    ],
-   "x": "Delfine schlafen abwechselnd mit einer Gehirnhälfte. Die andere bleibt wach – so atmen sie weiter und achten auf Gefahren."
+   "x": "Delfine schlafen abwechselnd mit einer Gehirnhälfte. Die andere bleibt wach – so atmen sie weiter und achten auf Gefahren.",
+   "k": "Delfine: schlafen mit halbem Gehirn"
   },
   "en": {
    "q": "Who sleeps with half its brain?",
@@ -1382,7 +1537,8 @@
     "Dolphin",
     "Dog"
    ],
-   "x": "Dolphins sleep with one half of their brain at a time. The other half stays awake – so they keep breathing and watch for danger."
+   "x": "Dolphins sleep with one half of their brain at a time. The other half stays awake – so they keep breathing and watch for danger.",
+   "k": "Dolphins: sleep with half their brain"
   },
   "fr": {
    "q": "Qui dort avec une moitié de cerveau ?",
@@ -1390,7 +1546,8 @@
     "Dauphin",
     "Chien"
    ],
-   "x": "Le dauphin dort avec une moitié du cerveau à la fois. L’autre reste éveillée – il continue ainsi à respirer et à guetter le danger."
+   "x": "Le dauphin dort avec une moitié du cerveau à la fois. L’autre reste éveillée – il continue ainsi à respirer et à guetter le danger.",
+   "k": "Dauphins : dorment d’un demi-cerveau"
   },
   "es": {
    "q": "¿Quién duerme con medio cerebro?",
@@ -1398,7 +1555,8 @@
     "Delfín",
     "Perro"
    ],
-   "x": "El delfín duerme con una mitad del cerebro cada vez. La otra sigue despierta, así sigue respirando y vigila los peligros."
+   "x": "El delfín duerme con una mitad del cerebro cada vez. La otra sigue despierta, así sigue respirando y vigila los peligros.",
+   "k": "Delfines: duermen con medio cerebro"
   },
   "pt": {
    "q": "Quem dorme com metade do cérebro?",
@@ -1406,7 +1564,8 @@
     "Golfinho",
     "Cachorro"
    ],
-   "x": "O golfinho dorme com uma metade do cérebro de cada vez. A outra continua acordada – assim ele segue respirando e fica atento aos perigos."
+   "x": "O golfinho dorme com uma metade do cérebro de cada vez. A outra continua acordada – assim ele segue respirando e fica atento aos perigos.",
+   "k": "Golfinhos: dormem com meio cérebro"
   },
   "ja": {
    "q": "脳の半分ずつ眠るのはどっち？",
@@ -1414,7 +1573,8 @@
     "イルカ",
     "イヌ"
    ],
-   "x": "イルカは脳の半分ずつ眠ります。もう半分は起きていて、呼吸を続け、危険を見張ります。"
+   "x": "イルカは脳の半分ずつ眠ります。もう半分は起きていて、呼吸を続け、危険を見張ります。",
+   "k": "イルカ：脳の半分ずつ眠る"
   },
   "it": {
    "q": "Chi dorme con metà cervello?",
@@ -1422,7 +1582,8 @@
     "Delfino",
     "Cane"
    ],
-   "x": "I delfini dormono con una metà del cervello alla volta. L’altra resta sveglia: così continuano a respirare e controllano i pericoli."
+   "x": "I delfini dormono con una metà del cervello alla volta. L’altra resta sveglia: così continuano a respirare e controllano i pericoli.",
+   "k": "Delfini: dormono con mezzo cervello"
   }
  },
  {
@@ -1436,7 +1597,8 @@
     "Grüner Leguan",
     "Stirnlappenbasilisk"
    ],
-   "x": "Der Basilisk rennt auf den Hinterbeinen übers Wasser: Er schlägt die Füße so schnell auf, dass er nicht einsinkt. Leguane schwimmen."
+   "x": "Der Basilisk rennt auf den Hinterbeinen übers Wasser: Er schlägt die Füße so schnell auf, dass er nicht einsinkt. Leguane schwimmen.",
+   "k": "Basilisk: rennt übers Wasser"
   },
   "en": {
    "q": "Who can run across water?",
@@ -1444,7 +1606,8 @@
     "Green iguana",
     "Plumed basilisk"
    ],
-   "x": "The basilisk runs across water on its hind legs: it slaps its feet down so fast that it doesn’t sink. Iguanas swim."
+   "x": "The basilisk runs across water on its hind legs: it slaps its feet down so fast that it doesn’t sink. Iguanas swim.",
+   "k": "Basilisk: runs across water"
   },
   "fr": {
    "q": "Qui peut courir sur l’eau ?",
@@ -1452,7 +1615,8 @@
     "Iguane vert",
     "Basilic vert"
    ],
-   "x": "Le basilic court sur l’eau sur ses pattes arrière : il frappe la surface si vite qu’il ne s’enfonce pas. L’iguane, lui, nage."
+   "x": "Le basilic court sur l’eau sur ses pattes arrière : il frappe la surface si vite qu’il ne s’enfonce pas. L’iguane, lui, nage.",
+   "k": "Basilic : court sur l’eau"
   },
   "es": {
    "q": "¿Quién puede correr sobre el agua?",
@@ -1460,7 +1624,8 @@
     "Iguana verde",
     "Basilisco verde"
    ],
-   "x": "El basilisco corre sobre el agua con las patas traseras: golpea la superficie tan rápido que no se hunde. La iguana nada."
+   "x": "El basilisco corre sobre el agua con las patas traseras: golpea la superficie tan rápido que no se hunde. La iguana nada.",
+   "k": "Basilisco: corre sobre el agua"
   },
   "pt": {
    "q": "Quem consegue correr sobre a água?",
@@ -1468,7 +1633,8 @@
     "Iguana-verde",
     "Basilisco-verde"
    ],
-   "x": "O basilisco corre sobre a água com as patas traseiras: bate na superfície tão rápido que não afunda. A iguana nada."
+   "x": "O basilisco corre sobre a água com as patas traseiras: bate na superfície tão rápido que não afunda. A iguana nada.",
+   "k": "Basilisco: corre sobre a água"
   },
   "ja": {
    "q": "水の上を走れるのはどっち？",
@@ -1476,7 +1642,8 @@
     "グリーンイグアナ",
     "グリーンバシリスク"
    ],
-   "x": "バシリスクは後ろ脚で水の上を走ります。すばやく足をたたきつけるので沈まないのです。イグアナは泳ぎます。"
+   "x": "バシリスクは後ろ脚で水の上を走ります。すばやく足をたたきつけるので沈まないのです。イグアナは泳ぎます。",
+   "k": "バシリスク：水の上を走る"
   },
   "it": {
    "q": "Chi sa correre sull’acqua?",
@@ -1484,7 +1651,8 @@
     "Iguana verde",
     "Basilisco piumato"
    ],
-   "x": "Il basilisco corre sull’acqua sulle zampe posteriori: batte i piedi così in fretta da non affondare. Le iguane nuotano."
+   "x": "Il basilisco corre sull’acqua sulle zampe posteriori: batte i piedi così in fretta da non affondare. Le iguane nuotano.",
+   "k": "Basilisco: corre sull’acqua"
   }
  },
  {
@@ -1498,7 +1666,8 @@
     "Höckerschwan",
     "Stockente"
    ],
-   "x": "Schwanenpaare bleiben meist zusammen, solange beide leben. Stockenten suchen sich jedes Jahr einen neuen Partner."
+   "x": "Schwanenpaare bleiben meist zusammen, solange beide leben. Stockenten suchen sich jedes Jahr einen neuen Partner.",
+   "k": "Schwäne: bleiben meist ein Leben lang zusammen"
   },
   "en": {
    "q": "Who usually stays with the same partner for life?",
@@ -1506,7 +1675,8 @@
     "Mute swan",
     "Mallard"
    ],
-   "x": "Swan pairs usually stay together as long as both are alive. Mallards find a new partner every year."
+   "x": "Swan pairs usually stay together as long as both are alive. Mallards find a new partner every year.",
+   "k": "Swans: usually pair for life"
   },
   "fr": {
    "q": "Qui reste en général avec le même partenaire toute sa vie ?",
@@ -1514,7 +1684,8 @@
     "Cygne tuberculé",
     "Canard colvert"
    ],
-   "x": "Les couples de cygnes restent en général ensemble toute leur vie. Le colvert change de partenaire chaque année."
+   "x": "Les couples de cygnes restent en général ensemble toute leur vie. Le colvert change de partenaire chaque année.",
+   "k": "Cygnes : souvent en couple pour la vie"
   },
   "es": {
    "q": "¿Quién suele quedarse con la misma pareja toda la vida?",
@@ -1522,7 +1693,8 @@
     "Cisne vulgar",
     "Ánade real"
    ],
-   "x": "Las parejas de cisnes suelen seguir juntas mientras viven. El ánade real busca pareja nueva cada año."
+   "x": "Las parejas de cisnes suelen seguir juntas mientras viven. El ánade real busca pareja nueva cada año.",
+   "k": "Cisnes: suelen ser pareja de por vida"
   },
   "pt": {
    "q": "Quem costuma ficar com o mesmo par a vida toda?",
@@ -1530,7 +1702,8 @@
     "Cisne-branco",
     "Pato-real"
    ],
-   "x": "Os casais de cisnes costumam ficar juntos enquanto vivem. O pato-real procura um novo par todo ano."
+   "x": "Os casais de cisnes costumam ficar juntos enquanto vivem. O pato-real procura um novo par todo ano.",
+   "k": "Cisnes: costumam ficar juntos a vida toda"
   },
   "ja": {
    "q": "ふつう一生同じパートナーといるのはどっち？",
@@ -1538,7 +1711,8 @@
     "コブハクチョウ",
     "マガモ"
    ],
-   "x": "ハクチョウのペアは、ふつうどちらかが生きている限り一緒です。マガモは毎年新しいパートナーを見つけます。"
+   "x": "ハクチョウのペアは、ふつうどちらかが生きている限り一緒です。マガモは毎年新しいパートナーを見つけます。",
+   "k": "ハクチョウ：ふつう一生同じパートナー"
   },
   "it": {
    "q": "Chi di solito resta con lo stesso partner per tutta la vita?",
@@ -1546,7 +1720,8 @@
     "Cigno reale",
     "Germano reale"
    ],
-   "x": "Le coppie di cigni di solito restano insieme finché entrambi sono vivi. I germani reali trovano un nuovo partner ogni anno."
+   "x": "Le coppie di cigni di solito restano insieme finché entrambi sono vivi. I germani reali trovano un nuovo partner ogni anno.",
+   "k": "Cigni: spesso in coppia per tutta la vita"
   }
  },
  {
@@ -1560,7 +1735,8 @@
     "Mensch",
     "Katze"
    ],
-   "x": "Katzen haben eine Nickhaut, die quer übers Auge wischt und es schützt. Bei uns ist davon nur ein kleiner Rest im Augenwinkel übrig."
+   "x": "Katzen haben eine Nickhaut, die quer übers Auge wischt und es schützt. Bei uns ist davon nur ein kleiner Rest im Augenwinkel übrig.",
+   "k": "Katzen: haben ein drittes Augenlid"
   },
   "en": {
    "q": "Who has a third eyelid?",
@@ -1568,7 +1744,8 @@
     "Human",
     "Cat"
    ],
-   "x": "Cats have a nictitating membrane that sweeps across the eye to protect it. In us, only a tiny remnant is left in the corner of the eye."
+   "x": "Cats have a nictitating membrane that sweeps across the eye to protect it. In us, only a tiny remnant is left in the corner of the eye.",
+   "k": "Cats: have a third eyelid"
   },
   "fr": {
    "q": "Qui a une troisième paupière ?",
@@ -1576,7 +1753,8 @@
     "Humain",
     "Chat"
    ],
-   "x": "Le chat a une membrane nictitante qui balaie l’œil pour le protéger. Chez nous, il n’en reste qu’un petit vestige au coin de l’œil."
+   "x": "Le chat a une membrane nictitante qui balaie l’œil pour le protéger. Chez nous, il n’en reste qu’un petit vestige au coin de l’œil.",
+   "k": "Chats : ont une troisième paupière"
   },
   "es": {
    "q": "¿Quién tiene un tercer párpado?",
@@ -1584,7 +1762,8 @@
     "Humano",
     "Gato"
    ],
-   "x": "El gato tiene una membrana nictitante que barre el ojo para protegerlo. A nosotros solo nos queda un pequeño resto en el rabillo del ojo."
+   "x": "El gato tiene una membrana nictitante que barre el ojo para protegerlo. A nosotros solo nos queda un pequeño resto en el rabillo del ojo.",
+   "k": "Gatos: tienen un tercer párpado"
   },
   "pt": {
    "q": "Quem tem uma terceira pálpebra?",
@@ -1592,7 +1771,8 @@
     "Humano",
     "Gato"
    ],
-   "x": "O gato tem uma membrana nictitante que passa pelo olho para protegê-lo. Em nós sobrou só um pequeno resto no canto do olho."
+   "x": "O gato tem uma membrana nictitante que passa pelo olho para protegê-lo. Em nós sobrou só um pequeno resto no canto do olho.",
+   "k": "Gatos: têm uma terceira pálpebra"
   },
   "ja": {
    "q": "3つ目のまぶたがあるのはどっち？",
@@ -1600,7 +1780,8 @@
     "人間",
     "ネコ"
    ],
-   "x": "ネコには瞬膜があり、目の上をさっと動いて目を守ります。人間には目頭にほんの小さななごりが残っているだけです。"
+   "x": "ネコには瞬膜があり、目の上をさっと動いて目を守ります。人間には目頭にほんの小さななごりが残っているだけです。",
+   "k": "ネコ：3つ目のまぶたがある"
   },
   "it": {
    "q": "Chi ha una terza palpebra?",
@@ -1608,7 +1789,8 @@
     "Essere umano",
     "Gatto"
    ],
-   "x": "I gatti hanno una membrana nittitante che scorre sull’occhio per proteggerlo. In noi ne resta solo un minuscolo residuo nell’angolo dell’occhio."
+   "x": "I gatti hanno una membrana nittitante che scorre sull’occhio per proteggerlo. In noi ne resta solo un minuscolo residuo nell’angolo dell’occhio.",
+   "k": "Gatti: hanno una terza palpebra"
   }
  }
 ]

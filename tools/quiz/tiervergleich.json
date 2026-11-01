@@ -12,7 +12,8 @@
     "Hai",
     "Schnecke"
    ],
-   "x": "Kraken haben zwei Kiemenherzen und ein Körperherz, das ihr blaues Blut durch den Körper pumpt."
+   "x": "Kraken haben zwei Kiemenherzen und ein Körperherz, das ihr blaues Blut durch den Körper pumpt.",
+   "k": "Krake: hat drei Herzen"
   },
   "en": {
    "q": "Which of these animals has three hearts?",
@@ -22,7 +23,8 @@
     "Shark",
     "Snail"
    ],
-   "x": "Octopuses have two gill hearts and one main heart that pumps their blue blood around the body."
+   "x": "Octopuses have two gill hearts and one main heart that pumps their blue blood around the body.",
+   "k": "Octopus: has three hearts"
   },
   "fr": {
    "q": "Lequel de ces animaux a trois cœurs ?",
@@ -32,7 +34,8 @@
     "Requin",
     "Escargot"
    ],
-   "x": "La pieuvre a deux cœurs branchiaux et un cœur principal qui pompe son sang bleu dans le corps."
+   "x": "La pieuvre a deux cœurs branchiaux et un cœur principal qui pompe son sang bleu dans le corps.",
+   "k": "Pieuvre : trois cœurs"
   },
   "es": {
    "q": "¿Cuál de estos animales tiene tres corazones?",
@@ -42,7 +45,8 @@
     "Tiburón",
     "Caracol"
    ],
-   "x": "El pulpo tiene dos corazones branquiales y uno principal que bombea su sangre azul por el cuerpo."
+   "x": "El pulpo tiene dos corazones branquiales y uno principal que bombea su sangre azul por el cuerpo.",
+   "k": "Pulpo: tres corazones"
   },
   "pt": {
    "q": "Qual destes animais tem três corações?",
@@ -52,7 +56,8 @@
     "Tubarão",
     "Caracol"
    ],
-   "x": "O polvo tem dois corações das brânquias e um principal, que bombeia o sangue azul pelo corpo."
+   "x": "O polvo tem dois corações das brânquias e um principal, que bombeia o sangue azul pelo corpo.",
+   "k": "Polvo: três corações"
   },
   "ja": {
    "q": "心臓が3つある動物は？",
@@ -62,7 +67,8 @@
     "サメ",
     "カタツムリ"
    ],
-   "x": "タコには、えらの心臓が2つと、青い血を全身に送る本体の心臓が1つあります。"
+   "x": "タコには、えらの心臓が2つと、青い血を全身に送る本体の心臓が1つあります。",
+   "k": "タコ：心臓が3つ"
   },
   "it": {
    "q": "Quale di questi animali ha tre cuori?",
@@ -72,7 +78,8 @@
     "Squalo",
     "Chiocciola"
    ],
-   "x": "I polpi hanno due cuori branchiali e un cuore principale che pompa il loro sangue blu in tutto il corpo."
+   "x": "I polpi hanno due cuori branchiali e un cuore principale che pompa il loro sangue blu in tutto il corpo.",
+   "k": "Polpo: tre cuori"
   }
  },
  {
@@ -88,7 +95,8 @@
     "Fuchs",
     "Igel"
    ],
-   "x": "Im Winterschlaf sinkt die Körpertemperatur des Igels auf etwa 5 °C. Eichhörnchen halten nur Winterruhe."
+   "x": "Im Winterschlaf sinkt die Körpertemperatur des Igels auf etwa 5 °C. Eichhörnchen halten nur Winterruhe.",
+   "k": "Igel: Winterschlaf bei 5 °C Körpertemperatur"
   },
   "en": {
    "q": "Which animal truly hibernates?",
@@ -98,7 +106,8 @@
     "Fox",
     "Hedgehog"
    ],
-   "x": "In hibernation a hedgehog's body temperature drops to about 5 °C. Squirrels only rest and wake often to eat."
+   "x": "In hibernation a hedgehog's body temperature drops to about 5 °C. Squirrels only rest and wake often to eat.",
+   "k": "Hedgehog: hibernates at 5 °C body temperature"
   },
   "fr": {
    "q": "Lequel de ces animaux hiberne vraiment ?",
@@ -108,7 +117,8 @@
     "Renard",
     "Hérisson"
    ],
-   "x": "En hibernation, la température du hérisson descend à environ 5 °C. L'écureuil se réveille souvent pour manger."
+   "x": "En hibernation, la température du hérisson descend à environ 5 °C. L'écureuil se réveille souvent pour manger.",
+   "k": "Hérisson : hiberne à 5 °C"
   },
   "es": {
    "q": "¿Cuál de estos animales hiberna de verdad?",
@@ -118,7 +128,8 @@
     "Zorro",
     "Erizo"
    ],
-   "x": "Al hibernar, el erizo baja su temperatura a unos 5 °C. La ardilla solo descansa y despierta a menudo para comer."
+   "x": "Al hibernar, el erizo baja su temperatura a unos 5 °C. La ardilla solo descansa y despierta a menudo para comer.",
+   "k": "Erizo: hiberna a 5 °C"
   },
   "pt": {
    "q": "Qual destes animais hiberna de verdade?",
@@ -128,7 +139,8 @@
     "Raposa",
     "Ouriço"
    ],
-   "x": "Ao hibernar, o ouriço baixa a temperatura para uns 5 °C. O esquilo só descansa e acorda muitas vezes para comer."
+   "x": "Ao hibernar, o ouriço baixa a temperatura para uns 5 °C. O esquilo só descansa e acorda muitas vezes para comer.",
+   "k": "Ouriço: hiberna a 5 °C"
   },
   "ja": {
    "q": "本当の冬眠をするのは？",
@@ -138,7 +150,8 @@
     "キツネ",
     "ハリネズミ"
    ],
-   "x": "冬眠中のハリネズミの体温は約5℃まで下がります。リスは休むだけで、よく起きて食べます。"
+   "x": "冬眠中のハリネズミの体温は約5℃まで下がります。リスは休むだけで、よく起きて食べます。",
+   "k": "ハリネズミ：冬眠中は体温5℃"
   },
   "it": {
    "q": "Quale animale va davvero in letargo?",
@@ -148,7 +161,8 @@
     "Volpe",
     "Riccio"
    ],
-   "x": "In letargo la temperatura del riccio scende a circa 5 °C. Gli scoiattoli riposano soltanto e si svegliano spesso per mangiare."
+   "x": "In letargo la temperatura del riccio scende a circa 5 °C. Gli scoiattoli riposano soltanto e si svegliano spesso per mangiare.",
+   "k": "Riccio: va in letargo a 5 °C"
   }
  },
  {
@@ -164,7 +178,8 @@
     "Schnecke",
     "Krabbe"
    ],
-   "x": "Alle Insekten haben sechs Beine – auch der Marienkäfer. Krabben haben zehn Beine, Kraken acht Arme."
+   "x": "Alle Insekten haben sechs Beine – auch der Marienkäfer. Krabben haben zehn Beine, Kraken acht Arme.",
+   "k": "Insekten: haben immer sechs Beine"
   },
   "en": {
    "q": "Which animal has exactly six legs?",
@@ -174,7 +189,8 @@
     "Snail",
     "Crab"
    ],
-   "x": "All insects have six legs, including the ladybird. Crabs have ten legs and octopuses eight arms."
+   "x": "All insects have six legs, including the ladybird. Crabs have ten legs and octopuses eight arms.",
+   "k": "Insects: always have six legs"
   },
   "fr": {
    "q": "Quel animal a exactement six pattes ?",
@@ -184,7 +200,8 @@
     "Escargot",
     "Crabe"
    ],
-   "x": "Tous les insectes ont six pattes, coccinelle comprise. Le crabe en a dix et la pieuvre a huit bras."
+   "x": "Tous les insectes ont six pattes, coccinelle comprise. Le crabe en a dix et la pieuvre a huit bras.",
+   "k": "Insectes : toujours six pattes"
   },
   "es": {
    "q": "¿Qué animal tiene exactamente seis patas?",
@@ -194,7 +211,8 @@
     "Caracol",
     "Cangrejo"
    ],
-   "x": "Todos los insectos tienen seis patas, también la mariquita. El cangrejo tiene diez y el pulpo ocho brazos."
+   "x": "Todos los insectos tienen seis patas, también la mariquita. El cangrejo tiene diez y el pulpo ocho brazos.",
+   "k": "Insectos: siempre seis patas"
   },
   "pt": {
    "q": "Que animal tem exatamente seis patas?",
@@ -204,7 +222,8 @@
     "Caracol",
     "Caranguejo"
    ],
-   "x": "Todos os insetos têm seis patas, inclusive a joaninha. O caranguejo tem dez e o polvo oito braços."
+   "x": "Todos os insetos têm seis patas, inclusive a joaninha. O caranguejo tem dez e o polvo oito braços.",
+   "k": "Insetos: sempre seis patas"
   },
   "ja": {
    "q": "脚がちょうど6本の動物は？",
@@ -214,7 +233,8 @@
     "カタツムリ",
     "カニ"
    ],
-   "x": "昆虫の脚はみんな6本。テントウムシもそうです。カニの脚は10本、タコの腕は8本です。"
+   "x": "昆虫の脚はみんな6本。テントウムシもそうです。カニの脚は10本、タコの腕は8本です。",
+   "k": "昆虫：脚はいつも6本"
   },
   "it": {
    "q": "Quale animale ha esattamente sei zampe?",
@@ -224,7 +244,8 @@
     "Chiocciola",
     "Granchio"
    ],
-   "x": "Tutti gli insetti hanno sei zampe, anche la coccinella. I granchi hanno dieci zampe e i polpi otto braccia."
+   "x": "Tutti gli insetti hanno sei zampe, anche la coccinella. I granchi hanno dieci zampe e i polpi otto braccia.",
+   "k": "Insetti: sempre sei zampe"
   }
  },
  {
@@ -240,7 +261,8 @@
     "Pinguin",
     "Frosch"
    ],
-   "x": "Haie sind Knorpelfische. Knorpel ist leichter und biegsamer als Knochen – wie in unserer Nase."
+   "x": "Haie sind Knorpelfische. Knorpel ist leichter und biegsamer als Knochen – wie in unserer Nase.",
+   "k": "Haie: Skelett aus Knorpel"
   },
   "en": {
    "q": "Whose skeleton is made of cartilage instead of bone?",
@@ -250,7 +272,8 @@
     "Penguin",
     "Frog"
    ],
-   "x": "Sharks are cartilaginous fish. Cartilage is lighter and more flexible than bone – like in our nose."
+   "x": "Sharks are cartilaginous fish. Cartilage is lighter and more flexible than bone – like in our nose.",
+   "k": "Sharks: skeleton made of cartilage"
   },
   "fr": {
    "q": "Quel animal a un squelette fait de cartilage et non d'os ?",
@@ -260,7 +283,8 @@
     "Manchot",
     "Grenouille"
    ],
-   "x": "Le requin est un poisson cartilagineux. Le cartilage est plus léger et souple que l'os, comme dans notre nez."
+   "x": "Le requin est un poisson cartilagineux. Le cartilage est plus léger et souple que l'os, comme dans notre nez.",
+   "k": "Requins : squelette en cartilage"
   },
   "es": {
    "q": "¿Qué animal tiene un esqueleto de cartílago en vez de hueso?",
@@ -270,7 +294,8 @@
     "Pingüino",
     "Rana"
    ],
-   "x": "El tiburón es un pez cartilaginoso. El cartílago es más ligero y flexible que el hueso, como el de la nariz."
+   "x": "El tiburón es un pez cartilaginoso. El cartílago es más ligero y flexible que el hueso, como el de la nariz.",
+   "k": "Tiburones: esqueleto de cartílago"
   },
   "pt": {
    "q": "Que animal tem esqueleto de cartilagem em vez de osso?",
@@ -280,7 +305,8 @@
     "Pinguim",
     "Rã"
    ],
-   "x": "O tubarão é um peixe cartilaginoso. A cartilagem é mais leve e flexível que o osso, como a do nariz."
+   "x": "O tubarão é um peixe cartilaginoso. A cartilagem é mais leve e flexível que o osso, como a do nariz.",
+   "k": "Tubarões: esqueleto de cartilagem"
   },
   "ja": {
    "q": "骨格が骨ではなく軟骨でできているのは？",
@@ -290,7 +316,8 @@
     "ペンギン",
     "カエル"
    ],
-   "x": "サメは軟骨魚類。軟骨は骨より軽くてしなやか。私たちの鼻と同じです。"
+   "x": "サメは軟骨魚類。軟骨は骨より軽くてしなやか。私たちの鼻と同じです。",
+   "k": "サメ：骨格は軟骨"
   },
   "it": {
    "q": "Di chi è lo scheletro fatto di cartilagine invece che di osso?",
@@ -300,7 +327,8 @@
     "Pinguino",
     "Rana"
    ],
-   "x": "Gli squali sono pesci cartilaginei. La cartilagine è più leggera e flessibile dell’osso, come nel nostro naso."
+   "x": "Gli squali sono pesci cartilaginei. La cartilagine è più leggera e flessibile dell’osso, come nel nostro naso.",
+   "k": "Squali: scheletro di cartilagine"
   }
  },
  {
@@ -316,7 +344,8 @@
     "Eule",
     "Flamingo"
    ],
-   "x": "Flamingos fressen Algen und Kleinkrebse voller Carotinoide. Ohne diese Farbstoffe würden sie blass."
+   "x": "Flamingos fressen Algen und Kleinkrebse voller Carotinoide. Ohne diese Farbstoffe würden sie blass.",
+   "k": "Flamingos: rosa durch ihr Futter"
   },
   "en": {
    "q": "Which bird gets its colour from its food?",
@@ -326,7 +355,8 @@
     "Owl",
     "Flamingo"
    ],
-   "x": "Flamingos eat algae and tiny shrimp full of carotenoids. Without these pigments they would turn pale."
+   "x": "Flamingos eat algae and tiny shrimp full of carotenoids. Without these pigments they would turn pale.",
+   "k": "Flamingos: pink because of their food"
   },
   "fr": {
    "q": "Quel oiseau doit sa couleur à sa nourriture ?",
@@ -336,7 +366,8 @@
     "Chouette",
     "Flamant rose"
    ],
-   "x": "Le flamant rose mange des algues et petites crevettes riches en caroténoïdes. Sans eux, il pâlirait."
+   "x": "Le flamant rose mange des algues et petites crevettes riches en caroténoïdes. Sans eux, il pâlirait.",
+   "k": "Flamants : roses grâce à leur nourriture"
   },
   "es": {
    "q": "¿Qué ave debe su color a su alimento?",
@@ -346,7 +377,8 @@
     "Búho",
     "Flamenco"
    ],
-   "x": "El flamenco come algas y pequeños crustáceos con carotenoides. Sin esos pigmentos se volvería pálido."
+   "x": "El flamenco come algas y pequeños crustáceos con carotenoides. Sin esos pigmentos se volvería pálido.",
+   "k": "Flamencos: rosas por su comida"
   },
   "pt": {
    "q": "Que ave deve sua cor ao alimento?",
@@ -356,7 +388,8 @@
     "Coruja",
     "Flamingo"
    ],
-   "x": "O flamingo come algas e pequenos crustáceos com carotenoides. Sem esses pigmentos, ele ficaria pálido."
+   "x": "O flamingo come algas e pequenos crustáceos com carotenoides. Sem esses pigmentos, ele ficaria pálido.",
+   "k": "Flamingos: rosados pela comida"
   },
   "ja": {
    "q": "食べもので体の色が決まる鳥は？",
@@ -366,7 +399,8 @@
     "フクロウ",
     "フラミンゴ"
    ],
-   "x": "フラミンゴはカロテノイドをたっぷりふくむ藻や小さなエビを食べます。この色素がないと色があせてしまいます。"
+   "x": "フラミンゴはカロテノイドをたっぷりふくむ藻や小さなエビを食べます。この色素がないと色があせてしまいます。",
+   "k": "フラミンゴ：食べもので体がピンク"
   },
   "it": {
    "q": "Quale uccello prende il colore dal cibo?",
@@ -376,7 +410,8 @@
     "Gufo",
     "Fenicottero"
    ],
-   "x": "I fenicotteri mangiano alghe e gamberetti pieni di carotenoidi. Senza questi pigmenti diventerebbero pallidi."
+   "x": "I fenicotteri mangiano alghe e gamberetti pieni di carotenoidi. Senza questi pigmenti diventerebbero pallidi.",
+   "k": "Fenicotteri: rosa grazie al cibo"
   }
  },
  {
@@ -392,7 +427,8 @@
     "Haushuhn",
     "Kaiserpinguin"
    ],
-   "x": "Ein Kiwi-Ei wiegt rund ein Fünftel so viel wie das Weibchen selbst. Das Straußenei ist zwar das größte Ei überhaupt, für den riesigen Strauß aber eher klein."
+   "x": "Ein Kiwi-Ei wiegt rund ein Fünftel so viel wie das Weibchen selbst. Das Straußenei ist zwar das größte Ei überhaupt, für den riesigen Strauß aber eher klein.",
+   "k": "Kiwi: Ei so schwer wie ein Fünftel der Mutter"
   },
   "en": {
    "q": "Which bird lays the biggest egg compared to its body?",
@@ -402,7 +438,8 @@
     "Chicken",
     "Emperor penguin"
    ],
-   "x": "A kiwi egg weighs about a fifth as much as the female herself. The ostrich egg is the biggest egg of all, but quite small for such a huge bird."
+   "x": "A kiwi egg weighs about a fifth as much as the female herself. The ostrich egg is the biggest egg of all, but quite small for such a huge bird.",
+   "k": "Kiwi: egg weighs a fifth of the mother"
   },
   "fr": {
    "q": "Quel oiseau pond le plus gros œuf par rapport à son corps ?",
@@ -412,7 +449,8 @@
     "Poule",
     "Manchot empereur"
    ],
-   "x": "Un œuf de kiwi pèse environ un cinquième du poids de la femelle. L’œuf d’autruche est le plus gros de tous, mais plutôt petit pour un oiseau aussi grand."
+   "x": "Un œuf de kiwi pèse environ un cinquième du poids de la femelle. L’œuf d’autruche est le plus gros de tous, mais plutôt petit pour un oiseau aussi grand.",
+   "k": "Kiwi : œuf d’un cinquième du poids de la mère"
   },
   "es": {
    "q": "¿Qué ave pone el huevo más grande en relación con su cuerpo?",
@@ -422,7 +460,8 @@
     "Gallina",
     "Pingüino emperador"
    ],
-   "x": "Un huevo de kiwi pesa alrededor de una quinta parte de lo que pesa la hembra. El de avestruz es el huevo más grande de todos, pero pequeño para un ave tan enorme."
+   "x": "Un huevo de kiwi pesa alrededor de una quinta parte de lo que pesa la hembra. El de avestruz es el huevo más grande de todos, pero pequeño para un ave tan enorme.",
+   "k": "Kiwi: huevo de un quinto del peso de la madre"
   },
   "pt": {
    "q": "Que ave põe o maior ovo em relação ao corpo?",
@@ -432,7 +471,8 @@
     "Galinha",
     "Pinguim-imperador"
    ],
-   "x": "Um ovo de quiuí pesa cerca de um quinto do peso da fêmea. O de avestruz é o maior ovo de todos, mas pequeno para uma ave tão enorme."
+   "x": "Um ovo de quiuí pesa cerca de um quinto do peso da fêmea. O de avestruz é o maior ovo de todos, mas pequeno para uma ave tão enorme.",
+   "k": "Kiwi: ovo de um quinto do peso da mãe"
   },
   "ja": {
    "q": "体の大きさに比べていちばん大きな卵を産む鳥は？",
@@ -442,7 +482,8 @@
     "ニワトリ",
     "コウテイペンギン"
    ],
-   "x": "キーウィの卵はメスの体重の約5分の1。ダチョウの卵は一番大きな卵ですが、あの巨体にしては小さめです。"
+   "x": "キーウィの卵はメスの体重の約5分の1。ダチョウの卵は一番大きな卵ですが、あの巨体にしては小さめです。",
+   "k": "キーウィ：卵は母親の体重の5分の1"
   },
   "it": {
    "q": "Quale uccello depone l’uovo più grande rispetto al corpo?",
@@ -452,7 +493,8 @@
     "Gallina",
     "Pinguino imperatore"
    ],
-   "x": "Un uovo di kiwi pesa circa un quinto della femmina. Quello di struzzo è l’uovo più grande in assoluto, ma piccolo per un uccello così enorme."
+   "x": "Un uovo di kiwi pesa circa un quinto della femmina. Quello di struzzo è l’uovo più grande in assoluto, ma piccolo per un uccello così enorme.",
+   "k": "Kiwi: uovo di un quinto del peso della madre"
   }
  },
  {
@@ -468,7 +510,8 @@
     "Panda",
     "Tiger"
    ],
-   "x": "Der „Pseudodaumen“ des Pandas ist ein vergrößerter Handgelenksknochen. Damit hält er Bambus fest."
+   "x": "Der „Pseudodaumen“ des Pandas ist ein vergrößerter Handgelenksknochen. Damit hält er Bambus fest.",
+   "k": "Panda: hat einen falschen Daumen"
   },
   "en": {
    "q": "Which animal has an enlarged wrist bone that works like an extra thumb?",
@@ -478,7 +521,8 @@
     "Panda",
     "Tiger"
    ],
-   "x": "The panda's 'pseudo-thumb' is an enlarged wrist bone. It helps the panda grip bamboo stems."
+   "x": "The panda's 'pseudo-thumb' is an enlarged wrist bone. It helps the panda grip bamboo stems.",
+   "k": "Panda: has a false thumb"
   },
   "fr": {
    "q": "Quel animal possède un os du poignet allongé qui sert de pouce supplémentaire ?",
@@ -488,7 +532,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "Le « faux pouce » du panda est un os du poignet agrandi. Il l'aide à tenir les tiges de bambou."
+   "x": "Le « faux pouce » du panda est un os du poignet agrandi. Il l'aide à tenir les tiges de bambou.",
+   "k": "Panda : un faux pouce"
   },
   "es": {
    "q": "¿Qué animal tiene un hueso de la muñeca alargado que funciona como un pulgar extra?",
@@ -498,7 +543,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "El «falso pulgar» del panda es un hueso de la muñeca agrandado. Le sirve para sujetar el bambú."
+   "x": "El «falso pulgar» del panda es un hueso de la muñeca agrandado. Le sirve para sujetar el bambú.",
+   "k": "Panda: tiene un falso pulgar"
   },
   "pt": {
    "q": "Que animal tem um osso do punho alongado que funciona como um polegar extra?",
@@ -508,7 +554,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "O “falso polegar” do panda é um osso do punho aumentado. Serve para segurar o bambu."
+   "x": "O “falso polegar” do panda é um osso do punho aumentado. Serve para segurar o bambu.",
+   "k": "Panda: tem um falso polegar"
   },
   "ja": {
    "q": "手首の骨が大きくなって、もう1本の親指のように使える動物は？",
@@ -518,7 +565,8 @@
     "パンダ",
     "トラ"
    ],
-   "x": "パンダの「にせの親指」は大きくなった手首の骨。竹の茎をつかむのに役立ちます。"
+   "x": "パンダの「にせの親指」は大きくなった手首の骨。竹の茎をつかむのに役立ちます。",
+   "k": "パンダ：にせの親指がある"
   },
   "it": {
    "q": "Quale animale ha un osso del polso ingrandito che funziona come un pollice in più?",
@@ -528,7 +576,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "Il «falso pollice» del panda è un osso del polso ingrandito. Lo aiuta ad afferrare le canne di bambù."
+   "x": "Il «falso pollice» del panda è un osso del polso ingrandito. Lo aiuta ad afferrare le canne di bambù.",
+   "k": "Panda: ha un falso pollice"
   }
  },
  {
@@ -544,7 +593,8 @@
     "Tiger",
     "Panda"
    ],
-   "x": "Die dunkle Farbe schützt die Giraffenzunge vermutlich vor Sonnenbrand, wenn sie Akazienblätter zupft."
+   "x": "Die dunkle Farbe schützt die Giraffenzunge vermutlich vor Sonnenbrand, wenn sie Akazienblätter zupft.",
+   "k": "Giraffe: blaue Zunge, 45 cm lang"
   },
   "en": {
    "q": "Which animal has a dark blue tongue about 45 cm long?",
@@ -554,7 +604,8 @@
     "Tiger",
     "Panda"
    ],
-   "x": "The dark colour probably protects the giraffe's tongue from sunburn while it plucks acacia leaves."
+   "x": "The dark colour probably protects the giraffe's tongue from sunburn while it plucks acacia leaves.",
+   "k": "Giraffe: blue tongue, 45 cm long"
   },
   "fr": {
    "q": "Quel animal a une langue bleu foncé d'environ 45 cm ?",
@@ -564,7 +615,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "Sa couleur sombre protégerait la langue de la girafe du soleil quand elle cueille des feuilles d'acacia."
+   "x": "Sa couleur sombre protégerait la langue de la girafe du soleil quand elle cueille des feuilles d'acacia.",
+   "k": "Girafe : langue bleue de 45 cm"
   },
   "es": {
    "q": "¿Qué animal tiene una lengua azul oscuro de unos 45 cm?",
@@ -574,7 +626,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "Su color oscuro protegería la lengua de la jirafa del sol mientras arranca hojas de acacia."
+   "x": "Su color oscuro protegería la lengua de la jirafa del sol mientras arranca hojas de acacia.",
+   "k": "Jirafa: lengua azul de 45 cm"
   },
   "pt": {
    "q": "Que animal tem uma língua azul-escura de uns 45 cm?",
@@ -584,7 +637,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "A cor escura protegeria a língua da girafa do sol enquanto ela arranca folhas de acácia."
+   "x": "A cor escura protegeria a língua da girafa do sol enquanto ela arranca folhas de acácia.",
+   "k": "Girafa: língua azul de 45 cm"
   },
   "ja": {
    "q": "長さ約45センチの濃い青色の舌をもつ動物は？",
@@ -594,7 +648,8 @@
     "トラ",
     "パンダ"
    ],
-   "x": "濃い色は、アカシアの葉をむしるときに舌が日焼けしないためと考えられています。"
+   "x": "濃い色は、アカシアの葉をむしるときに舌が日焼けしないためと考えられています。",
+   "k": "キリン：舌は青くて45センチ"
   },
   "it": {
    "q": "Quale animale ha una lingua blu scuro lunga circa 45 cm?",
@@ -604,7 +659,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "Il colore scuro probabilmente protegge la lingua della giraffa dalle scottature mentre strappa le foglie di acacia."
+   "x": "Il colore scuro probabilmente protegge la lingua della giraffa dalle scottature mentre strappa le foglie di acacia.",
+   "k": "Giraffa: lingua blu di 45 cm"
   }
  },
  {
@@ -620,7 +676,8 @@
     "Eichhörnchen",
     "Tiger"
    ],
-   "x": "Unter den dunklen Streifen ist auch die Haut des Tigers dunkel. Rasiert sähe man das Muster noch."
+   "x": "Unter den dunklen Streifen ist auch die Haut des Tigers dunkel. Rasiert sähe man das Muster noch.",
+   "k": "Tiger: auch die Haut ist gestreift"
   },
   "en": {
    "q": "Which animal has striped skin underneath its fur too?",
@@ -630,7 +687,8 @@
     "Squirrel",
     "Tiger"
    ],
-   "x": "A tiger's skin is dark under its dark stripes, so the pattern would still show if it were shaved."
+   "x": "A tiger's skin is dark under its dark stripes, so the pattern would still show if it were shaved.",
+   "k": "Tiger: even its skin is striped"
   },
   "fr": {
    "q": "Chez quel animal la peau sous le pelage est-elle aussi rayée ?",
@@ -640,7 +698,8 @@
     "Écureuil",
     "Tigre"
    ],
-   "x": "Sous les rayures sombres du tigre, la peau est foncée : rasé, il garderait son motif."
+   "x": "Sous les rayures sombres du tigre, la peau est foncée : rasé, il garderait son motif.",
+   "k": "Tigre : même sa peau est rayée"
   },
   "es": {
    "q": "¿En qué animal también la piel bajo el pelaje tiene rayas?",
@@ -650,7 +709,8 @@
     "Ardilla",
     "Tigre"
    ],
-   "x": "Bajo las rayas oscuras del tigre la piel también es oscura: aunque lo afeitaran, se verían las rayas."
+   "x": "Bajo las rayas oscuras del tigre la piel también es oscura: aunque lo afeitaran, se verían las rayas.",
+   "k": "Tigre: hasta la piel es rayada"
   },
   "pt": {
    "q": "Em que animal a pele debaixo do pelo também é listrada?",
@@ -660,7 +720,8 @@
     "Esquilo",
     "Tigre"
    ],
-   "x": "Debaixo das listras escuras do tigre a pele também é escura: mesmo raspado, as listras apareceriam."
+   "x": "Debaixo das listras escuras do tigre a pele também é escura: mesmo raspado, as listras apareceriam.",
+   "k": "Tigre: até a pele é listrada"
   },
   "ja": {
    "q": "毛の下の皮ふにもしまもようがある動物は？",
@@ -670,7 +731,8 @@
     "リス",
     "トラ"
    ],
-   "x": "トラの皮ふは黒いしまの下が黒っぽくなっています。毛をそっても、もようが見えるのです。"
+   "x": "トラの皮ふは黒いしまの下が黒っぽくなっています。毛をそっても、もようが見えるのです。",
+   "k": "トラ：皮ふにもしまもよう"
   },
   "it": {
    "q": "Quale animale ha la pelle a strisce anche sotto il pelo?",
@@ -680,7 +742,8 @@
     "Scoiattolo",
     "Tigre"
    ],
-   "x": "La pelle della tigre è scura sotto le strisce scure: il disegno si vedrebbe anche se fosse rasata."
+   "x": "La pelle della tigre è scura sotto le strisce scure: il disegno si vedrebbe anche se fosse rasata.",
+   "k": "Tigre: anche la pelle è a strisce"
   }
  },
  {
@@ -696,7 +759,8 @@
     "Fuchs",
     "Giraffe"
    ],
-   "x": "Otter verschließen unter Wasser Ohren und Nase und können mehrere Minuten lang tauchen."
+   "x": "Otter verschließen unter Wasser Ohren und Nase und können mehrere Minuten lang tauchen.",
+   "k": "Fischotter: verschließt beim Tauchen Ohren und Nase"
   },
   "en": {
    "q": "Which animal can close its ears and nostrils when diving?",
@@ -706,7 +770,8 @@
     "Fox",
     "Giraffe"
    ],
-   "x": "Otters seal their ears and nostrils underwater and can stay down for several minutes."
+   "x": "Otters seal their ears and nostrils underwater and can stay down for several minutes.",
+   "k": "Otter: closes ears and nose when diving"
   },
   "fr": {
    "q": "Quel animal peut fermer ses oreilles et ses narines en plongée ?",
@@ -716,7 +781,8 @@
     "Renard",
     "Girafe"
    ],
-   "x": "La loutre ferme oreilles et narines sous l'eau et peut plonger plusieurs minutes."
+   "x": "La loutre ferme oreilles et narines sous l'eau et peut plonger plusieurs minutes.",
+   "k": "Loutre : ferme oreilles et narines en plongée"
   },
   "es": {
    "q": "¿Qué animal puede cerrar orejas y fosas nasales al bucear?",
@@ -726,7 +792,8 @@
     "Zorro",
     "Jirafa"
    ],
-   "x": "La nutria cierra orejas y nariz bajo el agua y puede bucear varios minutos."
+   "x": "La nutria cierra orejas y nariz bajo el agua y puede bucear varios minutos.",
+   "k": "Nutria: cierra orejas y nariz al bucear"
   },
   "pt": {
    "q": "Que animal consegue fechar orelhas e narinas ao mergulhar?",
@@ -736,7 +803,8 @@
     "Raposa",
     "Girafa"
    ],
-   "x": "A lontra fecha orelhas e nariz debaixo d’água e consegue mergulhar por vários minutos."
+   "x": "A lontra fecha orelhas e nariz debaixo d’água e consegue mergulhar por vários minutos.",
+   "k": "Lontra: fecha orelhas e narinas ao mergulhar"
   },
   "ja": {
    "q": "潜るときに耳と鼻の穴を閉じられる動物は？",
@@ -746,7 +814,8 @@
     "キツネ",
     "キリン"
    ],
-   "x": "カワウソは水中で耳と鼻の穴を閉じ、何分も潜っていられます。"
+   "x": "カワウソは水中で耳と鼻の穴を閉じ、何分も潜っていられます。",
+   "k": "カワウソ：潜るとき耳と鼻を閉じる"
   },
   "it": {
    "q": "Quale animale può chiudere orecchie e narici quando si immerge?",
@@ -756,7 +825,8 @@
     "Volpe",
     "Giraffa"
    ],
-   "x": "Sott’acqua le lontre chiudono orecchie e narici e possono restare giù diversi minuti."
+   "x": "Sott’acqua le lontre chiudono orecchie e narici e possono restare giù diversi minuti.",
+   "k": "Lontra: chiude orecchie e naso in immersione"
   }
  },
  {
@@ -772,7 +842,8 @@
     "Papagei",
     "Pinguin"
    ],
-   "x": "Pinguine können Meerwasser trinken: Die Salzdrüse filtert das Salz, das dann über den Schnabel abtropft."
+   "x": "Pinguine können Meerwasser trinken: Die Salzdrüse filtert das Salz, das dann über den Schnabel abtropft.",
+   "k": "Pinguine: können Meerwasser trinken"
   },
   "en": {
    "q": "Which animal has a gland above its eyes that removes salt from seawater?",
@@ -782,7 +853,8 @@
     "Parrot",
     "Penguin"
    ],
-   "x": "Penguins can drink seawater: a salt gland filters out the salt, which then drips off the beak."
+   "x": "Penguins can drink seawater: a salt gland filters out the salt, which then drips off the beak.",
+   "k": "Penguins: can drink seawater"
   },
   "fr": {
    "q": "Quel animal a au-dessus des yeux une glande qui élimine le sel de l'eau de mer ?",
@@ -792,7 +864,8 @@
     "Perroquet",
     "Manchot"
    ],
-   "x": "Le manchot peut boire de l'eau de mer : une glande filtre le sel, qui s'écoule par le bec."
+   "x": "Le manchot peut boire de l'eau de mer : une glande filtre le sel, qui s'écoule par le bec.",
+   "k": "Manchots : boivent de l’eau de mer"
   },
   "es": {
    "q": "¿Qué animal tiene sobre los ojos una glándula que elimina la sal del agua de mar?",
@@ -802,7 +875,8 @@
     "Loro",
     "Pingüino"
    ],
-   "x": "El pingüino puede beber agua de mar: una glándula filtra la sal, que luego gotea por el pico."
+   "x": "El pingüino puede beber agua de mar: una glándula filtra la sal, que luego gotea por el pico.",
+   "k": "Pingüinos: pueden beber agua de mar"
   },
   "pt": {
    "q": "Que animal tem sobre os olhos uma glândula que tira o sal da água do mar?",
@@ -812,7 +886,8 @@
     "Papagaio",
     "Pinguim"
    ],
-   "x": "O pinguim pode beber água do mar: uma glândula filtra o sal, que depois pinga pelo bico."
+   "x": "O pinguim pode beber água do mar: uma glândula filtra o sal, que depois pinga pelo bico.",
+   "k": "Pinguins: bebem água do mar"
   },
   "ja": {
    "q": "目の上に、海水から塩をとりのぞく腺がある動物は？",
@@ -822,7 +897,8 @@
     "オウム",
     "ペンギン"
    ],
-   "x": "ペンギンは海水を飲めます。塩類腺が塩をこしとり、くちばしからポタポタたらします。"
+   "x": "ペンギンは海水を飲めます。塩類腺が塩をこしとり、くちばしからポタポタたらします。",
+   "k": "ペンギン：海水を飲める"
   },
   "it": {
    "q": "Quale animale ha una ghiandola sopra gli occhi che toglie il sale dall’acqua di mare?",
@@ -832,7 +908,8 @@
     "Pappagallo",
     "Pinguino"
    ],
-   "x": "I pinguini possono bere acqua di mare: una ghiandola del sale filtra il sale, che poi gocciola dal becco."
+   "x": "I pinguini possono bere acqua di mare: una ghiandola del sale filtra il sale, che poi gocciola dal becco.",
+   "k": "Pinguini: bevono acqua di mare"
   }
  },
  {
@@ -848,7 +925,8 @@
     "Schildkröte",
     "Biene"
    ],
-   "x": "Die Raspelzunge (Radula) der Schnecke wirkt wie eine Feile. Abgenutzte Zähnchen wachsen ständig nach."
+   "x": "Die Raspelzunge (Radula) der Schnecke wirkt wie eine Feile. Abgenutzte Zähnchen wachsen ständig nach.",
+   "k": "Schnecken: Zunge mit Tausenden Zähnchen"
   },
   "en": {
    "q": "Which animal has a rasping tongue with thousands of tiny teeth?",
@@ -858,7 +936,8 @@
     "Turtle",
     "Bee"
    ],
-   "x": "A snail's radula works like a file. Worn-out teeth are constantly replaced by new ones."
+   "x": "A snail's radula works like a file. Worn-out teeth are constantly replaced by new ones.",
+   "k": "Snails: tongue with thousands of tiny teeth"
   },
   "fr": {
    "q": "Quel animal a une langue râpeuse couverte de milliers de petites dents ?",
@@ -868,7 +947,8 @@
     "Tortue",
     "Abeille"
    ],
-   "x": "La radula de l'escargot fonctionne comme une lime. Les dents usées sont sans cesse remplacées."
+   "x": "La radula de l'escargot fonctionne comme une lime. Les dents usées sont sans cesse remplacées.",
+   "k": "Escargots : langue à milliers de dents"
   },
   "es": {
    "q": "¿Qué animal tiene una lengua raspadora con miles de dientecillos?",
@@ -878,7 +958,8 @@
     "Tortuga",
     "Abeja"
    ],
-   "x": "La rádula del caracol funciona como una lima. Los dientes gastados se reemplazan continuamente."
+   "x": "La rádula del caracol funciona como una lima. Los dientes gastados se reemplazan continuamente.",
+   "k": "Caracoles: lengua con miles de dientecitos"
   },
   "pt": {
    "q": "Que animal tem uma língua raspadora com milhares de dentinhos?",
@@ -888,7 +969,8 @@
     "Tartaruga",
     "Abelha"
    ],
-   "x": "A rádula do caracol funciona como uma lixa. Os dentes gastos são substituídos sem parar."
+   "x": "A rádula do caracol funciona como uma lixa. Os dentes gastos são substituídos sem parar.",
+   "k": "Caracóis: língua com milhares de dentinhos"
   },
   "ja": {
    "q": "何千もの小さな歯が並んだ、やすりのような舌をもつ動物は？",
@@ -898,7 +980,8 @@
     "カメ",
     "ミツバチ"
    ],
-   "x": "カタツムリの歯舌はやすりのよう。すり減った歯は、どんどん新しい歯に生えかわります。"
+   "x": "カタツムリの歯舌はやすりのよう。すり減った歯は、どんどん新しい歯に生えかわります。",
+   "k": "カタツムリ：何千もの歯がある舌"
   },
   "it": {
    "q": "Quale animale ha una lingua a raspa con migliaia di dentini?",
@@ -908,7 +991,8 @@
     "Tartaruga",
     "Ape"
    ],
-   "x": "La radula della chiocciola funziona come una lima. I denti consumati vengono sostituiti di continuo da nuovi."
+   "x": "La radula della chiocciola funziona come una lima. I denti consumati vengono sostituiti di continuo da nuovi.",
+   "k": "Chiocciole: lingua con migliaia di dentini"
   }
  },
  {
@@ -924,7 +1008,8 @@
     "Hai",
     "Otter"
    ],
-   "x": "Haie haben Lorenzinische Ampullen: Poren an der Schnauze, die den Strom der Muskeln versteckter Beute spüren."
+   "x": "Haie haben Lorenzinische Ampullen: Poren an der Schnauze, die den Strom der Muskeln versteckter Beute spüren.",
+   "k": "Haie: spüren elektrische Felder"
   },
   "en": {
    "q": "Which animal can sense the weak electric fields of its prey?",
@@ -934,7 +1019,8 @@
     "Shark",
     "Otter"
    ],
-   "x": "Sharks have ampullae of Lorenzini: snout pores that detect electricity from the muscles of hidden prey."
+   "x": "Sharks have ampullae of Lorenzini: snout pores that detect electricity from the muscles of hidden prey.",
+   "k": "Sharks: sense electric fields"
   },
   "fr": {
    "q": "Quel animal perçoit les faibles champs électriques de ses proies ?",
@@ -944,7 +1030,8 @@
     "Requin",
     "Loutre"
    ],
-   "x": "Le requin a des ampoules de Lorenzini : des pores du museau qui captent l'électricité des proies cachées."
+   "x": "Le requin a des ampoules de Lorenzini : des pores du museau qui captent l'électricité des proies cachées.",
+   "k": "Requins : sentent les champs électriques"
   },
   "es": {
    "q": "¿Qué animal percibe los débiles campos eléctricos de sus presas?",
@@ -954,7 +1041,8 @@
     "Tiburón",
     "Nutria"
    ],
-   "x": "El tiburón tiene ampollas de Lorenzini: poros del hocico que captan la electricidad de presas ocultas."
+   "x": "El tiburón tiene ampollas de Lorenzini: poros del hocico que captan la electricidad de presas ocultas.",
+   "k": "Tiburones: perciben campos eléctricos"
   },
   "pt": {
    "q": "Que animal percebe os fracos campos elétricos das presas?",
@@ -964,7 +1052,8 @@
     "Tubarão",
     "Lontra"
    ],
-   "x": "O tubarão tem ampolas de Lorenzini: poros no focinho que captam a eletricidade de presas escondidas."
+   "x": "O tubarão tem ampolas de Lorenzini: poros no focinho que captam a eletricidade de presas escondidas.",
+   "k": "Tubarões: sentem campos elétricos"
   },
   "ja": {
    "q": "獲物の弱い電気を感じとれる動物は？",
@@ -974,7 +1063,8 @@
     "サメ",
     "カワウソ"
    ],
-   "x": "サメにはロレンチーニ器官があります。鼻先の小さな穴で、かくれた獲物の筋肉が出す電気を感じとります。"
+   "x": "サメにはロレンチーニ器官があります。鼻先の小さな穴で、かくれた獲物の筋肉が出す電気を感じとります。",
+   "k": "サメ：電気を感じとる"
   },
   "it": {
    "q": "Quale animale percepisce i deboli campi elettrici delle prede?",
@@ -984,7 +1074,8 @@
     "Squalo",
     "Lontra"
    ],
-   "x": "Gli squali hanno le ampolle di Lorenzini: pori sul muso che percepiscono l’elettricità dei muscoli delle prede nascoste."
+   "x": "Gli squali hanno le ampolle di Lorenzini: pori sul muso che percepiscono l’elettricità dei muscoli delle prede nascoste.",
+   "k": "Squali: percepiscono i campi elettrici"
   }
  },
  {
@@ -1000,7 +1091,8 @@
     "Marienkäfer",
     "Krabbe"
    ],
-   "x": "Mit dem Schwänzeltanz teilt die Biene Richtung und Entfernung einer Futterquelle mit."
+   "x": "Mit dem Schwänzeltanz teilt die Biene Richtung und Entfernung einer Futterquelle mit.",
+   "k": "Bienen: zeigen Futter per Tanz"
   },
   "en": {
    "q": "Which animal uses a dance to tell others where to find food?",
@@ -1010,7 +1102,8 @@
     "Ladybird",
     "Crab"
    ],
-   "x": "With its waggle dance, a bee tells its nestmates the direction and distance of a food source."
+   "x": "With its waggle dance, a bee tells its nestmates the direction and distance of a food source.",
+   "k": "Bees: show food with a dance"
   },
   "fr": {
    "q": "Quel animal indique aux autres par une danse où trouver de la nourriture ?",
@@ -1020,7 +1113,8 @@
     "Coccinelle",
     "Crabe"
    ],
-   "x": "Par sa danse frétillante, l'abeille indique la direction et la distance d'une source de nourriture."
+   "x": "Par sa danse frétillante, l'abeille indique la direction et la distance d'une source de nourriture.",
+   "k": "Abeilles : montrent la nourriture par une danse"
   },
   "es": {
    "q": "¿Qué animal indica con un baile dónde hay comida?",
@@ -1030,7 +1124,8 @@
     "Mariquita",
     "Cangrejo"
    ],
-   "x": "Con su danza del contoneo, la abeja comunica la dirección y la distancia de una fuente de alimento."
+   "x": "Con su danza del contoneo, la abeja comunica la dirección y la distancia de una fuente de alimento.",
+   "k": "Abejas: indican la comida con un baile"
   },
   "pt": {
    "q": "Que animal mostra com uma dança onde há comida?",
@@ -1040,7 +1135,8 @@
     "Joaninha",
     "Caranguejo"
    ],
-   "x": "Com a dança do requebrado, a abelha conta a direção e a distância de uma fonte de alimento."
+   "x": "Com a dança do requebrado, a abelha conta a direção e a distância de uma fonte de alimento.",
+   "k": "Abelhas: mostram comida dançando"
   },
   "ja": {
    "q": "ダンスでえさの場所を仲間に伝える動物は？",
@@ -1050,7 +1146,8 @@
     "テントウムシ",
     "カニ"
    ],
-   "x": "ミツバチは「8の字ダンス」で、えさ場の方向と距離を仲間に伝えます。"
+   "x": "ミツバチは「8の字ダンス」で、えさ場の方向と距離を仲間に伝えます。",
+   "k": "ミツバチ：ダンスでえさ場を伝える"
   },
   "it": {
    "q": "Quale animale usa una danza per dire agli altri dove trovare cibo?",
@@ -1060,7 +1157,8 @@
     "Coccinella",
     "Granchio"
    ],
-   "x": "Con la danza dell’addome l’ape comunica alle compagne direzione e distanza di una fonte di cibo."
+   "x": "Con la danza dell’addome l’ape comunica alle compagne direzione e distanza di una fonte di cibo.",
+   "k": "Api: indicano il cibo con una danza"
   }
  },
  {
@@ -1076,7 +1174,8 @@
     "Frosch",
     "Eidechse"
    ],
-   "x": "Schmetterlinge haben Geschmackssinneszellen an den Füßen. So prüfen Weibchen, ob eine Pflanze für ihre Eier taugt."
+   "x": "Schmetterlinge haben Geschmackssinneszellen an den Füßen. So prüfen Weibchen, ob eine Pflanze für ihre Eier taugt.",
+   "k": "Schmetterlinge: schmecken mit den Füßen"
   },
   "en": {
    "q": "Which animal tastes with its feet?",
@@ -1086,7 +1185,8 @@
     "Frog",
     "Lizard"
    ],
-   "x": "Butterflies have taste sensors on their feet. Females use them to check if a plant suits their eggs."
+   "x": "Butterflies have taste sensors on their feet. Females use them to check if a plant suits their eggs.",
+   "k": "Butterflies: taste with their feet"
   },
   "fr": {
    "q": "Quel animal goûte avec ses pattes ?",
@@ -1096,7 +1196,8 @@
     "Grenouille",
     "Lézard"
    ],
-   "x": "Le papillon a des capteurs du goût sur les pattes. La femelle vérifie ainsi si une plante convient à ses œufs."
+   "x": "Le papillon a des capteurs du goût sur les pattes. La femelle vérifie ainsi si une plante convient à ses œufs.",
+   "k": "Papillons : goûtent avec les pattes"
   },
   "es": {
    "q": "¿Qué animal saborea con las patas?",
@@ -1106,7 +1207,8 @@
     "Rana",
     "Lagarto"
    ],
-   "x": "La mariposa tiene sensores del gusto en las patas. Así la hembra comprueba si una planta sirve para sus huevos."
+   "x": "La mariposa tiene sensores del gusto en las patas. Así la hembra comprueba si una planta sirve para sus huevos.",
+   "k": "Mariposas: saborean con las patas"
   },
   "pt": {
    "q": "Que animal sente o gosto com as patas?",
@@ -1116,7 +1218,8 @@
     "Rã",
     "Lagarto"
    ],
-   "x": "A borboleta tem sensores de gosto nas patas. Assim a fêmea confere se uma planta serve para os ovos."
+   "x": "A borboleta tem sensores de gosto nas patas. Assim a fêmea confere se uma planta serve para os ovos.",
+   "k": "Borboletas: sentem gosto com os pés"
   },
   "ja": {
    "q": "足で味を感じる動物は？",
@@ -1126,7 +1229,8 @@
     "カエル",
     "トカゲ"
    ],
-   "x": "チョウの足には味を感じるセンサーがあります。メスはそれで、卵を産むのにいい植物か確かめます。"
+   "x": "チョウの足には味を感じるセンサーがあります。メスはそれで、卵を産むのにいい植物か確かめます。",
+   "k": "チョウ：足で味を感じる"
   },
   "it": {
    "q": "Quale animale sente i sapori con i piedi?",
@@ -1136,7 +1240,8 @@
     "Rana",
     "Lucertola"
    ],
-   "x": "Le farfalle hanno sensori del gusto sulle zampe. Le femmine li usano per capire se una pianta va bene per le uova."
+   "x": "Le farfalle hanno sensori del gusto sulle zampe. Le femmine li usano per capire se una pianta va bene per le uova.",
+   "k": "Farfalle: sentono i sapori con i piedi"
   }
  },
  {
@@ -1152,7 +1257,8 @@
     "Schnecke",
     "Marienkäfer"
    ],
-   "x": "Dieses „Reflexbluten“ schreckt Fressfeinde ab: Die gelbe Flüssigkeit des Marienkäfers schmeckt bitter."
+   "x": "Dieses „Reflexbluten“ schreckt Fressfeinde ab: Die gelbe Flüssigkeit des Marienkäfers schmeckt bitter.",
+   "k": "Marienkäfer: bluten bei Gefahr bitteres Gelb"
   },
   "en": {
    "q": "Which animal squeezes bitter yellow blood from its leg joints when threatened?",
@@ -1162,7 +1268,8 @@
     "Snail",
     "Ladybird"
    ],
-   "x": "This 'reflex bleeding' deters predators: the ladybird's yellow fluid tastes bitter and smells bad."
+   "x": "This 'reflex bleeding' deters predators: the ladybird's yellow fluid tastes bitter and smells bad.",
+   "k": "Ladybirds: bleed bitter yellow when threatened"
   },
   "fr": {
    "q": "Quel animal fait sortir un sang jaune et amer de ses articulations en cas de danger ?",
@@ -1172,7 +1279,8 @@
     "Escargot",
     "Coccinelle"
    ],
-   "x": "Ce « saignement réflexe » repousse les prédateurs : le liquide jaune de la coccinelle est amer."
+   "x": "Ce « saignement réflexe » repousse les prédateurs : le liquide jaune de la coccinelle est amer.",
+   "k": "Coccinelles : saignent un jaune amer"
   },
   "es": {
    "q": "¿Qué animal expulsa sangre amarilla y amarga por las articulaciones de las patas ante un peligro?",
@@ -1182,7 +1290,8 @@
     "Caracol",
     "Mariquita"
    ],
-   "x": "Este «sangrado reflejo» ahuyenta a los depredadores: el líquido amarillo de la mariquita es amargo."
+   "x": "Este «sangrado reflejo» ahuyenta a los depredadores: el líquido amarillo de la mariquita es amargo.",
+   "k": "Mariquitas: sangran un líquido amarillo amargo"
   },
   "pt": {
    "q": "Que animal solta sangue amarelo e amargo pelas articulações das patas quando está em perigo?",
@@ -1192,7 +1301,8 @@
     "Caracol",
     "Joaninha"
    ],
-   "x": "Esse “sangramento reflexo” espanta os predadores: o líquido amarelo da joaninha é amargo."
+   "x": "Esse “sangramento reflexo” espanta os predadores: o líquido amarelo da joaninha é amargo.",
+   "k": "Joaninhas: soltam um líquido amarelo amargo"
   },
   "ja": {
    "q": "危険を感じると、脚の関節から苦い黄色い血を出す動物は？",
@@ -1202,7 +1312,8 @@
     "カタツムリ",
     "テントウムシ"
    ],
-   "x": "この「反射出血」で敵を追いはらいます。テントウムシの黄色い液は苦くて、いやなにおいがします。"
+   "x": "この「反射出血」で敵を追いはらいます。テントウムシの黄色い液は苦くて、いやなにおいがします。",
+   "k": "テントウムシ：苦い黄色い液を出す"
   },
   "it": {
    "q": "Quale animale, se minacciato, spreme dalle articolazioni delle zampe un sangue giallo e amaro?",
@@ -1212,7 +1323,8 @@
     "Chiocciola",
     "Coccinella"
    ],
-   "x": "Questo «sanguinamento riflesso» scoraggia i predatori: il liquido giallo della coccinella è amaro e puzza."
+   "x": "Questo «sanguinamento riflesso» scoraggia i predatori: il liquido giallo della coccinella è amaro e puzza.",
+   "k": "Coccinelle: sanguinano un giallo amaro"
   }
  },
  {
@@ -1228,7 +1340,8 @@
     "Eidechse",
     "Papagei"
    ],
-   "x": "Der abgeworfene Eidechsenschwanz zappelt weiter und lenkt den Feind ab. Er wächst nach, aber kürzer."
+   "x": "Der abgeworfene Eidechsenschwanz zappelt weiter und lenkt den Feind ab. Er wächst nach, aber kürzer.",
+   "k": "Eidechsen: werfen bei Gefahr den Schwanz ab"
   },
   "en": {
    "q": "Which animal can shed its tail when in danger?",
@@ -1238,7 +1351,8 @@
     "Lizard",
     "Parrot"
    ],
-   "x": "A lizard's dropped tail keeps wriggling to distract the enemy. It grows back, but shorter."
+   "x": "A lizard's dropped tail keeps wriggling to distract the enemy. It grows back, but shorter.",
+   "k": "Lizards: drop their tail in danger"
   },
   "fr": {
    "q": "Quel animal peut abandonner sa queue en cas de danger ?",
@@ -1248,7 +1362,8 @@
     "Lézard",
     "Perroquet"
    ],
-   "x": "La queue du lézard continue de gigoter pour distraire l'ennemi. Elle repousse, mais plus courte."
+   "x": "La queue du lézard continue de gigoter pour distraire l'ennemi. Elle repousse, mais plus courte.",
+   "k": "Lézards : lâchent leur queue en danger"
   },
   "es": {
    "q": "¿Qué animal puede soltar su cola ante un peligro?",
@@ -1258,7 +1373,8 @@
     "Lagarto",
     "Loro"
    ],
-   "x": "La cola del lagarto sigue moviéndose y distrae al enemigo. Vuelve a crecer, pero más corta."
+   "x": "La cola del lagarto sigue moviéndose y distrae al enemigo. Vuelve a crecer, pero más corta.",
+   "k": "Lagartijas: sueltan la cola ante el peligro"
   },
   "pt": {
    "q": "Que animal consegue soltar a cauda quando está em perigo?",
@@ -1268,7 +1384,8 @@
     "Lagarto",
     "Papagaio"
    ],
-   "x": "A cauda do lagarto continua se mexendo e distrai o inimigo. Ela cresce de novo, mas mais curta."
+   "x": "A cauda do lagarto continua se mexendo e distrai o inimigo. Ela cresce de novo, mas mais curta.",
+   "k": "Lagartixas: soltam o rabo no perigo"
   },
   "ja": {
    "q": "危ないとき、しっぽを切りはなせる動物は？",
@@ -1278,7 +1395,8 @@
     "トカゲ",
     "オウム"
    ],
-   "x": "切れたトカゲのしっぽはクネクネ動き続け、敵の気をそらします。しっぽはまた生えますが、短くなります。"
+   "x": "切れたトカゲのしっぽはクネクネ動き続け、敵の気をそらします。しっぽはまた生えますが、短くなります。",
+   "k": "トカゲ：危ないとしっぽを切る"
   },
   "it": {
    "q": "Quale animale può staccare la coda in caso di pericolo?",
@@ -1288,7 +1406,8 @@
     "Lucertola",
     "Pappagallo"
    ],
-   "x": "La coda staccata della lucertola continua a dimenarsi e distrae il nemico. Ricresce, ma più corta."
+   "x": "La coda staccata della lucertola continua a dimenarsi e distrae il nemico. Ricresce, ma più corta.",
+   "k": "Lucertole: staccano la coda in pericolo"
   }
  },
  {
@@ -1304,7 +1423,8 @@
     "Otter",
     "Frosch"
    ],
-   "x": "Frösche ziehen beim Schlucken die Augäpfel ein. Diese drücken von oben auf den Bissen und schieben ihn in den Schlund."
+   "x": "Frösche ziehen beim Schlucken die Augäpfel ein. Diese drücken von oben auf den Bissen und schieben ihn in den Schlund.",
+   "k": "Frösche: schlucken mit Hilfe der Augen"
   },
   "en": {
    "q": "Which animal pulls its eyes inward when swallowing to push food down?",
@@ -1314,7 +1434,8 @@
     "Otter",
     "Frog"
    ],
-   "x": "Frogs retract their eyeballs when swallowing. They press on the food from above and push it down the throat."
+   "x": "Frogs retract their eyeballs when swallowing. They press on the food from above and push it down the throat.",
+   "k": "Frogs: swallow with help from their eyes"
   },
   "fr": {
    "q": "Quel animal enfonce ses yeux en avalant pour pousser sa proie vers le bas ?",
@@ -1324,7 +1445,8 @@
     "Loutre",
     "Grenouille"
    ],
-   "x": "En avalant, la grenouille rentre ses yeux. Ils appuient sur la proie et la poussent dans la gorge."
+   "x": "En avalant, la grenouille rentre ses yeux. Ils appuient sur la proie et la poussent dans la gorge.",
+   "k": "Grenouilles : avalent avec l’aide des yeux"
   },
   "es": {
    "q": "¿Qué animal hunde los ojos al tragar para empujar la comida?",
@@ -1334,7 +1456,8 @@
     "Nutria",
     "Rana"
    ],
-   "x": "Al tragar, la rana hunde los ojos. Estos presionan el bocado desde arriba y lo empujan a la garganta."
+   "x": "Al tragar, la rana hunde los ojos. Estos presionan el bocado desde arriba y lo empujan a la garganta.",
+   "k": "Ranas: tragan con ayuda de los ojos"
   },
   "pt": {
    "q": "Que animal afunda os olhos ao engolir para empurrar a comida?",
@@ -1344,7 +1467,8 @@
     "Lontra",
     "Rã"
    ],
-   "x": "Ao engolir, a rã afunda os olhos. Eles pressionam o bocado de cima e o empurram para a garganta."
+   "x": "Ao engolir, a rã afunda os olhos. Eles pressionam o bocado de cima e o empurram para a garganta.",
+   "k": "Rãs: engolem com ajuda dos olhos"
   },
   "ja": {
    "q": "飲みこむとき、目玉を内側に引っこめて食べものを押しこむ動物は？",
@@ -1354,7 +1478,8 @@
     "カワウソ",
     "カエル"
    ],
-   "x": "カエルは飲みこむとき目玉を引っこめます。目玉が上から食べものを押して、のどへ送りこむのです。"
+   "x": "カエルは飲みこむとき目玉を引っこめます。目玉が上から食べものを押して、のどへ送りこむのです。",
+   "k": "カエル：目玉を使って飲みこむ"
   },
   "it": {
    "q": "Quale animale tira gli occhi verso l’interno quando deglutisce, per spingere giù il cibo?",
@@ -1364,7 +1489,8 @@
     "Lontra",
     "Rana"
    ],
-   "x": "Le rane ritraggono i bulbi oculari quando deglutiscono: premono sul cibo dall’alto e lo spingono in gola."
+   "x": "Le rane ritraggono i bulbi oculari quando deglutiscono: premono sul cibo dall’alto e lo spingono in gola.",
+   "k": "Rane: deglutiscono con l’aiuto degli occhi"
   }
  },
  {
@@ -1380,7 +1506,8 @@
     "Frosch",
     "Pinguin"
    ],
-   "x": "Krabben transportieren Sauerstoff mit Hämocyanin, das Kupfer enthält. Unser Blut ist durch Eisen rot."
+   "x": "Krabben transportieren Sauerstoff mit Hämocyanin, das Kupfer enthält. Unser Blut ist durch Eisen rot.",
+   "k": "Krebse: Blut ist blau durch Kupfer"
   },
   "en": {
    "q": "Whose blood is bluish because of copper?",
@@ -1390,7 +1517,8 @@
     "Frog",
     "Penguin"
    ],
-   "x": "Crabs carry oxygen with haemocyanin, which contains copper. Our blood is red because of iron."
+   "x": "Crabs carry oxygen with haemocyanin, which contains copper. Our blood is red because of iron.",
+   "k": "Crabs: blue blood thanks to copper"
   },
   "fr": {
    "q": "Quel animal a un sang bleuté à cause du cuivre ?",
@@ -1400,7 +1528,8 @@
     "Grenouille",
     "Manchot"
    ],
-   "x": "Le crabe transporte l'oxygène avec l'hémocyanine, qui contient du cuivre. Notre sang est rouge grâce au fer."
+   "x": "Le crabe transporte l'oxygène avec l'hémocyanine, qui contient du cuivre. Notre sang est rouge grâce au fer.",
+   "k": "Crabes : sang bleu grâce au cuivre"
   },
   "es": {
    "q": "¿Qué animal tiene la sangre azulada por el cobre?",
@@ -1410,7 +1539,8 @@
     "Rana",
     "Pingüino"
    ],
-   "x": "El cangrejo transporta oxígeno con hemocianina, que contiene cobre. Nuestra sangre es roja por el hierro."
+   "x": "El cangrejo transporta oxígeno con hemocianina, que contiene cobre. Nuestra sangre es roja por el hierro.",
+   "k": "Cangrejos: sangre azul por el cobre"
   },
   "pt": {
    "q": "Que animal tem sangue azulado por causa do cobre?",
@@ -1420,7 +1550,8 @@
     "Rã",
     "Pinguim"
    ],
-   "x": "O caranguejo transporta oxigênio com hemocianina, que contém cobre. Nosso sangue é vermelho por causa do ferro."
+   "x": "O caranguejo transporta oxigênio com hemocianina, que contém cobre. Nosso sangue é vermelho por causa do ferro.",
+   "k": "Caranguejos: sangue azul por causa do cobre"
   },
   "ja": {
    "q": "銅のせいで血が青っぽいのは？",
@@ -1430,7 +1561,8 @@
     "カエル",
     "ペンギン"
    ],
-   "x": "カニは銅をふくむヘモシアニンで酸素を運びます。私たちの血が赤いのは鉄のおかげです。"
+   "x": "カニは銅をふくむヘモシアニンで酸素を運びます。私たちの血が赤いのは鉄のおかげです。",
+   "k": "カニ：銅で血が青い"
   },
   "it": {
    "q": "Di chi è il sangue bluastro a causa del rame?",
@@ -1440,7 +1572,8 @@
     "Rana",
     "Pinguino"
    ],
-   "x": "I granchi trasportano l’ossigeno con l’emocianina, che contiene rame. Il nostro sangue è rosso per il ferro."
+   "x": "I granchi trasportano l’ossigeno con l’emocianina, che contiene rame. Il nostro sangue è rosso per il ferro.",
+   "k": "Granchi: sangue blu grazie al rame"
   }
  },
  {
@@ -1456,7 +1589,8 @@
     "Krake",
     "Marienkäfer"
    ],
-   "x": "Krabben gehören zu den Zehnfußkrebsen. Das vorderste Beinpaar ist zu kräftigen Scheren umgebaut."
+   "x": "Krabben gehören zu den Zehnfußkrebsen. Das vorderste Beinpaar ist zu kräftigen Scheren umgebaut.",
+   "k": "Krebse: zehn Beine inklusive Scheren"
   },
   "en": {
    "q": "Which animal has ten legs, counting its claws?",
@@ -1466,7 +1600,8 @@
     "Octopus",
     "Ladybird"
    ],
-   "x": "Crabs are decapods ('ten-footed'). Their front pair of legs has become strong claws."
+   "x": "Crabs are decapods ('ten-footed'). Their front pair of legs has become strong claws.",
+   "k": "Crabs: ten legs, claws included"
   },
   "fr": {
    "q": "Quel animal a dix pattes, pinces comprises ?",
@@ -1476,7 +1611,8 @@
     "Pieuvre",
     "Coccinelle"
    ],
-   "x": "Le crabe est un décapode (« dix pieds »). Sa première paire de pattes forme de puissantes pinces."
+   "x": "Le crabe est un décapode (« dix pieds »). Sa première paire de pattes forme de puissantes pinces.",
+   "k": "Crabes : dix pattes, pinces comprises"
   },
   "es": {
    "q": "¿Qué animal tiene diez patas, contando las pinzas?",
@@ -1486,7 +1622,8 @@
     "Pulpo",
     "Mariquita"
    ],
-   "x": "El cangrejo es un decápodo («diez pies»). Su primer par de patas se ha convertido en fuertes pinzas."
+   "x": "El cangrejo es un decápodo («diez pies»). Su primer par de patas se ha convertido en fuertes pinzas.",
+   "k": "Cangrejos: diez patas, pinzas incluidas"
   },
   "pt": {
    "q": "Que animal tem dez patas, contando as pinças?",
@@ -1496,7 +1633,8 @@
     "Polvo",
     "Joaninha"
    ],
-   "x": "O caranguejo é um decápode (“dez pés”). Seu primeiro par de patas virou pinças fortes."
+   "x": "O caranguejo é um decápode (“dez pés”). Seu primeiro par de patas virou pinças fortes.",
+   "k": "Caranguejos: dez patas, pinças incluídas"
   },
   "ja": {
    "q": "はさみも数えると脚が10本の動物は？",
@@ -1506,7 +1644,8 @@
     "タコ",
     "テントウムシ"
    ],
-   "x": "カニは十脚類（10本の脚）。いちばん前の1対が強いはさみになっています。"
+   "x": "カニは十脚類（10本の脚）。いちばん前の1対が強いはさみになっています。",
+   "k": "カニ：はさみも入れて脚10本"
   },
   "it": {
    "q": "Quale animale ha dieci zampe, contando le chele?",
@@ -1516,7 +1655,8 @@
     "Polpo",
     "Coccinella"
    ],
-   "x": "I granchi sono decapodi («dieci piedi»). Il primo paio di zampe è diventato due chele robuste."
+   "x": "I granchi sono decapodi («dieci piedi»). Il primo paio di zampe è diventato due chele robuste.",
+   "k": "Granchi: dieci zampe, chele comprese"
   }
  },
  {
@@ -1532,7 +1672,8 @@
     "Krabbe",
     "Schildkröte"
    ],
-   "x": "Kraken haben keine Knochen. Nur ihr harter Schnabel bestimmt, durch welche Öffnung sie schlüpfen können."
+   "x": "Kraken haben keine Knochen. Nur ihr harter Schnabel bestimmt, durch welche Öffnung sie schlüpfen können.",
+   "k": "Krake: passt durch fast jedes Loch"
   },
   "en": {
    "q": "Which animal can squeeze through a hole barely bigger than its beak?",
@@ -1542,7 +1683,8 @@
     "Crab",
     "Turtle"
    ],
-   "x": "Octopuses have no bones. Only their hard beak limits which openings they can slip through."
+   "x": "Octopuses have no bones. Only their hard beak limits which openings they can slip through.",
+   "k": "Octopus: fits through almost any hole"
   },
   "fr": {
    "q": "Quel animal peut passer par un trou à peine plus grand que son bec ?",
@@ -1552,7 +1694,8 @@
     "Crabe",
     "Tortue"
    ],
-   "x": "La pieuvre n'a pas d'os. Seul son bec dur limite les ouvertures par lesquelles elle peut se faufiler."
+   "x": "La pieuvre n'a pas d'os. Seul son bec dur limite les ouvertures par lesquelles elle peut se faufiler.",
+   "k": "Pieuvre : passe par presque tous les trous"
   },
   "es": {
    "q": "¿Qué animal cabe por un agujero apenas mayor que su pico?",
@@ -1562,7 +1705,8 @@
     "Cangrejo",
     "Tortuga"
    ],
-   "x": "El pulpo no tiene huesos. Solo su pico duro limita las aberturas por las que puede colarse."
+   "x": "El pulpo no tiene huesos. Solo su pico duro limita las aberturas por las que puede colarse.",
+   "k": "Pulpo: pasa por casi cualquier agujero"
   },
   "pt": {
    "q": "Que animal passa por um buraco pouco maior que o seu bico?",
@@ -1572,7 +1716,8 @@
     "Caranguejo",
     "Tartaruga"
    ],
-   "x": "O polvo não tem ossos. Só o bico duro limita as aberturas por onde ele consegue passar."
+   "x": "O polvo não tem ossos. Só o bico duro limita as aberturas por onde ele consegue passar.",
+   "k": "Polvo: passa por quase qualquer buraco"
   },
   "ja": {
    "q": "くちばしよりほんの少し大きいだけの穴を通りぬけられる動物は？",
@@ -1582,7 +1727,8 @@
     "カニ",
     "カメ"
    ],
-   "x": "タコには骨がありません。通れる穴の大きさを決めるのは、かたいくちばしだけです。"
+   "x": "タコには骨がありません。通れる穴の大きさを決めるのは、かたいくちばしだけです。",
+   "k": "タコ：ほとんどどんな穴も通れる"
   },
   "it": {
    "q": "Quale animale passa da un buco appena più grande del suo becco?",
@@ -1592,7 +1738,8 @@
     "Granchio",
     "Tartaruga"
    ],
-   "x": "I polpi non hanno ossa. Solo il loro becco duro limita le aperture in cui possono infilarsi."
+   "x": "I polpi non hanno ossa. Solo il loro becco duro limita le aperture in cui possono infilarsi.",
+   "k": "Polpo: passa da quasi ogni buco"
   }
  },
  {
@@ -1608,7 +1755,8 @@
     "Pinguin",
     "Papagei"
    ],
-   "x": "Papageien haben Kletterfüße. Damit greifen sie Äste und halten ihr Futter wie mit einer Hand."
+   "x": "Papageien haben Kletterfüße. Damit greifen sie Äste und halten ihr Futter wie mit einer Hand.",
+   "k": "Papageien: zwei Zehen vorn, zwei hinten"
   },
   "en": {
    "q": "Which bird has two toes pointing forward and two pointing back?",
@@ -1618,7 +1766,8 @@
     "Penguin",
     "Parrot"
    ],
-   "x": "Parrots have zygodactyl feet to grip branches and hold food as if with a hand."
+   "x": "Parrots have zygodactyl feet to grip branches and hold food as if with a hand.",
+   "k": "Parrots: two toes forward, two back"
   },
   "fr": {
    "q": "Chez quel oiseau deux doigts pointent vers l'avant et deux vers l'arrière ?",
@@ -1628,7 +1777,8 @@
     "Manchot",
     "Perroquet"
    ],
-   "x": "Le perroquet a des pieds zygodactyles : il agrippe les branches et tient sa nourriture comme une main."
+   "x": "Le perroquet a des pieds zygodactyles : il agrippe les branches et tient sa nourriture comme une main.",
+   "k": "Perroquets : deux doigts devant, deux derrière"
   },
   "es": {
    "q": "¿En qué ave dos dedos apuntan hacia delante y dos hacia atrás?",
@@ -1638,7 +1788,8 @@
     "Pingüino",
     "Loro"
    ],
-   "x": "El loro tiene patas zigodáctilas: se agarra a las ramas y sujeta la comida como con una mano."
+   "x": "El loro tiene patas zigodáctilas: se agarra a las ramas y sujeta la comida como con una mano.",
+   "k": "Loros: dos dedos delante, dos detrás"
   },
   "pt": {
    "q": "Em que ave dois dedos apontam para a frente e dois para trás?",
@@ -1648,7 +1799,8 @@
     "Pinguim",
     "Papagaio"
    ],
-   "x": "O papagaio tem pés zigodáctilos: agarra-se aos galhos e segura a comida como se fosse uma mão."
+   "x": "O papagaio tem pés zigodáctilos: agarra-se aos galhos e segura a comida como se fosse uma mão.",
+   "k": "Papagaios: dois dedos para a frente, dois para trás"
   },
   "ja": {
    "q": "指が2本前、2本後ろを向いている鳥は？",
@@ -1658,7 +1810,8 @@
     "ペンギン",
     "オウム"
    ],
-   "x": "オウムの足は対趾足。枝をつかんだり、手のように食べものを持ったりできます。"
+   "x": "オウムの足は対趾足。枝をつかんだり、手のように食べものを持ったりできます。",
+   "k": "オウム：指が前に2本、後ろに2本"
   },
   "it": {
    "q": "Quale uccello ha due dita rivolte in avanti e due indietro?",
@@ -1668,7 +1821,8 @@
     "Pinguino",
     "Pappagallo"
    ],
-   "x": "I pappagalli hanno piedi zigodattili per afferrare i rami e tenere il cibo come con una mano."
+   "x": "I pappagalli hanno piedi zigodattili per afferrare i rami e tenere il cibo come con una mano.",
+   "k": "Pappagalli: due dita avanti, due indietro"
   }
  },
  {
@@ -1684,7 +1838,8 @@
     "Pinguin",
     "Papagei"
    ],
-   "x": "Flugvögel haben hohle Knochen. Pinguine brauchen schwere Knochen, damit sie beim Tauchen nicht auftreiben."
+   "x": "Flugvögel haben hohle Knochen. Pinguine brauchen schwere Knochen, damit sie beim Tauchen nicht auftreiben.",
+   "k": "Pinguine: schwere, volle Knochen"
   },
   "en": {
    "q": "Which bird has heavy, solid bones instead of air-filled ones?",
@@ -1694,7 +1849,8 @@
     "Penguin",
     "Parrot"
    ],
-   "x": "Flying birds have hollow bones. Penguins need heavy bones so they don't float up while diving."
+   "x": "Flying birds have hollow bones. Penguins need heavy bones so they don't float up while diving.",
+   "k": "Penguins: heavy, solid bones"
   },
   "fr": {
    "q": "Quel oiseau a des os lourds et pleins au lieu d'os remplis d'air ?",
@@ -1704,7 +1860,8 @@
     "Manchot",
     "Perroquet"
    ],
-   "x": "Les oiseaux volants ont des os creux. Le manchot a besoin d'os lourds pour ne pas remonter en plongée."
+   "x": "Les oiseaux volants ont des os creux. Le manchot a besoin d'os lourds pour ne pas remonter en plongée.",
+   "k": "Manchots : os lourds et pleins"
   },
   "es": {
    "q": "¿Qué ave tiene huesos pesados y macizos en lugar de huecos?",
@@ -1714,7 +1871,8 @@
     "Pingüino",
     "Loro"
    ],
-   "x": "Las aves voladoras tienen huesos huecos. El pingüino necesita huesos pesados para no flotar al bucear."
+   "x": "Las aves voladoras tienen huesos huecos. El pingüino necesita huesos pesados para no flotar al bucear.",
+   "k": "Pingüinos: huesos pesados y macizos"
   },
   "pt": {
    "q": "Que ave tem ossos pesados e maciços em vez de ocos?",
@@ -1724,7 +1882,8 @@
     "Pinguim",
     "Papagaio"
    ],
-   "x": "As aves que voam têm ossos ocos. O pinguim precisa de ossos pesados para não boiar ao mergulhar."
+   "x": "As aves que voam têm ossos ocos. O pinguim precisa de ossos pesados para não boiar ao mergulhar.",
+   "k": "Pinguins: ossos pesados e maciços"
   },
   "ja": {
    "q": "空気の入った骨ではなく、重くて中身のつまった骨をもつ鳥は？",
@@ -1734,7 +1893,8 @@
     "ペンギン",
     "オウム"
    ],
-   "x": "飛ぶ鳥の骨は中が空洞です。ペンギンは潜るとき浮き上がらないように、重い骨が必要なのです。"
+   "x": "飛ぶ鳥の骨は中が空洞です。ペンギンは潜るとき浮き上がらないように、重い骨が必要なのです。",
+   "k": "ペンギン：重くて中身のつまった骨"
   },
   "it": {
    "q": "Quale uccello ha ossa pesanti e piene invece che piene d’aria?",
@@ -1744,7 +1904,8 @@
     "Pinguino",
     "Pappagallo"
    ],
-   "x": "Gli uccelli che volano hanno ossa cave. I pinguini hanno bisogno di ossa pesanti per non risalire mentre si immergono."
+   "x": "Gli uccelli che volano hanno ossa cave. I pinguini hanno bisogno di ossa pesanti per non risalire mentre si immergono.",
+   "k": "Pinguini: ossa pesanti e piene"
   }
  },
  {
@@ -1760,7 +1921,8 @@
     "Bär",
     "Panda"
    ],
-   "x": "Das Giraffenherz wiegt etwa 11 kg und muss das Blut rund 2 Meter hoch bis zum Kopf pumpen."
+   "x": "Das Giraffenherz wiegt etwa 11 kg und muss das Blut rund 2 Meter hoch bis zum Kopf pumpen.",
+   "k": "Giraffe: höchster Blutdruck"
   },
   "en": {
    "q": "Which of these mammals has the highest blood pressure?",
@@ -1770,7 +1932,8 @@
     "Bear",
     "Panda"
    ],
-   "x": "A giraffe's heart weighs about 11 kg and must pump blood some 2 metres up to its head."
+   "x": "A giraffe's heart weighs about 11 kg and must pump blood some 2 metres up to its head.",
+   "k": "Giraffe: highest blood pressure"
   },
   "fr": {
    "q": "Lequel de ces mammifères a la pression artérielle la plus élevée ?",
@@ -1780,7 +1943,8 @@
     "Ours",
     "Panda"
    ],
-   "x": "Le cœur de la girafe pèse environ 11 kg et doit pomper le sang à près de 2 mètres jusqu'à la tête."
+   "x": "Le cœur de la girafe pèse environ 11 kg et doit pomper le sang à près de 2 mètres jusqu'à la tête.",
+   "k": "Girafe : tension la plus élevée"
   },
   "es": {
    "q": "¿Cuál de estos mamíferos tiene la presión arterial más alta?",
@@ -1790,7 +1954,8 @@
     "Oso",
     "Panda"
    ],
-   "x": "El corazón de la jirafa pesa unos 11 kg y debe bombear la sangre unos 2 metros hasta la cabeza."
+   "x": "El corazón de la jirafa pesa unos 11 kg y debe bombear la sangre unos 2 metros hasta la cabeza.",
+   "k": "Jirafa: la presión arterial más alta"
   },
   "pt": {
    "q": "Qual destes mamíferos tem a pressão arterial mais alta?",
@@ -1800,7 +1965,8 @@
     "Urso",
     "Panda"
    ],
-   "x": "O coração da girafa pesa uns 11 kg e precisa bombear o sangue uns 2 metros até a cabeça."
+   "x": "O coração da girafa pesa uns 11 kg e precisa bombear o sangue uns 2 metros até a cabeça.",
+   "k": "Girafa: a pressão arterial mais alta"
   },
   "ja": {
    "q": "この中でいちばん血圧が高い哺乳類は？",
@@ -1810,7 +1976,8 @@
     "クマ",
     "パンダ"
    ],
-   "x": "キリンの心臓は約11キロ。約2メートル上の頭まで血を送らなければなりません。"
+   "x": "キリンの心臓は約11キロ。約2メートル上の頭まで血を送らなければなりません。",
+   "k": "キリン：いちばん高い血圧"
   },
   "it": {
    "q": "Quale di questi mammiferi ha la pressione sanguigna più alta?",
@@ -1820,7 +1987,8 @@
     "Orso",
     "Panda"
    ],
-   "x": "Il cuore della giraffa pesa circa 11 kg e deve pompare il sangue fino alla testa, circa 2 metri più in alto."
+   "x": "Il cuore della giraffa pesa circa 11 kg e deve pompare il sangue fino alla testa, circa 2 metri più in alto.",
+   "k": "Giraffa: la pressione sanguigna più alta"
   }
  },
  {
@@ -1836,7 +2004,8 @@
     "Tiger",
     "Bär"
    ],
-   "x": "Die weißen Ohrflecken des Tigers dienen vermutlich als Signal für die Jungen, die der Mutter folgen."
+   "x": "Die weißen Ohrflecken des Tigers dienen vermutlich als Signal für die Jungen, die der Mutter folgen.",
+   "k": "Tiger: weiße Flecken hinter den Ohren"
   },
   "en": {
    "q": "Which animal has striking white spots on the back of its ears?",
@@ -1846,7 +2015,8 @@
     "Tiger",
     "Bear"
    ],
-   "x": "A tiger's white ear spots probably act as a signal for cubs following their mother."
+   "x": "A tiger's white ear spots probably act as a signal for cubs following their mother.",
+   "k": "Tiger: white spots behind the ears"
   },
   "fr": {
    "q": "Quel animal a des taches blanches bien visibles à l'arrière des oreilles ?",
@@ -1856,7 +2026,8 @@
     "Tigre",
     "Ours"
    ],
-   "x": "Les taches blanches derrière les oreilles du tigre serviraient de repère aux petits qui suivent leur mère."
+   "x": "Les taches blanches derrière les oreilles du tigre serviraient de repère aux petits qui suivent leur mère.",
+   "k": "Tigre : taches blanches derrière les oreilles"
   },
   "es": {
    "q": "¿Qué animal tiene llamativas manchas blancas detrás de las orejas?",
@@ -1866,7 +2037,8 @@
     "Tigre",
     "Oso"
    ],
-   "x": "Las manchas blancas de las orejas del tigre servirían de señal a las crías que siguen a su madre."
+   "x": "Las manchas blancas de las orejas del tigre servirían de señal a las crías que siguen a su madre.",
+   "k": "Tigre: manchas blancas tras las orejas"
   },
   "pt": {
    "q": "Que animal tem manchas brancas chamativas atrás das orelhas?",
@@ -1876,7 +2048,8 @@
     "Tigre",
     "Urso"
    ],
-   "x": "As manchas brancas nas orelhas do tigre serviriam de sinal para os filhotes que seguem a mãe."
+   "x": "As manchas brancas nas orelhas do tigre serviriam de sinal para os filhotes que seguem a mãe.",
+   "k": "Tigre: manchas brancas atrás das orelhas"
   },
   "ja": {
    "q": "耳の後ろに目立つ白い点がある動物は？",
@@ -1886,7 +2059,8 @@
     "トラ",
     "クマ"
    ],
-   "x": "トラの耳の白い点は、母親についていく子どもへの目印になっていると考えられています。"
+   "x": "トラの耳の白い点は、母親についていく子どもへの目印になっていると考えられています。",
+   "k": "トラ：耳の後ろに白い点"
   },
   "it": {
    "q": "Quale animale ha vistose macchie bianche sul retro delle orecchie?",
@@ -1896,7 +2070,8 @@
     "Tigre",
     "Orso"
    ],
-   "x": "Le macchie bianche sulle orecchie della tigre probabilmente fanno da segnale per i cuccioli che seguono la madre."
+   "x": "Le macchie bianche sulle orecchie della tigre probabilmente fanno da segnale per i cuccioli che seguono la madre.",
+   "k": "Tigre: macchie bianche dietro le orecchie"
   }
  },
  {
@@ -1912,7 +2087,8 @@
     "Otter",
     "Panda"
    ],
-   "x": "Ein Pandababy wiegt bei der Geburt nur rund 100 g – etwa so viel wie eine Tafel Schokolade."
+   "x": "Ein Pandababy wiegt bei der Geburt nur rund 100 g – etwa so viel wie eine Tafel Schokolade.",
+   "k": "Panda-Baby: wiegt nur 100 g"
   },
   "en": {
    "q": "Whose newborn weighs only about 1/900 of its mother?",
@@ -1922,7 +2098,8 @@
     "Otter",
     "Panda"
    ],
-   "x": "A newborn panda weighs only about 100 g – roughly as much as a bar of chocolate."
+   "x": "A newborn panda weighs only about 100 g – roughly as much as a bar of chocolate.",
+   "k": "Panda cub: weighs only 100 g"
   },
   "fr": {
    "q": "Quel nouveau-né ne pèse qu'environ 1/900 du poids de sa mère ?",
@@ -1932,7 +2109,8 @@
     "Loutre",
     "Panda"
    ],
-   "x": "Un bébé panda pèse environ 100 g à la naissance, à peu près le poids d'une tablette de chocolat."
+   "x": "Un bébé panda pèse environ 100 g à la naissance, à peu près le poids d'une tablette de chocolat.",
+   "k": "Bébé panda : pèse 100 g"
   },
   "es": {
    "q": "¿Qué cría recién nacida pesa solo 1/900 de lo que pesa su madre?",
@@ -1942,7 +2120,8 @@
     "Nutria",
     "Panda"
    ],
-   "x": "Un panda recién nacido pesa unos 100 g, más o menos lo que una tableta de chocolate."
+   "x": "Un panda recién nacido pesa unos 100 g, más o menos lo que una tableta de chocolate.",
+   "k": "Cría de panda: pesa solo 100 g"
   },
   "pt": {
    "q": "Qual filhote recém-nascido pesa só 1/900 do peso da mãe?",
@@ -1952,7 +2131,8 @@
     "Lontra",
     "Panda"
    ],
-   "x": "Um panda recém-nascido pesa uns 100 g – mais ou menos o mesmo que uma barra de chocolate."
+   "x": "Um panda recém-nascido pesa uns 100 g – mais ou menos o mesmo que uma barra de chocolate.",
+   "k": "Filhote de panda: pesa só 100 g"
   },
   "ja": {
    "q": "生まれたての赤ちゃんが母親の約900分の1の重さしかないのは？",
@@ -1962,7 +2142,8 @@
     "カワウソ",
     "パンダ"
    ],
-   "x": "生まれたてのパンダはわずか約100グラム。板チョコ1枚くらいの重さです。"
+   "x": "生まれたてのパンダはわずか約100グラム。板チョコ1枚くらいの重さです。",
+   "k": "パンダの赤ちゃん：たった100グラム"
   },
   "it": {
    "q": "Di chi è il cucciolo appena nato che pesa solo circa 1/900 della madre?",
@@ -1972,7 +2153,8 @@
     "Lontra",
     "Panda"
    ],
-   "x": "Un panda appena nato pesa solo circa 100 g, più o meno come una tavoletta di cioccolato."
+   "x": "Un panda appena nato pesa solo circa 100 g, più o meno come una tavoletta di cioccolato.",
+   "k": "Cucciolo di panda: pesa solo 100 g"
   }
  },
  {
@@ -1988,7 +2170,8 @@
     "Tiger",
     "Reh"
    ],
-   "x": "Bären laufen wie wir auf der ganzen Sohle. Fuchs und Tiger sind Zehengänger, das Reh geht auf Hufen."
+   "x": "Bären laufen wie wir auf der ganzen Sohle. Fuchs und Tiger sind Zehengänger, das Reh geht auf Hufen.",
+   "k": "Bären: laufen auf ganzer Sohle"
   },
   "en": {
    "q": "Which animal walks flat-footed, placing its whole sole on the ground?",
@@ -1998,7 +2181,8 @@
     "Tiger",
     "Roe deer"
    ],
-   "x": "Bears walk on their whole soles like us. Foxes and tigers walk on their toes, roe deer on hooves."
+   "x": "Bears walk on their whole soles like us. Foxes and tigers walk on their toes, roe deer on hooves.",
+   "k": "Bears: walk on their whole soles"
   },
   "fr": {
    "q": "Quel animal est plantigrade et pose toute la plante du pied en marchant ?",
@@ -2008,7 +2192,8 @@
     "Tigre",
     "Chevreuil"
    ],
-   "x": "L'ours marche sur toute la plante comme nous. Renard et tigre marchent sur les doigts, le chevreuil sur ses sabots."
+   "x": "L'ours marche sur toute la plante comme nous. Renard et tigre marchent sur les doigts, le chevreuil sur ses sabots.",
+   "k": "Ours : marchent sur toute la plante"
   },
   "es": {
    "q": "¿Qué animal es plantígrado y apoya toda la planta del pie al caminar?",
@@ -2018,7 +2203,8 @@
     "Tigre",
     "Corzo"
    ],
-   "x": "El oso camina sobre toda la planta, como nosotros. Zorro y tigre apoyan los dedos; el corzo, las pezuñas."
+   "x": "El oso camina sobre toda la planta, como nosotros. Zorro y tigre apoyan los dedos; el corzo, las pezuñas.",
+   "k": "Osos: pisan con toda la planta"
   },
   "pt": {
    "q": "Que animal é plantígrado e apoia a planta inteira do pé ao andar?",
@@ -2028,7 +2214,8 @@
     "Tigre",
     "Corço"
    ],
-   "x": "O urso anda sobre a planta inteira do pé, como nós. Raposa e tigre apoiam os dedos; o corço, os cascos."
+   "x": "O urso anda sobre a planta inteira do pé, como nós. Raposa e tigre apoiam os dedos; o corço, os cascos.",
+   "k": "Ursos: pisam com a sola inteira"
   },
   "ja": {
    "q": "足の裏全体を地面につけて歩く動物は？",
@@ -2038,7 +2225,8 @@
     "トラ",
     "ノロジカ"
    ],
-   "x": "クマは私たちと同じように足の裏全体で歩きます。キツネやトラはつま先で、ノロジカはひづめで歩きます。"
+   "x": "クマは私たちと同じように足の裏全体で歩きます。キツネやトラはつま先で、ノロジカはひづめで歩きます。",
+   "k": "クマ：足の裏全体で歩く"
   },
   "it": {
    "q": "Quale animale cammina appoggiando a terra tutta la pianta del piede?",
@@ -2048,7 +2236,8 @@
     "Tigre",
     "Capriolo"
    ],
-   "x": "Gli orsi camminano sull’intera pianta come noi. Volpi e tigri camminano sulle dita, i caprioli sugli zoccoli."
+   "x": "Gli orsi camminano sull’intera pianta come noi. Volpi e tigri camminano sulle dita, i caprioli sugli zoccoli.",
+   "k": "Orsi: camminano su tutta la pianta"
   }
  },
  {
@@ -2064,7 +2253,8 @@
     "Tiger",
     "Fuchs"
    ],
-   "x": "Der Panda gehört zu den Bären, frisst aber zu 99 % Bambus – bis zu 12 Stunden am Tag."
+   "x": "Der Panda gehört zu den Bären, frisst aber zu 99 % Bambus – bis zu 12 Stunden am Tag.",
+   "k": "Panda: Raubtier, das fast nur Bambus frisst"
   },
   "en": {
    "q": "Which animal belongs to the carnivores but eats almost only plants?",
@@ -2074,7 +2264,8 @@
     "Tiger",
     "Fox"
    ],
-   "x": "The panda is a bear, yet 99% of its diet is bamboo – it eats for up to 12 hours a day."
+   "x": "The panda is a bear, yet 99% of its diet is bamboo – it eats for up to 12 hours a day.",
+   "k": "Panda: a carnivore that eats almost only bamboo"
   },
   "fr": {
    "q": "Quel animal fait partie des carnivores mais mange presque uniquement des plantes ?",
@@ -2084,7 +2275,8 @@
     "Tigre",
     "Renard"
    ],
-   "x": "Le panda est un ours, mais il se nourrit à 99 % de bambou, jusqu'à 12 heures par jour."
+   "x": "Le panda est un ours, mais il se nourrit à 99 % de bambou, jusqu'à 12 heures par jour.",
+   "k": "Panda : carnivore qui mange presque que du bambou"
   },
   "es": {
    "q": "¿Qué animal pertenece a los carnívoros pero come casi solo plantas?",
@@ -2094,7 +2286,8 @@
     "Tigre",
     "Zorro"
    ],
-   "x": "El panda es un oso, pero el 99 % de su dieta es bambú: come hasta 12 horas al día."
+   "x": "El panda es un oso, pero el 99 % de su dieta es bambú: come hasta 12 horas al día.",
+   "k": "Panda: carnívoro que come casi solo bambú"
   },
   "pt": {
    "q": "Que animal pertence aos carnívoros, mas come quase só plantas?",
@@ -2104,7 +2297,8 @@
     "Tigre",
     "Raposa"
    ],
-   "x": "O panda é um urso, mas 99 % da dieta dele é bambu: ele come até 12 horas por dia."
+   "x": "O panda é um urso, mas 99 % da dieta dele é bambu: ele come até 12 horas por dia.",
+   "k": "Panda: carnívoro que come quase só bambu"
   },
   "ja": {
    "q": "食肉目なのに、ほとんど植物しか食べない動物は？",
@@ -2114,7 +2308,8 @@
     "トラ",
     "キツネ"
    ],
-   "x": "パンダはクマの仲間ですが、食べものの99%は竹。1日に最大12時間も食べ続けます。"
+   "x": "パンダはクマの仲間ですが、食べものの99%は竹。1日に最大12時間も食べ続けます。",
+   "k": "パンダ：肉食動物なのにほぼ竹だけ"
   },
   "it": {
    "q": "Quale animale appartiene ai carnivori ma mangia quasi solo piante?",
@@ -2124,7 +2319,8 @@
     "Tigre",
     "Volpe"
    ],
-   "x": "Il panda è un orso, eppure il 99% della sua dieta è bambù: mangia fino a 12 ore al giorno."
+   "x": "Il panda è un orso, eppure il 99% della sua dieta è bambù: mangia fino a 12 ore al giorno.",
+   "k": "Panda: carnivoro che mangia quasi solo bambù"
   }
  },
  {
@@ -2140,7 +2336,8 @@
     "Eule",
     "Pinguin"
    ],
-   "x": "Adler haben viel dichter gepackte Sehzellen als wir und erkennen Beute schon aus großer Höhe."
+   "x": "Adler haben viel dichter gepackte Sehzellen als wir und erkennen Beute schon aus großer Höhe.",
+   "k": "Adler: sieht 4- bis 5-mal schärfer als wir"
   },
   "en": {
    "q": "Which bird sees about four to five times more sharply than a human?",
@@ -2150,7 +2347,8 @@
     "Owl",
     "Penguin"
    ],
-   "x": "Eagles have far more densely packed visual cells than we do and spot prey from great heights."
+   "x": "Eagles have far more densely packed visual cells than we do and spot prey from great heights.",
+   "k": "Eagle: sees 4 to 5 times sharper than us"
   },
   "fr": {
    "q": "Quel oiseau voit environ quatre à cinq fois plus net qu'un humain ?",
@@ -2160,7 +2358,8 @@
     "Chouette",
     "Manchot"
    ],
-   "x": "L'aigle a des cellules visuelles bien plus serrées que les nôtres et repère ses proies de très haut."
+   "x": "L'aigle a des cellules visuelles bien plus serrées que les nôtres et repère ses proies de très haut.",
+   "k": "Aigle : voit 4 à 5 fois plus net que nous"
   },
   "es": {
    "q": "¿Qué ave ve unas cuatro o cinco veces más nítido que un humano?",
@@ -2170,7 +2369,8 @@
     "Búho",
     "Pingüino"
    ],
-   "x": "El águila tiene células visuales mucho más densas que las nuestras y detecta presas desde gran altura."
+   "x": "El águila tiene células visuales mucho más densas que las nuestras y detecta presas desde gran altura.",
+   "k": "Águila: ve 4 a 5 veces más nítido que nosotros"
   },
   "pt": {
    "q": "Que ave enxerga umas quatro ou cinco vezes mais nítido que um humano?",
@@ -2180,7 +2380,8 @@
     "Coruja",
     "Pinguim"
    ],
-   "x": "A águia tem células visuais muito mais densas que as nossas e avista presas de grandes alturas."
+   "x": "A águia tem células visuais muito mais densas que as nossas e avista presas de grandes alturas.",
+   "k": "Águia: enxerga 4 a 5 vezes melhor que nós"
   },
   "ja": {
    "q": "人間の4〜5倍くっきり見える鳥は？",
@@ -2190,7 +2391,8 @@
     "フクロウ",
     "ペンギン"
    ],
-   "x": "ワシの目には、視細胞が私たちよりずっと密に並んでいます。高い空から獲物を見つけられます。"
+   "x": "ワシの目には、視細胞が私たちよりずっと密に並んでいます。高い空から獲物を見つけられます。",
+   "k": "ワシ：人の4〜5倍くっきり見える"
   },
   "it": {
    "q": "Quale uccello vede circa quattro o cinque volte più nitido di un essere umano?",
@@ -2200,7 +2402,8 @@
     "Gufo",
     "Pinguino"
    ],
-   "x": "Le aquile hanno cellule visive molto più fitte delle nostre e avvistano le prede da grandi altezze."
+   "x": "Le aquile hanno cellule visive molto più fitte delle nostre e avvistano le prede da grandi altezze.",
+   "k": "Aquila: vede 4–5 volte più nitido di noi"
   }
  },
  {
@@ -2216,7 +2419,8 @@
     "Flamingo",
     "Papagei"
    ],
-   "x": "Adlerhorste werden jedes Jahr weiter ausgebaut und können über 2 m breit und sehr schwer werden."
+   "x": "Adlerhorste werden jedes Jahr weiter ausgebaut und können über 2 m breit und sehr schwer werden.",
+   "k": "Adlerhorste: werden über 2 m breit"
   },
   "en": {
    "q": "Which bird builds huge stick nests that are often used for many years?",
@@ -2226,7 +2430,8 @@
     "Flamingo",
     "Parrot"
    ],
-   "x": "Eagles add to their nests (eyries) every year; they can grow over 2 m wide and very heavy."
+   "x": "Eagles add to their nests (eyries) every year; they can grow over 2 m wide and very heavy.",
+   "k": "Eagle nests: over 2 m wide"
   },
   "fr": {
    "q": "Quel oiseau construit d'énormes nids de branches souvent utilisés pendant des années ?",
@@ -2236,7 +2441,8 @@
     "Flamant rose",
     "Perroquet"
    ],
-   "x": "L'aigle agrandit son aire chaque année ; elle peut dépasser 2 m de large et devenir très lourde."
+   "x": "L'aigle agrandit son aire chaque année ; elle peut dépasser 2 m de large et devenir très lourde.",
+   "k": "Aires d’aigle : plus de 2 m de large"
   },
   "es": {
    "q": "¿Qué ave construye enormes nidos de ramas que usa durante muchos años?",
@@ -2246,7 +2452,8 @@
     "Flamenco",
     "Loro"
    ],
-   "x": "El águila amplía su nido cada año; puede superar los 2 m de ancho y llegar a pesar muchísimo."
+   "x": "El águila amplía su nido cada año; puede superar los 2 m de ancho y llegar a pesar muchísimo.",
+   "k": "Nidos de águila: más de 2 m de ancho"
   },
   "pt": {
    "q": "Que ave constrói enormes ninhos de galhos que usa por muitos anos?",
@@ -2256,7 +2463,8 @@
     "Flamingo",
     "Papagaio"
    ],
-   "x": "A águia aumenta o ninho todo ano; ele pode passar de 2 m de largura e chegar a pesar muitíssimo."
+   "x": "A águia aumenta o ninho todo ano; ele pode passar de 2 m de largura e chegar a pesar muitíssimo.",
+   "k": "Ninhos de águia: mais de 2 m de largura"
   },
   "ja": {
    "q": "枝で巨大な巣を作り、何年も使い続けることが多い鳥は？",
@@ -2266,7 +2474,8 @@
     "フラミンゴ",
     "オウム"
    ],
-   "x": "ワシは毎年巣を増築します。幅2メートル以上、とても重くなることもあります。"
+   "x": "ワシは毎年巣を増築します。幅2メートル以上、とても重くなることもあります。",
+   "k": "ワシの巣：幅2メートル以上"
   },
   "it": {
    "q": "Quale uccello costruisce enormi nidi di rami, spesso usati per molti anni?",
@@ -2276,7 +2485,8 @@
     "Fenicottero",
     "Pappagallo"
    ],
-   "x": "Le aquile ingrandiscono il nido ogni anno: può superare i 2 m di larghezza e diventare pesantissimo."
+   "x": "Le aquile ingrandiscono il nido ogni anno: può superare i 2 m di larghezza e diventare pesantissimo.",
+   "k": "Nidi d’aquila: oltre 2 m di larghezza"
   }
  },
  {
@@ -2292,7 +2502,8 @@
     "Flamingo",
     "Eule"
    ],
-   "x": "Kammartig gezackte Federkanten verwirbeln die Luft leise – so hört die Maus die Eule nicht kommen."
+   "x": "Kammartig gezackte Federkanten verwirbeln die Luft leise – so hört die Maus die Eule nicht kommen.",
+   "k": "Eulen: fliegen fast lautlos"
   },
   "en": {
    "q": "Which bird flies almost silently?",
@@ -2302,7 +2513,8 @@
     "Flamingo",
     "Owl"
    ],
-   "x": "Comb-like edges on its feathers soften the air flow, so a mouse can't hear the owl coming."
+   "x": "Comb-like edges on its feathers soften the air flow, so a mouse can't hear the owl coming.",
+   "k": "Owls: fly almost silently"
   },
   "fr": {
    "q": "Quel oiseau vole presque sans bruit ?",
@@ -2312,7 +2524,8 @@
     "Flamant rose",
     "Chouette"
    ],
-   "x": "Le bord en peigne de ses plumes adoucit le flux d'air : la souris n'entend pas arriver la chouette."
+   "x": "Le bord en peigne de ses plumes adoucit le flux d'air : la souris n'entend pas arriver la chouette.",
+   "k": "Chouettes : volent presque sans bruit"
   },
   "es": {
    "q": "¿Qué ave vuela casi en silencio?",
@@ -2322,7 +2535,8 @@
     "Flamenco",
     "Búho"
    ],
-   "x": "Los bordes en forma de peine de sus plumas suavizan el aire: el ratón no oye llegar al búho."
+   "x": "Los bordes en forma de peine de sus plumas suavizan el aire: el ratón no oye llegar al búho.",
+   "k": "Búhos: vuelan casi en silencio"
   },
   "pt": {
    "q": "Que ave voa quase em silêncio?",
@@ -2332,7 +2546,8 @@
     "Flamingo",
     "Coruja"
    ],
-   "x": "As bordas das penas em forma de pente suavizam o ar: o rato não ouve a coruja chegar."
+   "x": "As bordas das penas em forma de pente suavizam o ar: o rato não ouve a coruja chegar.",
+   "k": "Corujas: voam quase sem ruído"
   },
   "ja": {
    "q": "ほとんど音を立てずに飛ぶ鳥は？",
@@ -2342,7 +2557,8 @@
     "フラミンゴ",
     "フクロウ"
    ],
-   "x": "羽のふちがくしのようになっていて、空気の流れをやわらげます。だからネズミはフクロウが来ても気づきません。"
+   "x": "羽のふちがくしのようになっていて、空気の流れをやわらげます。だからネズミはフクロウが来ても気づきません。",
+   "k": "フクロウ：ほぼ無音で飛ぶ"
   },
   "it": {
    "q": "Quale uccello vola quasi in silenzio?",
@@ -2352,7 +2568,8 @@
     "Fenicottero",
     "Gufo"
    ],
-   "x": "I bordi a pettine delle penne ammorbidiscono il flusso d’aria: così il topo non sente arrivare il gufo."
+   "x": "I bordi a pettine delle penne ammorbidiscono il flusso d’aria: così il topo non sente arrivare il gufo.",
+   "k": "Gufi: volano quasi in silenzio"
   }
  },
  {
@@ -2368,7 +2585,8 @@
     "Tiger",
     "Otter"
    ],
-   "x": "Eulen haben 14 Halswirbel. Giraffen haben trotz ihres langen Halses wie fast alle Säugetiere nur 7."
+   "x": "Eulen haben 14 Halswirbel. Giraffen haben trotz ihres langen Halses wie fast alle Säugetiere nur 7.",
+   "k": "Eulen: 14 Halswirbel, Giraffen nur 7"
   },
   "en": {
    "q": "Which animal has MORE neck vertebrae than a human?",
@@ -2378,7 +2596,8 @@
     "Tiger",
     "Otter"
    ],
-   "x": "Owls have 14 neck vertebrae. Despite its long neck, a giraffe has only 7, like almost all mammals."
+   "x": "Owls have 14 neck vertebrae. Despite its long neck, a giraffe has only 7, like almost all mammals.",
+   "k": "Owls: 14 neck vertebrae, giraffes only 7"
   },
   "fr": {
    "q": "Lequel a PLUS de vertèbres cervicales que l'humain ?",
@@ -2388,7 +2607,8 @@
     "Tigre",
     "Loutre"
    ],
-   "x": "La chouette en a 14. Malgré son long cou, la girafe n'en a que 7, comme presque tous les mammifères."
+   "x": "La chouette en a 14. Malgré son long cou, la girafe n'en a que 7, comme presque tous les mammifères.",
+   "k": "Chouettes : 14 vertèbres cervicales, girafe 7"
   },
   "es": {
    "q": "¿Quién tiene MÁS vértebras cervicales que el ser humano?",
@@ -2398,7 +2618,8 @@
     "Tigre",
     "Nutria"
    ],
-   "x": "El búho tiene 14. Pese a su largo cuello, la jirafa solo tiene 7, como casi todos los mamíferos."
+   "x": "El búho tiene 14. Pese a su largo cuello, la jirafa solo tiene 7, como casi todos los mamíferos.",
+   "k": "Búhos: 14 vértebras cervicales, la jirafa 7"
   },
   "pt": {
    "q": "Quem tem MAIS vértebras no pescoço que o ser humano?",
@@ -2408,7 +2629,8 @@
     "Tigre",
     "Lontra"
    ],
-   "x": "A coruja tem 14. Apesar do pescoço comprido, a girafa tem só 7, como quase todos os mamíferos."
+   "x": "A coruja tem 14. Apesar do pescoço comprido, a girafa tem só 7, como quase todos os mamíferos.",
+   "k": "Corujas: 14 vértebras no pescoço, girafa 7"
   },
   "ja": {
    "q": "人間より首の骨が多い動物は？",
@@ -2418,7 +2640,8 @@
     "トラ",
     "カワウソ"
    ],
-   "x": "フクロウの首の骨は14個。首の長いキリンも、ほとんどの哺乳類と同じく7個しかありません。"
+   "x": "フクロウの首の骨は14個。首の長いキリンも、ほとんどの哺乳類と同じく7個しかありません。",
+   "k": "フクロウ：首の骨14個、キリンは7個"
   },
   "it": {
    "q": "Quale animale ha PIÙ vertebre cervicali di un essere umano?",
@@ -2428,7 +2651,8 @@
     "Tigre",
     "Lontra"
    ],
-   "x": "I gufi hanno 14 vertebre cervicali. La giraffa, nonostante il collo lungo, ne ha solo 7, come quasi tutti i mammiferi."
+   "x": "I gufi hanno 14 vertebre cervicali. La giraffa, nonostante il collo lungo, ne ha solo 7, come quasi tutti i mammiferi.",
+   "k": "Gufi: 14 vertebre cervicali, giraffa 7"
   }
  },
  {
@@ -2444,7 +2668,8 @@
     "Reh",
     "Schnecke"
    ],
-   "x": "Eichhörnchen vergraben im Herbst Nüsse und Samen. Vergessene Vorräte keimen und werden zu neuen Bäumen."
+   "x": "Eichhörnchen vergraben im Herbst Nüsse und Samen. Vergessene Vorräte keimen und werden zu neuen Bäumen.",
+   "k": "Eichhörnchen: pflanzen aus Versehen Bäume"
   },
   "en": {
    "q": "Which animal plants trees by accident by burying and forgetting food?",
@@ -2454,7 +2679,8 @@
     "Roe deer",
     "Snail"
    ],
-   "x": "Squirrels bury nuts and seeds in autumn. Forgotten stores sprout and grow into new trees."
+   "x": "Squirrels bury nuts and seeds in autumn. Forgotten stores sprout and grow into new trees.",
+   "k": "Squirrels: plant trees by accident"
   },
   "fr": {
    "q": "Quel animal plante des arbres sans le vouloir en oubliant ses réserves enterrées ?",
@@ -2464,7 +2690,8 @@
     "Chevreuil",
     "Escargot"
    ],
-   "x": "L'écureuil enterre noix et graines en automne. Les réserves oubliées germent et deviennent des arbres."
+   "x": "L'écureuil enterre noix et graines en automne. Les réserves oubliées germent et deviennent des arbres.",
+   "k": "Écureuils : plantent des arbres par oubli"
   },
   "es": {
    "q": "¿Qué animal planta árboles sin querer al enterrar y olvidar sus provisiones?",
@@ -2474,7 +2701,8 @@
     "Corzo",
     "Caracol"
    ],
-   "x": "La ardilla entierra nueces y semillas en otoño. Las reservas olvidadas germinan y se vuelven árboles."
+   "x": "La ardilla entierra nueces y semillas en otoño. Las reservas olvidadas germinan y se vuelven árboles.",
+   "k": "Ardillas: plantan árboles sin querer"
   },
   "pt": {
    "q": "Que animal planta árvores sem querer ao enterrar e esquecer suas provisões?",
@@ -2484,7 +2712,8 @@
     "Corço",
     "Caracol"
    ],
-   "x": "O esquilo enterra nozes e sementes no outono. As reservas esquecidas germinam e viram árvores."
+   "x": "O esquilo enterra nozes e sementes no outono. As reservas esquecidas germinam e viram árvores.",
+   "k": "Esquilos: plantam árvores sem querer"
   },
   "ja": {
    "q": "食べものを埋めて忘れることで、うっかり木を植える動物は？",
@@ -2494,7 +2723,8 @@
     "ノロジカ",
     "カタツムリ"
    ],
-   "x": "リスは秋に木の実や種を埋めます。忘れられたたくわえが芽を出し、新しい木に育ちます。"
+   "x": "リスは秋に木の実や種を埋めます。忘れられたたくわえが芽を出し、新しい木に育ちます。",
+   "k": "リス：うっかり木を植える"
   },
   "it": {
    "q": "Quale animale pianta alberi per sbaglio, seppellendo e dimenticando il cibo?",
@@ -2504,7 +2734,8 @@
     "Capriolo",
     "Chiocciola"
    ],
-   "x": "In autunno gli scoiattoli seppelliscono noci e semi. Le provviste dimenticate germogliano e diventano nuovi alberi."
+   "x": "In autunno gli scoiattoli seppelliscono noci e semi. Le provviste dimenticate germogliano e diventano nuovi alberi.",
+   "k": "Scoiattoli: piantano alberi per sbaglio"
   }
  },
  {
@@ -2520,7 +2751,8 @@
     "Fuchs",
     "Otter"
    ],
-   "x": "Eichhörnchen sind Nagetiere. Ihre Nagezähne wachsen ständig und werden beim Nagen abgeschliffen."
+   "x": "Eichhörnchen sind Nagetiere. Ihre Nagezähne wachsen ständig und werden beim Nagen abgeschliffen.",
+   "k": "Eichhörnchen: Zähne wachsen ein Leben lang"
   },
   "en": {
    "q": "Whose front teeth keep growing throughout life?",
@@ -2530,7 +2762,8 @@
     "Fox",
     "Otter"
    ],
-   "x": "Squirrels are rodents. Their incisors grow constantly and are worn down by gnawing."
+   "x": "Squirrels are rodents. Their incisors grow constantly and are worn down by gnawing.",
+   "k": "Squirrels: teeth grow for life"
   },
   "fr": {
    "q": "Quel animal a des incisives qui poussent toute sa vie ?",
@@ -2540,7 +2773,8 @@
     "Renard",
     "Loutre"
    ],
-   "x": "L'écureuil est un rongeur. Ses incisives poussent sans cesse et s'usent en rongeant."
+   "x": "L'écureuil est un rongeur. Ses incisives poussent sans cesse et s'usent en rongeant.",
+   "k": "Écureuils : dents qui poussent toute la vie"
   },
   "es": {
    "q": "¿Qué animal tiene incisivos que crecen toda la vida?",
@@ -2550,7 +2784,8 @@
     "Zorro",
     "Nutria"
    ],
-   "x": "La ardilla es un roedor. Sus incisivos crecen sin parar y se desgastan al roer."
+   "x": "La ardilla es un roedor. Sus incisivos crecen sin parar y se desgastan al roer.",
+   "k": "Ardillas: dientes que crecen toda la vida"
   },
   "pt": {
    "q": "Que animal tem dentes da frente que crescem a vida toda?",
@@ -2560,7 +2795,8 @@
     "Raposa",
     "Lontra"
    ],
-   "x": "O esquilo é um roedor. Os dentes da frente crescem sem parar e se desgastam ao roer."
+   "x": "O esquilo é um roedor. Os dentes da frente crescem sem parar e se desgastam ao roer.",
+   "k": "Esquilos: dentes crescem a vida toda"
   },
   "ja": {
    "q": "前歯が一生のびつづけるのは？",
@@ -2570,7 +2806,8 @@
     "キツネ",
     "カワウソ"
    ],
-   "x": "リスはげっ歯類。前歯はずっとのび続け、かじることですり減ります。"
+   "x": "リスはげっ歯類。前歯はずっとのび続け、かじることですり減ります。",
+   "k": "リス：前歯が一生のびる"
   },
   "it": {
    "q": "Di chi sono gli incisivi che crescono per tutta la vita?",
@@ -2580,7 +2817,8 @@
     "Volpe",
     "Lontra"
    ],
-   "x": "Gli scoiattoli sono roditori. I loro incisivi crescono sempre e si consumano rosicchiando."
+   "x": "Gli scoiattoli sono roditori. I loro incisivi crescono sempre e si consumano rosicchiando.",
+   "k": "Scoiattoli: denti che crescono per tutta la vita"
   }
  },
  {
@@ -2596,7 +2834,8 @@
     "Reh",
     "Eichhörnchen"
    ],
-   "x": "Eichhörnchen drehen ihre Hinterfüße nach hinten und krallen sich so beim Abstieg kopfüber fest."
+   "x": "Eichhörnchen drehen ihre Hinterfüße nach hinten und krallen sich so beim Abstieg kopfüber fest.",
+   "k": "Eichhörnchen: klettern kopfüber hinunter"
   },
   "en": {
    "q": "Which animal can run head-first down a tree trunk?",
@@ -2606,7 +2845,8 @@
     "Roe deer",
     "Squirrel"
    ],
-   "x": "Squirrels rotate their hind feet backwards so their claws can grip while climbing down head-first."
+   "x": "Squirrels rotate their hind feet backwards so their claws can grip while climbing down head-first.",
+   "k": "Squirrels: climb down head-first"
   },
   "fr": {
    "q": "Quel animal peut descendre un tronc d'arbre la tête la première ?",
@@ -2616,7 +2856,8 @@
     "Chevreuil",
     "Écureuil"
    ],
-   "x": "L'écureuil tourne ses pattes arrière vers l'arrière pour s'agripper en descendant la tête en bas."
+   "x": "L'écureuil tourne ses pattes arrière vers l'arrière pour s'agripper en descendant la tête en bas.",
+   "k": "Écureuils : descendent tête en bas"
   },
   "es": {
    "q": "¿Qué animal puede bajar por un tronco cabeza abajo?",
@@ -2626,7 +2867,8 @@
     "Corzo",
     "Ardilla"
    ],
-   "x": "La ardilla gira sus patas traseras hacia atrás para agarrarse con las uñas al bajar cabeza abajo."
+   "x": "La ardilla gira sus patas traseras hacia atrás para agarrarse con las uñas al bajar cabeza abajo.",
+   "k": "Ardillas: bajan cabeza abajo"
   },
   "pt": {
    "q": "Que animal consegue descer um tronco de cabeça para baixo?",
@@ -2636,7 +2878,8 @@
     "Corço",
     "Esquilo"
    ],
-   "x": "O esquilo gira as patas traseiras para trás para se agarrar com as unhas ao descer de cabeça para baixo."
+   "x": "O esquilo gira as patas traseiras para trás para se agarrar com as unhas ao descer de cabeça para baixo.",
+   "k": "Esquilos: descem de cabeça para baixo"
   },
   "ja": {
    "q": "頭を下にして木の幹をかけ下りられる動物は？",
@@ -2646,7 +2889,8 @@
     "ノロジカ",
     "リス"
    ],
-   "x": "リスは後ろ足を後ろ向きに回せるので、頭を下にしてもつめでしっかりつかめます。"
+   "x": "リスは後ろ足を後ろ向きに回せるので、頭を下にしてもつめでしっかりつかめます。",
+   "k": "リス：頭を下にして幹をかけ下りる"
   },
   "it": {
    "q": "Quale animale sa correre giù da un tronco a testa in giù?",
@@ -2656,7 +2900,8 @@
     "Capriolo",
     "Scoiattolo"
    ],
-   "x": "Gli scoiattoli ruotano le zampe posteriori all’indietro, così gli artigli fanno presa anche scendendo a testa in giù."
+   "x": "Gli scoiattoli ruotano le zampe posteriori all’indietro, così gli artigli fanno presa anche scendendo a testa in giù.",
+   "k": "Scoiattoli: scendono a testa in giù"
   }
  },
  {
@@ -2672,7 +2917,8 @@
     "Reh",
     "Eichhörnchen"
    ],
-   "x": "Dieses „Selbstbespeicheln“ des Igels ist noch rätselhaft – vielleicht Schutz oder ein Duftsignal."
+   "x": "Dieses „Selbstbespeicheln“ des Igels ist noch rätselhaft – vielleicht Schutz oder ein Duftsignal.",
+   "k": "Igel: reiben sich mit Schaum ein"
   },
   "en": {
    "q": "Which animal sometimes chews strange substances into foam and spreads it on its back?",
@@ -2682,7 +2928,8 @@
     "Roe deer",
     "Squirrel"
    ],
-   "x": "This 'self-anointing' by hedgehogs is still a mystery – maybe protection or a scent signal."
+   "x": "This 'self-anointing' by hedgehogs is still a mystery – maybe protection or a scent signal.",
+   "k": "Hedgehogs: anoint themselves with foam"
   },
   "fr": {
    "q": "Quel animal mâche parfois des substances jusqu'à faire de la mousse et l'étale sur son dos ?",
@@ -2692,7 +2939,8 @@
     "Chevreuil",
     "Écureuil"
    ],
-   "x": "Cette « auto-onction » du hérisson reste un mystère : protection ou signal olfactif ?"
+   "x": "Cette « auto-onction » du hérisson reste un mystère : protection ou signal olfactif ?",
+   "k": "Hérissons : s’enduisent de mousse"
   },
   "es": {
    "q": "¿Qué animal mastica a veces sustancias hasta hacer espuma y se la unta en el lomo?",
@@ -2702,7 +2950,8 @@
     "Corzo",
     "Ardilla"
    ],
-   "x": "Esta «autounción» del erizo sigue siendo un misterio: quizá protección o una señal de olor."
+   "x": "Esta «autounción» del erizo sigue siendo un misterio: quizá protección o una señal de olor.",
+   "k": "Erizos: se untan con espuma"
   },
   "pt": {
    "q": "Que animal às vezes mastiga substâncias até fazer espuma e a espalha nas costas?",
@@ -2712,7 +2961,8 @@
     "Corço",
     "Esquilo"
    ],
-   "x": "Essa “autounção” do ouriço ainda é um mistério: talvez proteção ou um sinal de cheiro."
+   "x": "Essa “autounção” do ouriço ainda é um mistério: talvez proteção ou um sinal de cheiro.",
+   "k": "Ouriços: se besuntam de espuma"
   },
   "ja": {
    "q": "ときどき変なものをかんで泡にし、背中にぬりつける動物は？",
@@ -2722,7 +2972,8 @@
     "ノロジカ",
     "リス"
    ],
-   "x": "ハリネズミのこの「アンティング」はまだなぞ。身を守るためか、においの合図かもしれません。"
+   "x": "ハリネズミのこの「アンティング」はまだなぞ。身を守るためか、においの合図かもしれません。",
+   "k": "ハリネズミ：泡を背中にぬる"
   },
   "it": {
    "q": "Quale animale a volte mastica sostanze strane fino a farne schiuma e se la spalma sul dorso?",
@@ -2732,7 +2983,8 @@
     "Capriolo",
     "Scoiattolo"
    ],
-   "x": "Questa «auto-unzione» dei ricci è ancora un mistero: forse protezione, forse un segnale olfattivo."
+   "x": "Questa «auto-unzione» dei ricci è ancora un mistero: forse protezione, forse un segnale olfattivo.",
+   "k": "Ricci: si spalmano di schiuma"
   }
  },
  {
@@ -2748,7 +3000,8 @@
     "Panda",
     "Tiger"
    ],
-   "x": "Der Rehbock wirft sein Geweih im Herbst ab. Das neue aus Knochen wächst unter einer Basthaut nach."
+   "x": "Der Rehbock wirft sein Geweih im Herbst ab. Das neue aus Knochen wächst unter einer Basthaut nach.",
+   "k": "Rehbock: wirft jedes Jahr das Geweih ab"
   },
   "en": {
    "q": "Which animal sheds its antlers every year and grows new ones?",
@@ -2758,7 +3011,8 @@
     "Panda",
     "Tiger"
    ],
-   "x": "Roe bucks shed their antlers in autumn. New bony antlers grow back under a soft skin called velvet."
+   "x": "Roe bucks shed their antlers in autumn. New bony antlers grow back under a soft skin called velvet.",
+   "k": "Roe buck: sheds its antlers every year"
   },
   "fr": {
    "q": "Quel animal perd ses bois chaque année et en refait de nouveaux ?",
@@ -2768,7 +3022,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "Le brocard perd ses bois en automne. Les nouveaux, en os, repoussent sous une peau appelée velours."
+   "x": "Le brocard perd ses bois en automne. Les nouveaux, en os, repoussent sous une peau appelée velours.",
+   "k": "Chevreuil mâle : perd ses bois chaque année"
   },
   "es": {
    "q": "¿Qué animal pierde su cornamenta cada año y le crece una nueva?",
@@ -2778,7 +3033,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "El corzo macho pierde la cornamenta en otoño. La nueva, de hueso, crece bajo una piel llamada terciopelo."
+   "x": "El corzo macho pierde la cornamenta en otoño. La nueva, de hueso, crece bajo una piel llamada terciopelo.",
+   "k": "Corzo macho: muda la cornamenta cada año"
   },
   "pt": {
    "q": "Que animal perde os chifres todo ano e ganha chifres novos?",
@@ -2788,7 +3044,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "O corço macho perde os chifres no outono. Os novos, de osso, crescem debaixo de uma pele chamada veludo."
+   "x": "O corço macho perde os chifres no outono. Os novos, de osso, crescem debaixo de uma pele chamada veludo.",
+   "k": "Corço macho: troca a galhada todo ano"
   },
   "ja": {
    "q": "毎年角を落として、新しく生やす動物は？",
@@ -2798,7 +3055,8 @@
     "パンダ",
     "トラ"
    ],
-   "x": "ノロジカのオスは秋に角を落とします。新しい骨の角が、袋角と呼ばれるやわらかい皮ふの下で育ちます。"
+   "x": "ノロジカのオスは秋に角を落とします。新しい骨の角が、袋角と呼ばれるやわらかい皮ふの下で育ちます。",
+   "k": "ノロジカのオス：毎年角を落とす"
   },
   "it": {
    "q": "Quale animale perde i palchi ogni anno e ne fa crescere di nuovi?",
@@ -2808,7 +3066,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "I caprioli maschi perdono i palchi in autunno. I nuovi palchi ossei ricrescono sotto una pelle morbida chiamata velluto."
+   "x": "I caprioli maschi perdono i palchi in autunno. I nuovi palchi ossei ricrescono sotto una pelle morbida chiamata velluto.",
+   "k": "Capriolo maschio: perde i palchi ogni anno"
   }
  },
  {
@@ -2824,7 +3083,8 @@
     "Dachs",
     "Eichhörnchen"
    ],
-   "x": "Rehe stoßen bei Gefahr laute, bellende Rufe aus – das „Schrecken“. Viele Spaziergänger denken dann an einen Hund."
+   "x": "Rehe stoßen bei Gefahr laute, bellende Rufe aus – das „Schrecken“. Viele Spaziergänger denken dann an einen Hund.",
+   "k": "Reh: bellt bei Schreck"
   },
   "en": {
    "q": "Which animal “barks” in the forest when it gets startled?",
@@ -2834,7 +3094,8 @@
     "Badger",
     "Squirrel"
    ],
-   "x": "Roe deer give loud, barking calls when alarmed. Many walkers think it’s a dog."
+   "x": "Roe deer give loud, barking calls when alarmed. Many walkers think it’s a dog.",
+   "k": "Roe deer: barks when startled"
   },
   "fr": {
    "q": "Quel animal « aboie » en forêt quand il est surpris ?",
@@ -2844,7 +3105,8 @@
     "Blaireau",
     "Écureuil"
    ],
-   "x": "Le chevreuil pousse des cris forts, comme des aboiements, quand il sent un danger. Beaucoup de promeneurs pensent à un chien."
+   "x": "Le chevreuil pousse des cris forts, comme des aboiements, quand il sent un danger. Beaucoup de promeneurs pensent à un chien.",
+   "k": "Chevreuil : aboie quand il a peur"
   },
   "es": {
    "q": "¿Qué animal «ladra» en el bosque cuando se asusta?",
@@ -2854,7 +3116,8 @@
     "Tejón",
     "Ardilla"
    ],
-   "x": "El corzo lanza fuertes gritos parecidos a ladridos cuando siente peligro. Muchos paseantes creen que es un perro."
+   "x": "El corzo lanza fuertes gritos parecidos a ladridos cuando siente peligro. Muchos paseantes creen que es un perro.",
+   "k": "Corzo: ladra cuando se asusta"
   },
   "pt": {
    "q": "Que animal “late” na floresta quando se assusta?",
@@ -2864,7 +3127,8 @@
     "Texugo",
     "Esquilo"
    ],
-   "x": "O corço solta gritos fortes parecidos com latidos quando sente perigo. Muita gente que passeia acha que é um cachorro."
+   "x": "O corço solta gritos fortes parecidos com latidos quando sente perigo. Muita gente que passeia acha que é um cachorro.",
+   "k": "Corço: late quando se assusta"
   },
   "ja": {
    "q": "森でおどろくと「ほえる」動物は？",
@@ -2874,7 +3138,8 @@
     "アナグマ",
     "リス"
    ],
-   "x": "ノロジカはおどろくと、大きなほえるような声を出します。イヌだと思う人も多いのです。"
+   "x": "ノロジカはおどろくと、大きなほえるような声を出します。イヌだと思う人も多いのです。",
+   "k": "ノロジカ：おどろくとほえる"
   },
   "it": {
    "q": "Quale animale «abbaia» nel bosco quando si spaventa?",
@@ -2884,7 +3149,8 @@
     "Tasso",
     "Scoiattolo"
    ],
-   "x": "I caprioli, quando si allarmano, emettono forti versi simili a latrati. Molti escursionisti pensano a un cane."
+   "x": "I caprioli, quando si allarmano, emettono forti versi simili a latrati. Molti escursionisti pensano a un cane.",
+   "k": "Capriolo: abbaia quando si spaventa"
   }
  },
  {
@@ -2900,7 +3166,8 @@
     "Schildkröte",
     "Schnecke"
    ],
-   "x": "Eine Schildkröte kann ihren Panzer nie verlassen: Er besteht aus Knochen und ist fest mit dem Skelett verbunden."
+   "x": "Eine Schildkröte kann ihren Panzer nie verlassen: Er besteht aus Knochen und ist fest mit dem Skelett verbunden.",
+   "k": "Schildkröte: Panzer gehört zum Skelett"
   },
   "en": {
    "q": "Whose shell is fused to its spine and ribs?",
@@ -2910,7 +3177,8 @@
     "Turtle",
     "Snail"
    ],
-   "x": "A turtle can never leave its shell: it is made of bone and firmly joined to the skeleton."
+   "x": "A turtle can never leave its shell: it is made of bone and firmly joined to the skeleton.",
+   "k": "Turtle: shell is part of its skeleton"
   },
   "fr": {
    "q": "Quel animal a une carapace soudée à sa colonne vertébrale et à ses côtes ?",
@@ -2920,7 +3188,8 @@
     "Tortue",
     "Escargot"
    ],
-   "x": "La tortue ne peut jamais quitter sa carapace : elle est en os et soudée au squelette."
+   "x": "La tortue ne peut jamais quitter sa carapace : elle est en os et soudée au squelette.",
+   "k": "Tortue : carapace soudée au squelette"
   },
   "es": {
    "q": "¿Qué animal tiene el caparazón unido a la columna y las costillas?",
@@ -2930,7 +3199,8 @@
     "Tortuga",
     "Caracol"
    ],
-   "x": "La tortuga nunca puede salir de su caparazón: es de hueso y está unido al esqueleto."
+   "x": "La tortuga nunca puede salir de su caparazón: es de hueso y está unido al esqueleto.",
+   "k": "Tortuga: caparazón unido al esqueleto"
   },
   "pt": {
    "q": "Que animal tem a carapaça ligada à coluna e às costelas?",
@@ -2940,7 +3210,8 @@
     "Tartaruga",
     "Caracol"
    ],
-   "x": "A tartaruga nunca pode sair da carapaça: ela é de osso e ligada ao esqueleto."
+   "x": "A tartaruga nunca pode sair da carapaça: ela é de osso e ligada ao esqueleto.",
+   "k": "Tartaruga: casco preso ao esqueleto"
   },
   "ja": {
    "q": "甲羅が背骨やろっ骨とくっついているのは？",
@@ -2950,7 +3221,8 @@
     "カメ",
     "カタツムリ"
    ],
-   "x": "カメは甲羅からぬけ出せません。甲羅は骨でできていて、骨格としっかりつながっています。"
+   "x": "カメは甲羅からぬけ出せません。甲羅は骨でできていて、骨格としっかりつながっています。",
+   "k": "カメ：甲羅は骨格の一部"
   },
   "it": {
    "q": "Di chi è il guscio saldato alla colonna vertebrale e alle costole?",
@@ -2960,7 +3232,8 @@
     "Tartaruga",
     "Chiocciola"
    ],
-   "x": "La tartaruga non può mai uscire dal guscio: è fatto di osso e saldamente unito allo scheletro."
+   "x": "La tartaruga non può mai uscire dal guscio: è fatto di osso e saldamente unito allo scheletro.",
+   "k": "Tartaruga: guscio saldato allo scheletro"
   }
  },
  {
@@ -2976,7 +3249,8 @@
     "Hai",
     "Tiger"
    ],
-   "x": "Schildkröten haben seit Millionen Jahren keine Zähne. Ihr Hornschnabel schneidet Pflanzen und Beute."
+   "x": "Schildkröten haben seit Millionen Jahren keine Zähne. Ihr Hornschnabel schneidet Pflanzen und Beute.",
+   "k": "Schildkröten: Hornschnabel statt Zähne"
   },
   "en": {
    "q": "Which animal has no teeth but a sharp horny beak?",
@@ -2986,7 +3260,8 @@
     "Shark",
     "Tiger"
    ],
-   "x": "Turtles have had no teeth for millions of years. Their horny beak cuts plants and prey."
+   "x": "Turtles have had no teeth for millions of years. Their horny beak cuts plants and prey.",
+   "k": "Turtles: horny beak instead of teeth"
   },
   "fr": {
    "q": "Quel animal n'a pas de dents mais un bec corné tranchant ?",
@@ -2996,7 +3271,8 @@
     "Requin",
     "Tigre"
    ],
-   "x": "La tortue n'a plus de dents depuis des millions d'années. Son bec corné coupe plantes et proies."
+   "x": "La tortue n'a plus de dents depuis des millions d'années. Son bec corné coupe plantes et proies.",
+   "k": "Tortues : bec corné au lieu de dents"
   },
   "es": {
    "q": "¿Qué animal no tiene dientes sino un pico córneo afilado?",
@@ -3006,7 +3282,8 @@
     "Tiburón",
     "Tigre"
    ],
-   "x": "La tortuga no tiene dientes desde hace millones de años. Su pico córneo corta plantas y presas."
+   "x": "La tortuga no tiene dientes desde hace millones de años. Su pico córneo corta plantas y presas.",
+   "k": "Tortugas: pico córneo en vez de dientes"
   },
   "pt": {
    "q": "Que animal não tem dentes, e sim um bico córneo afiado?",
@@ -3016,7 +3293,8 @@
     "Tubarão",
     "Tigre"
    ],
-   "x": "A tartaruga não tem dentes há milhões de anos. O bico córneo corta plantas e presas."
+   "x": "A tartaruga não tem dentes há milhões de anos. O bico córneo corta plantas e presas.",
+   "k": "Tartarugas: bico córneo em vez de dentes"
   },
   "ja": {
    "q": "歯がなく、するどい角質のくちばしをもつ動物は？",
@@ -3026,7 +3304,8 @@
     "サメ",
     "トラ"
    ],
-   "x": "カメは何百万年も前から歯がありません。角質のくちばしで植物や獲物を切ります。"
+   "x": "カメは何百万年も前から歯がありません。角質のくちばしで植物や獲物を切ります。",
+   "k": "カメ：歯のかわりにくちばし"
   },
   "it": {
    "q": "Quale animale non ha denti ma un becco corneo affilato?",
@@ -3036,7 +3315,8 @@
     "Squalo",
     "Tigre"
    ],
-   "x": "Le tartarughe non hanno denti da milioni di anni. Il loro becco corneo taglia piante e prede."
+   "x": "Le tartarughe non hanno denti da milioni di anni. Il loro becco corneo taglia piante e prede.",
+   "k": "Tartarughe: becco corneo invece dei denti"
   }
  },
  {
@@ -3052,7 +3332,8 @@
     "Schnecke",
     "Schildkröte"
    ],
-   "x": "Schnecken, Muscheln und Kraken gehören zu den Weichtieren. Krabben sind dagegen Krebstiere."
+   "x": "Schnecken, Muscheln und Kraken gehören zu den Weichtieren. Krabben sind dagegen Krebstiere.",
+   "k": "Schnecken: mit dem Kraken verwandt"
   },
   "en": {
    "q": "Which animal is a mollusc and therefore related to the octopus?",
@@ -3062,7 +3343,8 @@
     "Snail",
     "Turtle"
    ],
-   "x": "Snails, clams and octopuses are all molluscs. Crabs, on the other hand, are crustaceans."
+   "x": "Snails, clams and octopuses are all molluscs. Crabs, on the other hand, are crustaceans.",
+   "k": "Snails: related to octopuses"
   },
   "fr": {
    "q": "Quel animal est un mollusque, donc un parent de la pieuvre ?",
@@ -3072,7 +3354,8 @@
     "Escargot",
     "Tortue"
    ],
-   "x": "Escargots, moules et pieuvres sont des mollusques. Le crabe, lui, est un crustacé."
+   "x": "Escargots, moules et pieuvres sont des mollusques. Le crabe, lui, est un crustacé.",
+   "k": "Escargots : parents des pieuvres"
   },
   "es": {
    "q": "¿Qué animal es un molusco y, por tanto, pariente del pulpo?",
@@ -3082,7 +3365,8 @@
     "Caracol",
     "Tortuga"
    ],
-   "x": "Caracoles, almejas y pulpos son moluscos. El cangrejo, en cambio, es un crustáceo."
+   "x": "Caracoles, almejas y pulpos son moluscos. El cangrejo, en cambio, es un crustáceo.",
+   "k": "Caracoles: parientes del pulpo"
   },
   "pt": {
    "q": "Que animal é um molusco e, portanto, parente do polvo?",
@@ -3092,7 +3376,8 @@
     "Caracol",
     "Tartaruga"
    ],
-   "x": "Caracóis, mexilhões e polvos são moluscos. O caranguejo, por outro lado, é um crustáceo."
+   "x": "Caracóis, mexilhões e polvos são moluscos. O caranguejo, por outro lado, é um crustáceo.",
+   "k": "Caracóis: parentes do polvo"
   },
   "ja": {
    "q": "軟体動物で、タコの親せきなのは？",
@@ -3102,7 +3387,8 @@
     "カタツムリ",
     "カメ"
    ],
-   "x": "カタツムリ、二枚貝、タコはみんな軟体動物。カニは甲殻類です。"
+   "x": "カタツムリ、二枚貝、タコはみんな軟体動物。カニは甲殻類です。",
+   "k": "カタツムリ：タコの親せき"
   },
   "it": {
    "q": "Quale animale è un mollusco e quindi parente del polpo?",
@@ -3112,7 +3398,8 @@
     "Chiocciola",
     "Tartaruga"
    ],
-   "x": "Chiocciole, vongole e polpi sono tutti molluschi. I granchi invece sono crostacei."
+   "x": "Chiocciole, vongole e polpi sono tutti molluschi. I granchi invece sono crostacei.",
+   "k": "Chiocciole: parenti del polpo"
   }
  },
  {
@@ -3128,7 +3415,8 @@
     "Marienkäfer",
     "Schnecke"
    ],
-   "x": "Arbeiterinnen schwitzen Wachsplättchen aus Drüsen am Bauch aus und bauen daraus die Waben."
+   "x": "Arbeiterinnen schwitzen Wachsplättchen aus Drüsen am Bauch aus und bauen daraus die Waben.",
+   "k": "Bienen: schwitzen Wachs aus"
   },
   "en": {
    "q": "Which animal makes wax with glands on its abdomen?",
@@ -3138,7 +3426,8 @@
     "Ladybird",
     "Snail"
    ],
-   "x": "Worker bees secrete wax flakes from glands on their abdomen and use them to build honeycomb."
+   "x": "Worker bees secrete wax flakes from glands on their abdomen and use them to build honeycomb.",
+   "k": "Bees: sweat out wax"
   },
   "fr": {
    "q": "Quel animal fabrique de la cire grâce à des glandes sur son abdomen ?",
@@ -3148,7 +3437,8 @@
     "Coccinelle",
     "Escargot"
    ],
-   "x": "Les ouvrières sécrètent des écailles de cire par des glandes du ventre et bâtissent ainsi leurs rayons."
+   "x": "Les ouvrières sécrètent des écailles de cire par des glandes du ventre et bâtissent ainsi leurs rayons.",
+   "k": "Abeilles : sécrètent de la cire"
   },
   "es": {
    "q": "¿Qué animal produce cera con glándulas en el abdomen?",
@@ -3158,7 +3448,8 @@
     "Mariquita",
     "Caracol"
    ],
-   "x": "Las obreras segregan escamas de cera por glándulas del abdomen y con ellas construyen los panales."
+   "x": "Las obreras segregan escamas de cera por glándulas del abdomen y con ellas construyen los panales.",
+   "k": "Abejas: segregan cera"
   },
   "pt": {
    "q": "Que animal produz cera com glândulas no abdômen?",
@@ -3168,7 +3459,8 @@
     "Joaninha",
     "Caracol"
    ],
-   "x": "As operárias soltam escamas de cera por glândulas do abdômen e constroem os favos com elas."
+   "x": "As operárias soltam escamas de cera por glândulas do abdômen e constroem os favos com elas.",
+   "k": "Abelhas: produzem cera"
   },
   "ja": {
    "q": "おなかの腺でロウを作る動物は？",
@@ -3178,7 +3470,8 @@
     "テントウムシ",
     "カタツムリ"
    ],
-   "x": "働きバチはおなかの腺からロウのうすい板を出し、それで巣を作ります。"
+   "x": "働きバチはおなかの腺からロウのうすい板を出し、それで巣を作ります。",
+   "k": "ミツバチ：ロウを出す"
   },
   "it": {
    "q": "Quale animale produce cera con ghiandole sull’addome?",
@@ -3188,7 +3481,8 @@
     "Coccinella",
     "Chiocciola"
    ],
-   "x": "Le api operaie secernono scagliette di cera da ghiandole sull’addome e con queste costruiscono i favi."
+   "x": "Le api operaie secernono scagliette di cera da ghiandole sull’addome e con queste costruiscono i favi.",
+   "k": "Api: producono cera"
   }
  },
  {
@@ -3204,7 +3498,8 @@
     "Eidechse",
     "Marienkäfer"
    ],
-   "x": "Marienkäfer entwickeln sich über Ei, Larve und Puppe zum Käfer. Kaulquappen werden ohne Puppe zum Frosch."
+   "x": "Marienkäfer entwickeln sich über Ei, Larve und Puppe zum Käfer. Kaulquappen werden ohne Puppe zum Frosch.",
+   "k": "Marienkäfer: entwickelt sich über eine Puppe"
   },
   "en": {
    "q": "Which animal goes through a metamorphosis with a pupal stage?",
@@ -3214,7 +3509,8 @@
     "Lizard",
     "Ladybird"
    ],
-   "x": "Ladybirds go from egg to larva to pupa to beetle. Tadpoles turn into frogs without a pupa."
+   "x": "Ladybirds go from egg to larva to pupa to beetle. Tadpoles turn into frogs without a pupa.",
+   "k": "Ladybird: develops through a pupa"
   },
   "fr": {
    "q": "Quel animal passe par une métamorphose avec un stade de nymphe ?",
@@ -3224,7 +3520,8 @@
     "Lézard",
     "Coccinelle"
    ],
-   "x": "La coccinelle passe de l'œuf à la larve, à la nymphe puis à l'adulte. Le têtard devient grenouille sans nymphe."
+   "x": "La coccinelle passe de l'œuf à la larve, à la nymphe puis à l'adulte. Le têtard devient grenouille sans nymphe.",
+   "k": "Coccinelle : passe par une nymphe"
   },
   "es": {
    "q": "¿Qué animal pasa por una metamorfosis con fase de pupa?",
@@ -3234,7 +3531,8 @@
     "Lagarto",
     "Mariquita"
    ],
-   "x": "La mariquita pasa de huevo a larva, pupa y adulto. El renacuajo se convierte en rana sin pupa."
+   "x": "La mariquita pasa de huevo a larva, pupa y adulto. El renacuajo se convierte en rana sin pupa.",
+   "k": "Mariquita: pasa por una pupa"
   },
   "pt": {
    "q": "Que animal passa por uma metamorfose com fase de pupa?",
@@ -3244,7 +3542,8 @@
     "Lagarto",
     "Joaninha"
    ],
-   "x": "A joaninha passa de ovo a larva, pupa e adulto. O girino vira rã sem pupa."
+   "x": "A joaninha passa de ovo a larva, pupa e adulto. O girino vira rã sem pupa.",
+   "k": "Joaninha: passa por uma pupa"
   },
   "ja": {
    "q": "さなぎの時期がある変態をする動物は？",
@@ -3254,7 +3553,8 @@
     "トカゲ",
     "テントウムシ"
    ],
-   "x": "テントウムシは卵、幼虫、さなぎ、成虫と変わります。オタマジャクシはさなぎにならずにカエルになります。"
+   "x": "テントウムシは卵、幼虫、さなぎ、成虫と変わります。オタマジャクシはさなぎにならずにカエルになります。",
+   "k": "テントウムシ：さなぎを経て成虫に"
   },
   "it": {
    "q": "Quale animale passa per una metamorfosi con lo stadio di pupa?",
@@ -3264,7 +3564,8 @@
     "Lucertola",
     "Coccinella"
    ],
-   "x": "Le coccinelle passano da uovo a larva, pupa e coleottero. I girini diventano rane senza pupa."
+   "x": "Le coccinelle passano da uovo a larva, pupa e coleottero. I girini diventano rane senza pupa.",
+   "k": "Coccinella: passa per lo stadio di pupa"
   }
  },
  {
@@ -3280,7 +3581,8 @@
     "Schmetterling",
     "Papagei"
    ],
-   "x": "Schmetterlinge heißen „Schuppenflügler“. Ihre Farben entstehen durch Tausende winzige Schuppen."
+   "x": "Schmetterlinge heißen „Schuppenflügler“. Ihre Farben entstehen durch Tausende winzige Schuppen.",
+   "k": "Schmetterlinge: Flügel voller Schuppen"
   },
   "en": {
    "q": "Whose wings are covered with tiny scales?",
@@ -3290,7 +3592,8 @@
     "Butterfly",
     "Parrot"
    ],
-   "x": "Butterflies belong to the Lepidoptera, the 'scale wings'. Their colours come from thousands of tiny scales."
+   "x": "Butterflies belong to the Lepidoptera, the 'scale wings'. Their colours come from thousands of tiny scales.",
+   "k": "Butterflies: wings covered in scales"
   },
   "fr": {
    "q": "Quel animal a des ailes couvertes de minuscules écailles ?",
@@ -3300,7 +3603,8 @@
     "Papillon",
     "Perroquet"
    ],
-   "x": "Les papillons sont des lépidoptères, « ailes à écailles ». Leurs couleurs viennent de milliers d'écailles."
+   "x": "Les papillons sont des lépidoptères, « ailes à écailles ». Leurs couleurs viennent de milliers d'écailles.",
+   "k": "Papillons : ailes couvertes d’écailles"
   },
   "es": {
    "q": "¿Qué animal tiene las alas cubiertas de diminutas escamas?",
@@ -3310,7 +3614,8 @@
     "Mariposa",
     "Loro"
    ],
-   "x": "Las mariposas son lepidópteros, «alas con escamas». Sus colores vienen de miles de escamas diminutas."
+   "x": "Las mariposas son lepidópteros, «alas con escamas». Sus colores vienen de miles de escamas diminutas.",
+   "k": "Mariposas: alas cubiertas de escamas"
   },
   "pt": {
    "q": "Que animal tem as asas cobertas de escamas minúsculas?",
@@ -3320,7 +3625,8 @@
     "Borboleta",
     "Papagaio"
    ],
-   "x": "As borboletas são lepidópteros, “asas com escamas”. As cores vêm de milhares de escamas minúsculas."
+   "x": "As borboletas são lepidópteros, “asas com escamas”. As cores vêm de milhares de escamas minúsculas.",
+   "k": "Borboletas: asas cobertas de escamas"
   },
   "ja": {
    "q": "羽が小さなうろこでおおわれているのは？",
@@ -3330,7 +3636,8 @@
     "チョウ",
     "オウム"
    ],
-   "x": "チョウはチョウ目（鱗翅目＝うろこの羽）。色は何千もの小さなうろこから生まれます。"
+   "x": "チョウはチョウ目（鱗翅目＝うろこの羽）。色は何千もの小さなうろこから生まれます。",
+   "k": "チョウ：羽はうろこでおおわれている"
   },
   "it": {
    "q": "Di chi sono le ali coperte di minuscole squame?",
@@ -3340,7 +3647,8 @@
     "Farfalla",
     "Pappagallo"
    ],
-   "x": "Le farfalle sono lepidotteri, cioè «ali a squame». I loro colori vengono da migliaia di squamette."
+   "x": "Le farfalle sono lepidotteri, cioè «ali a squame». I loro colori vengono da migliaia di squamette.",
+   "k": "Farfalle: ali coperte di squame"
   }
  },
  {
@@ -3356,7 +3664,8 @@
     "Bär",
     "Otter"
    ],
-   "x": "Füchse haben Schlitzpupillen wie Hauskatzen. Große Katzen wie der Tiger haben dagegen runde Pupillen."
+   "x": "Füchse haben Schlitzpupillen wie Hauskatzen. Große Katzen wie der Tiger haben dagegen runde Pupillen.",
+   "k": "Fuchs: Schlitzpupillen wie eine Katze"
   },
   "en": {
    "q": "Which animal has vertical slit pupils?",
@@ -3366,7 +3675,8 @@
     "Bear",
     "Otter"
    ],
-   "x": "Foxes have slit pupils like house cats. Big cats such as tigers, however, have round pupils."
+   "x": "Foxes have slit pupils like house cats. Big cats such as tigers, however, have round pupils.",
+   "k": "Fox: slit pupils like a cat"
   },
   "fr": {
    "q": "Quel animal a des pupilles verticales en fente ?",
@@ -3376,7 +3686,8 @@
     "Ours",
     "Loutre"
    ],
-   "x": "Le renard a des pupilles en fente comme le chat. Les grands félins comme le tigre ont des pupilles rondes."
+   "x": "Le renard a des pupilles en fente comme le chat. Les grands félins comme le tigre ont des pupilles rondes.",
+   "k": "Renard : pupilles fendues comme un chat"
   },
   "es": {
    "q": "¿Qué animal tiene pupilas verticales en forma de rendija?",
@@ -3386,7 +3697,8 @@
     "Oso",
     "Nutria"
    ],
-   "x": "El zorro tiene pupilas de rendija como el gato. Los grandes felinos como el tigre las tienen redondas."
+   "x": "El zorro tiene pupilas de rendija como el gato. Los grandes felinos como el tigre las tienen redondas.",
+   "k": "Zorro: pupilas rasgadas como un gato"
   },
   "pt": {
    "q": "Que animal tem pupilas verticais em fenda?",
@@ -3396,7 +3708,8 @@
     "Urso",
     "Lontra"
    ],
-   "x": "A raposa tem pupilas em fenda, como o gato. Os grandes felinos, como o tigre, têm pupilas redondas."
+   "x": "A raposa tem pupilas em fenda, como o gato. Os grandes felinos, como o tigre, têm pupilas redondas.",
+   "k": "Raposa: pupilas em fenda como gato"
   },
   "ja": {
    "q": "縦長の瞳をもつ動物は？",
@@ -3406,7 +3719,8 @@
     "クマ",
     "カワウソ"
    ],
-   "x": "キツネの瞳は飼いネコのように縦長。でもトラなどの大型のネコ科は瞳が丸いのです。"
+   "x": "キツネの瞳は飼いネコのように縦長。でもトラなどの大型のネコ科は瞳が丸いのです。",
+   "k": "キツネ：ネコのような縦長の瞳"
   },
   "it": {
    "q": "Quale animale ha pupille verticali a fessura?",
@@ -3416,7 +3730,8 @@
     "Orso",
     "Lontra"
    ],
-   "x": "Le volpi hanno pupille a fessura come i gatti di casa. I grandi felini come la tigre, invece, hanno pupille rotonde."
+   "x": "Le volpi hanno pupille a fessura come i gatti di casa. I grandi felini come la tigre, invece, hanno pupille rotonde.",
+   "k": "Volpe: pupille a fessura come un gatto"
   }
  },
  {
@@ -3432,7 +3747,8 @@
     "Tiger",
     "Fuchs"
    ],
-   "x": "Füchse gehören wie Wolf und Haushund zu den Hunden. Otter sind Marder, Pandas Bären, Tiger Katzen."
+   "x": "Füchse gehören wie Wolf und Haushund zu den Hunden. Otter sind Marder, Pandas Bären, Tiger Katzen.",
+   "k": "Fuchs: gehört zu den Hunden"
   },
   "en": {
    "q": "Which animal belongs to the dog family?",
@@ -3442,7 +3758,8 @@
     "Tiger",
     "Fox"
    ],
-   "x": "Foxes are canids, like wolves and pet dogs. Otters are mustelids, pandas are bears and tigers are cats."
+   "x": "Foxes are canids, like wolves and pet dogs. Otters are mustelids, pandas are bears and tigers are cats.",
+   "k": "Fox: belongs to the dog family"
   },
   "fr": {
    "q": "Quel animal appartient à la famille des chiens ?",
@@ -3452,7 +3769,8 @@
     "Tigre",
     "Renard"
    ],
-   "x": "Le renard est un canidé comme le loup et le chien. La loutre est un mustélidé, le panda un ours, le tigre un félin."
+   "x": "Le renard est un canidé comme le loup et le chien. La loutre est un mustélidé, le panda un ours, le tigre un félin.",
+   "k": "Renard : de la famille du chien"
   },
   "es": {
    "q": "¿Qué animal pertenece a la familia de los perros?",
@@ -3462,7 +3780,8 @@
     "Tigre",
     "Zorro"
    ],
-   "x": "El zorro es un cánido, como el lobo y el perro. La nutria es un mustélido, el panda un oso y el tigre un félido."
+   "x": "El zorro es un cánido, como el lobo y el perro. La nutria es un mustélido, el panda un oso y el tigre un félido.",
+   "k": "Zorro: de la familia del perro"
   },
   "pt": {
    "q": "Que animal pertence à família dos cães?",
@@ -3472,7 +3791,8 @@
     "Tigre",
     "Raposa"
    ],
-   "x": "A raposa é um canídeo, como o lobo e o cachorro. A lontra é um mustelídeo, o panda um urso e o tigre um felino."
+   "x": "A raposa é um canídeo, como o lobo e o cachorro. A lontra é um mustelídeo, o panda um urso e o tigre um felino.",
+   "k": "Raposa: da família dos cães"
   },
   "ja": {
    "q": "イヌ科の動物は？",
@@ -3482,7 +3802,8 @@
     "トラ",
     "キツネ"
    ],
-   "x": "キツネはオオカミや飼いイヌと同じイヌ科。カワウソはイタチ科、パンダはクマ科、トラはネコ科です。"
+   "x": "キツネはオオカミや飼いイヌと同じイヌ科。カワウソはイタチ科、パンダはクマ科、トラはネコ科です。",
+   "k": "キツネ：イヌ科"
   },
   "it": {
    "q": "Quale animale appartiene alla famiglia dei cani?",
@@ -3492,7 +3813,8 @@
     "Tigre",
     "Volpe"
    ],
-   "x": "Le volpi sono canidi, come lupi e cani. Le lontre sono mustelidi, i panda orsi e le tigri felini."
+   "x": "Le volpi sono canidi, come lupi e cani. Le lontre sono mustelidi, i panda orsi e le tigri felini.",
+   "k": "Volpe: della famiglia dei cani"
   }
  },
  {
@@ -3508,7 +3830,8 @@
     "Otter",
     "Panda"
    ],
-   "x": "Otter sind ans Wasser angepasste Marder – verwandt mit Dachs, Iltis und Wiesel."
+   "x": "Otter sind ans Wasser angepasste Marder – verwandt mit Dachs, Iltis und Wiesel.",
+   "k": "Fischotter: gehört zu den Mardern"
   },
   "en": {
    "q": "Which animal belongs to the weasel family?",
@@ -3518,7 +3841,8 @@
     "Otter",
     "Panda"
    ],
-   "x": "Otters are mustelids adapted to water – relatives of badgers, polecats and weasels."
+   "x": "Otters are mustelids adapted to water – relatives of badgers, polecats and weasels.",
+   "k": "Otter: belongs to the weasel family"
   },
   "fr": {
    "q": "Quel animal appartient à la famille des mustélidés ?",
@@ -3528,7 +3852,8 @@
     "Loutre",
     "Panda"
    ],
-   "x": "La loutre est un mustélidé adapté à l'eau, parente du blaireau, du putois et de la belette."
+   "x": "La loutre est un mustélidé adapté à l'eau, parente du blaireau, du putois et de la belette.",
+   "k": "Loutre : de la famille des mustélidés"
   },
   "es": {
    "q": "¿Qué animal pertenece a la familia de los mustélidos?",
@@ -3538,7 +3863,8 @@
     "Nutria",
     "Panda"
    ],
-   "x": "La nutria es un mustélido adaptado al agua, pariente del tejón, el turón y la comadreja."
+   "x": "La nutria es un mustélido adaptado al agua, pariente del tejón, el turón y la comadreja.",
+   "k": "Nutria: de la familia de los mustélidos"
   },
   "pt": {
    "q": "Que animal pertence à família dos mustelídeos?",
@@ -3548,7 +3874,8 @@
     "Lontra",
     "Panda"
    ],
-   "x": "A lontra é um mustelídeo adaptado à água, parente do texugo, do furão e da doninha."
+   "x": "A lontra é um mustelídeo adaptado à água, parente do texugo, do furão e da doninha.",
+   "k": "Lontra: da família dos mustelídeos"
   },
   "ja": {
    "q": "イタチ科の動物は？",
@@ -3558,7 +3885,8 @@
     "カワウソ",
     "パンダ"
    ],
-   "x": "カワウソは水にくらしに合わせたイタチ科の仲間。アナグマやケナガイタチ、イタチの親せきです。"
+   "x": "カワウソは水にくらしに合わせたイタチ科の仲間。アナグマやケナガイタチ、イタチの親せきです。",
+   "k": "カワウソ：イタチ科"
   },
   "it": {
    "q": "Quale animale appartiene ai mustelidi?",
@@ -3568,7 +3896,8 @@
     "Lontra",
     "Panda"
    ],
-   "x": "Le lontre sono mustelidi adattati all’acqua, parenti di tassi, puzzole e donnole."
+   "x": "Le lontre sono mustelidi adattati all’acqua, parenti di tassi, puzzole e donnole.",
+   "k": "Lontra: della famiglia dei mustelidi"
   }
  },
  {
@@ -3584,7 +3913,8 @@
     "Frosch",
     "Hai"
    ],
-   "x": "Haihaut trägt Placoidschuppen, gebaut wie kleine Zähne. Gegen den Strich fühlt sie sich an wie Schleifpapier."
+   "x": "Haihaut trägt Placoidschuppen, gebaut wie kleine Zähne. Gegen den Strich fühlt sie sich an wie Schleifpapier.",
+   "k": "Haut der Haie: winzige Hautzähne"
   },
   "en": {
    "q": "Whose skin is covered with tiny 'skin teeth'?",
@@ -3594,7 +3924,8 @@
     "Frog",
     "Shark"
    ],
-   "x": "Shark skin has placoid scales built like tiny teeth. Stroked the wrong way it feels like sandpaper."
+   "x": "Shark skin has placoid scales built like tiny teeth. Stroked the wrong way it feels like sandpaper.",
+   "k": "Shark skin: tiny skin teeth"
   },
   "fr": {
    "q": "Quel animal a la peau couverte de minuscules « denticules » ?",
@@ -3604,7 +3935,8 @@
     "Grenouille",
     "Requin"
    ],
-   "x": "La peau du requin porte des écailles placoïdes, faites comme de petites dents. À rebrousse-poil, elle râpe."
+   "x": "La peau du requin porte des écailles placoïdes, faites comme de petites dents. À rebrousse-poil, elle râpe.",
+   "k": "Peau de requin : minuscules dents cutanées"
   },
   "es": {
    "q": "¿Qué animal tiene la piel cubierta de diminutos «dentículos»?",
@@ -3614,7 +3946,8 @@
     "Rana",
     "Tiburón"
    ],
-   "x": "La piel del tiburón tiene escamas placoideas, como dientes diminutos. A contrapelo parece papel de lija."
+   "x": "La piel del tiburón tiene escamas placoideas, como dientes diminutos. A contrapelo parece papel de lija.",
+   "k": "Piel de tiburón: diminutos dientes dérmicos"
   },
   "pt": {
    "q": "Que animal tem a pele coberta de minúsculos “dentinhos”?",
@@ -3624,7 +3957,8 @@
     "Rã",
     "Tubarão"
    ],
-   "x": "A pele do tubarão tem escamas placoides, como dentes minúsculos. Passando a mão ao contrário, parece lixa."
+   "x": "A pele do tubarão tem escamas placoides, como dentes minúsculos. Passando a mão ao contrário, parece lixa.",
+   "k": "Pele de tubarão: minúsculos dentículos"
   },
   "ja": {
    "q": "皮ふが小さな「皮歯」でおおわれているのは？",
@@ -3634,7 +3968,8 @@
     "カエル",
     "サメ"
    ],
-   "x": "サメの皮ふには、小さな歯のような楯鱗があります。逆向きになでると紙やすりのようです。"
+   "x": "サメの皮ふには、小さな歯のような楯鱗があります。逆向きになでると紙やすりのようです。",
+   "k": "サメの皮ふ：小さな歯のようなうろこ"
   },
   "it": {
    "q": "Di chi è la pelle coperta di minuscoli «denti cutanei»?",
@@ -3644,7 +3979,8 @@
     "Rana",
     "Squalo"
    ],
-   "x": "La pelle dello squalo ha scaglie placoidi fatte come dentini. Accarezzata contropelo sembra carta vetrata."
+   "x": "La pelle dello squalo ha scaglie placoidi fatte come dentini. Accarezzata contropelo sembra carta vetrata.",
+   "k": "Pelle di squalo: minuscoli dentini cutanei"
   }
  },
  {
@@ -3660,7 +3996,8 @@
     "Igel",
     "Frosch"
    ],
-   "x": "Frösche trinken nicht: Sie nehmen Wasser über die Haut auf, vor allem über eine dünne Stelle am Bauch."
+   "x": "Frösche trinken nicht: Sie nehmen Wasser über die Haut auf, vor allem über eine dünne Stelle am Bauch.",
+   "k": "Frösche: trinken über die Haut"
   },
   "en": {
    "q": "Which animal doesn't drink with its mouth but absorbs water through its skin?",
@@ -3670,7 +4007,8 @@
     "Hedgehog",
     "Frog"
    ],
-   "x": "Frogs don't drink: they soak up water through their skin, especially a thin patch on the belly."
+   "x": "Frogs don't drink: they soak up water through their skin, especially a thin patch on the belly.",
+   "k": "Frogs: drink through their skin"
   },
   "fr": {
    "q": "Quel animal ne boit pas par la bouche mais absorbe l'eau par la peau ?",
@@ -3680,7 +4018,8 @@
     "Hérisson",
     "Grenouille"
    ],
-   "x": "La grenouille ne boit pas : elle absorbe l'eau par la peau, surtout par une zone fine du ventre."
+   "x": "La grenouille ne boit pas : elle absorbe l'eau par la peau, surtout par une zone fine du ventre.",
+   "k": "Grenouilles : boivent par la peau"
   },
   "es": {
    "q": "¿Qué animal no bebe por la boca sino que absorbe agua por la piel?",
@@ -3690,7 +4029,8 @@
     "Erizo",
     "Rana"
    ],
-   "x": "La rana no bebe: absorbe el agua por la piel, sobre todo por una zona fina del vientre."
+   "x": "La rana no bebe: absorbe el agua por la piel, sobre todo por una zona fina del vientre.",
+   "k": "Ranas: beben por la piel"
   },
   "pt": {
    "q": "Que animal não bebe pela boca, mas absorve água pela pele?",
@@ -3700,7 +4040,8 @@
     "Ouriço",
     "Rã"
    ],
-   "x": "A rã não bebe: absorve a água pela pele, sobretudo por uma área fina da barriga."
+   "x": "A rã não bebe: absorve a água pela pele, sobretudo por uma área fina da barriga.",
+   "k": "Rãs: bebem pela pele"
   },
   "ja": {
    "q": "口で飲まずに、皮ふから水を吸収する動物は？",
@@ -3710,7 +4051,8 @@
     "ハリネズミ",
     "カエル"
    ],
-   "x": "カエルは水を飲みません。皮ふ、特におなかのうすい部分から水を吸いこみます。"
+   "x": "カエルは水を飲みません。皮ふ、特におなかのうすい部分から水を吸いこみます。",
+   "k": "カエル：皮ふから水を飲む"
   },
   "it": {
    "q": "Quale animale non beve con la bocca ma assorbe l’acqua con la pelle?",
@@ -3720,7 +4062,8 @@
     "Riccio",
     "Rana"
    ],
-   "x": "Le rane non bevono: assorbono l’acqua con la pelle, soprattutto da una zona sottile sulla pancia."
+   "x": "Le rane non bevono: assorbono l’acqua con la pelle, soprattutto da una zona sottile sulla pancia.",
+   "k": "Rane: bevono con la pelle"
   }
  },
  {
@@ -3736,7 +4079,8 @@
     "Schildkröte",
     "Otter"
    ],
-   "x": "Schildkröten sind Reptilien mit trockener, schuppiger Haut. Frösche sind Amphibien, Kraken Weichtiere."
+   "x": "Schildkröten sind Reptilien mit trockener, schuppiger Haut. Frösche sind Amphibien, Kraken Weichtiere.",
+   "k": "Schildkröten: sind Reptilien"
   },
   "en": {
    "q": "Which of these animals is a reptile?",
@@ -3746,7 +4090,8 @@
     "Turtle",
     "Otter"
    ],
-   "x": "Turtles are reptiles with dry, scaly skin. Frogs are amphibians and octopuses are molluscs."
+   "x": "Turtles are reptiles with dry, scaly skin. Frogs are amphibians and octopuses are molluscs.",
+   "k": "Turtles: are reptiles"
   },
   "fr": {
    "q": "Lequel de ces animaux est un reptile ?",
@@ -3756,7 +4101,8 @@
     "Tortue",
     "Loutre"
    ],
-   "x": "La tortue est un reptile à peau sèche et écailleuse. La grenouille est un amphibien, la pieuvre un mollusque."
+   "x": "La tortue est un reptile à peau sèche et écailleuse. La grenouille est un amphibien, la pieuvre un mollusque.",
+   "k": "Tortues : des reptiles"
   },
   "es": {
    "q": "¿Cuál de estos animales es un reptil?",
@@ -3766,7 +4112,8 @@
     "Tortuga",
     "Nutria"
    ],
-   "x": "La tortuga es un reptil de piel seca y escamosa. La rana es un anfibio y el pulpo un molusco."
+   "x": "La tortuga es un reptil de piel seca y escamosa. La rana es un anfibio y el pulpo un molusco.",
+   "k": "Tortugas: son reptiles"
   },
   "pt": {
    "q": "Qual destes animais é um réptil?",
@@ -3776,7 +4123,8 @@
     "Tartaruga",
     "Lontra"
    ],
-   "x": "A tartaruga é um réptil de pele seca e escamosa. A rã é um anfíbio e o polvo um molusco."
+   "x": "A tartaruga é um réptil de pele seca e escamosa. A rã é um anfíbio e o polvo um molusco.",
+   "k": "Tartarugas: são répteis"
   },
   "ja": {
    "q": "この中で爬虫類はどれ？",
@@ -3786,7 +4134,8 @@
     "カメ",
     "カワウソ"
    ],
-   "x": "カメはかわいたうろこの皮ふをもつ爬虫類。カエルは両生類、タコは軟体動物です。"
+   "x": "カメはかわいたうろこの皮ふをもつ爬虫類。カエルは両生類、タコは軟体動物です。",
+   "k": "カメ：爬虫類"
   },
   "it": {
    "q": "Quale di questi animali è un rettile?",
@@ -3796,7 +4145,8 @@
     "Tartaruga",
     "Lontra"
    ],
-   "x": "Le tartarughe sono rettili con la pelle secca e squamosa. Le rane sono anfibi e i polpi molluschi."
+   "x": "Le tartarughe sono rettili con la pelle secca e squamosa. Le rane sono anfibi e i polpi molluschi.",
+   "k": "Tartarughe: sono rettili"
   }
  }
 ]

@@ -12,7 +12,8 @@
     "Als Falter frei im Gebüsch",
     "Er zieht in den Süden"
    ],
-   "x": "Er überwintert ungeschützt zwischen Blättern. Ein körpereigenes Frostschutzmittel bewahrt ihn vor dem Erfrieren."
+   "x": "Er überwintert ungeschützt zwischen Blättern. Ein körpereigenes Frostschutzmittel bewahrt ihn vor dem Erfrieren.",
+   "k": "Zitronenfalter: überwintert ungeschützt im Freien"
   },
   "en": {
    "q": "How does the brimstone butterfly survive winter?",
@@ -22,7 +23,8 @@
     "As an adult, unsheltered in shrubs",
     "It migrates south"
    ],
-   "x": "It overwinters unprotected among leaves. A natural antifreeze in its body keeps it from freezing."
+   "x": "It overwinters unprotected among leaves. A natural antifreeze in its body keeps it from freezing.",
+   "k": "Brimstone: overwinters unsheltered outdoors"
   },
   "fr": {
    "q": "Comment le papillon Citron passe-t-il l'hiver ?",
@@ -32,7 +34,8 @@
     "En papillon, à découvert",
     "Il migre vers le sud"
    ],
-   "x": "Il hiverne sans abri parmi les feuilles. Un antigel naturel dans son corps l'empêche de geler."
+   "x": "Il hiverne sans abri parmi les feuilles. Un antigel naturel dans son corps l'empêche de geler.",
+   "k": "Citron : hiverne à l’air libre"
   },
   "es": {
    "q": "¿Cómo pasa el invierno la mariposa limonera?",
@@ -42,7 +45,8 @@
     "Como adulta, al aire libre",
     "Migra hacia el sur"
    ],
-   "x": "Hiberna sin refugio entre las hojas. Un anticongelante natural en su cuerpo evita que se congele."
+   "x": "Hiberna sin refugio entre las hojas. Un anticongelante natural en su cuerpo evita que se congele.",
+   "k": "Limonera: inverna al aire libre"
   },
   "pt": {
    "q": "Como a borboleta-limão passa o inverno?",
@@ -52,7 +56,8 @@
     "Como adulta, ao ar livre",
     "Migra para o sul"
    ],
-   "x": "Ela hiberna sem abrigo entre as folhas. Um anticongelante natural no corpo impede que congele."
+   "x": "Ela hiberna sem abrigo entre as folhas. Um anticongelante natural no corpo impede que congele.",
+   "k": "Borboleta-limão: passa o inverno ao ar livre"
   },
   "ja": {
    "q": "ヤマキチョウはどうやって冬を越す？",
@@ -62,7 +67,8 @@
     "成虫のまま、むき出しで茂みの中",
     "南へ渡る"
    ],
-   "x": "葉っぱの間で、何にも守られずに冬を越します。体の中の天然の不凍液が、凍るのを防いでいます。"
+   "x": "葉っぱの間で、何にも守られずに冬を越します。体の中の天然の不凍液が、凍るのを防いでいます。",
+   "k": "ヤマキチョウ：むき出しで冬を越す"
   },
   "it": {
    "q": "Come passa l’inverno la cedronella?",
@@ -72,7 +78,8 @@
     "Da adulta, allo scoperto tra i cespugli",
     "Migra a sud"
    ],
-   "x": "Sverna senza riparo tra le foglie. Un antigelo naturale nel corpo le impedisce di congelare."
+   "x": "Sverna senza riparo tra le foglie. Un antigelo naturale nel corpo le impedisce di congelare.",
+   "k": "Cedronella: sverna all’aperto"
   }
  },
  {
@@ -88,7 +95,8 @@
     "Nur einen Sommer",
     "Rund 20 Jahre"
    ],
-   "x": "Je nach Klima fressen Engerlinge 3 bis 5 Jahre lang Wurzeln. Der fertige Käfer lebt dann nur wenige Wochen."
+   "x": "Je nach Klima fressen Engerlinge 3 bis 5 Jahre lang Wurzeln. Der fertige Käfer lebt dann nur wenige Wochen.",
+   "k": "Maikäfer-Larven: leben 3 bis 5 Jahre im Boden"
   },
   "en": {
    "q": "How long do cockchafer larvae (grubs) live in the soil?",
@@ -98,7 +106,8 @@
     "Just one summer",
     "Around 20 years"
    ],
-   "x": "Depending on climate, grubs feed on roots for 3 to 5 years. The adult beetle then lives only a few weeks."
+   "x": "Depending on climate, grubs feed on roots for 3 to 5 years. The adult beetle then lives only a few weeks.",
+   "k": "Cockchafer grubs: live 3 to 5 years in the soil"
   },
   "fr": {
    "q": "Combien de temps les larves de hanneton (vers blancs) vivent-elles dans le sol ?",
@@ -108,7 +117,8 @@
     "Un seul été",
     "Environ 20 ans"
    ],
-   "x": "Selon le climat, les vers blancs mangent des racines pendant 3 à 5 ans. L'adulte ne vit ensuite que quelques semaines."
+   "x": "Selon le climat, les vers blancs mangent des racines pendant 3 à 5 ans. L'adulte ne vit ensuite que quelques semaines.",
+   "k": "Larves de hanneton : 3 à 5 ans dans le sol"
   },
   "es": {
    "q": "¿Cuánto tiempo viven en el suelo las larvas del escarabajo de mayo?",
@@ -118,7 +128,8 @@
     "Solo un verano",
     "Unos 20 años"
    ],
-   "x": "Según el clima, las larvas comen raíces durante 3 a 5 años. El escarabajo adulto vive después solo unas semanas."
+   "x": "Según el clima, las larvas comen raíces durante 3 a 5 años. El escarabajo adulto vive después solo unas semanas.",
+   "k": "Larvas de abejorro sanjuanero: 3 a 5 años bajo tierra"
   },
   "pt": {
    "q": "Quanto tempo as larvas do besouro-de-maio vivem no solo?",
@@ -128,7 +139,8 @@
     "Só um verão",
     "Uns 20 anos"
    ],
-   "x": "Conforme o clima, as larvas comem raízes por 3 a 5 anos. O besouro adulto vive depois só algumas semanas."
+   "x": "Conforme o clima, as larvas comem raízes por 3 a 5 anos. O besouro adulto vive depois só algumas semanas.",
+   "k": "Larvas de besouro-de-maio: 3 a 5 anos no solo"
   },
   "ja": {
    "q": "コフキコガネの幼虫は土の中で何年くらい暮らす？",
@@ -138,7 +150,8 @@
     "ひと夏だけ",
     "約20年"
    ],
-   "x": "気候によって3〜5年、根を食べて育ちます。成虫になってからは数週間しか生きません。"
+   "x": "気候によって3〜5年、根を食べて育ちます。成虫になってからは数週間しか生きません。",
+   "k": "コフキコガネの幼虫：土の中で3〜5年"
   },
   "it": {
    "q": "Quanto vivono nel terreno le larve del maggiolino?",
@@ -148,7 +161,8 @@
     "Una sola estate",
     "Circa 20 anni"
    ],
-   "x": "A seconda del clima, le larve mangiano radici per 3–5 anni. Il maggiolino adulto poi vive solo poche settimane."
+   "x": "A seconda del clima, le larve mangiano radici per 3–5 anni. Il maggiolino adulto poi vive solo poche settimane.",
+   "k": "Larve di maggiolino: 3–5 anni nel terreno"
   }
  },
  {
@@ -162,7 +176,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Ein Mythos: Zecken lauern meist in Gras und Büschen bis etwa 1 m Höhe und werden im Vorbeigehen abgestreift."
+   "x": "Ein Mythos: Zecken lauern meist in Gras und Büschen bis etwa 1 m Höhe und werden im Vorbeigehen abgestreift.",
+   "k": "Zecken: lauern im Gras, nicht auf Bäumen"
   },
   "en": {
    "q": "Ticks usually drop onto people and animals from trees.",
@@ -170,7 +185,8 @@
     "True",
     "False"
    ],
-   "x": "A myth: ticks usually wait in grass and shrubs up to about 1 m high and get brushed off as you pass."
+   "x": "A myth: ticks usually wait in grass and shrubs up to about 1 m high and get brushed off as you pass.",
+   "k": "Ticks: wait in grass, not in trees"
   },
   "fr": {
    "q": "Les tiques se laissent généralement tomber des arbres sur les humains et les animaux.",
@@ -178,7 +194,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Un mythe : les tiques attendent surtout dans l'herbe et les buissons jusqu'à 1 m environ et s'accrochent au passage."
+   "x": "Un mythe : les tiques attendent surtout dans l'herbe et les buissons jusqu'à 1 m environ et s'accrochent au passage.",
+   "k": "Tiques : attendent dans l’herbe, pas dans les arbres"
   },
   "es": {
    "q": "Las garrapatas suelen dejarse caer desde los árboles sobre personas y animales.",
@@ -186,7 +203,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Es un mito: suelen esperar en la hierba y los arbustos hasta 1 m de altura y se enganchan al pasar."
+   "x": "Es un mito: suelen esperar en la hierba y los arbustos hasta 1 m de altura y se enganchan al pasar.",
+   "k": "Garrapatas: esperan en la hierba, no en los árboles"
   },
   "pt": {
    "q": "Os carrapatos costumam cair das árvores sobre pessoas e animais.",
@@ -194,7 +212,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "É um mito: eles esperam na grama e nos arbustos até 1 m de altura e se agarram quando alguém passa."
+   "x": "É um mito: eles esperam na grama e nos arbustos até 1 m de altura e se agarram quando alguém passa.",
+   "k": "Carrapatos: esperam no capim, não nas árvores"
   },
   "ja": {
    "q": "正しい？まちがい？ マダニはふつう木の上から人や動物に落ちてくる。",
@@ -202,7 +221,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "これは俗説。マダニはふつう高さ1メートルくらいまでの草や茂みで待ち、通りかかった人や動物にくっつきます。"
+   "x": "これは俗説。マダニはふつう高さ1メートルくらいまでの草や茂みで待ち、通りかかった人や動物にくっつきます。",
+   "k": "マダニ：木ではなく草むらで待つ"
   },
   "it": {
    "q": "Vero o falso? Le zecche di solito cadono dagli alberi su persone e animali.",
@@ -210,7 +230,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Un mito: le zecche aspettano di solito nell’erba e nei cespugli fino a circa 1 m d’altezza e si attaccano a chi passa."
+   "x": "Un mito: le zecche aspettano di solito nell’erba e nei cespugli fino a circa 1 m d’altezza e si attaccano a chi passa.",
+   "k": "Zecche: aspettano nell’erba, non sugli alberi"
   }
  },
  {
@@ -226,7 +247,8 @@
     "Wasserläufer",
     "Kellerassel"
    ],
-   "x": "Asseln sind Krebstiere, die an Land leben. Sie haben 14 Beine und brauchen feuchte Verstecke."
+   "x": "Asseln sind Krebstiere, die an Land leben. Sie haben 14 Beine und brauchen feuchte Verstecke.",
+   "k": "Asseln: sind Krebse, keine Insekten"
   },
   "en": {
    "q": "Which of these animals is NOT an insect?",
@@ -236,7 +258,8 @@
     "Pond skater",
     "Woodlouse"
    ],
-   "x": "Woodlice are crustaceans that live on land. They have 14 legs and need damp hiding places."
+   "x": "Woodlice are crustaceans that live on land. They have 14 legs and need damp hiding places.",
+   "k": "Woodlice: crustaceans, not insects"
   },
   "fr": {
    "q": "Lequel de ces animaux n'est PAS un insecte ?",
@@ -246,7 +269,8 @@
     "Gerris",
     "Cloporte"
    ],
-   "x": "Les cloportes sont des crustacés terrestres. Ils ont 14 pattes et ont besoin de cachettes humides."
+   "x": "Les cloportes sont des crustacés terrestres. Ils ont 14 pattes et ont besoin de cachettes humides.",
+   "k": "Cloportes : des crustacés, pas des insectes"
   },
   "es": {
    "q": "¿Cuál de estos animales NO es un insecto?",
@@ -256,7 +280,8 @@
     "Zapatero (Gerris)",
     "Cochinilla de humedad"
    ],
-   "x": "Las cochinillas de humedad son crustáceos terrestres. Tienen 14 patas y necesitan escondites húmedos."
+   "x": "Las cochinillas de humedad son crustáceos terrestres. Tienen 14 patas y necesitan escondites húmedos.",
+   "k": "Cochinillas: crustáceos, no insectos"
   },
   "pt": {
    "q": "Qual destes animais NÃO é um inseto?",
@@ -266,7 +291,8 @@
     "Alfaiate (Gerris)",
     "Tatuzinho-de-jardim"
    ],
-   "x": "Os tatuzinhos são crustáceos terrestres. Têm 14 patas e precisam de esconderijos úmidos."
+   "x": "Os tatuzinhos são crustáceos terrestres. Têm 14 patas e precisam de esconderijos úmidos.",
+   "k": "Tatuzinhos: crustáceos, não insetos"
   },
   "ja": {
    "q": "昆虫ではないのはどれ？",
@@ -276,7 +302,8 @@
     "アメンボ",
     "ワラジムシ"
    ],
-   "x": "ワラジムシは陸にすむ甲殻類。脚は14本で、しめった隠れ家が必要です。"
+   "x": "ワラジムシは陸にすむ甲殻類。脚は14本で、しめった隠れ家が必要です。",
+   "k": "ワラジムシ：昆虫ではなく甲殻類"
   },
   "it": {
    "q": "Quale di questi animali NON è un insetto?",
@@ -286,7 +313,8 @@
     "Gerride",
     "Porcellino di terra"
    ],
-   "x": "I porcellini di terra sono crostacei che vivono sulla terraferma. Hanno 14 zampe e hanno bisogno di nascondigli umidi."
+   "x": "I porcellini di terra sono crostacei che vivono sulla terraferma. Hanno 14 zampe e hanno bisogno di nascondigli umidi.",
+   "k": "Porcellini di terra: crostacei, non insetti"
   }
  },
  {
@@ -302,7 +330,8 @@
     "Ein großer Regenwurm",
     "Ein Lurch wie der Molch"
    ],
-   "x": "Sie ist eine beinlose Echse: Sie hat Augenlider, kann den Schwanz abwerfen – und blind ist sie auch nicht."
+   "x": "Sie ist eine beinlose Echse: Sie hat Augenlider, kann den Schwanz abwerfen – und blind ist sie auch nicht.",
+   "k": "Blindschleiche: eine Echse ohne Beine"
   },
   "en": {
    "q": "What is a slow worm?",
@@ -312,7 +341,8 @@
     "A large earthworm",
     "An amphibian like a newt"
    ],
-   "x": "It is a legless lizard: it has eyelids and can shed its tail, just like other lizards."
+   "x": "It is a legless lizard: it has eyelids and can shed its tail, just like other lizards.",
+   "k": "Slow worm: a lizard without legs"
   },
   "fr": {
    "q": "Qu'est-ce qu'un orvet ?",
@@ -322,7 +352,8 @@
     "Un gros ver de terre",
     "Un amphibien comme le triton"
    ],
-   "x": "C'est un lézard sans pattes : il a des paupières et peut perdre sa queue, comme les autres lézards."
+   "x": "C'est un lézard sans pattes : il a des paupières et peut perdre sa queue, comme les autres lézards.",
+   "k": "Orvet : un lézard sans pattes"
   },
   "es": {
    "q": "¿Qué es un lución?",
@@ -332,7 +363,8 @@
     "Una lombriz grande",
     "Un anfibio como el tritón"
    ],
-   "x": "Es un lagarto sin patas: tiene párpados y puede soltar la cola, como otros lagartos."
+   "x": "Es un lagarto sin patas: tiene párpados y puede soltar la cola, como otros lagartos.",
+   "k": "Lución: un lagarto sin patas"
   },
   "pt": {
    "q": "O que é um licranço?",
@@ -342,7 +374,8 @@
     "Uma minhoca grande",
     "Um anfíbio como o tritão"
    ],
-   "x": "É um lagarto sem patas: tem pálpebras e pode soltar a cauda, como outros lagartos."
+   "x": "É um lagarto sem patas: tem pálpebras e pode soltar a cauda, como outros lagartos.",
+   "k": "Cobra-de-vidro: lagarto sem patas"
   },
   "ja": {
    "q": "ヒメアシナシトカゲ（スローワーム）とは何？",
@@ -352,7 +385,8 @@
     "大きなミミズ",
     "イモリのような両生類"
    ],
-   "x": "脚のないトカゲです。ほかのトカゲと同じく、まぶたがあり、しっぽを切ることもできます。"
+   "x": "脚のないトカゲです。ほかのトカゲと同じく、まぶたがあり、しっぽを切ることもできます。",
+   "k": "スローワーム：脚のないトカゲ"
   },
   "it": {
    "q": "Cos’è l’orbettino?",
@@ -362,7 +396,8 @@
     "Un grosso lombrico",
     "Un anfibio come il tritone"
    ],
-   "x": "È una lucertola senza zampe: ha le palpebre e può staccare la coda, proprio come le altre lucertole."
+   "x": "È una lucertola senza zampe: ha le palpebre e può staccare la coda, proprio come le altre lucertole.",
+   "k": "Orbettino: una lucertola senza zampe"
   }
  },
  {
@@ -378,7 +413,8 @@
     "Von Algen",
     "Von gar nichts"
    ],
-   "x": "Ihre Mundwerkzeuge sind verkümmert. Erwachsene leben nur Stunden bis wenige Tage – allein zur Fortpflanzung."
+   "x": "Ihre Mundwerkzeuge sind verkümmert. Erwachsene leben nur Stunden bis wenige Tage – allein zur Fortpflanzung.",
+   "k": "Eintagsfliegen: fressen als Erwachsene nichts"
   },
   "en": {
    "q": "What do adult mayflies eat?",
@@ -388,7 +424,8 @@
     "Algae",
     "Nothing at all"
    ],
-   "x": "Their mouthparts are non-functional. Adults live only hours to a few days – just to reproduce."
+   "x": "Their mouthparts are non-functional. Adults live only hours to a few days – just to reproduce.",
+   "k": "Adult mayflies: eat nothing at all"
   },
   "fr": {
    "q": "De quoi se nourrissent les éphémères adultes ?",
@@ -398,7 +435,8 @@
     "D'algues",
     "De rien du tout"
    ],
-   "x": "Leurs pièces buccales sont atrophiées. Les adultes vivent de quelques heures à quelques jours, juste pour se reproduire."
+   "x": "Leurs pièces buccales sont atrophiées. Les adultes vivent de quelques heures à quelques jours, juste pour se reproduire.",
+   "k": "Éphémères adultes : ne mangent rien"
   },
   "es": {
    "q": "¿De qué se alimentan las efímeras adultas?",
@@ -408,7 +446,8 @@
     "De algas",
     "De nada"
    ],
-   "x": "Sus piezas bucales están atrofiadas. Los adultos viven de horas a pocos días, solo para reproducirse."
+   "x": "Sus piezas bucales están atrofiadas. Los adultos viven de horas a pocos días, solo para reproducirse.",
+   "k": "Efímeras adultas: no comen nada"
   },
   "pt": {
    "q": "De que se alimentam as efêmeras adultas?",
@@ -418,7 +457,8 @@
     "De algas",
     "De nada"
    ],
-   "x": "Suas peças bucais são atrofiadas. Os adultos vivem de horas a poucos dias, só para se reproduzir."
+   "x": "Suas peças bucais são atrofiadas. Os adultos vivem de horas a poucos dias, só para se reproduzir.",
+   "k": "Efêmeras adultas: não comem nada"
   },
   "ja": {
    "q": "カゲロウの成虫は何を食べる？",
@@ -428,7 +468,8 @@
     "藻",
     "何も食べない"
    ],
-   "x": "口がはたらかないのです。成虫の命は数時間から数日だけ。子孫を残すためだけに生きます。"
+   "x": "口がはたらかないのです。成虫の命は数時間から数日だけ。子孫を残すためだけに生きます。",
+   "k": "カゲロウの成虫：何も食べない"
   },
   "it": {
    "q": "Cosa mangiano le effimere adulte?",
@@ -438,7 +479,8 @@
     "Alghe",
     "Proprio niente"
    ],
-   "x": "La loro bocca non funziona. Gli adulti vivono solo da poche ore a pochi giorni, solo per riprodursi."
+   "x": "La loro bocca non funziona. Gli adulti vivono solo da poche ore a pochi giorni, solo per riprodursi.",
+   "k": "Effimere adulte: non mangiano nulla"
   }
  },
  {
@@ -452,7 +494,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Sie brauchen Blut, damit sich ihre Eier entwickeln. Männchen saugen nur Pflanzensäfte und Nektar."
+   "x": "Sie brauchen Blut, damit sich ihre Eier entwickeln. Männchen saugen nur Pflanzensäfte und Nektar.",
+   "k": "Mücken: nur die Weibchen stechen"
   },
   "en": {
    "q": "Only female mosquitoes bite.",
@@ -460,7 +503,8 @@
     "True",
     "False"
    ],
-   "x": "They need blood for their eggs to develop. Males only feed on plant juices and nectar."
+   "x": "They need blood for their eggs to develop. Males only feed on plant juices and nectar.",
+   "k": "Mosquitoes: only females bite"
   },
   "fr": {
    "q": "Seules les femelles moustiques piquent.",
@@ -468,7 +512,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Elles ont besoin de sang pour que leurs œufs se développent. Les mâles se nourrissent de nectar et de sève."
+   "x": "Elles ont besoin de sang pour que leurs œufs se développent. Les mâles se nourrissent de nectar et de sève.",
+   "k": "Moustiques : seules les femelles piquent"
   },
   "es": {
    "q": "Solo las hembras de mosquito pican.",
@@ -476,7 +521,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Necesitan sangre para que se desarrollen sus huevos. Los machos solo toman néctar y jugos vegetales."
+   "x": "Necesitan sangre para que se desarrollen sus huevos. Los machos solo toman néctar y jugos vegetales.",
+   "k": "Mosquitos: solo pican las hembras"
   },
   "pt": {
    "q": "Só as fêmeas dos mosquitos picam.",
@@ -484,7 +530,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Elas precisam de sangue para que os ovos se desenvolvam. Os machos tomam só néctar e seiva de plantas."
+   "x": "Elas precisam de sangue para que os ovos se desenvolvam. Os machos tomam só néctar e seiva de plantas.",
+   "k": "Mosquitos: só as fêmeas picam"
   },
   "ja": {
    "q": "正しい？まちがい？ 人を刺すのはメスの蚊だけ。",
@@ -492,7 +539,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "メスは卵を育てるために血が必要です。オスは植物の汁や花の蜜だけを吸います。"
+   "x": "メスは卵を育てるために血が必要です。オスは植物の汁や花の蜜だけを吸います。",
+   "k": "蚊：刺すのはメスだけ"
   },
   "it": {
    "q": "Vero o falso? Pungono solo le zanzare femmine.",
@@ -500,7 +548,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Hanno bisogno di sangue per far sviluppare le uova. I maschi si nutrono solo di linfa e nettare."
+   "x": "Hanno bisogno di sangue per far sviluppare le uova. I maschi si nutrono solo di linfa e nettare.",
+   "k": "Zanzare: pungono solo le femmine"
   }
  },
  {
@@ -516,7 +565,8 @@
     "In Bohrlöchern im Totholz",
     "In leeren Schneckenhäusern"
    ],
-   "x": "Mehr als die Hälfte nistet im Boden. Offene, sonnige Erdstellen im Garten helfen oft mehr als ein Insektenhotel."
+   "x": "Mehr als die Hälfte nistet im Boden. Offene, sonnige Erdstellen im Garten helfen oft mehr als ein Insektenhotel.",
+   "k": "Wildbienen: nisten meist im Boden"
   },
   "en": {
    "q": "Where do most wild bee species in Germany nest?",
@@ -526,7 +576,8 @@
     "In holes in dead wood",
     "In empty snail shells"
    ],
-   "x": "More than half nest in the ground. Bare, sunny patches of soil often help more than a bee hotel."
+   "x": "More than half nest in the ground. Bare, sunny patches of soil often help more than a bee hotel.",
+   "k": "Wild bees: mostly nest in the ground"
   },
   "fr": {
    "q": "Où nichent la plupart des espèces d'abeilles sauvages en Allemagne ?",
@@ -536,7 +587,8 @@
     "Dans des trous de bois mort",
     "Dans des coquilles d'escargot"
    ],
-   "x": "Plus de la moitié nichent dans le sol. Des zones de terre nue et ensoleillée aident souvent plus qu'un hôtel à insectes."
+   "x": "Plus de la moitié nichent dans le sol. Des zones de terre nue et ensoleillée aident souvent plus qu'un hôtel à insectes.",
+   "k": "Abeilles sauvages : nichent surtout dans le sol"
   },
   "es": {
    "q": "¿Dónde anidan la mayoría de las abejas silvestres en Alemania?",
@@ -546,7 +598,8 @@
     "En agujeros de madera muerta",
     "En conchas de caracol vacías"
    ],
-   "x": "Más de la mitad anida en el suelo. Zonas de tierra desnuda y soleada ayudan a menudo más que un hotel de insectos."
+   "x": "Más de la mitad anida en el suelo. Zonas de tierra desnuda y soleada ayudan a menudo más que un hotel de insectos.",
+   "k": "Abejas silvestres: anidan sobre todo en el suelo"
   },
   "pt": {
    "q": "Onde faz ninho a maioria das abelhas silvestres na Alemanha?",
@@ -556,7 +609,8 @@
     "Em buracos de madeira morta",
     "Em conchas vazias de caracol"
    ],
-   "x": "Mais da metade faz ninho no solo. Pedaços de terra nua e ensolarada muitas vezes ajudam mais que um hotel de insetos."
+   "x": "Mais da metade faz ninho no solo. Pedaços de terra nua e ensolarada muitas vezes ajudam mais que um hotel de insetos.",
+   "k": "Abelhas silvestres: fazem ninho no solo"
   },
   "ja": {
    "q": "ドイツの野生のハナバチの多くは、どこに巣を作る？",
@@ -566,7 +620,8 @@
     "枯れ木の穴",
     "空っぽのカタツムリの殻"
    ],
-   "x": "半分以上が地面に巣を作ります。日当たりのよい裸の地面のほうが、ハチホテルより役立つことも多いのです。"
+   "x": "半分以上が地面に巣を作ります。日当たりのよい裸の地面のほうが、ハチホテルより役立つことも多いのです。",
+   "k": "野生のハナバチ：多くは地面に巣を作る"
   },
   "it": {
    "q": "Dove nidifica la maggior parte delle specie di api selvatiche in Germania?",
@@ -576,7 +631,8 @@
     "Nei buchi del legno morto",
     "Nei gusci vuoti di chiocciola"
    ],
-   "x": "Più della metà nidifica nel terreno. Spesso un pezzo di terra nuda e soleggiata aiuta più di un hotel per api."
+   "x": "Più della metà nidifica nel terreno. Spesso un pezzo di terra nuda e soleggiata aiuta più di un hotel per api.",
+   "k": "Api selvatiche: nidificano soprattutto nel terreno"
   }
  },
  {
@@ -592,7 +648,8 @@
     "Das Weibchen setzt Larven in Bächen ab",
     "Das Männchen trägt die Eier"
    ],
-   "x": "Die Eier entwickeln sich im Mutterleib. Im Frühjahr setzt das Weibchen Larven mit Kiemen in kühle Bäche."
+   "x": "Die Eier entwickeln sich im Mutterleib. Im Frühjahr setzt das Weibchen Larven mit Kiemen in kühle Bäche.",
+   "k": "Feuersalamander: bringt Larven zur Welt"
   },
   "en": {
    "q": "How does the fire salamander reproduce in Central Europe?",
@@ -602,7 +659,8 @@
     "Females release larvae into streams",
     "The male carries the eggs"
    ],
-   "x": "The eggs develop inside the mother. In spring she releases larvae with gills into cool streams."
+   "x": "The eggs develop inside the mother. In spring she releases larvae with gills into cool streams.",
+   "k": "Fire salamander: gives birth to larvae"
   },
   "fr": {
    "q": "Comment la salamandre tachetée se reproduit-elle chez nous ?",
@@ -612,7 +670,8 @@
     "La femelle dépose des larves en ruisseau",
     "Le mâle porte les œufs"
    ],
-   "x": "Les œufs se développent dans le corps de la mère. Au printemps, elle dépose des larves à branchies dans des ruisseaux frais."
+   "x": "Les œufs se développent dans le corps de la mère. Au printemps, elle dépose des larves à branchies dans des ruisseaux frais.",
+   "k": "Salamandre tachetée : met au monde des larves"
   },
   "es": {
    "q": "¿Cómo se reproduce la salamandra común en Centroeuropa?",
@@ -622,7 +681,8 @@
     "La hembra suelta larvas en arroyos",
     "El macho lleva los huevos"
    ],
-   "x": "Los huevos se desarrollan dentro de la madre. En primavera suelta larvas con branquias en arroyos frescos."
+   "x": "Los huevos se desarrollan dentro de la madre. En primavera suelta larvas con branquias en arroyos frescos.",
+   "k": "Salamandra común: pare larvas"
   },
   "pt": {
    "q": "Como a salamandra-de-fogo se reproduz na Europa Central?",
@@ -632,7 +692,8 @@
     "A fêmea solta larvas em riachos",
     "O macho carrega os ovos"
    ],
-   "x": "Os ovos se desenvolvem dentro da mãe. Na primavera, ela solta larvas com brânquias em riachos frescos."
+   "x": "Os ovos se desenvolvem dentro da mãe. Na primavera, ela solta larvas com brânquias em riachos frescos.",
+   "k": "Salamandra-de-fogo: dá à luz larvas"
   },
   "ja": {
    "q": "中央ヨーロッパのファイアサラマンダーはどうやって子孫を残す？",
@@ -642,7 +703,8 @@
     "メスが小川に幼生を産む",
     "オスが卵を運ぶ"
    ],
-   "x": "卵は母親の体の中で育ちます。春になると、えらのある幼生を冷たい小川に産み出します。"
+   "x": "卵は母親の体の中で育ちます。春になると、えらのある幼生を冷たい小川に産み出します。",
+   "k": "ファイアサラマンダー：幼生を産む"
   },
   "it": {
    "q": "Come si riproduce la salamandra pezzata in Europa centrale?",
@@ -652,7 +714,8 @@
     "Le femmine rilasciano larve nei ruscelli",
     "Il maschio porta le uova"
    ],
-   "x": "Le uova si sviluppano nel corpo della madre. In primavera lei rilascia larve con le branchie nei ruscelli freschi."
+   "x": "Le uova si sviluppano nel corpo della madre. In primavera lei rilascia larve con le branchie nei ruscelli freschi.",
+   "k": "Salamandra pezzata: partorisce larve"
   }
  },
  {
@@ -668,7 +731,8 @@
     "Genau 1 Jahr",
     "2 bis 4 Jahre"
    ],
-   "x": "Je nach Höhenlage 2 bis 4 Jahre. Die Jungen kommen fertig verwandelt zur Welt – ganz ohne Wasser."
+   "x": "Je nach Höhenlage 2 bis 4 Jahre. Die Jungen kommen fertig verwandelt zur Welt – ganz ohne Wasser.",
+   "k": "Alpensalamander: bis zu 4 Jahre trächtig"
   },
   "en": {
    "q": "How long is a female Alpine salamander pregnant?",
@@ -678,7 +742,8 @@
     "Exactly 1 year",
     "2 to 4 years"
    ],
-   "x": "Depending on altitude, 2 to 4 years. The young are born fully developed – no water needed."
+   "x": "Depending on altitude, 2 to 4 years. The young are born fully developed – no water needed.",
+   "k": "Alpine salamander: pregnant for up to 4 years"
   },
   "fr": {
    "q": "Combien de temps dure la gestation de la salamandre noire (alpine) ?",
@@ -688,7 +753,8 @@
     "Exactement 1 an",
     "De 2 à 4 ans"
    ],
-   "x": "Selon l'altitude, 2 à 4 ans. Les petits naissent entièrement formés, sans passer par l'eau."
+   "x": "Selon l'altitude, 2 à 4 ans. Les petits naissent entièrement formés, sans passer par l'eau.",
+   "k": "Salamandre noire : gestation jusqu’à 4 ans"
   },
   "es": {
    "q": "¿Cuánto dura la gestación de la salamandra alpina?",
@@ -698,7 +764,8 @@
     "Exactamente 1 año",
     "De 2 a 4 años"
    ],
-   "x": "Según la altitud, de 2 a 4 años. Las crías nacen ya transformadas, sin necesidad de agua."
+   "x": "Según la altitud, de 2 a 4 años. Las crías nacen ya transformadas, sin necesidad de agua.",
+   "k": "Salamandra alpina: gestación de hasta 4 años"
   },
   "pt": {
    "q": "Quanto dura a gestação da salamandra-alpina?",
@@ -708,7 +775,8 @@
     "Exatamente 1 ano",
     "De 2 a 4 anos"
    ],
-   "x": "Conforme a altitude, de 2 a 4 anos. Os filhotes já nascem transformados, sem precisar de água."
+   "x": "Conforme a altitude, de 2 a 4 anos. Os filhotes já nascem transformados, sem precisar de água.",
+   "k": "Salamandra-alpina: gestação de até 4 anos"
   },
   "ja": {
    "q": "アルプスサラマンダーのメスの妊娠期間は？",
@@ -718,7 +786,8 @@
     "ちょうど1年",
     "2〜4年"
    ],
-   "x": "標高によって2〜4年。子どもは完全に育った姿で生まれるので、水は必要ありません。"
+   "x": "標高によって2〜4年。子どもは完全に育った姿で生まれるので、水は必要ありません。",
+   "k": "アルプスサラマンダー：妊娠は最大4年"
   },
   "it": {
    "q": "Quanto dura la gravidanza della salamandra alpina?",
@@ -728,7 +797,8 @@
     "Esattamente 1 anno",
     "Da 2 a 4 anni"
    ],
-   "x": "A seconda dell’altitudine, da 2 a 4 anni. I piccoli nascono già completamente sviluppati: non serve l’acqua."
+   "x": "A seconda dell’altitudine, da 2 a 4 anni. I piccoli nascono già completamente sviluppati: non serve l’acqua.",
+   "k": "Salamandra alpina: gravidanza fino a 4 anni"
   }
  },
  {
@@ -742,7 +812,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Dabei überqueren sie oft Straßen. Krötenzäune und Amphibientunnel retten jedes Jahr viele Tiere."
+   "x": "Dabei überqueren sie oft Straßen. Krötenzäune und Amphibientunnel retten jedes Jahr viele Tiere.",
+   "k": "Erdkröten: kehren zu ihrem Heimatteich zurück"
   },
   "en": {
    "q": "In spring, common toads usually return to the pond where they grew up.",
@@ -750,7 +821,8 @@
     "True",
     "False"
    ],
-   "x": "On the way they often cross roads. Toad fences and tunnels save many animals every year."
+   "x": "On the way they often cross roads. Toad fences and tunnels save many animals every year.",
+   "k": "Toads: return to the pond they grew up in"
   },
   "fr": {
    "q": "Au printemps, les crapauds communs retournent généralement à la mare où ils ont grandi.",
@@ -758,7 +830,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "En chemin, ils traversent souvent des routes. Barrières et crapauducs sauvent beaucoup d'animaux chaque année."
+   "x": "En chemin, ils traversent souvent des routes. Barrières et crapauducs sauvent beaucoup d'animaux chaque année.",
+   "k": "Crapauds : retournent à leur mare natale"
   },
   "es": {
    "q": "En primavera, los sapos comunes suelen volver a la charca donde crecieron.",
@@ -766,7 +839,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "En el camino cruzan a menudo carreteras. Vallas y pasos para anfibios salvan a muchos cada año."
+   "x": "En el camino cruzan a menudo carreteras. Vallas y pasos para anfibios salvan a muchos cada año.",
+   "k": "Sapos: vuelven a su charca natal"
   },
   "pt": {
    "q": "Na primavera, os sapos-comuns costumam voltar à poça onde cresceram.",
@@ -774,7 +848,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "No caminho, eles muitas vezes atravessam estradas. Cercas e passagens para anfíbios salvam muitos deles todo ano."
+   "x": "No caminho, eles muitas vezes atravessam estradas. Cercas e passagens para anfíbios salvam muitos deles todo ano.",
+   "k": "Sapos: voltam à lagoa onde cresceram"
   },
   "ja": {
    "q": "正しい？まちがい？ ヒキガエルは春、たいてい自分が育った池にもどる。",
@@ -782,7 +857,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "その途中で道路を渡ることが多いのです。カエル用の柵やトンネルが、毎年たくさんの命を救っています。"
+   "x": "その途中で道路を渡ることが多いのです。カエル用の柵やトンネルが、毎年たくさんの命を救っています。",
+   "k": "ヒキガエル：生まれた池にもどる"
   },
   "it": {
    "q": "Vero o falso? In primavera i rospi comuni tornano di solito nello stagno dove sono cresciuti.",
@@ -790,7 +866,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Lungo la strada attraversano spesso le carreggiate. Barriere e tunnel per rospi salvano ogni anno molti animali."
+   "x": "Lungo la strada attraversano spesso le carreggiate. Barriere e tunnel per rospi salvano ogni anno molti animali.",
+   "k": "Rospi: tornano al loro stagno natale"
   }
  },
  {
@@ -806,7 +883,8 @@
     "Nester von Muscheln",
     "Bauten von Sandflöhen"
    ],
-   "x": "Der Wattwurm frisst Sand, verdaut die Kleinstlebewesen darin und scheidet den Sand als Kringel wieder aus."
+   "x": "Der Wattwurm frisst Sand, verdaut die Kleinstlebewesen darin und scheidet den Sand als Kringel wieder aus.",
+   "k": "Wattwurm: hinterlässt Sandkringel als Kot"
   },
   "en": {
    "q": "What are the coiled little sand piles on the Wadden Sea mudflats?",
@@ -816,7 +894,8 @@
     "Mussel nests",
     "Sand hopper burrows"
    ],
-   "x": "The lugworm swallows sand, digests the tiny organisms in it and pushes the sand back out as coils."
+   "x": "The lugworm swallows sand, digests the tiny organisms in it and pushes the sand back out as coils.",
+   "k": "Lugworm: leaves sand coils as droppings"
   },
   "fr": {
    "q": "Que sont les petits tortillons de sable sur les vasières de la mer des Wadden ?",
@@ -826,7 +905,8 @@
     "Des nids de moules",
     "Des terriers de puces de mer"
    ],
-   "x": "L'arénicole avale du sable, digère les petits organismes qu'il contient et rejette le sable en tortillons."
+   "x": "L'arénicole avale du sable, digère les petits organismes qu'il contient et rejette le sable en tortillons.",
+   "k": "Arénicole : laisse des tortillons de sable"
   },
   "es": {
    "q": "¿Qué son los montoncitos de arena enrollada en las marismas del mar de Wadden?",
@@ -836,7 +916,8 @@
     "Nidos de mejillones",
     "Madrigueras de pulgas de mar"
    ],
-   "x": "El gusano Arenicola traga arena, digiere los diminutos organismos que contiene y expulsa la arena en forma de rollitos."
+   "x": "El gusano Arenicola traga arena, digiere los diminutos organismos que contiene y expulsa la arena en forma de rollitos.",
+   "k": "Gusano arenícola: deja espirales de arena"
   },
   "pt": {
    "q": "O que são os montinhos de areia enrolada nas planícies de maré do mar de Wadden?",
@@ -846,7 +927,8 @@
     "Ninhos de mexilhões",
     "Tocas de pulgas-do-mar"
    ],
-   "x": "O verme Arenicola engole areia, digere os organismos minúsculos que ela contém e solta a areia em forma de rolinhos."
+   "x": "O verme Arenicola engole areia, digere os organismos minúsculos que ela contém e solta a areia em forma de rolinhos.",
+   "k": "Arenícola: deixa espirais de areia"
   },
   "ja": {
    "q": "ワッデン海の干潟にある、くるくる巻いた砂の山は何？",
@@ -856,7 +938,8 @@
     "貝の巣",
     "ハマトビムシの穴"
    ],
-   "x": "タマシキゴカイは砂を飲みこみ、中の小さな生きものを消化して、砂をくるくると押し出します。"
+   "x": "タマシキゴカイは砂を飲みこみ、中の小さな生きものを消化して、砂をくるくると押し出します。",
+   "k": "タマシキゴカイ：砂のうずまきのフン"
   },
   "it": {
    "q": "Cosa sono i mucchietti di sabbia arrotolati sulle piane fangose del Mare dei Wadden?",
@@ -866,7 +949,8 @@
     "Nidi di cozze",
     "Tane di pulci di mare"
    ],
-   "x": "L’arenicola inghiotte sabbia, ne digerisce i piccoli organismi e la spinge fuori in spirali."
+   "x": "L’arenicola inghiotte sabbia, ne digerisce i piccoli organismi e la spinge fuori in spirali.",
+   "k": "Arenicola: lascia spirali di sabbia"
   }
  },
  {
@@ -882,7 +966,8 @@
     "In schnellen Bergbächen",
     "Im Brackwasser der Küste"
    ],
-   "x": "Sie nutzt kleine, sonnige Tümpel – sogar wassergefüllte Reifenspuren. Dort gibt es kaum Fische oder andere Fressfeinde."
+   "x": "Sie nutzt kleine, sonnige Tümpel – sogar wassergefüllte Reifenspuren. Dort gibt es kaum Fische oder andere Fressfeinde.",
+   "k": "Gelbbauchunke: laicht in Pfützen und Spurrillen"
   },
   "en": {
    "q": "Where does the yellow-bellied toad prefer to spawn?",
@@ -892,7 +977,8 @@
     "In fast mountain streams",
     "In brackish coastal water"
    ],
-   "x": "It uses small, sunny pools – even water-filled tyre ruts. There are hardly any fish or other predators there."
+   "x": "It uses small, sunny pools – even water-filled tyre ruts. There are hardly any fish or other predators there.",
+   "k": "Yellow-bellied toad: spawns in puddles and ruts"
   },
   "fr": {
    "q": "Où le sonneur à ventre jaune pond-il de préférence ?",
@@ -902,7 +988,8 @@
     "Dans des torrents de montagne",
     "Dans l'eau saumâtre côtière"
    ],
-   "x": "Il utilise de petites mares ensoleillées, même des ornières pleines d'eau. On n'y trouve presque pas de poissons ni de prédateurs."
+   "x": "Il utilise de petites mares ensoleillées, même des ornières pleines d'eau. On n'y trouve presque pas de poissons ni de prédateurs.",
+   "k": "Sonneur à ventre jaune : pond dans les flaques"
   },
   "es": {
    "q": "¿Dónde prefiere desovar el sapillo de vientre amarillo?",
@@ -912,7 +999,8 @@
     "En torrentes de montaña",
     "En aguas salobres costeras"
    ],
-   "x": "Usa charcas pequeñas y soleadas, incluso rodadas de neumáticos con agua. Allí casi no hay peces ni depredadores."
+   "x": "Usa charcas pequeñas y soleadas, incluso rodadas de neumáticos con agua. Allí casi no hay peces ni depredadores.",
+   "k": "Sapillo de vientre amarillo: desova en charcos"
   },
   "pt": {
    "q": "Onde o sapinho-de-barriga-amarela prefere desovar?",
@@ -922,7 +1010,8 @@
     "Em riachos de montanha",
     "Em água salobra na costa"
    ],
-   "x": "Ele usa poças pequenas e ensolaradas, até marcas de pneu com água. Ali quase não há peixes nem predadores."
+   "x": "Ele usa poças pequenas e ensolaradas, até marcas de pneu com água. Ali quase não há peixes nem predadores.",
+   "k": "Sapinho-de-barriga-amarela: desova em poças"
   },
   "ja": {
    "q": "キバラスズガエルが好んで卵を産む場所は？",
@@ -932,7 +1021,8 @@
     "流れの速い山の川",
     "海沿いの汽水"
    ],
-   "x": "日当たりのよい小さな水たまりを使います。水のたまったタイヤのあとでも。そこには魚などの天敵がほとんどいません。"
+   "x": "日当たりのよい小さな水たまりを使います。水のたまったタイヤのあとでも。そこには魚などの天敵がほとんどいません。",
+   "k": "キバラスズガエル：水たまりに卵を産む"
   },
   "it": {
    "q": "Dove depone preferibilmente le uova l’ululone dal ventre giallo?",
@@ -942,7 +1032,8 @@
     "In torrenti di montagna veloci",
     "In acqua salmastra costiera"
    ],
-   "x": "Usa piccole pozze soleggiate, anche i solchi delle ruote pieni d’acqua. Lì non ci sono quasi pesci o altri predatori."
+   "x": "Usa piccole pozze soleggiate, anche i solchi delle ruote pieni d’acqua. Lì non ci sono quasi pesci o altri predatori.",
+   "k": "Ululone: depone nelle pozzanghere"
   }
  },
  {
@@ -956,7 +1047,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Die Kreuzotter und die seltene Aspisviper, die bei uns nur im Südschwarzwald vorkommt."
+   "x": "Die Kreuzotter und die seltene Aspisviper, die bei uns nur im Südschwarzwald vorkommt.",
+   "k": "Deutschland: zwei heimische Giftschlangen"
   },
   "en": {
    "q": "Germany has two native species of venomous snake.",
@@ -964,7 +1056,8 @@
     "True",
     "False"
    ],
-   "x": "The common adder and the rare asp viper, which in Germany is found only in the southern Black Forest."
+   "x": "The common adder and the rare asp viper, which in Germany is found only in the southern Black Forest.",
+   "k": "Germany: two native venomous snakes"
   },
   "fr": {
    "q": "L'Allemagne compte deux espèces indigènes de serpents venimeux.",
@@ -972,7 +1065,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "La vipère péliade et la rare vipère aspic, qui en Allemagne ne vit que dans le sud de la Forêt-Noire."
+   "x": "La vipère péliade et la rare vipère aspic, qui en Allemagne ne vit que dans le sud de la Forêt-Noire.",
+   "k": "Allemagne : deux serpents venimeux indigènes"
   },
   "es": {
    "q": "En Alemania viven dos especies autóctonas de serpientes venenosas.",
@@ -980,7 +1074,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "La víbora común europea y la rara víbora áspid, que en Alemania solo vive en el sur de la Selva Negra."
+   "x": "La víbora común europea y la rara víbora áspid, que en Alemania solo vive en el sur de la Selva Negra.",
+   "k": "Alemania: dos serpientes venenosas nativas"
   },
   "pt": {
    "q": "Na Alemanha vivem duas espécies nativas de cobras venenosas.",
@@ -988,7 +1083,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "A víbora-europeia e a rara víbora-áspide, que na Alemanha só vive no sul da Floresta Negra."
+   "x": "A víbora-europeia e a rara víbora-áspide, que na Alemanha só vive no sul da Floresta Negra.",
+   "k": "Alemanha: duas cobras venenosas nativas"
   },
   "ja": {
    "q": "正しい？まちがい？ ドイツには在来の毒ヘビが2種いる。",
@@ -996,7 +1092,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "ヨーロッパクサリヘビと、めずらしいアスプクサリヘビ。アスプクサリヘビはドイツでは黒い森の南部にしかいません。"
+   "x": "ヨーロッパクサリヘビと、めずらしいアスプクサリヘビ。アスプクサリヘビはドイツでは黒い森の南部にしかいません。",
+   "k": "ドイツ：在来の毒ヘビは2種"
   },
   "it": {
    "q": "Vero o falso? In Germania ci sono due specie autoctone di serpenti velenosi.",
@@ -1004,7 +1101,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Il marasso e la rara vipera comune, che in Germania vive solo nella Foresta Nera meridionale."
+   "x": "Il marasso e la rara vipera comune, che in Germania vive solo nella Foresta Nera meridionale.",
+   "k": "Germania: due serpenti velenosi autoctoni"
   }
  },
  {
@@ -1020,7 +1118,8 @@
     "Senkrechte Schlitzpupillen",
     "Gelbe Halbmondflecken am Hinterkopf"
    ],
-   "x": "Die ungiftige Ringelnatter hat runde Pupillen und schwimmt gern. Bei Gefahr stellt sie sich oft tot."
+   "x": "Die ungiftige Ringelnatter hat runde Pupillen und schwimmt gern. Bei Gefahr stellt sie sich oft tot.",
+   "k": "Ringelnatter: harmlos, stellt sich tot"
   },
   "en": {
    "q": "How can you usually recognise a grass snake?",
@@ -1030,7 +1129,8 @@
     "Vertical slit pupils",
     "Yellow crescents behind the head"
    ],
-   "x": "The harmless grass snake has round pupils and loves to swim. When threatened, it often plays dead."
+   "x": "The harmless grass snake has round pupils and loves to swim. When threatened, it often plays dead.",
+   "k": "Grass snake: harmless, plays dead"
   },
   "fr": {
    "q": "À quoi reconnaît-on généralement la couleuvre à collier ?",
@@ -1040,7 +1140,8 @@
     "Des pupilles verticales en fente",
     "Des croissants jaunes sur la nuque"
    ],
-   "x": "Inoffensive, elle a des pupilles rondes et nage volontiers. En cas de danger, elle fait souvent la morte."
+   "x": "Inoffensive, elle a des pupilles rondes et nage volontiers. En cas de danger, elle fait souvent la morte.",
+   "k": "Couleuvre à collier : inoffensive, fait la morte"
   },
   "es": {
    "q": "¿Cómo se reconoce normalmente una culebra de collar?",
@@ -1050,7 +1151,8 @@
     "Pupilas verticales en rendija",
     "Medias lunas amarillas en la nuca"
    ],
-   "x": "Esta culebra inofensiva tiene pupilas redondas y nada muy bien. Ante el peligro, a menudo se hace la muerta."
+   "x": "Esta culebra inofensiva tiene pupilas redondas y nada muy bien. Ante el peligro, a menudo se hace la muerta.",
+   "k": "Culebra de collar: inofensiva, se hace la muerta"
   },
   "pt": {
    "q": "Como normalmente se reconhece uma cobra-de-colar?",
@@ -1060,7 +1162,8 @@
     "Pupilas verticais em fenda",
     "Meias-luas amarelas na nuca"
    ],
-   "x": "Essa cobra inofensiva tem pupilas redondas e nada muito bem. Em perigo, muitas vezes finge de morta."
+   "x": "Essa cobra inofensiva tem pupilas redondas e nada muito bem. Em perigo, muitas vezes finge de morta.",
+   "k": "Cobra-de-colar: inofensiva, finge-se de morta"
   },
   "ja": {
    "q": "ヨーロッパヤマカガシ（グラススネーク）は、ふつう何で見分ける？",
@@ -1070,7 +1173,8 @@
     "縦長の瞳",
     "頭の後ろの黄色い三日月もよう"
    ],
-   "x": "無害なグラススネークは瞳が丸く、泳ぐのが大好き。おどかされると、よく死んだふりをします。"
+   "x": "無害なグラススネークは瞳が丸く、泳ぐのが大好き。おどかされると、よく死んだふりをします。",
+   "k": "ヨーロッパヤマカガシ：無害で死んだふり"
   },
   "it": {
    "q": "Di solito, come si riconosce la natrice dal collare?",
@@ -1080,7 +1184,8 @@
     "Pupille verticali a fessura",
     "Mezzelune gialle dietro la testa"
    ],
-   "x": "L’innocua natrice ha pupille rotonde e adora nuotare. Se minacciata, spesso si finge morta."
+   "x": "L’innocua natrice ha pupille rotonde e adora nuotare. Se minacciata, spesso si finge morta.",
+   "k": "Natrice: innocua, si finge morta"
   }
  },
  {
@@ -1096,7 +1201,8 @@
     "Er ist immer länger als vorher",
     "Er enthält eine Giftdrüse"
    ],
-   "x": "Der neue Schwanz hat keine Wirbelknochen mehr, nur einen Knorpelstab. Er ist meist kürzer und anders gefärbt."
+   "x": "Der neue Schwanz hat keine Wirbelknochen mehr, nur einen Knorpelstab. Er ist meist kürzer und anders gefärbt.",
+   "k": "Eidechsenschwanz: wächst ohne Wirbel nach"
   },
   "en": {
    "q": "What is different about a lizard's regrown tail?",
@@ -1106,7 +1212,8 @@
     "It is always longer than before",
     "It contains a venom gland"
    ],
-   "x": "The new tail has no vertebrae, only a rod of cartilage. It is usually shorter and coloured differently."
+   "x": "The new tail has no vertebrae, only a rod of cartilage. It is usually shorter and coloured differently.",
+   "k": "Lizard tail: grows back without vertebrae"
   },
   "fr": {
    "q": "Qu'a de différent la queue repoussée d'un lézard ?",
@@ -1116,7 +1223,8 @@
     "Elle est toujours plus longue",
     "Elle contient une glande à venin"
    ],
-   "x": "La nouvelle queue n'a plus de vertèbres, seulement une tige de cartilage. Elle est souvent plus courte et d'une autre couleur."
+   "x": "La nouvelle queue n'a plus de vertèbres, seulement une tige de cartilage. Elle est souvent plus courte et d'une autre couleur.",
+   "k": "Queue de lézard : repousse sans vertèbres"
   },
   "es": {
    "q": "¿Qué tiene de diferente la cola regenerada de una lagartija?",
@@ -1126,7 +1234,8 @@
     "Siempre es más larga que antes",
     "Contiene una glándula de veneno"
    ],
-   "x": "La nueva cola ya no tiene vértebras, solo una varilla de cartílago. Suele ser más corta y de otro color."
+   "x": "La nueva cola ya no tiene vértebras, solo una varilla de cartílago. Suele ser más corta y de otro color.",
+   "k": "Cola de lagartija: vuelve a crecer sin vértebras"
   },
   "pt": {
    "q": "O que a cauda que cresce de novo num lagarto tem de diferente?",
@@ -1136,7 +1245,8 @@
     "É sempre mais longa que antes",
     "Contém uma glândula de veneno"
    ],
-   "x": "A cauda nova não tem mais vértebras, só uma haste de cartilagem. Costuma ser mais curta e de outra cor."
+   "x": "A cauda nova não tem mais vértebras, só uma haste de cartilagem. Costuma ser mais curta e de outra cor.",
+   "k": "Rabo de lagartixa: cresce de novo sem vértebras"
   },
   "ja": {
    "q": "トカゲの生えかわったしっぽは何がちがう？",
@@ -1146,7 +1256,8 @@
     "必ず前より長い",
     "毒腺がある"
    ],
-   "x": "新しいしっぽには背骨がなく、軟骨の棒が1本あるだけ。ふつう短くて、色もちがいます。"
+   "x": "新しいしっぽには背骨がなく、軟骨の棒が1本あるだけ。ふつう短くて、色もちがいます。",
+   "k": "トカゲのしっぽ：背骨なしで生えかわる"
   },
   "it": {
    "q": "Cosa ha di diverso la coda ricresciuta di una lucertola?",
@@ -1156,7 +1267,8 @@
     "È sempre più lunga di prima",
     "Contiene una ghiandola velenosa"
    ],
-   "x": "La nuova coda non ha vertebre, solo un bastoncino di cartilagine. Di solito è più corta e di colore diverso."
+   "x": "La nuova coda non ha vertebre, solo un bastoncino di cartilagine. Di solito è più corta e di colore diverso.",
+   "k": "Coda di lucertola: ricresce senza vertebre"
   }
  },
  {
@@ -1172,7 +1284,8 @@
     "Aus einer selbst gebauten Luftglocke",
     "Über die Haut aus dem Wasser"
    ],
-   "x": "Sie spinnt zwischen Wasserpflanzen ein Gespinst und füllt es mit Luftblasen von der Oberfläche – eine Taucherglocke."
+   "x": "Sie spinnt zwischen Wasserpflanzen ein Gespinst und füllt es mit Luftblasen von der Oberfläche – eine Taucherglocke.",
+   "k": "Wasserspinne: atmet aus einer Luftglocke"
   },
   "en": {
    "q": "How does the water spider Argyroneta, which lives almost only underwater, breathe?",
@@ -1182,7 +1295,8 @@
     "From an air bell it builds itself",
     "Through its skin, from the water"
    ],
-   "x": "It spins a web between water plants and fills it with air bubbles from the surface – like a diving bell."
+   "x": "It spins a web between water plants and fills it with air bubbles from the surface – like a diving bell.",
+   "k": "Water spider: breathes from an air bell"
   },
   "fr": {
    "q": "Comment respire l'argyronète, araignée qui vit presque toujours sous l'eau ?",
@@ -1192,7 +1306,8 @@
     "Dans une cloche d'air qu'elle construit",
     "Par la peau, dans l'eau"
    ],
-   "x": "Elle tisse une toile entre les plantes aquatiques et la remplit de bulles d'air prises en surface : une cloche de plongée."
+   "x": "Elle tisse une toile entre les plantes aquatiques et la remplit de bulles d'air prises en surface : une cloche de plongée.",
+   "k": "Argyronète : respire dans une cloche d’air"
   },
   "es": {
    "q": "¿Cómo respira la araña de agua, que vive casi siempre bajo el agua?",
@@ -1202,7 +1317,8 @@
     "En una campana de aire que construye",
     "A través de la piel, del agua"
    ],
-   "x": "Teje una tela entre plantas acuáticas y la llena de burbujas de aire de la superficie: una campana de buceo."
+   "x": "Teje una tela entre plantas acuáticas y la llena de burbujas de aire de la superficie: una campana de buceo.",
+   "k": "Araña de agua: respira de una campana de aire"
   },
   "pt": {
    "q": "Como respira a aranha-d’água, que vive quase sempre debaixo d’água?",
@@ -1212,7 +1328,8 @@
     "Num sino de ar que ela constrói",
     "Pela pele, tirando ar da água"
    ],
-   "x": "Ela tece uma teia entre plantas aquáticas e a enche de bolhas de ar da superfície: um sino de mergulho."
+   "x": "Ela tece uma teia entre plantas aquáticas e a enche de bolhas de ar da superfície: um sino de mergulho.",
+   "k": "Aranha-d’água: respira de uma bolha de ar"
   },
   "ja": {
    "q": "ほぼ水中だけで暮らすミズグモは、どうやって呼吸する？",
@@ -1222,7 +1339,8 @@
     "自分で作った空気の部屋から",
     "水の中から皮ふで"
    ],
-   "x": "水草の間に網を張り、水面から運んだ空気の泡をためます。まるで潜水鐘のようです。"
+   "x": "水草の間に網を張り、水面から運んだ空気の泡をためます。まるで潜水鐘のようです。",
+   "k": "ミズグモ：空気の部屋で呼吸する"
   },
   "it": {
    "q": "Come respira il ragno palombaro (Argyroneta), che vive quasi solo sott’acqua?",
@@ -1232,7 +1350,8 @@
     "Da una campana d’aria che si costruisce",
     "Con la pelle, dall’acqua"
    ],
-   "x": "Tesse una tela tra le piante acquatiche e la riempie di bolle d’aria prese in superficie, come una campana da palombaro."
+   "x": "Tesse una tela tra le piante acquatiche e la riempie di bolle d’aria prese in superficie, come una campana da palombaro.",
+   "k": "Ragno palombaro: respira da una campana d’aria"
   }
  },
  {
@@ -1246,7 +1365,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Nachts fliegt er oft zu neuen Gewässern. Beim Tauchen nimmt er einen Luftvorrat unter den Flügeldecken mit."
+   "x": "Nachts fliegt er oft zu neuen Gewässern. Beim Tauchen nimmt er einen Luftvorrat unter den Flügeldecken mit.",
+   "k": "Gelbrandkäfer: lebt im Wasser und kann fliegen"
   },
   "en": {
    "q": "The great diving beetle lives in water but can also fly.",
@@ -1254,7 +1374,8 @@
     "True",
     "False"
    ],
-   "x": "At night it often flies to new ponds. When diving, it carries an air supply under its wing cases."
+   "x": "At night it often flies to new ponds. When diving, it carries an air supply under its wing cases.",
+   "k": "Diving beetle: lives in water and can fly"
   },
   "fr": {
    "q": "Le dytique bordé vit dans l'eau mais peut aussi voler.",
@@ -1262,7 +1383,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "La nuit, il s'envole souvent vers de nouvelles mares. En plongée, il garde une réserve d'air sous ses élytres."
+   "x": "La nuit, il s'envole souvent vers de nouvelles mares. En plongée, il garde une réserve d'air sous ses élytres.",
+   "k": "Dytique : vit dans l’eau et vole"
   },
   "es": {
    "q": "El ditisco vive en el agua, pero también puede volar.",
@@ -1270,7 +1392,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "De noche vuela a menudo a nuevas charcas. Al bucear lleva una reserva de aire bajo los élitros."
+   "x": "De noche vuela a menudo a nuevas charcas. Al bucear lleva una reserva de aire bajo los élitros.",
+   "k": "Ditisco: vive en el agua y vuela"
   },
   "pt": {
    "q": "O besouro-mergulhador vive na água, mas também sabe voar.",
@@ -1278,7 +1401,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "À noite, muitas vezes voa para novas lagoas. Ao mergulhar, leva uma reserva de ar debaixo dos élitros."
+   "x": "À noite, muitas vezes voa para novas lagoas. Ao mergulhar, leva uma reserva de ar debaixo dos élitros.",
+   "k": "Besouro-mergulhador: vive na água e voa"
   },
   "ja": {
    "q": "正しい？まちがい？ ゲンゴロウの仲間は水中で暮らすが、空も飛べる。",
@@ -1286,7 +1410,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "夜にはよく新しい池へ飛んでいきます。潜るときは、羽の下に空気をためて持っていきます。"
+   "x": "夜にはよく新しい池へ飛んでいきます。潜るときは、羽の下に空気をためて持っていきます。",
+   "k": "ゲンゴロウの仲間：水中で暮らし空も飛ぶ"
   },
   "it": {
    "q": "Vero o falso? Il ditisco vive in acqua ma sa anche volare.",
@@ -1294,7 +1419,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Di notte vola spesso verso nuovi stagni. Quando si immerge porta una riserva d’aria sotto le elitre."
+   "x": "Di notte vola spesso verso nuovi stagni. Quando si immerge porta una riserva d’aria sotto le elitre.",
+   "k": "Ditisco: vive in acqua e vola"
   }
  },
  {
@@ -1310,7 +1436,8 @@
     "Mit einem Netz aus Seide",
     "Mit einem Giftstachel"
    ],
-   "x": "Die Fangmaske ist eine umgebaute Unterlippe. Sie schnellt blitzschnell vor und packt Kaulquappen, Larven und Co."
+   "x": "Die Fangmaske ist eine umgebaute Unterlippe. Sie schnellt blitzschnell vor und packt Kaulquappen, Larven und Co.",
+   "k": "Libellenlarve: fängt Beute mit einer Fangmaske"
   },
   "en": {
    "q": "How does a dragonfly larva catch its prey?",
@@ -1320,7 +1447,8 @@
     "With a silk net",
     "With a venomous sting"
    ],
-   "x": "The mask is a modified lower lip. It shoots forward in a flash and grabs tadpoles, larvae and more."
+   "x": "The mask is a modified lower lip. It shoots forward in a flash and grabs tadpoles, larvae and more.",
+   "k": "Dragonfly larva: catches prey with a mask"
   },
   "fr": {
    "q": "Comment une larve de libellule attrape-t-elle ses proies ?",
@@ -1330,7 +1458,8 @@
     "Avec un filet de soie",
     "Avec un dard venimeux"
    ],
-   "x": "Le masque est une lèvre inférieure transformée. Il se détend comme l'éclair pour saisir têtards et larves."
+   "x": "Le masque est une lèvre inférieure transformée. Il se détend comme l'éclair pour saisir têtards et larves.",
+   "k": "Larve de libellule : chasse avec un masque"
   },
   "es": {
    "q": "¿Cómo atrapa una larva de libélula a sus presas?",
@@ -1340,7 +1469,8 @@
     "Con una red de seda",
     "Con un aguijón venenoso"
    ],
-   "x": "La máscara es un labio inferior modificado. Se dispara en un instante y atrapa renacuajos, larvas y más."
+   "x": "La máscara es un labio inferior modificado. Se dispara en un instante y atrapa renacuajos, larvas y más.",
+   "k": "Larva de libélula: caza con una máscara"
   },
   "pt": {
    "q": "Como a larva da libélula pega suas presas?",
@@ -1350,7 +1480,8 @@
     "Com uma rede de seda",
     "Com um ferrão venenoso"
    ],
-   "x": "A máscara é um lábio inferior modificado. Ela dispara num instante e pega girinos, larvas e mais."
+   "x": "A máscara é um lábio inferior modificado. Ela dispara num instante e pega girinos, larvas e mais.",
+   "k": "Larva de libélula: caça com uma máscara"
   },
   "ja": {
    "q": "ヤゴはどうやって獲物をつかまえる？",
@@ -1360,7 +1491,8 @@
     "糸の網で",
     "毒針で"
    ],
-   "x": "マスクは変化した下くちびるです。一瞬で前に飛び出し、オタマジャクシや幼虫などをつかまえます。"
+   "x": "マスクは変化した下くちびるです。一瞬で前に飛び出し、オタマジャクシや幼虫などをつかまえます。",
+   "k": "ヤゴ：のびるマスクで獲物をとる"
   },
   "it": {
    "q": "Come cattura le prede la larva della libellula?",
@@ -1370,7 +1502,8 @@
     "Con una rete di seta",
     "Con un pungiglione velenoso"
    ],
-   "x": "La maschera è un labbro inferiore trasformato. Scatta in avanti in un lampo e afferra girini, larve e altro."
+   "x": "La maschera è un labbro inferiore trasformato. Scatta in avanti in un lampo e afferra girini, larve e altro.",
+   "k": "Larva di libellula: caccia con una maschera"
   }
  },
  {
@@ -1384,7 +1517,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Libellen haben keine Puppe: Die Larve klettert aus dem Wasser, häutet sich ein letztes Mal, und die Libelle schlüpft."
+   "x": "Libellen haben keine Puppe: Die Larve klettert aus dem Wasser, häutet sich ein letztes Mal, und die Libelle schlüpft.",
+   "k": "Libellen: haben kein Puppenstadium"
   },
   "en": {
    "q": "Like butterflies, dragonflies go through a pupal stage.",
@@ -1392,7 +1526,8 @@
     "True",
     "False"
    ],
-   "x": "Dragonflies have no pupa: the larva climbs out of the water, moults one last time and the adult emerges."
+   "x": "Dragonflies have no pupa: the larva climbs out of the water, moults one last time and the adult emerges.",
+   "k": "Dragonflies: have no pupal stage"
   },
   "fr": {
    "q": "Comme les papillons, les libellules passent par un stade de chrysalide (pupe).",
@@ -1400,7 +1535,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Les libellules n'ont pas de pupe : la larve sort de l'eau, mue une dernière fois et l'adulte en émerge."
+   "x": "Les libellules n'ont pas de pupe : la larve sort de l'eau, mue une dernière fois et l'adulte en émerge.",
+   "k": "Libellules : pas de stade nymphe"
   },
   "es": {
    "q": "Como las mariposas, las libélulas pasan por una fase de pupa.",
@@ -1408,7 +1544,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Las libélulas no tienen pupa: la larva sale del agua, muda por última vez y emerge el adulto."
+   "x": "Las libélulas no tienen pupa: la larva sale del agua, muda por última vez y emerge el adulto.",
+   "k": "Libélulas: no tienen fase de pupa"
   },
   "pt": {
    "q": "Como as borboletas, as libélulas passam por uma fase de pupa.",
@@ -1416,7 +1553,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "As libélulas não têm pupa: a larva sai da água, faz a última muda e o adulto emerge."
+   "x": "As libélulas não têm pupa: a larva sai da água, faz a última muda e o adulto emerge.",
+   "k": "Libélulas: não têm fase de pupa"
   },
   "ja": {
    "q": "正しい？まちがい？ トンボもチョウのように、さなぎの時期がある。",
@@ -1424,7 +1562,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "トンボにさなぎの時期はありません。ヤゴが水から上がって最後の脱皮をすると、成虫が出てきます。"
+   "x": "トンボにさなぎの時期はありません。ヤゴが水から上がって最後の脱皮をすると、成虫が出てきます。",
+   "k": "トンボ：さなぎにならない"
   },
   "it": {
    "q": "Vero o falso? Come le farfalle, anche le libellule passano per lo stadio di crisalide.",
@@ -1432,7 +1571,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Le libellule non hanno crisalide: la larva esce dall’acqua, fa l’ultima muta e ne esce l’adulto."
+   "x": "Le libellule non hanno crisalide: la larva esce dall’acqua, fa l’ultima muta e ne esce l’adulto.",
+   "k": "Libellule: niente stadio di pupa"
   }
  },
  {
@@ -1448,7 +1588,8 @@
     "Sein Licht ist heiß wie eine Lampe",
     "Er ist eigentlich eine Fliege"
    ],
-   "x": "Die flügellosen Weibchen leuchten im Gras, um fliegende Männchen anzulocken. Das Licht entsteht chemisch und ist kalt."
+   "x": "Die flügellosen Weibchen leuchten im Gras, um fliegende Männchen anzulocken. Das Licht entsteht chemisch und ist kalt.",
+   "k": "Glühwürmchen: die Weibchen können nicht fliegen"
   },
   "en": {
    "q": "What is true about the common glow-worm?",
@@ -1458,7 +1599,8 @@
     "Its light is hot like a lamp",
     "It is actually a fly"
    ],
-   "x": "The wingless females glow in the grass to attract flying males. The light is made chemically and is cold."
+   "x": "The wingless females glow in the grass to attract flying males. The light is made chemically and is cold.",
+   "k": "Glow-worms: females can't fly"
   },
   "fr": {
    "q": "Qu'est-ce qui est vrai pour le ver luisant ?",
@@ -1468,7 +1610,8 @@
     "Sa lumière chauffe comme une lampe",
     "C'est en fait une mouche"
    ],
-   "x": "Les femelles sans ailes brillent dans l'herbe pour attirer les mâles volants. Leur lumière est chimique et froide."
+   "x": "Les femelles sans ailes brillent dans l'herbe pour attirer les mâles volants. Leur lumière est chimique et froide.",
+   "k": "Vers luisants : les femelles ne volent pas"
   },
   "es": {
    "q": "¿Qué es cierto sobre la luciérnaga común europea?",
@@ -1478,7 +1621,8 @@
     "Su luz quema como una lámpara",
     "En realidad es una mosca"
    ],
-   "x": "Las hembras sin alas brillan en la hierba para atraer a los machos voladores. La luz es química y fría."
+   "x": "Las hembras sin alas brillan en la hierba para atraer a los machos voladores. La luz es química y fría.",
+   "k": "Luciérnagas: las hembras no vuelan"
   },
   "pt": {
    "q": "O que é verdade sobre o vaga-lume-comum europeu?",
@@ -1488,7 +1632,8 @@
     "Sua luz esquenta como uma lâmpada",
     "Na verdade é uma mosca"
    ],
-   "x": "As fêmeas sem asas brilham na grama para atrair os machos voadores. A luz é química e fria."
+   "x": "As fêmeas sem asas brilham na grama para atrair os machos voadores. A luz é química e fria.",
+   "k": "Vaga-lumes europeus: as fêmeas não voam"
   },
   "ja": {
    "q": "ヨーロッパツチボタルについて正しいのは？",
@@ -1498,7 +1643,8 @@
     "光はランプのように熱い",
     "実はハエの仲間"
    ],
-   "x": "羽のないメスが草の中で光り、飛んでいるオスを呼びます。光は化学反応で作られ、熱くありません。"
+   "x": "羽のないメスが草の中で光り、飛んでいるオスを呼びます。光は化学反応で作られ、熱くありません。",
+   "k": "ツチボタル：メスは飛べない"
   },
   "it": {
    "q": "Cosa è vero sulla lucciola europea (Lampyris)?",
@@ -1508,7 +1654,8 @@
     "La sua luce scotta come una lampadina",
     "In realtà è una mosca"
    ],
-   "x": "Le femmine senza ali brillano nell’erba per attirare i maschi in volo. La luce è prodotta chimicamente ed è fredda."
+   "x": "Le femmine senza ali brillano nell’erba per attirare i maschi in volo. La luce è prodotta chimicamente ed è fredda.",
+   "k": "Lucciole: le femmine non volano"
   }
  },
  {
@@ -1524,7 +1671,8 @@
     "Von Schnecken",
     "Von morschem Holz"
    ],
-   "x": "Sie jagen Schnecken, lähmen sie mit einem giftigen Biss und fressen sie. Sie brauchen feuchte, naturnahe Gärten."
+   "x": "Sie jagen Schnecken, lähmen sie mit einem giftigen Biss und fressen sie. Sie brauchen feuchte, naturnahe Gärten.",
+   "k": "Glühwürmchen-Larven: fressen Schnecken"
   },
   "en": {
    "q": "What do glow-worm larvae feed on?",
@@ -1534,7 +1682,8 @@
     "Snails",
     "Rotting wood"
    ],
-   "x": "They hunt snails, paralyse them with a venomous bite and eat them. They need damp, natural gardens."
+   "x": "They hunt snails, paralyse them with a venomous bite and eat them. They need damp, natural gardens.",
+   "k": "Glow-worm larvae: eat snails"
   },
   "fr": {
    "q": "De quoi se nourrissent les larves de ver luisant ?",
@@ -1544,7 +1693,8 @@
     "D'escargots",
     "De bois pourri"
    ],
-   "x": "Elles chassent les escargots, les paralysent d'une morsure venimeuse puis les mangent. Elles aiment les jardins humides et naturels."
+   "x": "Elles chassent les escargots, les paralysent d'une morsure venimeuse puis les mangent. Elles aiment les jardins humides et naturels.",
+   "k": "Larves de ver luisant : mangent des escargots"
   },
   "es": {
    "q": "¿De qué se alimentan las larvas de la luciérnaga común?",
@@ -1554,7 +1704,8 @@
     "De caracoles",
     "De madera podrida"
    ],
-   "x": "Cazan caracoles, los paralizan con una mordedura venenosa y se los comen. Necesitan jardines húmedos y naturales."
+   "x": "Cazan caracoles, los paralizan con una mordedura venenosa y se los comen. Necesitan jardines húmedos y naturales.",
+   "k": "Larvas de luciérnaga: comen caracoles"
   },
   "pt": {
    "q": "De que se alimentam as larvas do vaga-lume-comum europeu?",
@@ -1564,7 +1715,8 @@
     "De caracóis",
     "De madeira podre"
    ],
-   "x": "Elas caçam caracóis, paralisam-nos com uma mordida venenosa e os comem. Precisam de jardins úmidos e naturais."
+   "x": "Elas caçam caracóis, paralisam-nos com uma mordida venenosa e os comem. Precisam de jardins úmidos e naturais.",
+   "k": "Larvas de vaga-lume: comem caracóis"
   },
   "ja": {
    "q": "ツチボタルの幼虫は何を食べる？",
@@ -1574,7 +1726,8 @@
     "カタツムリ",
     "くさった木"
    ],
-   "x": "カタツムリをつかまえ、毒のある口でまひさせて食べます。しめった自然な庭が必要です。"
+   "x": "カタツムリをつかまえ、毒のある口でまひさせて食べます。しめった自然な庭が必要です。",
+   "k": "ツチボタルの幼虫：カタツムリを食べる"
   },
   "it": {
    "q": "Di cosa si nutrono le larve della lucciola?",
@@ -1584,7 +1737,8 @@
     "Chiocciole",
     "Legno marcio"
    ],
-   "x": "Cacciano chiocciole, le paralizzano con un morso velenoso e le mangiano. Hanno bisogno di giardini umidi e naturali."
+   "x": "Cacciano chiocciole, le paralizzano con un morso velenoso e le mangiano. Hanno bisogno di giardini umidi e naturali.",
+   "k": "Larve di lucciola: mangiano chiocciole"
   }
  },
  {
@@ -1598,7 +1752,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Ein Mythos: Die Punktzahl hängt von der Art ab – etwa beim Siebenpunkt- oder Zweipunkt-Marienkäfer."
+   "x": "Ein Mythos: Die Punktzahl hängt von der Art ab – etwa beim Siebenpunkt- oder Zweipunkt-Marienkäfer.",
+   "k": "Marienkäfer: Punkte verraten nicht das Alter"
   },
   "en": {
    "q": "You can tell a ladybird's age by counting its spots.",
@@ -1606,7 +1761,8 @@
     "True",
     "False"
    ],
-   "x": "A myth: the number of spots depends on the species, e.g. the seven-spot or two-spot ladybird."
+   "x": "A myth: the number of spots depends on the species, e.g. the seven-spot or two-spot ladybird.",
+   "k": "Ladybirds: spots don't show their age"
   },
   "fr": {
    "q": "On peut connaître l'âge d'une coccinelle en comptant ses points.",
@@ -1614,7 +1770,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Un mythe : le nombre de points dépend de l'espèce, comme chez la coccinelle à sept points ou à deux points."
+   "x": "Un mythe : le nombre de points dépend de l'espèce, comme chez la coccinelle à sept points ou à deux points.",
+   "k": "Coccinelles : les points ne disent pas l’âge"
   },
   "es": {
    "q": "Se puede saber la edad de una mariquita contando sus puntos.",
@@ -1622,7 +1779,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Es un mito: el número de puntos depende de la especie, como la mariquita de siete o de dos puntos."
+   "x": "Es un mito: el número de puntos depende de la especie, como la mariquita de siete o de dos puntos.",
+   "k": "Mariquitas: los puntos no indican la edad"
   },
   "pt": {
    "q": "Dá para saber a idade de uma joaninha contando suas pintas.",
@@ -1630,7 +1788,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "É um mito: o número de pintas depende da espécie, como a joaninha-de-sete-pintas ou a de duas pintas."
+   "x": "É um mito: o número de pintas depende da espécie, como a joaninha-de-sete-pintas ou a de duas pintas.",
+   "k": "Joaninhas: as pintas não mostram a idade"
   },
   "ja": {
    "q": "正しい？まちがい？ テントウムシの年齢は、星の数でわかる。",
@@ -1638,7 +1797,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "これは俗説。星の数は種類で決まっています。たとえばナナホシテントウやフタホシテントウ。"
+   "x": "これは俗説。星の数は種類で決まっています。たとえばナナホシテントウやフタホシテントウ。",
+   "k": "テントウムシ：星の数で年齢はわからない"
   },
   "it": {
    "q": "Vero o falso? Si capisce l’età di una coccinella contando i puntini.",
@@ -1646,7 +1806,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Un mito: il numero di puntini dipende dalla specie, per esempio coccinella a sette punti o a due punti."
+   "x": "Un mito: il numero di puntini dipende dalla specie, per esempio coccinella a sette punti o a due punti.",
+   "k": "Coccinelle: i puntini non dicono l’età"
   }
  },
  {
@@ -1662,7 +1823,8 @@
     "Nur die Männchen",
     "Nur junge Königinnen"
    ],
-   "x": "Das Volk stirbt im Herbst. Nur junge, begattete Königinnen überwintern im Boden und gründen im Frühjahr ein neues Volk."
+   "x": "Das Volk stirbt im Herbst. Nur junge, begattete Königinnen überwintern im Boden und gründen im Frühjahr ein neues Volk.",
+   "k": "Hummeln: nur junge Königinnen überwintern"
   },
   "en": {
    "q": "Which bumblebees survive the winter?",
@@ -1672,7 +1834,8 @@
     "Only the males",
     "Only young queens"
    ],
-   "x": "The colony dies in autumn. Only young, mated queens overwinter in the ground and start a new colony in spring."
+   "x": "The colony dies in autumn. Only young, mated queens overwinter in the ground and start a new colony in spring.",
+   "k": "Bumblebees: only young queens overwinter"
   },
   "fr": {
    "q": "Quels bourdons survivent à l'hiver ?",
@@ -1682,7 +1845,8 @@
     "Seulement les mâles",
     "Seulement les jeunes reines"
    ],
-   "x": "La colonie meurt en automne. Seules les jeunes reines fécondées hivernent dans le sol et fondent une colonie au printemps."
+   "x": "La colonie meurt en automne. Seules les jeunes reines fécondées hivernent dans le sol et fondent une colonie au printemps.",
+   "k": "Bourdons : seules les jeunes reines hivernent"
   },
   "es": {
    "q": "¿Qué abejorros sobreviven al invierno?",
@@ -1692,7 +1856,8 @@
     "Solo los machos",
     "Solo las reinas jóvenes"
    ],
-   "x": "La colonia muere en otoño. Solo las reinas jóvenes fecundadas hibernan en el suelo y fundan una colonia en primavera."
+   "x": "La colonia muere en otoño. Solo las reinas jóvenes fecundadas hibernan en el suelo y fundan una colonia en primavera.",
+   "k": "Abejorros: solo las reinas jóvenes invernan"
   },
   "pt": {
    "q": "Quais mamangavas sobrevivem ao inverno?",
@@ -1702,7 +1867,8 @@
     "Só os machos",
     "Só as rainhas jovens"
    ],
-   "x": "A colônia morre no outono. Só as rainhas jovens fecundadas hibernam no solo e fundam uma colônia na primavera."
+   "x": "A colônia morre no outono. Só as rainhas jovens fecundadas hibernam no solo e fundam uma colônia na primavera.",
+   "k": "Mamangavas: só rainhas jovens passam o inverno"
   },
   "ja": {
    "q": "冬を越すマルハナバチはどれ？",
@@ -1712,7 +1878,8 @@
     "オスだけ",
     "若い女王バチだけ"
    ],
-   "x": "群れは秋に死んでしまいます。交尾をすませた若い女王バチだけが土の中で冬を越し、春に新しい群れを作ります。"
+   "x": "群れは秋に死んでしまいます。交尾をすませた若い女王バチだけが土の中で冬を越し、春に新しい群れを作ります。",
+   "k": "マルハナバチ：冬を越すのは若い女王だけ"
   },
   "it": {
    "q": "Quali bombi sopravvivono all’inverno?",
@@ -1722,7 +1889,8 @@
     "Solo i maschi",
     "Solo le giovani regine"
    ],
-   "x": "La colonia muore in autunno. Solo le giovani regine fecondate svernano nel terreno e in primavera fondano una nuova colonia."
+   "x": "La colonia muore in autunno. Solo le giovani regine fecondate svernano nel terreno e in primavera fondano una nuova colonia.",
+   "k": "Bombi: svernano solo le giovani regine"
   }
  },
  {
@@ -1736,7 +1904,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Ein alter Mythos: Hornissengift ist nicht gefährlicher als Bienengift. Riskant sind Stiche vor allem für Allergiker."
+   "x": "Ein alter Mythos: Hornissengift ist nicht gefährlicher als Bienengift. Riskant sind Stiche vor allem für Allergiker.",
+   "k": "Hornissen: nicht giftiger als Bienen"
   },
   "en": {
    "q": "Three hornet stings can kill a healthy adult.",
@@ -1744,7 +1913,8 @@
     "True",
     "False"
    ],
-   "x": "An old myth: hornet venom is no more dangerous than bee venom. Stings are mainly risky for people with allergies."
+   "x": "An old myth: hornet venom is no more dangerous than bee venom. Stings are mainly risky for people with allergies.",
+   "k": "Hornets: no more venomous than bees"
   },
   "fr": {
    "q": "Trois piqûres de frelon peuvent tuer un adulte en bonne santé.",
@@ -1752,7 +1922,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Un vieux mythe : le venin du frelon n'est pas plus dangereux que celui de l'abeille. Le risque concerne surtout les allergiques."
+   "x": "Un vieux mythe : le venin du frelon n'est pas plus dangereux que celui de l'abeille. Le risque concerne surtout les allergiques.",
+   "k": "Frelons : pas plus venimeux que les abeilles"
   },
   "es": {
    "q": "Tres picaduras de avispón pueden matar a un adulto sano.",
@@ -1760,7 +1931,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Es un viejo mito: su veneno no es más peligroso que el de la abeja. El riesgo es sobre todo para personas alérgicas."
+   "x": "Es un viejo mito: su veneno no es más peligroso que el de la abeja. El riesgo es sobre todo para personas alérgicas.",
+   "k": "Avispones: no más venenosos que las abejas"
   },
   "pt": {
    "q": "Três picadas de vespão podem matar um adulto saudável.",
@@ -1768,7 +1940,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "É um velho mito: o veneno do vespão não é mais perigoso que o da abelha. O risco é sobretudo para pessoas alérgicas."
+   "x": "É um velho mito: o veneno do vespão não é mais perigoso que o da abelha. O risco é sobretudo para pessoas alérgicas.",
+   "k": "Vespões: não mais venenosos que abelhas"
   },
   "ja": {
    "q": "正しい？まちがい？ スズメバチに3回刺されると、健康な大人でも死ぬ。",
@@ -1776,7 +1949,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "古い俗説です。ヨーロッパのモンスズメバチの毒は、ミツバチの毒より危険なわけではありません。危ないのは主にアレルギーのある人です。"
+   "x": "古い俗説です。ヨーロッパのモンスズメバチの毒は、ミツバチの毒より危険なわけではありません。危ないのは主にアレルギーのある人です。",
+   "k": "スズメバチ：毒はミツバチ並み"
   },
   "it": {
    "q": "Vero o falso? Tre punture di calabrone possono uccidere un adulto sano.",
@@ -1784,7 +1958,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Un vecchio mito: il veleno del calabrone non è più pericoloso di quello dell’ape. Le punture sono rischiose soprattutto per chi è allergico."
+   "x": "Un vecchio mito: il veleno del calabrone non è più pericoloso di quello dell’ape. Le punture sono rischiose soprattutto per chi è allergico.",
+   "k": "Calabroni: non più velenosi delle api"
   }
  },
  {
@@ -1800,7 +1975,8 @@
     "Die Läuse wärmen das Nest",
     "Die Läuse bauen Nestkammern"
    ],
-   "x": "Blattläuse scheiden zuckerhaltigen Honigtau aus. Ameisen 'melken' sie und halten dafür Feinde wie Marienkäfer fern."
+   "x": "Blattläuse scheiden zuckerhaltigen Honigtau aus. Ameisen 'melken' sie und halten dafür Feinde wie Marienkäfer fern.",
+   "k": "Ameisen: melken Blattläuse"
   },
   "en": {
    "q": "Why do some ants protect aphids?",
@@ -1810,7 +1986,8 @@
     "The aphids warm the nest",
     "The aphids build nest chambers"
    ],
-   "x": "Aphids excrete sugary honeydew. Ants 'milk' them and in return keep enemies like ladybirds away."
+   "x": "Aphids excrete sugary honeydew. Ants 'milk' them and in return keep enemies like ladybirds away.",
+   "k": "Ants: milk aphids"
   },
   "fr": {
    "q": "Pourquoi certaines fourmis protègent-elles les pucerons ?",
@@ -1820,7 +1997,8 @@
     "Les pucerons chauffent le nid",
     "Les pucerons creusent le nid"
    ],
-   "x": "Les pucerons rejettent un miellat sucré. Les fourmis les « traient » et éloignent en échange les coccinelles."
+   "x": "Les pucerons rejettent un miellat sucré. Les fourmis les « traient » et éloignent en échange les coccinelles.",
+   "k": "Fourmis : traient les pucerons"
   },
   "es": {
    "q": "¿Por qué algunas hormigas protegen a los pulgones?",
@@ -1830,7 +2008,8 @@
     "Los pulgones calientan el nido",
     "Los pulgones excavan el nido"
    ],
-   "x": "Los pulgones excretan una melaza azucarada. Las hormigas los «ordeñan» y a cambio alejan a enemigos como las mariquitas."
+   "x": "Los pulgones excretan una melaza azucarada. Las hormigas los «ordeñan» y a cambio alejan a enemigos como las mariquitas.",
+   "k": "Hormigas: ordeñan pulgones"
   },
   "pt": {
    "q": "Por que algumas formigas protegem os pulgões?",
@@ -1840,7 +2019,8 @@
     "Os pulgões aquecem o ninho",
     "Os pulgões cavam o ninho"
    ],
-   "x": "Os pulgões soltam uma melada açucarada. As formigas os “ordenham” e, em troca, afastam inimigos como as joaninhas."
+   "x": "Os pulgões soltam uma melada açucarada. As formigas os “ordenham” e, em troca, afastam inimigos como as joaninhas.",
+   "k": "Formigas: ordenham pulgões"
   },
   "ja": {
    "q": "アリがアブラムシを守るのはなぜ？",
@@ -1850,7 +2030,8 @@
     "アブラムシが巣を温める",
     "アブラムシが巣の部屋を作る"
    ],
-   "x": "アブラムシは甘い甘露を出します。アリはそれを「しぼり」、お返しにテントウムシなどの敵を追いはらいます。"
+   "x": "アブラムシは甘い甘露を出します。アリはそれを「しぼり」、お返しにテントウムシなどの敵を追いはらいます。",
+   "k": "アリ：アブラムシの甘露をしぼる"
   },
   "it": {
    "q": "Perché alcune formiche proteggono gli afidi?",
@@ -1860,7 +2041,8 @@
     "Gli afidi scaldano il nido",
     "Gli afidi costruiscono le camere del nido"
    ],
-   "x": "Gli afidi espellono una melata zuccherina. Le formiche li «mungono» e in cambio tengono lontani nemici come le coccinelle."
+   "x": "Gli afidi espellono una melata zuccherina. Le formiche li «mungono» e in cambio tengono lontani nemici come le coccinelle.",
+   "k": "Formiche: mungono gli afidi"
   }
  },
  {
@@ -1874,7 +2056,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Bergmolch, Teichmolch und Co. gehen meist nur zur Paarungszeit im Frühjahr ins Wasser und leben sonst an Land."
+   "x": "Bergmolch, Teichmolch und Co. gehen meist nur zur Paarungszeit im Frühjahr ins Wasser und leben sonst an Land.",
+   "k": "Molche: leben meist an Land"
   },
   "en": {
    "q": "Newts spend the whole year in the water.",
@@ -1882,7 +2065,8 @@
     "True",
     "False"
    ],
-   "x": "Alpine newts, smooth newts and co. mostly enter the water only to breed in spring and otherwise live on land."
+   "x": "Alpine newts, smooth newts and co. mostly enter the water only to breed in spring and otherwise live on land.",
+   "k": "Newts: mostly live on land"
   },
   "fr": {
    "q": "Les tritons passent toute l'année dans l'eau.",
@@ -1890,7 +2074,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Les tritons alpestres, ponctués et autres ne vont en général à l'eau qu'au printemps pour se reproduire et vivent sinon à terre."
+   "x": "Les tritons alpestres, ponctués et autres ne vont en général à l'eau qu'au printemps pour se reproduire et vivent sinon à terre.",
+   "k": "Tritons : vivent surtout sur terre"
   },
   "es": {
    "q": "Los tritones pasan todo el año en el agua.",
@@ -1898,7 +2083,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "El tritón alpino y otros suelen ir al agua solo para reproducirse en primavera; el resto del año viven en tierra."
+   "x": "El tritón alpino y otros suelen ir al agua solo para reproducirse en primavera; el resto del año viven en tierra.",
+   "k": "Tritones: viven sobre todo en tierra"
   },
   "pt": {
    "q": "Os tritões passam o ano todo na água.",
@@ -1906,7 +2092,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "O tritão-alpino e outros costumam ir à água só para se reproduzir na primavera; no resto do ano vivem em terra."
+   "x": "O tritão-alpino e outros costumam ir à água só para se reproduzir na primavera; no resto do ano vivem em terra.",
+   "k": "Tritões: vivem mais em terra"
   },
   "ja": {
    "q": "正しい？まちがい？ イモリは一年中、水の中で暮らす。",
@@ -1914,7 +2101,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "ミヤマイモリやスベイモリなどは、ほとんど春の繁殖期にだけ水に入り、ほかの時期は陸で暮らします。"
+   "x": "ミヤマイモリやスベイモリなどは、ほとんど春の繁殖期にだけ水に入り、ほかの時期は陸で暮らします。",
+   "k": "イモリ：ほとんど陸で暮らす"
   },
   "it": {
    "q": "Vero o falso? I tritoni passano tutto l’anno in acqua.",
@@ -1922,7 +2110,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Tritone alpestre, tritone punteggiato e simili entrano in acqua per lo più solo per riprodursi in primavera; per il resto vivono sulla terraferma."
+   "x": "Tritone alpestre, tritone punteggiato e simili entrano in acqua per lo più solo per riprodursi in primavera; per il resto vivono sulla terraferma.",
+   "k": "Tritoni: vivono soprattutto sulla terra"
   }
  },
  {
@@ -1938,7 +2127,8 @@
     "Eiche",
     "Löwenzahn"
    ],
-   "x": "Brennnesseln sind Kinderstube für Tagpfauenauge, Kleinen Fuchs und Admiral. Lass im Garten eine wilde Ecke stehen!"
+   "x": "Brennnesseln sind Kinderstube für Tagpfauenauge, Kleinen Fuchs und Admiral. Lass im Garten eine wilde Ecke stehen!",
+   "k": "Brennnessel: Kinderstube für Tagpfauenaugen"
   },
   "en": {
    "q": "Which plant do peacock butterfly caterpillars feed on?",
@@ -1948,7 +2138,8 @@
     "Oak",
     "Dandelion"
    ],
-   "x": "Nettles are a nursery for the peacock, small tortoiseshell and red admiral. Leave a wild corner in your garden!"
+   "x": "Nettles are a nursery for the peacock, small tortoiseshell and red admiral. Leave a wild corner in your garden!",
+   "k": "Nettles: nursery for peacock butterflies"
   },
   "fr": {
    "q": "De quelle plante se nourrissent les chenilles du paon-du-jour ?",
@@ -1958,7 +2149,8 @@
     "Chêne",
     "Pissenlit"
    ],
-   "x": "Les orties sont la nurserie du paon-du-jour, de la petite tortue et du vulcain. Laissez un coin sauvage au jardin !"
+   "x": "Les orties sont la nurserie du paon-du-jour, de la petite tortue et du vulcain. Laissez un coin sauvage au jardin !",
+   "k": "Ortie : nurserie du paon-du-jour"
   },
   "es": {
    "q": "¿De qué planta se alimentan las orugas de la mariposa pavo real?",
@@ -1968,7 +2160,8 @@
     "Roble",
     "Diente de león"
    ],
-   "x": "Las ortigas son la guardería de la pavo real, la ortiguera y la vanesa atalanta. ¡Deja un rincón salvaje en el jardín!"
+   "x": "Las ortigas son la guardería de la pavo real, la ortiguera y la vanesa atalanta. ¡Deja un rincón salvaje en el jardín!",
+   "k": "Ortiga: guardería de la mariposa pavo real"
   },
   "pt": {
    "q": "De que planta se alimentam as lagartas da borboleta-pavão?",
@@ -1978,7 +2171,8 @@
     "Carvalho",
     "Dente-de-leão"
    ],
-   "x": "As urtigas são o berçário da borboleta-pavão, da borboleta-da-urtiga e do almirante-vermelho. Deixe um cantinho selvagem no jardim!"
+   "x": "As urtigas são o berçário da borboleta-pavão, da borboleta-da-urtiga e do almirante-vermelho. Deixe um cantinho selvagem no jardim!",
+   "k": "Urtiga: berçário da borboleta-pavão"
   },
   "ja": {
    "q": "クジャクチョウの幼虫が食べる植物は？",
@@ -1988,7 +2182,8 @@
     "カシ",
     "タンポポ"
    ],
-   "x": "イラクサはクジャクチョウやヒメアカタテハ、ヨーロッパアカタテハのゆりかご。庭に野生のすみっこを残しておこう！"
+   "x": "イラクサはクジャクチョウやヒメアカタテハ、ヨーロッパアカタテハのゆりかご。庭に野生のすみっこを残しておこう！",
+   "k": "イラクサ：クジャクチョウのゆりかご"
   },
   "it": {
    "q": "Di quale pianta si nutrono i bruchi della vanessa occhio di pavone?",
@@ -1998,7 +2193,8 @@
     "Quercia",
     "Tarassaco"
    ],
-   "x": "L’ortica è un asilo per occhio di pavone, vanessa dell’ortica e vulcano. Lascia un angolo selvatico in giardino!"
+   "x": "L’ortica è un asilo per occhio di pavone, vanessa dell’ortica e vulcano. Lascia un angolo selvatico in giardino!",
+   "k": "Ortica: asilo per la vanessa occhio di pavone"
   }
  },
  {
@@ -2014,7 +2210,8 @@
     "Aus Nordafrika und Südeuropa",
     "Aus Nordamerika"
    ],
-   "x": "Distelfalter wandern in mehreren Generationen von Afrika bis Nordeuropa – ein Staffellauf über Tausende Kilometer."
+   "x": "Distelfalter wandern in mehreren Generationen von Afrika bis Nordeuropa – ein Staffellauf über Tausende Kilometer.",
+   "k": "Distelfalter: fliegen aus Afrika zu uns"
   },
   "en": {
    "q": "Where do many painted ladies that appear in Central Europe in spring come from?",
@@ -2024,7 +2221,8 @@
     "From North Africa and southern Europe",
     "From North America"
    ],
-   "x": "Painted ladies migrate over several generations from Africa to northern Europe – a relay over thousands of kilometres."
+   "x": "Painted ladies migrate over several generations from Africa to northern Europe – a relay over thousands of kilometres.",
+   "k": "Painted ladies: fly in from Africa"
   },
   "fr": {
    "q": "D'où viennent beaucoup de belles-dames qui arrivent au printemps en Europe centrale ?",
@@ -2034,7 +2232,8 @@
     "D'Afrique du Nord et d'Europe du Sud",
     "D'Amérique du Nord"
    ],
-   "x": "La belle-dame migre sur plusieurs générations de l'Afrique au nord de l'Europe : un relais de milliers de kilomètres."
+   "x": "La belle-dame migre sur plusieurs générations de l'Afrique au nord de l'Europe : un relais de milliers de kilomètres.",
+   "k": "Belles-dames : arrivent d’Afrique"
   },
   "es": {
    "q": "¿De dónde vienen muchas vanesas de los cardos que llegan en primavera a Centroeuropa?",
@@ -2044,7 +2243,8 @@
     "Del norte de África y el sur de Europa",
     "De Norteamérica"
    ],
-   "x": "Migran en varias generaciones desde África hasta el norte de Europa: un relevo de miles de kilómetros."
+   "x": "Migran en varias generaciones desde África hasta el norte de Europa: un relevo de miles de kilómetros.",
+   "k": "Vanesas de los cardos: llegan desde África"
   },
   "pt": {
    "q": "De onde vêm muitas borboletas-dos-cardos que chegam na primavera à Europa Central?",
@@ -2054,7 +2254,8 @@
     "Do norte da África e do sul da Europa",
     "Da América do Norte"
    ],
-   "x": "Elas migram em várias gerações da África até o norte da Europa: um revezamento de milhares de quilômetros."
+   "x": "Elas migram em várias gerações da África até o norte da Europa: um revezamento de milhares de quilômetros.",
+   "k": "Vanessas: chegam voando da África"
   },
   "ja": {
    "q": "春に中央ヨーロッパに現れるヒメアカタテハの多くは、どこから来る？",
@@ -2064,7 +2265,8 @@
     "北アフリカと南ヨーロッパから",
     "北アメリカから"
    ],
-   "x": "ヒメアカタテハは何世代もかけてアフリカから北ヨーロッパへ渡ります。何千キロものリレーです。"
+   "x": "ヒメアカタテハは何世代もかけてアフリカから北ヨーロッパへ渡ります。何千キロものリレーです。",
+   "k": "ヒメアカタテハ：アフリカから飛んでくる"
   },
   "it": {
    "q": "Da dove vengono molte vanesse del cardo che compaiono in Europa centrale in primavera?",
@@ -2074,7 +2276,8 @@
     "Dal Nord Africa e dal Sud Europa",
     "Dal Nord America"
    ],
-   "x": "Le vanesse del cardo migrano in più generazioni dall’Africa al Nord Europa: una staffetta di migliaia di chilometri."
+   "x": "Le vanesse del cardo migrano in più generazioni dall’Africa al Nord Europa: una staffetta di migliaia di chilometri.",
+   "k": "Vanesse del cardo: arrivano dall’Africa"
   }
  },
  {
@@ -2090,7 +2293,8 @@
     "Sie legen die Eier ins Wasser",
     "Sie legen die Eier in Vogelnester"
    ],
-   "x": "Erst schleppen sie den Eikokon an den Spinnwarzen mit. Die geschlüpften Jungen reiten dann einige Tage auf ihrem Rücken."
+   "x": "Erst schleppen sie den Eikokon an den Spinnwarzen mit. Die geschlüpften Jungen reiten dann einige Tage auf ihrem Rücken.",
+   "k": "Wolfspinnen: tragen ihre Jungen auf dem Rücken"
   },
   "en": {
    "q": "How do female wolf spiders care for their young?",
@@ -2100,7 +2304,8 @@
     "They lay their eggs in water",
     "They lay their eggs in bird nests"
    ],
-   "x": "First they drag the egg sac along on their spinnerets. The hatched young then ride on their back for some days."
+   "x": "First they drag the egg sac along on their spinnerets. The hatched young then ride on their back for some days.",
+   "k": "Wolf spiders: carry their young on their back"
   },
   "fr": {
    "q": "Comment les femelles d'araignée-loup s'occupent-elles de leurs petits ?",
@@ -2110,7 +2315,8 @@
     "Elles pondent dans l'eau",
     "Elles pondent dans des nids d'oiseaux"
    ],
-   "x": "Elles traînent d'abord leur cocon accroché aux filières. Puis les petits voyagent quelques jours sur leur dos."
+   "x": "Elles traînent d'abord leur cocon accroché aux filières. Puis les petits voyagent quelques jours sur leur dos.",
+   "k": "Lycoses : portent leurs petits sur le dos"
   },
   "es": {
    "q": "¿Cómo cuidan las hembras de araña lobo a sus crías?",
@@ -2120,7 +2326,8 @@
     "Ponen los huevos en el agua",
     "Ponen los huevos en nidos de aves"
    ],
-   "x": "Primero arrastran el saco de huevos sujeto a las hileras. Luego las crías viajan unos días sobre su espalda."
+   "x": "Primero arrastran el saco de huevos sujeto a las hileras. Luego las crías viajan unos días sobre su espalda.",
+   "k": "Arañas lobo: llevan a sus crías a cuestas"
   },
   "pt": {
    "q": "Como as fêmeas da aranha-lobo cuidam dos filhotes?",
@@ -2130,7 +2337,8 @@
     "Põem os ovos na água",
     "Põem os ovos em ninhos de aves"
    ],
-   "x": "Primeiro elas arrastam o saco de ovos preso às fiandeiras. Depois os filhotes viajam alguns dias nas costas da mãe."
+   "x": "Primeiro elas arrastam o saco de ovos preso às fiandeiras. Depois os filhotes viajam alguns dias nas costas da mãe.",
+   "k": "Aranhas-lobo: carregam os filhotes nas costas"
   },
   "ja": {
    "q": "コモリグモのメスはどうやって子育てする？",
@@ -2140,7 +2348,8 @@
     "水の中に卵を産む",
     "鳥の巣に卵を産む"
    ],
-   "x": "まず卵のうを糸いぼにつけて運びます。かえった子どもたちは、何日か母親の背中に乗って過ごします。"
+   "x": "まず卵のうを糸いぼにつけて運びます。かえった子どもたちは、何日か母親の背中に乗って過ごします。",
+   "k": "コモリグモ：子どもを背中で運ぶ"
   },
   "it": {
    "q": "Come si prendono cura dei piccoli le femmine di ragno lupo?",
@@ -2150,7 +2359,8 @@
     "Depongono le uova in acqua",
     "Depongono le uova nei nidi degli uccelli"
    ],
-   "x": "Prima si trascinano dietro il sacco delle uova attaccato alle filiere. Poi i piccoli appena nati viaggiano qualche giorno sul loro dorso."
+   "x": "Prima si trascinano dietro il sacco delle uova attaccato alle filiere. Poi i piccoli appena nati viaggiano qualche giorno sul loro dorso.",
+   "k": "Ragni lupo: portano i piccoli sul dorso"
   }
  },
  {
@@ -2164,7 +2374,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "So recyceln sie die wertvollen Eiweiße der Spinnenseide. Viele bauen ihr Netz fast täglich neu."
+   "x": "So recyceln sie die wertvollen Eiweiße der Spinnenseide. Viele bauen ihr Netz fast täglich neu.",
+   "k": "Kreuzspinnen: fressen ihr altes Netz"
   },
   "en": {
    "q": "Garden spiders often eat their old web before building a new one.",
@@ -2172,7 +2383,8 @@
     "True",
     "False"
    ],
-   "x": "This way they recycle the valuable proteins in the silk. Many rebuild their web almost every day."
+   "x": "This way they recycle the valuable proteins in the silk. Many rebuild their web almost every day.",
+   "k": "Garden spiders: eat their old web"
   },
   "fr": {
    "q": "L'épeire diadème mange souvent sa vieille toile avant d'en tisser une nouvelle.",
@@ -2180,7 +2392,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Elle recycle ainsi les précieuses protéines de la soie. Beaucoup refont leur toile presque chaque jour."
+   "x": "Elle recycle ainsi les précieuses protéines de la soie. Beaucoup refont leur toile presque chaque jour.",
+   "k": "Épeires : mangent leur vieille toile"
   },
   "es": {
    "q": "La araña de jardín (epeira) suele comerse su vieja tela antes de tejer otra.",
@@ -2188,7 +2401,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Así recicla las valiosas proteínas de la seda. Muchas rehacen su tela casi a diario."
+   "x": "Así recicla las valiosas proteínas de la seda. Muchas rehacen su tela casi a diario.",
+   "k": "Arañas de jardín: se comen su vieja tela"
   },
   "pt": {
    "q": "A aranha-de-jardim costuma comer sua teia velha antes de tecer outra.",
@@ -2196,7 +2410,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Assim ela recicla as valiosas proteínas da seda. Muitas refazem a teia quase todo dia."
+   "x": "Assim ela recicla as valiosas proteínas da seda. Muitas refazem a teia quase todo dia.",
+   "k": "Aranhas-de-jardim: comem a teia velha"
   },
   "ja": {
    "q": "正しい？まちがい？ オニグモの仲間は、新しい網を張る前に古い網を食べることが多い。",
@@ -2204,7 +2419,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "こうして糸の貴重なたんぱく質を再利用します。多くはほぼ毎日網を張り直します。"
+   "x": "こうして糸の貴重なたんぱく質を再利用します。多くはほぼ毎日網を張り直します。",
+   "k": "オニグモ：古い網を食べる"
   },
   "it": {
    "q": "Vero o falso? I ragni crociati spesso mangiano la vecchia tela prima di costruirne una nuova.",
@@ -2212,7 +2428,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Così riciclano le preziose proteine della seta. Molti rifanno la tela quasi ogni giorno."
+   "x": "Così riciclano le preziose proteine della seta. Molti rifanno la tela quasi ogni giorno.",
+   "k": "Ragni crociati: mangiano la vecchia tela"
   }
  },
  {
@@ -2228,7 +2445,8 @@
     "Spinndrüsen",
     "Beine mit Gelenken"
    ],
-   "x": "Weberknechte sind Spinnentiere, aber keine Webspinnen: Sie bauen keine Netze, und ihr Körper wirkt wie aus einem Stück."
+   "x": "Weberknechte sind Spinnentiere, aber keine Webspinnen: Sie bauen keine Netze, und ihr Körper wirkt wie aus einem Stück.",
+   "k": "Weberknechte: bauen keine Netze"
   },
   "en": {
    "q": "What does a harvestman lack, unlike true spiders?",
@@ -2238,7 +2456,8 @@
     "Silk glands",
     "Jointed legs"
    ],
-   "x": "Harvestmen are arachnids but not spiders: they build no webs, and their body looks like one single piece."
+   "x": "Harvestmen are arachnids but not spiders: they build no webs, and their body looks like one single piece.",
+   "k": "Harvestmen: don't build webs"
   },
   "fr": {
    "q": "Que n'a pas l'opilion (faucheux), contrairement aux vraies araignées ?",
@@ -2248,7 +2467,8 @@
     "Des glandes à soie",
     "Des pattes articulées"
    ],
-   "x": "Les opilions sont des arachnides mais pas des araignées : ils ne tissent pas de toile et leur corps semble d'une seule pièce."
+   "x": "Les opilions sont des arachnides mais pas des araignées : ils ne tissent pas de toile et leur corps semble d'une seule pièce.",
+   "k": "Opilions : ne tissent pas de toile"
   },
   "es": {
    "q": "¿Qué le falta al opilión, a diferencia de las arañas?",
@@ -2258,7 +2478,8 @@
     "Glándulas de seda",
     "Patas articuladas"
    ],
-   "x": "Los opiliones son arácnidos, pero no arañas: no tejen telas y su cuerpo parece de una sola pieza."
+   "x": "Los opiliones son arácnidos, pero no arañas: no tejen telas y su cuerpo parece de una sola pieza.",
+   "k": "Opiliones: no tejen telas"
   },
   "pt": {
    "q": "O que o opilião NÃO tem, ao contrário das aranhas?",
@@ -2268,7 +2489,8 @@
     "Glândulas de seda",
     "Patas articuladas"
    ],
-   "x": "Os opiliões são aracnídeos, mas não aranhas: não tecem teias e o corpo parece de uma peça só."
+   "x": "Os opiliões são aracnídeos, mas não aranhas: não tecem teias e o corpo parece de uma peça só.",
+   "k": "Opiliões: não tecem teias"
   },
   "ja": {
    "q": "ザトウムシには、本物のクモとちがって何がない？",
@@ -2278,7 +2500,8 @@
     "糸を出す腺",
     "節のある脚"
    ],
-   "x": "ザトウムシはクモの仲間（クモガタ類）ですが、クモではありません。網を張らず、体はひとつのかたまりに見えます。"
+   "x": "ザトウムシはクモの仲間（クモガタ類）ですが、クモではありません。網を張らず、体はひとつのかたまりに見えます。",
+   "k": "ザトウムシ：網を張らない"
   },
   "it": {
    "q": "Cosa manca a un opilione, a differenza dei veri ragni?",
@@ -2288,7 +2511,8 @@
     "Le ghiandole della seta",
     "Le zampe articolate"
    ],
-   "x": "Gli opilioni sono aracnidi ma non ragni: non costruiscono tele e il loro corpo sembra un pezzo unico."
+   "x": "Gli opilioni sono aracnidi ma non ragni: non costruiscono tele e il loro corpo sembra un pezzo unico.",
+   "k": "Opilioni: non tessono tele"
   }
  },
  {
@@ -2302,7 +2526,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Meist überlebt höchstens das vordere Stück und bildet ein neues Hinterende. Das hintere Stück stirbt in der Regel."
+   "x": "Meist überlebt höchstens das vordere Stück und bildet ein neues Hinterende. Das hintere Stück stirbt in der Regel.",
+   "k": "Regenwurm: aus zwei Hälften werden keine zwei Würmer"
   },
   "en": {
    "q": "If you cut an earthworm in two, you get two complete worms.",
@@ -2310,7 +2535,8 @@
     "True",
     "False"
    ],
-   "x": "Usually only the front part may survive and grow a new rear end. The back part normally dies."
+   "x": "Usually only the front part may survive and grow a new rear end. The back part normally dies.",
+   "k": "Earthworm: cut in two doesn't make two worms"
   },
   "fr": {
    "q": "Si l'on coupe un ver de terre en deux, on obtient deux vers complets.",
@@ -2318,7 +2544,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "En général, seule la partie avant peut survivre et refaire une nouvelle queue. La partie arrière meurt le plus souvent."
+   "x": "En général, seule la partie avant peut survivre et refaire une nouvelle queue. La partie arrière meurt le plus souvent.",
+   "k": "Ver de terre coupé : pas deux vers"
   },
   "es": {
    "q": "Si se corta una lombriz en dos, salen dos lombrices completas.",
@@ -2326,7 +2553,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Normalmente solo la parte delantera puede sobrevivir y regenerar un nuevo extremo trasero. La trasera suele morir."
+   "x": "Normalmente solo la parte delantera puede sobrevivir y regenerar un nuevo extremo trasero. La trasera suele morir.",
+   "k": "Lombriz cortada: no salen dos lombrices"
   },
   "pt": {
    "q": "Se cortarmos uma minhoca ao meio, surgem duas minhocas inteiras.",
@@ -2334,7 +2562,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Normalmente só a parte da frente pode sobreviver e regenerar uma nova parte de trás. A parte de trás costuma morrer."
+   "x": "Normalmente só a parte da frente pode sobreviver e regenerar uma nova parte de trás. A parte de trás costuma morrer.",
+   "k": "Minhoca cortada: não vira duas minhocas"
   },
   "ja": {
    "q": "正しい？まちがい？ ミミズを2つに切ると、2匹の完全なミミズになる。",
@@ -2342,7 +2571,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "生きのびられるのはたいてい前の部分だけで、新しいおしりが生えてくることがあります。後ろの部分はふつう死んでしまいます。"
+   "x": "生きのびられるのはたいてい前の部分だけで、新しいおしりが生えてくることがあります。後ろの部分はふつう死んでしまいます。",
+   "k": "ミミズ：切っても2匹にはならない"
   },
   "it": {
    "q": "Vero o falso? Se tagli un lombrico in due, ottieni due lombrichi completi.",
@@ -2350,7 +2580,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Di solito sopravvive solo la parte anteriore, che può far ricrescere la parte posteriore. La parte dietro di solito muore."
+   "x": "Di solito sopravvive solo la parte anteriore, che può far ricrescere la parte posteriore. La parte dietro di solito muore.",
+   "k": "Lombrico tagliato: non diventa due lombrichi"
   }
  },
  {
@@ -2364,7 +2595,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Auftrieb gibt Haien vor allem eine große, ölreiche Leber. Viele müssen schwimmen, um nicht abzusinken."
+   "x": "Auftrieb gibt Haien vor allem eine große, ölreiche Leber. Viele müssen schwimmen, um nicht abzusinken.",
+   "k": "Haie: haben keine Schwimmblase"
   },
   "en": {
    "q": "Sharks have no swim bladder.",
@@ -2372,7 +2604,8 @@
     "True",
     "False"
    ],
-   "x": "Instead, a large oil-rich liver gives sharks buoyancy. Many must keep swimming so they don't sink."
+   "x": "Instead, a large oil-rich liver gives sharks buoyancy. Many must keep swimming so they don't sink.",
+   "k": "Sharks: have no swim bladder"
   },
   "fr": {
    "q": "Les requins n'ont pas de vessie natatoire.",
@@ -2380,7 +2613,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Un grand foie riche en huile les aide à flotter. Beaucoup doivent nager sans cesse pour ne pas couler."
+   "x": "Un grand foie riche en huile les aide à flotter. Beaucoup doivent nager sans cesse pour ne pas couler.",
+   "k": "Requins : pas de vessie natatoire"
   },
   "es": {
    "q": "Los tiburones no tienen vejiga natatoria.",
@@ -2388,7 +2622,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Un hígado grande y rico en aceite les ayuda a flotar. Muchos deben nadar para no hundirse."
+   "x": "Un hígado grande y rico en aceite les ayuda a flotar. Muchos deben nadar para no hundirse.",
+   "k": "Tiburones: sin vejiga natatoria"
   },
   "pt": {
    "q": "Os tubarões não têm bexiga natatória.",
@@ -2396,7 +2631,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Um fígado grande e cheio de óleo ajuda a flutuar. Muitos precisam nadar para não afundar."
+   "x": "Um fígado grande e cheio de óleo ajuda a flutuar. Muitos precisam nadar para não afundar.",
+   "k": "Tubarões: sem bexiga natatória"
   },
   "ja": {
    "q": "正しい？まちがい？ サメには浮き袋がない。",
@@ -2404,7 +2640,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "かわりに、油をたっぷりふくんだ大きな肝臓で浮力を得ます。沈まないように泳ぎ続けなければならないサメも多いのです。"
+   "x": "かわりに、油をたっぷりふくんだ大きな肝臓で浮力を得ます。沈まないように泳ぎ続けなければならないサメも多いのです。",
+   "k": "サメ：浮き袋がない"
   },
   "it": {
    "q": "Vero o falso? Gli squali non hanno la vescica natatoria.",
@@ -2412,7 +2649,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Al suo posto, un grande fegato ricco d’olio dà agli squali la spinta per galleggiare. Molti devono nuotare sempre per non affondare."
+   "x": "Al suo posto, un grande fegato ricco d’olio dà agli squali la spinta per galleggiare. Molti devono nuotare sempre per non affondare.",
+   "k": "Squali: senza vescica natatoria"
   }
  },
  {
@@ -2428,7 +2666,8 @@
     "Beide abwechselnd",
     "Niemand – Eier liegen im Sand"
    ],
-   "x": "Das Weibchen legt die Eier in die Bruttasche des Männchens. Dort entwickeln sie sich, bis er die Jungen 'gebärt'."
+   "x": "Das Weibchen legt die Eier in die Bruttasche des Männchens. Dort entwickeln sie sich, bis er die Jungen 'gebärt'.",
+   "k": "Seepferdchen: das Männchen bekommt die Jungen"
   },
   "en": {
    "q": "Which seahorse parent gives birth to the young?",
@@ -2438,7 +2677,8 @@
     "Both, taking turns",
     "Neither – eggs lie in the sand"
    ],
-   "x": "The female puts her eggs into the male's brood pouch. They develop there until he 'gives birth' to the young."
+   "x": "The female puts her eggs into the male's brood pouch. They develop there until he 'gives birth' to the young.",
+   "k": "Seahorses: the male gives birth"
   },
   "fr": {
    "q": "Chez l'hippocampe, qui met les petits au monde ?",
@@ -2448,7 +2688,8 @@
     "Les deux à tour de rôle",
     "Personne : les œufs sont au sol"
    ],
-   "x": "La femelle dépose ses œufs dans la poche incubatrice du mâle. Ils s'y développent jusqu'à ce qu'il « accouche »."
+   "x": "La femelle dépose ses œufs dans la poche incubatrice du mâle. Ils s'y développent jusqu'à ce qu'il « accouche ».",
+   "k": "Hippocampe : le mâle met bas"
   },
   "es": {
    "q": "¿Quién da a luz a las crías del caballito de mar?",
@@ -2458,7 +2699,8 @@
     "Ambos, por turnos",
     "Nadie: los huevos están en la arena"
    ],
-   "x": "La hembra deposita los huevos en la bolsa incubadora del macho. Allí se desarrollan hasta que él «da a luz»."
+   "x": "La hembra deposita los huevos en la bolsa incubadora del macho. Allí se desarrollan hasta que él «da a luz».",
+   "k": "Caballito de mar: el macho da a luz"
   },
   "pt": {
    "q": "Quem dá à luz os filhotes do cavalo-marinho?",
@@ -2468,7 +2710,8 @@
     "Os dois, revezando",
     "Ninguém: os ovos ficam na areia"
    ],
-   "x": "A fêmea deposita os ovos na bolsa incubadora do macho. Ali eles se desenvolvem até que ele “dá à luz”."
+   "x": "A fêmea deposita os ovos na bolsa incubadora do macho. Ali eles se desenvolvem até que ele “dá à luz”.",
+   "k": "Cavalo-marinho: o macho dá à luz"
   },
   "ja": {
    "q": "タツノオトシゴで子どもを産むのはどっちの親？",
@@ -2478,7 +2721,8 @@
     "両方が交代で",
     "どちらでもない。卵は砂の上"
    ],
-   "x": "メスがオスのおなかの育児のうに卵を入れます。卵はそこで育ち、オスが子どもを「出産」します。"
+   "x": "メスがオスのおなかの育児のうに卵を入れます。卵はそこで育ち、オスが子どもを「出産」します。",
+   "k": "タツノオトシゴ：オスが出産する"
   },
   "it": {
    "q": "Nel cavalluccio marino, quale genitore partorisce i piccoli?",
@@ -2488,7 +2732,8 @@
     "Entrambi, a turno",
     "Nessuno: le uova stanno nella sabbia"
    ],
-   "x": "La femmina mette le uova nella tasca incubatrice del maschio. Lì si sviluppano finché lui non «partorisce» i piccoli."
+   "x": "La femmina mette le uova nella tasca incubatrice del maschio. Lì si sviluppano finché lui non «partorisce» i piccoli.",
+   "k": "Cavalluccio marino: partorisce il maschio"
   }
  },
  {
@@ -2504,7 +2749,8 @@
     "Als Versteck für Ohrwürmer",
     "Als Futterstelle für Vögel"
    ],
-   "x": "Ohrwürmer verstecken sich tagsüber darin und fressen nachts Blattläuse. In Ohren kriechen sie übrigens nicht gezielt."
+   "x": "Ohrwürmer verstecken sich tagsüber darin und fressen nachts Blattläuse. In Ohren kriechen sie übrigens nicht gezielt.",
+   "k": "Ohrwürmer: fressen Blattläuse"
   },
   "en": {
    "q": "Why do gardeners hang clay pots filled with wood wool upside down?",
@@ -2514,7 +2760,8 @@
     "As a shelter for earwigs",
     "As a bird feeder"
    ],
-   "x": "Earwigs hide in them by day and eat aphids at night. And no, they don't deliberately crawl into ears."
+   "x": "Earwigs hide in them by day and eat aphids at night. And no, they don't deliberately crawl into ears.",
+   "k": "Earwigs: eat aphids"
   },
   "fr": {
    "q": "Pourquoi suspend-on au jardin des pots en terre remplis de fibre de bois, à l'envers ?",
@@ -2524,7 +2771,8 @@
     "Pour abriter les perce-oreilles",
     "Pour nourrir les oiseaux"
    ],
-   "x": "Les perce-oreilles s'y cachent le jour et mangent des pucerons la nuit. Ils n'entrent pas exprès dans les oreilles."
+   "x": "Les perce-oreilles s'y cachent le jour et mangent des pucerons la nuit. Ils n'entrent pas exprès dans les oreilles.",
+   "k": "Perce-oreilles : mangent les pucerons"
   },
   "es": {
    "q": "¿Para qué se cuelgan boca abajo macetas de barro con viruta de madera?",
@@ -2534,7 +2782,8 @@
     "Como refugio para tijeretas",
     "Como comedero para pájaros"
    ],
-   "x": "Las tijeretas se esconden en ellas de día y comen pulgones de noche. Y no, no se meten a propósito en los oídos."
+   "x": "Las tijeretas se esconden en ellas de día y comen pulgones de noche. Y no, no se meten a propósito en los oídos.",
+   "k": "Tijeretas: comen pulgones"
   },
   "pt": {
    "q": "Para que se penduram vasos de barro de cabeça para baixo, cheios de palha?",
@@ -2544,7 +2793,8 @@
     "Como abrigo para tesourinhas",
     "Como comedouro para pássaros"
    ],
-   "x": "As tesourinhas se escondem neles de dia e comem pulgões à noite. E não, elas não entram de propósito nos ouvidos."
+   "x": "As tesourinhas se escondem neles de dia e comem pulgões à noite. E não, elas não entram de propósito nos ouvidos.",
+   "k": "Tesourinhas: comem pulgões"
   },
   "ja": {
    "q": "園芸好きが、木毛をつめた植木鉢を逆さにつるすのはなぜ？",
@@ -2554,7 +2804,8 @@
     "ハサミムシの隠れ家として",
     "鳥のえさ台として"
    ],
-   "x": "ハサミムシは昼間そこにかくれ、夜にアブラムシを食べます。それに、わざと耳に入ってくることはありません。"
+   "x": "ハサミムシは昼間そこにかくれ、夜にアブラムシを食べます。それに、わざと耳に入ってくることはありません。",
+   "k": "ハサミムシ：アブラムシを食べる"
   },
   "it": {
    "q": "Perché i giardinieri appendono a testa in giù vasi di terracotta pieni di paglia di legno?",
@@ -2564,7 +2815,8 @@
     "Come rifugio per le forbicine",
     "Come mangiatoia per uccelli"
    ],
-   "x": "Di giorno le forbicine ci si nascondono e di notte mangiano gli afidi. E no, non entrano apposta nelle orecchie."
+   "x": "Di giorno le forbicine ci si nascondono e di notte mangiano gli afidi. E no, non entrano apposta nelle orecchie.",
+   "k": "Forbicine: mangiano afidi"
   }
  },
  {
@@ -2580,7 +2832,8 @@
     "Sie sind junge Wespen",
     "Sie sind harmlos und ahmen Wespen nach"
    ],
-   "x": "Die Tarnung schreckt Feinde ab. Die Larven vieler Schwebfliegen fressen Blattläuse – echte Gartenhelfer!"
+   "x": "Die Tarnung schreckt Feinde ab. Die Larven vieler Schwebfliegen fressen Blattläuse – echte Gartenhelfer!",
+   "k": "Schwebfliegen: harmlose Wespen-Doubles"
   },
   "en": {
    "q": "Hoverflies often look like wasps. What is true?",
@@ -2590,7 +2843,8 @@
     "They are young wasps",
     "They're harmless wasp mimics"
    ],
-   "x": "The disguise scares off enemies. The larvae of many hoverflies eat aphids – real garden helpers!"
+   "x": "The disguise scares off enemies. The larvae of many hoverflies eat aphids – real garden helpers!",
+   "k": "Hoverflies: harmless wasp look-alikes"
   },
   "fr": {
    "q": "Les syrphes ressemblent souvent à des guêpes. Qu'est-ce qui est vrai ?",
@@ -2600,7 +2854,8 @@
     "Ce sont de jeunes guêpes",
     "Inoffensifs, ils imitent les guêpes"
    ],
-   "x": "Ce déguisement effraie les ennemis. Les larves de nombreux syrphes mangent des pucerons : de vrais alliés du jardin !"
+   "x": "Ce déguisement effraie les ennemis. Les larves de nombreux syrphes mangent des pucerons : de vrais alliés du jardin !",
+   "k": "Syrphes : sosies inoffensifs des guêpes"
   },
   "es": {
    "q": "Los sírfidos suelen parecer avispas. ¿Qué es cierto?",
@@ -2610,7 +2865,8 @@
     "Son avispas jóvenes",
     "Son inofensivos e imitan a avispas"
    ],
-   "x": "El disfraz asusta a los enemigos. Las larvas de muchos sírfidos comen pulgones: ¡grandes ayudantes del jardín!"
+   "x": "El disfraz asusta a los enemigos. Las larvas de muchos sírfidos comen pulgones: ¡grandes ayudantes del jardín!",
+   "k": "Sírfidos: dobles inofensivos de las avispas"
   },
   "pt": {
    "q": "As moscas-das-flores muitas vezes parecem vespas. O que é verdade?",
@@ -2620,7 +2876,8 @@
     "São vespas jovens",
     "São inofensivas e imitam vespas"
    ],
-   "x": "O disfarce assusta os inimigos. As larvas de muitas moscas-das-flores comem pulgões – ótimas ajudantes do jardim!"
+   "x": "O disfarce assusta os inimigos. As larvas de muitas moscas-das-flores comem pulgões – ótimas ajudantes do jardim!",
+   "k": "Sirfídeos: sósias inofensivos das vespas"
   },
   "ja": {
    "q": "ハナアブはハチによく似ている。正しいのは？",
@@ -2630,7 +2887,8 @@
     "ハチの子ども",
     "無害なハチのそっくりさん"
    ],
-   "x": "変装で敵をこわがらせるのです。多くのハナアブの幼虫はアブラムシを食べます。庭の名助っ人！"
+   "x": "変装で敵をこわがらせるのです。多くのハナアブの幼虫はアブラムシを食べます。庭の名助っ人！",
+   "k": "ハナアブ：無害なハチのそっくりさん"
   },
   "it": {
    "q": "I sirfidi somigliano spesso alle vespe. Cosa è vero?",
@@ -2640,7 +2898,8 @@
     "Sono vespe giovani",
     "Sono innocui imitatori delle vespe"
    ],
-   "x": "Il travestimento spaventa i nemici. Le larve di molti sirfidi mangiano afidi: veri aiutanti del giardino!"
+   "x": "Il travestimento spaventa i nemici. Le larve di molti sirfidi mangiano afidi: veri aiutanti del giardino!",
+   "k": "Sirfidi: sosia innocui delle vespe"
   }
  },
  {
@@ -2656,7 +2915,8 @@
     "Käfer",
     "Schmetterlinge"
    ],
-   "x": "Mit rund 350.000 bis 400.000 beschriebenen Arten sind Käfer die artenreichste Tiergruppe der Erde."
+   "x": "Mit rund 350.000 bis 400.000 beschriebenen Arten sind Käfer die artenreichste Tiergruppe der Erde.",
+   "k": "Käfer: die artenreichste Tiergruppe"
   },
   "en": {
    "q": "Which animal group has the most known species worldwide?",
@@ -2666,7 +2926,8 @@
     "Beetles",
     "Butterflies and moths"
    ],
-   "x": "With around 350,000 to 400,000 described species, beetles are the most species-rich animal group on Earth."
+   "x": "With around 350,000 to 400,000 described species, beetles are the most species-rich animal group on Earth.",
+   "k": "Beetles: the most species-rich animal group"
   },
   "fr": {
    "q": "Quel groupe d'animaux compte le plus d'espèces connues au monde ?",
@@ -2676,7 +2937,8 @@
     "Les coléoptères",
     "Les papillons"
    ],
-   "x": "Avec environ 350 000 à 400 000 espèces décrites, les coléoptères sont le groupe animal le plus riche en espèces."
+   "x": "Avec environ 350 000 à 400 000 espèces décrites, les coléoptères sont le groupe animal le plus riche en espèces.",
+   "k": "Coléoptères : le groupe le plus riche en espèces"
   },
   "es": {
    "q": "¿Qué grupo de animales tiene más especies conocidas en el mundo?",
@@ -2686,7 +2948,8 @@
     "Los escarabajos",
     "Las mariposas"
    ],
-   "x": "Con unas 350.000 a 400.000 especies descritas, los escarabajos son el grupo animal con más especies de la Tierra."
+   "x": "Con unas 350.000 a 400.000 especies descritas, los escarabajos son el grupo animal con más especies de la Tierra.",
+   "k": "Escarabajos: el grupo con más especies"
   },
   "pt": {
    "q": "Qual grupo de animais tem mais espécies conhecidas no mundo?",
@@ -2696,7 +2959,8 @@
     "Os besouros",
     "As borboletas"
    ],
-   "x": "Com cerca de 350.000 a 400.000 espécies descritas, os besouros são o grupo animal com mais espécies da Terra."
+   "x": "Com cerca de 350.000 a 400.000 espécies descritas, os besouros são o grupo animal com mais espécies da Terra.",
+   "k": "Besouros: o grupo com mais espécies"
   },
   "ja": {
    "q": "世界で知られている種の数がいちばん多い動物グループは？",
@@ -2706,7 +2970,8 @@
     "甲虫",
     "チョウとガ"
    ],
-   "x": "記載されている種は約35万〜40万。甲虫は地球でいちばん種の多い動物グループです。"
+   "x": "記載されている種は約35万〜40万。甲虫は地球でいちばん種の多い動物グループです。",
+   "k": "甲虫：いちばん種の多い動物グループ"
   },
   "it": {
    "q": "Quale gruppo di animali ha più specie conosciute al mondo?",
@@ -2716,7 +2981,8 @@
     "Coleotteri",
     "Farfalle e falene"
    ],
-   "x": "Con circa 350.000–400.000 specie descritte, i coleotteri sono il gruppo di animali più ricco di specie della Terra."
+   "x": "Con circa 350.000–400.000 specie descritte, i coleotteri sono il gruppo di animali più ricco di specie della Terra.",
+   "k": "Coleotteri: il gruppo con più specie"
   }
  },
  {
@@ -2732,7 +2998,8 @@
     "Im Wattenmeer",
     "In Gebirgsbächen"
    ],
-   "x": "Aale wandern Tausende Kilometer in die Sargassosee im Atlantik. Ihre Larven treiben mit der Strömung zurück nach Europa."
+   "x": "Aale wandern Tausende Kilometer in die Sargassosee im Atlantik. Ihre Larven treiben mit der Strömung zurück nach Europa.",
+   "k": "Aal: laicht in der Sargassosee"
   },
   "en": {
    "q": "Where does the European eel spawn?",
@@ -2742,7 +3009,8 @@
     "In the Wadden Sea",
     "In mountain streams"
    ],
-   "x": "Eels travel thousands of kilometres to the Sargasso Sea in the Atlantic. Their larvae drift back to Europe on currents."
+   "x": "Eels travel thousands of kilometres to the Sargasso Sea in the Atlantic. Their larvae drift back to Europe on currents.",
+   "k": "Eel: spawns in the Sargasso Sea"
   },
   "fr": {
    "q": "Où se reproduit l'anguille européenne ?",
@@ -2752,7 +3020,8 @@
     "Dans la mer des Wadden",
     "Dans les torrents de montagne"
    ],
-   "x": "Les anguilles parcourent des milliers de kilomètres jusqu'à la mer des Sargasses. Leurs larves dérivent ensuite vers l'Europe."
+   "x": "Les anguilles parcourent des milliers de kilomètres jusqu'à la mer des Sargasses. Leurs larves dérivent ensuite vers l'Europe.",
+   "k": "Anguille : se reproduit dans la mer des Sargasses"
   },
   "es": {
    "q": "¿Dónde desova la anguila europea?",
@@ -2762,7 +3031,8 @@
     "En el mar de Wadden",
     "En arroyos de montaña"
    ],
-   "x": "Las anguilas recorren miles de kilómetros hasta el mar de los Sargazos. Sus larvas vuelven a Europa con las corrientes."
+   "x": "Las anguilas recorren miles de kilómetros hasta el mar de los Sargazos. Sus larvas vuelven a Europa con las corrientes.",
+   "k": "Anguila: desova en el mar de los Sargazos"
   },
   "pt": {
    "q": "Onde a enguia-europeia desova?",
@@ -2772,7 +3042,8 @@
     "No mar de Wadden",
     "Em riachos de montanha"
    ],
-   "x": "As enguias percorrem milhares de quilômetros até o mar dos Sargaços. Suas larvas voltam à Europa com as correntes."
+   "x": "As enguias percorrem milhares de quilômetros até o mar dos Sargaços. Suas larvas voltam à Europa com as correntes.",
+   "k": "Enguia: desova no Mar dos Sargaços"
   },
   "ja": {
    "q": "ヨーロッパウナギはどこで産卵する？",
@@ -2782,7 +3053,8 @@
     "ワッデン海",
     "山の川"
    ],
-   "x": "ウナギは何千キロも旅して、大西洋のサルガッソー海へ向かいます。幼生は海流に乗ってヨーロッパへもどります。"
+   "x": "ウナギは何千キロも旅して、大西洋のサルガッソー海へ向かいます。幼生は海流に乗ってヨーロッパへもどります。",
+   "k": "ウナギ：サルガッソー海で産卵"
   },
   "it": {
    "q": "Dove si riproduce l’anguilla europea?",
@@ -2792,7 +3064,8 @@
     "Nel Mare dei Wadden",
     "Nei torrenti di montagna"
    ],
-   "x": "Le anguille viaggiano per migliaia di chilometri fino al Mar dei Sargassi, nell’Atlantico. Le larve tornano in Europa trasportate dalle correnti."
+   "x": "Le anguille viaggiano per migliaia di chilometri fino al Mar dei Sargassi, nell’Atlantico. Le larve tornano in Europa trasportate dalle correnti.",
+   "k": "Anguilla: si riproduce nel Mar dei Sargassi"
   }
  },
  {
@@ -2808,7 +3081,8 @@
     "Am Geruch des Wassers",
     "Sie folgen den Aalen"
    ],
-   "x": "Junge Lachse prägen sich den Geruch ihres Heimatgewässers ein. Jahre später finden sie damit aus dem Meer zurück."
+   "x": "Junge Lachse prägen sich den Geruch ihres Heimatgewässers ein. Jahre später finden sie damit aus dem Meer zurück.",
+   "k": "Lachse: finden ihren Fluss am Geruch"
   },
   "en": {
    "q": "How do salmon recognise their home river to spawn there?",
@@ -2818,7 +3092,8 @@
     "By the smell of the water",
     "They follow the eels"
    ],
-   "x": "Young salmon memorise the smell of their home waters. Years later, they use it to find their way back from the sea."
+   "x": "Young salmon memorise the smell of their home waters. Years later, they use it to find their way back from the sea.",
+   "k": "Salmon: find their river by smell"
   },
   "fr": {
    "q": "Comment les saumons reconnaissent-ils leur rivière natale pour y frayer ?",
@@ -2828,7 +3103,8 @@
     "À l'odeur de l'eau",
     "Ils suivent les anguilles"
    ],
-   "x": "Les jeunes saumons mémorisent l'odeur de leur rivière natale. Des années plus tard, elle les guide depuis la mer."
+   "x": "Les jeunes saumons mémorisent l'odeur de leur rivière natale. Des années plus tard, elle les guide depuis la mer.",
+   "k": "Saumons : retrouvent leur rivière à l’odeur"
   },
   "es": {
    "q": "¿Cómo reconocen los salmones su río natal para desovar allí?",
@@ -2838,7 +3114,8 @@
     "Por el olor del agua",
     "Siguen a las anguilas"
    ],
-   "x": "Los salmones jóvenes memorizan el olor de su río natal. Años después, lo usan para volver desde el mar."
+   "x": "Los salmones jóvenes memorizan el olor de su río natal. Años después, lo usan para volver desde el mar.",
+   "k": "Salmones: encuentran su río por el olor"
   },
   "pt": {
    "q": "Como os salmões reconhecem o rio onde nasceram para desovar lá?",
@@ -2848,7 +3125,8 @@
     "Pelo cheiro da água",
     "Seguem as enguias"
    ],
-   "x": "Os salmões jovens memorizam o cheiro do rio natal. Anos depois, usam isso para voltar do mar."
+   "x": "Os salmões jovens memorizam o cheiro do rio natal. Anos depois, usam isso para voltar do mar.",
+   "k": "Salmões: acham o rio pelo cheiro"
   },
   "ja": {
    "q": "サケは産卵のため、どうやって生まれた川を見分ける？",
@@ -2858,7 +3136,8 @@
     "水のにおいで",
     "ウナギについていく"
    ],
-   "x": "若いサケはふるさとの川のにおいを覚えます。何年もあとに、そのにおいをたよりに海からもどってきます。"
+   "x": "若いサケはふるさとの川のにおいを覚えます。何年もあとに、そのにおいをたよりに海からもどってきます。",
+   "k": "サケ：においで生まれた川を見つける"
   },
   "it": {
    "q": "Come riconoscono i salmoni il fiume natale per deporre le uova?",
@@ -2868,7 +3147,8 @@
     "Dall’odore dell’acqua",
     "Seguono le anguille"
    ],
-   "x": "I giovani salmoni memorizzano l’odore delle acque di casa. Anni dopo lo usano per ritrovare la strada dal mare."
+   "x": "I giovani salmoni memorizzano l’odore delle acque di casa. Anni dopo lo usano per ritrovare la strada dal mare.",
+   "k": "Salmoni: ritrovano il fiume dall’odore"
   }
  },
  {
@@ -2884,7 +3164,8 @@
     "Lampen mit UV-Anteil",
     "Warmweißes, gelbliches Licht"
    ],
-   "x": "Insekten fliegen vor allem auf blaues und UV-Licht. Besser: warmweiße, nach unten gerichtete Lampen – oder gar kein Licht."
+   "x": "Insekten fliegen vor allem auf blaues und UV-Licht. Besser: warmweiße, nach unten gerichtete Lampen – oder gar kein Licht.",
+   "k": "Warmweißes Licht: lockt kaum Insekten an"
   },
   "en": {
    "q": "Which garden lighting attracts the fewest insects at night?",
@@ -2894,7 +3175,8 @@
     "Lamps that emit UV",
     "Warm white, yellowish light"
    ],
-   "x": "Insects are drawn mostly to blue and UV light. Better: warm white lamps pointing downwards – or no light at all."
+   "x": "Insects are drawn mostly to blue and UV light. Better: warm white lamps pointing downwards – or no light at all.",
+   "k": "Warm white light: attracts few insects"
   },
   "fr": {
    "q": "Quel éclairage de jardin attire le moins d'insectes la nuit ?",
@@ -2904,7 +3186,8 @@
     "Lampes émettant des UV",
     "Lumière blanc chaud, jaunâtre"
    ],
-   "x": "Les insectes sont surtout attirés par la lumière bleue et UV. Mieux : des lampes blanc chaud dirigées vers le bas, ou pas de lumière."
+   "x": "Les insectes sont surtout attirés par la lumière bleue et UV. Mieux : des lampes blanc chaud dirigées vers le bas, ou pas de lumière.",
+   "k": "Lumière blanc chaud : attire peu d’insectes"
   },
   "es": {
    "q": "¿Qué iluminación de jardín atrae menos insectos por la noche?",
@@ -2914,7 +3197,8 @@
     "Lámparas con luz UV",
     "Luz blanca cálida, amarillenta"
    ],
-   "x": "Los insectos acuden sobre todo a la luz azul y UV. Mejor: lámparas cálidas orientadas hacia abajo, o ninguna luz."
+   "x": "Los insectos acuden sobre todo a la luz azul y UV. Mejor: lámparas cálidas orientadas hacia abajo, o ninguna luz.",
+   "k": "Luz blanca cálida: atrae pocos insectos"
   },
   "pt": {
    "q": "Que iluminação de jardim atrai menos insetos à noite?",
@@ -2924,7 +3208,8 @@
     "Lâmpadas com luz UV",
     "Luz branca quente, amarelada"
    ],
-   "x": "Os insetos vêm sobretudo à luz azul e UV. Melhor: lâmpadas quentes voltadas para baixo – ou luz nenhuma."
+   "x": "Os insetos vêm sobretudo à luz azul e UV. Melhor: lâmpadas quentes voltadas para baixo – ou luz nenhuma.",
+   "k": "Luz branca quente: atrai poucos insetos"
   },
   "ja": {
    "q": "夜に虫がいちばん集まりにくい庭の明かりは？",
@@ -2934,7 +3219,8 @@
     "紫外線を出すランプ",
     "暖かい白や黄色っぽい光"
    ],
-   "x": "虫は特に青い光や紫外線に引きよせられます。おすすめは、下向きの暖かい白色のランプ。または明かりなし。"
+   "x": "虫は特に青い光や紫外線に引きよせられます。おすすめは、下向きの暖かい白色のランプ。または明かりなし。",
+   "k": "暖かい白色の光：虫が集まりにくい"
   },
   "it": {
    "q": "Quale luce da giardino attira meno insetti di notte?",
@@ -2944,7 +3230,8 @@
     "Lampade che emettono UV",
     "Luce bianca calda, giallastra"
    ],
-   "x": "Gli insetti sono attratti soprattutto da luce blu e UV. Meglio: lampade bianco caldo rivolte verso il basso, o nessuna luce."
+   "x": "Gli insetti sono attratti soprattutto da luce blu e UV. Meglio: lampade bianco caldo rivolte verso il basso, o nessuna luce.",
+   "k": "Luce bianca calda: attira pochi insetti"
   }
  },
  {
@@ -2960,7 +3247,8 @@
     "Es klebt die Eier an Wasservögel",
     "Es baut ein Nest und bewacht die Brut"
    ],
-   "x": "Das Männchen bekommt einen roten Bauch, baut ein Nest aus Pflanzenteilen und fächelt den Eiern frisches Wasser zu."
+   "x": "Das Männchen bekommt einen roten Bauch, baut ein Nest aus Pflanzenteilen und fächelt den Eiern frisches Wasser zu.",
+   "k": "Stichling-Männchen: baut ein Nest"
   },
   "en": {
    "q": "What does the male three-spined stickleback do in the breeding season?",
@@ -2970,7 +3258,8 @@
     "Sticks the eggs onto waterbirds",
     "Builds a nest and guards the brood"
    ],
-   "x": "The male turns red-bellied, builds a nest from plant material and fans fresh water over the eggs."
+   "x": "The male turns red-bellied, builds a nest from plant material and fans fresh water over the eggs.",
+   "k": "Male stickleback: builds a nest"
   },
   "fr": {
    "q": "Que fait le mâle de l'épinoche à trois épines pendant la reproduction ?",
@@ -2980,7 +3269,8 @@
     "Il colle les œufs sur des oiseaux",
     "Il construit un nid et garde les œufs"
    ],
-   "x": "Le mâle prend un ventre rouge, construit un nid de débris végétaux et ventile les œufs avec de l'eau fraîche."
+   "x": "Le mâle prend un ventre rouge, construit un nid de débris végétaux et ventile les œufs avec de l'eau fraîche.",
+   "k": "Épinoche mâle : construit un nid"
   },
   "es": {
    "q": "¿Qué hace el macho del espinoso durante la reproducción?",
@@ -2990,7 +3280,8 @@
     "Pega los huevos a aves acuáticas",
     "Construye un nido y cuida la puesta"
    ],
-   "x": "El macho se vuelve de vientre rojo, construye un nido con restos de plantas y abanica los huevos con agua fresca."
+   "x": "El macho se vuelve de vientre rojo, construye un nido con restos de plantas y abanica los huevos con agua fresca.",
+   "k": "Espinoso macho: construye un nido"
   },
   "pt": {
    "q": "O que faz o macho do esgana-gata na reprodução?",
@@ -3000,7 +3291,8 @@
     "Gruda os ovos em aves aquáticas",
     "Constrói um ninho e cuida da desova"
    ],
-   "x": "O macho fica com a barriga vermelha, constrói um ninho com restos de plantas e abana os ovos com água fresca."
+   "x": "O macho fica com a barriga vermelha, constrói um ninho com restos de plantas e abana os ovos com água fresca.",
+   "k": "Esgana-gata macho: constrói um ninho"
   },
   "ja": {
    "q": "イトヨのオスは繁殖期に何をする？",
@@ -3010,7 +3302,8 @@
     "卵を水鳥にくっつける",
     "巣を作って卵を守る"
    ],
-   "x": "オスはおなかが赤くなり、植物で巣を作って、卵に新しい水を送り続けます。"
+   "x": "オスはおなかが赤くなり、植物で巣を作って、卵に新しい水を送り続けます。",
+   "k": "イトヨのオス：巣を作る"
   },
   "it": {
    "q": "Cosa fa il maschio di spinarello nella stagione riproduttiva?",
@@ -3020,7 +3313,8 @@
     "Attacca le uova agli uccelli acquatici",
     "Costruisce un nido e sorveglia la covata"
    ],
-   "x": "Il maschio diventa rosso sul ventre, costruisce un nido con materiale vegetale e sventola acqua fresca sulle uova."
+   "x": "Il maschio diventa rosso sul ventre, costruisce un nido con materiale vegetale e sventola acqua fresca sulle uova.",
+   "k": "Spinarello maschio: costruisce un nido"
   }
  },
  {
@@ -3036,7 +3330,8 @@
     "Mit einem Pfropfen aus Erde",
     "Gar nicht – es bleibt offen"
    ],
-   "x": "Sie gräbt sich ein und verschließt die Öffnung mit einem Kalkdeckel. In Deutschland stehen Weinbergschnecken unter Schutz."
+   "x": "Sie gräbt sich ein und verschließt die Öffnung mit einem Kalkdeckel. In Deutschland stehen Weinbergschnecken unter Schutz.",
+   "k": "Weinbergschnecke: verschließt ihr Haus mit Kalk"
   },
   "en": {
    "q": "How does the Roman snail seal its shell in winter?",
@@ -3046,7 +3341,8 @@
     "With a plug of soil",
     "Not at all – it stays open"
    ],
-   "x": "It digs in and seals the opening with a chalky lid. In Germany, Roman snails are a protected species."
+   "x": "It digs in and seals the opening with a chalky lid. In Germany, Roman snails are a protected species.",
+   "k": "Roman snail: seals its shell with chalk"
   },
   "fr": {
    "q": "Comment l'escargot de Bourgogne ferme-t-il sa coquille en hiver ?",
@@ -3056,7 +3352,8 @@
     "Avec un bouchon de terre",
     "Il ne la ferme pas"
    ],
-   "x": "Il s'enterre et ferme l'ouverture avec un couvercle calcaire. En Allemagne, cette espèce est protégée."
+   "x": "Il s'enterre et ferme l'ouverture avec un couvercle calcaire. En Allemagne, cette espèce est protégée.",
+   "k": "Escargot de Bourgogne : ferme sa coquille au calcaire"
   },
   "es": {
    "q": "¿Cómo cierra su concha en invierno el caracol de Borgoña?",
@@ -3066,7 +3363,8 @@
     "Con un tapón de tierra",
     "No la cierra"
    ],
-   "x": "Se entierra y cierra la abertura con una tapa calcárea. En Alemania es una especie protegida."
+   "x": "Se entierra y cierra la abertura con una tapa calcárea. En Alemania es una especie protegida.",
+   "k": "Caracol de Borgoña: cierra la concha con cal"
   },
   "pt": {
    "q": "Como o caracol-de-borgonha fecha a concha no inverno?",
@@ -3076,7 +3374,8 @@
     "Com um tampão de terra",
     "Ele não fecha"
    ],
-   "x": "Ele se enterra e fecha a abertura com uma tampa de calcário. Na Alemanha é uma espécie protegida."
+   "x": "Ele se enterra e fecha a abertura com uma tampa de calcário. Na Alemanha é uma espécie protegida.",
+   "k": "Caracol-de-borgonha: fecha a concha com cal"
   },
   "ja": {
    "q": "エスカルゴ（リンゴマイマイ）は冬にどうやって殻にふたをする？",
@@ -3086,7 +3385,8 @@
     "土のせんで",
     "ふたはしない"
    ],
-   "x": "土にもぐり、石灰質のふたで殻の口を閉じます。ドイツではリンゴマイマイは保護されています。"
+   "x": "土にもぐり、石灰質のふたで殻の口を閉じます。ドイツではリンゴマイマイは保護されています。",
+   "k": "エスカルゴ：石灰のふたで殻を閉じる"
   },
   "it": {
    "q": "Come chiude il guscio d’inverno la chiocciola degli orti (Helix pomatia)?",
@@ -3096,7 +3396,8 @@
     "Con un tappo di terra",
     "Non lo chiude"
    ],
-   "x": "Si interra e chiude l’apertura con un coperchio calcareo. In Germania la chiocciola degli orti è protetta."
+   "x": "Si interra e chiude l’apertura con un coperchio calcareo. In Germania la chiocciola degli orti è protetta.",
+   "k": "Chiocciola degli orti: chiude il guscio col calcare"
   }
  },
  {
@@ -3112,7 +3413,8 @@
     "Der Biber",
     "Zu viele Wasserpflanzen"
    ],
-   "x": "Amerikanische Krebse wie der Signalkrebs tragen den Erreger, ohne zu erkranken. Für heimische Krebse ist er meist tödlich."
+   "x": "Amerikanische Krebse wie der Signalkrebs tragen den Erreger, ohne zu erkranken. Für heimische Krebse ist er meist tödlich.",
+   "k": "Edelkrebs: durch eingeschleppte Krebspest bedroht"
   },
   "en": {
    "q": "What is the biggest threat to the native noble crayfish?",
@@ -3122,7 +3424,8 @@
     "Beavers",
     "Too many water plants"
    ],
-   "x": "American species like the signal crayfish carry the pathogen without falling ill. For native crayfish it is usually fatal."
+   "x": "American species like the signal crayfish carry the pathogen without falling ill. For native crayfish it is usually fatal.",
+   "k": "Noble crayfish: threatened by crayfish plague"
   },
   "fr": {
    "q": "Quelle est la plus grande menace pour l'écrevisse à pattes rouges ?",
@@ -3132,7 +3435,8 @@
     "Le castor",
     "Trop de plantes aquatiques"
    ],
-   "x": "Des écrevisses américaines comme l'écrevisse signal portent le pathogène sans être malades. Il tue souvent les espèces indigènes."
+   "x": "Des écrevisses américaines comme l'écrevisse signal portent le pathogène sans être malades. Il tue souvent les espèces indigènes.",
+   "k": "Écrevisse à pattes rouges : menacée par la peste"
   },
   "es": {
    "q": "¿Cuál es la mayor amenaza para el cangrejo de río europeo?",
@@ -3142,7 +3446,8 @@
     "El castor",
     "El exceso de plantas acuáticas"
    ],
-   "x": "Especies americanas como el cangrejo señal portan el patógeno sin enfermar. Para los cangrejos autóctonos suele ser mortal."
+   "x": "Especies americanas como el cangrejo señal portan el patógeno sin enfermar. Para los cangrejos autóctonos suele ser mortal.",
+   "k": "Cangrejo de río europeo: amenazado por la afanomicosis"
   },
   "pt": {
    "q": "Qual é a maior ameaça para o lagostim-europeu?",
@@ -3152,7 +3457,8 @@
     "O castor",
     "Plantas aquáticas demais"
    ],
-   "x": "Espécies americanas, como o lagostim-sinal, carregam o patógeno sem adoecer. Para os lagostins nativos costuma ser mortal."
+   "x": "Espécies americanas, como o lagostim-sinal, carregam o patógeno sem adoecer. Para os lagostins nativos costuma ser mortal.",
+   "k": "Lagostim-europeu: ameaçado pela peste"
   },
   "ja": {
    "q": "在来のヨーロッパザリガニにとって、いちばんの脅威は？",
@@ -3162,7 +3468,8 @@
     "ビーバー",
     "水草が多すぎること"
    ],
-   "x": "シグナルザリガニなどアメリカの種は、病原体を運んでも自分は発病しません。在来のザリガニにはたいてい命取りです。"
+   "x": "シグナルザリガニなどアメリカの種は、病原体を運んでも自分は発病しません。在来のザリガニにはたいてい命取りです。",
+   "k": "ヨーロッパザリガニ：ザリガニペストで危機"
   },
   "it": {
    "q": "Qual è la minaccia più grande per il gambero di fiume europeo?",
@@ -3172,7 +3479,8 @@
     "I castori",
     "Troppe piante acquatiche"
    ],
-   "x": "Specie americane come il gambero segnale portano il patogeno senza ammalarsi. Per i gamberi autoctoni di solito è mortale."
+   "x": "Specie americane come il gambero segnale portano il patogeno senza ammalarsi. Per i gamberi autoctoni di solito è mortale.",
+   "k": "Gambero di fiume: minacciato dalla peste"
   }
  },
  {
@@ -3188,7 +3496,8 @@
     "Er stülpt seinen Magen in die Muschel",
     "Er saugt sie durch die Arme auf"
    ],
-   "x": "Er zieht die Schalen mit seinen Saugfüßchen einen Spalt auf, stülpt den Magen hinein und verdaut die Muschel darin."
+   "x": "Er zieht die Schalen mit seinen Saugfüßchen einen Spalt auf, stülpt den Magen hinein und verdaut die Muschel darin.",
+   "k": "Seestern: verdaut Muscheln mit dem Magen von außen"
   },
   "en": {
    "q": "How does a starfish eat a mussel?",
@@ -3198,7 +3507,8 @@
     "It pushes its stomach into the mussel",
     "It sucks it up through its arms"
    ],
-   "x": "It pulls the shells slightly apart with its tube feet, pushes its stomach inside and digests the mussel right there."
+   "x": "It pulls the shells slightly apart with its tube feet, pushes its stomach inside and digests the mussel right there.",
+   "k": "Starfish: digests mussels with its stomach"
   },
   "fr": {
    "q": "Comment une étoile de mer mange-t-elle une moule ?",
@@ -3208,7 +3518,8 @@
     "Elle glisse son estomac dans la moule",
     "Elle l'aspire par ses bras"
    ],
-   "x": "Elle entrouvre les valves avec ses pieds ambulacraires, y glisse son estomac et digère la moule sur place."
+   "x": "Elle entrouvre les valves avec ses pieds ambulacraires, y glisse son estomac et digère la moule sur place.",
+   "k": "Étoile de mer : digère les moules avec son estomac"
   },
   "es": {
    "q": "¿Cómo se come una estrella de mar a un mejillón?",
@@ -3218,7 +3529,8 @@
     "Mete su estómago dentro del mejillón",
     "Lo absorbe por los brazos"
    ],
-   "x": "Abre un poco las valvas con sus pies ambulacrales, introduce el estómago y digiere el mejillón allí mismo."
+   "x": "Abre un poco las valvas con sus pies ambulacrales, introduce el estómago y digiere el mejillón allí mismo.",
+   "k": "Estrella de mar: digiere mejillones con el estómago"
   },
   "pt": {
    "q": "Como uma estrela-do-mar come um mexilhão?",
@@ -3228,7 +3540,8 @@
     "Coloca o estômago dentro do mexilhão",
     "Suga-o pelos braços"
    ],
-   "x": "Ela abre um pouco as conchas com os pés ambulacrais, coloca o estômago para dentro e digere o mexilhão ali mesmo."
+   "x": "Ela abre um pouco as conchas com os pés ambulacrais, coloca o estômago para dentro e digere o mexilhão ali mesmo.",
+   "k": "Estrela-do-mar: digere mexilhões com o estômago"
   },
   "ja": {
    "q": "ヒトデはどうやって貝を食べる？",
@@ -3238,7 +3551,8 @@
     "胃を貝の中に押しこむ",
     "腕から吸いこむ"
    ],
-   "x": "管足で貝の殻を少しこじあけ、胃を中に押しこんで、その場で貝を消化します。"
+   "x": "管足で貝の殻を少しこじあけ、胃を中に押しこんで、その場で貝を消化します。",
+   "k": "ヒトデ：胃を出して貝を消化"
   },
   "it": {
    "q": "Come mangia una cozza la stella marina?",
@@ -3248,7 +3562,8 @@
     "Spinge lo stomaco dentro la cozza",
     "La aspira con le braccia"
    ],
-   "x": "Con i pedicelli apre un po’ le valve, spinge dentro lo stomaco e digerisce la cozza sul posto."
+   "x": "Con i pedicelli apre un po’ le valve, spinge dentro lo stomaco e digerisce la cozza sul posto.",
+   "k": "Stella marina: digerisce le cozze con lo stomaco"
   }
  },
  {
@@ -3264,7 +3579,8 @@
     "Sie kriechen durch den Boden",
     "Sie treiben in Schaumflocken"
    ],
-   "x": "Die winzigen Larven (Glochidien) klammern sich an Kiemen oder Flossen von Fischen und lassen sich eine Weile mitnehmen."
+   "x": "Die winzigen Larven (Glochidien) klammern sich an Kiemen oder Flossen von Fischen und lassen sich eine Weile mitnehmen.",
+   "k": "Muschellarven: reisen an Fischen mit"
   },
   "en": {
    "q": "How do the larvae of native freshwater mussels like the swan mussel spread?",
@@ -3274,7 +3590,8 @@
     "They crawl through the soil",
     "They drift in flecks of foam"
    ],
-   "x": "The tiny larvae (glochidia) cling to the gills or fins of fish and hitch a ride for a while."
+   "x": "The tiny larvae (glochidia) cling to the gills or fins of fish and hitch a ride for a while.",
+   "k": "Mussel larvae: hitch a ride on fish"
   },
   "fr": {
    "q": "Comment se dispersent les larves des grandes moules d'eau douce comme l'anodonte ?",
@@ -3284,7 +3601,8 @@
     "Elles rampent dans le sol",
     "Elles flottent dans l'écume"
    ],
-   "x": "Les minuscules larves (glochidies) s'accrochent aux branchies ou aux nageoires des poissons et voyagent un moment avec eux."
+   "x": "Les minuscules larves (glochidies) s'accrochent aux branchies ou aux nageoires des poissons et voyagent un moment avec eux.",
+   "k": "Larves de moules : voyagent sur les poissons"
   },
   "es": {
    "q": "¿Cómo se dispersan las larvas de los grandes mejillones de agua dulce, como la anodonta?",
@@ -3294,7 +3612,8 @@
     "Se arrastran por el suelo",
     "Flotan en la espuma"
    ],
-   "x": "Las diminutas larvas (gloquidios) se aferran a las branquias o aletas de los peces y viajan con ellos un tiempo."
+   "x": "Las diminutas larvas (gloquidios) se aferran a las branquias o aletas de los peces y viajan con ellos un tiempo.",
+   "k": "Larvas de mejillón: viajan en peces"
   },
   "pt": {
    "q": "Como se espalham as larvas dos grandes mexilhões de água doce, como a anodonta?",
@@ -3304,7 +3623,8 @@
     "Rastejam pelo fundo",
     "Flutuam na espuma"
    ],
-   "x": "As larvas minúsculas (gloquídios) se agarram às brânquias ou nadadeiras dos peixes e viajam com eles por um tempo."
+   "x": "As larvas minúsculas (gloquídios) se agarram às brânquias ou nadadeiras dos peixes e viajam com eles por um tempo.",
+   "k": "Larvas de mexilhão: viajam em peixes"
   },
   "ja": {
    "q": "ドブガイなど在来の淡水の貝の幼生は、どうやって広がる？",
@@ -3314,7 +3634,8 @@
     "土の中をはう",
     "泡に乗って流れる"
    ],
-   "x": "小さな幼生（グロキディウム）は魚のえらやひれにくっつき、しばらくヒッチハイクします。"
+   "x": "小さな幼生（グロキディウム）は魚のえらやひれにくっつき、しばらくヒッチハイクします。",
+   "k": "淡水の貝の幼生：魚にくっついて旅する"
   },
   "it": {
    "q": "Come si diffondono le larve delle cozze d’acqua dolce come l’anodonta?",
@@ -3324,7 +3645,8 @@
     "Strisciano nel terreno",
     "Galleggiano nei fiocchi di schiuma"
    ],
-   "x": "Le minuscole larve (glochidi) si attaccano alle branchie o alle pinne dei pesci e viaggiano con loro per un po’."
+   "x": "Le minuscole larve (glochidi) si attaccano alle branchie o alle pinne dei pesci e viaggiano con loro per un po’.",
+   "k": "Larve di cozza: viaggiano sui pesci"
   }
  },
  {
@@ -3340,7 +3662,8 @@
     "In weiches Fichtenholz",
     "Mit 3 bis 5 cm Durchmesser"
    ],
-   "x": "Löcher im Stirnholz reißen leicht ein, dann kann die Brut verpilzen. Besser: trockenes Hartholz, seitlich, wenige mm breit."
+   "x": "Löcher im Stirnholz reißen leicht ein, dann kann die Brut verpilzen. Besser: trockenes Hartholz, seitlich, wenige mm breit.",
+   "k": "Wildbienen-Löcher: seitlich ins Holz bohren"
   },
   "en": {
    "q": "What is the best way to drill nest holes for wild bees in wood?",
@@ -3350,7 +3673,8 @@
     "Into soft spruce wood",
     "3 to 5 cm wide"
    ],
-   "x": "Holes in end grain crack easily and the brood can go mouldy. Better: dry hardwood, drilled from the side, a few mm wide."
+   "x": "Holes in end grain crack easily and the brood can go mouldy. Better: dry hardwood, drilled from the side, a few mm wide.",
+   "k": "Bee hotel holes: drill into the side of the wood"
   },
   "fr": {
    "q": "Comment percer au mieux des trous de nidification pour abeilles sauvages dans le bois ?",
@@ -3360,7 +3684,8 @@
     "Dans de l'épicéa tendre",
     "Avec 3 à 5 cm de diamètre"
    ],
-   "x": "Les trous dans le bois de bout se fendent et le couvain peut moisir. Mieux : bois dur sec, percé sur le côté, de quelques mm."
+   "x": "Les trous dans le bois de bout se fendent et le couvain peut moisir. Mieux : bois dur sec, percé sur le côté, de quelques mm.",
+   "k": "Hôtel à abeilles : percer le bois sur le côté"
   },
   "es": {
    "q": "¿Cómo se perforan mejor los nidos para abejas silvestres en madera?",
@@ -3370,7 +3695,8 @@
     "En madera blanda de abeto",
     "Con 3 a 5 cm de diámetro"
    ],
-   "x": "Los agujeros en la testa se agrietan y la cría puede enmohecerse. Mejor: madera dura y seca, perforada de lado, de pocos mm."
+   "x": "Los agujeros en la testa se agrietan y la cría puede enmohecerse. Mejor: madera dura y seca, perforada de lado, de pocos mm.",
+   "k": "Hotel de abejas: taladrar la madera de lado"
   },
   "pt": {
    "q": "Qual é o melhor jeito de furar ninhos de madeira para abelhas silvestres?",
@@ -3380,7 +3706,8 @@
     "Em madeira macia de abeto",
     "Com 3 a 5 cm de diâmetro"
    ],
-   "x": "Furos no topo racham e a cria pode mofar. Melhor: madeira dura e seca, furada pela lateral, com poucos milímetros."
+   "x": "Furos no topo racham e a cria pode mofar. Melhor: madeira dura e seca, furada pela lateral, com poucos milímetros.",
+   "k": "Hotel de abelhas: furar a madeira de lado"
   },
   "ja": {
    "q": "野生のハナバチの巣穴を木にあけるとき、いちばんいい方法は？",
@@ -3390,7 +3717,8 @@
     "やわらかいトウヒ材にあける",
     "幅3〜5センチ"
    ],
-   "x": "木口の穴はひび割れやすく、幼虫がカビることもあります。かわいた堅い木の側面に、直径数ミリの穴をあけよう。"
+   "x": "木口の穴はひび割れやすく、幼虫がカビることもあります。かわいた堅い木の側面に、直径数ミリの穴をあけよう。",
+   "k": "ハチホテル：穴は木の側面にあける"
   },
   "it": {
    "q": "Qual è il modo migliore per forare nidi per api selvatiche nel legno?",
@@ -3400,7 +3728,8 @@
     "Nel morbido legno di abete rosso",
     "Larghi 3–5 cm"
    ],
-   "x": "I fori nel legno di testa si crepano facilmente e la covata può ammuffire. Meglio: legno duro e secco, forato di lato, largo pochi mm."
+   "x": "I fori nel legno di testa si crepano facilmente e la covata può ammuffire. Meglio: legno duro e secco, forato di lato, largo pochi mm.",
+   "k": "Hotel per api: forare il legno di lato"
   }
  },
  {
@@ -3416,7 +3745,8 @@
     "Sie haben keinen Stachel",
     "Sie sammeln nur an wenigen Pflanzen"
    ],
-   "x": "Solche Spezialisten brauchen z. B. Glockenblumen oder Weiden. Fehlen diese Pflanzen, verschwindet auch die Biene."
+   "x": "Solche Spezialisten brauchen z. B. Glockenblumen oder Weiden. Fehlen diese Pflanzen, verschwindet auch die Biene.",
+   "k": "Viele Wildbienen: brauchen ganz bestimmte Blumen"
   },
   "en": {
    "q": "Many wild bees are 'oligolectic'. What does that mean?",
@@ -3426,7 +3756,8 @@
     "They have no sting",
     "They collect pollen from few plants"
    ],
-   "x": "Such specialists need e.g. bellflowers or willows. If these plants disappear, so does the bee."
+   "x": "Such specialists need e.g. bellflowers or willows. If these plants disappear, so does the bee.",
+   "k": "Many wild bees: need specific flowers"
   },
   "fr": {
    "q": "Beaucoup d'abeilles sauvages sont « oligolectiques ». Qu'est-ce que cela signifie ?",
@@ -3436,7 +3767,8 @@
     "Elles n'ont pas de dard",
     "Elles butinent peu de plantes"
    ],
-   "x": "Ces spécialistes ont besoin par exemple de campanules ou de saules. Si ces plantes disparaissent, l'abeille aussi."
+   "x": "Ces spécialistes ont besoin par exemple de campanules ou de saules. Si ces plantes disparaissent, l'abeille aussi.",
+   "k": "Beaucoup d’abeilles sauvages : fleurs spécifiques"
   },
   "es": {
    "q": "Muchas abejas silvestres son «oligolécticas». ¿Qué significa?",
@@ -3446,7 +3778,8 @@
     "No tienen aguijón",
     "Recogen polen de pocas plantas"
    ],
-   "x": "Estas especialistas necesitan, por ejemplo, campánulas o sauces. Si esas plantas desaparecen, la abeja también."
+   "x": "Estas especialistas necesitan, por ejemplo, campánulas o sauces. Si esas plantas desaparecen, la abeja también.",
+   "k": "Muchas abejas silvestres: necesitan flores concretas"
   },
   "pt": {
    "q": "Muitas abelhas silvestres são “oligoléticas”. O que isso significa?",
@@ -3456,7 +3789,8 @@
     "Não têm ferrão",
     "Coletam pólen de poucas plantas"
    ],
-   "x": "Essas especialistas precisam, por exemplo, de campânulas ou salgueiros. Se essas plantas somem, a abelha também some."
+   "x": "Essas especialistas precisam, por exemplo, de campânulas ou salgueiros. Se essas plantas somem, a abelha também some.",
+   "k": "Muitas abelhas silvestres: precisam de flores certas"
   },
   "ja": {
    "q": "多くの野生のハナバチは「狭訪花性」。どういう意味？",
@@ -3466,7 +3800,8 @@
     "針がない",
     "限られた植物からだけ花粉を集める"
    ],
-   "x": "こうした専門家には、たとえばホタルブクロやヤナギが必要です。その植物が消えると、ハチも消えてしまいます。"
+   "x": "こうした専門家には、たとえばホタルブクロやヤナギが必要です。その植物が消えると、ハチも消えてしまいます。",
+   "k": "多くの野生のハナバチ：決まった花が必要"
   },
   "it": {
    "q": "Molte api selvatiche sono «oligolettiche». Cosa significa?",
@@ -3476,7 +3811,8 @@
     "Non hanno pungiglione",
     "Raccolgono polline da poche piante"
    ],
-   "x": "Questi specialisti hanno bisogno per esempio di campanule o salici. Se spariscono queste piante, sparisce anche l’ape."
+   "x": "Questi specialisti hanno bisogno per esempio di campanule o salici. Se spariscono queste piante, sparisce anche l’ape.",
+   "k": "Molte api selvatiche: servono fiori precisi"
   }
  },
  {
@@ -3492,7 +3828,8 @@
     "Meist 3 bis 8 Jahre",
     "Rund 30 Jahre"
    ],
-   "x": "Die Larven fressen jahrelang morsches Holz, oft von alten Eichen. Der fertige Käfer lebt dann nur wenige Wochen."
+   "x": "Die Larven fressen jahrelang morsches Holz, oft von alten Eichen. Der fertige Käfer lebt dann nur wenige Wochen.",
+   "k": "Hirschkäfer-Larven: wachsen bis zu 8 Jahre"
   },
   "en": {
    "q": "How long do stag beetle larvae develop in rotting wood?",
@@ -3502,7 +3839,8 @@
     "Usually 3 to 8 years",
     "Around 30 years"
    ],
-   "x": "The larvae feed on rotting wood, often of old oaks, for years. The adult beetle then lives only a few weeks."
+   "x": "The larvae feed on rotting wood, often of old oaks, for years. The adult beetle then lives only a few weeks.",
+   "k": "Stag beetle larvae: grow for up to 8 years"
   },
   "fr": {
    "q": "Combien de temps les larves de lucane cerf-volant se développent-elles dans le bois mort ?",
@@ -3512,7 +3850,8 @@
     "En général 3 à 8 ans",
     "Environ 30 ans"
    ],
-   "x": "Les larves mangent du bois pourri, souvent de vieux chênes, pendant des années. L'adulte ne vit ensuite que quelques semaines."
+   "x": "Les larves mangent du bois pourri, souvent de vieux chênes, pendant des années. L'adulte ne vit ensuite que quelques semaines.",
+   "k": "Larves de lucane : jusqu’à 8 ans de croissance"
   },
   "es": {
    "q": "¿Cuánto tiempo se desarrollan las larvas del ciervo volante en la madera podrida?",
@@ -3522,7 +3861,8 @@
     "Normalmente de 3 a 8 años",
     "Unos 30 años"
    ],
-   "x": "Las larvas comen madera podrida, a menudo de robles viejos, durante años. El adulto vive luego solo unas semanas."
+   "x": "Las larvas comen madera podrida, a menudo de robles viejos, durante años. El adulto vive luego solo unas semanas.",
+   "k": "Larvas de ciervo volante: crecen hasta 8 años"
   },
   "pt": {
    "q": "Quanto tempo as larvas do besouro-veado se desenvolvem na madeira podre?",
@@ -3532,7 +3872,8 @@
     "Normalmente de 3 a 8 anos",
     "Uns 30 anos"
    ],
-   "x": "As larvas comem madeira podre, muitas vezes de carvalhos velhos, por anos. O adulto vive depois só algumas semanas."
+   "x": "As larvas comem madeira podre, muitas vezes de carvalhos velhos, por anos. O adulto vive depois só algumas semanas.",
+   "k": "Larvas de vacaloura: crescem até 8 anos"
   },
   "ja": {
    "q": "ヨーロッパミヤマクワガタの幼虫は、くさった木の中で何年育つ？",
@@ -3542,7 +3883,8 @@
     "ふつう3〜8年",
     "約30年"
    ],
-   "x": "幼虫は何年もかけて、よく古いカシのくさった木を食べて育ちます。成虫になると数週間しか生きません。"
+   "x": "幼虫は何年もかけて、よく古いカシのくさった木を食べて育ちます。成虫になると数週間しか生きません。",
+   "k": "ミヤマクワガタの幼虫：最大8年かけて育つ"
   },
   "it": {
    "q": "Quanto si sviluppano nel legno marcio le larve del cervo volante?",
@@ -3552,7 +3894,8 @@
     "Di solito da 3 a 8 anni",
     "Circa 30 anni"
    ],
-   "x": "Le larve si nutrono per anni di legno marcio, spesso di vecchie querce. Il coleottero adulto poi vive solo poche settimane."
+   "x": "Le larve si nutrono per anni di legno marcio, spesso di vecchie querce. Il coleottero adulto poi vive solo poche settimane.",
+   "k": "Larve di cervo volante: crescono fino a 8 anni"
   }
  },
  {
@@ -3568,7 +3911,8 @@
     "Am Hinterleib",
     "An den Vorderbeinen"
    ],
-   "x": "Laubheuschrecken hören mit Trommelfellen an den Vorderbeinen. Kurzfühlerschrecken wie Grashüpfer haben sie am Hinterleib."
+   "x": "Laubheuschrecken hören mit Trommelfellen an den Vorderbeinen. Kurzfühlerschrecken wie Grashüpfer haben sie am Hinterleib.",
+   "k": "Laubheuschrecken: hören mit den Vorderbeinen"
   },
   "en": {
    "q": "Where are the ears of the great green bush-cricket?",
@@ -3578,7 +3922,8 @@
     "On its abdomen",
     "On its front legs"
    ],
-   "x": "Bush-crickets hear with eardrums on their front legs. Grasshoppers, by contrast, have theirs on the abdomen."
+   "x": "Bush-crickets hear with eardrums on their front legs. Grasshoppers, by contrast, have theirs on the abdomen.",
+   "k": "Bush-crickets: hear with their front legs"
   },
   "fr": {
    "q": "Où se trouvent les oreilles de la grande sauterelle verte ?",
@@ -3588,7 +3933,8 @@
     "Sur l'abdomen",
     "Sur les pattes avant"
    ],
-   "x": "Les sauterelles entendent grâce à des tympans sur les pattes avant. Les criquets, eux, les ont sur l'abdomen."
+   "x": "Les sauterelles entendent grâce à des tympans sur les pattes avant. Les criquets, eux, les ont sur l'abdomen.",
+   "k": "Sauterelles : entendent avec les pattes avant"
   },
   "es": {
    "q": "¿Dónde tiene los oídos el saltamontes verde (Tettigonia)?",
@@ -3598,7 +3944,8 @@
     "En el abdomen",
     "En las patas delanteras"
    ],
-   "x": "Los tetigónidos oyen con tímpanos en las patas delanteras. Los saltamontes de antenas cortas los tienen en el abdomen."
+   "x": "Los tetigónidos oyen con tímpanos en las patas delanteras. Los saltamontes de antenas cortas los tienen en el abdomen.",
+   "k": "Saltamontes verdes: oyen con las patas delanteras"
   },
   "pt": {
    "q": "Onde a esperança-verde (Tettigonia) tem os ouvidos?",
@@ -3608,7 +3955,8 @@
     "No abdômen",
     "Nas patas da frente"
    ],
-   "x": "As esperanças ouvem com tímpanos nas patas da frente. Os gafanhotos de antenas curtas os têm no abdômen."
+   "x": "As esperanças ouvem com tímpanos nas patas da frente. Os gafanhotos de antenas curtas os têm no abdômen.",
+   "k": "Esperanças: ouvem com as patas da frente"
   },
   "ja": {
    "q": "キリギリスの仲間の耳はどこにある？",
@@ -3618,7 +3966,8 @@
     "おなか",
     "前脚"
    ],
-   "x": "キリギリスの仲間は前脚にある鼓膜で音を聞きます。バッタの仲間はおなかにあります。"
+   "x": "キリギリスの仲間は前脚にある鼓膜で音を聞きます。バッタの仲間はおなかにあります。",
+   "k": "キリギリス：前脚で音を聞く"
   },
   "it": {
    "q": "Dove sono le orecchie della cavalletta verde?",
@@ -3628,7 +3977,8 @@
     "Sull’addome",
     "Sulle zampe anteriori"
    ],
-   "x": "Le tettigonie (cavallette verdi) sentono con timpani sulle zampe anteriori. Gli acrididi (le cavallette comuni) invece li hanno sull’addome."
+   "x": "Le tettigonie (cavallette verdi) sentono con timpani sulle zampe anteriori. Gli acrididi (le cavallette comuni) invece li hanno sull’addome.",
+   "k": "Cavallette verdi: sentono con le zampe anteriori"
   }
  }
 ]

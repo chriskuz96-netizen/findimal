@@ -12,7 +12,8 @@
     "Gartenbaumläufer",
     "Kohlmeise"
    ],
-   "x": "Der Kleiber klettert als einziger heimischer Vogel auch kopfüber abwärts. Spechte und Baumläufer klettern nur aufwärts."
+   "x": "Der Kleiber klettert als einziger heimischer Vogel auch kopfüber abwärts. Spechte und Baumläufer klettern nur aufwärts.",
+   "k": "Kleiber: klettert kopfüber den Stamm hinab"
   },
   "en": {
    "q": "Which bird native to Central Europe can walk head-first down a tree trunk?",
@@ -22,7 +23,8 @@
     "Short-toed treecreeper",
     "Great tit"
    ],
-   "x": "The nuthatch is the only native bird that also climbs head-first downwards. Woodpeckers and treecreepers only climb up."
+   "x": "The nuthatch is the only native bird that also climbs head-first downwards. Woodpeckers and treecreepers only climb up.",
+   "k": "Nuthatch: climbs down trunks head-first"
   },
   "fr": {
    "q": "Quel oiseau d'Europe centrale peut descendre un tronc la tête en bas ?",
@@ -32,7 +34,8 @@
     "Grimpereau des jardins",
     "Mésange charbonnière"
    ],
-   "x": "La sittelle est le seul oiseau de chez nous à descendre les troncs tête en bas. Pics et grimpereaux ne font que monter."
+   "x": "La sittelle est le seul oiseau de chez nous à descendre les troncs tête en bas. Pics et grimpereaux ne font que monter.",
+   "k": "Sittelle : descend les troncs tête en bas"
   },
   "es": {
    "q": "¿Qué ave de Europa central puede bajar por un tronco cabeza abajo?",
@@ -42,7 +45,8 @@
     "Agateador europeo",
     "Carbonero común"
    ],
-   "x": "El trepador azul es la única ave autóctona que baja por los troncos cabeza abajo. Pájaros carpinteros y agateadores solo suben."
+   "x": "El trepador azul es la única ave autóctona que baja por los troncos cabeza abajo. Pájaros carpinteros y agateadores solo suben.",
+   "k": "Trepador azul: baja los troncos cabeza abajo"
   },
   "pt": {
    "q": "Qual ave da Europa Central consegue descer um tronco de cabeça para baixo?",
@@ -52,7 +56,8 @@
     "Trepadeira-comum",
     "Chapim-real"
    ],
-   "x": "A trepadeira-azul é a única ave nativa que desce os troncos de cabeça para baixo. Pica-paus e trepadeiras só sobem."
+   "x": "A trepadeira-azul é a única ave nativa que desce os troncos de cabeça para baixo. Pica-paus e trepadeiras só sobem.",
+   "k": "Trepadeira-azul: desce troncos de cabeça para baixo"
   },
   "ja": {
    "q": "中央ヨーロッパの鳥で、頭を下にして木の幹を下りられるのはどれ？",
@@ -62,7 +67,8 @@
     "タンシキバシリ",
     "シジュウカラ"
    ],
-   "x": "頭を下にして下りられる在来の鳥はゴジュウカラだけ。キツツキやキバシリは上にしか登れません。"
+   "x": "頭を下にして下りられる在来の鳥はゴジュウカラだけ。キツツキやキバシリは上にしか登れません。",
+   "k": "ゴジュウカラ：頭を下にして幹を下りる"
   },
   "it": {
    "q": "Quale uccello dell’Europa centrale sa scendere lungo un tronco a testa in giù?",
@@ -72,7 +78,8 @@
     "Rampichino comune",
     "Cinciallegra"
    ],
-   "x": "Il picchio muratore è l’unico uccello nostrano che si arrampica anche a testa in giù. Picchi e rampichini salgono solo verso l’alto."
+   "x": "Il picchio muratore è l’unico uccello nostrano che si arrampica anche a testa in giù. Picchi e rampichini salgono solo verso l’alto.",
+   "k": "Picchio muratore: scende i tronchi a testa in giù"
   }
  },
  {
@@ -86,7 +93,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Igel vertragen keinen Milchzucker und bekommen von Milch Durchfall. Wasser ist das richtige Getränk für sie."
+   "x": "Igel vertragen keinen Milchzucker und bekommen von Milch Durchfall. Wasser ist das richtige Getränk für sie.",
+   "k": "Igel: vertragen keine Milch"
   },
   "en": {
    "q": "Milk is good food for hedgehogs.",
@@ -94,7 +102,8 @@
     "True",
     "False"
    ],
-   "x": "Hedgehogs can't digest milk sugar (lactose); milk gives them diarrhoea. Water is the right drink for them."
+   "x": "Hedgehogs can't digest milk sugar (lactose); milk gives them diarrhoea. Water is the right drink for them.",
+   "k": "Hedgehogs: can't digest milk"
   },
   "fr": {
    "q": "Le lait est une bonne nourriture pour les hérissons.",
@@ -102,7 +111,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Les hérissons ne digèrent pas le lactose : le lait leur donne la diarrhée. L'eau est la bonne boisson pour eux."
+   "x": "Les hérissons ne digèrent pas le lactose : le lait leur donne la diarrhée. L'eau est la bonne boisson pour eux.",
+   "k": "Hérissons : ne digèrent pas le lait"
   },
   "es": {
    "q": "La leche es un buen alimento para los erizos.",
@@ -110,7 +120,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Los erizos no toleran la lactosa y la leche les provoca diarrea. Lo adecuado es darles agua."
+   "x": "Los erizos no toleran la lactosa y la leche les provoca diarrea. Lo adecuado es darles agua.",
+   "k": "Erizos: no digieren la leche"
   },
   "pt": {
    "q": "Leite é um bom alimento para ouriços.",
@@ -118,7 +129,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Os ouriços não toleram lactose, e o leite causa diarreia neles. O certo é dar água."
+   "x": "Os ouriços não toleram lactose, e o leite causa diarreia neles. O certo é dar água.",
+   "k": "Ouriços: não digerem leite"
   },
   "ja": {
    "q": "正しい？まちがい？ 牛乳はハリネズミにとってよい食べもの。",
@@ -126,7 +138,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "ハリネズミは乳糖を消化できず、牛乳を飲むとおなかをこわします。あげるなら水がいちばんです。"
+   "x": "ハリネズミは乳糖を消化できず、牛乳を飲むとおなかをこわします。あげるなら水がいちばんです。",
+   "k": "ハリネズミ：牛乳を消化できない"
   },
   "it": {
    "q": "Vero o falso? Il latte è un buon cibo per i ricci.",
@@ -134,7 +147,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "I ricci non digeriscono il lattosio; il latte gli dà la diarrea. La bevanda giusta per loro è l’acqua."
+   "x": "I ricci non digeriscono il lattosio; il latte gli dà la diarrea. La bevanda giusta per loro è l’acqua.",
+   "k": "Ricci: non digeriscono il latte"
   }
  },
  {
@@ -148,7 +162,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Stimmt! Flughörnchen gleiten nur. Fledermäuse fliegen mit echten Flügeln aus Flughaut zwischen ihren langen Fingern."
+   "x": "Stimmt! Flughörnchen gleiten nur. Fledermäuse fliegen mit echten Flügeln aus Flughaut zwischen ihren langen Fingern.",
+   "k": "Fledermäuse: einzige Säugetiere, die richtig fliegen"
   },
   "en": {
    "q": "Bats are the only mammals capable of true powered flight.",
@@ -156,7 +171,8 @@
     "True",
     "False"
    ],
-   "x": "True! Flying squirrels only glide. Bats fly with real wings made of skin stretched between their long fingers."
+   "x": "True! Flying squirrels only glide. Bats fly with real wings made of skin stretched between their long fingers.",
+   "k": "Bats: the only mammals that truly fly"
   },
   "fr": {
    "q": "Les chauves-souris sont les seuls mammifères capables de vrai vol battu.",
@@ -164,7 +180,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Vrai ! Les écureuils volants ne font que planer. Les chauves-souris volent avec une membrane tendue entre leurs longs doigts."
+   "x": "Vrai ! Les écureuils volants ne font que planer. Les chauves-souris volent avec une membrane tendue entre leurs longs doigts.",
+   "k": "Chauves-souris : seuls mammifères qui volent vraiment"
   },
   "es": {
    "q": "Los murciélagos son los únicos mamíferos capaces de volar activamente.",
@@ -172,7 +189,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Cierto! Las ardillas voladoras solo planean. Los murciélagos vuelan con una membrana de piel entre sus largos dedos."
+   "x": "¡Cierto! Las ardillas voladoras solo planean. Los murciélagos vuelan con una membrana de piel entre sus largos dedos.",
+   "k": "Murciélagos: únicos mamíferos que vuelan de verdad"
   },
   "pt": {
    "q": "Os morcegos são os únicos mamíferos capazes de voar de verdade.",
@@ -180,7 +198,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Certo! Os esquilos-voadores só planam. Os morcegos voam com uma membrana de pele entre os dedos longos."
+   "x": "Certo! Os esquilos-voadores só planam. Os morcegos voam com uma membrana de pele entre os dedos longos.",
+   "k": "Morcegos: únicos mamíferos que voam de verdade"
   },
   "ja": {
    "q": "正しい？まちがい？ 自分の力で本当に飛べる哺乳類はコウモリだけ。",
@@ -188,7 +207,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "正しい！モモンガやムササビは滑空するだけ。コウモリは長い指の間に張った皮ふのつばさで、本当に飛びます。"
+   "x": "正しい！モモンガやムササビは滑空するだけ。コウモリは長い指の間に張った皮ふのつばさで、本当に飛びます。",
+   "k": "コウモリ：本当に飛べる唯一の哺乳類"
   },
   "it": {
    "q": "Vero o falso? I pipistrelli sono gli unici mammiferi capaci di volare davvero.",
@@ -196,7 +216,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Vero! Gli scoiattoli volanti planano soltanto. I pipistrelli volano con vere ali di pelle tesa tra le lunghe dita."
+   "x": "Vero! Gli scoiattoli volanti planano soltanto. I pipistrelli volano con vere ali di pelle tesa tra le lunghe dita.",
+   "k": "Pipistrelli: unici mammiferi che volano davvero"
   }
  },
  {
@@ -212,7 +233,8 @@
     "270 Grad",
     "360 Grad"
    ],
-   "x": "Eulen drehen den Kopf bis etwa 270 Grad. Das gleicht aus, dass sie ihre großen Augen kaum bewegen können."
+   "x": "Eulen drehen den Kopf bis etwa 270 Grad. Das gleicht aus, dass sie ihre großen Augen kaum bewegen können.",
+   "k": "Eulen: drehen den Kopf um 270 Grad"
   },
   "en": {
    "q": "About how far can an owl turn its head?",
@@ -222,7 +244,8 @@
     "270 degrees",
     "360 degrees"
    ],
-   "x": "Owls can turn their heads about 270 degrees. This makes up for their large eyes, which can barely move."
+   "x": "Owls can turn their heads about 270 degrees. This makes up for their large eyes, which can barely move.",
+   "k": "Owls: turn their head 270 degrees"
   },
   "fr": {
    "q": "De combien de degrés une chouette peut-elle tourner la tête environ ?",
@@ -232,7 +255,8 @@
     "270 degrés",
     "360 degrés"
    ],
-   "x": "Les chouettes tournent la tête d'environ 270 degrés, car leurs grands yeux ne bougent presque pas."
+   "x": "Les chouettes tournent la tête d'environ 270 degrés, car leurs grands yeux ne bougent presque pas.",
+   "k": "Chouettes : tournent la tête à 270°"
   },
   "es": {
    "q": "¿Aproximadamente cuántos grados puede girar la cabeza un búho?",
@@ -242,7 +266,8 @@
     "270 grados",
     "360 grados"
    ],
-   "x": "Los búhos giran la cabeza unos 270 grados, porque sus grandes ojos apenas pueden moverse."
+   "x": "Los búhos giran la cabeza unos 270 grados, porque sus grandes ojos apenas pueden moverse.",
+   "k": "Búhos: giran la cabeza 270 grados"
   },
   "pt": {
    "q": "Mais ou menos quantos graus uma coruja consegue girar a cabeça?",
@@ -252,7 +277,8 @@
     "270 graus",
     "360 graus"
    ],
-   "x": "As corujas giram a cabeça uns 270 graus, porque os olhos grandes quase não se mexem."
+   "x": "As corujas giram a cabeça uns 270 graus, porque os olhos grandes quase não se mexem.",
+   "k": "Corujas: giram a cabeça 270 graus"
   },
   "ja": {
    "q": "フクロウは首をだいたい何度まで回せる？",
@@ -262,7 +288,8 @@
     "270度",
     "360度"
    ],
-   "x": "フクロウは首を約270度回せます。大きな目がほとんど動かないので、そのかわりです。"
+   "x": "フクロウは首を約270度回せます。大きな目がほとんど動かないので、そのかわりです。",
+   "k": "フクロウ：首を270度回せる"
   },
   "it": {
    "q": "Di quanto può girare la testa un gufo, più o meno?",
@@ -272,7 +299,8 @@
     "270 gradi",
     "360 gradi"
    ],
-   "x": "I gufi girano la testa di circa 270 gradi. Così compensano i grandi occhi, che quasi non si muovono."
+   "x": "I gufi girano la testa di circa 270 gradi. Così compensano i grandi occhi, che quasi non si muovono.",
+   "k": "Gufi: girano la testa di 270 gradi"
   }
  },
  {
@@ -288,7 +316,8 @@
     "Mauersegler",
     "Habicht"
    ],
-   "x": "Der Wanderfalke stößt mit über 300 km/h auf Beute herab und gilt damit als schnellstes Tier der Welt."
+   "x": "Der Wanderfalke stößt mit über 300 km/h auf Beute herab und gilt damit als schnellstes Tier der Welt.",
+   "k": "Wanderfalke: schnellstes Tier der Welt"
   },
   "en": {
    "q": "Which bird reaches over 300 km/h in a hunting dive?",
@@ -298,7 +327,8 @@
     "Common swift",
     "Goshawk"
    ],
-   "x": "The peregrine falcon dives at prey at over 300 km/h, making it the fastest animal in the world."
+   "x": "The peregrine falcon dives at prey at over 300 km/h, making it the fastest animal in the world.",
+   "k": "Peregrine falcon: fastest animal in the world"
   },
   "fr": {
    "q": "Quel oiseau dépasse 300 km/h en piqué ?",
@@ -308,7 +338,8 @@
     "Martinet noir",
     "Autour des palombes"
    ],
-   "x": "Le faucon pèlerin fond sur ses proies à plus de 300 km/h : c'est l'animal le plus rapide du monde."
+   "x": "Le faucon pèlerin fond sur ses proies à plus de 300 km/h : c'est l'animal le plus rapide du monde.",
+   "k": "Faucon pèlerin : l’animal le plus rapide"
   },
   "es": {
    "q": "¿Qué ave supera los 300 km/h en picado?",
@@ -318,7 +349,8 @@
     "Vencejo común",
     "Azor común"
    ],
-   "x": "El halcón peregrino se lanza sobre sus presas a más de 300 km/h: es el animal más rápido del mundo."
+   "x": "El halcón peregrino se lanza sobre sus presas a más de 300 km/h: es el animal más rápido del mundo.",
+   "k": "Halcón peregrino: el animal más rápido"
   },
   "pt": {
    "q": "Qual ave passa dos 300 km/h em mergulho?",
@@ -328,7 +360,8 @@
     "Andorinhão-preto",
     "Açor"
    ],
-   "x": "O falcão-peregrino se lança sobre as presas a mais de 300 km/h: é o animal mais rápido do mundo."
+   "x": "O falcão-peregrino se lança sobre as presas a mais de 300 km/h: é o animal mais rápido do mundo.",
+   "k": "Falcão-peregrino: o animal mais rápido"
   },
   "ja": {
    "q": "狩りの急降下で時速300キロを超える鳥は？",
@@ -338,7 +371,8 @@
     "ヨーロッパアマツバメ",
     "オオタカ"
    ],
-   "x": "ハヤブサは時速300キロ以上で獲物に向かって急降下します。世界一速い動物です。"
+   "x": "ハヤブサは時速300キロ以上で獲物に向かって急降下します。世界一速い動物です。",
+   "k": "ハヤブサ：世界一速い動物"
   },
   "it": {
    "q": "Quale uccello supera i 300 km/h in picchiata di caccia?",
@@ -348,7 +382,8 @@
     "Rondone comune",
     "Astore"
    ],
-   "x": "Il falco pellegrino si getta sulle prede a oltre 300 km/h: è l’animale più veloce del mondo."
+   "x": "Il falco pellegrino si getta sulle prede a oltre 300 km/h: è l’animale più veloce del mondo.",
+   "k": "Falco pellegrino: l’animale più veloce"
   }
  },
  {
@@ -364,7 +399,8 @@
     "Murmeltier",
     "Wasserschwein"
    ],
-   "x": "Das südamerikanische Wasserschwein (Capybara) kann über 50 kg wiegen. Der Biber ist das größte Nagetier Europas."
+   "x": "Das südamerikanische Wasserschwein (Capybara) kann über 50 kg wiegen. Der Biber ist das größte Nagetier Europas.",
+   "k": "Wasserschwein: größtes Nagetier der Welt"
   },
   "en": {
    "q": "Which is the largest rodent in the world?",
@@ -374,7 +410,8 @@
     "Marmot",
     "Capybara"
    ],
-   "x": "The South American capybara can weigh over 50 kg. The beaver is Europe's largest rodent."
+   "x": "The South American capybara can weigh over 50 kg. The beaver is Europe's largest rodent.",
+   "k": "Capybara: largest rodent in the world"
   },
   "fr": {
    "q": "Quel est le plus grand rongeur du monde ?",
@@ -384,7 +421,8 @@
     "Marmotte",
     "Capybara"
    ],
-   "x": "Le capybara d'Amérique du Sud peut dépasser 50 kg. Le castor est le plus grand rongeur d'Europe."
+   "x": "Le capybara d'Amérique du Sud peut dépasser 50 kg. Le castor est le plus grand rongeur d'Europe.",
+   "k": "Capybara : plus grand rongeur du monde"
   },
   "es": {
    "q": "¿Cuál es el roedor más grande del mundo?",
@@ -394,7 +432,8 @@
     "Marmota",
     "Capibara"
    ],
-   "x": "El capibara sudamericano puede superar los 50 kg. El castor es el roedor más grande de Europa."
+   "x": "El capibara sudamericano puede superar los 50 kg. El castor es el roedor más grande de Europa.",
+   "k": "Capibara: mayor roedor del mundo"
   },
   "pt": {
    "q": "Qual é o maior roedor do mundo?",
@@ -404,7 +443,8 @@
     "Marmota",
     "Capivara"
    ],
-   "x": "A capivara sul-americana pode passar dos 50 kg. O castor é o maior roedor da Europa."
+   "x": "A capivara sul-americana pode passar dos 50 kg. O castor é o maior roedor da Europa.",
+   "k": "Capivara: maior roedor do mundo"
   },
   "ja": {
    "q": "世界最大のネズミの仲間（げっ歯類）は？",
@@ -414,7 +454,8 @@
     "マーモット",
     "カピバラ"
    ],
-   "x": "南アメリカのカピバラは50キロ以上になることも。ヨーロッパ最大のげっ歯類はビーバーです。"
+   "x": "南アメリカのカピバラは50キロ以上になることも。ヨーロッパ最大のげっ歯類はビーバーです。",
+   "k": "カピバラ：世界最大のげっ歯類"
   },
   "it": {
    "q": "Qual è il roditore più grande del mondo?",
@@ -424,7 +465,8 @@
     "Marmotta",
     "Capibara"
    ],
-   "x": "Il capibara sudamericano può superare i 50 kg. Il castoro è il roditore più grande d’Europa."
+   "x": "Il capibara sudamericano può superare i 50 kg. Il castoro è il roditore più grande d’Europa.",
+   "k": "Capibara: il roditore più grande del mondo"
   }
  },
  {
@@ -440,7 +482,8 @@
     "Es frisst sie auf",
     "Es lässt sie liegen"
    ],
-   "x": "Das Kuckucksküken schiebt Eier und Küken der Wirtsvögel aus dem Nest. So bekommt es das ganze Futter allein."
+   "x": "Das Kuckucksküken schiebt Eier und Küken der Wirtsvögel aus dem Nest. So bekommt es das ganze Futter allein.",
+   "k": "Kuckucksküken: wirft die anderen Eier raus"
   },
   "en": {
    "q": "What does a newly hatched cuckoo chick do with the other eggs in the nest?",
@@ -450,7 +493,8 @@
     "Eats them",
     "Leaves them alone"
    ],
-   "x": "The cuckoo chick pushes the host's eggs and chicks out of the nest so it gets all the food for itself."
+   "x": "The cuckoo chick pushes the host's eggs and chicks out of the nest so it gets all the food for itself.",
+   "k": "Cuckoo chick: pushes the other eggs out"
   },
   "fr": {
    "q": "Que fait un poussin de coucou fraîchement éclos des autres œufs du nid ?",
@@ -460,7 +504,8 @@
     "Il les mange",
     "Il les ignore"
    ],
-   "x": "Le jeune coucou pousse les œufs et oisillons de ses hôtes hors du nid pour garder toute la nourriture."
+   "x": "Le jeune coucou pousse les œufs et oisillons de ses hôtes hors du nid pour garder toute la nourriture.",
+   "k": "Poussin de coucou : éjecte les autres œufs"
   },
   "es": {
    "q": "¿Qué hace un pollo de cuco recién nacido con los otros huevos del nido?",
@@ -470,7 +515,8 @@
     "Se los come",
     "Los deja en paz"
    ],
-   "x": "El pollo de cuco empuja fuera del nido los huevos y pollos de sus anfitriones para quedarse con toda la comida."
+   "x": "El pollo de cuco empuja fuera del nido los huevos y pollos de sus anfitriones para quedarse con toda la comida.",
+   "k": "Pollo de cuco: echa fuera los otros huevos"
   },
   "pt": {
    "q": "O que um filhote de cuco recém-nascido faz com os outros ovos do ninho?",
@@ -480,7 +526,8 @@
     "Come-os",
     "Deixa-os em paz"
    ],
-   "x": "O filhote de cuco empurra para fora do ninho os ovos e filhotes dos anfitriões, para ficar com toda a comida."
+   "x": "O filhote de cuco empurra para fora do ninho os ovos e filhotes dos anfitriões, para ficar com toda a comida.",
+   "k": "Filhote de cuco: joga fora os outros ovos"
   },
   "ja": {
    "q": "かえったばかりのカッコウのひなは、巣のほかの卵をどうする？",
@@ -490,7 +537,8 @@
     "食べる",
     "そのままにする"
    ],
-   "x": "カッコウのひなは、仮親の卵やひなを巣の外に押し出し、えさをひとりじめします。"
+   "x": "カッコウのひなは、仮親の卵やひなを巣の外に押し出し、えさをひとりじめします。",
+   "k": "カッコウのひな：ほかの卵を巣から押し出す"
   },
   "it": {
    "q": "Cosa fa il pulcino di cuculo appena nato con le altre uova del nido?",
@@ -500,7 +548,8 @@
     "Le mangia",
     "Le lascia stare"
    ],
-   "x": "Il pulcino di cuculo spinge fuori dal nido uova e pulcini dei genitori adottivi, così riceve tutto il cibo."
+   "x": "Il pulcino di cuculo spinge fuori dal nido uova e pulcini dei genitori adottivi, così riceve tutto il cibo.",
+   "k": "Pulcino di cuculo: butta fuori le altre uova"
   }
  },
  {
@@ -516,7 +565,8 @@
     "Dunkelbraun",
     "Schwarz-weiß gefleckt"
    ],
-   "x": "Nur das Männchen ist schwarz mit gelbem Schnabel. Das Weibchen ist dunkelbraun und dadurch beim Brüten gut getarnt."
+   "x": "Nur das Männchen ist schwarz mit gelbem Schnabel. Das Weibchen ist dunkelbraun und dadurch beim Brüten gut getarnt.",
+   "k": "Amsel-Weibchen: braun, nicht schwarz"
   },
   "en": {
    "q": "What colour is a female blackbird?",
@@ -526,7 +576,8 @@
     "Dark brown",
     "Black-and-white spotted"
    ],
-   "x": "Only the male is black with a yellow bill. The female is dark brown, which camouflages her on the nest."
+   "x": "Only the male is black with a yellow bill. The female is dark brown, which camouflages her on the nest.",
+   "k": "Female blackbird: brown, not black"
   },
   "fr": {
    "q": "De quelle couleur est la femelle du merle noir ?",
@@ -536,7 +587,8 @@
     "Brun foncé",
     "Tachetée noir et blanc"
    ],
-   "x": "Seul le mâle est noir à bec jaune. La femelle est brun foncé, ce qui la camoufle quand elle couve."
+   "x": "Seul le mâle est noir à bec jaune. La femelle est brun foncé, ce qui la camoufle quand elle couve.",
+   "k": "Merle femelle : brune, pas noire"
   },
   "es": {
    "q": "¿De qué color es la hembra del mirlo común?",
@@ -546,7 +598,8 @@
     "Marrón oscuro",
     "Moteada de blanco y negro"
    ],
-   "x": "Solo el macho es negro con pico amarillo. La hembra es marrón oscuro, lo que la camufla al incubar."
+   "x": "Solo el macho es negro con pico amarillo. La hembra es marrón oscuro, lo que la camufla al incubar.",
+   "k": "Mirlo hembra: marrón, no negra"
   },
   "pt": {
    "q": "De que cor é a fêmea do melro?",
@@ -556,7 +609,8 @@
     "Marrom-escura",
     "Pintada de branco e preto"
    ],
-   "x": "Só o macho é preto com bico amarelo. A fêmea é marrom-escura, o que a camufla ao chocar."
+   "x": "Só o macho é preto com bico amarelo. A fêmea é marrom-escura, o que a camufla ao chocar.",
+   "k": "Melro fêmea: marrom, não preta"
   },
   "ja": {
    "q": "クロウタドリのメスは何色？",
@@ -566,7 +620,8 @@
     "こげ茶色",
     "白黒のまだら"
    ],
-   "x": "黒くて黄色いくちばしなのはオスだけ。メスはこげ茶色で、巣の上で目立ちません。"
+   "x": "黒くて黄色いくちばしなのはオスだけ。メスはこげ茶色で、巣の上で目立ちません。",
+   "k": "クロウタドリのメス：黒ではなく茶色"
   },
   "it": {
    "q": "Di che colore è la femmina del merlo?",
@@ -576,7 +631,8 @@
     "Marrone scuro",
     "A macchie bianche e nere"
    ],
-   "x": "Solo il maschio è nero con il becco giallo. La femmina è marrone scuro, così è mimetizzata sul nido."
+   "x": "Solo il maschio è nero con il becco giallo. La femmina è marrone scuro, così è mimetizzata sul nido.",
+   "k": "Merlo femmina: marrone, non nera"
   }
  },
  {
@@ -592,7 +648,8 @@
     "Ein Balzruf",
     "Das weiche Daunengefieder"
    ],
-   "x": "Eulen schlucken Mäuse ganz und würgen Unverdauliches wie Knochen und Fell später als Ballen wieder aus."
+   "x": "Eulen schlucken Mäuse ganz und würgen Unverdauliches wie Knochen und Fell später als Ballen wieder aus.",
+   "k": "Gewölle: ausgewürgte Knochen und Haare"
   },
   "en": {
    "q": "What is an owl pellet?",
@@ -602,7 +659,8 @@
     "A courtship call",
     "Soft down feathers"
    ],
-   "x": "Owls swallow mice whole and later cough up the indigestible bones and fur as a compact pellet."
+   "x": "Owls swallow mice whole and later cough up the indigestible bones and fur as a compact pellet.",
+   "k": "Owl pellet: coughed-up bones and fur"
   },
   "fr": {
    "q": "Qu'est-ce qu'une pelote de réjection chez la chouette ?",
@@ -612,7 +670,8 @@
     "Un chant nuptial",
     "Le duvet des poussins"
    ],
-   "x": "Les chouettes avalent les souris entières, puis recrachent les os et poils non digérés en boulette."
+   "x": "Les chouettes avalent les souris entières, puis recrachent les os et poils non digérés en boulette.",
+   "k": "Pelote de réjection : os et poils recrachés"
   },
   "es": {
    "q": "¿Qué es una egagrópila de búho?",
@@ -622,7 +681,8 @@
     "Un canto de cortejo",
     "El plumón suave"
    ],
-   "x": "Los búhos tragan los ratones enteros y luego regurgitan los huesos y pelos no digeridos en una bola."
+   "x": "Los búhos tragan los ratones enteros y luego regurgitan los huesos y pelos no digeridos en una bola.",
+   "k": "Egagrópila: huesos y pelo regurgitados"
   },
   "pt": {
    "q": "O que é uma egagrópila de coruja?",
@@ -632,7 +692,8 @@
     "Um canto de corte",
     "A penugem macia"
    ],
-   "x": "As corujas engolem os ratos inteiros e depois regurgitam numa bola os ossos e pelos não digeridos."
+   "x": "As corujas engolem os ratos inteiros e depois regurgitam numa bola os ossos e pelos não digeridos.",
+   "k": "Egagrópila: ossos e pelos regurgitados"
   },
   "ja": {
    "q": "フクロウのペリット（吐きもどし）とは何？",
@@ -642,7 +703,8 @@
     "求愛の鳴き声",
     "やわらかい綿毛"
    ],
-   "x": "フクロウはネズミを丸飲みし、消化できない骨や毛をあとでかたまりにして吐き出します。"
+   "x": "フクロウはネズミを丸飲みし、消化できない骨や毛をあとでかたまりにして吐き出します。",
+   "k": "ペリット：吐き出した骨と毛"
   },
   "it": {
    "q": "Cos’è una borra di gufo?",
@@ -652,7 +714,8 @@
     "Un richiamo di corteggiamento",
     "Piumino morbido"
    ],
-   "x": "I gufi inghiottono i topi interi e poi rigurgitano ossa e pelo indigeribili in una pallottola compatta."
+   "x": "I gufi inghiottono i topi interi e poi rigurgitano ossa e pelo indigeribili in una pallottola compatta.",
+   "k": "Borra: ossa e pelo rigurgitati"
   }
  },
  {
@@ -668,7 +731,8 @@
     "Seeadler",
     "Mäusebussard"
    ],
-   "x": "Der Mäusebussard ist der häufigste Greifvogel Deutschlands. Man sieht ihn oft auf Zaunpfählen an Feldern sitzen."
+   "x": "Der Mäusebussard ist der häufigste Greifvogel Deutschlands. Man sieht ihn oft auf Zaunpfählen an Feldern sitzen.",
+   "k": "Mäusebussard: häufigster Greifvogel bei uns"
   },
   "en": {
    "q": "Which is the most common bird of prey in Germany?",
@@ -678,7 +742,8 @@
     "White-tailed eagle",
     "Common buzzard"
    ],
-   "x": "The common buzzard is Germany's most common bird of prey, often seen perched on fence posts by fields."
+   "x": "The common buzzard is Germany's most common bird of prey, often seen perched on fence posts by fields.",
+   "k": "Common buzzard: Germany's commonest raptor"
   },
   "fr": {
    "q": "Quel est le rapace le plus commun en Allemagne ?",
@@ -688,7 +753,8 @@
     "Pygargue à queue blanche",
     "Buse variable"
    ],
-   "x": "La buse variable est le rapace le plus commun d'Allemagne, souvent perchée sur des piquets au bord des champs."
+   "x": "La buse variable est le rapace le plus commun d'Allemagne, souvent perchée sur des piquets au bord des champs.",
+   "k": "Buse variable : rapace le plus courant en Allemagne"
   },
   "es": {
    "q": "¿Cuál es el ave rapaz más común en Alemania?",
@@ -698,7 +764,8 @@
     "Pigargo europeo",
     "Busardo ratonero"
    ],
-   "x": "El busardo ratonero es la rapaz más común de Alemania; suele posarse en postes junto a los campos."
+   "x": "El busardo ratonero es la rapaz más común de Alemania; suele posarse en postes junto a los campos.",
+   "k": "Busardo ratonero: rapaz más común en Alemania"
   },
   "pt": {
    "q": "Qual é a ave de rapina mais comum na Alemanha?",
@@ -708,7 +775,8 @@
     "Águia-rabalva",
     "Águia-de-asa-redonda"
    ],
-   "x": "A águia-de-asa-redonda é a ave de rapina mais comum da Alemanha; costuma pousar em postes ao lado dos campos."
+   "x": "A águia-de-asa-redonda é a ave de rapina mais comum da Alemanha; costuma pousar em postes ao lado dos campos.",
+   "k": "Águia-de-asa-redonda: rapina mais comum na Alemanha"
   },
   "ja": {
    "q": "ドイツでいちばん多い猛禽類は？",
@@ -718,7 +786,8 @@
     "オジロワシ",
     "ヨーロッパノスリ"
    ],
-   "x": "ヨーロッパノスリはドイツでいちばん多い猛禽類。畑のそばの杭によくとまっています。"
+   "x": "ヨーロッパノスリはドイツでいちばん多い猛禽類。畑のそばの杭によくとまっています。",
+   "k": "ヨーロッパノスリ：ドイツでいちばん多い猛禽"
   },
   "it": {
    "q": "Qual è il rapace più comune in Germania?",
@@ -728,7 +797,8 @@
     "Aquila di mare",
     "Poiana"
    ],
-   "x": "La poiana è il rapace più comune in Germania; la si vede spesso sui pali ai margini dei campi."
+   "x": "La poiana è il rapace più comune in Germania; la si vede spesso sui pali ai margini dei campi.",
+   "k": "Poiana: rapace più comune in Germania"
   }
  },
  {
@@ -742,7 +812,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Falsch! Reh und Rothirsch sind zwei verschiedene Arten. Das Rehmännchen heißt Rehbock, das Weibchen Ricke."
+   "x": "Falsch! Reh und Rothirsch sind zwei verschiedene Arten. Das Rehmännchen heißt Rehbock, das Weibchen Ricke.",
+   "k": "Reh: nicht die Frau vom Hirsch"
   },
   "en": {
    "q": "The roe deer is the female of the red deer.",
@@ -750,7 +821,8 @@
     "True",
     "False"
    ],
-   "x": "False! Roe deer and red deer are two separate species. Roe deer are much smaller than red deer."
+   "x": "False! Roe deer and red deer are two separate species. Roe deer are much smaller than red deer.",
+   "k": "Roe deer: not the female of the red deer"
   },
   "fr": {
    "q": "Le chevreuil est la femelle du cerf.",
@@ -758,7 +830,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Faux ! Chevreuil et cerf élaphe sont deux espèces différentes. La femelle du cerf s'appelle la biche."
+   "x": "Faux ! Chevreuil et cerf élaphe sont deux espèces différentes. La femelle du cerf s'appelle la biche.",
+   "k": "Chevreuil : pas la femelle du cerf"
   },
   "es": {
    "q": "El corzo es la hembra del ciervo.",
@@ -766,7 +839,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Falso! El corzo y el ciervo rojo son dos especies distintas. El corzo es mucho más pequeño."
+   "x": "¡Falso! El corzo y el ciervo rojo son dos especies distintas. El corzo es mucho más pequeño.",
+   "k": "Corzo: no es la hembra del ciervo"
   },
   "pt": {
    "q": "O corço é a fêmea do veado.",
@@ -774,7 +848,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Falso! O corço e o veado-vermelho são duas espécies diferentes. O corço é bem menor."
+   "x": "Falso! O corço e o veado-vermelho são duas espécies diferentes. O corço é bem menor.",
+   "k": "Corço: não é a fêmea do veado"
   },
   "ja": {
    "q": "正しい？まちがい？ ノロジカはアカシカのメスのこと。",
@@ -782,7 +857,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "まちがい！ノロジカとアカシカは別の種。ノロジカはアカシカよりずっと小さいです。"
+   "x": "まちがい！ノロジカとアカシカは別の種。ノロジカはアカシカよりずっと小さいです。",
+   "k": "ノロジカ：アカシカのメスではない"
   },
   "it": {
    "q": "Vero o falso? Il capriolo è la femmina del cervo.",
@@ -790,7 +866,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Falso! Capriolo e cervo nobile sono due specie diverse. Il capriolo è molto più piccolo del cervo."
+   "x": "Falso! Capriolo e cervo nobile sono due specie diverse. Il capriolo è molto più piccolo del cervo.",
+   "k": "Capriolo: non è la femmina del cervo"
   }
  },
  {
@@ -806,7 +883,8 @@
     "Rentier",
     "Damhirsch"
    ],
-   "x": "Der Elch ist der größte Hirsch der Welt. Große Bullen erreichen etwa 2 m Schulterhöhe und tragen schaufelförmige Geweihe."
+   "x": "Der Elch ist der größte Hirsch der Welt. Große Bullen erreichen etwa 2 m Schulterhöhe und tragen schaufelförmige Geweihe.",
+   "k": "Elch: größter Hirsch der Welt"
   },
   "en": {
    "q": "Which is the largest species of deer in the world?",
@@ -816,7 +894,8 @@
     "Reindeer",
     "Fallow deer"
    ],
-   "x": "The moose is the largest deer in the world. Big bulls reach about 2 m at the shoulder and carry broad, flat antlers."
+   "x": "The moose is the largest deer in the world. Big bulls reach about 2 m at the shoulder and carry broad, flat antlers.",
+   "k": "Moose: largest deer in the world"
   },
   "fr": {
    "q": "Quelle est la plus grande espèce de cerf au monde ?",
@@ -826,7 +905,8 @@
     "Renne",
     "Daim"
    ],
-   "x": "L'élan est le plus grand cervidé du monde. Les grands mâles atteignent environ 2 m au garrot et portent des bois en pelle."
+   "x": "L'élan est le plus grand cervidé du monde. Les grands mâles atteignent environ 2 m au garrot et portent des bois en pelle.",
+   "k": "Élan : plus grand cerf du monde"
   },
   "es": {
    "q": "¿Cuál es la especie de ciervo más grande del mundo?",
@@ -836,7 +916,8 @@
     "Reno",
     "Gamo"
    ],
-   "x": "El alce es el cérvido más grande del mundo. Los machos grandes alcanzan unos 2 m a la cruz y tienen astas en forma de pala."
+   "x": "El alce es el cérvido más grande del mundo. Los machos grandes alcanzan unos 2 m a la cruz y tienen astas en forma de pala.",
+   "k": "Alce: mayor ciervo del mundo"
   },
   "pt": {
    "q": "Qual é a maior espécie de cervo do mundo?",
@@ -846,7 +927,8 @@
     "Rena",
     "Gamo"
    ],
-   "x": "O alce é o maior cervídeo do mundo. Os machos grandes chegam a uns 2 m na cernelha e têm chifres em forma de pá."
+   "x": "O alce é o maior cervídeo do mundo. Os machos grandes chegam a uns 2 m na cernelha e têm chifres em forma de pá.",
+   "k": "Alce: maior cervo do mundo"
   },
   "ja": {
    "q": "世界最大のシカは？",
@@ -856,7 +938,8 @@
     "トナカイ",
     "ダマジカ"
    ],
-   "x": "ヘラジカは世界最大のシカ。大きなオスは肩の高さが約2メートルで、幅広い平らな角をもちます。"
+   "x": "ヘラジカは世界最大のシカ。大きなオスは肩の高さが約2メートルで、幅広い平らな角をもちます。",
+   "k": "ヘラジカ：世界最大のシカ"
   },
   "it": {
    "q": "Qual è la specie di cervo più grande del mondo?",
@@ -866,7 +949,8 @@
     "Renna",
     "Daino"
    ],
-   "x": "L’alce è il cervo più grande del mondo. I grandi maschi arrivano a circa 2 m al garrese e hanno palchi larghi e piatti."
+   "x": "L’alce è il cervo più grande del mondo. I grandi maschi arrivano a circa 2 m al garrese e hanno palchi larghi e piatti.",
+   "k": "Alce: il cervo più grande del mondo"
   }
  },
  {
@@ -882,7 +966,8 @@
     "Uhu",
     "Waldohreule"
    ],
-   "x": "Der Uhu ist Europas größte Eule, mit bis zu etwa 1,8 m Flügelspannweite. Er jagt sogar Igel."
+   "x": "Der Uhu ist Europas größte Eule, mit bis zu etwa 1,8 m Flügelspannweite. Er jagt sogar Igel.",
+   "k": "Uhu: größte Eule Europas"
   },
   "en": {
    "q": "Which is the largest owl in Europe?",
@@ -892,7 +977,8 @@
     "Eurasian eagle-owl",
     "Long-eared owl"
    ],
-   "x": "The eagle-owl is Europe's largest owl, with a wingspan of up to about 1.8 m. It even hunts hedgehogs."
+   "x": "The eagle-owl is Europe's largest owl, with a wingspan of up to about 1.8 m. It even hunts hedgehogs.",
+   "k": "Eagle-owl: largest owl in Europe"
   },
   "fr": {
    "q": "Quel est le plus grand rapace nocturne d'Europe ?",
@@ -902,7 +988,8 @@
     "Grand-duc d'Europe",
     "Hibou moyen-duc"
    ],
-   "x": "Le grand-duc est le plus grand rapace nocturne d'Europe : jusqu'à environ 1,8 m d'envergure. Il chasse même le hérisson."
+   "x": "Le grand-duc est le plus grand rapace nocturne d'Europe : jusqu'à environ 1,8 m d'envergure. Il chasse même le hérisson.",
+   "k": "Grand-duc : plus grande chouette d’Europe"
   },
   "es": {
    "q": "¿Cuál es el búho más grande de Europa?",
@@ -912,7 +999,8 @@
     "Búho real",
     "Búho chico"
    ],
-   "x": "El búho real es el mayor búho de Europa, con hasta unos 1,8 m de envergadura. Incluso caza erizos."
+   "x": "El búho real es el mayor búho de Europa, con hasta unos 1,8 m de envergadura. Incluso caza erizos.",
+   "k": "Búho real: mayor búho de Europa"
   },
   "pt": {
    "q": "Qual é a maior coruja da Europa?",
@@ -922,7 +1010,8 @@
     "Bufo-real",
     "Bufo-pequeno"
    ],
-   "x": "O bufo-real é a maior coruja da Europa, com até uns 1,8 m de envergadura. Ele caça até ouriços."
+   "x": "O bufo-real é a maior coruja da Europa, com até uns 1,8 m de envergadura. Ele caça até ouriços.",
+   "k": "Bufo-real: maior coruja da Europa"
   },
   "ja": {
    "q": "ヨーロッパ最大のフクロウは？",
@@ -932,7 +1021,8 @@
     "ワシミミズク",
     "トラフズク"
    ],
-   "x": "ワシミミズクはヨーロッパ最大のフクロウで、翼を広げると最大約1.8メートル。ハリネズミまで狩ります。"
+   "x": "ワシミミズクはヨーロッパ最大のフクロウで、翼を広げると最大約1.8メートル。ハリネズミまで狩ります。",
+   "k": "ワシミミズク：ヨーロッパ最大のフクロウ"
   },
   "it": {
    "q": "Qual è il gufo più grande d’Europa?",
@@ -942,7 +1032,8 @@
     "Gufo reale",
     "Gufo comune"
    ],
-   "x": "Il gufo reale è il più grande d’Europa, con un’apertura alare fino a circa 1,8 m. Caccia persino i ricci."
+   "x": "Il gufo reale è il più grande d’Europa, con un’apertura alare fino a circa 1,8 m. Caccia persino i ricci.",
+   "k": "Gufo reale: il gufo più grande d’Europa"
   }
  },
  {
@@ -958,7 +1049,8 @@
     "Eichhörnchen",
     "Reh"
    ],
-   "x": "Der Siebenschläfer schläft bis zu etwa 7 Monate. Dachs und Eichhörnchen halten nur Winterruhe, Rehe bleiben aktiv."
+   "x": "Der Siebenschläfer schläft bis zu etwa 7 Monate. Dachs und Eichhörnchen halten nur Winterruhe, Rehe bleiben aktiv.",
+   "k": "Siebenschläfer: schläft bis zu 7 Monate"
   },
   "en": {
    "q": "Which of these animals truly hibernates?",
@@ -968,7 +1060,8 @@
     "Red squirrel",
     "Roe deer"
    ],
-   "x": "The edible dormouse sleeps for up to about 7 months. Badgers and squirrels only rest more; roe deer stay active."
+   "x": "The edible dormouse sleeps for up to about 7 months. Badgers and squirrels only rest more; roe deer stay active.",
+   "k": "Edible dormouse: sleeps up to 7 months"
   },
   "fr": {
    "q": "Lequel de ces animaux hiberne vraiment ?",
@@ -978,7 +1071,8 @@
     "Écureuil roux",
     "Chevreuil"
    ],
-   "x": "Le loir dort jusqu’à environ 7 mois. Le blaireau et l’écureuil ne font qu’un repos hivernal, le chevreuil reste actif."
+   "x": "Le loir dort jusqu’à environ 7 mois. Le blaireau et l’écureuil ne font qu’un repos hivernal, le chevreuil reste actif.",
+   "k": "Loir : dort jusqu’à 7 mois"
   },
   "es": {
    "q": "¿Cuál de estos animales hiberna de verdad?",
@@ -988,7 +1082,8 @@
     "Ardilla roja",
     "Corzo"
    ],
-   "x": "El lirón gris duerme hasta unos 7 meses. El tejón y la ardilla solo reducen su actividad; el corzo sigue activo."
+   "x": "El lirón gris duerme hasta unos 7 meses. El tejón y la ardilla solo reducen su actividad; el corzo sigue activo.",
+   "k": "Lirón gris: duerme hasta 7 meses"
   },
   "pt": {
    "q": "Qual destes animais hiberna de verdade?",
@@ -998,7 +1093,8 @@
     "Esquilo-vermelho",
     "Corço"
    ],
-   "x": "O arganaz dorme até uns 7 meses. O texugo e o esquilo só diminuem a atividade; o corço continua ativo."
+   "x": "O arganaz dorme até uns 7 meses. O texugo e o esquilo só diminuem a atividade; o corço continua ativo.",
+   "k": "Arganaz: dorme até 7 meses"
   },
   "ja": {
    "q": "本当の冬眠をするのはどれ？",
@@ -1008,7 +1104,8 @@
     "キタリス",
     "ノロジカ"
    ],
-   "x": "オオヤマネは最大約7か月眠ります。アナグマやリスは休む時間が増えるだけ、ノロジカは冬も活動します。"
+   "x": "オオヤマネは最大約7か月眠ります。アナグマやリスは休む時間が増えるだけ、ノロジカは冬も活動します。",
+   "k": "オオヤマネ：最大7か月眠る"
   },
   "it": {
    "q": "Quale di questi animali va davvero in letargo?",
@@ -1018,7 +1115,8 @@
     "Scoiattolo rosso",
     "Capriolo"
    ],
-   "x": "Il ghiro dorme fino a circa 7 mesi. Tassi e scoiattoli riposano solo di più; i caprioli restano attivi."
+   "x": "Il ghiro dorme fino a circa 7 mesi. Tassi e scoiattoli riposano solo di più; i caprioli restano attivi.",
+   "k": "Ghiro: dorme fino a 7 mesi"
   }
  },
  {
@@ -1034,7 +1132,8 @@
     "Es bleibt für immer gleich",
     "Es wird abgeworfen und wächst neu"
    ],
-   "x": "Hirsche werfen ihr Geweih jedes Jahr ab. Das neue wächst in wenigen Monaten nach, geschützt von einer Haut, dem „Bast“."
+   "x": "Hirsche werfen ihr Geweih jedes Jahr ab. Das neue wächst in wenigen Monaten nach, geschützt von einer Haut, dem „Bast“.",
+   "k": "Hirsche: werfen jedes Jahr ihr Geweih ab"
   },
   "en": {
    "q": "What happens to a red deer stag's antlers every year?",
@@ -1044,7 +1143,8 @@
     "They never change",
     "They are shed and regrow"
    ],
-   "x": "Deer shed their antlers every year. New ones grow back within a few months, covered in skin called velvet."
+   "x": "Deer shed their antlers every year. New ones grow back within a few months, covered in skin called velvet.",
+   "k": "Deer: shed their antlers every year"
   },
   "fr": {
    "q": "Que se passe-t-il chaque année avec les bois du cerf ?",
@@ -1054,7 +1154,8 @@
     "Ils ne changent jamais",
     "Ils tombent et repoussent"
    ],
-   "x": "Le cerf perd ses bois chaque année. De nouveaux repoussent en quelques mois, couverts d'une peau appelée velours."
+   "x": "Le cerf perd ses bois chaque année. De nouveaux repoussent en quelques mois, couverts d'une peau appelée velours.",
+   "k": "Cerfs : perdent leurs bois chaque année"
   },
   "es": {
    "q": "¿Qué le pasa cada año a la cornamenta del ciervo?",
@@ -1064,7 +1165,8 @@
     "Nunca cambia",
     "Se cae y vuelve a crecer"
    ],
-   "x": "Los ciervos pierden la cornamenta cada año. La nueva crece en pocos meses, cubierta de una piel llamada terciopelo."
+   "x": "Los ciervos pierden la cornamenta cada año. La nueva crece en pocos meses, cubierta de una piel llamada terciopelo.",
+   "k": "Ciervos: mudan la cornamenta cada año"
   },
   "pt": {
    "q": "O que acontece todo ano com os chifres do veado?",
@@ -1074,7 +1176,8 @@
     "Nunca mudam",
     "Caem e crescem de novo"
    ],
-   "x": "Os veados perdem os chifres todo ano. Os novos crescem em poucos meses, cobertos por uma pele chamada veludo."
+   "x": "Os veados perdem os chifres todo ano. Os novos crescem em poucos meses, cobertos por uma pele chamada veludo.",
+   "k": "Veados: trocam a galhada todo ano"
   },
   "ja": {
    "q": "アカシカのオスの角は毎年どうなる？",
@@ -1084,7 +1187,8 @@
     "変わらない",
     "落ちてまた生える"
    ],
-   "x": "シカは毎年角を落とします。新しい角は数か月で生え、袋角と呼ばれる皮ふにおおわれています。"
+   "x": "シカは毎年角を落とします。新しい角は数か月で生え、袋角と呼ばれる皮ふにおおわれています。",
+   "k": "シカ：毎年角が生えかわる"
   },
   "it": {
    "q": "Cosa succede ogni anno ai palchi del cervo maschio?",
@@ -1094,7 +1198,8 @@
     "Non cambiano mai",
     "Cadono e ricrescono"
    ],
-   "x": "I cervi perdono i palchi ogni anno. Quelli nuovi ricrescono in pochi mesi, coperti da una pelle chiamata velluto."
+   "x": "I cervi perdono i palchi ogni anno. Quelli nuovi ricrescono in pochi mesi, coperti da una pelle chiamata velluto.",
+   "k": "Cervi: perdono i palchi ogni anno"
   }
  },
  {
@@ -1110,7 +1215,8 @@
     "Frankreich",
     "Polen"
    ],
-   "x": "Etwa die Hälfte aller Rotmilane brütet in Deutschland. Man erkennt ihn am tief gegabelten, rostroten Schwanz."
+   "x": "Etwa die Hälfte aller Rotmilane brütet in Deutschland. Man erkennt ihn am tief gegabelten, rostroten Schwanz.",
+   "k": "Rotmilan: die Hälfte brütet in Deutschland"
   },
   "en": {
    "q": "In which country do about half of the world's red kites breed?",
@@ -1120,7 +1226,8 @@
     "France",
     "Poland"
    ],
-   "x": "About half of all red kites breed in Germany. You can recognise it by its deeply forked, rusty-red tail."
+   "x": "About half of all red kites breed in Germany. You can recognise it by its deeply forked, rusty-red tail.",
+   "k": "Red kite: half of them breed in Germany"
   },
   "fr": {
    "q": "Dans quel pays niche environ la moitié des milans royaux du monde ?",
@@ -1130,7 +1237,8 @@
     "France",
     "Pologne"
    ],
-   "x": "Environ la moitié des milans royaux nichent en Allemagne. On le reconnaît à sa queue rousse profondément fourchue."
+   "x": "Environ la moitié des milans royaux nichent en Allemagne. On le reconnaît à sa queue rousse profondément fourchue.",
+   "k": "Milan royal : la moitié niche en Allemagne"
   },
   "es": {
    "q": "¿En qué país cría aproximadamente la mitad de los milanos reales del mundo?",
@@ -1140,7 +1248,8 @@
     "Francia",
     "Polonia"
    ],
-   "x": "Cerca de la mitad de los milanos reales cría en Alemania. Se reconoce por su cola rojiza muy ahorquillada."
+   "x": "Cerca de la mitad de los milanos reales cría en Alemania. Se reconoce por su cola rojiza muy ahorquillada.",
+   "k": "Milano real: la mitad cría en Alemania"
   },
   "pt": {
    "q": "Em que país se reproduz mais ou menos a metade dos milhafres-reais do mundo?",
@@ -1150,7 +1259,8 @@
     "França",
     "Polônia"
    ],
-   "x": "Cerca de metade dos milhafres-reais se reproduz na Alemanha. Ele é reconhecido pela cauda avermelhada bem bifurcada."
+   "x": "Cerca de metade dos milhafres-reais se reproduz na Alemanha. Ele é reconhecido pela cauda avermelhada bem bifurcada.",
+   "k": "Milhafre-real: metade se reproduz na Alemanha"
   },
   "ja": {
    "q": "世界のアカトビの約半分が繁殖している国は？",
@@ -1160,7 +1270,8 @@
     "フランス",
     "ポーランド"
    ],
-   "x": "アカトビの約半分はドイツで繁殖します。深く切れこんだ赤さび色の尾が目印です。"
+   "x": "アカトビの約半分はドイツで繁殖します。深く切れこんだ赤さび色の尾が目印です。",
+   "k": "アカトビ：半分がドイツで繁殖"
   },
   "it": {
    "q": "In quale paese nidifica circa metà dei nibbi reali del mondo?",
@@ -1170,7 +1281,8 @@
     "Francia",
     "Polonia"
    ],
-   "x": "Circa metà dei nibbi reali nidifica in Germania. Si riconosce dalla coda rosso ruggine profondamente forcuta."
+   "x": "Circa metà dei nibbi reali nidifica in Germania. Si riconosce dalla coda rosso ruggine profondamente forcuta.",
+   "k": "Nibbio reale: metà nidifica in Germania"
   }
  },
  {
@@ -1186,7 +1298,8 @@
     "Bis zu etwa 10 Monate",
     "Ihr ganzes Leben lang"
    ],
-   "x": "Manche Mauersegler bleiben bis zu etwa 10 Monate ununterbrochen in der Luft. Sie fressen und trinken im Flug und landen nur zum Brüten."
+   "x": "Manche Mauersegler bleiben bis zu etwa 10 Monate ununterbrochen in der Luft. Sie fressen und trinken im Flug und landen nur zum Brüten.",
+   "k": "Mauersegler: bis zu 10 Monate in der Luft"
   },
   "en": {
    "q": "How long can common swifts stay in the air without landing?",
@@ -1196,7 +1309,8 @@
     "Up to about 10 months",
     "Their whole life"
    ],
-   "x": "Some swifts stay airborne for up to about 10 months non-stop. They eat and drink in flight and land only to breed."
+   "x": "Some swifts stay airborne for up to about 10 months non-stop. They eat and drink in flight and land only to breed.",
+   "k": "Swifts: up to 10 months in the air"
   },
   "fr": {
    "q": "Combien de temps les martinets noirs peuvent-ils rester en l'air sans se poser ?",
@@ -1206,7 +1320,8 @@
     "Jusqu'à environ 10 mois",
     "Toute leur vie"
    ],
-   "x": "Certains martinets restent jusqu'à environ 10 mois en vol sans arrêt. Ils mangent et boivent en vol et ne se posent que pour nicher."
+   "x": "Certains martinets restent jusqu'à environ 10 mois en vol sans arrêt. Ils mangent et boivent en vol et ne se posent que pour nicher.",
+   "k": "Martinets : jusqu’à 10 mois en vol"
   },
   "es": {
    "q": "¿Cuánto tiempo pueden pasar los vencejos comunes en el aire sin posarse?",
@@ -1216,7 +1331,8 @@
     "Hasta unos 10 meses",
     "Toda su vida"
    ],
-   "x": "Algunos vencejos pasan hasta unos 10 meses volando sin parar. Comen y beben en vuelo y solo se posan para criar."
+   "x": "Algunos vencejos pasan hasta unos 10 meses volando sin parar. Comen y beben en vuelo y solo se posan para criar.",
+   "k": "Vencejos: hasta 10 meses en el aire"
   },
   "pt": {
    "q": "Quanto tempo os andorinhões-pretos podem passar no ar sem pousar?",
@@ -1226,7 +1342,8 @@
     "Até uns 10 meses",
     "A vida inteira"
    ],
-   "x": "Alguns andorinhões passam até uns 10 meses voando sem parar. Comem e bebem em voo e só pousam para se reproduzir."
+   "x": "Alguns andorinhões passam até uns 10 meses voando sem parar. Comem e bebem em voo e só pousam para se reproduzir.",
+   "k": "Andorinhões: até 10 meses no ar"
   },
   "ja": {
    "q": "ヨーロッパアマツバメは、着地せずにどれくらい空にいられる？",
@@ -1236,7 +1353,8 @@
     "最大約10か月",
     "一生ずっと"
    ],
-   "x": "最大約10か月、休まず飛び続けるアマツバメもいます。飛びながら食べて飲み、着地するのは子育てのときだけ。"
+   "x": "最大約10か月、休まず飛び続けるアマツバメもいます。飛びながら食べて飲み、着地するのは子育てのときだけ。",
+   "k": "アマツバメ：最大10か月空の上"
   },
   "it": {
    "q": "Per quanto tempo i rondoni comuni restano in aria senza posarsi?",
@@ -1246,7 +1364,8 @@
     "Fino a circa 10 mesi",
     "Tutta la vita"
    ],
-   "x": "Alcuni rondoni restano in volo fino a circa 10 mesi senza sosta. Mangiano e bevono in volo e si posano solo per nidificare."
+   "x": "Alcuni rondoni restano in volo fino a circa 10 mesi senza sosta. Mangiano e bevono in volo e si posano solo per nidificare.",
+   "k": "Rondoni: fino a 10 mesi in volo"
   }
  },
  {
@@ -1262,7 +1381,8 @@
     "Eine Zahnkrankheit",
     "Sie sind mit Blut gefüllt"
    ],
-   "x": "Eingelagertes Eisen färbt den Zahnschmelz orange und macht ihn besonders hart – ideal zum Fällen von Bäumen."
+   "x": "Eingelagertes Eisen färbt den Zahnschmelz orange und macht ihn besonders hart – ideal zum Fällen von Bäumen.",
+   "k": "Biber: orange Zähne dank Eisen"
   },
   "en": {
    "q": "Why are a beaver's front teeth orange?",
@@ -1272,7 +1392,8 @@
     "A tooth disease",
     "They are full of blood"
    ],
-   "x": "Iron in the enamel turns it orange and makes it extra hard – perfect for felling trees."
+   "x": "Iron in the enamel turns it orange and makes it extra hard – perfect for felling trees.",
+   "k": "Beaver: orange teeth thanks to iron"
   },
   "fr": {
    "q": "Pourquoi les incisives du castor sont-elles orange ?",
@@ -1282,7 +1403,8 @@
     "Une maladie dentaire",
     "Elles sont pleines de sang"
    ],
-   "x": "Le fer présent dans l'émail le colore en orange et le rend très dur, idéal pour abattre des arbres."
+   "x": "Le fer présent dans l'émail le colore en orange et le rend très dur, idéal pour abattre des arbres.",
+   "k": "Castor : dents orange grâce au fer"
   },
   "es": {
    "q": "¿Por qué los incisivos del castor son naranjas?",
@@ -1292,7 +1414,8 @@
     "Una enfermedad dental",
     "Están llenos de sangre"
    ],
-   "x": "El hierro del esmalte lo vuelve naranja y muy duro, ideal para talar árboles."
+   "x": "El hierro del esmalte lo vuelve naranja y muy duro, ideal para talar árboles.",
+   "k": "Castor: dientes naranjas por el hierro"
   },
   "pt": {
    "q": "Por que os dentes da frente do castor são laranja?",
@@ -1302,7 +1425,8 @@
     "Uma doença dental",
     "Estão cheios de sangue"
    ],
-   "x": "O ferro no esmalte deixa os dentes laranja e muito duros – ideais para derrubar árvores."
+   "x": "O ferro no esmalte deixa os dentes laranja e muito duros – ideais para derrubar árvores.",
+   "k": "Castor: dentes laranja por causa do ferro"
   },
   "ja": {
    "q": "ビーバーの前歯がオレンジ色なのはなぜ？",
@@ -1312,7 +1436,8 @@
     "歯の病気",
     "血がつまっている"
    ],
-   "x": "エナメル質の鉄でオレンジ色になり、とてもかたくなります。木を切りたおすのにぴったり。"
+   "x": "エナメル質の鉄でオレンジ色になり、とてもかたくなります。木を切りたおすのにぴったり。",
+   "k": "ビーバー：鉄で歯がオレンジ色"
   },
   "it": {
    "q": "Perché gli incisivi del castoro sono arancioni?",
@@ -1322,7 +1447,8 @@
     "Una malattia dei denti",
     "Sono pieni di sangue"
    ],
-   "x": "Il ferro nello smalto lo rende arancione ed extra duro: perfetto per abbattere alberi."
+   "x": "Il ferro nello smalto lo rende arancione ed extra duro: perfetto per abbattere alberi.",
+   "k": "Castoro: denti arancioni grazie al ferro"
   }
  },
  {
@@ -1338,7 +1464,8 @@
     "Über dem Meer ist es zu kalt",
     "Über Wasser fehlen warme Aufwinde"
    ],
-   "x": "Störche segeln in warmen Aufwinden, die über Land entstehen, kaum aber über dem Meer. Daher ziehen sie über Gibraltar oder den Bosporus."
+   "x": "Störche segeln in warmen Aufwinden, die über Land entstehen, kaum aber über dem Meer. Daher ziehen sie über Gibraltar oder den Bosporus.",
+   "k": "Störche: meiden den Flug übers Meer"
   },
   "en": {
    "q": "Why don't white storks simply fly across the Mediterranean to Africa?",
@@ -1348,7 +1475,8 @@
     "It is too cold over the sea",
     "There are no rising warm air currents"
    ],
-   "x": "Storks soar on rising warm air (thermals), which forms over land but hardly over sea. So they detour via Gibraltar or the Bosporus."
+   "x": "Storks soar on rising warm air (thermals), which forms over land but hardly over sea. So they detour via Gibraltar or the Bosporus.",
+   "k": "Storks: avoid flying over the sea"
   },
   "fr": {
    "q": "Pourquoi les cigognes blanches ne traversent-elles pas simplement la Méditerranée ?",
@@ -1358,7 +1486,8 @@
     "Il fait trop froid sur la mer",
     "Il n'y a pas d'ascendances chaudes"
    ],
-   "x": "Les cigognes planent sur l'air chaud ascendant, présent sur terre mais rare sur la mer. Elles passent donc par Gibraltar ou le Bosphore."
+   "x": "Les cigognes planent sur l'air chaud ascendant, présent sur terre mais rare sur la mer. Elles passent donc par Gibraltar ou le Bosphore.",
+   "k": "Cigognes : évitent de survoler la mer"
   },
   "es": {
    "q": "¿Por qué las cigüeñas blancas no cruzan directamente el Mediterráneo?",
@@ -1368,7 +1497,8 @@
     "Hace demasiado frío sobre el mar",
     "Faltan corrientes de aire cálido"
    ],
-   "x": "Las cigüeñas planean con corrientes térmicas, que se forman sobre tierra y apenas sobre el mar. Por eso pasan por Gibraltar o el Bósforo."
+   "x": "Las cigüeñas planean con corrientes térmicas, que se forman sobre tierra y apenas sobre el mar. Por eso pasan por Gibraltar o el Bósforo.",
+   "k": "Cigüeñas: evitan volar sobre el mar"
   },
   "pt": {
    "q": "Por que as cegonhas-brancas não atravessam direto o Mediterrâneo?",
@@ -1378,7 +1508,8 @@
     "É frio demais sobre o mar",
     "Faltam correntes de ar quente"
    ],
-   "x": "As cegonhas planam com correntes térmicas, que se formam sobre a terra e quase não sobre o mar. Por isso passam por Gibraltar ou pelo Bósforo."
+   "x": "As cegonhas planam com correntes térmicas, que se formam sobre a terra e quase não sobre o mar. Por isso passam por Gibraltar ou pelo Bósforo.",
+   "k": "Cegonhas: evitam voar sobre o mar"
   },
   "ja": {
    "q": "シュバシコウが地中海をまっすぐ渡ってアフリカへ行かないのはなぜ？",
@@ -1388,7 +1519,8 @@
     "海の上は寒すぎる",
     "上昇する暖かい空気がない"
    ],
-   "x": "コウノトリは上昇気流に乗って飛びます。上昇気流は陸の上ではできますが、海の上ではほとんどできません。だからジブラルタルやボスポラスを回り道します。"
+   "x": "コウノトリは上昇気流に乗って飛びます。上昇気流は陸の上ではできますが、海の上ではほとんどできません。だからジブラルタルやボスポラスを回り道します。",
+   "k": "コウノトリ：海の上を飛ぶのを避ける"
   },
   "it": {
    "q": "Perché le cicogne bianche non attraversano semplicemente il Mediterraneo verso l’Africa?",
@@ -1398,7 +1530,8 @@
     "Sul mare fa troppo freddo",
     "Mancano le correnti d’aria calda ascendenti"
    ],
-   "x": "Le cicogne planano sulle correnti ascensionali calde, che si formano sulla terra ma quasi non sul mare. Per questo fanno il giro da Gibilterra o dal Bosforo."
+   "x": "Le cicogne planano sulle correnti ascensionali calde, che si formano sulla terra ma quasi non sul mare. Per questo fanno il giro da Gibilterra o dal Bosforo.",
+   "k": "Cicogne: evitano di volare sul mare"
   }
  },
  {
@@ -1414,7 +1547,8 @@
     "Amsel",
     "Ringeltaube"
    ],
-   "x": "Der Eichelhäher versteckt im Herbst tausende Eicheln im Boden. Was er nicht wiederfindet, kann zu neuen Eichen keimen."
+   "x": "Der Eichelhäher versteckt im Herbst tausende Eicheln im Boden. Was er nicht wiederfindet, kann zu neuen Eichen keimen.",
+   "k": "Eichelhäher: pflanzt Eichen durch Vergessen"
   },
   "en": {
    "q": "Which bird 'plants' many new oak trees through forgotten winter stores?",
@@ -1424,7 +1558,8 @@
     "Blackbird",
     "Wood pigeon"
    ],
-   "x": "In autumn the jay hides thousands of acorns in the ground. Those it never finds again can sprout into new oaks."
+   "x": "In autumn the jay hides thousands of acorns in the ground. Those it never finds again can sprout into new oaks.",
+   "k": "Jay: plants oaks by forgetting acorns"
   },
   "fr": {
    "q": "Quel oiseau « plante » de nombreux chênes grâce à ses réserves oubliées ?",
@@ -1434,7 +1569,8 @@
     "Merle noir",
     "Pigeon ramier"
    ],
-   "x": "En automne, le geai cache des milliers de glands dans le sol. Ceux qu'il oublie peuvent germer et devenir des chênes."
+   "x": "En automne, le geai cache des milliers de glands dans le sol. Ceux qu'il oublie peuvent germer et devenir des chênes.",
+   "k": "Geai : plante des chênes en oubliant ses glands"
   },
   "es": {
    "q": "¿Qué ave «planta» muchos robles nuevos con sus despensas olvidadas?",
@@ -1444,7 +1580,8 @@
     "Mirlo común",
     "Paloma torcaz"
    ],
-   "x": "En otoño, el arrendajo esconde miles de bellotas en el suelo. Las que olvida pueden germinar y convertirse en robles."
+   "x": "En otoño, el arrendajo esconde miles de bellotas en el suelo. Las que olvida pueden germinar y convertirse en robles.",
+   "k": "Arrendajo: planta robles al olvidar bellotas"
   },
   "pt": {
    "q": "Que ave “planta” muitos carvalhos novos com suas despensas esquecidas?",
@@ -1454,7 +1591,8 @@
     "Melro",
     "Pombo-torcaz"
    ],
-   "x": "No outono, o gaio esconde milhares de bolotas no chão. As que ele esquece podem germinar e virar carvalhos."
+   "x": "No outono, o gaio esconde milhares de bolotas no chão. As que ele esquece podem germinar e virar carvalhos.",
+   "k": "Gaio: planta carvalhos ao esquecer bolotas"
   },
   "ja": {
    "q": "冬のたくわえを忘れることで、たくさんのカシの木を「植える」鳥は？",
@@ -1464,7 +1602,8 @@
     "クロウタドリ",
     "モリバト"
    ],
-   "x": "カケスは秋に何千個ものドングリを地面にかくします。見つけられなかったドングリが芽を出し、新しいカシになります。"
+   "x": "カケスは秋に何千個ものドングリを地面にかくします。見つけられなかったドングリが芽を出し、新しいカシになります。",
+   "k": "カケス：ドングリを忘れてカシを植える"
   },
   "it": {
    "q": "Quale uccello «pianta» molte nuove querce grazie alle provviste invernali dimenticate?",
@@ -1474,7 +1613,8 @@
     "Merlo",
     "Colombaccio"
    ],
-   "x": "In autunno la ghiandaia nasconde migliaia di ghiande nel terreno. Quelle che non ritrova possono germogliare in nuove querce."
+   "x": "In autunno la ghiandaia nasconde migliaia di ghiande nel terreno. Quelle che non ritrova possono germogliare in nuove querce.",
+   "k": "Ghiandaia: pianta querce dimenticando le ghiande"
   }
  },
  {
@@ -1490,7 +1630,8 @@
     "In einer selbst gegrabenen Erdröhre",
     "In einer Mulde am Strand"
    ],
-   "x": "Der Eisvogel gräbt mit dem Schnabel eine oft fast meterlange Röhre in steile Uferwände. Am Ende liegt die Brutkammer."
+   "x": "Der Eisvogel gräbt mit dem Schnabel eine oft fast meterlange Röhre in steile Uferwände. Am Ende liegt die Brutkammer.",
+   "k": "Eisvogel: gräbt Tunnel ins Ufer"
   },
   "en": {
    "q": "Where does the kingfisher nest?",
@@ -1500,7 +1641,8 @@
     "In a burrow it digs itself",
     "In a hollow on the beach"
    ],
-   "x": "The kingfisher digs a tunnel, often almost a metre long, into steep riverbanks with its bill. The nest chamber is at the end."
+   "x": "The kingfisher digs a tunnel, often almost a metre long, into steep riverbanks with its bill. The nest chamber is at the end.",
+   "k": "Kingfisher: digs tunnels into riverbanks"
   },
   "fr": {
    "q": "Où niche le martin-pêcheur ?",
@@ -1510,7 +1652,8 @@
     "Dans un terrier qu'il creuse",
     "Dans un creux sur la plage"
    ],
-   "x": "Le martin-pêcheur creuse avec son bec un tunnel souvent long de près d'un mètre dans une berge abrupte. Le nid est au fond."
+   "x": "Le martin-pêcheur creuse avec son bec un tunnel souvent long de près d'un mètre dans une berge abrupte. Le nid est au fond.",
+   "k": "Martin-pêcheur : creuse un tunnel dans la berge"
   },
   "es": {
    "q": "¿Dónde cría el martín pescador?",
@@ -1520,7 +1663,8 @@
     "En un túnel que excava él mismo",
     "En un hoyo en la playa"
    ],
-   "x": "El martín pescador excava con el pico un túnel de casi un metro en taludes de ríos. Al fondo está el nido."
+   "x": "El martín pescador excava con el pico un túnel de casi un metro en taludes de ríos. Al fondo está el nido.",
+   "k": "Martín pescador: excava túneles en la orilla"
   },
   "pt": {
    "q": "Onde o guarda-rios faz o ninho?",
@@ -1530,7 +1674,8 @@
     "Num túnel que ele mesmo cava",
     "Num buraco na praia"
    ],
-   "x": "O guarda-rios cava com o bico um túnel de quase um metro em barrancos de rios. No fundo fica o ninho."
+   "x": "O guarda-rios cava com o bico um túnel de quase um metro em barrancos de rios. No fundo fica o ninho.",
+   "k": "Martim-pescador: cava túneis no barranco"
   },
   "ja": {
    "q": "カワセミはどこに巣を作る？",
@@ -1540,7 +1685,8 @@
     "自分で掘ったトンネル",
     "砂浜のくぼみ"
    ],
-   "x": "カワセミはくちばしで川のがけに、長さ1メートル近いトンネルを掘ります。巣は一番奥にあります。"
+   "x": "カワセミはくちばしで川のがけに、長さ1メートル近いトンネルを掘ります。巣は一番奥にあります。",
+   "k": "カワセミ：川岸にトンネルを掘る"
   },
   "it": {
    "q": "Dove nidifica il martin pescatore?",
@@ -1550,7 +1696,8 @@
     "In una galleria che scava da sé",
     "In una buca sulla spiaggia"
    ],
-   "x": "Il martin pescatore scava col becco una galleria, spesso lunga quasi un metro, nelle rive ripide. La camera del nido è in fondo."
+   "x": "Il martin pescatore scava col becco una galleria, spesso lunga quasi un metro, nelle rive ripide. La camera del nido è in fondo.",
+   "k": "Martin pescatore: scava gallerie nelle rive"
   }
  },
  {
@@ -1566,7 +1713,8 @@
     "Sie haben Saugnäpfe an den Füßen",
     "Sie spannen dauernd die Muskeln an"
    ],
-   "x": "Ein Sehnen-Mechanismus hält die Zehen geschlossen, solange das Körpergewicht daran zieht. So kostet das Hängen keine Kraft."
+   "x": "Ein Sehnen-Mechanismus hält die Zehen geschlossen, solange das Körpergewicht daran zieht. So kostet das Hängen keine Kraft.",
+   "k": "Fledermäuse: hängen ohne Kraft kopfüber"
   },
   "en": {
    "q": "Why can bats sleep hanging upside down without any effort?",
@@ -1576,7 +1724,8 @@
     "They have suction pads on their feet",
     "They keep their muscles tensed"
    ],
-   "x": "A tendon mechanism keeps the toes closed while the body weight pulls on them, so hanging costs no effort."
+   "x": "A tendon mechanism keeps the toes closed while the body weight pulls on them, so hanging costs no effort.",
+   "k": "Bats: hang upside down effortlessly"
   },
   "fr": {
    "q": "Pourquoi les chauves-souris peuvent-elles dormir suspendues sans effort ?",
@@ -1586,7 +1735,8 @@
     "Elles ont des ventouses aux pieds",
     "Elles gardent les muscles contractés"
    ],
-   "x": "Un mécanisme de tendons garde les orteils fermés tant que le poids du corps tire dessus : rester suspendue ne coûte aucun effort."
+   "x": "Un mécanisme de tendons garde les orteils fermés tant que le poids du corps tire dessus : rester suspendue ne coûte aucun effort.",
+   "k": "Chauves-souris : pendues sans effort"
   },
   "es": {
    "q": "¿Por qué los murciélagos pueden dormir colgados sin hacer esfuerzo?",
@@ -1596,7 +1746,8 @@
     "Tienen ventosas en las patas",
     "Tensan los músculos todo el rato"
    ],
-   "x": "Un mecanismo de tendones mantiene los dedos cerrados mientras el peso del cuerpo tira de ellos: colgar no les cuesta esfuerzo."
+   "x": "Un mecanismo de tendones mantiene los dedos cerrados mientras el peso del cuerpo tira de ellos: colgar no les cuesta esfuerzo.",
+   "k": "Murciélagos: cuelgan sin esfuerzo"
   },
   "pt": {
    "q": "Por que os morcegos conseguem dormir pendurados sem fazer força?",
@@ -1606,7 +1757,8 @@
     "Têm ventosas nos pés",
     "Contraem os músculos o tempo todo"
    ],
-   "x": "Um mecanismo de tendões mantém os dedos fechados enquanto o peso do corpo puxa: ficar pendurado não custa esforço."
+   "x": "Um mecanismo de tendões mantém os dedos fechados enquanto o peso do corpo puxa: ficar pendurado não custa esforço.",
+   "k": "Morcegos: ficam de cabeça para baixo sem esforço"
   },
   "ja": {
    "q": "コウモリが力を使わずに逆さまにぶら下がって眠れるのはなぜ？",
@@ -1616,7 +1768,8 @@
     "足に吸盤がある",
     "筋肉に力を入れ続ける"
    ],
-   "x": "腱のしくみで、体重がかかると指が閉じたままになります。だからぶら下がるのに力がいらないのです。"
+   "x": "腱のしくみで、体重がかかると指が閉じたままになります。だからぶら下がるのに力がいらないのです。",
+   "k": "コウモリ：力を使わずぶら下がる"
   },
   "it": {
    "q": "Perché i pipistrelli dormono appesi a testa in giù senza fatica?",
@@ -1626,7 +1779,8 @@
     "Hanno ventose sui piedi",
     "Tengono i muscoli in tensione"
    ],
-   "x": "Un meccanismo dei tendini tiene le dita chiuse mentre il peso del corpo tira: stare appesi non costa fatica."
+   "x": "Un meccanismo dei tendini tiene le dita chiuse mentre il peso del corpo tira: stare appesi non costa fatica.",
+   "k": "Pipistrelli: appesi senza fatica"
   }
  },
  {
@@ -1642,7 +1796,8 @@
     "Etwa 7.000",
     "Etwa 70.000"
    ],
-   "x": "Ein erwachsener Igel trägt etwa 6.000 bis 8.000 Stacheln. Das sind umgewandelte Haare."
+   "x": "Ein erwachsener Igel trägt etwa 6.000 bis 8.000 Stacheln. Das sind umgewandelte Haare.",
+   "k": "Igel: haben rund 7.000 Stacheln"
   },
   "en": {
    "q": "About how many spines does an adult hedgehog have?",
@@ -1652,7 +1807,8 @@
     "About 7,000",
     "About 70,000"
    ],
-   "x": "An adult hedgehog has about 6,000 to 8,000 spines. They are actually modified hairs."
+   "x": "An adult hedgehog has about 6,000 to 8,000 spines. They are actually modified hairs.",
+   "k": "Hedgehogs: have about 7,000 spines"
   },
   "fr": {
    "q": "Combien de piquants un hérisson adulte a-t-il environ ?",
@@ -1662,7 +1818,8 @@
     "Environ 7 000",
     "Environ 70 000"
    ],
-   "x": "Un hérisson adulte porte environ 6 000 à 8 000 piquants. Ce sont des poils transformés."
+   "x": "Un hérisson adulte porte environ 6 000 à 8 000 piquants. Ce sont des poils transformés.",
+   "k": "Hérissons : environ 7 000 piquants"
   },
   "es": {
    "q": "¿Aproximadamente cuántas púas tiene un erizo adulto?",
@@ -1672,7 +1829,8 @@
     "Unas 7.000",
     "Unas 70.000"
    ],
-   "x": "Un erizo adulto tiene unas 6.000 a 8.000 púas. Son pelos modificados."
+   "x": "Un erizo adulto tiene unas 6.000 a 8.000 púas. Son pelos modificados.",
+   "k": "Erizos: unas 7.000 púas"
   },
   "pt": {
    "q": "Mais ou menos quantos espinhos tem um ouriço adulto?",
@@ -1682,7 +1840,8 @@
     "Uns 7.000",
     "Uns 70.000"
    ],
-   "x": "Um ouriço adulto tem uns 6.000 a 8.000 espinhos. São pelos modificados."
+   "x": "Um ouriço adulto tem uns 6.000 a 8.000 espinhos. São pelos modificados.",
+   "k": "Ouriços: uns 7.000 espinhos"
   },
   "ja": {
    "q": "大人のハリネズミのトゲはだいたい何本？",
@@ -1692,7 +1851,8 @@
     "約7000本",
     "約7万本"
    ],
-   "x": "大人のハリネズミには約6000〜8000本のトゲがあります。トゲは毛が変化したものです。"
+   "x": "大人のハリネズミには約6000〜8000本のトゲがあります。トゲは毛が変化したものです。",
+   "k": "ハリネズミ：トゲは約7000本"
   },
   "it": {
    "q": "Quanti aculei ha più o meno un riccio adulto?",
@@ -1702,7 +1862,8 @@
     "Circa 7.000",
     "Circa 70.000"
    ],
-   "x": "Un riccio adulto ha circa 6.000–8.000 aculei. In realtà sono peli trasformati."
+   "x": "Un riccio adulto ha circa 6.000–8.000 aculei. In realtà sono peli trasformati.",
+   "k": "Ricci: circa 7.000 aculei"
   }
  },
  {
@@ -1718,7 +1879,8 @@
     "Wildkaninchen",
     "Maulwurf"
    ],
-   "x": "Spitzmäuse sind trotz des Namens keine Nagetiere. Sie gehören wie Maulwurf und Igel zu den Insektenfressern."
+   "x": "Spitzmäuse sind trotz des Namens keine Nagetiere. Sie gehören wie Maulwurf und Igel zu den Insektenfressern.",
+   "k": "Spitzmaus: keine Maus, sondern Insektenfresser"
   },
   "en": {
    "q": "Which of these animals is the shrew most closely related to?",
@@ -1728,7 +1890,8 @@
     "Rabbit",
     "Mole"
    ],
-   "x": "Despite looking like mice, shrews aren't rodents. Like moles and hedgehogs, they belong to the insectivores."
+   "x": "Despite looking like mice, shrews aren't rodents. Like moles and hedgehogs, they belong to the insectivores.",
+   "k": "Shrew: not a mouse but an insectivore"
   },
   "fr": {
    "q": "De quel animal la musaraigne est-elle la plus proche parente ?",
@@ -1738,7 +1901,8 @@
     "Lapin",
     "Taupe"
    ],
-   "x": "Malgré leur air de souris, les musaraignes ne sont pas des rongeurs. Comme la taupe et le hérisson, ce sont des insectivores."
+   "x": "Malgré leur air de souris, les musaraignes ne sont pas des rongeurs. Comme la taupe et le hérisson, ce sont des insectivores.",
+   "k": "Musaraigne : pas une souris, un insectivore"
   },
   "es": {
    "q": "¿Con cuál de estos animales está más emparentada la musaraña?",
@@ -1748,7 +1912,8 @@
     "Conejo",
     "Topo"
    ],
-   "x": "Aunque parezcan ratones, las musarañas no son roedores. Como el topo y el erizo, son insectívoros."
+   "x": "Aunque parezcan ratones, las musarañas no son roedores. Como el topo y el erizo, son insectívoros.",
+   "k": "Musaraña: no es un ratón, sino un insectívoro"
   },
   "pt": {
    "q": "Com qual destes animais o musaranho é mais aparentado?",
@@ -1758,7 +1923,8 @@
     "Coelho",
     "Toupeira"
    ],
-   "x": "Embora pareçam ratos, os musaranhos não são roedores. Como a toupeira e o ouriço, são insetívoros."
+   "x": "Embora pareçam ratos, os musaranhos não são roedores. Como a toupeira e o ouriço, são insetívoros.",
+   "k": "Musaranho: não é rato, é insetívoro"
   },
   "ja": {
    "q": "トガリネズミにいちばん近い親せきは？",
@@ -1768,7 +1934,8 @@
     "ウサギ",
     "モグラ"
    ],
-   "x": "ネズミに似ていますが、トガリネズミはげっ歯類ではありません。モグラやハリネズミと同じ食虫類の仲間です。"
+   "x": "ネズミに似ていますが、トガリネズミはげっ歯類ではありません。モグラやハリネズミと同じ食虫類の仲間です。",
+   "k": "トガリネズミ：ネズミではなく食虫類"
   },
   "it": {
    "q": "Di quale di questi animali è più vicino parente il toporagno?",
@@ -1778,7 +1945,8 @@
     "Coniglio",
     "Talpa"
    ],
-   "x": "Anche se sembrano topi, i toporagni non sono roditori. Come talpe e ricci, appartengono agli insettivori."
+   "x": "Anche se sembrano topi, i toporagni non sono roditori. Come talpe e ricci, appartengono agli insettivori.",
+   "k": "Toporagno: non è un topo ma un insettivoro"
   }
  },
  {
@@ -1794,7 +1962,8 @@
     "Hasen schlüpfen aus Eiern",
     "Es gibt keinen Unterschied"
    ],
-   "x": "Junghasen kommen behaart und sehend in einer offenen Mulde zur Welt. Kaninchen werden nackt und blind im Bau geboren."
+   "x": "Junghasen kommen behaart und sehend in einer offenen Mulde zur Welt. Kaninchen werden nackt und blind im Bau geboren.",
+   "k": "Junghasen: mit Fell und offenen Augen geboren"
   },
   "en": {
    "q": "How do newborn brown hares differ from newborn rabbits?",
@@ -1804,7 +1973,8 @@
     "Hares hatch from eggs",
     "There is no difference"
    ],
-   "x": "Young hares are born furred and with open eyes in a shallow hollow. Rabbits are born naked and blind in a burrow."
+   "x": "Young hares are born furred and with open eyes in a shallow hollow. Rabbits are born naked and blind in a burrow.",
+   "k": "Young hares: born furry with open eyes"
   },
   "fr": {
    "q": "En quoi les levrauts nouveau-nés diffèrent-ils des lapereaux ?",
@@ -1814,7 +1984,8 @@
     "Ils sortent d'un œuf",
     "Il n'y a aucune différence"
    ],
-   "x": "Les levrauts naissent poilus et les yeux ouverts dans un simple creux. Les lapereaux naissent nus et aveugles dans un terrier."
+   "x": "Les levrauts naissent poilus et les yeux ouverts dans un simple creux. Les lapereaux naissent nus et aveugles dans un terrier.",
+   "k": "Levrauts : naissent poilus, yeux ouverts"
   },
   "es": {
    "q": "¿En qué se diferencian los lebratos recién nacidos de las crías de conejo?",
@@ -1824,7 +1995,8 @@
     "Salen de un huevo",
     "No hay ninguna diferencia"
    ],
-   "x": "Los lebratos nacen con pelo y ojos abiertos en un simple hoyo. Los conejos nacen desnudos y ciegos en una madriguera."
+   "x": "Los lebratos nacen con pelo y ojos abiertos en un simple hoyo. Los conejos nacen desnudos y ciegos en una madriguera.",
+   "k": "Lebratos: nacen con pelo y ojos abiertos"
   },
   "pt": {
    "q": "Em que os filhotes de lebre recém-nascidos são diferentes dos filhotes de coelho?",
@@ -1834,7 +2006,8 @@
     "Saem de um ovo",
     "Não há diferença"
    ],
-   "x": "Os filhotes de lebre nascem com pelo e olhos abertos num buraco simples. Os de coelho nascem pelados e cegos numa toca."
+   "x": "Os filhotes de lebre nascem com pelo e olhos abertos num buraco simples. Os de coelho nascem pelados e cegos numa toca.",
+   "k": "Filhotes de lebre: nascem com pelo e olhos abertos"
   },
   "ja": {
    "q": "生まれたてのヤブノウサギは、アナウサギの赤ちゃんとどうちがう？",
@@ -1844,7 +2017,8 @@
     "卵からかえる",
     "ちがいはない"
    ],
-   "x": "ノウサギの赤ちゃんは、浅いくぼみで毛が生えて目が開いた状態で生まれます。アナウサギは巣穴で、毛がなく目も見えない状態で生まれます。"
+   "x": "ノウサギの赤ちゃんは、浅いくぼみで毛が生えて目が開いた状態で生まれます。アナウサギは巣穴で、毛がなく目も見えない状態で生まれます。",
+   "k": "ノウサギの赤ちゃん：毛があり目も開いて生まれる"
   },
   "it": {
    "q": "In cosa differiscono i leprotti appena nati dai coniglietti?",
@@ -1854,7 +2028,8 @@
     "I leprotti nascono da uova",
     "Non c’è differenza"
    ],
-   "x": "I leprotti nascono con il pelo e gli occhi aperti in una piccola conca. I conigli nascono nudi e ciechi in una tana."
+   "x": "I leprotti nascono con il pelo e gli occhi aperti in una piccola conca. I conigli nascono nudi e ciechi in una tana.",
+   "k": "Leprotti: nascono col pelo e occhi aperti"
   }
  },
  {
@@ -1870,7 +2045,8 @@
     "Durch ständiges Zittern",
     "Gar nicht – er friert"
    ],
-   "x": "Der Otter hat kaum Speck, aber eines der dichtesten Felle aller Tiere. Darin hält sich eine isolierende Luftschicht."
+   "x": "Der Otter hat kaum Speck, aber eines der dichtesten Felle aller Tiere. Darin hält sich eine isolierende Luftschicht.",
+   "k": "Fischotter: eines der dichtesten Felle der Welt"
   },
   "en": {
    "q": "How does the Eurasian otter keep warm in cold water?",
@@ -1880,7 +2056,8 @@
     "Constant shivering",
     "It doesn't – it just freezes"
    ],
-   "x": "Otters have little fat but one of the densest furs of any animal. It traps an insulating layer of air."
+   "x": "Otters have little fat but one of the densest furs of any animal. It traps an insulating layer of air.",
+   "k": "Otter: one of the densest furs on Earth"
   },
   "fr": {
    "q": "Comment la loutre d'Europe se protège-t-elle de l'eau froide ?",
@@ -1890,7 +2067,8 @@
     "En frissonnant sans cesse",
     "Elle ne se protège pas"
    ],
-   "x": "La loutre a peu de graisse, mais l'une des fourrures les plus denses du règne animal, qui retient une couche d'air isolante."
+   "x": "La loutre a peu de graisse, mais l'une des fourrures les plus denses du règne animal, qui retient une couche d'air isolante.",
+   "k": "Loutre : une des fourrures les plus denses"
   },
   "es": {
    "q": "¿Cómo se mantiene caliente la nutria europea en el agua fría?",
@@ -1900,7 +2078,8 @@
     "Tiritando sin parar",
     "No lo hace: pasa frío"
    ],
-   "x": "La nutria apenas tiene grasa, pero sí uno de los pelajes más densos del reino animal, que atrapa una capa de aire aislante."
+   "x": "La nutria apenas tiene grasa, pero sí uno de los pelajes más densos del reino animal, que atrapa una capa de aire aislante.",
+   "k": "Nutria: uno de los pelajes más densos"
   },
   "pt": {
    "q": "Como a lontra-europeia se mantém aquecida na água fria?",
@@ -1910,7 +2089,8 @@
     "Tremendo sem parar",
     "Não se mantém: passa frio"
    ],
-   "x": "A lontra quase não tem gordura, mas tem um dos pelos mais densos do reino animal, que prende uma camada de ar isolante."
+   "x": "A lontra quase não tem gordura, mas tem um dos pelos mais densos do reino animal, que prende uma camada de ar isolante.",
+   "k": "Lontra: um dos pelos mais densos do mundo"
   },
   "ja": {
    "q": "ユーラシアカワウソは冷たい水の中でどうやって体を温める？",
@@ -1920,7 +2100,8 @@
     "ずっとふるえている",
     "温めない。ただ寒がる"
    ],
-   "x": "カワウソは脂肪が少ないかわりに、動物でもトップクラスに密な毛皮をもっています。毛の間に空気の層をためて断熱します。"
+   "x": "カワウソは脂肪が少ないかわりに、動物でもトップクラスに密な毛皮をもっています。毛の間に空気の層をためて断熱します。",
+   "k": "カワウソ：世界有数の密な毛皮"
   },
   "it": {
    "q": "Come si tiene al caldo la lontra nell’acqua fredda?",
@@ -1930,7 +2111,8 @@
     "Tremando di continuo",
     "Non lo fa: ha solo freddo"
    ],
-   "x": "Le lontre hanno poco grasso ma una delle pellicce più fitte del regno animale, che trattiene uno strato isolante d’aria."
+   "x": "Le lontre hanno poco grasso ma una delle pellicce più fitte del regno animale, che trattiene uno strato isolante d’aria.",
+   "k": "Lontra: una delle pellicce più fitte"
   }
  },
  {
@@ -1946,7 +2128,8 @@
     "Ostasien",
     "Australien"
    ],
-   "x": "Der Marderhund stammt aus Ostasien. Er wurde in Osteuropa als Pelztier ausgesetzt und breitete sich bis zu uns aus."
+   "x": "Der Marderhund stammt aus Ostasien. Er wurde in Osteuropa als Pelztier ausgesetzt und breitete sich bis zu uns aus.",
+   "k": "Marderhund: stammt aus Ostasien"
   },
   "en": {
    "q": "Where does the raccoon dog, now also living in Germany, originally come from?",
@@ -1956,7 +2139,8 @@
     "East Asia",
     "Australia"
    ],
-   "x": "The raccoon dog comes from East Asia. It was released in Eastern Europe for its fur and spread west as far as Germany."
+   "x": "The raccoon dog comes from East Asia. It was released in Eastern Europe for its fur and spread west as far as Germany.",
+   "k": "Raccoon dog: comes from East Asia"
   },
   "fr": {
    "q": "D'où vient à l'origine le chien viverrin, présent aujourd'hui en Allemagne ?",
@@ -1966,7 +2150,8 @@
     "Asie de l'Est",
     "Australie"
    ],
-   "x": "Le chien viverrin vient d'Asie de l'Est. Relâché en Europe de l'Est pour sa fourrure, il s'est répandu jusqu'en Allemagne."
+   "x": "Le chien viverrin vient d'Asie de l'Est. Relâché en Europe de l'Est pour sa fourrure, il s'est répandu jusqu'en Allemagne.",
+   "k": "Chien viverrin : vient d’Asie de l’Est"
   },
   "es": {
    "q": "¿De dónde procede el perro mapache, que hoy vive también en Alemania?",
@@ -1976,7 +2161,8 @@
     "Asia oriental",
     "Australia"
    ],
-   "x": "El perro mapache procede de Asia oriental. Se liberó en Europa del Este por su piel y se extendió hasta Alemania."
+   "x": "El perro mapache procede de Asia oriental. Se liberó en Europa del Este por su piel y se extendió hasta Alemania.",
+   "k": "Perro mapache: viene de Asia oriental"
   },
   "pt": {
    "q": "De onde vem o cão-guaxinim, que hoje também vive na Alemanha?",
@@ -1986,7 +2172,8 @@
     "Ásia Oriental",
     "Austrália"
    ],
-   "x": "O cão-guaxinim vem da Ásia Oriental. Foi solto no Leste Europeu por causa da pele e se espalhou até a Alemanha."
+   "x": "O cão-guaxinim vem da Ásia Oriental. Foi solto no Leste Europeu por causa da pele e se espalhou até a Alemanha.",
+   "k": "Cão-guaxinim: vem do Leste Asiático"
   },
   "ja": {
    "q": "いまドイツにもすむタヌキは、もともとどこから来た？",
@@ -1996,7 +2183,8 @@
     "東アジア",
     "オーストラリア"
    ],
-   "x": "タヌキは東アジア原産。毛皮のために東ヨーロッパに放され、西へ広がってドイツまで来ました。"
+   "x": "タヌキは東アジア原産。毛皮のために東ヨーロッパに放され、西へ広がってドイツまで来ました。",
+   "k": "タヌキ：東アジア生まれ"
   },
   "it": {
    "q": "Da dove viene in origine il cane procione, che oggi vive anche in Germania?",
@@ -2006,7 +2194,8 @@
     "Asia orientale",
     "Australia"
    ],
-   "x": "Il cane procione viene dall’Asia orientale. Fu liberato in Europa orientale per la pelliccia e si è diffuso verso ovest fino alla Germania."
+   "x": "Il cane procione viene dall’Asia orientale. Fu liberato in Europa orientale per la pelliccia e si è diffuso verso ovest fino alla Germania.",
+   "k": "Cane procione: viene dall’Asia orientale"
   }
  },
  {
@@ -2022,7 +2211,8 @@
     "Blaumeise",
     "Rotkehlchen"
    ],
-   "x": "Winter- und Sommergoldhähnchen wiegen nur etwa 5 bis 6 Gramm. Der Zaunkönig ist etwas schwerer."
+   "x": "Winter- und Sommergoldhähnchen wiegen nur etwa 5 bis 6 Gramm. Der Zaunkönig ist etwas schwerer.",
+   "k": "Wintergoldhähnchen: wiegt nur 5 Gramm"
   },
   "en": {
    "q": "Which bird is – together with a close relative – the smallest bird in Europe?",
@@ -2032,7 +2222,8 @@
     "Blue tit",
     "Robin"
    ],
-   "x": "The goldcrest and its relative the firecrest weigh only about 5 to 6 grams. The wren is a bit heavier."
+   "x": "The goldcrest and its relative the firecrest weigh only about 5 to 6 grams. The wren is a bit heavier.",
+   "k": "Goldcrest: weighs just 5 grams"
   },
   "fr": {
    "q": "Quel oiseau est, avec un proche parent, le plus petit oiseau d'Europe ?",
@@ -2042,7 +2233,8 @@
     "Mésange bleue",
     "Rougegorge familier"
    ],
-   "x": "Le roitelet huppé et le roitelet à triple bandeau ne pèsent qu'environ 5 à 6 grammes. Le troglodyte est un peu plus lourd."
+   "x": "Le roitelet huppé et le roitelet à triple bandeau ne pèsent qu'environ 5 à 6 grammes. Le troglodyte est un peu plus lourd.",
+   "k": "Roitelet : pèse seulement 5 grammes"
   },
   "es": {
    "q": "¿Qué ave es, junto con un pariente cercano, la más pequeña de Europa?",
@@ -2052,7 +2244,8 @@
     "Herrerillo común",
     "Petirrojo"
    ],
-   "x": "El reyezuelo sencillo y el listado pesan solo unos 5 o 6 gramos. El chochín es algo más pesado."
+   "x": "El reyezuelo sencillo y el listado pesan solo unos 5 o 6 gramos. El chochín es algo más pesado.",
+   "k": "Reyezuelo: pesa solo 5 gramos"
   },
   "pt": {
    "q": "Qual ave é, junto com um parente próximo, a menor da Europa?",
@@ -2062,7 +2255,8 @@
     "Chapim-azul",
     "Pisco-de-peito-ruivo"
    ],
-   "x": "A estrelinha-de-poupa e a estrelinha-real pesam só uns 5 ou 6 gramas. A carriça é um pouco mais pesada."
+   "x": "A estrelinha-de-poupa e a estrelinha-real pesam só uns 5 ou 6 gramas. A carriça é um pouco mais pesada.",
+   "k": "Estrelinha: pesa só 5 gramas"
   },
   "ja": {
    "q": "近い親せきと並んで、ヨーロッパでいちばん小さい鳥は？",
@@ -2072,7 +2266,8 @@
     "アオガラ",
     "ヨーロッパコマドリ"
    ],
-   "x": "キクイタダキと親せきのマミジロキクイタダキは、わずか5〜6グラム。ミソサザイはもう少し重いです。"
+   "x": "キクイタダキと親せきのマミジロキクイタダキは、わずか5〜6グラム。ミソサザイはもう少し重いです。",
+   "k": "キクイタダキ：たった5グラム"
   },
   "it": {
    "q": "Quale uccello è, insieme a un parente stretto, il più piccolo d’Europa?",
@@ -2082,7 +2277,8 @@
     "Cinciarella",
     "Pettirosso"
    ],
-   "x": "Il regolo e il suo parente fiorrancino pesano solo 5–6 grammi. Lo scricciolo è un po’ più pesante."
+   "x": "Il regolo e il suo parente fiorrancino pesano solo 5–6 grammi. Lo scricciolo è un po’ più pesante.",
+   "k": "Regolo: pesa solo 5 grammi"
   }
  },
  {
@@ -2098,7 +2294,8 @@
     "Rauchschwalbe",
     "Küstenseeschwalbe"
    ],
-   "x": "Die Küstenseeschwalbe pendelt jedes Jahr zwischen Arktis und Antarktis – oft mehrere zehntausend Kilometer."
+   "x": "Die Küstenseeschwalbe pendelt jedes Jahr zwischen Arktis und Antarktis – oft mehrere zehntausend Kilometer.",
+   "k": "Küstenseeschwalbe: fliegt jedes Jahr Arktis–Antarktis"
   },
   "en": {
    "q": "Which of these birds flies the longest migration every year?",
@@ -2108,7 +2305,8 @@
     "Barn swallow",
     "Arctic tern"
    ],
-   "x": "The Arctic tern travels between the Arctic and the Antarctic every year – often tens of thousands of kilometres."
+   "x": "The Arctic tern travels between the Arctic and the Antarctic every year – often tens of thousands of kilometres.",
+   "k": "Arctic tern: flies Arctic–Antarctic every year"
   },
   "fr": {
    "q": "Lequel de ces oiseaux fait chaque année la plus longue migration ?",
@@ -2118,7 +2316,8 @@
     "Hirondelle rustique",
     "Sterne arctique"
    ],
-   "x": "La sterne arctique fait chaque année l'aller-retour entre Arctique et Antarctique : souvent des dizaines de milliers de kilomètres."
+   "x": "La sterne arctique fait chaque année l'aller-retour entre Arctique et Antarctique : souvent des dizaines de milliers de kilomètres.",
+   "k": "Sterne arctique : Arctique–Antarctique chaque année"
   },
   "es": {
    "q": "¿Cuál de estas aves realiza cada año la migración más larga?",
@@ -2128,7 +2327,8 @@
     "Golondrina común",
     "Charrán ártico"
    ],
-   "x": "El charrán ártico viaja cada año entre el Ártico y la Antártida: a menudo decenas de miles de kilómetros."
+   "x": "El charrán ártico viaja cada año entre el Ártico y la Antártida: a menudo decenas de miles de kilómetros.",
+   "k": "Charrán ártico: Ártico–Antártida cada año"
   },
   "pt": {
    "q": "Qual destas aves faz a migração mais longa todo ano?",
@@ -2138,7 +2338,8 @@
     "Andorinha-das-chaminés",
     "Andorinha-do-mar-ártica"
    ],
-   "x": "A andorinha-do-mar-ártica viaja todo ano entre o Ártico e a Antártida: muitas vezes dezenas de milhares de quilômetros."
+   "x": "A andorinha-do-mar-ártica viaja todo ano entre o Ártico e a Antártida: muitas vezes dezenas de milhares de quilômetros.",
+   "k": "Trinta-réis-ártico: Ártico–Antártida todo ano"
   },
   "ja": {
    "q": "毎年いちばん長い距離を渡る鳥は？",
@@ -2148,7 +2349,8 @@
     "ツバメ",
     "キョクアジサシ"
    ],
-   "x": "キョクアジサシは毎年北極と南極の間を行き来します。何万キロにもなることがよくあります。"
+   "x": "キョクアジサシは毎年北極と南極の間を行き来します。何万キロにもなることがよくあります。",
+   "k": "キョクアジサシ：毎年北極と南極を往復"
   },
   "it": {
    "q": "Quale di questi uccelli compie ogni anno la migrazione più lunga?",
@@ -2158,7 +2360,8 @@
     "Rondine",
     "Sterna artica"
    ],
-   "x": "La sterna artica viaggia ogni anno tra Artide e Antartide: spesso decine di migliaia di chilometri."
+   "x": "La sterna artica viaggia ogni anno tra Artide e Antartide: spesso decine di migliaia di chilometri.",
+   "k": "Sterna artica: Artide–Antartide ogni anno"
   }
  },
  {
@@ -2174,7 +2377,8 @@
     "Braunbär",
     "Rothirsch"
    ],
-   "x": "Wisentbullen werden bis zu etwa 900 kg schwer. In freier Wildbahn war der Wisent ausgestorben und wurde mit Zootieren gerettet."
+   "x": "Wisentbullen werden bis zu etwa 900 kg schwer. In freier Wildbahn war der Wisent ausgestorben und wurde mit Zootieren gerettet.",
+   "k": "Wisent: Europas schwerstes Landtier"
   },
   "en": {
    "q": "Which is the heaviest wild land mammal in Europe?",
@@ -2184,7 +2388,8 @@
     "Brown bear",
     "Red deer"
    ],
-   "x": "European bison bulls can weigh up to about 900 kg. Once extinct in the wild, the species was saved with zoo animals."
+   "x": "European bison bulls can weigh up to about 900 kg. Once extinct in the wild, the species was saved with zoo animals.",
+   "k": "European bison: Europe's heaviest land animal"
   },
   "fr": {
    "q": "Quel est le plus lourd mammifère terrestre sauvage d'Europe ?",
@@ -2194,7 +2399,8 @@
     "Ours brun",
     "Cerf élaphe"
    ],
-   "x": "Les mâles du bison d'Europe pèsent jusqu'à environ 900 kg. Disparu à l'état sauvage, il a été sauvé grâce aux zoos."
+   "x": "Les mâles du bison d'Europe pèsent jusqu'à environ 900 kg. Disparu à l'état sauvage, il a été sauvé grâce aux zoos.",
+   "k": "Bison d’Europe : animal terrestre le plus lourd d’Europe"
   },
   "es": {
    "q": "¿Cuál es el mamífero terrestre salvaje más pesado de Europa?",
@@ -2204,7 +2410,8 @@
     "Oso pardo",
     "Ciervo rojo"
    ],
-   "x": "Los machos de bisonte europeo pesan hasta unos 900 kg. Se extinguió en libertad y se salvó gracias a animales de zoo."
+   "x": "Los machos de bisonte europeo pesan hasta unos 900 kg. Se extinguió en libertad y se salvó gracias a animales de zoo.",
+   "k": "Bisonte europeo: el animal terrestre más pesado de Europa"
   },
   "pt": {
    "q": "Qual é o mamífero terrestre selvagem mais pesado da Europa?",
@@ -2214,7 +2421,8 @@
     "Urso-pardo",
     "Veado-vermelho"
    ],
-   "x": "Os machos de bisão-europeu pesam até uns 900 kg. Ele foi extinto na natureza e salvo graças a animais de zoológico."
+   "x": "Os machos de bisão-europeu pesam até uns 900 kg. Ele foi extinto na natureza e salvo graças a animais de zoológico.",
+   "k": "Bisão-europeu: o animal terrestre mais pesado da Europa"
   },
   "ja": {
    "q": "ヨーロッパでいちばん重い野生の陸上哺乳類は？",
@@ -2224,7 +2432,8 @@
     "ヒグマ",
     "アカシカ"
    ],
-   "x": "ヨーロッパバイソンのオスは最大約900キロ。一度は野生で絶滅しましたが、動物園の個体で救われました。"
+   "x": "ヨーロッパバイソンのオスは最大約900キロ。一度は野生で絶滅しましたが、動物園の個体で救われました。",
+   "k": "ヨーロッパバイソン：ヨーロッパ最重の陸上動物"
   },
   "it": {
    "q": "Qual è il mammifero terrestre selvatico più pesante d’Europa?",
@@ -2234,7 +2443,8 @@
     "Orso bruno",
     "Cervo nobile"
    ],
-   "x": "I maschi di bisonte europeo possono pesare fino a circa 900 kg. Estinto in natura, è stato salvato grazie agli animali degli zoo."
+   "x": "I maschi di bisonte europeo possono pesare fino a circa 900 kg. Estinto in natura, è stato salvato grazie agli animali degli zoo.",
+   "k": "Bisonte europeo: l’animale terrestre più pesante d’Europa"
   }
  },
  {
@@ -2248,7 +2458,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Stimmt! Rabenvögel zählen zu den Singvögeln. Der Kolkrabe ist sogar der größte Singvogel der Welt."
+   "x": "Stimmt! Rabenvögel zählen zu den Singvögeln. Der Kolkrabe ist sogar der größte Singvogel der Welt.",
+   "k": "Kolkrabe: der größte Singvogel der Welt"
   },
   "en": {
    "q": "The common raven is a songbird.",
@@ -2256,7 +2467,8 @@
     "True",
     "False"
    ],
-   "x": "True! Crows and ravens belong to the songbirds. The raven is even the largest songbird in the world."
+   "x": "True! Crows and ravens belong to the songbirds. The raven is even the largest songbird in the world.",
+   "k": "Raven: the largest songbird in the world"
   },
   "fr": {
    "q": "Le grand corbeau fait partie des oiseaux chanteurs.",
@@ -2264,7 +2476,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Vrai ! Les corvidés sont des oiseaux chanteurs. Le grand corbeau est même le plus grand oiseau chanteur du monde."
+   "x": "Vrai ! Les corvidés sont des oiseaux chanteurs. Le grand corbeau est même le plus grand oiseau chanteur du monde.",
+   "k": "Grand corbeau : plus grand oiseau chanteur"
   },
   "es": {
    "q": "El cuervo grande es un ave cantora.",
@@ -2272,7 +2485,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Cierto! Los córvidos son aves cantoras. El cuervo grande es incluso el ave cantora más grande del mundo."
+   "x": "¡Cierto! Los córvidos son aves cantoras. El cuervo grande es incluso el ave cantora más grande del mundo.",
+   "k": "Cuervo grande: mayor ave cantora del mundo"
   },
   "pt": {
    "q": "O corvo é uma ave canora.",
@@ -2280,7 +2494,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Certo! Os corvídeos são aves canoras. O corvo é até a maior ave canora do mundo."
+   "x": "Certo! Os corvídeos são aves canoras. O corvo é até a maior ave canora do mundo.",
+   "k": "Corvo: maior ave canora do mundo"
   },
   "ja": {
    "q": "正しい？まちがい？ ワタリガラスは鳴禽類（スズメ目の歌う鳥）である。",
@@ -2288,7 +2503,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "正しい！カラスの仲間は鳴禽類に入ります。ワタリガラスは世界最大の鳴禽類です。"
+   "x": "正しい！カラスの仲間は鳴禽類に入ります。ワタリガラスは世界最大の鳴禽類です。",
+   "k": "ワタリガラス：世界最大の鳴禽類"
   },
   "it": {
    "q": "Vero o falso? Il corvo imperiale è un uccello canoro.",
@@ -2296,7 +2512,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Vero! Corvi e cornacchie sono uccelli canori. Il corvo imperiale è addirittura il più grande uccello canoro del mondo."
+   "x": "Vero! Corvi e cornacchie sono uccelli canori. Il corvo imperiale è addirittura il più grande uccello canoro del mondo.",
+   "k": "Corvo imperiale: il più grande uccello canoro"
   }
  },
  {
@@ -2310,7 +2527,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Stimmt! Die Mutter lässt es absichtlich liegen und kommt zum Säugen zurück. Bitte nicht anfassen – sonst riecht es nach Mensch."
+   "x": "Stimmt! Die Mutter lässt es absichtlich liegen und kommt zum Säugen zurück. Bitte nicht anfassen – sonst riecht es nach Mensch.",
+   "k": "Rehkitz allein im Gras: nicht verlassen"
   },
   "en": {
    "q": "A fawn lying alone in tall grass has usually not been abandoned.",
@@ -2318,7 +2536,8 @@
     "True",
     "False"
    ],
-   "x": "True! The mother leaves it there on purpose and comes back to feed it. Please don’t touch it – or it will smell of humans."
+   "x": "True! The mother leaves it there on purpose and comes back to feed it. Please don’t touch it – or it will smell of humans.",
+   "k": "Fawn alone in the grass: not abandoned"
   },
   "fr": {
    "q": "Un faon couché seul dans les hautes herbes n’est en général pas abandonné.",
@@ -2326,7 +2545,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Vrai ! Sa mère le laisse là exprès et revient l’allaiter. Surtout ne pas le toucher – sinon il sent l’humain."
+   "x": "Vrai ! Sa mère le laisse là exprès et revient l’allaiter. Surtout ne pas le toucher – sinon il sent l’humain.",
+   "k": "Faon seul dans l’herbe : pas abandonné"
   },
   "es": {
    "q": "Un corzo bebé tumbado solo en la hierba alta normalmente no está abandonado.",
@@ -2334,7 +2554,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Verdadero! La madre lo deja allí a propósito y vuelve a amamantarlo. Por favor, no lo toques: olería a humano."
+   "x": "¡Verdadero! La madre lo deja allí a propósito y vuelve a amamantarlo. Por favor, no lo toques: olería a humano.",
+   "k": "Cervatillo solo en la hierba: no está abandonado"
   },
   "pt": {
    "q": "Um filhote de corço deitado sozinho no capim alto normalmente não foi abandonado.",
@@ -2342,7 +2563,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Verdadeiro! A mãe o deixa ali de propósito e volta para amamentá-lo. Por favor, não toque: ele ficaria com cheiro de gente."
+   "x": "Verdadeiro! A mãe o deixa ali de propósito e volta para amamentá-lo. Por favor, não toque: ele ficaria com cheiro de gente.",
+   "k": "Filhote de corço sozinho: não foi abandonado"
   },
   "ja": {
    "q": "正しい？まちがい？ 高い草の中にひとりでいるシカの赤ちゃんは、たいてい見捨てられたわけではない。",
@@ -2350,7 +2572,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "正しい！母親はわざとそこに置いていき、お乳をあげにもどってきます。さわらないでね。人のにおいがついてしまいます。"
+   "x": "正しい！母親はわざとそこに置いていき、お乳をあげにもどってきます。さわらないでね。人のにおいがついてしまいます。",
+   "k": "草むらにひとりのシカの子：見捨てられていない"
   },
   "it": {
    "q": "Vero o falso? Un cerbiatto da solo nell’erba alta di solito non è stato abbandonato.",
@@ -2358,7 +2581,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Vero! La madre lo lascia lì apposta e torna ad allattarlo. Non toccarlo, altrimenti prende l’odore umano."
+   "x": "Vero! La madre lo lascia lì apposta e torna ad allattarlo. Non toccarlo, altrimenti prende l’odore umano.",
+   "k": "Cerbiatto da solo nell’erba: non è abbandonato"
   }
  },
  {
@@ -2372,7 +2596,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Falsch! Sie bilden eine eigene Gruppe, die Hasenartigen. Hinter den oberen Nagezähnen haben sie ein zweites Paar kleiner Zähne."
+   "x": "Falsch! Sie bilden eine eigene Gruppe, die Hasenartigen. Hinter den oberen Nagezähnen haben sie ein zweites Paar kleiner Zähne.",
+   "k": "Hasen: keine Nagetiere"
   },
   "en": {
    "q": "Hares and rabbits are rodents.",
@@ -2380,7 +2605,8 @@
     "True",
     "False"
    ],
-   "x": "False! They form their own order, the lagomorphs. Behind their upper incisors they have a second pair of small teeth."
+   "x": "False! They form their own order, the lagomorphs. Behind their upper incisors they have a second pair of small teeth.",
+   "k": "Hares: not rodents"
   },
   "fr": {
    "q": "Les lièvres et les lapins sont des rongeurs.",
@@ -2388,7 +2614,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Faux ! Ce sont des lagomorphes. Derrière leurs incisives supérieures, ils ont une seconde paire de petites dents."
+   "x": "Faux ! Ce sont des lagomorphes. Derrière leurs incisives supérieures, ils ont une seconde paire de petites dents.",
+   "k": "Lièvres : pas des rongeurs"
   },
   "es": {
    "q": "Las liebres y los conejos son roedores.",
@@ -2396,7 +2623,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Falso! Son lagomorfos. Detrás de los incisivos superiores tienen un segundo par de pequeños dientes."
+   "x": "¡Falso! Son lagomorfos. Detrás de los incisivos superiores tienen un segundo par de pequeños dientes.",
+   "k": "Liebres: no son roedores"
   },
   "pt": {
    "q": "Lebres e coelhos são roedores.",
@@ -2404,7 +2632,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Falso! São lagomorfos. Atrás dos dentes da frente de cima, eles têm um segundo par de dentinhos."
+   "x": "Falso! São lagomorfos. Atrás dos dentes da frente de cima, eles têm um segundo par de dentinhos.",
+   "k": "Lebres: não são roedores"
   },
   "ja": {
    "q": "正しい？まちがい？ ノウサギやアナウサギはげっ歯類である。",
@@ -2412,7 +2641,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "まちがい！ウサギは独自のグループ、ウサギ目です。上の前歯の後ろに、小さな歯がもう1対あります。"
+   "x": "まちがい！ウサギは独自のグループ、ウサギ目です。上の前歯の後ろに、小さな歯がもう1対あります。",
+   "k": "ウサギ：げっ歯類ではない"
   },
   "it": {
    "q": "Vero o falso? Lepri e conigli sono roditori.",
@@ -2420,7 +2650,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Falso! Formano un ordine a sé, i lagomorfi. Dietro gli incisivi superiori hanno un secondo paio di dentini."
+   "x": "Falso! Formano un ordine a sé, i lagomorfi. Dietro gli incisivi superiori hanno un secondo paio di dentini.",
+   "k": "Lepri: non sono roditori"
   }
  },
  {
@@ -2434,7 +2665,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Falsch! Die Haut des Eisbären ist schwarz. Seine Haare sind eigentlich farblos und durchsichtig und wirken nur weiß."
+   "x": "Falsch! Die Haut des Eisbären ist schwarz. Seine Haare sind eigentlich farblos und durchsichtig und wirken nur weiß.",
+   "k": "Eisbär: hat schwarze Haut"
   },
   "en": {
    "q": "Under its white fur, a polar bear also has white skin.",
@@ -2442,7 +2674,8 @@
     "True",
     "False"
    ],
-   "x": "False! A polar bear's skin is black. Its hairs are actually colourless and see-through; they only look white."
+   "x": "False! A polar bear's skin is black. Its hairs are actually colourless and see-through; they only look white.",
+   "k": "Polar bear: has black skin"
   },
   "fr": {
    "q": "Sous sa fourrure blanche, l'ours polaire a aussi la peau blanche.",
@@ -2450,7 +2683,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Faux ! Sa peau est noire. Ses poils sont en fait incolores et transparents : ils paraissent seulement blancs."
+   "x": "Faux ! Sa peau est noire. Ses poils sont en fait incolores et transparents : ils paraissent seulement blancs.",
+   "k": "Ours polaire : peau noire"
   },
   "es": {
    "q": "Bajo su pelaje blanco, el oso polar también tiene la piel blanca.",
@@ -2458,7 +2692,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Falso! Su piel es negra. Sus pelos son en realidad incoloros y transparentes; solo parecen blancos."
+   "x": "¡Falso! Su piel es negra. Sus pelos son en realidad incoloros y transparentes; solo parecen blancos.",
+   "k": "Oso polar: piel negra"
   },
   "pt": {
    "q": "Debaixo do pelo branco, o urso-polar também tem a pele branca.",
@@ -2466,7 +2701,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Falso! A pele dele é preta. Os pelos, na verdade, são incolores e transparentes; só parecem brancos."
+   "x": "Falso! A pele dele é preta. Os pelos, na verdade, são incolores e transparentes; só parecem brancos.",
+   "k": "Urso-polar: pele preta"
   },
   "ja": {
    "q": "正しい？まちがい？ ホッキョクグマは白い毛の下の皮ふも白い。",
@@ -2474,7 +2710,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "まちがい！ホッキョクグマの皮ふは黒。毛は本当は無色で透き通っていて、白く見えるだけです。"
+   "x": "まちがい！ホッキョクグマの皮ふは黒。毛は本当は無色で透き通っていて、白く見えるだけです。",
+   "k": "ホッキョクグマ：皮ふは黒い"
   },
   "it": {
    "q": "Vero o falso? Sotto la pelliccia bianca, l’orso polare ha anche la pelle bianca.",
@@ -2482,7 +2719,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Falso! La pelle dell’orso polare è nera. I peli in realtà sono incolori e trasparenti; sembrano solo bianchi."
+   "x": "Falso! La pelle dell’orso polare è nera. I peli in realtà sono incolori e trasparenti; sembrano solo bianchi.",
+   "k": "Orso polare: pelle nera"
   }
  },
  {
@@ -2496,7 +2734,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Stimmt! Der herzförmige Gesichtsschleier lenkt Geräusche zu den leicht versetzten Ohren. So orten sie Beute punktgenau."
+   "x": "Stimmt! Der herzförmige Gesichtsschleier lenkt Geräusche zu den leicht versetzten Ohren. So orten sie Beute punktgenau.",
+   "k": "Schleiereule: jagt im Dunkeln nach Gehör"
   },
   "en": {
    "q": "Barn owls can catch mice in total darkness by hearing alone.",
@@ -2504,7 +2743,8 @@
     "True",
     "False"
    ],
-   "x": "True! The heart-shaped facial disc funnels sound to their slightly offset ears, so they can pinpoint prey."
+   "x": "True! The heart-shaped facial disc funnels sound to their slightly offset ears, so they can pinpoint prey.",
+   "k": "Barn owl: hunts in the dark by hearing"
   },
   "fr": {
    "q": "L'effraie des clochers peut attraper une souris dans le noir complet, rien qu'à l'ouïe.",
@@ -2512,7 +2752,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Vrai ! Son disque facial en cœur dirige les sons vers ses oreilles décalées, ce qui lui permet de localiser la proie avec précision."
+   "x": "Vrai ! Son disque facial en cœur dirige les sons vers ses oreilles décalées, ce qui lui permet de localiser la proie avec précision.",
+   "k": "Effraie : chasse dans le noir à l’oreille"
   },
   "es": {
    "q": "La lechuza común puede cazar ratones en total oscuridad solo con el oído.",
@@ -2520,7 +2761,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Cierto! Su disco facial en forma de corazón dirige el sonido a sus oídos asimétricos y localiza la presa con precisión."
+   "x": "¡Cierto! Su disco facial en forma de corazón dirige el sonido a sus oídos asimétricos y localiza la presa con precisión.",
+   "k": "Lechuza común: caza a oscuras por el oído"
   },
   "pt": {
    "q": "A suindara consegue caçar ratos no escuro total só pela audição.",
@@ -2528,7 +2770,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Certo! O disco facial em forma de coração leva o som aos ouvidos assimétricos e localiza a presa com precisão."
+   "x": "Certo! O disco facial em forma de coração leva o som aos ouvidos assimétricos e localiza a presa com precisão.",
+   "k": "Suindara: caça no escuro pela audição"
   },
   "ja": {
    "q": "正しい？まちがい？ メンフクロウは真っ暗やみでも、音だけでネズミをつかまえられる。",
@@ -2536,7 +2779,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "正しい！ハート形の顔が音を集め、左右で少しずれた位置にある耳へ届けます。だから獲物の位置がぴたりとわかります。"
+   "x": "正しい！ハート形の顔が音を集め、左右で少しずれた位置にある耳へ届けます。だから獲物の位置がぴたりとわかります。",
+   "k": "メンフクロウ：暗やみでも音だけで狩る"
   },
   "it": {
    "q": "Vero o falso? I barbagianni catturano i topi nel buio totale solo con l’udito.",
@@ -2544,7 +2788,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Vero! Il disco facciale a forma di cuore convoglia i suoni verso orecchie poste a altezze leggermente diverse: così localizzano la preda."
+   "x": "Vero! Il disco facciale a forma di cuore convoglia i suoni verso orecchie poste a altezze leggermente diverse: così localizzano la preda.",
+   "k": "Barbagianni: caccia al buio con l’udito"
   }
  },
  {
@@ -2560,7 +2805,8 @@
     "Um den Schädel herum gewickelt",
     "Im Magen"
    ],
-   "x": "Die Zunge sitzt auf langen Knochenspangen, die hinten um den ganzen Schädel laufen. So kann er tief in Ameisennester stoßen."
+   "x": "Die Zunge sitzt auf langen Knochenspangen, die hinten um den ganzen Schädel laufen. So kann er tief in Ameisennester stoßen.",
+   "k": "Grünspecht: Zunge um den Schädel gewickelt"
   },
   "en": {
    "q": "Where is the green woodpecker's extremely long tongue kept when not in use?",
@@ -2570,7 +2816,8 @@
     "Wrapped around its skull",
     "In its stomach"
    ],
-   "x": "The tongue sits on long bony rods that loop around the back of the skull. This lets it probe deep into ant nests."
+   "x": "The tongue sits on long bony rods that loop around the back of the skull. This lets it probe deep into ant nests.",
+   "k": "Green woodpecker: tongue wraps around its skull"
   },
   "fr": {
    "q": "Où se range la langue extrêmement longue du pic vert au repos ?",
@@ -2580,7 +2827,8 @@
     "Enroulée autour du crâne",
     "Dans l'estomac"
    ],
-   "x": "La langue repose sur de longues tiges osseuses qui font le tour du crâne. Le pic vert peut ainsi fouiller loin dans les fourmilières."
+   "x": "La langue repose sur de longues tiges osseuses qui font le tour du crâne. Le pic vert peut ainsi fouiller loin dans les fourmilières.",
+   "k": "Pic vert : langue enroulée autour du crâne"
   },
   "es": {
    "q": "¿Dónde guarda el pito real su larguísima lengua cuando no la usa?",
@@ -2590,7 +2838,8 @@
     "Enrollada alrededor del cráneo",
     "En el estómago"
    ],
-   "x": "La lengua se apoya en largos huesos que rodean el cráneo por detrás. Así puede hurgar a fondo en los hormigueros."
+   "x": "La lengua se apoya en largos huesos que rodean el cráneo por detrás. Así puede hurgar a fondo en los hormigueros.",
+   "k": "Pito real: lengua enrollada en el cráneo"
   },
   "pt": {
    "q": "Onde o peto-real guarda a língua comprida quando não está usando?",
@@ -2600,7 +2849,8 @@
     "Enrolada em volta do crânio",
     "No estômago"
    ],
-   "x": "A língua se apoia em ossos longos que contornam o crânio por trás. Assim ele consegue fuçar fundo nos formigueiros."
+   "x": "A língua se apoia em ossos longos que contornam o crânio por trás. Assim ele consegue fuçar fundo nos formigueiros.",
+   "k": "Peto-verde: língua enrolada no crânio"
   },
   "ja": {
    "q": "ヨーロッパアオゲラのとても長い舌は、使わないときどこにしまわれている？",
@@ -2610,7 +2860,8 @@
     "頭の骨のまわりに巻きつけて",
     "胃の中に"
    ],
-   "x": "舌は長い骨の棒にのっていて、頭の骨の後ろをぐるりと回っています。だからアリの巣の奥まで届くのです。"
+   "x": "舌は長い骨の棒にのっていて、頭の骨の後ろをぐるりと回っています。だからアリの巣の奥まで届くのです。",
+   "k": "アオゲラ：舌が頭の骨を一周する"
   },
   "it": {
    "q": "Dove tiene il picchio verde la sua lunghissima lingua quando non la usa?",
@@ -2620,7 +2871,8 @@
     "Avvolta intorno al cranio",
     "Nello stomaco"
    ],
-   "x": "La lingua poggia su lunghi bastoncini ossei che girano intorno al retro del cranio. Così arriva in fondo ai formicai."
+   "x": "La lingua poggia su lunghi bastoncini ossei che girano intorno al retro del cranio. Così arriva in fondo ai formicai.",
+   "k": "Picchio verde: lingua avvolta intorno al cranio"
   }
  },
  {
@@ -2636,7 +2888,8 @@
     "Die Kitze wachsen extrem langsam",
     "Sie paaren sich im Frühling erneut"
    ],
-   "x": "Beim Reh ruht der Keim nach der Befruchtung bis etwa Dezember (Keimruhe). So kommen die Kitze, wenn es viel Futter gibt."
+   "x": "Beim Reh ruht der Keim nach der Befruchtung bis etwa Dezember (Keimruhe). So kommen die Kitze, wenn es viel Futter gibt.",
+   "k": "Reh: der Embryo macht monatelang Pause"
   },
   "en": {
    "q": "Roe deer mate in midsummer, but fawns are only born the next May or June. Why?",
@@ -2646,7 +2899,8 @@
     "The fawns grow extremely slowly",
     "They mate again in spring"
    ],
-   "x": "In roe deer the embryo rests until around December (delayed implantation), so fawns arrive when food is plentiful."
+   "x": "In roe deer the embryo rests until around December (delayed implantation), so fawns arrive when food is plentiful.",
+   "k": "Roe deer: embryo pauses for months"
   },
   "fr": {
    "q": "Les chevreuils s'accouplent en plein été, mais les faons naissent en mai ou juin suivant. Pourquoi ?",
@@ -2656,7 +2910,8 @@
     "Les faons grandissent très lentement",
     "Ils s'accouplent à nouveau au printemps"
    ],
-   "x": "Chez le chevreuil, l'embryon reste en pause jusque vers décembre (implantation différée). Les faons naissent quand la nourriture abonde."
+   "x": "Chez le chevreuil, l'embryon reste en pause jusque vers décembre (implantation différée). Les faons naissent quand la nourriture abonde.",
+   "k": "Chevreuil : l’embryon fait une pause de plusieurs mois"
   },
   "es": {
    "q": "Los corzos se aparean en pleno verano, pero las crías nacen en mayo o junio. ¿Por qué?",
@@ -2666,7 +2921,8 @@
     "Las crías crecen muy despacio",
     "Vuelven a aparearse en primavera"
    ],
-   "x": "En el corzo, el embrión queda en pausa hasta diciembre (implantación diferida); así las crías nacen cuando abunda el alimento."
+   "x": "En el corzo, el embrión queda en pausa hasta diciembre (implantación diferida); así las crías nacen cuando abunda el alimento.",
+   "k": "Corzo: el embrión hace una pausa de meses"
   },
   "pt": {
    "q": "Os corços acasalam em pleno verão, mas os filhotes nascem em maio ou junho. Por quê?",
@@ -2676,7 +2932,8 @@
     "Os filhotes crescem muito devagar",
     "Eles acasalam de novo na primavera"
    ],
-   "x": "No corço, o embrião fica em pausa até dezembro (implantação tardia); assim os filhotes nascem quando há bastante comida."
+   "x": "No corço, o embrião fica em pausa até dezembro (implantação tardia); assim os filhotes nascem quando há bastante comida.",
+   "k": "Corço: o embrião pausa por meses"
   },
   "ja": {
    "q": "ノロジカは真夏に交尾するのに、赤ちゃんが生まれるのは翌年の5〜6月。なぜ？",
@@ -2686,7 +2943,8 @@
     "赤ちゃんの成長がとてもゆっくり",
     "春にもう一度交尾する"
    ],
-   "x": "ノロジカでは、胚が12月ごろまで休みます（着床遅延）。だから赤ちゃんはえさの多い時期に生まれます。"
+   "x": "ノロジカでは、胚が12月ごろまで休みます（着床遅延）。だから赤ちゃんはえさの多い時期に生まれます。",
+   "k": "ノロジカ：胚が何か月も休む"
   },
   "it": {
    "q": "I caprioli si accoppiano in piena estate, ma i piccoli nascono solo a maggio o giugno dell’anno dopo. Perché?",
@@ -2696,7 +2954,8 @@
     "I piccoli crescono lentissimi",
     "Si accoppiano di nuovo in primavera"
    ],
-   "x": "Nel capriolo l’embrione resta a riposo fino a circa dicembre (impianto ritardato): così i piccoli nascono quando c’è molto cibo."
+   "x": "Nel capriolo l’embrione resta a riposo fino a circa dicembre (impianto ritardato): così i piccoli nascono quando c’è molto cibo.",
+   "k": "Capriolo: l’embrione si ferma per mesi"
   }
  },
  {
@@ -2712,7 +2971,8 @@
     "2000",
     "2015"
    ],
-   "x": "Im Jahr 2000 zog ein Wolfspaar in der Lausitz in Sachsen Junge groß – nach über 100 Jahren ohne Wolfsnachwuchs in Deutschland."
+   "x": "Im Jahr 2000 zog ein Wolfspaar in der Lausitz in Sachsen Junge groß – nach über 100 Jahren ohne Wolfsnachwuchs in Deutschland.",
+   "k": "Wolf: seit 2000 wieder Welpen in Deutschland"
   },
   "en": {
    "q": "In which year were wild wolf pups born in Germany again for the first time?",
@@ -2722,7 +2982,8 @@
     "2000",
     "2015"
    ],
-   "x": "In 2000 a wolf pair raised pups in Lusatia, Saxony – after more than 100 years without wolves breeding in Germany."
+   "x": "In 2000 a wolf pair raised pups in Lusatia, Saxony – after more than 100 years without wolves breeding in Germany.",
+   "k": "Wolves: pups in Germany again since 2000"
   },
   "fr": {
    "q": "En quelle année des louveteaux sauvages sont-ils de nouveau nés en Allemagne ?",
@@ -2732,7 +2993,8 @@
     "2000",
     "2015"
    ],
-   "x": "En 2000, un couple de loups a élevé des petits en Lusace (Saxe), après plus de 100 ans sans reproduction de loups en Allemagne."
+   "x": "En 2000, un couple de loups a élevé des petits en Lusace (Saxe), après plus de 100 ans sans reproduction de loups en Allemagne.",
+   "k": "Loups : de nouveau des louveteaux en Allemagne depuis 2000"
   },
   "es": {
    "q": "¿En qué año volvieron a nacer lobeznos salvajes en Alemania por primera vez?",
@@ -2742,7 +3004,8 @@
     "2000",
     "2015"
    ],
-   "x": "En 2000 una pareja de lobos crió cachorros en Lusacia (Sajonia), tras más de 100 años sin lobos criando en Alemania."
+   "x": "En 2000 una pareja de lobos crió cachorros en Lusacia (Sajonia), tras más de 100 años sin lobos criando en Alemania.",
+   "k": "Lobos: cachorros en Alemania de nuevo desde 2000"
   },
   "pt": {
    "q": "Em que ano nasceram de novo filhotes de lobo selvagens na Alemanha pela primeira vez?",
@@ -2752,7 +3015,8 @@
     "2000",
     "2015"
    ],
-   "x": "Em 2000, um casal de lobos criou filhotes na Lusácia (Saxônia), depois de mais de 100 anos sem lobos se reproduzindo na Alemanha."
+   "x": "Em 2000, um casal de lobos criou filhotes na Lusácia (Saxônia), depois de mais de 100 anos sem lobos se reproduzindo na Alemanha.",
+   "k": "Lobos: filhotes na Alemanha de novo desde 2000"
   },
   "ja": {
    "q": "ドイツで野生のオオカミの子どもが再び生まれたのは何年？",
@@ -2762,7 +3026,8 @@
     "2000年",
     "2015年"
    ],
-   "x": "2000年、ザクセン州ラウジッツでオオカミのペアが子育てをしました。ドイツでオオカミが繁殖しなかった100年以上を経てのことです。"
+   "x": "2000年、ザクセン州ラウジッツでオオカミのペアが子育てをしました。ドイツでオオカミが繁殖しなかった100年以上を経てのことです。",
+   "k": "オオカミ：2000年からドイツで再び子育て"
   },
   "it": {
    "q": "In che anno sono nati di nuovo cuccioli di lupo selvatici in Germania?",
@@ -2772,7 +3037,8 @@
     "2000",
     "2015"
    ],
-   "x": "Nel 2000 una coppia di lupi ha allevato i cuccioli in Lusazia, in Sassonia, dopo oltre 100 anni senza lupi riprodotti in Germania."
+   "x": "Nel 2000 una coppia di lupi ha allevato i cuccioli in Lusazia, in Sassonia, dopo oltre 100 anni senza lupi riprodotti in Germania.",
+   "k": "Lupi: di nuovo cuccioli in Germania dal 2000"
   }
  },
  {
@@ -2788,7 +3054,8 @@
     "Am langen, dünnen Schwanz",
     "Dicker Schwanz, stumpfe schwarze Spitze"
    ],
-   "x": "Die Wildkatze hat einen dicken, buschigen Schwanz mit schwarzen Ringen und stumpfem schwarzem Ende. Pinselohren hat der Luchs."
+   "x": "Die Wildkatze hat einen dicken, buschigen Schwanz mit schwarzen Ringen und stumpfem schwarzem Ende. Pinselohren hat der Luchs.",
+   "k": "Wildkatze: buschiger Schwanz mit schwarzem Ende"
   },
   "en": {
    "q": "What helps tell a European wildcat from a tabby house cat?",
@@ -2798,7 +3065,8 @@
     "A long, thin tail",
     "Bushy tail with a blunt black tip"
    ],
-   "x": "The wildcat has a thick, bushy tail with black rings and a blunt black end. Ear tufts belong to the lynx."
+   "x": "The wildcat has a thick, bushy tail with black rings and a blunt black end. Ear tufts belong to the lynx.",
+   "k": "Wildcat: bushy tail with a black tip"
   },
   "fr": {
    "q": "Qu'est-ce qui distingue le chat forestier d'un chat domestique tigré ?",
@@ -2808,7 +3076,8 @@
     "Une queue longue et fine",
     "Queue touffue à bout noir arrondi"
    ],
-   "x": "Le chat forestier a une queue épaisse et touffue, annelée de noir, au bout noir arrondi. Les pinceaux aux oreilles, c'est le lynx."
+   "x": "Le chat forestier a une queue épaisse et touffue, annelée de noir, au bout noir arrondi. Les pinceaux aux oreilles, c'est le lynx.",
+   "k": "Chat sauvage : queue touffue au bout noir"
   },
   "es": {
    "q": "¿Qué distingue al gato montés europeo de un gato doméstico atigrado?",
@@ -2818,7 +3087,8 @@
     "Una cola larga y fina",
     "Cola tupida con punta negra roma"
    ],
-   "x": "El gato montés tiene una cola gruesa y tupida, con anillos negros y punta negra roma. Los pinceles en las orejas son del lince."
+   "x": "El gato montés tiene una cola gruesa y tupida, con anillos negros y punta negra roma. Los pinceles en las orejas son del lince.",
+   "k": "Gato montés: cola peluda con punta negra"
   },
   "pt": {
    "q": "O que diferencia o gato-selvagem-europeu de um gato doméstico tigrado?",
@@ -2828,7 +3098,8 @@
     "Uma cauda longa e fina",
     "Cauda peluda com ponta preta arredondada"
    ],
-   "x": "O gato-selvagem tem uma cauda grossa e peluda, com anéis pretos e ponta preta arredondada. Os tufos nas orelhas são do lince."
+   "x": "O gato-selvagem tem uma cauda grossa e peluda, com anéis pretos e ponta preta arredondada. Os tufos nas orelhas são do lince.",
+   "k": "Gato-selvagem: cauda peluda com ponta preta"
   },
   "ja": {
    "q": "ヨーロッパヤマネコとトラ柄の飼いネコの見分け方は？",
@@ -2838,7 +3109,8 @@
     "長くて細いしっぽ",
     "ふさふさで先が黒く丸いしっぽ"
    ],
-   "x": "ヤマネコのしっぽは太くふさふさで、黒い輪があり、先が黒く丸くなっています。耳の房毛はオオヤマネコの特徴です。"
+   "x": "ヤマネコのしっぽは太くふさふさで、黒い輪があり、先が黒く丸くなっています。耳の房毛はオオヤマネコの特徴です。",
+   "k": "ヤマネコ：太いしっぽの先が黒い"
   },
   "it": {
    "q": "Cosa aiuta a distinguere il gatto selvatico europeo da un gatto domestico tigrato?",
@@ -2848,7 +3120,8 @@
     "Una coda lunga e sottile",
     "Coda folta con la punta nera e arrotondata"
    ],
-   "x": "Il gatto selvatico ha una coda folta con anelli neri e la punta nera smussata. I ciuffi sulle orecchie sono della lince."
+   "x": "Il gatto selvatico ha una coda folta con anelli neri e la punta nera smussata. I ciuffi sulle orecchie sono della lince.",
+   "k": "Gatto selvatico: coda folta con punta nera"
   }
  },
  {
@@ -2864,7 +3137,8 @@
     "1974",
     "1994"
    ],
-   "x": "1934 wurden am Edersee in Hessen zwei Waschbärpaare freigelassen. Heute leben in Deutschland sehr viele dieser Nordamerikaner."
+   "x": "1934 wurden am Edersee in Hessen zwei Waschbärpaare freigelassen. Heute leben in Deutschland sehr viele dieser Nordamerikaner.",
+   "k": "Waschbär: 1934 in Hessen ausgesetzt"
   },
   "en": {
    "q": "In which year were raccoons first deliberately released into the wild in Germany?",
@@ -2874,7 +3148,8 @@
     "1974",
     "1994"
    ],
-   "x": "In 1934 two pairs of raccoons were released at Lake Edersee in Hesse. Today these North Americans are very common in Germany."
+   "x": "In 1934 two pairs of raccoons were released at Lake Edersee in Hesse. Today these North Americans are very common in Germany.",
+   "k": "Raccoons: released in Germany in 1934"
   },
   "fr": {
    "q": "En quelle année des ratons laveurs ont-ils été relâchés exprès pour la première fois en Allemagne ?",
@@ -2884,7 +3159,8 @@
     "1974",
     "1994"
    ],
-   "x": "En 1934, deux couples ont été relâchés au lac d'Edersee (Hesse). Aujourd'hui, ces Nord-Américains sont très nombreux en Allemagne."
+   "x": "En 1934, deux couples ont été relâchés au lac d'Edersee (Hesse). Aujourd'hui, ces Nord-Américains sont très nombreux en Allemagne.",
+   "k": "Ratons laveurs : lâchés en Allemagne en 1934"
   },
   "es": {
    "q": "¿En qué año se soltaron a propósito los primeros mapaches en la naturaleza en Alemania?",
@@ -2894,7 +3170,8 @@
     "1974",
     "1994"
    ],
-   "x": "En 1934 se liberaron dos parejas junto al lago Edersee (Hesse). Hoy estos norteamericanos son muy abundantes en Alemania."
+   "x": "En 1934 se liberaron dos parejas junto al lago Edersee (Hesse). Hoy estos norteamericanos son muy abundantes en Alemania.",
+   "k": "Mapaches: liberados en Alemania en 1934"
   },
   "pt": {
    "q": "Em que ano os primeiros guaxinins foram soltos de propósito na natureza na Alemanha?",
@@ -2904,7 +3181,8 @@
     "1974",
     "1994"
    ],
-   "x": "Em 1934, dois casais foram soltos perto do lago Edersee (Hesse). Hoje esses norte-americanos são muito comuns na Alemanha."
+   "x": "Em 1934, dois casais foram soltos perto do lago Edersee (Hesse). Hoje esses norte-americanos são muito comuns na Alemanha.",
+   "k": "Guaxinins: soltos na Alemanha em 1934"
   },
   "ja": {
    "q": "ドイツでアライグマが初めて意図的に野に放されたのは何年？",
@@ -2914,7 +3192,8 @@
     "1974年",
     "1994年"
    ],
-   "x": "1934年、ヘッセン州のエーダー湖でアライグマ2組が放されました。いまでは北アメリカ生まれのアライグマがドイツでとても多くなっています。"
+   "x": "1934年、ヘッセン州のエーダー湖でアライグマ2組が放されました。いまでは北アメリカ生まれのアライグマがドイツでとても多くなっています。",
+   "k": "アライグマ：1934年にドイツで放された"
   },
   "it": {
    "q": "In che anno i procioni furono liberati di proposito in natura in Germania per la prima volta?",
@@ -2924,7 +3203,8 @@
     "1974",
     "1994"
    ],
-   "x": "Nel 1934 due coppie di procioni furono liberate presso il lago Edersee, in Assia. Oggi questi nordamericani sono comunissimi in Germania."
+   "x": "Nel 1934 due coppie di procioni furono liberate presso il lago Edersee, in Assia. Oggi questi nordamericani sono comunissimi in Germania.",
+   "k": "Procioni: liberati in Germania nel 1934"
   }
  },
  {
@@ -2940,7 +3220,8 @@
     "Kegelrobbe",
     "Seehund"
    ],
-   "x": "Robben zählen zu den Raubtieren. Kegelrobben-Männchen an Nord- und Ostsee werden bis zu etwa 300 kg schwer."
+   "x": "Robben zählen zu den Raubtieren. Kegelrobben-Männchen an Nord- und Ostsee werden bis zu etwa 300 kg schwer.",
+   "k": "Kegelrobbe: größtes Raubtier Deutschlands"
   },
   "en": {
    "q": "Which is the largest wild carnivore in Germany?",
@@ -2950,7 +3231,8 @@
     "Grey seal",
     "Harbour seal"
    ],
-   "x": "Seals belong to the carnivores. Male grey seals on the North Sea and Baltic coasts weigh up to about 300 kg."
+   "x": "Seals belong to the carnivores. Male grey seals on the North Sea and Baltic coasts weigh up to about 300 kg.",
+   "k": "Grey seal: Germany's largest carnivore"
   },
   "fr": {
    "q": "Quel est le plus grand carnivore sauvage d'Allemagne ?",
@@ -2960,7 +3242,8 @@
     "Phoque gris",
     "Phoque veau-marin"
    ],
-   "x": "Les phoques font partie des carnivores. Les mâles du phoque gris, en mer du Nord et Baltique, pèsent jusqu'à environ 300 kg."
+   "x": "Les phoques font partie des carnivores. Les mâles du phoque gris, en mer du Nord et Baltique, pèsent jusqu'à environ 300 kg.",
+   "k": "Phoque gris : plus grand carnivore d’Allemagne"
   },
   "es": {
    "q": "¿Cuál es el mayor carnívoro salvaje de Alemania?",
@@ -2970,7 +3253,8 @@
     "Foca gris",
     "Foca común"
    ],
-   "x": "Las focas pertenecen a los carnívoros. Los machos de foca gris del mar del Norte y el Báltico pesan hasta unos 300 kg."
+   "x": "Las focas pertenecen a los carnívoros. Los machos de foca gris del mar del Norte y el Báltico pesan hasta unos 300 kg.",
+   "k": "Foca gris: mayor carnívoro de Alemania"
   },
   "pt": {
    "q": "Qual é o maior carnívoro selvagem da Alemanha?",
@@ -2980,7 +3264,8 @@
     "Foca-cinzenta",
     "Foca-comum"
    ],
-   "x": "As focas pertencem aos carnívoros. Os machos de foca-cinzenta do mar do Norte e do Báltico pesam até uns 300 kg."
+   "x": "As focas pertencem aos carnívoros. Os machos de foca-cinzenta do mar do Norte e do Báltico pesam até uns 300 kg.",
+   "k": "Foca-cinzenta: maior carnívoro da Alemanha"
   },
   "ja": {
    "q": "ドイツ最大の野生の肉食動物は？",
@@ -2990,7 +3275,8 @@
     "ハイイロアザラシ",
     "ゼニガタアザラシ"
    ],
-   "x": "アザラシは食肉目の仲間。北海とバルト海の沿岸にいるハイイロアザラシのオスは最大約300キロです。"
+   "x": "アザラシは食肉目の仲間。北海とバルト海の沿岸にいるハイイロアザラシのオスは最大約300キロです。",
+   "k": "ハイイロアザラシ：ドイツ最大の肉食動物"
   },
   "it": {
    "q": "Qual è il carnivoro selvatico più grande della Germania?",
@@ -3000,7 +3286,8 @@
     "Foca grigia",
     "Foca comune"
    ],
-   "x": "Le foche appartengono ai carnivori. I maschi di foca grigia sulle coste del Mare del Nord e del Baltico pesano fino a circa 300 kg."
+   "x": "Le foche appartengono ai carnivori. I maschi di foca grigia sulle coste del Mare del Nord e del Baltico pesano fino a circa 300 kg.",
+   "k": "Foca grigia: il carnivoro più grande della Germania"
   }
  },
  {
@@ -3016,7 +3303,8 @@
     "Mit Regenwürmern",
     "Mit Blütennektar"
    ],
-   "x": "Beide Eltern bilden im Kropf eine nahrhafte, käseartige „Kropfmilch“. Das ist bei Vögeln eine große Ausnahme."
+   "x": "Beide Eltern bilden im Kropf eine nahrhafte, käseartige „Kropfmilch“. Das ist bei Vögeln eine große Ausnahme.",
+   "k": "Tauben: füttern Junge mit Kropfmilch"
   },
   "en": {
    "q": "What do pigeons feed their newly hatched chicks?",
@@ -3026,7 +3314,8 @@
     "Earthworms",
     "Flower nectar"
    ],
-   "x": "Both parents produce a nutritious, cheese-like 'crop milk' in their crop – very unusual for birds."
+   "x": "Both parents produce a nutritious, cheese-like 'crop milk' in their crop – very unusual for birds.",
+   "k": "Pigeons: feed their chicks crop milk"
   },
   "fr": {
    "q": "De quoi les pigeons nourrissent-ils leurs petits tout juste éclos ?",
@@ -3036,7 +3325,8 @@
     "Des vers de terre",
     "Du nectar de fleurs"
    ],
-   "x": "Les deux parents produisent dans leur jabot un « lait » nourrissant, semblable à du fromage. C'est très rare chez les oiseaux."
+   "x": "Les deux parents produisent dans leur jabot un « lait » nourrissant, semblable à du fromage. C'est très rare chez les oiseaux.",
+   "k": "Pigeons : nourrissent au lait de jabot"
   },
   "es": {
    "q": "¿Con qué alimentan las palomas a sus pichones recién nacidos?",
@@ -3046,7 +3336,8 @@
     "Con lombrices",
     "Con néctar de flores"
    ],
-   "x": "Ambos padres producen en el buche una «leche» nutritiva, parecida al queso. Es algo muy raro entre las aves."
+   "x": "Ambos padres producen en el buche una «leche» nutritiva, parecida al queso. Es algo muy raro entre las aves.",
+   "k": "Palomas: alimentan con leche de buche"
   },
   "pt": {
    "q": "Com o que os pombos alimentam os filhotes recém-nascidos?",
@@ -3056,7 +3347,8 @@
     "Com minhocas",
     "Com néctar de flores"
    ],
-   "x": "Os dois pais produzem no papo um “leite” nutritivo, parecido com queijo. Isso é muito raro entre as aves."
+   "x": "Os dois pais produzem no papo um “leite” nutritivo, parecido com queijo. Isso é muito raro entre as aves.",
+   "k": "Pombos: alimentam com leite de papo"
   },
   "ja": {
    "q": "ハトはかえったばかりのひなに何をあげる？",
@@ -3066,7 +3358,8 @@
     "ミミズ",
     "花の蜜"
    ],
-   "x": "両親とも、そのうでチーズのような栄養たっぷりの「ピジョンミルク」を作ります。鳥としてはとてもめずらしいことです。"
+   "x": "両親とも、そのうでチーズのような栄養たっぷりの「ピジョンミルク」を作ります。鳥としてはとてもめずらしいことです。",
+   "k": "ハト：ピジョンミルクでひなを育てる"
   },
   "it": {
    "q": "Cosa danno i piccioni ai pulcini appena nati?",
@@ -3076,7 +3369,8 @@
     "Lombrichi",
     "Nettare"
    ],
-   "x": "Entrambi i genitori producono nel gozzo un nutriente «latte di gozzo» simile a formaggio: molto insolito per gli uccelli."
+   "x": "Entrambi i genitori producono nel gozzo un nutriente «latte di gozzo» simile a formaggio: molto insolito per gli uccelli.",
+   "k": "Piccioni: nutrono i piccoli col latte di gozzo"
   }
  },
  {
@@ -3092,7 +3386,8 @@
     "Nashörner",
     "Elefanten"
    ],
-   "x": "Erbgut-Vergleiche zeigen: Flusspferde sind am engsten mit Walen und Delfinen verwandt – nicht mit Schweinen, wie man lange dachte."
+   "x": "Erbgut-Vergleiche zeigen: Flusspferde sind am engsten mit Walen und Delfinen verwandt – nicht mit Schweinen, wie man lange dachte.",
+   "k": "Flusspferd: nächster Verwandter der Wale"
   },
   "en": {
    "q": "Which animals are the hippopotamus's closest living relatives?",
@@ -3102,7 +3397,8 @@
     "Rhinos",
     "Elephants"
    ],
-   "x": "DNA studies show that hippos are most closely related to whales and dolphins – not to pigs, as was long believed."
+   "x": "DNA studies show that hippos are most closely related to whales and dolphins – not to pigs, as was long believed.",
+   "k": "Hippo: closest relative of whales"
   },
   "fr": {
    "q": "Quels animaux sont les plus proches parents vivants de l'hippopotame ?",
@@ -3112,7 +3408,8 @@
     "Les rhinocéros",
     "Les éléphants"
    ],
-   "x": "L'ADN le montre : les hippopotames sont les plus proches parents des baleines et dauphins, et non des cochons comme on l'a longtemps cru."
+   "x": "L'ADN le montre : les hippopotames sont les plus proches parents des baleines et dauphins, et non des cochons comme on l'a longtemps cru.",
+   "k": "Hippopotame : plus proche parent des baleines"
   },
   "es": {
    "q": "¿Qué animales son los parientes vivos más cercanos del hipopótamo?",
@@ -3122,7 +3419,8 @@
     "Los rinocerontes",
     "Los elefantes"
    ],
-   "x": "El ADN lo demuestra: los hipopótamos están más emparentados con ballenas y delfines que con los cerdos, como se creyó mucho tiempo."
+   "x": "El ADN lo demuestra: los hipopótamos están más emparentados con ballenas y delfines que con los cerdos, como se creyó mucho tiempo.",
+   "k": "Hipopótamo: pariente más cercano de las ballenas"
   },
   "pt": {
    "q": "Quais animais são os parentes vivos mais próximos do hipopótamo?",
@@ -3132,7 +3430,8 @@
     "Os rinocerontes",
     "Os elefantes"
    ],
-   "x": "O DNA mostra: os hipopótamos são mais aparentados com baleias e golfinhos do que com os porcos, como se pensou por muito tempo."
+   "x": "O DNA mostra: os hipopótamos são mais aparentados com baleias e golfinhos do que com os porcos, como se pensou por muito tempo.",
+   "k": "Hipopótamo: parente mais próximo das baleias"
   },
   "ja": {
    "q": "カバにいちばん近い現生の親せきは？",
@@ -3142,7 +3441,8 @@
     "サイ",
     "ゾウ"
    ],
-   "x": "DNAを調べると、カバにいちばん近いのはクジラやイルカ。長い間信じられていたブタではありません。"
+   "x": "DNAを調べると、カバにいちばん近いのはクジラやイルカ。長い間信じられていたブタではありません。",
+   "k": "カバ：クジラにいちばん近い"
   },
   "it": {
    "q": "Quali animali sono i parenti viventi più stretti dell’ippopotamo?",
@@ -3152,7 +3452,8 @@
     "Rinoceronti",
     "Elefanti"
    ],
-   "x": "Gli studi sul DNA mostrano che gli ippopotami sono più vicini a balene e delfini, non ai maiali come si è creduto a lungo."
+   "x": "Gli studi sul DNA mostrano che gli ippopotami sono più vicini a balene e delfini, non ai maiali come si è creduto a lungo.",
+   "k": "Ippopotamo: parente più stretto delle balene"
   }
  },
  {
@@ -3168,7 +3469,8 @@
     "Es färbt sein Gefieder rot",
     "Es baut mehrere Nester zur Auswahl"
    ],
-   "x": "Das Männchen baut mehrere kugelige Rohbau-Nester. Das Weibchen sucht sich eines aus und polstert es dann weich aus."
+   "x": "Das Männchen baut mehrere kugelige Rohbau-Nester. Das Weibchen sucht sich eines aus und polstert es dann weich aus.",
+   "k": "Zaunkönig: baut mehrere Nester zur Auswahl"
   },
   "en": {
    "q": "How does a male wren win over a female?",
@@ -3178,7 +3480,8 @@
     "His plumage turns red",
     "He builds several nests to choose from"
    ],
-   "x": "The male builds several unfinished, ball-shaped nests. The female chooses one and lines it with soft material."
+   "x": "The male builds several unfinished, ball-shaped nests. The female chooses one and lines it with soft material.",
+   "k": "Wren: builds several nests to choose from"
   },
   "fr": {
    "q": "Comment le troglodyte mâle séduit-il une femelle ?",
@@ -3188,7 +3491,8 @@
     "Son plumage devient rouge",
     "Il construit plusieurs nids au choix"
    ],
-   "x": "Le mâle construit plusieurs nids en boule inachevés. La femelle en choisit un et le garnit de matériaux doux."
+   "x": "Le mâle construit plusieurs nids en boule inachevés. La femelle en choisit un et le garnit de matériaux doux.",
+   "k": "Troglodyte : construit plusieurs nids au choix"
   },
   "es": {
    "q": "¿Cómo conquista el macho de chochín a una hembra?",
@@ -3198,7 +3502,8 @@
     "Su plumaje se vuelve rojo",
     "Construye varios nidos para elegir"
    ],
-   "x": "El macho construye varios nidos esféricos sin terminar. La hembra elige uno y lo forra con material blando."
+   "x": "El macho construye varios nidos esféricos sin terminar. La hembra elige uno y lo forra con material blando.",
+   "k": "Chochín: construye varios nidos para elegir"
   },
   "pt": {
    "q": "Como o macho da carriça conquista uma fêmea?",
@@ -3208,7 +3513,8 @@
     "Sua plumagem fica vermelha",
     "Constrói vários ninhos para ela escolher"
    ],
-   "x": "O macho constrói vários ninhos redondos inacabados. A fêmea escolhe um e o forra com material macio."
+   "x": "O macho constrói vários ninhos redondos inacabados. A fêmea escolhe um e o forra com material macio.",
+   "k": "Carriça: faz vários ninhos para escolher"
   },
   "ja": {
    "q": "ミソサザイのオスはどうやってメスの気を引く？",
@@ -3218,7 +3524,8 @@
     "羽が赤くなる",
     "巣をいくつも作って選ばせる"
    ],
-   "x": "オスは未完成のボール形の巣をいくつも作ります。メスがひとつを選び、中にやわらかい材料をしきます。"
+   "x": "オスは未完成のボール形の巣をいくつも作ります。メスがひとつを選び、中にやわらかい材料をしきます。",
+   "k": "ミソサザイ：巣をいくつも作って選ばせる"
   },
   "it": {
    "q": "Come conquista una femmina il maschio di scricciolo?",
@@ -3228,7 +3535,8 @@
     "Il suo piumaggio diventa rosso",
     "Costruisce più nidi tra cui scegliere"
    ],
-   "x": "Il maschio costruisce diversi nidi a palla non finiti. La femmina ne sceglie uno e lo imbottisce di materiale morbido."
+   "x": "Il maschio costruisce diversi nidi a palla non finiti. La femmina ne sceglie uno e lo imbottisce di materiale morbido.",
+   "k": "Scricciolo: costruisce più nidi tra cui scegliere"
   }
  },
  {
@@ -3244,7 +3552,8 @@
     "Sie können wochenlang nicht fliegen",
     "Sie halten einen Sommerschlaf"
    ],
-   "x": "Enten verlieren alle Schwungfedern auf einmal und sind etwa 3 bis 4 Wochen flugunfähig. Erpel tragen dann ein schlichtes Kleid."
+   "x": "Enten verlieren alle Schwungfedern auf einmal und sind etwa 3 bis 4 Wochen flugunfähig. Erpel tragen dann ein schlichtes Kleid.",
+   "k": "Stockenten: im Sommer wochenlang flugunfähig"
   },
   "en": {
    "q": "What happens to mallards during their summer moult?",
@@ -3254,7 +3563,8 @@
     "They can't fly for weeks",
     "They sleep through the summer"
    ],
-   "x": "Ducks shed all their flight feathers at once and can't fly for about 3–4 weeks. Drakes then wear a plain, dull plumage."
+   "x": "Ducks shed all their flight feathers at once and can't fly for about 3–4 weeks. Drakes then wear a plain, dull plumage.",
+   "k": "Mallards: can't fly for weeks in summer"
   },
   "fr": {
    "q": "Que se passe-t-il chez le canard colvert lors de la mue d'été ?",
@@ -3264,7 +3574,8 @@
     "Il ne vole plus pendant des semaines",
     "Il dort tout l'été"
    ],
-   "x": "Les canards perdent toutes leurs rémiges d'un coup et ne volent plus pendant 3 à 4 semaines. Le mâle prend alors un plumage terne."
+   "x": "Les canards perdent toutes leurs rémiges d'un coup et ne volent plus pendant 3 à 4 semaines. Le mâle prend alors un plumage terne.",
+   "k": "Colverts : sans vol pendant des semaines l’été"
   },
   "es": {
    "q": "¿Qué les ocurre a los ánades reales durante la muda de verano?",
@@ -3274,7 +3585,8 @@
     "No pueden volar durante semanas",
     "Duermen todo el verano"
    ],
-   "x": "Los patos pierden todas las plumas de vuelo a la vez y no vuelan durante 3 o 4 semanas. Los machos lucen entonces un plumaje apagado."
+   "x": "Los patos pierden todas las plumas de vuelo a la vez y no vuelan durante 3 o 4 semanas. Los machos lucen entonces un plumaje apagado.",
+   "k": "Ánades reales: semanas sin volar en verano"
   },
   "pt": {
    "q": "O que acontece com os patos-reais durante a muda de verão?",
@@ -3284,7 +3596,8 @@
     "Não conseguem voar por semanas",
     "Dormem o verão inteiro"
    ],
-   "x": "Os patos perdem todas as penas de voo ao mesmo tempo e não voam por 3 ou 4 semanas. Os machos ficam então com uma plumagem sem graça."
+   "x": "Os patos perdem todas as penas de voo ao mesmo tempo e não voam por 3 ou 4 semanas. Os machos ficam então com uma plumagem sem graça.",
+   "k": "Patos-reais: semanas sem voar no verão"
   },
   "ja": {
    "q": "夏の換羽の時期、マガモはどうなる？",
@@ -3294,7 +3607,8 @@
     "何週間も飛べなくなる",
     "夏の間ずっと眠る"
    ],
-   "x": "カモは風切羽が一度に全部ぬけ、3〜4週間ほど飛べなくなります。オスはその間、地味な羽の色になります。"
+   "x": "カモは風切羽が一度に全部ぬけ、3〜4週間ほど飛べなくなります。オスはその間、地味な羽の色になります。",
+   "k": "マガモ：夏に何週間も飛べなくなる"
   },
   "it": {
    "q": "Cosa succede ai germani reali durante la muta estiva?",
@@ -3304,7 +3618,8 @@
     "Per settimane non possono volare",
     "Dormono tutta l’estate"
    ],
-   "x": "Le anatre perdono tutte le penne remiganti insieme e per circa 3–4 settimane non volano. I maschi in quel periodo hanno un piumaggio semplice e spento."
+   "x": "Le anatre perdono tutte le penne remiganti insieme e per circa 3–4 settimane non volano. I maschi in quel periodo hanno un piumaggio semplice e spento.",
+   "k": "Germani reali: settimane senza volare d’estate"
   }
  },
  {
@@ -3320,7 +3635,8 @@
     "Flusspferde",
     "Tapire"
    ],
-   "x": "Elefanten sind eng mit Seekühen (Manatis und Dugongs) verwandt – und mit den kleinen Klippschliefern."
+   "x": "Elefanten sind eng mit Seekühen (Manatis und Dugongs) verwandt – und mit den kleinen Klippschliefern.",
+   "k": "Elefanten: verwandt mit Seekühen"
   },
   "en": {
    "q": "Which group of animals is among the elephant's closest living relatives?",
@@ -3330,7 +3646,8 @@
     "Hippos",
     "Tapirs"
    ],
-   "x": "Elephants are closely related to sea cows (manatees and dugongs) – and to the small rock hyraxes."
+   "x": "Elephants are closely related to sea cows (manatees and dugongs) – and to the small rock hyraxes.",
+   "k": "Elephants: related to sea cows"
   },
   "fr": {
    "q": "Quel groupe d'animaux compte parmi les plus proches parents des éléphants ?",
@@ -3340,7 +3657,8 @@
     "Les hippopotames",
     "Les tapirs"
    ],
-   "x": "Les éléphants sont proches parents des siréniens (lamantins et dugongs) et des petits damans."
+   "x": "Les éléphants sont proches parents des siréniens (lamantins et dugongs) et des petits damans.",
+   "k": "Éléphants : parents des siréniens"
   },
   "es": {
    "q": "¿Qué grupo de animales está entre los parientes más cercanos de los elefantes?",
@@ -3350,7 +3668,8 @@
     "Los hipopótamos",
     "Los tapires"
    ],
-   "x": "Los elefantes están emparentados con los sirenios (manatíes y dugongos) y con los pequeños damanes."
+   "x": "Los elefantes están emparentados con los sirenios (manatíes y dugongos) y con los pequeños damanes.",
+   "k": "Elefantes: parientes de los manatíes"
   },
   "pt": {
    "q": "Que grupo de animais está entre os parentes mais próximos dos elefantes?",
@@ -3360,7 +3679,8 @@
     "Os hipopótamos",
     "As antas"
    ],
-   "x": "Os elefantes são aparentados com os sirênios (peixes-boi e dugongos) e com os pequenos híraces."
+   "x": "Os elefantes são aparentados com os sirênios (peixes-boi e dugongos) e com os pequenos híraces.",
+   "k": "Elefantes: parentes dos peixes-boi"
   },
   "ja": {
    "q": "ゾウにいちばん近い現生の親せきのグループは？",
@@ -3370,7 +3690,8 @@
     "カバ",
     "バク"
    ],
-   "x": "ゾウはマナティーやジュゴンなどの海牛と近い親せき。小さなハイラックスとも親せきです。"
+   "x": "ゾウはマナティーやジュゴンなどの海牛と近い親せき。小さなハイラックスとも親せきです。",
+   "k": "ゾウ：マナティーの親せき"
   },
   "it": {
    "q": "Quale gruppo di animali è tra i parenti viventi più stretti dell’elefante?",
@@ -3380,7 +3701,8 @@
     "Ippopotami",
     "Tapiri"
    ],
-   "x": "Gli elefanti sono parenti stretti dei sirenii (lamantini e dugonghi) e dei piccoli irace delle rocce."
+   "x": "Gli elefanti sono parenti stretti dei sirenii (lamantini e dugonghi) e dei piccoli irace delle rocce.",
+   "k": "Elefanti: parenti dei lamantini"
   }
  },
  {
@@ -3394,7 +3716,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Falsch! Sie sehen Schwalben nur ähnlich. Mauersegler sind näher mit den Kolibris verwandt als mit Schwalben."
+   "x": "Falsch! Sie sehen Schwalben nur ähnlich. Mauersegler sind näher mit den Kolibris verwandt als mit Schwalben.",
+   "k": "Mauersegler: eher mit Kolibris als mit Schwalben verwandt"
   },
   "en": {
    "q": "Common swifts are closely related to swallows.",
@@ -3402,7 +3725,8 @@
     "True",
     "False"
    ],
-   "x": "False! They only look similar. Swifts are more closely related to hummingbirds than to swallows."
+   "x": "False! They only look similar. Swifts are more closely related to hummingbirds than to swallows.",
+   "k": "Swifts: closer to hummingbirds than swallows"
   },
   "fr": {
    "q": "Le martinet noir est un proche parent des hirondelles.",
@@ -3410,7 +3734,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Faux ! Ils se ressemblent seulement. Les martinets sont plus proches des colibris que des hirondelles."
+   "x": "Faux ! Ils se ressemblent seulement. Les martinets sont plus proches des colibris que des hirondelles.",
+   "k": "Martinets : plus proches des colibris que des hirondelles"
   },
   "es": {
    "q": "El vencejo común es pariente cercano de las golondrinas.",
@@ -3418,7 +3743,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Falso! Solo se parecen. Los vencejos están más emparentados con los colibríes que con las golondrinas."
+   "x": "¡Falso! Solo se parecen. Los vencejos están más emparentados con los colibríes que con las golondrinas.",
+   "k": "Vencejos: más cerca de los colibríes que de las golondrinas"
   },
   "pt": {
    "q": "O andorinhão-preto é parente próximo das andorinhas.",
@@ -3426,7 +3752,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Falso! Eles só se parecem. Os andorinhões são mais aparentados com os beija-flores do que com as andorinhas."
+   "x": "Falso! Eles só se parecem. Os andorinhões são mais aparentados com os beija-flores do que com as andorinhas.",
+   "k": "Andorinhões: mais perto dos beija-flores que das andorinhas"
   },
   "ja": {
    "q": "正しい？まちがい？ ヨーロッパアマツバメはツバメの近い親せきである。",
@@ -3434,7 +3761,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "まちがい！似ているだけです。アマツバメはツバメよりハチドリに近い親せきです。"
+   "x": "まちがい！似ているだけです。アマツバメはツバメよりハチドリに近い親せきです。",
+   "k": "アマツバメ：ツバメよりハチドリに近い"
   },
   "it": {
    "q": "Vero o falso? I rondoni comuni sono parenti stretti delle rondini.",
@@ -3442,7 +3770,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Falso! Si somigliano soltanto. I rondoni sono più vicini ai colibrì che alle rondini."
+   "x": "Falso! Si somigliano soltanto. I rondoni sono più vicini ai colibrì che alle rondini.",
+   "k": "Rondoni: più vicini ai colibrì che alle rondini"
   }
  },
  {
@@ -3456,7 +3785,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Stimmt! Die Wasseramsel taucht in schnellen Bächen nach Insektenlarven und läuft dabei sogar über den Grund."
+   "x": "Stimmt! Die Wasseramsel taucht in schnellen Bächen nach Insektenlarven und läuft dabei sogar über den Grund.",
+   "k": "Wasseramsel: läuft unter Wasser am Bachgrund"
   },
   "en": {
    "q": "There is a Central European songbird that can dive and walk along a stream bed underwater.",
@@ -3464,7 +3794,8 @@
     "True",
     "False"
    ],
-   "x": "True! The white-throated dipper dives in fast streams for insect larvae and even walks along the bottom."
+   "x": "True! The white-throated dipper dives in fast streams for insect larvae and even walks along the bottom.",
+   "k": "Dipper: walks underwater along the stream bed"
   },
   "fr": {
    "q": "Il existe un oiseau chanteur d'Europe centrale qui plonge et marche sous l'eau au fond des ruisseaux.",
@@ -3472,7 +3803,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Vrai ! Le cincle plongeur plonge dans les torrents pour chercher des larves d'insectes et marche même sur le fond."
+   "x": "Vrai ! Le cincle plongeur plonge dans les torrents pour chercher des larves d'insectes et marche même sur le fond.",
+   "k": "Cincle : marche sous l’eau au fond du ruisseau"
   },
   "es": {
    "q": "Existe un ave cantora centroeuropea que bucea y camina bajo el agua por el fondo de los arroyos.",
@@ -3480,7 +3812,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Cierto! El mirlo acuático bucea en arroyos rápidos buscando larvas de insectos e incluso camina por el fondo."
+   "x": "¡Cierto! El mirlo acuático bucea en arroyos rápidos buscando larvas de insectos e incluso camina por el fondo.",
+   "k": "Mirlo acuático: camina bajo el agua por el fondo"
   },
   "pt": {
    "q": "Existe uma ave canora da Europa Central que mergulha e anda debaixo d’água no fundo dos riachos.",
@@ -3488,7 +3821,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Certo! O melro-d’água mergulha em riachos rápidos procurando larvas de insetos e até caminha pelo fundo."
+   "x": "Certo! O melro-d’água mergulha em riachos rápidos procurando larvas de insetos e até caminha pelo fundo.",
+   "k": "Melro-d’água: anda debaixo d’água no riacho"
   },
   "ja": {
    "q": "正しい？まちがい？ 中央ヨーロッパには、水に潜って川底を歩ける鳴禽類がいる。",
@@ -3496,7 +3830,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "正しい！ムナジロカワガラスは流れの速い川に潜って虫の幼虫をとり、川底を歩くこともできます。"
+   "x": "正しい！ムナジロカワガラスは流れの速い川に潜って虫の幼虫をとり、川底を歩くこともできます。",
+   "k": "カワガラス：水の中で川底を歩く"
   },
   "it": {
    "q": "Vero o falso? Esiste un uccello canoro dell’Europa centrale che si tuffa e cammina sott’acqua sul fondo del torrente.",
@@ -3504,7 +3839,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Vero! Il merlo acquaiolo si tuffa nei torrenti veloci per cercare larve di insetti e cammina persino sul fondo."
+   "x": "Vero! Il merlo acquaiolo si tuffa nei torrenti veloci per cercare larve di insetti e cammina persino sul fondo.",
+   "k": "Merlo acquaiolo: cammina sott’acqua sul fondo"
   }
  },
  {
@@ -3518,7 +3854,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Stimmt! Ein Biss in den Kopf macht die Würmer bewegungsunfähig. So bleiben sie als frischer Vorrat für den Winter erhalten."
+   "x": "Stimmt! Ein Biss in den Kopf macht die Würmer bewegungsunfähig. So bleiben sie als frischer Vorrat für den Winter erhalten.",
+   "k": "Maulwurf: legt Vorräte lebender Regenwürmer an"
   },
   "en": {
    "q": "Moles keep larders of live earthworms that they have paralysed with a bite.",
@@ -3526,7 +3863,8 @@
     "True",
     "False"
    ],
-   "x": "True! A bite to the head immobilises the worms, keeping them fresh as a winter food supply."
+   "x": "True! A bite to the head immobilises the worms, keeping them fresh as a winter food supply.",
+   "k": "Mole: keeps a larder of live earthworms"
   },
   "fr": {
    "q": "Les taupes stockent des vers de terre vivants, paralysés par une morsure.",
@@ -3534,7 +3872,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Vrai ! Une morsure à la tête immobilise les vers, qui restent frais comme réserve pour l'hiver."
+   "x": "Vrai ! Une morsure à la tête immobilise les vers, qui restent frais comme réserve pour l'hiver.",
+   "k": "Taupe : garde des vers de terre vivants en réserve"
   },
   "es": {
    "q": "Los topos almacenan lombrices vivas que han paralizado con un mordisco.",
@@ -3542,7 +3881,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Cierto! Un mordisco en la cabeza inmoviliza las lombrices, que se conservan frescas como reserva para el invierno."
+   "x": "¡Cierto! Un mordisco en la cabeza inmoviliza las lombrices, que se conservan frescas como reserva para el invierno.",
+   "k": "Topo: guarda lombrices vivas como despensa"
   },
   "pt": {
    "q": "As toupeiras guardam minhocas vivas que paralisaram com uma mordida.",
@@ -3550,7 +3890,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Certo! Uma mordida na cabeça imobiliza as minhocas, que ficam frescas como reserva para o inverno."
+   "x": "Certo! Uma mordida na cabeça imobiliza as minhocas, que ficam frescas como reserva para o inverno.",
+   "k": "Toupeira: guarda minhocas vivas na despensa"
   },
   "ja": {
    "q": "正しい？まちがい？ モグラは、かんでまひさせた生きたミミズを貯蔵庫にたくわえる。",
@@ -3558,7 +3899,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "正しい！頭をかまれたミミズは動けなくなり、冬の食料として新鮮なまま保たれます。"
+   "x": "正しい！頭をかまれたミミズは動けなくなり、冬の食料として新鮮なまま保たれます。",
+   "k": "モグラ：生きたミミズをたくわえる"
   },
   "it": {
    "q": "Vero o falso? Le talpe tengono dispense di lombrichi vivi paralizzati con un morso.",
@@ -3566,7 +3908,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Vero! Un morso alla testa immobilizza i vermi, che restano freschi come scorta di cibo per l’inverno."
+   "x": "Vero! Un morso alla testa immobilizza i vermi, che restano freschi come scorta di cibo per l’inverno.",
+   "k": "Talpa: tiene lombrichi vivi in dispensa"
   }
  },
  {
@@ -3580,7 +3923,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Stimmt! Im Winter verteidigen auch Rotkehlchen-Weibchen ein eigenes Revier – und tun das mit Gesang."
+   "x": "Stimmt! Im Winter verteidigen auch Rotkehlchen-Weibchen ein eigenes Revier – und tun das mit Gesang.",
+   "k": "Rotkehlchen: auch die Weibchen singen"
   },
   "en": {
    "q": "In autumn and winter, female robins sing too.",
@@ -3588,7 +3932,8 @@
     "True",
     "False"
    ],
-   "x": "True! In winter, female robins also defend their own territory – and they do it by singing."
+   "x": "True! In winter, female robins also defend their own territory – and they do it by singing.",
+   "k": "Robins: females sing too"
   },
   "fr": {
    "q": "En automne et en hiver, les femelles de rougegorge chantent aussi.",
@@ -3596,7 +3941,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Vrai ! En hiver, les femelles de rougegorge défendent elles aussi leur propre territoire, et elles le font en chantant."
+   "x": "Vrai ! En hiver, les femelles de rougegorge défendent elles aussi leur propre territoire, et elles le font en chantant.",
+   "k": "Rouges-gorges : les femelles chantent aussi"
   },
   "es": {
    "q": "En otoño e invierno, las hembras de petirrojo también cantan.",
@@ -3604,7 +3950,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Cierto! En invierno, las hembras de petirrojo también defienden su propio territorio, y lo hacen cantando."
+   "x": "¡Cierto! En invierno, las hembras de petirrojo también defienden su propio territorio, y lo hacen cantando.",
+   "k": "Petirrojos: las hembras también cantan"
   },
   "pt": {
    "q": "No outono e no inverno, as fêmeas do pisco-de-peito-ruivo também cantam.",
@@ -3612,7 +3959,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Certo! No inverno, as fêmeas também defendem seu próprio território – e fazem isso cantando."
+   "x": "Certo! No inverno, as fêmeas também defendem seu próprio território – e fazem isso cantando.",
+   "k": "Piscos-de-peito-ruivo: as fêmeas também cantam"
   },
   "ja": {
    "q": "正しい？まちがい？ 秋と冬には、ヨーロッパコマドリのメスもさえずる。",
@@ -3620,7 +3968,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "正しい！冬はコマドリのメスも自分のなわばりを守ります。その方法がさえずりなのです。"
+   "x": "正しい！冬はコマドリのメスも自分のなわばりを守ります。その方法がさえずりなのです。",
+   "k": "ヨーロッパコマドリ：メスもさえずる"
   },
   "it": {
    "q": "Vero o falso? In autunno e in inverno cantano anche le femmine di pettirosso.",
@@ -3628,7 +3977,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Vero! D’inverno anche le femmine di pettirosso difendono un proprio territorio, e lo fanno cantando."
+   "x": "Vero! D’inverno anche le femmine di pettirosso difendono un proprio territorio, e lo fanno cantando.",
+   "k": "Pettirossi: cantano anche le femmine"
   }
  }
 ]

@@ -607,30 +607,25 @@ function QuizPicture({ id, size }: { id: string; size: number }) {
   );
 }
 
-// Ein gelernter Fakt: Frage klein, richtige Antwort groß – die Erklärung erst beim Antippen
-// (vorher stand nur die Erklärung da, und man wusste oft nicht, um welches Tier es ging)
+// Ein gelernter Fakt als Stichpunkt: „Elch: größter Hirsch der Welt“ – das Tier fett, der Fakt dahinter
 function LearnItem({ q, p }: { q: BankQuestion; p: Palette }) {
   const { lang } = useI18n();
-  const [open, setOpen] = useState(false);
-  const tx = q.t[lang];
-  // Rangliste: die Antworten stehen schon in der richtigen Reihenfolge
-  const answer = q.type === 'rank' ? tx.a.map((a, i) => `${i + 1}.\u00a0${a.replace(/ /g, '\u00a0')}`).join(' · ') : tx.a[q.right];
+  const k = q.t[lang].k;
+  const cut = k.search(/[:：]/);
   return (
-    <Pressable
-      onPress={() => setOpen((v) => !v)}
-      accessibilityRole="button"
-      accessibilityState={{ expanded: open }}
-      style={[styles.fact, { borderTopColor: p.line }]}
-    >
-      <View style={styles.factRow}>
-        <View style={{ flex: 1 }}>
-          <Text style={[styles.factQ, { color: p.mute }]}>{tx.q}</Text>
-          <Text style={[styles.factA, { color: p.moss }]}>✓ {answer}</Text>
-        </View>
-        <Text style={[styles.factMore, { color: p.mute, transform: [{ rotate: open ? '90deg' : '0deg' }] }]}>›</Text>
-      </View>
-      {open && <Text style={[styles.factX, { color: p.ink }]}>{tx.x}</Text>}
-    </Pressable>
+    <View style={styles.fact}>
+      <Text style={[styles.factDot, { color: p.moss }]}>•</Text>
+      <Text style={[styles.factText, { color: p.ink }]}>
+        {cut > 0 ? (
+          <>
+            <Text style={styles.factHead}>{k.slice(0, cut + 1)}</Text>
+            {k.slice(cut + 1)}
+          </>
+        ) : (
+          k
+        )}
+      </Text>
+    </View>
   );
 }
 
@@ -658,7 +653,8 @@ function Result({
   const avg = times.length ? times.reduce((a, b) => a + b, 0) / times.length / 1000 : 0;
   // gelernt: die Fakten zu falschen Antworten (bei 10/10 die zu den drei schwersten Fragen)
   const missed = round.q.filter((id, i) => byId.get(id)?.right !== round.a[i]);
-  const facts = (missed.length ? missed : [...round.q].reverse().slice(0, 3)).map((id) => byId.get(id)!).filter(Boolean);
+  // höchstens 3 Stichpunkte, damit nichts gescrollt werden muss
+  const facts = (missed.length ? missed : [...round.q].reverse()).slice(0, 3).map((id) => byId.get(id)!).filter(Boolean);
   return (
     <View style={{ flex: 1, paddingBottom: bottom + 8 }}>
       <ScrollView alwaysBounceVertical={false} contentContainerStyle={{ paddingTop: insets.top + 44, paddingBottom: 12 }}>
@@ -784,12 +780,10 @@ const styles = StyleSheet.create({
   chipText: { fontFamily: fonts.sansBold, fontSize: 13 },
   learn: { marginHorizontal: spacing.gutter, marginTop: 22, borderRadius: 18, padding: 16 },
   learnTitle: { fontFamily: fonts.serifBold, fontSize: 17, marginBottom: 4 },
-  fact: { paddingVertical: 10, borderTopWidth: 1 },
-  factRow: { flexDirection: 'row', alignItems: 'center' },
-  factQ: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18 },
-  factA: { fontFamily: fonts.sansBold, fontSize: 15.5, lineHeight: 21, marginTop: 2 },
-  factMore: { fontFamily: fonts.sansBold, fontSize: 22, marginLeft: 10, width: 14, textAlign: 'center' },
-  factX: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, marginTop: 6 },
+  fact: { flexDirection: 'row', paddingVertical: 5 },
+  factDot: { fontFamily: fonts.sansBold, fontSize: 16, lineHeight: 22, width: 16 },
+  factText: { flex: 1, fontFamily: fonts.sans, fontSize: 15.5, lineHeight: 22 },
+  factHead: { fontFamily: fonts.sansBold },
   done: { marginHorizontal: spacing.gutter, marginTop: 16, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
   doneText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
 });

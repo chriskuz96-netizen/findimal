@@ -10,7 +10,8 @@
     "Adler",
     "Papagei"
    ],
-   "x": "Im Sturzflug erreichen Steinadler über 200 km/h. Papageien fliegen meist mit 30 bis 60 km/h."
+   "x": "Im Sturzflug erreichen Steinadler über 200 km/h. Papageien fliegen meist mit 30 bis 60 km/h.",
+   "k": "Steinadler: im Sturzflug über 200 km/h"
   },
   "en": {
    "q": "Who is faster?",
@@ -18,7 +19,8 @@
     "Eagle",
     "Parrot"
    ],
-   "x": "Golden eagles reach over 200 km/h in a dive. Parrots usually fly at 30 to 60 km/h."
+   "x": "Golden eagles reach over 200 km/h in a dive. Parrots usually fly at 30 to 60 km/h.",
+   "k": "Golden eagle: over 200 km/h in a dive"
   },
   "fr": {
    "q": "Qui est le plus rapide ?",
@@ -26,7 +28,8 @@
     "Aigle",
     "Perroquet"
    ],
-   "x": "En piqué, l’aigle royal dépasse les 200 km/h. Les perroquets volent en général à 30 à 60 km/h."
+   "x": "En piqué, l’aigle royal dépasse les 200 km/h. Les perroquets volent en général à 30 à 60 km/h.",
+   "k": "Aigle royal : plus de 200 km/h en piqué"
   },
   "es": {
    "q": "¿Quién es más rápido?",
@@ -34,7 +37,8 @@
     "Águila",
     "Loro"
    ],
-   "x": "En picado, el águila real supera los 200 km/h. Los loros suelen volar a 30 a 60 km/h."
+   "x": "En picado, el águila real supera los 200 km/h. Los loros suelen volar a 30 a 60 km/h.",
+   "k": "Águila real: más de 200 km/h en picado"
   },
   "pt": {
    "q": "Quem é mais rápido?",
@@ -42,7 +46,8 @@
     "Águia",
     "Papagaio"
    ],
-   "x": "Em mergulho, a águia-real passa dos 200 km/h. Os papagaios costumam voar a 30 a 60 km/h."
+   "x": "Em mergulho, a águia-real passa dos 200 km/h. Os papagaios costumam voar a 30 a 60 km/h.",
+   "k": "Águia-real: mais de 200 km/h em mergulho"
   },
   "ja": {
    "q": "速いのはどっち？",
@@ -50,7 +55,8 @@
     "ワシ",
     "オウム"
    ],
-   "x": "イヌワシは急降下で時速200キロ以上。オウムはふつう時速30〜60キロで飛びます。"
+   "x": "イヌワシは急降下で時速200キロ以上。オウムはふつう時速30〜60キロで飛びます。",
+   "k": "イヌワシ：急降下で時速200キロ以上"
   },
   "it": {
    "q": "Chi è più veloce?",
@@ -58,7 +64,8 @@
     "Aquila",
     "Pappagallo"
    ],
-   "x": "In picchiata l’aquila reale supera i 200 km/h. I pappagalli volano di solito a 30–60 km/h."
+   "x": "In picchiata l’aquila reale supera i 200 km/h. I pappagalli volano di solito a 30–60 km/h.",
+   "k": "Aquila reale: oltre 200 km/h in picchiata"
   }
  },
  {
@@ -72,7 +79,8 @@
     "Giraffe",
     "Tiger"
    ],
-   "x": "Tiger dösen 16 bis 20 Stunden am Tag. Giraffen schlafen nur wenige Stunden, oft im Stehen und in kurzen Nickerchen."
+   "x": "Tiger dösen 16 bis 20 Stunden am Tag. Giraffen schlafen nur wenige Stunden, oft im Stehen und in kurzen Nickerchen.",
+   "k": "Tiger: dösen bis zu 20 Stunden am Tag"
   },
   "en": {
    "q": "Who sleeps more each day?",
@@ -80,7 +88,8 @@
     "Giraffe",
     "Tiger"
    ],
-   "x": "Tigers doze 16 to 20 hours a day. Giraffes sleep only a few hours, often standing and in short naps."
+   "x": "Tigers doze 16 to 20 hours a day. Giraffes sleep only a few hours, often standing and in short naps.",
+   "k": "Tigers: doze up to 20 hours a day"
   },
   "fr": {
    "q": "Qui dort le plus par jour ?",
@@ -88,7 +97,8 @@
     "Girafe",
     "Tigre"
    ],
-   "x": "Le tigre somnole 16 à 20 heures par jour. La girafe ne dort que quelques heures, souvent debout et par petites siestes."
+   "x": "Le tigre somnole 16 à 20 heures par jour. La girafe ne dort que quelques heures, souvent debout et par petites siestes.",
+   "k": "Tigres : somnolent jusqu’à 20 h par jour"
   },
   "es": {
    "q": "¿Quién duerme más al día?",
@@ -96,7 +106,8 @@
     "Jirafa",
     "Tigre"
    ],
-   "x": "Los tigres dormitan de 16 a 20 horas al día. Las jirafas solo duermen unas pocas horas, a menudo de pie y en siestas cortas."
+   "x": "Los tigres dormitan de 16 a 20 horas al día. Las jirafas solo duermen unas pocas horas, a menudo de pie y en siestas cortas.",
+   "k": "Tigres: dormitan hasta 20 h al día"
   },
   "pt": {
    "q": "Quem dorme mais por dia?",
@@ -104,7 +115,8 @@
     "Girafa",
     "Tigre"
    ],
-   "x": "O tigre cochila de 16 a 20 horas por dia. A girafa dorme só poucas horas, muitas vezes em pé e em sonecas curtas."
+   "x": "O tigre cochila de 16 a 20 horas por dia. A girafa dorme só poucas horas, muitas vezes em pé e em sonecas curtas.",
+   "k": "Tigres: cochilam até 20 h por dia"
   },
   "ja": {
    "q": "1日によく眠るのはどっち？",
@@ -112,7 +124,8 @@
     "キリン",
     "トラ"
    ],
-   "x": "トラは1日16〜20時間うとうとします。キリンが眠るのは数時間だけ。立ったまま、短い仮眠を重ねます。"
+   "x": "トラは1日16〜20時間うとうとします。キリンが眠るのは数時間だけ。立ったまま、短い仮眠を重ねます。",
+   "k": "トラ：1日最大20時間うとうと"
   },
   "it": {
    "q": "Chi dorme di più al giorno?",
@@ -120,7 +133,8 @@
     "Giraffa",
     "Tigre"
    ],
-   "x": "Le tigri sonnecchiano 16–20 ore al giorno. Le giraffe dormono solo poche ore, spesso in piedi e a brevi riprese."
+   "x": "Le tigri sonnecchiano 16–20 ore al giorno. Le giraffe dormono solo poche ore, spesso in piedi e a brevi riprese.",
+   "k": "Tigri: sonnecchiano fino a 20 ore al giorno"
   }
  },
  {
@@ -134,7 +148,8 @@
     "Schildkröte",
     "Eidechse"
    ],
-   "x": "Erbgut-Vergleiche zeigen: Schildkröten sind näher mit Vögeln und Krokodilen verwandt als mit Eidechsen und Schlangen."
+   "x": "Erbgut-Vergleiche zeigen: Schildkröten sind näher mit Vögeln und Krokodilen verwandt als mit Eidechsen und Schlangen.",
+   "k": "Schildkröten: näher mit Vögeln verwandt als mit Echsen"
   },
   "en": {
    "q": "Who is more closely related to birds?",
@@ -142,7 +157,8 @@
     "Turtle",
     "Lizard"
    ],
-   "x": "DNA comparisons show that turtles are more closely related to birds and crocodiles than to lizards and snakes."
+   "x": "DNA comparisons show that turtles are more closely related to birds and crocodiles than to lizards and snakes.",
+   "k": "Turtles: closer to birds than to lizards"
   },
   "fr": {
    "q": "Qui est le plus proche parent des oiseaux ?",
@@ -150,7 +166,8 @@
     "Tortue",
     "Lézard"
    ],
-   "x": "L’ADN le montre : les tortues sont plus proches des oiseaux et des crocodiles que des lézards et des serpents."
+   "x": "L’ADN le montre : les tortues sont plus proches des oiseaux et des crocodiles que des lézards et des serpents.",
+   "k": "Tortues : plus proches des oiseaux que des lézards"
   },
   "es": {
    "q": "¿Quién es pariente más cercano de las aves?",
@@ -158,7 +175,8 @@
     "Tortuga",
     "Lagartija"
    ],
-   "x": "Las comparaciones de ADN lo muestran: las tortugas están más emparentadas con aves y cocodrilos que con lagartijas y serpientes."
+   "x": "Las comparaciones de ADN lo muestran: las tortugas están más emparentadas con aves y cocodrilos que con lagartijas y serpientes.",
+   "k": "Tortugas: más cerca de las aves que de los lagartos"
   },
   "pt": {
    "q": "Quem é parente mais próximo das aves?",
@@ -166,7 +184,8 @@
     "Tartaruga",
     "Lagarto"
    ],
-   "x": "Comparações de DNA mostram: as tartarugas são mais aparentadas com aves e crocodilos do que com lagartos e cobras."
+   "x": "Comparações de DNA mostram: as tartarugas são mais aparentadas com aves e crocodilos do que com lagartos e cobras.",
+   "k": "Tartarugas: mais perto das aves que dos lagartos"
   },
   "ja": {
    "q": "鳥により近い親せきはどっち？",
@@ -174,7 +193,8 @@
     "カメ",
     "トカゲ"
    ],
-   "x": "DNAを比べると、カメはトカゲやヘビよりも、鳥やワニに近い親せきだとわかります。"
+   "x": "DNAを比べると、カメはトカゲやヘビよりも、鳥やワニに近い親せきだとわかります。",
+   "k": "カメ：トカゲより鳥に近い"
   },
   "it": {
    "q": "Chi è più vicino parente degli uccelli?",
@@ -182,7 +202,8 @@
     "Tartaruga",
     "Lucertola"
    ],
-   "x": "Il confronto del DNA mostra che le tartarughe sono più vicine a uccelli e coccodrilli che a lucertole e serpenti."
+   "x": "Il confronto del DNA mostra che le tartarughe sono più vicine a uccelli e coccodrilli che a lucertole e serpenti.",
+   "k": "Tartarughe: più vicine agli uccelli che alle lucertole"
   }
  },
  {
@@ -196,7 +217,8 @@
     "Krabbe",
     "Schnecke"
    ],
-   "x": "Krabben und Insekten sind Gliederfüßer mit Panzer und gegliederten Beinen. Insekten haben sich sogar aus Krebstieren entwickelt."
+   "x": "Krabben und Insekten sind Gliederfüßer mit Panzer und gegliederten Beinen. Insekten haben sich sogar aus Krebstieren entwickelt.",
+   "k": "Insekten: stammen von Krebstieren ab"
   },
   "en": {
    "q": "Who is more closely related to insects?",
@@ -204,7 +226,8 @@
     "Crab",
     "Snail"
    ],
-   "x": "Crabs and insects are arthropods with an armour and jointed legs. Insects even evolved from crustaceans."
+   "x": "Crabs and insects are arthropods with an armour and jointed legs. Insects even evolved from crustaceans.",
+   "k": "Insects: evolved from crustaceans"
   },
   "fr": {
    "q": "Qui est le plus proche parent des insectes ?",
@@ -212,7 +235,8 @@
     "Crabe",
     "Escargot"
    ],
-   "x": "Crabes et insectes sont des arthropodes, avec carapace et pattes articulées. Les insectes descendent même des crustacés."
+   "x": "Crabes et insectes sont des arthropodes, avec carapace et pattes articulées. Les insectes descendent même des crustacés.",
+   "k": "Insectes : descendent des crustacés"
   },
   "es": {
    "q": "¿Quién es pariente más cercano de los insectos?",
@@ -220,7 +244,8 @@
     "Cangrejo",
     "Caracol"
    ],
-   "x": "Cangrejos e insectos son artrópodos con caparazón y patas articuladas. Los insectos incluso evolucionaron a partir de crustáceos."
+   "x": "Cangrejos e insectos son artrópodos con caparazón y patas articuladas. Los insectos incluso evolucionaron a partir de crustáceos.",
+   "k": "Insectos: descienden de los crustáceos"
   },
   "pt": {
    "q": "Quem é parente mais próximo dos insetos?",
@@ -228,7 +253,8 @@
     "Caranguejo",
     "Caracol"
    ],
-   "x": "Caranguejos e insetos são artrópodes, com carapaça e patas articuladas. Os insetos até evoluíram a partir de crustáceos."
+   "x": "Caranguejos e insetos são artrópodes, com carapaça e patas articuladas. Os insetos até evoluíram a partir de crustáceos.",
+   "k": "Insetos: descendem dos crustáceos"
   },
   "ja": {
    "q": "昆虫により近い親せきはどっち？",
@@ -236,7 +262,8 @@
     "カニ",
     "カタツムリ"
    ],
-   "x": "カニも昆虫も、かたい殻と節のある脚をもつ節足動物。昆虫は甲殻類から進化したほどです。"
+   "x": "カニも昆虫も、かたい殻と節のある脚をもつ節足動物。昆虫は甲殻類から進化したほどです。",
+   "k": "昆虫：甲殻類から進化した"
   },
   "it": {
    "q": "Chi è più vicino parente degli insetti?",
@@ -244,7 +271,8 @@
     "Granchio",
     "Chiocciola"
    ],
-   "x": "Granchi e insetti sono artropodi, con corazza e zampe articolate. Gli insetti si sono addirittura evoluti dai crostacei."
+   "x": "Granchi e insetti sono artropodi, con corazza e zampe articolate. Gli insetti si sono addirittura evoluti dai crostacei.",
+   "k": "Insetti: discendono dai crostacei"
   }
  },
  {
@@ -258,7 +286,8 @@
     "Panda",
     "Tiger"
    ],
-   "x": "Ein Panda frisst täglich 12 bis 38 kg Bambus, weil der kaum Energie liefert. Ein Tiger kommt im Schnitt mit 5 bis 7 kg Fleisch am Tag aus."
+   "x": "Ein Panda frisst täglich 12 bis 38 kg Bambus, weil der kaum Energie liefert. Ein Tiger kommt im Schnitt mit 5 bis 7 kg Fleisch am Tag aus.",
+   "k": "Panda: frisst bis zu 38 kg Bambus am Tag"
   },
   "en": {
    "q": "Who eats more kilos of food a day?",
@@ -266,7 +295,8 @@
     "Panda",
     "Tiger"
    ],
-   "x": "A panda eats 12 to 38 kg of bamboo a day because it provides so little energy. A tiger gets by on 5 to 7 kg of meat a day on average."
+   "x": "A panda eats 12 to 38 kg of bamboo a day because it provides so little energy. A tiger gets by on 5 to 7 kg of meat a day on average.",
+   "k": "Panda: eats up to 38 kg of bamboo a day"
   },
   "fr": {
    "q": "Qui mange le plus de kilos par jour ?",
@@ -274,7 +304,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "Un panda mange 12 à 38 kg de bambou par jour, car il apporte très peu d’énergie. Un tigre se contente en moyenne de 5 à 7 kg de viande par jour."
+   "x": "Un panda mange 12 à 38 kg de bambou par jour, car il apporte très peu d’énergie. Un tigre se contente en moyenne de 5 à 7 kg de viande par jour.",
+   "k": "Panda : jusqu’à 38 kg de bambou par jour"
   },
   "es": {
    "q": "¿Quién come más kilos al día?",
@@ -282,7 +313,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "Un panda come de 12 a 38 kg de bambú al día, porque aporta muy poca energía. Un tigre se arregla con 5 a 7 kg de carne al día de media."
+   "x": "Un panda come de 12 a 38 kg de bambú al día, porque aporta muy poca energía. Un tigre se arregla con 5 a 7 kg de carne al día de media.",
+   "k": "Panda: hasta 38 kg de bambú al día"
   },
   "pt": {
    "q": "Quem come mais quilos por dia?",
@@ -290,7 +322,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "Um panda come de 12 a 38 kg de bambu por dia, porque ele dá muito pouca energia. Um tigre se vira, em média, com 5 a 7 kg de carne por dia."
+   "x": "Um panda come de 12 a 38 kg de bambu por dia, porque ele dá muito pouca energia. Um tigre se vira, em média, com 5 a 7 kg de carne por dia.",
+   "k": "Panda: até 38 kg de bambu por dia"
   },
   "ja": {
    "q": "1日に食べる量（キロ）が多いのはどっち？",
@@ -298,7 +331,8 @@
     "パンダ",
     "トラ"
    ],
-   "x": "パンダは1日に12〜38キロの竹を食べます。竹はエネルギーが少ないからです。トラは平均すると1日5〜7キロの肉で足ります。"
+   "x": "パンダは1日に12〜38キロの竹を食べます。竹はエネルギーが少ないからです。トラは平均すると1日5〜7キロの肉で足ります。",
+   "k": "パンダ：1日最大38キロの竹を食べる"
   },
   "it": {
    "q": "Chi mangia più chili di cibo al giorno?",
@@ -306,7 +340,8 @@
     "Panda",
     "Tigre"
    ],
-   "x": "Un panda mangia 12–38 kg di bambù al giorno, perché dà pochissima energia. A una tigre bastano in media 5–7 kg di carne al giorno."
+   "x": "Un panda mangia 12–38 kg di bambù al giorno, perché dà pochissima energia. A una tigre bastano in media 5–7 kg di carne al giorno.",
+   "k": "Panda: fino a 38 kg di bambù al giorno"
   }
  },
  {
@@ -320,7 +355,8 @@
     "Eidechse",
     "Frosch"
    ],
-   "x": "Eidechsen züngeln, um Duftteilchen aufzunehmen, und bringen sie zu einem Riechorgan im Gaumen. Frösche fangen mit der Zunge nur Beute."
+   "x": "Eidechsen züngeln, um Duftteilchen aufzunehmen, und bringen sie zu einem Riechorgan im Gaumen. Frösche fangen mit der Zunge nur Beute.",
+   "k": "Eidechsen: riechen mit der Zunge"
   },
   "en": {
    "q": "Who smells with its tongue?",
@@ -328,7 +364,8 @@
     "Lizard",
     "Frog"
    ],
-   "x": "Lizards flick their tongue to pick up scent particles and carry them to a smell organ in the roof of the mouth. Frogs only use their tongue to catch prey."
+   "x": "Lizards flick their tongue to pick up scent particles and carry them to a smell organ in the roof of the mouth. Frogs only use their tongue to catch prey.",
+   "k": "Lizards: smell with their tongue"
   },
   "fr": {
    "q": "Qui sent avec sa langue ?",
@@ -336,7 +373,8 @@
     "Lézard",
     "Grenouille"
    ],
-   "x": "Le lézard sort la langue pour capter des odeurs et les porte à un organe olfactif dans le palais. La grenouille ne s’en sert que pour attraper ses proies."
+   "x": "Le lézard sort la langue pour capter des odeurs et les porte à un organe olfactif dans le palais. La grenouille ne s’en sert que pour attraper ses proies.",
+   "k": "Lézards : sentent avec la langue"
   },
   "es": {
    "q": "¿Quién huele con la lengua?",
@@ -344,7 +382,8 @@
     "Lagartija",
     "Rana"
    ],
-   "x": "Las lagartijas sacan la lengua para captar olores y los llevan a un órgano olfativo en el paladar. Las ranas solo la usan para cazar."
+   "x": "Las lagartijas sacan la lengua para captar olores y los llevan a un órgano olfativo en el paladar. Las ranas solo la usan para cazar.",
+   "k": "Lagartos: huelen con la lengua"
   },
   "pt": {
    "q": "Quem cheira com a língua?",
@@ -352,7 +391,8 @@
     "Lagarto",
     "Rã"
    ],
-   "x": "Os lagartos põem a língua para fora para captar cheiros e os levam a um órgão do olfato no céu da boca. As rãs usam a língua só para caçar."
+   "x": "Os lagartos põem a língua para fora para captar cheiros e os levam a um órgão do olfato no céu da boca. As rãs usam a língua só para caçar.",
+   "k": "Lagartos: sentem cheiro com a língua"
   },
   "ja": {
    "q": "舌でにおいをかぐのはどっち？",
@@ -360,7 +400,8 @@
     "トカゲ",
     "カエル"
    ],
-   "x": "トカゲは舌をチロチロ出してにおいの粒をつかまえ、口の天井にあるにおいの器官へ運びます。カエルは舌を獲物をとるためだけに使います。"
+   "x": "トカゲは舌をチロチロ出してにおいの粒をつかまえ、口の天井にあるにおいの器官へ運びます。カエルは舌を獲物をとるためだけに使います。",
+   "k": "トカゲ：舌でにおいをかぐ"
   },
   "it": {
    "q": "Chi sente gli odori con la lingua?",
@@ -368,7 +409,8 @@
     "Lucertola",
     "Rana"
    ],
-   "x": "Le lucertole guizzano la lingua per raccogliere particelle di odore e portarle a un organo olfattivo nel palato. Le rane usano la lingua solo per catturare le prede."
+   "x": "Le lucertole guizzano la lingua per raccogliere particelle di odore e portarle a un organo olfattivo nel palato. Le rane usano la lingua solo per catturare le prede.",
+   "k": "Lucertole: annusano con la lingua"
   }
  },
  {
@@ -382,7 +424,8 @@
     "Frosch",
     "Eidechse"
    ],
-   "x": "Frösche nehmen über ihre dünne, feuchte Haut Sauerstoff auf – im Winter am Teichgrund fast nur so. Eidechsen haben trockene Schuppenhaut."
+   "x": "Frösche nehmen über ihre dünne, feuchte Haut Sauerstoff auf – im Winter am Teichgrund fast nur so. Eidechsen haben trockene Schuppenhaut.",
+   "k": "Frösche: atmen auch durch die Haut"
   },
   "en": {
    "q": "Who also breathes through its skin?",
@@ -390,7 +433,8 @@
     "Frog",
     "Lizard"
    ],
-   "x": "Frogs take in oxygen through their thin, moist skin – in winter at the bottom of a pond almost only this way. Lizards have dry, scaly skin."
+   "x": "Frogs take in oxygen through their thin, moist skin – in winter at the bottom of a pond almost only this way. Lizards have dry, scaly skin.",
+   "k": "Frogs: also breathe through their skin"
   },
   "fr": {
    "q": "Qui respire aussi par la peau ?",
@@ -398,7 +442,8 @@
     "Grenouille",
     "Lézard"
    ],
-   "x": "La grenouille absorbe de l’oxygène par sa peau fine et humide – en hiver, au fond de la mare, presque uniquement ainsi. Le lézard a une peau sèche à écailles."
+   "x": "La grenouille absorbe de l’oxygène par sa peau fine et humide – en hiver, au fond de la mare, presque uniquement ainsi. Le lézard a une peau sèche à écailles.",
+   "k": "Grenouilles : respirent aussi par la peau"
   },
   "es": {
    "q": "¿Quién respira también por la piel?",
@@ -406,7 +451,8 @@
     "Rana",
     "Lagartija"
    ],
-   "x": "Las ranas absorben oxígeno por su piel fina y húmeda; en invierno, en el fondo del estanque, casi solo así. Las lagartijas tienen piel seca con escamas."
+   "x": "Las ranas absorben oxígeno por su piel fina y húmeda; en invierno, en el fondo del estanque, casi solo así. Las lagartijas tienen piel seca con escamas.",
+   "k": "Ranas: también respiran por la piel"
   },
   "pt": {
    "q": "Quem também respira pela pele?",
@@ -414,7 +460,8 @@
     "Rã",
     "Lagarto"
    ],
-   "x": "As rãs absorvem oxigênio pela pele fina e úmida; no inverno, no fundo do lago, quase só assim. Os lagartos têm pele seca com escamas."
+   "x": "As rãs absorvem oxigênio pela pele fina e úmida; no inverno, no fundo do lago, quase só assim. Os lagartos têm pele seca com escamas.",
+   "k": "Rãs: também respiram pela pele"
   },
   "ja": {
    "q": "皮ふでも呼吸するのはどっち？",
@@ -422,7 +469,8 @@
     "カエル",
     "トカゲ"
    ],
-   "x": "カエルはうすくしめった皮ふから酸素をとり入れます。冬の池の底では、ほぼ皮ふだけで呼吸します。トカゲの皮ふはかわいたうろこです。"
+   "x": "カエルはうすくしめった皮ふから酸素をとり入れます。冬の池の底では、ほぼ皮ふだけで呼吸します。トカゲの皮ふはかわいたうろこです。",
+   "k": "カエル：皮ふでも呼吸する"
   },
   "it": {
    "q": "Chi respira anche con la pelle?",
@@ -430,7 +478,8 @@
     "Rana",
     "Lucertola"
    ],
-   "x": "Le rane assorbono ossigeno dalla pelle sottile e umida; d’inverno, sul fondo dello stagno, quasi solo così. Le lucertole hanno la pelle secca e squamosa."
+   "x": "Le rane assorbono ossigeno dalla pelle sottile e umida; d’inverno, sul fondo dello stagno, quasi solo così. Le lucertole hanno la pelle secca e squamosa.",
+   "k": "Rane: respirano anche con la pelle"
   }
  },
  {
@@ -444,7 +493,8 @@
     "Braunbär",
     "Biene"
    ],
-   "x": "Bienen sehen UV-Licht. Viele Blüten haben UV-Muster, die wie Landebahnen zum Nektar führen – für uns unsichtbar."
+   "x": "Bienen sehen UV-Licht. Viele Blüten haben UV-Muster, die wie Landebahnen zum Nektar führen – für uns unsichtbar.",
+   "k": "Bienen: sehen UV-Licht"
   },
   "en": {
    "q": "Who can see ultraviolet light?",
@@ -452,7 +502,8 @@
     "Brown bear",
     "Bee"
    ],
-   "x": "Bees see UV light. Many flowers have UV patterns that lead to the nectar like runways – invisible to us."
+   "x": "Bees see UV light. Many flowers have UV patterns that lead to the nectar like runways – invisible to us.",
+   "k": "Bees: see UV light"
   },
   "fr": {
    "q": "Qui voit la lumière ultraviolette ?",
@@ -460,7 +511,8 @@
     "Ours brun",
     "Abeille"
    ],
-   "x": "Les abeilles voient les UV. Beaucoup de fleurs ont des motifs UV qui mènent au nectar comme des pistes d’atterrissage – invisibles pour nous."
+   "x": "Les abeilles voient les UV. Beaucoup de fleurs ont des motifs UV qui mènent au nectar comme des pistes d’atterrissage – invisibles pour nous.",
+   "k": "Abeilles : voient les UV"
   },
   "es": {
    "q": "¿Quién ve la luz ultravioleta?",
@@ -468,7 +520,8 @@
     "Oso pardo",
     "Abeja"
    ],
-   "x": "Las abejas ven la luz UV. Muchas flores tienen dibujos UV que llevan al néctar como pistas de aterrizaje, invisibles para nosotros."
+   "x": "Las abejas ven la luz UV. Muchas flores tienen dibujos UV que llevan al néctar como pistas de aterrizaje, invisibles para nosotros.",
+   "k": "Abejas: ven la luz UV"
   },
   "pt": {
    "q": "Quem enxerga a luz ultravioleta?",
@@ -476,7 +529,8 @@
     "Urso-pardo",
     "Abelha"
    ],
-   "x": "As abelhas veem a luz UV. Muitas flores têm desenhos em UV que levam ao néctar como pistas de pouso – invisíveis para nós."
+   "x": "As abelhas veem a luz UV. Muitas flores têm desenhos em UV que levam ao néctar como pistas de pouso – invisíveis para nós.",
+   "k": "Abelhas: enxergam luz UV"
   },
   "ja": {
    "q": "紫外線が見えるのはどっち？",
@@ -484,7 +538,8 @@
     "ヒグマ",
     "ミツバチ"
    ],
-   "x": "ミツバチには紫外線が見えます。多くの花には、蜜まで導く滑走路のような紫外線の模様があります。私たちには見えません。"
+   "x": "ミツバチには紫外線が見えます。多くの花には、蜜まで導く滑走路のような紫外線の模様があります。私たちには見えません。",
+   "k": "ミツバチ：紫外線が見える"
   },
   "it": {
    "q": "Chi vede la luce ultravioletta?",
@@ -492,7 +547,8 @@
     "Orso bruno",
     "Ape"
    ],
-   "x": "Le api vedono la luce UV. Molti fiori hanno disegni UV che portano al nettare come piste di atterraggio, invisibili per noi."
+   "x": "Le api vedono la luce UV. Molti fiori hanno disegni UV che portano al nettare come piste di atterraggio, invisibili per noi.",
+   "k": "Api: vedono la luce UV"
   }
  },
  {
@@ -506,7 +562,8 @@
     "Biene",
     "Krabbe"
    ],
-   "x": "Bienen haben zwei große Facettenaugen und drei kleine Punktaugen oben auf dem Kopf – zusammen fünf. Krabben haben zwei Stielaugen."
+   "x": "Bienen haben zwei große Facettenaugen und drei kleine Punktaugen oben auf dem Kopf – zusammen fünf. Krabben haben zwei Stielaugen.",
+   "k": "Bienen: haben fünf Augen"
   },
   "en": {
    "q": "Who has more eyes?",
@@ -514,7 +571,8 @@
     "Bee",
     "Crab"
    ],
-   "x": "Bees have two large compound eyes and three small simple eyes on top of the head – five in total. Crabs have two eyes on stalks."
+   "x": "Bees have two large compound eyes and three small simple eyes on top of the head – five in total. Crabs have two eyes on stalks.",
+   "k": "Bees: have five eyes"
   },
   "fr": {
    "q": "Qui a le plus d’yeux ?",
@@ -522,7 +580,8 @@
     "Abeille",
     "Crabe"
    ],
-   "x": "L’abeille a deux grands yeux à facettes et trois petits ocelles sur le dessus de la tête – cinq en tout. Le crabe a deux yeux pédonculés."
+   "x": "L’abeille a deux grands yeux à facettes et trois petits ocelles sur le dessus de la tête – cinq en tout. Le crabe a deux yeux pédonculés.",
+   "k": "Abeilles : ont cinq yeux"
   },
   "es": {
    "q": "¿Quién tiene más ojos?",
@@ -530,7 +589,8 @@
     "Abeja",
     "Cangrejo"
    ],
-   "x": "Las abejas tienen dos grandes ojos compuestos y tres ojillos simples en lo alto de la cabeza: cinco en total. Los cangrejos tienen dos ojos con pedúnculo."
+   "x": "Las abejas tienen dos grandes ojos compuestos y tres ojillos simples en lo alto de la cabeza: cinco en total. Los cangrejos tienen dos ojos con pedúnculo.",
+   "k": "Abejas: tienen cinco ojos"
   },
   "pt": {
    "q": "Quem tem mais olhos?",
@@ -538,7 +598,8 @@
     "Abelha",
     "Caranguejo"
    ],
-   "x": "As abelhas têm dois grandes olhos compostos e três olhinhos simples no alto da cabeça – cinco no total. Os caranguejos têm dois olhos em pedúnculos."
+   "x": "As abelhas têm dois grandes olhos compostos e três olhinhos simples no alto da cabeça – cinco no total. Os caranguejos têm dois olhos em pedúnculos.",
+   "k": "Abelhas: têm cinco olhos"
   },
   "ja": {
    "q": "目が多いのはどっち？",
@@ -546,7 +607,8 @@
     "ミツバチ",
     "カニ"
    ],
-   "x": "ミツバチには大きな複眼が2つと、頭の上に小さな単眼が3つ。全部で5つです。カニの目は柄の先についた2つです。"
+   "x": "ミツバチには大きな複眼が2つと、頭の上に小さな単眼が3つ。全部で5つです。カニの目は柄の先についた2つです。",
+   "k": "ミツバチ：目が5つある"
   },
   "it": {
    "q": "Chi ha più occhi?",
@@ -554,7 +616,8 @@
     "Ape",
     "Granchio"
    ],
-   "x": "Le api hanno due grandi occhi composti e tre piccoli occhi semplici sulla testa: cinque in tutto. I granchi hanno due occhi su peduncoli."
+   "x": "Le api hanno due grandi occhi composti e tre piccoli occhi semplici sulla testa: cinque in tutto. I granchi hanno due occhi su peduncoli.",
+   "k": "Api: hanno cinque occhi"
   }
  },
  {
@@ -568,7 +631,8 @@
     "Krake",
     "Schildkröte"
    ],
-   "x": "Ein Krakenweibchen legt bis zu Hunderttausende Eier und bewacht sie wochenlang, ohne zu fressen. Meeresschildkröten legen etwa 100 Eier pro Gelege."
+   "x": "Ein Krakenweibchen legt bis zu Hunderttausende Eier und bewacht sie wochenlang, ohne zu fressen. Meeresschildkröten legen etwa 100 Eier pro Gelege.",
+   "k": "Krake: legt Hunderttausende Eier"
   },
   "en": {
    "q": "Who lays more eggs at once?",
@@ -576,7 +640,8 @@
     "Octopus",
     "Turtle"
    ],
-   "x": "A female octopus lays up to hundreds of thousands of eggs and guards them for weeks without eating. Sea turtles lay about 100 eggs per clutch."
+   "x": "A female octopus lays up to hundreds of thousands of eggs and guards them for weeks without eating. Sea turtles lay about 100 eggs per clutch.",
+   "k": "Octopus: lays hundreds of thousands of eggs"
   },
   "fr": {
    "q": "Qui pond le plus d’œufs en une fois ?",
@@ -584,7 +649,8 @@
     "Pieuvre",
     "Tortue"
    ],
-   "x": "Une pieuvre femelle pond jusqu’à des centaines de milliers d’œufs et les garde des semaines sans manger. Les tortues marines pondent environ 100 œufs par ponte."
+   "x": "Une pieuvre femelle pond jusqu’à des centaines de milliers d’œufs et les garde des semaines sans manger. Les tortues marines pondent environ 100 œufs par ponte.",
+   "k": "Pieuvre : pond des centaines de milliers d’œufs"
   },
   "es": {
    "q": "¿Quién pone más huevos de una vez?",
@@ -592,7 +658,8 @@
     "Pulpo",
     "Tortuga"
    ],
-   "x": "Una hembra de pulpo pone hasta cientos de miles de huevos y los vigila durante semanas sin comer. Las tortugas marinas ponen unos 100 huevos por puesta."
+   "x": "Una hembra de pulpo pone hasta cientos de miles de huevos y los vigila durante semanas sin comer. Las tortugas marinas ponen unos 100 huevos por puesta.",
+   "k": "Pulpo: pone cientos de miles de huevos"
   },
   "pt": {
    "q": "Quem põe mais ovos de uma vez?",
@@ -600,7 +667,8 @@
     "Polvo",
     "Tartaruga"
    ],
-   "x": "Uma fêmea de polvo põe até centenas de milhares de ovos e os vigia por semanas sem comer. As tartarugas marinhas põem cerca de 100 ovos por ninhada."
+   "x": "Uma fêmea de polvo põe até centenas de milhares de ovos e os vigia por semanas sem comer. As tartarugas marinhas põem cerca de 100 ovos por ninhada.",
+   "k": "Polvo: põe centenas de milhares de ovos"
   },
   "ja": {
    "q": "一度に産む卵が多いのはどっち？",
@@ -608,7 +676,8 @@
     "タコ",
     "ウミガメ"
    ],
-   "x": "メスのタコは数十万個もの卵を産み、何週間も何も食べずに守ります。ウミガメは1回に約100個です。"
+   "x": "メスのタコは数十万個もの卵を産み、何週間も何も食べずに守ります。ウミガメは1回に約100個です。",
+   "k": "タコ：数十万個の卵を産む"
   },
   "it": {
    "q": "Chi depone più uova in una volta?",
@@ -616,7 +685,8 @@
     "Polpo",
     "Tartaruga marina"
    ],
-   "x": "Una femmina di polpo depone fino a centinaia di migliaia di uova e le sorveglia per settimane senza mangiare. Le tartarughe marine ne depongono circa 100 per covata."
+   "x": "Una femmina di polpo depone fino a centinaia di migliaia di uova e le sorveglia per settimane senza mangiare. Le tartarughe marine ne depongono circa 100 per covata.",
+   "k": "Polpo: depone centinaia di migliaia di uova"
   }
  },
  {
@@ -630,7 +700,8 @@
     "Grönlandhai",
     "Papagei"
    ],
-   "x": "Grönlandhaie können mehrere hundert Jahre alt werden – sie sind die ältesten bekannten Wirbeltiere. Große Papageien schaffen 60 bis 80 Jahre."
+   "x": "Grönlandhaie können mehrere hundert Jahre alt werden – sie sind die ältesten bekannten Wirbeltiere. Große Papageien schaffen 60 bis 80 Jahre.",
+   "k": "Grönlandhai: wird mehrere hundert Jahre alt"
   },
   "en": {
    "q": "Who lives longer?",
@@ -638,7 +709,8 @@
     "Greenland shark",
     "Parrot"
    ],
-   "x": "Greenland sharks can live several hundred years – the oldest known vertebrates. Large parrots reach 60 to 80 years."
+   "x": "Greenland sharks can live several hundred years – the oldest known vertebrates. Large parrots reach 60 to 80 years.",
+   "k": "Greenland shark: lives for centuries"
   },
   "fr": {
    "q": "Qui vit le plus longtemps ?",
@@ -646,7 +718,8 @@
     "Requin du Groenland",
     "Perroquet"
    ],
-   "x": "Le requin du Groenland peut vivre plusieurs centaines d’années – c’est le plus vieux vertébré connu. Les grands perroquets atteignent 60 à 80 ans."
+   "x": "Le requin du Groenland peut vivre plusieurs centaines d’années – c’est le plus vieux vertébré connu. Les grands perroquets atteignent 60 à 80 ans.",
+   "k": "Requin du Groenland : vit plusieurs siècles"
   },
   "es": {
    "q": "¿Quién vive más?",
@@ -654,7 +727,8 @@
     "Tiburón de Groenlandia",
     "Loro"
    ],
-   "x": "El tiburón de Groenlandia puede vivir varios cientos de años: es el vertebrado más longevo conocido. Los loros grandes llegan a 60 u 80 años."
+   "x": "El tiburón de Groenlandia puede vivir varios cientos de años: es el vertebrado más longevo conocido. Los loros grandes llegan a 60 u 80 años.",
+   "k": "Tiburón de Groenlandia: vive siglos"
   },
   "pt": {
    "q": "Quem vive mais?",
@@ -662,7 +736,8 @@
     "Tubarão-da-groenlândia",
     "Papagaio"
    ],
-   "x": "O tubarão-da-groenlândia pode viver várias centenas de anos – é o vertebrado mais longevo conhecido. Os papagaios grandes chegam a 60 ou 80 anos."
+   "x": "O tubarão-da-groenlândia pode viver várias centenas de anos – é o vertebrado mais longevo conhecido. Os papagaios grandes chegam a 60 ou 80 anos.",
+   "k": "Tubarão-da-groenlândia: vive séculos"
   },
   "ja": {
    "q": "長生きなのはどっち？",
@@ -670,7 +745,8 @@
     "ニシオンデンザメ",
     "オウム"
    ],
-   "x": "ニシオンデンザメは数百年生きることがあり、知られている中でいちばん長生きな脊椎動物です。大型のオウムは60〜80年です。"
+   "x": "ニシオンデンザメは数百年生きることがあり、知られている中でいちばん長生きな脊椎動物です。大型のオウムは60〜80年です。",
+   "k": "ニシオンデンザメ：数百年生きる"
   },
   "it": {
    "q": "Chi vive più a lungo?",
@@ -678,7 +754,8 @@
     "Squalo della Groenlandia",
     "Pappagallo"
    ],
-   "x": "Lo squalo della Groenlandia può vivere diversi secoli: è il vertebrato più longevo conosciuto. I grandi pappagalli arrivano a 60–80 anni."
+   "x": "Lo squalo della Groenlandia può vivere diversi secoli: è il vertebrato più longevo conosciuto. I grandi pappagalli arrivano a 60–80 anni.",
+   "k": "Squalo della Groenlandia: vive secoli"
   }
  },
  {
@@ -692,7 +769,8 @@
     "Hai",
     "Schildkröte"
    ],
-   "x": "Haie gibt es seit über 400 Millionen Jahren – länger als Bäume. Schildkröten erst seit etwa 220 Millionen Jahren."
+   "x": "Haie gibt es seit über 400 Millionen Jahren – länger als Bäume. Schildkröten erst seit etwa 220 Millionen Jahren.",
+   "k": "Haie: älter als Bäume"
   },
   "en": {
    "q": "Who was on Earth first?",
@@ -700,7 +778,8 @@
     "Shark",
     "Turtle"
    ],
-   "x": "Sharks have existed for over 400 million years – longer than trees. Turtles only for about 220 million years."
+   "x": "Sharks have existed for over 400 million years – longer than trees. Turtles only for about 220 million years.",
+   "k": "Sharks: older than trees"
   },
   "fr": {
    "q": "Qui était sur Terre en premier ?",
@@ -708,7 +787,8 @@
     "Requin",
     "Tortue"
    ],
-   "x": "Les requins existent depuis plus de 400 millions d’années – plus longtemps que les arbres. Les tortues seulement depuis environ 220 millions d’années."
+   "x": "Les requins existent depuis plus de 400 millions d’années – plus longtemps que les arbres. Les tortues seulement depuis environ 220 millions d’années.",
+   "k": "Requins : plus anciens que les arbres"
   },
   "es": {
    "q": "¿Quién llegó antes a la Tierra?",
@@ -716,7 +796,8 @@
     "Tiburón",
     "Tortuga"
    ],
-   "x": "Los tiburones existen desde hace más de 400 millones de años, más que los árboles. Las tortugas, solo desde hace unos 220 millones."
+   "x": "Los tiburones existen desde hace más de 400 millones de años, más que los árboles. Las tortugas, solo desde hace unos 220 millones.",
+   "k": "Tiburones: más antiguos que los árboles"
   },
   "pt": {
    "q": "Quem surgiu antes na Terra?",
@@ -724,7 +805,8 @@
     "Tubarão",
     "Tartaruga"
    ],
-   "x": "Os tubarões existem há mais de 400 milhões de anos – mais tempo que as árvores. As tartarugas, só há cerca de 220 milhões."
+   "x": "Os tubarões existem há mais de 400 milhões de anos – mais tempo que as árvores. As tartarugas, só há cerca de 220 milhões.",
+   "k": "Tubarões: mais antigos que as árvores"
   },
   "ja": {
    "q": "地球に先に現れたのはどっち？",
@@ -732,7 +814,8 @@
     "サメ",
     "カメ"
    ],
-   "x": "サメは4億年以上前からいます。木よりも昔からです。カメは約2億2000万年前からです。"
+   "x": "サメは4億年以上前からいます。木よりも昔からです。カメは約2億2000万年前からです。",
+   "k": "サメ：木より昔からいる"
   },
   "it": {
    "q": "Chi è comparso prima sulla Terra?",
@@ -740,7 +823,8 @@
     "Squalo",
     "Tartaruga"
    ],
-   "x": "Gli squali esistono da oltre 400 milioni di anni, più degli alberi. Le tartarughe solo da circa 220 milioni di anni."
+   "x": "Gli squali esistono da oltre 400 milioni di anni, più degli alberi. Le tartarughe solo da circa 220 milioni di anni.",
+   "k": "Squali: più antichi degli alberi"
   }
  },
  {
@@ -754,7 +838,8 @@
     "Fischotter",
     "Pinguin"
    ],
-   "x": "Eselspinguine erreichen unter Wasser rund 35 km/h – schneller als jeder andere Vogel im Wasser. Ein Fischotter schwimmt gut 10 km/h."
+   "x": "Eselspinguine erreichen unter Wasser rund 35 km/h – schneller als jeder andere Vogel im Wasser. Ein Fischotter schwimmt gut 10 km/h.",
+   "k": "Eselspinguin: schwimmt 35 km/h schnell"
   },
   "en": {
    "q": "Who swims faster?",
@@ -762,7 +847,8 @@
     "Otter",
     "Penguin"
    ],
-   "x": "Gentoo penguins reach about 35 km/h underwater – faster than any other bird in water. An otter swims a little over 10 km/h."
+   "x": "Gentoo penguins reach about 35 km/h underwater – faster than any other bird in water. An otter swims a little over 10 km/h.",
+   "k": "Gentoo penguin: swims at 35 km/h"
   },
   "fr": {
    "q": "Qui nage le plus vite ?",
@@ -770,7 +856,8 @@
     "Loutre",
     "Manchot"
    ],
-   "x": "Le manchot papou atteint environ 35 km/h sous l’eau – plus vite que tout autre oiseau dans l’eau. La loutre nage à un peu plus de 10 km/h."
+   "x": "Le manchot papou atteint environ 35 km/h sous l’eau – plus vite que tout autre oiseau dans l’eau. La loutre nage à un peu plus de 10 km/h.",
+   "k": "Manchot papou : nage à 35 km/h"
   },
   "es": {
    "q": "¿Quién nada más rápido?",
@@ -778,7 +865,8 @@
     "Nutria",
     "Pingüino"
    ],
-   "x": "El pingüino papúa alcanza unos 35 km/h bajo el agua, más que cualquier otra ave en el agua. La nutria nada a algo más de 10 km/h."
+   "x": "El pingüino papúa alcanza unos 35 km/h bajo el agua, más que cualquier otra ave en el agua. La nutria nada a algo más de 10 km/h.",
+   "k": "Pingüino papúa: nada a 35 km/h"
   },
   "pt": {
    "q": "Quem nada mais rápido?",
@@ -786,7 +874,8 @@
     "Lontra",
     "Pinguim"
    ],
-   "x": "O pinguim-gentoo chega a uns 35 km/h debaixo d’água – mais que qualquer outra ave na água. A lontra nada a pouco mais de 10 km/h."
+   "x": "O pinguim-gentoo chega a uns 35 km/h debaixo d’água – mais que qualquer outra ave na água. A lontra nada a pouco mais de 10 km/h.",
+   "k": "Pinguim-gentoo: nada a 35 km/h"
   },
   "ja": {
    "q": "泳ぐのが速いのはどっち？",
@@ -794,7 +883,8 @@
     "カワウソ",
     "ペンギン"
    ],
-   "x": "ジェンツーペンギンは水中で時速約35キロ。水中ではどの鳥よりも速いです。カワウソは時速10キロちょっとです。"
+   "x": "ジェンツーペンギンは水中で時速約35キロ。水中ではどの鳥よりも速いです。カワウソは時速10キロちょっとです。",
+   "k": "ジェンツーペンギン：時速35キロで泳ぐ"
   },
   "it": {
    "q": "Chi nuota più veloce?",
@@ -802,7 +892,8 @@
     "Lontra",
     "Pinguino"
    ],
-   "x": "Il pinguino papua raggiunge sott’acqua circa 35 km/h, più di qualsiasi altro uccello in acqua. La lontra nuota a poco più di 10 km/h."
+   "x": "Il pinguino papua raggiunge sott’acqua circa 35 km/h, più di qualsiasi altro uccello in acqua. La lontra nuota a poco più di 10 km/h.",
+   "k": "Pinguino papua: nuota a 35 km/h"
   }
  },
  {
@@ -816,7 +907,8 @@
     "Igel",
     "Frosch"
    ],
-   "x": "Der nordamerikanische Waldfrosch friert im Winter zu zwei Dritteln ein, Herz und Atmung stehen still. Zucker in den Zellen schützt ihn, im Frühling taut er auf. Der Igel braucht ein frostfreies Nest."
+   "x": "Der nordamerikanische Waldfrosch friert im Winter zu zwei Dritteln ein, Herz und Atmung stehen still. Zucker in den Zellen schützt ihn, im Frühling taut er auf. Der Igel braucht ein frostfreies Nest.",
+   "k": "Waldfrosch: übersteht es, halb gefroren zu sein"
   },
   "en": {
    "q": "Who can survive being almost frozen solid?",
@@ -824,7 +916,8 @@
     "Hedgehog",
     "Frog"
    ],
-   "x": "The North American wood frog freezes two-thirds solid in winter; its heart and breathing stop. Sugar in its cells protects it, and it thaws in spring. A hedgehog needs a frost-free nest."
+   "x": "The North American wood frog freezes two-thirds solid in winter; its heart and breathing stop. Sugar in its cells protects it, and it thaws in spring. A hedgehog needs a frost-free nest.",
+   "k": "Wood frog: survives being half frozen"
   },
   "fr": {
    "q": "Qui survit en gelant presque entièrement ?",
@@ -832,7 +925,8 @@
     "Hérisson",
     "Grenouille"
    ],
-   "x": "La grenouille des bois d’Amérique du Nord gèle aux deux tiers en hiver : son cœur et sa respiration s’arrêtent. Du sucre protège ses cellules et elle dégèle au printemps. Le hérisson a besoin d’un nid hors gel."
+   "x": "La grenouille des bois d’Amérique du Nord gèle aux deux tiers en hiver : son cœur et sa respiration s’arrêtent. Du sucre protège ses cellules et elle dégèle au printemps. Le hérisson a besoin d’un nid hors gel.",
+   "k": "Grenouille des bois : survit à moitié gelée"
   },
   "es": {
    "q": "¿Quién sobrevive a congelarse casi por completo?",
@@ -840,7 +934,8 @@
     "Erizo",
     "Rana"
    ],
-   "x": "La rana de bosque norteamericana se congela en dos tercios en invierno: su corazón y su respiración se detienen. El azúcar protege sus células y en primavera se descongela. El erizo necesita un nido sin heladas."
+   "x": "La rana de bosque norteamericana se congela en dos tercios en invierno: su corazón y su respiración se detienen. El azúcar protege sus células y en primavera se descongela. El erizo necesita un nido sin heladas.",
+   "k": "Rana de bosque: sobrevive medio congelada"
   },
   "pt": {
    "q": "Quem sobrevive quase todo congelado?",
@@ -848,7 +943,8 @@
     "Ouriço",
     "Rã"
    ],
-   "x": "A rã-da-floresta da América do Norte congela em dois terços no inverno: o coração e a respiração param. O açúcar protege suas células, e na primavera ela descongela. O ouriço precisa de um ninho sem geada."
+   "x": "A rã-da-floresta da América do Norte congela em dois terços no inverno: o coração e a respiração param. O açúcar protege suas células, e na primavera ela descongela. O ouriço precisa de um ninho sem geada.",
+   "k": "Rã-da-floresta: sobrevive meio congelada"
   },
   "ja": {
    "q": "ほとんどカチコチに凍っても生きのびられるのはどっち？",
@@ -856,7 +952,8 @@
     "ハリネズミ",
     "カエル"
    ],
-   "x": "北アメリカのアメリカアカガエルは、冬に体の3分の2が凍り、心臓も呼吸も止まります。細胞の中の糖が体を守り、春にとけて元にもどります。ハリネズミには凍らない巣が必要です。"
+   "x": "北アメリカのアメリカアカガエルは、冬に体の3分の2が凍り、心臓も呼吸も止まります。細胞の中の糖が体を守り、春にとけて元にもどります。ハリネズミには凍らない巣が必要です。",
+   "k": "アメリカアカガエル：半分凍っても生きのびる"
   },
   "it": {
    "q": "Chi sopravvive anche quasi completamente congelato?",
@@ -864,7 +961,8 @@
     "Riccio",
     "Rana"
    ],
-   "x": "La rana dei boschi nordamericana d’inverno congela per due terzi; cuore e respiro si fermano. Lo zucchero nelle cellule la protegge e in primavera si scongela. Il riccio ha bisogno di un nido al riparo dal gelo."
+   "x": "La rana dei boschi nordamericana d’inverno congela per due terzi; cuore e respiro si fermano. Lo zucchero nelle cellule la protegge e in primavera si scongela. Il riccio ha bisogno di un nido al riparo dal gelo.",
+   "k": "Rana dei boschi: sopravvive mezza congelata"
   }
  },
  {
@@ -878,7 +976,8 @@
     "Eidechse",
     "Papagei"
    ],
-   "x": "Vögel sind die heute lebenden Dinosaurier. Eidechsen sehen urzeitlich aus, sind aber nur entfernte Verwandte."
+   "x": "Vögel sind die heute lebenden Dinosaurier. Eidechsen sehen urzeitlich aus, sind aber nur entfernte Verwandte.",
+   "k": "Vögel: die Dinosaurier von heute"
   },
   "en": {
    "q": "Who descends from dinosaurs?",
@@ -886,7 +985,8 @@
     "Lizard",
     "Parrot"
    ],
-   "x": "Birds are the dinosaurs living today. Lizards look prehistoric but are only distant relatives."
+   "x": "Birds are the dinosaurs living today. Lizards look prehistoric but are only distant relatives.",
+   "k": "Birds: today's dinosaurs"
   },
   "fr": {
    "q": "Qui descend des dinosaures ?",
@@ -894,7 +994,8 @@
     "Lézard",
     "Perroquet"
    ],
-   "x": "Les oiseaux sont les dinosaures d’aujourd’hui. Les lézards ont l’air préhistoriques mais ne sont que des cousins éloignés."
+   "x": "Les oiseaux sont les dinosaures d’aujourd’hui. Les lézards ont l’air préhistoriques mais ne sont que des cousins éloignés.",
+   "k": "Oiseaux : les dinosaures d’aujourd’hui"
   },
   "es": {
    "q": "¿Quién desciende de los dinosaurios?",
@@ -902,7 +1003,8 @@
     "Lagartija",
     "Loro"
    ],
-   "x": "Las aves son los dinosaurios que viven hoy. Las lagartijas parecen prehistóricas, pero solo son parientes lejanas."
+   "x": "Las aves son los dinosaurios que viven hoy. Las lagartijas parecen prehistóricas, pero solo son parientes lejanas.",
+   "k": "Aves: los dinosaurios de hoy"
   },
   "pt": {
    "q": "Quem descende dos dinossauros?",
@@ -910,7 +1012,8 @@
     "Lagarto",
     "Papagaio"
    ],
-   "x": "As aves são os dinossauros que vivem hoje. Os lagartos parecem pré-históricos, mas são só parentes distantes."
+   "x": "As aves são os dinossauros que vivem hoje. Os lagartos parecem pré-históricos, mas são só parentes distantes.",
+   "k": "Aves: os dinossauros de hoje"
   },
   "ja": {
    "q": "恐竜の子孫はどっち？",
@@ -918,7 +1021,8 @@
     "トカゲ",
     "オウム"
    ],
-   "x": "鳥は今も生きている恐竜です。トカゲは大昔の生きものに見えますが、遠い親せきにすぎません。"
+   "x": "鳥は今も生きている恐竜です。トカゲは大昔の生きものに見えますが、遠い親せきにすぎません。",
+   "k": "鳥：いまを生きる恐竜"
   },
   "it": {
    "q": "Chi discende dai dinosauri?",
@@ -926,7 +1030,8 @@
     "Lucertola",
     "Pappagallo"
    ],
-   "x": "Gli uccelli sono i dinosauri di oggi. Le lucertole sembrano preistoriche, ma sono solo parenti lontane."
+   "x": "Gli uccelli sono i dinosauri di oggi. Le lucertole sembrano preistoriche, ma sono solo parenti lontane.",
+   "k": "Uccelli: i dinosauri di oggi"
   }
  },
  {
@@ -940,7 +1045,8 @@
     "Tiger",
     "Panda"
    ],
-   "x": "Tiger sprinten kurz 50 bis 65 km/h. Pandas schaffen im Notfall etwa 30 km/h."
+   "x": "Tiger sprinten kurz 50 bis 65 km/h. Pandas schaffen im Notfall etwa 30 km/h.",
+   "k": "Tiger: sprintet bis 65 km/h"
   },
   "en": {
    "q": "Who is faster on land?",
@@ -948,7 +1054,8 @@
     "Tiger",
     "Panda"
    ],
-   "x": "Tigers sprint at 50 to 65 km/h for short distances. Pandas manage about 30 km/h when they have to."
+   "x": "Tigers sprint at 50 to 65 km/h for short distances. Pandas manage about 30 km/h when they have to.",
+   "k": "Tiger: sprints up to 65 km/h"
   },
   "fr": {
    "q": "Qui est le plus rapide sur terre ?",
@@ -956,7 +1063,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "Le tigre sprinte à 50 à 65 km/h sur de courtes distances. Le panda atteint environ 30 km/h en cas d’urgence."
+   "x": "Le tigre sprinte à 50 à 65 km/h sur de courtes distances. Le panda atteint environ 30 km/h en cas d’urgence.",
+   "k": "Tigre : sprinte jusqu’à 65 km/h"
   },
   "es": {
    "q": "¿Quién es más rápido en tierra?",
@@ -964,7 +1072,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "El tigre esprinta a 50 o 65 km/h en distancias cortas. El panda llega a unos 30 km/h si hace falta."
+   "x": "El tigre esprinta a 50 o 65 km/h en distancias cortas. El panda llega a unos 30 km/h si hace falta.",
+   "k": "Tigre: esprinta hasta 65 km/h"
   },
   "pt": {
    "q": "Quem é mais rápido em terra?",
@@ -972,7 +1081,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "O tigre corre a 50 ou 65 km/h em distâncias curtas. O panda chega a uns 30 km/h, se precisar."
+   "x": "O tigre corre a 50 ou 65 km/h em distâncias curtas. O panda chega a uns 30 km/h, se precisar.",
+   "k": "Tigre: corre até 65 km/h"
   },
   "ja": {
    "q": "陸上で速いのはどっち？",
@@ -980,7 +1090,8 @@
     "トラ",
     "パンダ"
    ],
-   "x": "トラは短い距離なら時速50〜65キロで走ります。パンダはいざとなれば時速約30キロです。"
+   "x": "トラは短い距離なら時速50〜65キロで走ります。パンダはいざとなれば時速約30キロです。",
+   "k": "トラ：時速65キロでダッシュ"
   },
   "it": {
    "q": "Chi è più veloce sulla terraferma?",
@@ -988,7 +1099,8 @@
     "Tigre",
     "Panda"
    ],
-   "x": "Le tigri scattano a 50–65 km/h su brevi distanze. I panda, se serve, arrivano a circa 30 km/h."
+   "x": "Le tigri scattano a 50–65 km/h su brevi distanze. I panda, se serve, arrivano a circa 30 km/h.",
+   "k": "Tigre: scatta fino a 65 km/h"
   }
  },
  {
@@ -1002,7 +1114,8 @@
     "Maulbrüter-Buntbarsch",
     "Karpfen"
    ],
-   "x": "Bei vielen Buntbarschen nimmt ein Elternteil die Eier ins Maul und frisst so lange nichts. Auch die Jungen flüchten bei Gefahr noch zurück ins Maul. Karpfen legen ihre Eier einfach an Pflanzen ab."
+   "x": "Bei vielen Buntbarschen nimmt ein Elternteil die Eier ins Maul und frisst so lange nichts. Auch die Jungen flüchten bei Gefahr noch zurück ins Maul. Karpfen legen ihre Eier einfach an Pflanzen ab.",
+   "k": "Maulbrüter: tragen die Eier im Maul"
   },
   "en": {
    "q": "Who carries its eggs in its mouth until the young hatch?",
@@ -1010,7 +1123,8 @@
     "Mouthbrooding cichlid",
     "Carp"
    ],
-   "x": "In many cichlids one parent takes the eggs into its mouth and eats nothing all that time. Even the young flee back into the mouth when there’s danger. Carp simply lay their eggs on plants."
+   "x": "In many cichlids one parent takes the eggs into its mouth and eats nothing all that time. Even the young flee back into the mouth when there’s danger. Carp simply lay their eggs on plants.",
+   "k": "Mouthbrooders: carry their eggs in their mouth"
   },
   "fr": {
    "q": "Qui garde ses œufs dans la bouche jusqu’à l’éclosion ?",
@@ -1018,7 +1132,8 @@
     "Cichlidé incubateur buccal",
     "Carpe"
    ],
-   "x": "Chez beaucoup de cichlidés, un parent garde les œufs dans la bouche sans rien manger. Même les petits s’y réfugient en cas de danger. La carpe pond simplement sur les plantes."
+   "x": "Chez beaucoup de cichlidés, un parent garde les œufs dans la bouche sans rien manger. Même les petits s’y réfugient en cas de danger. La carpe pond simplement sur les plantes.",
+   "k": "Incubateurs buccaux : gardent les œufs en bouche"
   },
   "es": {
    "q": "¿Quién lleva sus huevos en la boca hasta que nacen las crías?",
@@ -1026,7 +1141,8 @@
     "Cíclido incubador bucal",
     "Carpa"
    ],
-   "x": "En muchos cíclidos, uno de los padres guarda los huevos en la boca sin comer nada. Las crías incluso vuelven a la boca si hay peligro. La carpa simplemente pone sus huevos en las plantas."
+   "x": "En muchos cíclidos, uno de los padres guarda los huevos en la boca sin comer nada. Las crías incluso vuelven a la boca si hay peligro. La carpa simplemente pone sus huevos en las plantas.",
+   "k": "Incubadores bucales: guardan los huevos en la boca"
   },
   "pt": {
    "q": "Quem leva os ovos na boca até os filhotes nascerem?",
@@ -1034,7 +1150,8 @@
     "Ciclídeo incubador bucal",
     "Carpa"
    ],
-   "x": "Em muitos ciclídeos, um dos pais guarda os ovos na boca sem comer nada. Os filhotes até voltam para a boca se houver perigo. A carpa simplesmente põe os ovos nas plantas."
+   "x": "Em muitos ciclídeos, um dos pais guarda os ovos na boca sem comer nada. Os filhotes até voltam para a boca se houver perigo. A carpa simplesmente põe os ovos nas plantas.",
+   "k": "Ciclídeos: guardam os ovos na boca"
   },
   "ja": {
    "q": "子どもがかえるまで卵を口の中で守るのはどっち？",
@@ -1042,7 +1159,8 @@
     "マウスブルーダーのシクリッド",
     "コイ"
    ],
-   "x": "多くのシクリッドでは、親が卵を口に入れ、その間ずっと何も食べません。子どもも危ないときは口の中へ逃げこみます。コイは卵を水草に産みつけるだけです。"
+   "x": "多くのシクリッドでは、親が卵を口に入れ、その間ずっと何も食べません。子どもも危ないときは口の中へ逃げこみます。コイは卵を水草に産みつけるだけです。",
+   "k": "マウスブルーダー：卵を口の中で守る"
   },
   "it": {
    "q": "Chi tiene le uova in bocca finché i piccoli non nascono?",
@@ -1050,7 +1168,8 @@
     "Ciclide incubatore orale",
     "Carpa"
    ],
-   "x": "In molti ciclidi un genitore prende le uova in bocca e per tutto quel tempo non mangia. Anche i piccoli, in caso di pericolo, si rifugiano nella sua bocca. Le carpe depongono le uova sulle piante."
+   "x": "In molti ciclidi un genitore prende le uova in bocca e per tutto quel tempo non mangia. Anche i piccoli, in caso di pericolo, si rifugiano nella sua bocca. Le carpe depongono le uova sulle piante.",
+   "k": "Ciclidi incubatori: tengono le uova in bocca"
   }
  },
  {
@@ -1064,7 +1183,8 @@
     "Papagei",
     "Krake"
    ],
-   "x": "Rund zwei Drittel der Nervenzellen eines Kraken sitzen in seinen Armen. Jeder Arm kann so tasten, schmecken und greifen, fast wie mit eigenem Kopf."
+   "x": "Rund zwei Drittel der Nervenzellen eines Kraken sitzen in seinen Armen. Jeder Arm kann so tasten, schmecken und greifen, fast wie mit eigenem Kopf.",
+   "k": "Krake: denkt zum großen Teil mit den Armen"
   },
   "en": {
    "q": "Who has most of its nerve cells in its arms?",
@@ -1072,7 +1192,8 @@
     "Parrot",
     "Octopus"
    ],
-   "x": "About two-thirds of an octopus’s nerve cells are in its arms. Each arm can feel, taste and grab almost as if it had a mind of its own."
+   "x": "About two-thirds of an octopus’s nerve cells are in its arms. Each arm can feel, taste and grab almost as if it had a mind of its own.",
+   "k": "Octopus: does much of its thinking in its arms"
   },
   "fr": {
    "q": "Qui a la plupart de ses neurones dans les bras ?",
@@ -1080,7 +1201,8 @@
     "Perroquet",
     "Pieuvre"
    ],
-   "x": "Environ deux tiers des neurones de la pieuvre se trouvent dans ses bras. Chaque bras peut toucher, goûter et saisir presque comme s’il avait sa propre tête."
+   "x": "Environ deux tiers des neurones de la pieuvre se trouvent dans ses bras. Chaque bras peut toucher, goûter et saisir presque comme s’il avait sa propre tête.",
+   "k": "Pieuvre : pense en grande partie avec ses bras"
   },
   "es": {
    "q": "¿Quién tiene la mayoría de sus neuronas en los brazos?",
@@ -1088,7 +1210,8 @@
     "Loro",
     "Pulpo"
    ],
-   "x": "Unos dos tercios de las neuronas del pulpo están en sus brazos. Cada brazo puede tocar, saborear y agarrar casi como si tuviera cabeza propia."
+   "x": "Unos dos tercios de las neuronas del pulpo están en sus brazos. Cada brazo puede tocar, saborear y agarrar casi como si tuviera cabeza propia.",
+   "k": "Pulpo: piensa en gran parte con los brazos"
   },
   "pt": {
    "q": "Quem tem a maioria dos neurônios nos braços?",
@@ -1096,7 +1219,8 @@
     "Papagaio",
     "Polvo"
    ],
-   "x": "Cerca de dois terços dos neurônios do polvo estão nos braços. Cada braço consegue tocar, sentir sabores e agarrar quase como se tivesse cabeça própria."
+   "x": "Cerca de dois terços dos neurônios do polvo estão nos braços. Cada braço consegue tocar, sentir sabores e agarrar quase como se tivesse cabeça própria.",
+   "k": "Polvo: pensa em boa parte com os braços"
   },
   "ja": {
    "q": "神経細胞の大部分が腕にあるのはどっち？",
@@ -1104,7 +1228,8 @@
     "オウム",
     "タコ"
    ],
-   "x": "タコの神経細胞の約3分の2は腕にあります。それぞれの腕が、まるで自分の考えをもっているかのように、さわり、味わい、つかみます。"
+   "x": "タコの神経細胞の約3分の2は腕にあります。それぞれの腕が、まるで自分の考えをもっているかのように、さわり、味わい、つかみます。",
+   "k": "タコ：考えの多くを腕でする"
   },
   "it": {
    "q": "Chi ha la maggior parte dei neuroni nelle braccia?",
@@ -1112,7 +1237,8 @@
     "Pappagallo",
     "Polpo"
    ],
-   "x": "Circa due terzi dei neuroni di un polpo sono nelle braccia. Ogni braccio può sentire, gustare e afferrare quasi come se avesse una testa sua."
+   "x": "Circa due terzi dei neuroni di un polpo sono nelle braccia. Ogni braccio può sentire, gustare e afferrare quasi come se avesse una testa sua.",
+   "k": "Polpo: pensa in gran parte con le braccia"
   }
  },
  {
@@ -1126,7 +1252,8 @@
     "Giraffe",
     "Braunbär"
    ],
-   "x": "Eine ausgewachsene Giraffe wiegt 800 bis 1.200 kg. Selbst sehr große Braunbären bringen meist deutlich weniger auf die Waage."
+   "x": "Eine ausgewachsene Giraffe wiegt 800 bis 1.200 kg. Selbst sehr große Braunbären bringen meist deutlich weniger auf die Waage.",
+   "k": "Giraffe: wiegt bis zu 1.200 kg"
   },
   "en": {
    "q": "Who is heavier?",
@@ -1134,7 +1261,8 @@
     "Giraffe",
     "Brown bear"
    ],
-   "x": "An adult giraffe weighs 800 to 1,200 kg. Even very big brown bears usually weigh a lot less."
+   "x": "An adult giraffe weighs 800 to 1,200 kg. Even very big brown bears usually weigh a lot less.",
+   "k": "Giraffe: weighs up to 1,200 kg"
   },
   "fr": {
    "q": "Qui est le plus lourd ?",
@@ -1142,7 +1270,8 @@
     "Girafe",
     "Ours brun"
    ],
-   "x": "Une girafe adulte pèse 800 à 1 200 kg. Même les très grands ours bruns pèsent en général bien moins."
+   "x": "Une girafe adulte pèse 800 à 1 200 kg. Même les très grands ours bruns pèsent en général bien moins.",
+   "k": "Girafe : jusqu’à 1 200 kg"
   },
   "es": {
    "q": "¿Quién pesa más?",
@@ -1150,7 +1279,8 @@
     "Jirafa",
     "Oso pardo"
    ],
-   "x": "Una jirafa adulta pesa de 800 a 1.200 kg. Incluso los osos pardos muy grandes suelen pesar bastante menos."
+   "x": "Una jirafa adulta pesa de 800 a 1.200 kg. Incluso los osos pardos muy grandes suelen pesar bastante menos.",
+   "k": "Jirafa: hasta 1.200 kg"
   },
   "pt": {
    "q": "Quem pesa mais?",
@@ -1158,7 +1288,8 @@
     "Girafa",
     "Urso-pardo"
    ],
-   "x": "Uma girafa adulta pesa de 800 a 1.200 kg. Mesmo ursos-pardos muito grandes costumam pesar bem menos."
+   "x": "Uma girafa adulta pesa de 800 a 1.200 kg. Mesmo ursos-pardos muito grandes costumam pesar bem menos.",
+   "k": "Girafa: até 1.200 kg"
   },
   "ja": {
    "q": "重いのはどっち？",
@@ -1166,7 +1297,8 @@
     "キリン",
     "ヒグマ"
    ],
-   "x": "大人のキリンは800〜1200キロ。とても大きなヒグマでも、ふつうはずっと軽いです。"
+   "x": "大人のキリンは800〜1200キロ。とても大きなヒグマでも、ふつうはずっと軽いです。",
+   "k": "キリン：最大1200キロ"
   },
   "it": {
    "q": "Chi è più pesante?",
@@ -1174,7 +1306,8 @@
     "Giraffa",
     "Orso bruno"
    ],
-   "x": "Una giraffa adulta pesa 800–1.200 kg. Anche gli orsi bruni molto grandi di solito pesano molto meno."
+   "x": "Una giraffa adulta pesa 800–1.200 kg. Anche gli orsi bruni molto grandi di solito pesano molto meno.",
+   "k": "Giraffa: fino a 1.200 kg"
   }
  },
  {
@@ -1188,7 +1321,8 @@
     "Marienkäfer",
     "Biene"
    ],
-   "x": "Ein Honigbienenvolk hat im Sommer 30.000 bis 50.000 Bienen, fast alle Töchter der einen Königin. Marienkäfer leben allein."
+   "x": "Ein Honigbienenvolk hat im Sommer 30.000 bis 50.000 Bienen, fast alle Töchter der einen Königin. Marienkäfer leben allein.",
+   "k": "Bienenvolk: bis zu 50.000 Schwestern"
   },
   "en": {
    "q": "Who lives in a colony with thousands of siblings?",
@@ -1196,7 +1330,8 @@
     "Ladybird",
     "Bee"
    ],
-   "x": "In summer, a honeybee colony has 30,000 to 50,000 bees, almost all daughters of the one queen. Ladybirds live alone."
+   "x": "In summer, a honeybee colony has 30,000 to 50,000 bees, almost all daughters of the one queen. Ladybirds live alone.",
+   "k": "Bee colony: up to 50,000 sisters"
   },
   "fr": {
    "q": "Qui vit dans une colonie avec des milliers de frères et sœurs ?",
@@ -1204,7 +1339,8 @@
     "Coccinelle",
     "Abeille"
    ],
-   "x": "En été, une colonie d’abeilles compte 30 000 à 50 000 abeilles, presque toutes filles de l’unique reine. La coccinelle vit seule."
+   "x": "En été, une colonie d’abeilles compte 30 000 à 50 000 abeilles, presque toutes filles de l’unique reine. La coccinelle vit seule.",
+   "k": "Colonie d’abeilles : jusqu’à 50 000 sœurs"
   },
   "es": {
    "q": "¿Quién vive en una colonia con miles de hermanas?",
@@ -1212,7 +1348,8 @@
     "Mariquita",
     "Abeja"
    ],
-   "x": "En verano, una colmena tiene de 30.000 a 50.000 abejas, casi todas hijas de la única reina. Las mariquitas viven solas."
+   "x": "En verano, una colmena tiene de 30.000 a 50.000 abejas, casi todas hijas de la única reina. Las mariquitas viven solas.",
+   "k": "Colmena: hasta 50.000 hermanas"
   },
   "pt": {
    "q": "Quem vive em uma colônia com milhares de irmãs?",
@@ -1220,7 +1357,8 @@
     "Joaninha",
     "Abelha"
    ],
-   "x": "No verão, uma colmeia tem de 30.000 a 50.000 abelhas, quase todas filhas da única rainha. As joaninhas vivem sozinhas."
+   "x": "No verão, uma colmeia tem de 30.000 a 50.000 abelhas, quase todas filhas da única rainha. As joaninhas vivem sozinhas.",
+   "k": "Colmeia: até 50.000 irmãs"
   },
   "ja": {
    "q": "何千匹もの姉妹と一緒に暮らすのはどっち？",
@@ -1228,7 +1366,8 @@
     "テントウムシ",
     "ミツバチ"
    ],
-   "x": "夏のミツバチの巣には3万〜5万匹。ほぼ全員が1匹の女王バチの娘です。テントウムシは単独で暮らします。"
+   "x": "夏のミツバチの巣には3万〜5万匹。ほぼ全員が1匹の女王バチの娘です。テントウムシは単独で暮らします。",
+   "k": "ミツバチの巣：最大5万匹の姉妹"
   },
   "it": {
    "q": "Chi vive in una colonia con migliaia di sorelle?",
@@ -1236,7 +1375,8 @@
     "Coccinella",
     "Ape"
    ],
-   "x": "D’estate un alveare ha 30.000–50.000 api, quasi tutte figlie dell’unica regina. Le coccinelle vivono da sole."
+   "x": "D’estate un alveare ha 30.000–50.000 api, quasi tutte figlie dell’unica regina. Le coccinelle vivono da sole.",
+   "k": "Alveare: fino a 50.000 sorelle"
   }
  },
  {
@@ -1250,7 +1390,8 @@
     "Braunbär",
     "Igel"
    ],
-   "x": "Kleine Tiere haben ein schnelles Herz: Beim wachen Igel schlägt es rund 200-mal pro Minute, beim Bären nur etwa 40- bis 50-mal."
+   "x": "Kleine Tiere haben ein schnelles Herz: Beim wachen Igel schlägt es rund 200-mal pro Minute, beim Bären nur etwa 40- bis 50-mal.",
+   "k": "Igel: Herz schlägt 200-mal pro Minute"
   },
   "en": {
    "q": "Whose heart beats faster?",
@@ -1258,7 +1399,8 @@
     "Brown bear",
     "Hedgehog"
    ],
-   "x": "Small animals have fast hearts: an awake hedgehog’s heart beats about 200 times a minute, a bear’s only about 40 to 50 times."
+   "x": "Small animals have fast hearts: an awake hedgehog’s heart beats about 200 times a minute, a bear’s only about 40 to 50 times.",
+   "k": "Hedgehog: heart beats 200 times a minute"
   },
   "fr": {
    "q": "Quel cœur bat le plus vite ?",
@@ -1266,7 +1408,8 @@
     "Ours brun",
     "Hérisson"
    ],
-   "x": "Les petits animaux ont un cœur rapide : celui du hérisson éveillé bat environ 200 fois par minute, celui de l’ours seulement 40 à 50 fois."
+   "x": "Les petits animaux ont un cœur rapide : celui du hérisson éveillé bat environ 200 fois par minute, celui de l’ours seulement 40 à 50 fois.",
+   "k": "Hérisson : cœur à 200 battements par minute"
   },
   "es": {
    "q": "¿Qué corazón late más rápido?",
@@ -1274,7 +1417,8 @@
     "Oso pardo",
     "Erizo"
    ],
-   "x": "Los animales pequeños tienen el corazón rápido: el del erizo despierto late unas 200 veces por minuto; el del oso, solo unas 40 o 50."
+   "x": "Los animales pequeños tienen el corazón rápido: el del erizo despierto late unas 200 veces por minuto; el del oso, solo unas 40 o 50.",
+   "k": "Erizo: corazón a 200 latidos por minuto"
   },
   "pt": {
    "q": "Qual coração bate mais rápido?",
@@ -1282,7 +1426,8 @@
     "Urso-pardo",
     "Ouriço"
    ],
-   "x": "Animais pequenos têm o coração rápido: o do ouriço acordado bate cerca de 200 vezes por minuto; o do urso, só 40 ou 50."
+   "x": "Animais pequenos têm o coração rápido: o do ouriço acordado bate cerca de 200 vezes por minuto; o do urso, só 40 ou 50.",
+   "k": "Ouriço: coração a 200 batidas por minuto"
   },
   "ja": {
    "q": "心臓が速く打つのはどっち？",
@@ -1290,7 +1435,8 @@
     "ヒグマ",
     "ハリネズミ"
    ],
-   "x": "小さな動物は心臓が速い。起きているハリネズミは1分に約200回、クマはたった40〜50回ほどです。"
+   "x": "小さな動物は心臓が速い。起きているハリネズミは1分に約200回、クマはたった40〜50回ほどです。",
+   "k": "ハリネズミ：心臓は1分に200回"
   },
   "it": {
    "q": "Il cuore di chi batte più veloce?",
@@ -1298,7 +1444,8 @@
     "Orso bruno",
     "Riccio"
    ],
-   "x": "Gli animali piccoli hanno il cuore veloce: quello di un riccio sveglio batte circa 200 volte al minuto, quello di un orso solo 40–50."
+   "x": "Gli animali piccoli hanno il cuore veloce: quello di un riccio sveglio batte circa 200 volte al minuto, quello di un orso solo 40–50.",
+   "k": "Riccio: cuore a 200 battiti al minuto"
   }
  },
  {
@@ -1312,7 +1459,8 @@
     "Eule",
     "Adler"
    ],
-   "x": "Eulenaugen haben besonders viele Stäbchen – Sinneszellen für schwaches Licht. Adler sehen dafür am Tag schärfer."
+   "x": "Eulenaugen haben besonders viele Stäbchen – Sinneszellen für schwaches Licht. Adler sehen dafür am Tag schärfer.",
+   "k": "Eulen: sehen in der Dämmerung am besten"
   },
   "en": {
    "q": "Who sees better at dusk?",
@@ -1320,7 +1468,8 @@
     "Owl",
     "Eagle"
    ],
-   "x": "Owl eyes have a great many rods – sensory cells for dim light. Eagles, on the other hand, see more sharply by day."
+   "x": "Owl eyes have a great many rods – sensory cells for dim light. Eagles, on the other hand, see more sharply by day.",
+   "k": "Owls: see best at dusk"
   },
   "fr": {
    "q": "Qui voit le mieux au crépuscule ?",
@@ -1328,7 +1477,8 @@
     "Chouette",
     "Aigle"
    ],
-   "x": "Les yeux de la chouette ont énormément de bâtonnets – des cellules pour la faible lumière. L’aigle, lui, voit plus net le jour."
+   "x": "Les yeux de la chouette ont énormément de bâtonnets – des cellules pour la faible lumière. L’aigle, lui, voit plus net le jour.",
+   "k": "Chouettes : voient le mieux au crépuscule"
   },
   "es": {
    "q": "¿Quién ve mejor al anochecer?",
@@ -1336,7 +1486,8 @@
     "Búho",
     "Águila"
    ],
-   "x": "Los ojos del búho tienen muchísimos bastones, células para la luz tenue. El águila, en cambio, ve con más nitidez de día."
+   "x": "Los ojos del búho tienen muchísimos bastones, células para la luz tenue. El águila, en cambio, ve con más nitidez de día.",
+   "k": "Búhos: ven mejor al anochecer"
   },
   "pt": {
    "q": "Quem enxerga melhor ao anoitecer?",
@@ -1344,7 +1495,8 @@
     "Coruja",
     "Águia"
    ],
-   "x": "Os olhos da coruja têm muitíssimos bastonetes, células para a luz fraca. A águia, por outro lado, enxerga com mais nitidez de dia."
+   "x": "Os olhos da coruja têm muitíssimos bastonetes, células para a luz fraca. A águia, por outro lado, enxerga com mais nitidez de dia.",
+   "k": "Corujas: enxergam melhor ao anoitecer"
   },
   "ja": {
    "q": "夕暮れによく見えるのはどっち？",
@@ -1352,7 +1504,8 @@
     "フクロウ",
     "ワシ"
    ],
-   "x": "フクロウの目には、暗い光を感じる細胞（桿体）がとてもたくさんあります。ワシは昼間にくっきり見えるタイプです。"
+   "x": "フクロウの目には、暗い光を感じる細胞（桿体）がとてもたくさんあります。ワシは昼間にくっきり見えるタイプです。",
+   "k": "フクロウ：夕暮れにいちばんよく見える"
   },
   "it": {
    "q": "Chi vede meglio al crepuscolo?",
@@ -1360,7 +1513,8 @@
     "Gufo",
     "Aquila"
    ],
-   "x": "Gli occhi dei gufi hanno moltissimi bastoncelli, le cellule per la luce debole. Le aquile invece vedono più nitido di giorno."
+   "x": "Gli occhi dei gufi hanno moltissimi bastoncelli, le cellule per la luce debole. Le aquile invece vedono più nitido di giorno.",
+   "k": "Gufi: vedono meglio al crepuscolo"
   }
  },
  {
@@ -1374,7 +1528,8 @@
     "Schildkröte",
     "Braunbär"
    ],
-   "x": "Viele Landschildkröten werden 50 bis über 100 Jahre alt. Braunbären erreichen in freier Natur meist 20 bis 30 Jahre."
+   "x": "Viele Landschildkröten werden 50 bis über 100 Jahre alt. Braunbären erreichen in freier Natur meist 20 bis 30 Jahre.",
+   "k": "Landschildkröten: werden über 100 Jahre alt"
   },
   "en": {
    "q": "Who lives longer?",
@@ -1382,7 +1537,8 @@
     "Turtle",
     "Brown bear"
    ],
-   "x": "Many tortoises live 50 to over 100 years. Brown bears in the wild usually reach 20 to 30 years."
+   "x": "Many tortoises live 50 to over 100 years. Brown bears in the wild usually reach 20 to 30 years.",
+   "k": "Tortoises: live over 100 years"
   },
   "fr": {
    "q": "Qui vit le plus longtemps ?",
@@ -1390,7 +1546,8 @@
     "Tortue",
     "Ours brun"
    ],
-   "x": "Beaucoup de tortues terrestres vivent de 50 à plus de 100 ans. L’ours brun atteint en général 20 à 30 ans dans la nature."
+   "x": "Beaucoup de tortues terrestres vivent de 50 à plus de 100 ans. L’ours brun atteint en général 20 à 30 ans dans la nature.",
+   "k": "Tortues terrestres : vivent plus de 100 ans"
   },
   "es": {
    "q": "¿Quién vive más?",
@@ -1398,7 +1555,8 @@
     "Tortuga",
     "Oso pardo"
    ],
-   "x": "Muchas tortugas terrestres viven de 50 a más de 100 años. Los osos pardos en libertad suelen llegar a 20 o 30 años."
+   "x": "Muchas tortugas terrestres viven de 50 a más de 100 años. Los osos pardos en libertad suelen llegar a 20 o 30 años.",
+   "k": "Tortugas terrestres: viven más de 100 años"
   },
   "pt": {
    "q": "Quem vive mais?",
@@ -1406,7 +1564,8 @@
     "Tartaruga",
     "Urso-pardo"
    ],
-   "x": "Muitas tartarugas terrestres vivem de 50 a mais de 100 anos. Os ursos-pardos na natureza costumam chegar a 20 ou 30 anos."
+   "x": "Muitas tartarugas terrestres vivem de 50 a mais de 100 anos. Os ursos-pardos na natureza costumam chegar a 20 ou 30 anos.",
+   "k": "Tartarugas terrestres: vivem mais de 100 anos"
   },
   "ja": {
    "q": "長生きなのはどっち？",
@@ -1414,7 +1573,8 @@
     "カメ",
     "ヒグマ"
    ],
-   "x": "リクガメの多くは50年から100年以上生きます。野生のヒグマはふつう20〜30年です。"
+   "x": "リクガメの多くは50年から100年以上生きます。野生のヒグマはふつう20〜30年です。",
+   "k": "リクガメ：100年以上生きる"
   },
   "it": {
    "q": "Chi vive più a lungo?",
@@ -1422,7 +1582,8 @@
     "Tartaruga",
     "Orso bruno"
    ],
-   "x": "Molte tartarughe terrestri vivono da 50 a oltre 100 anni. Gli orsi bruni in natura arrivano di solito a 20–30 anni."
+   "x": "Molte tartarughe terrestri vivono da 50 a oltre 100 anni. Gli orsi bruni in natura arrivano di solito a 20–30 anni.",
+   "k": "Tartarughe terrestri: vivono oltre 100 anni"
   }
  },
  {
@@ -1436,7 +1597,8 @@
     "Papagei",
     "Krake"
    ],
-   "x": "Kraken haben Tausende Farbzellen in der Haut, die sie in Sekundenbruchteilen öffnen und schließen – zum Tarnen und um Stimmung zu zeigen."
+   "x": "Kraken haben Tausende Farbzellen in der Haut, die sie in Sekundenbruchteilen öffnen und schließen – zum Tarnen und um Stimmung zu zeigen.",
+   "k": "Krake: wechselt die Farbe in Sekundenbruchteilen"
   },
   "en": {
    "q": "Who can change colour in a flash?",
@@ -1444,7 +1606,8 @@
     "Parrot",
     "Octopus"
    ],
-   "x": "Octopuses have thousands of colour cells in their skin that they open and close in a fraction of a second – to hide and to show their mood."
+   "x": "Octopuses have thousands of colour cells in their skin that they open and close in a fraction of a second – to hide and to show their mood.",
+   "k": "Octopus: changes colour in a split second"
   },
   "fr": {
    "q": "Qui peut changer de couleur en un éclair ?",
@@ -1452,7 +1615,8 @@
     "Perroquet",
     "Pieuvre"
    ],
-   "x": "La pieuvre a des milliers de cellules colorées dans la peau qu’elle ouvre et ferme en une fraction de seconde – pour se camoufler et montrer son humeur."
+   "x": "La pieuvre a des milliers de cellules colorées dans la peau qu’elle ouvre et ferme en une fraction de seconde – pour se camoufler et montrer son humeur.",
+   "k": "Pieuvre : change de couleur en un éclair"
   },
   "es": {
    "q": "¿Quién cambia de color en un instante?",
@@ -1460,7 +1624,8 @@
     "Loro",
     "Pulpo"
    ],
-   "x": "El pulpo tiene miles de células de color en la piel que abre y cierra en una fracción de segundo, para camuflarse y mostrar su humor."
+   "x": "El pulpo tiene miles de células de color en la piel que abre y cierra en una fracción de segundo, para camuflarse y mostrar su humor.",
+   "k": "Pulpo: cambia de color en un instante"
   },
   "pt": {
    "q": "Quem muda de cor num instante?",
@@ -1468,7 +1633,8 @@
     "Papagaio",
     "Polvo"
    ],
-   "x": "O polvo tem milhares de células de cor na pele, que abre e fecha em uma fração de segundo – para se camuflar e mostrar o humor."
+   "x": "O polvo tem milhares de células de cor na pele, que abre e fecha em uma fração de segundo – para se camuflar e mostrar o humor.",
+   "k": "Polvo: muda de cor num instante"
   },
   "ja": {
    "q": "一瞬で体の色を変えられるのはどっち？",
@@ -1476,7 +1642,8 @@
     "オウム",
     "タコ"
    ],
-   "x": "タコの皮ふには何千もの色の細胞があり、一瞬で開いたり閉じたりします。かくれたり、気分を表したりするためです。"
+   "x": "タコの皮ふには何千もの色の細胞があり、一瞬で開いたり閉じたりします。かくれたり、気分を表したりするためです。",
+   "k": "タコ：一瞬で体の色を変える"
   },
   "it": {
    "q": "Chi cambia colore in un lampo?",
@@ -1484,7 +1651,8 @@
     "Pappagallo",
     "Polpo"
    ],
-   "x": "I polpi hanno nella pelle migliaia di cellule colorate che aprono e chiudono in una frazione di secondo, per nascondersi e mostrare il loro umore."
+   "x": "I polpi hanno nella pelle migliaia di cellule colorate che aprono e chiudono in una frazione di secondo, per nascondersi e mostrare il loro umore.",
+   "k": "Polpo: cambia colore in un lampo"
   }
  }
 ]

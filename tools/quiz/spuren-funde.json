@@ -15,7 +15,8 @@
     "Dachs",
     "Hase"
    ],
-   "x": "Vier Zehen mit Krallen und ein kleiner Ballen: ein Fuchs. Typisch ist das schmale Oval – zwischen Ballen und Zehen bleibt ein freier Raum in X-Form."
+   "x": "Vier Zehen mit Krallen und ein kleiner Ballen: ein Fuchs. Typisch ist das schmale Oval – zwischen Ballen und Zehen bleibt ein freier Raum in X-Form.",
+   "k": "Fuchs-Spur: schmales Oval mit 4 Zehen"
   },
   "en": {
    "q": "Whose track is this?",
@@ -25,7 +26,8 @@
     "Badger",
     "Hare"
    ],
-   "x": "Four toes with claws and a small pad: a fox. Typical is the narrow oval – between the pad and the toes there is an empty X-shaped space."
+   "x": "Four toes with claws and a small pad: a fox. Typical is the narrow oval – between the pad and the toes there is an empty X-shaped space.",
+   "k": "Fox track: narrow oval with 4 toes"
   },
   "fr": {
    "q": "À qui est cette empreinte ?",
@@ -35,7 +37,8 @@
     "Blaireau",
     "Lièvre"
    ],
-   "x": "Quatre doigts avec griffes et une petite pelote : un renard. L’ovale étroit est typique – entre la pelote et les doigts reste un espace libre en forme de X."
+   "x": "Quatre doigts avec griffes et une petite pelote : un renard. L’ovale étroit est typique – entre la pelote et les doigts reste un espace libre en forme de X.",
+   "k": "Trace de renard : ovale étroit, 4 doigts"
   },
   "es": {
    "q": "¿De quién es esta huella?",
@@ -45,7 +48,8 @@
     "Tejón",
     "Liebre"
    ],
-   "x": "Cuatro dedos con uñas y una almohadilla pequeña: un zorro. Es típico el óvalo estrecho: entre la almohadilla y los dedos queda un hueco en forma de X."
+   "x": "Cuatro dedos con uñas y una almohadilla pequeña: un zorro. Es típico el óvalo estrecho: entre la almohadilla y los dedos queda un hueco en forma de X.",
+   "k": "Huella de zorro: óvalo estrecho, 4 dedos"
   },
   "pt": {
    "q": "De quem é esta pegada?",
@@ -55,7 +59,8 @@
     "Texugo",
     "Lebre"
    ],
-   "x": "Quatro dedos com unhas e uma almofadinha pequena: uma raposa. O típico é o oval estreito: entre a almofadinha e os dedos fica um vão em forma de X."
+   "x": "Quatro dedos com unhas e uma almofadinha pequena: uma raposa. O típico é o oval estreito: entre a almofadinha e os dedos fica um vão em forma de X.",
+   "k": "Pegada de raposa: oval estreito, 4 dedos"
   },
   "ja": {
    "q": "これはだれの足あと？",
@@ -65,7 +70,8 @@
     "アナグマ",
     "ノウサギ"
    ],
-   "x": "つめのある4本の指と小さな肉球：キツネです。細長い楕円形が特徴で、肉球と指の間にX字のすき間があります。"
+   "x": "つめのある4本の指と小さな肉球：キツネです。細長い楕円形が特徴で、肉球と指の間にX字のすき間があります。",
+   "k": "キツネの足あと：細長い楕円に指4本"
   },
   "it": {
    "q": "Di chi è questa impronta?",
@@ -75,7 +81,8 @@
     "Tasso",
     "Lepre"
    ],
-   "x": "Quattro dita con unghie e un piccolo cuscinetto: una volpe. Tipico è l’ovale stretto: tra cuscinetto e dita resta uno spazio vuoto a forma di X."
+   "x": "Quattro dita con unghie e un piccolo cuscinetto: una volpe. Tipico è l’ovale stretto: tra cuscinetto e dita resta uno spazio vuoto a forma di X.",
+   "k": "Impronta di volpe: ovale stretto, 4 dita"
   }
  },
  {
@@ -94,7 +101,8 @@
     "Hund",
     "Dachs"
    ],
-   "x": "Zwei schmale, spitze Hufhälften: das Trittsiegel eines Rehs. Das Wildschwein hat breitere Hufe und dahinter meist zwei Abdrücke der Afterklauen."
+   "x": "Zwei schmale, spitze Hufhälften: das Trittsiegel eines Rehs. Das Wildschwein hat breitere Hufe und dahinter meist zwei Abdrücke der Afterklauen.",
+   "k": "Reh-Spur: zwei schmale, spitze Hufe"
   },
   "en": {
    "q": "Who walked through the mud here?",
@@ -104,7 +112,8 @@
     "Dog",
     "Badger"
    ],
-   "x": "Two narrow, pointed hoof halves: the print of a roe deer. A wild boar has wider hooves and usually two dewclaw marks behind them."
+   "x": "Two narrow, pointed hoof halves: the print of a roe deer. A wild boar has wider hooves and usually two dewclaw marks behind them.",
+   "k": "Roe deer track: two narrow, pointed hooves"
   },
   "fr": {
    "q": "Qui est passé dans la boue ici ?",
@@ -114,7 +123,8 @@
     "Chien",
     "Blaireau"
    ],
-   "x": "Deux moitiés de sabot étroites et pointues : l’empreinte d’un chevreuil. Le sanglier a des sabots plus larges et, derrière, souvent deux marques d’ergots."
+   "x": "Deux moitiés de sabot étroites et pointues : l’empreinte d’un chevreuil. Le sanglier a des sabots plus larges et, derrière, souvent deux marques d’ergots.",
+   "k": "Trace de chevreuil : deux sabots fins et pointus"
   },
   "es": {
    "q": "¿Quién ha pasado por el barro?",
@@ -124,7 +134,8 @@
     "Perro",
     "Tejón"
    ],
-   "x": "Dos mitades de pezuña estrechas y puntiagudas: la huella de un corzo. El jabalí tiene pezuñas más anchas y, detrás, casi siempre dos marcas de los espolones."
+   "x": "Dos mitades de pezuña estrechas y puntiagudas: la huella de un corzo. El jabalí tiene pezuñas más anchas y, detrás, casi siempre dos marcas de los espolones.",
+   "k": "Huella de corzo: dos pezuñas finas y puntiagudas"
   },
   "pt": {
    "q": "Quem passou pela lama?",
@@ -134,7 +145,8 @@
     "Cachorro",
     "Texugo"
    ],
-   "x": "Duas metades de casco estreitas e pontudas: a pegada de um corço. O javali tem cascos mais largos e, atrás, quase sempre duas marcas dos dedos de trás."
+   "x": "Duas metades de casco estreitas e pontudas: a pegada de um corço. O javali tem cascos mais largos e, atrás, quase sempre duas marcas dos dedos de trás.",
+   "k": "Pegada de corço: dois cascos finos e pontudos"
   },
   "ja": {
    "q": "ここのぬかるみを歩いたのはだれ？",
@@ -144,7 +156,8 @@
     "イヌ",
     "アナグマ"
    ],
-   "x": "細くてとがった2つに分かれたひづめ：ノロジカの足あとです。イノシシはひづめが太く、後ろにたいてい副蹄のあとが2つあります。"
+   "x": "細くてとがった2つに分かれたひづめ：ノロジカの足あとです。イノシシはひづめが太く、後ろにたいてい副蹄のあとが2つあります。",
+   "k": "ノロジカの足あと：細くとがった2つのひづめ"
   },
   "it": {
    "q": "Chi è passato nel fango qui?",
@@ -154,7 +167,8 @@
     "Cane",
     "Tasso"
    ],
-   "x": "Due metà di zoccolo strette e appuntite: l’impronta di un capriolo. Il cinghiale ha zoccoli più larghi e di solito dietro i segni di due speroni."
+   "x": "Due metà di zoccolo strette e appuntite: l’impronta di un capriolo. Il cinghiale ha zoccoli più larghi e di solito dietro i segni di due speroni.",
+   "k": "Impronta di capriolo: due zoccoli stretti e appuntiti"
   }
  },
  {
@@ -173,7 +187,8 @@
     "Wildschwein",
     "Gämse"
    ],
-   "x": "Die zwei Punkte sind die Afterklauen. Beim Wildschwein sitzen sie tief und weit außen und drücken sich fast immer mit ab – bei Reh und Hirsch meist nur in weichem Boden."
+   "x": "Die zwei Punkte sind die Afterklauen. Beim Wildschwein sitzen sie tief und weit außen und drücken sich fast immer mit ab – bei Reh und Hirsch meist nur in weichem Boden.",
+   "k": "Wildschwein-Spur: zwei Punkte hinter den Hufen"
   },
   "en": {
    "q": "Two hooves and two dots behind them – who was it?",
@@ -183,7 +198,8 @@
     "Wild boar",
     "Chamois"
    ],
-   "x": "The two dots are dewclaws. On a wild boar they sit low and wide and almost always leave a mark – on deer usually only in soft ground."
+   "x": "The two dots are dewclaws. On a wild boar they sit low and wide and almost always leave a mark – on deer usually only in soft ground.",
+   "k": "Wild boar track: two dots behind the hooves"
   },
   "fr": {
    "q": "Deux sabots et deux points derrière – qui est-ce ?",
@@ -193,7 +209,8 @@
     "Sanglier",
     "Chamois"
    ],
-   "x": "Les deux points sont les ergots. Chez le sanglier, ils sont bas et écartés et marquent presque toujours – chez le chevreuil et le cerf, surtout en sol mou."
+   "x": "Les deux points sont les ergots. Chez le sanglier, ils sont bas et écartés et marquent presque toujours – chez le chevreuil et le cerf, surtout en sol mou.",
+   "k": "Trace de sanglier : deux points derrière les sabots"
   },
   "es": {
    "q": "Dos pezuñas y dos puntos detrás: ¿quién fue?",
@@ -203,7 +220,8 @@
     "Jabalí",
     "Rebeco"
    ],
-   "x": "Los dos puntos son los espolones. En el jabalí están bajos y separados y casi siempre se marcan; en corzos y ciervos, normalmente solo en suelo blando."
+   "x": "Los dos puntos son los espolones. En el jabalí están bajos y separados y casi siempre se marcan; en corzos y ciervos, normalmente solo en suelo blando.",
+   "k": "Huella de jabalí: dos puntos tras las pezuñas"
   },
   "pt": {
    "q": "Dois cascos e dois pontos atrás: quem foi?",
@@ -213,7 +231,8 @@
     "Javali",
     "Camurça"
    ],
-   "x": "Os dois pontos são os dedos de trás. No javali eles ficam baixos e afastados e quase sempre marcam; em corços e veados, normalmente só em chão mole."
+   "x": "Os dois pontos são os dedos de trás. No javali eles ficam baixos e afastados e quase sempre marcam; em corços e veados, normalmente só em chão mole.",
+   "k": "Pegada de javali: dois pontos atrás dos cascos"
   },
   "ja": {
    "q": "ひづめが2つと、後ろに点が2つ。だれのもの？",
@@ -223,7 +242,8 @@
     "イノシシ",
     "シャモア"
    ],
-   "x": "2つの点は副蹄です。イノシシでは低く広い位置にあって、ほぼ必ずあとが残ります。シカではふつう、やわらかい地面のときだけです。"
+   "x": "2つの点は副蹄です。イノシシでは低く広い位置にあって、ほぼ必ずあとが残ります。シカではふつう、やわらかい地面のときだけです。",
+   "k": "イノシシの足あと：ひづめの後ろに点2つ"
   },
   "it": {
    "q": "Due zoccoli e due puntini dietro: chi era?",
@@ -233,7 +253,8 @@
     "Cinghiale",
     "Camoscio"
    ],
-   "x": "I due puntini sono gli speroni. Nel cinghiale sono bassi e larghi e lasciano quasi sempre il segno; nei cervidi di solito solo su terreno morbido."
+   "x": "I due puntini sono gli speroni. Nel cinghiale sono bassi e larghi e lasciano quasi sempre il segno; nei cervidi di solito solo su terreno morbido.",
+   "k": "Impronta di cinghiale: due puntini dietro gli zoccoli"
   }
  },
  {
@@ -252,7 +273,8 @@
     "Fischotter",
     "Hase"
    ],
-   "x": "Fünf Zehen fast in einer Reihe vor einem breiten Ballen: ein Dachs. Mit den langen Krallen der Vorderpfoten gräbt er seine riesigen Baue."
+   "x": "Fünf Zehen fast in einer Reihe vor einem breiten Ballen: ein Dachs. Mit den langen Krallen der Vorderpfoten gräbt er seine riesigen Baue.",
+   "k": "Dachs-Spur: fünf Zehen in einer Reihe"
   },
   "en": {
    "q": "Whose track is this?",
@@ -262,7 +284,8 @@
     "Otter",
     "Hare"
    ],
-   "x": "Five toes almost in a row in front of a wide pad: a badger. With the long claws on its front paws it digs huge burrows."
+   "x": "Five toes almost in a row in front of a wide pad: a badger. With the long claws on its front paws it digs huge burrows.",
+   "k": "Badger track: five toes in a row"
   },
   "fr": {
    "q": "À qui est cette empreinte ?",
@@ -272,7 +295,8 @@
     "Loutre",
     "Lièvre"
    ],
-   "x": "Cinq doigts presque alignés devant une large pelote : un blaireau. Avec les longues griffes de ses pattes avant, il creuse d’immenses terriers."
+   "x": "Cinq doigts presque alignés devant une large pelote : un blaireau. Avec les longues griffes de ses pattes avant, il creuse d’immenses terriers.",
+   "k": "Trace de blaireau : cinq doigts alignés"
   },
   "es": {
    "q": "¿De quién es esta huella?",
@@ -282,7 +306,8 @@
     "Nutria",
     "Liebre"
    ],
-   "x": "Cinco dedos casi en fila delante de una almohadilla ancha: un tejón. Con las largas uñas de las patas delanteras excava enormes madrigueras."
+   "x": "Cinco dedos casi en fila delante de una almohadilla ancha: un tejón. Con las largas uñas de las patas delanteras excava enormes madrigueras.",
+   "k": "Huella de tejón: cinco dedos en fila"
   },
   "pt": {
    "q": "De quem é esta pegada?",
@@ -292,7 +317,8 @@
     "Lontra",
     "Lebre"
    ],
-   "x": "Cinco dedos quase em fila na frente de uma almofada larga: um texugo. Com as unhas compridas das patas da frente ele cava tocas enormes."
+   "x": "Cinco dedos quase em fila na frente de uma almofada larga: um texugo. Com as unhas compridas das patas da frente ele cava tocas enormes.",
+   "k": "Pegada de texugo: cinco dedos em fila"
   },
   "ja": {
    "q": "これはだれの足あと？",
@@ -302,7 +328,8 @@
     "カワウソ",
     "ノウサギ"
    ],
-   "x": "幅広い肉球の前に、5本の指がほぼ一列に並んでいます：アナグマです。前足の長いつめで、大きな巣穴を掘ります。"
+   "x": "幅広い肉球の前に、5本の指がほぼ一列に並んでいます：アナグマです。前足の長いつめで、大きな巣穴を掘ります。",
+   "k": "アナグマの足あと：指5本が一列"
   },
   "it": {
    "q": "Di chi è questa impronta?",
@@ -312,7 +339,8 @@
     "Lontra",
     "Lepre"
    ],
-   "x": "Cinque dita quasi in fila davanti a un largo cuscinetto: un tasso. Con le lunghe unghie delle zampe anteriori scava tane enormi."
+   "x": "Cinque dita quasi in fila davanti a un largo cuscinetto: un tasso. Con le lunghe unghie delle zampe anteriori scava tane enormi.",
+   "k": "Impronta di tasso: cinque dita in fila"
   }
  },
  {
@@ -331,7 +359,8 @@
     "Reh",
     "Fuchs"
    ],
-   "x": "Beim Hasen landen die langen Hinterpfoten vor den Vorderpfoten, und die Vorderpfoten stehen hintereinander. Beim Eichhörnchen stehen auch die Vorderpfoten nebeneinander."
+   "x": "Beim Hasen landen die langen Hinterpfoten vor den Vorderpfoten, und die Vorderpfoten stehen hintereinander. Beim Eichhörnchen stehen auch die Vorderpfoten nebeneinander.",
+   "k": "Hasen-Spur: Hinterpfoten landen vorne"
   },
   "en": {
    "q": "These tracks in the snow (moving upwards): who hopped here?",
@@ -341,7 +370,8 @@
     "Roe deer",
     "Fox"
    ],
-   "x": "A hare’s long hind feet land in front of its front feet, and the front feet land one behind the other. A squirrel puts its front feet side by side too."
+   "x": "A hare’s long hind feet land in front of its front feet, and the front feet land one behind the other. A squirrel puts its front feet side by side too.",
+   "k": "Hare track: hind feet land in front"
   },
   "fr": {
    "q": "Ces traces dans la neige (direction vers le haut) : qui a sautillé ici ?",
@@ -351,7 +381,8 @@
     "Chevreuil",
     "Renard"
    ],
-   "x": "Chez le lièvre, les longues pattes arrière se posent devant les pattes avant, et celles-ci se suivent l’une derrière l’autre. L’écureuil pose aussi ses pattes avant côte à côte."
+   "x": "Chez le lièvre, les longues pattes arrière se posent devant les pattes avant, et celles-ci se suivent l’une derrière l’autre. L’écureuil pose aussi ses pattes avant côte à côte.",
+   "k": "Trace de lièvre : pattes arrière devant"
   },
   "es": {
    "q": "Estas huellas en la nieve (dirección hacia arriba): ¿quién ha saltado aquí?",
@@ -361,7 +392,8 @@
     "Corzo",
     "Zorro"
    ],
-   "x": "La liebre apoya sus largas patas traseras delante de las delanteras, y las delanteras quedan una detrás de otra. La ardilla pone también las delanteras una al lado de la otra."
+   "x": "La liebre apoya sus largas patas traseras delante de las delanteras, y las delanteras quedan una detrás de otra. La ardilla pone también las delanteras una al lado de la otra.",
+   "k": "Huella de liebre: patas traseras delante"
   },
   "pt": {
    "q": "Estas pegadas na neve (direção para cima): quem saltou aqui?",
@@ -371,7 +403,8 @@
     "Corço",
     "Raposa"
    ],
-   "x": "A lebre apoia as patas traseiras compridas na frente das dianteiras, e as dianteiras ficam uma atrás da outra. O esquilo põe também as dianteiras uma ao lado da outra."
+   "x": "A lebre apoia as patas traseiras compridas na frente das dianteiras, e as dianteiras ficam uma atrás da outra. O esquilo põe também as dianteiras uma ao lado da outra.",
+   "k": "Pegada de lebre: patas de trás na frente"
   },
   "ja": {
    "q": "雪の上のこの足あと（上へ進んでいる）。はねたのはだれ？",
@@ -381,7 +414,8 @@
     "ノロジカ",
     "キツネ"
    ],
-   "x": "ノウサギは長い後ろ足を前足より前につき、前足は前後に並びます。リスは前足も左右に並べてつきます。"
+   "x": "ノウサギは長い後ろ足を前足より前につき、前足は前後に並びます。リスは前足も左右に並べてつきます。",
+   "k": "ノウサギの足あと：後ろ足が前に着く"
   },
   "it": {
    "q": "Queste tracce sulla neve (direzione verso l’alto): chi ha saltato qui?",
@@ -391,7 +425,8 @@
     "Capriolo",
     "Volpe"
    ],
-   "x": "La lepre appoggia le lunghe zampe posteriori davanti a quelle anteriori, e le anteriori una dietro l’altra. Lo scoiattolo mette anche le anteriori affiancate."
+   "x": "La lepre appoggia le lunghe zampe posteriori davanti a quelle anteriori, e le anteriori una dietro l’altra. Lo scoiattolo mette anche le anteriori affiancate.",
+   "k": "Impronta di lepre: zampe posteriori davanti"
   }
  },
  {
@@ -410,7 +445,8 @@
     "Stockente",
     "Graureiher"
    ],
-   "x": "Drei Zehen nach vorn, verbunden mit Schwimmhäuten: eine Ente. Krähe, Taube und Reiher haben keine Schwimmhäute."
+   "x": "Drei Zehen nach vorn, verbunden mit Schwimmhäuten: eine Ente. Krähe, Taube und Reiher haben keine Schwimmhäute.",
+   "k": "Enten-Spur: Schwimmhäute zwischen den Zehen"
   },
   "en": {
    "q": "Who left this track on the shore?",
@@ -420,7 +456,8 @@
     "Mallard",
     "Grey heron"
    ],
-   "x": "Three toes pointing forward, joined by webbing: a duck. Crows, pigeons and herons have no webbed feet."
+   "x": "Three toes pointing forward, joined by webbing: a duck. Crows, pigeons and herons have no webbed feet.",
+   "k": "Duck track: webbing between the toes"
   },
   "fr": {
    "q": "Qui a laissé cette trace sur la rive ?",
@@ -430,7 +467,8 @@
     "Canard colvert",
     "Héron cendré"
    ],
-   "x": "Trois doigts vers l’avant reliés par une palmure : un canard. La corneille, le pigeon et le héron n’ont pas de pattes palmées."
+   "x": "Trois doigts vers l’avant reliés par une palmure : un canard. La corneille, le pigeon et le héron n’ont pas de pattes palmées.",
+   "k": "Trace de canard : palmures entre les doigts"
   },
   "es": {
    "q": "¿Quién dejó esta huella en la orilla?",
@@ -440,7 +478,8 @@
     "Ánade real",
     "Garza real"
    ],
-   "x": "Tres dedos hacia delante unidos por membranas: un pato. Cornejas, palomas y garzas no tienen membranas."
+   "x": "Tres dedos hacia delante unidos por membranas: un pato. Cornejas, palomas y garzas no tienen membranas.",
+   "k": "Huella de pato: membranas entre los dedos"
   },
   "pt": {
    "q": "Quem deixou esta pegada na margem?",
@@ -450,7 +489,8 @@
     "Pato-real",
     "Garça-real"
    ],
-   "x": "Três dedos para a frente unidos por membranas: um pato. Gralhas, pombos e garças não têm membranas."
+   "x": "Três dedos para a frente unidos por membranas: um pato. Gralhas, pombos e garças não têm membranas.",
+   "k": "Pegada de pato: membranas entre os dedos"
   },
   "ja": {
    "q": "岸にこの足あとを残したのはだれ？",
@@ -460,7 +500,8 @@
     "マガモ",
     "アオサギ"
    ],
-   "x": "前向きの3本の指が水かきでつながっています：カモです。カラス、ハト、サギには水かきがありません。"
+   "x": "前向きの3本の指が水かきでつながっています：カモです。カラス、ハト、サギには水かきがありません。",
+   "k": "カモの足あと：指の間に水かき"
   },
   "it": {
    "q": "Chi ha lasciato questa impronta sulla riva?",
@@ -470,7 +511,8 @@
     "Germano reale",
     "Airone cenerino"
    ],
-   "x": "Tre dita in avanti unite da una membrana: un’anatra. Cornacchie, piccioni e aironi non hanno piedi palmati."
+   "x": "Tre dita in avanti unite da una membrana: un’anatra. Cornacchie, piccioni e aironi non hanno piedi palmati.",
+   "k": "Impronta di anatra: membrana tra le dita"
   }
  },
  {
@@ -489,7 +531,8 @@
     "Höckerschwan",
     "Blässhuhn"
    ],
-   "x": "Drei dünne Zehen nach vorn und eine lange nach hinten: typisch für Vögel wie die Krähe, die damit Äste umklammern. Enten und Schwäne haben Schwimmhäute, das Blässhuhn Schwimmlappen."
+   "x": "Drei dünne Zehen nach vorn und eine lange nach hinten: typisch für Vögel wie die Krähe, die damit Äste umklammern. Enten und Schwäne haben Schwimmhäute, das Blässhuhn Schwimmlappen.",
+   "k": "Krähen-Spur: drei Zehen vorn, eine hinten"
   },
   "en": {
    "q": "Which bird left this print?",
@@ -499,7 +542,8 @@
     "Mute swan",
     "Coot"
    ],
-   "x": "Three thin toes forward and a long one backwards: typical of birds like the crow, which use it to grip branches. Ducks and swans have webbed feet, coots have lobed toes."
+   "x": "Three thin toes forward and a long one backwards: typical of birds like the crow, which use it to grip branches. Ducks and swans have webbed feet, coots have lobed toes.",
+   "k": "Crow track: three toes forward, one back"
   },
   "fr": {
    "q": "Quel oiseau a laissé cette empreinte ?",
@@ -509,7 +553,8 @@
     "Cygne tuberculé",
     "Foulque"
    ],
-   "x": "Trois doigts fins vers l’avant et un long vers l’arrière : typique des oiseaux comme la corneille, qui s’agrippent ainsi aux branches. Canards et cygnes ont des palmures, la foulque des lobes."
+   "x": "Trois doigts fins vers l’avant et un long vers l’arrière : typique des oiseaux comme la corneille, qui s’agrippent ainsi aux branches. Canards et cygnes ont des palmures, la foulque des lobes.",
+   "k": "Trace de corneille : trois doigts devant, un derrière"
   },
   "es": {
    "q": "¿Qué ave dejó esta huella?",
@@ -519,7 +564,8 @@
     "Cisne vulgar",
     "Focha"
    ],
-   "x": "Tres dedos finos hacia delante y uno largo hacia atrás: típico de aves como la corneja, que así se agarran a las ramas. Patos y cisnes tienen membranas, la focha lóbulos."
+   "x": "Tres dedos finos hacia delante y uno largo hacia atrás: típico de aves como la corneja, que así se agarran a las ramas. Patos y cisnes tienen membranas, la focha lóbulos.",
+   "k": "Huella de corneja: tres dedos delante, uno detrás"
   },
   "pt": {
    "q": "Que ave deixou esta pegada?",
@@ -529,7 +575,8 @@
     "Cisne-branco",
     "Galeirão"
    ],
-   "x": "Três dedos finos para a frente e um comprido para trás: típico de aves como a gralha, que assim se agarram aos galhos. Patos e cisnes têm membranas, o galeirão tem lobos."
+   "x": "Três dedos finos para a frente e um comprido para trás: típico de aves como a gralha, que assim se agarram aos galhos. Patos e cisnes têm membranas, o galeirão tem lobos.",
+   "k": "Pegada de gralha: três dedos à frente, um atrás"
   },
   "ja": {
    "q": "この足あとを残した鳥は？",
@@ -539,7 +586,8 @@
     "コブハクチョウ",
     "オオバン"
    ],
-   "x": "前に細い指が3本、後ろに長い指が1本：枝をつかむカラスのような鳥の特徴です。カモやハクチョウには水かき、オオバンには弁足があります。"
+   "x": "前に細い指が3本、後ろに長い指が1本：枝をつかむカラスのような鳥の特徴です。カモやハクチョウには水かき、オオバンには弁足があります。",
+   "k": "カラスの足あと：前に3本、後ろに1本"
   },
   "it": {
    "q": "Quale uccello ha lasciato questa impronta?",
@@ -549,7 +597,8 @@
     "Cigno reale",
     "Folaga"
    ],
-   "x": "Tre dita sottili in avanti e una lunga indietro: tipico di uccelli come la cornacchia, che così si aggrappano ai rami. Anatre e cigni hanno piedi palmati, la folaga dita lobate."
+   "x": "Tre dita sottili in avanti e una lunga indietro: tipico di uccelli come la cornacchia, che così si aggrappano ai rami. Anatre e cigni hanno piedi palmati, la folaga dita lobate.",
+   "k": "Impronta di cornacchia: tre dita avanti, una dietro"
   }
  },
  {
@@ -568,7 +617,8 @@
     "Weißstorch",
     "Mauersegler"
    ],
-   "x": "Breite Flügel mit gespreizten „Fingern“ und ein kurzer, runder Schwanz: der Mäusebussard. Oft sitzt er auch auf Zaunpfählen am Feldrand und späht nach Mäusen. Der Rotmilan hätte einen tief gegabelten Schwanz."
+   "x": "Breite Flügel mit gespreizten „Fingern“ und ein kurzer, runder Schwanz: der Mäusebussard. Oft sitzt er auch auf Zaunpfählen am Feldrand und späht nach Mäusen. Der Rotmilan hätte einen tief gegabelten Schwanz.",
+   "k": "Mäusebussard: kurzer, runder Schwanz"
   },
   "en": {
    "q": "Who is circling over the field?",
@@ -578,7 +628,8 @@
     "White stork",
     "Common swift"
    ],
-   "x": "Broad wings with spread “fingers” and a short, round tail: the common buzzard. It often sits on fence posts at the edge of fields, watching for mice. A red kite would have a deeply forked tail."
+   "x": "Broad wings with spread “fingers” and a short, round tail: the common buzzard. It often sits on fence posts at the edge of fields, watching for mice. A red kite would have a deeply forked tail.",
+   "k": "Common buzzard: short, round tail"
   },
   "fr": {
    "q": "Qui tournoie au-dessus du champ ?",
@@ -588,7 +639,8 @@
     "Cigogne blanche",
     "Martinet noir"
    ],
-   "x": "De larges ailes aux « doigts » écartés et une queue courte et ronde : la buse variable. Elle guette souvent les souris perchée sur un piquet au bord des champs. Le milan royal aurait une queue profondément fourchue."
+   "x": "De larges ailes aux « doigts » écartés et une queue courte et ronde : la buse variable. Elle guette souvent les souris perchée sur un piquet au bord des champs. Le milan royal aurait une queue profondément fourchue.",
+   "k": "Buse variable : queue courte et ronde"
   },
   "es": {
    "q": "¿Quién vuela en círculos sobre el campo?",
@@ -598,7 +650,8 @@
     "Cigüeña blanca",
     "Vencejo común"
    ],
-   "x": "Alas anchas con los «dedos» abiertos y una cola corta y redonda: el busardo ratonero. A menudo acecha ratones posado en un poste junto a los campos. El milano real tendría la cola muy ahorquillada."
+   "x": "Alas anchas con los «dedos» abiertos y una cola corta y redonda: el busardo ratonero. A menudo acecha ratones posado en un poste junto a los campos. El milano real tendría la cola muy ahorquillada.",
+   "k": "Busardo ratonero: cola corta y redonda"
   },
   "pt": {
    "q": "Quem voa em círculos sobre o campo?",
@@ -608,7 +661,8 @@
     "Cegonha-branca",
     "Andorinhão-preto"
    ],
-   "x": "Asas largas com os “dedos” abertos e uma cauda curta e redonda: a águia-de-asa-redonda. Muitas vezes espreita ratos pousada num poste ao lado dos campos. O milhafre-real teria a cauda bem bifurcada."
+   "x": "Asas largas com os “dedos” abertos e uma cauda curta e redonda: a águia-de-asa-redonda. Muitas vezes espreita ratos pousada num poste ao lado dos campos. O milhafre-real teria a cauda bem bifurcada.",
+   "k": "Águia-de-asa-redonda: cauda curta e redonda"
   },
   "ja": {
    "q": "畑の上で輪をえがいて飛んでいるのはだれ？",
@@ -618,7 +672,8 @@
     "シュバシコウ",
     "ヨーロッパアマツバメ"
    ],
-   "x": "幅広い翼の先に広がった「指」、短くて丸い尾：ヨーロッパノスリです。畑のふちの杭にとまってネズミを探していることもよくあります。アカトビなら尾が深く切れこんでいます。"
+   "x": "幅広い翼の先に広がった「指」、短くて丸い尾：ヨーロッパノスリです。畑のふちの杭にとまってネズミを探していることもよくあります。アカトビなら尾が深く切れこんでいます。",
+   "k": "ヨーロッパノスリ：短く丸い尾"
   },
   "it": {
    "q": "Chi volteggia sopra il campo?",
@@ -628,7 +683,8 @@
     "Cicogna bianca",
     "Rondone comune"
    ],
-   "x": "Ali larghe con le «dita» aperte e coda corta e arrotondata: la poiana. Spesso sta sui pali ai margini dei campi a spiare i topi. Il nibbio reale avrebbe la coda profondamente forcuta."
+   "x": "Ali larghe con le «dita» aperte e coda corta e arrotondata: la poiana. Spesso sta sui pali ai margini dei campi a spiare i topi. Il nibbio reale avrebbe la coda profondamente forcuta.",
+   "k": "Poiana: coda corta e arrotondata"
   }
  },
  {
@@ -647,7 +703,8 @@
     "Turmfalke",
     "Habicht"
    ],
-   "x": "Der tief gegabelte Schwanz verrät den Rotmilan. Beim Segeln dreht er ihn ständig hin und her und steuert damit wie mit einem Ruder."
+   "x": "Der tief gegabelte Schwanz verrät den Rotmilan. Beim Segeln dreht er ihn ständig hin und her und steuert damit wie mit einem Ruder.",
+   "k": "Rotmilan: tief gegabelter Schwanz"
   },
   "en": {
    "q": "Who is this? Look at the tail!",
@@ -657,7 +714,8 @@
     "Kestrel",
     "Goshawk"
    ],
-   "x": "The deeply forked tail gives away the red kite. While gliding, it keeps twisting it and steers with it like a rudder."
+   "x": "The deeply forked tail gives away the red kite. While gliding, it keeps twisting it and steers with it like a rudder.",
+   "k": "Red kite: deeply forked tail"
   },
   "fr": {
    "q": "Qui est-ce ? Regarde la queue !",
@@ -667,7 +725,8 @@
     "Faucon crécerelle",
     "Autour des palombes"
    ],
-   "x": "La queue profondément fourchue trahit le milan royal. En planant, il la tourne sans cesse et s’en sert comme d’un gouvernail."
+   "x": "La queue profondément fourchue trahit le milan royal. En planant, il la tourne sans cesse et s’en sert comme d’un gouvernail.",
+   "k": "Milan royal : queue très fourchue"
   },
   "es": {
    "q": "¿Quién es? ¡Fíjate en la cola!",
@@ -677,7 +736,8 @@
     "Cernícalo",
     "Azor"
    ],
-   "x": "La cola muy ahorquillada delata al milano real. Al planear la gira sin parar y la usa como un timón."
+   "x": "La cola muy ahorquillada delata al milano real. Al planear la gira sin parar y la usa como un timón.",
+   "k": "Milano real: cola muy ahorquillada"
   },
   "pt": {
    "q": "Quem é? Repare na cauda!",
@@ -687,7 +747,8 @@
     "Peneireiro",
     "Açor"
    ],
-   "x": "A cauda bem bifurcada denuncia o milhafre-real. Ao planar, ele a gira sem parar e a usa como leme."
+   "x": "A cauda bem bifurcada denuncia o milhafre-real. Ao planar, ele a gira sem parar e a usa como leme.",
+   "k": "Milhafre-real: cauda bem bifurcada"
   },
   "ja": {
    "q": "これはだれ？ 尾に注目！",
@@ -697,7 +758,8 @@
     "チョウゲンボウ",
     "オオタカ"
    ],
-   "x": "深く切れこんだ尾でアカトビとわかります。滑空中は尾をくるくる動かし、舵のように使います。"
+   "x": "深く切れこんだ尾でアカトビとわかります。滑空中は尾をくるくる動かし、舵のように使います。",
+   "k": "アカトビ：深く切れこんだ尾"
   },
   "it": {
    "q": "Chi è? Guarda la coda!",
@@ -707,7 +769,8 @@
     "Gheppio",
     "Astore"
    ],
-   "x": "La coda profondamente forcuta tradisce il nibbio reale. Mentre plana la gira di continuo e la usa come timone."
+   "x": "La coda profondamente forcuta tradisce il nibbio reale. Mentre plana la gira di continuo e la usa come timone.",
+   "k": "Nibbio reale: coda molto forcuta"
   }
  },
  {
@@ -726,7 +789,8 @@
     "Höckerschwan",
     "Mäusebussard"
    ],
-   "x": "Langer Hals nach vorn, lange Beine nach hinten: der Weißstorch. Der Graureiher zieht im Flug den Hals ein, der Schwan hat kurze Beine."
+   "x": "Langer Hals nach vorn, lange Beine nach hinten: der Weißstorch. Der Graureiher zieht im Flug den Hals ein, der Schwan hat kurze Beine.",
+   "k": "Storch: fliegt mit gestrecktem Hals"
   },
   "en": {
    "q": "Who is flying with its neck stretched out?",
@@ -736,7 +800,8 @@
     "Mute swan",
     "Common buzzard"
    ],
-   "x": "Long neck forward, long legs back: the white stork. A grey heron pulls its neck in while flying, and a swan has short legs."
+   "x": "Long neck forward, long legs back: the white stork. A grey heron pulls its neck in while flying, and a swan has short legs.",
+   "k": "Stork: flies with its neck stretched out"
   },
   "fr": {
    "q": "Qui vole le cou tendu ?",
@@ -746,7 +811,8 @@
     "Cygne tuberculé",
     "Buse variable"
    ],
-   "x": "Long cou vers l’avant, longues pattes vers l’arrière : la cigogne blanche. Le héron rentre le cou en vol, et le cygne a des pattes courtes."
+   "x": "Long cou vers l’avant, longues pattes vers l’arrière : la cigogne blanche. Le héron rentre le cou en vol, et le cygne a des pattes courtes.",
+   "k": "Cigogne : vole cou tendu"
   },
   "es": {
    "q": "¿Quién vuela con el cuello estirado?",
@@ -756,7 +822,8 @@
     "Cisne vulgar",
     "Busardo ratonero"
    ],
-   "x": "Cuello largo hacia delante y patas largas hacia atrás: la cigüeña blanca. La garza recoge el cuello al volar y el cisne tiene patas cortas."
+   "x": "Cuello largo hacia delante y patas largas hacia atrás: la cigüeña blanca. La garza recoge el cuello al volar y el cisne tiene patas cortas.",
+   "k": "Cigüeña: vuela con el cuello estirado"
   },
   "pt": {
    "q": "Quem voa com o pescoço esticado?",
@@ -766,7 +833,8 @@
     "Cisne-branco",
     "Águia-de-asa-redonda"
    ],
-   "x": "Pescoço comprido para a frente e pernas compridas para trás: a cegonha-branca. A garça recolhe o pescoço ao voar e o cisne tem pernas curtas."
+   "x": "Pescoço comprido para a frente e pernas compridas para trás: a cegonha-branca. A garça recolhe o pescoço ao voar e o cisne tem pernas curtas.",
+   "k": "Cegonha: voa com o pescoço esticado"
   },
   "ja": {
    "q": "首をまっすぐのばして飛んでいるのはだれ？",
@@ -776,7 +844,8 @@
     "コブハクチョウ",
     "ヨーロッパノスリ"
    ],
-   "x": "長い首は前へ、長い脚は後ろへ：シュバシコウです。アオサギは飛ぶとき首を縮め、ハクチョウは脚が短いです。"
+   "x": "長い首は前へ、長い脚は後ろへ：シュバシコウです。アオサギは飛ぶとき首を縮め、ハクチョウは脚が短いです。",
+   "k": "コウノトリ：首をのばして飛ぶ"
   },
   "it": {
    "q": "Chi vola con il collo disteso?",
@@ -786,7 +855,8 @@
     "Cigno reale",
     "Poiana"
    ],
-   "x": "Collo lungo in avanti, zampe lunghe indietro: la cicogna bianca. L’airone in volo ritrae il collo e il cigno ha le zampe corte."
+   "x": "Collo lungo in avanti, zampe lunghe indietro: la cicogna bianca. L’airone in volo ritrae il collo e il cigno ha le zampe corte.",
+   "k": "Cicogna: vola col collo disteso"
   }
  },
  {
@@ -805,7 +875,8 @@
     "Graureiher",
     "Kormoran"
    ],
-   "x": "Reiher legen den Hals im Flug in eine S-Kurve und ziehen den Kopf ein. Störche und Kraniche fliegen mit gestrecktem Hals."
+   "x": "Reiher legen den Hals im Flug in eine S-Kurve und ziehen den Kopf ein. Störche und Kraniche fliegen mit gestrecktem Hals.",
+   "k": "Graureiher: fliegt mit eingezogenem Hals"
   },
   "en": {
    "q": "Long legs trailing, but the neck is pulled in. Who is it?",
@@ -815,7 +886,8 @@
     "Grey heron",
     "Cormorant"
    ],
-   "x": "Herons fold their neck into an S-shape and pull in their head while flying. Storks and cranes fly with their necks stretched out."
+   "x": "Herons fold their neck into an S-shape and pull in their head while flying. Storks and cranes fly with their necks stretched out.",
+   "k": "Grey heron: flies with its neck pulled in"
   },
   "fr": {
    "q": "Longues pattes vers l’arrière, mais le cou rentré. Qui est-ce ?",
@@ -825,7 +897,8 @@
     "Héron cendré",
     "Grand cormoran"
    ],
-   "x": "En vol, les hérons plient le cou en S et rentrent la tête. Cigognes et grues volent le cou tendu."
+   "x": "En vol, les hérons plient le cou en S et rentrent la tête. Cigognes et grues volent le cou tendu.",
+   "k": "Héron cendré : vole cou rentré"
   },
   "es": {
    "q": "Patas largas hacia atrás, pero el cuello recogido. ¿Quién es?",
@@ -835,7 +908,8 @@
     "Garza real",
     "Cormorán"
    ],
-   "x": "Las garzas doblan el cuello en forma de S y recogen la cabeza al volar. Cigüeñas y grullas vuelan con el cuello estirado."
+   "x": "Las garzas doblan el cuello en forma de S y recogen la cabeza al volar. Cigüeñas y grullas vuelan con el cuello estirado.",
+   "k": "Garza real: vuela con el cuello recogido"
   },
   "pt": {
    "q": "Pernas compridas para trás, mas o pescoço recolhido. Quem é?",
@@ -845,7 +919,8 @@
     "Garça-real",
     "Corvo-marinho"
    ],
-   "x": "As garças dobram o pescoço em forma de S e recolhem a cabeça ao voar. Cegonhas e grous voam com o pescoço esticado."
+   "x": "As garças dobram o pescoço em forma de S e recolhem a cabeça ao voar. Cegonhas e grous voam com o pescoço esticado.",
+   "k": "Garça-real: voa com o pescoço recolhido"
   },
   "ja": {
    "q": "長い脚は後ろへのびているのに、首は縮めている。だれ？",
@@ -855,7 +930,8 @@
     "アオサギ",
     "カワウ"
    ],
-   "x": "サギは飛ぶとき首をS字に折りたたみ、頭を引っこめます。コウノトリやツルは首をのばして飛びます。"
+   "x": "サギは飛ぶとき首をS字に折りたたみ、頭を引っこめます。コウノトリやツルは首をのばして飛びます。",
+   "k": "アオサギ：首を縮めて飛ぶ"
   },
   "it": {
    "q": "Zampe lunghe indietro, ma il collo ritratto. Chi è?",
@@ -865,7 +941,8 @@
     "Airone cenerino",
     "Cormorano"
    ],
-   "x": "Gli aironi piegano il collo a S e ritirano la testa in volo. Cicogne e gru volano con il collo disteso."
+   "x": "Gli aironi piegano il collo a S e ritirano la testa in volo. Cicogne e gru volano con il collo disteso.",
+   "k": "Airone cenerino: vola col collo ritratto"
   }
  },
  {
@@ -884,7 +961,8 @@
     "Mehlschwalbe",
     "Turmfalke"
    ],
-   "x": "Sichelflügel und ein kurzer Gabelschwanz: der Mauersegler. Seine Füße sind winzig – auf den Boden setzt er sich fast nie, er krallt sich lieber an Mauern fest."
+   "x": "Sichelflügel und ein kurzer Gabelschwanz: der Mauersegler. Seine Füße sind winzig – auf den Boden setzt er sich fast nie, er krallt sich lieber an Mauern fest.",
+   "k": "Mauersegler: sichelförmige Flügel"
   },
   "en": {
    "q": "Who is racing over the rooftops with sickle-shaped wings?",
@@ -894,7 +972,8 @@
     "House martin",
     "Kestrel"
    ],
-   "x": "Sickle wings and a short forked tail: the common swift. Its feet are tiny – it almost never lands on the ground and prefers to cling to walls."
+   "x": "Sickle wings and a short forked tail: the common swift. Its feet are tiny – it almost never lands on the ground and prefers to cling to walls.",
+   "k": "Swift: sickle-shaped wings"
   },
   "fr": {
    "q": "Qui file au-dessus des toits avec des ailes en faucille ?",
@@ -904,7 +983,8 @@
     "Hirondelle de fenêtre",
     "Faucon crécerelle"
    ],
-   "x": "Des ailes en faucille et une courte queue fourchue : le martinet noir. Ses pattes sont minuscules – il ne se pose presque jamais au sol et s’agrippe plutôt aux murs."
+   "x": "Des ailes en faucille et une courte queue fourchue : le martinet noir. Ses pattes sont minuscules – il ne se pose presque jamais au sol et s’agrippe plutôt aux murs.",
+   "k": "Martinet : ailes en faucille"
   },
   "es": {
    "q": "¿Quién pasa volando sobre los tejados con alas en forma de hoz?",
@@ -914,7 +994,8 @@
     "Avión común",
     "Cernícalo"
    ],
-   "x": "Alas en forma de hoz y una cola corta ahorquillada: el vencejo común. Sus patas son diminutas: casi nunca se posa en el suelo y prefiere agarrarse a las paredes."
+   "x": "Alas en forma de hoz y una cola corta ahorquillada: el vencejo común. Sus patas son diminutas: casi nunca se posa en el suelo y prefiere agarrarse a las paredes.",
+   "k": "Vencejo: alas en forma de hoz"
   },
   "pt": {
    "q": "Quem passa voando sobre os telhados com asas em forma de foice?",
@@ -924,7 +1005,8 @@
     "Andorinha-dos-beirais",
     "Peneireiro"
    ],
-   "x": "Asas em forma de foice e cauda curta bifurcada: o andorinhão-preto. As patas são minúsculas: quase nunca pousa no chão e prefere se agarrar às paredes."
+   "x": "Asas em forma de foice e cauda curta bifurcada: o andorinhão-preto. As patas são minúsculas: quase nunca pousa no chão e prefere se agarrar às paredes.",
+   "k": "Andorinhão: asas em forma de foice"
   },
   "ja": {
    "q": "かま形の翼で屋根の上をびゅんびゅん飛ぶのはだれ？",
@@ -934,7 +1016,8 @@
     "ニシイワツバメ",
     "チョウゲンボウ"
    ],
-   "x": "かま形の翼と、短く切れこんだ尾：ヨーロッパアマツバメです。足はとても小さく、地面にはほとんど降りず、壁にしがみつくほうが得意です。"
+   "x": "かま形の翼と、短く切れこんだ尾：ヨーロッパアマツバメです。足はとても小さく、地面にはほとんど降りず、壁にしがみつくほうが得意です。",
+   "k": "アマツバメ：かま形の翼"
   },
   "it": {
    "q": "Chi sfreccia sopra i tetti con ali a forma di falce?",
@@ -944,7 +1027,8 @@
     "Balestruccio",
     "Gheppio"
    ],
-   "x": "Ali a falce e coda corta e forcuta: il rondone comune. Le zampe sono minuscole: non si posa quasi mai a terra e preferisce aggrapparsi ai muri."
+   "x": "Ali a falce e coda corta e forcuta: il rondone comune. Le zampe sono minuscole: non si posa quasi mai a terra e preferisce aggrapparsi ai muri.",
+   "k": "Rondone: ali a falce"
   }
  },
  {
@@ -963,7 +1047,8 @@
     "Rotmilan",
     "Kuckuck"
    ],
-   "x": "Die langen Schwanzspieße gehören der Rauchschwalbe. Der Mauersegler hat längere, sichelförmige Flügel und einen kurzen Schwanz."
+   "x": "Die langen Schwanzspieße gehören der Rauchschwalbe. Der Mauersegler hat längere, sichelförmige Flügel und einen kurzen Schwanz.",
+   "k": "Rauchschwalbe: lange Schwanzspieße"
   },
   "en": {
    "q": "Long tail streamers and pointed wings – who is it?",
@@ -973,7 +1058,8 @@
     "Red kite",
     "Cuckoo"
    ],
-   "x": "The long tail streamers belong to the barn swallow. A swift has longer, sickle-shaped wings and a short tail."
+   "x": "The long tail streamers belong to the barn swallow. A swift has longer, sickle-shaped wings and a short tail.",
+   "k": "Barn swallow: long tail streamers"
   },
   "fr": {
    "q": "De longs filets à la queue et des ailes pointues – qui est-ce ?",
@@ -983,7 +1069,8 @@
     "Milan royal",
     "Coucou"
    ],
-   "x": "Les longs filets de la queue sont ceux de l’hirondelle rustique. Le martinet a des ailes plus longues en faucille et une queue courte."
+   "x": "Les longs filets de la queue sont ceux de l’hirondelle rustique. Le martinet a des ailes plus longues en faucille et une queue courte.",
+   "k": "Hirondelle rustique : longs filets de queue"
   },
   "es": {
    "q": "Largas plumas en la cola y alas puntiagudas: ¿quién es?",
@@ -993,7 +1080,8 @@
     "Milano real",
     "Cuco"
    ],
-   "x": "Las largas plumas de la cola son de la golondrina común. El vencejo tiene alas más largas en forma de hoz y la cola corta."
+   "x": "Las largas plumas de la cola son de la golondrina común. El vencejo tiene alas más largas en forma de hoz y la cola corta.",
+   "k": "Golondrina: largas plumas en la cola"
   },
   "pt": {
    "q": "Penas compridas na cauda e asas pontudas: quem é?",
@@ -1003,7 +1091,8 @@
     "Milhafre-real",
     "Cuco"
    ],
-   "x": "As penas compridas da cauda são da andorinha-das-chaminés. O andorinhão tem asas mais longas em forma de foice e a cauda curta."
+   "x": "As penas compridas da cauda são da andorinha-das-chaminés. O andorinhão tem asas mais longas em forma de foice e a cauda curta.",
+   "k": "Andorinha: penas longas na cauda"
   },
   "ja": {
    "q": "長い尾羽ととがった翼。だれ？",
@@ -1013,7 +1102,8 @@
     "アカトビ",
     "カッコウ"
    ],
-   "x": "長くのびた尾羽はツバメのもの。アマツバメの翼はもっと長いかま形で、尾は短めです。"
+   "x": "長くのびた尾羽はツバメのもの。アマツバメの翼はもっと長いかま形で、尾は短めです。",
+   "k": "ツバメ：長い尾羽"
   },
   "it": {
    "q": "Lunghe penne della coda e ali appuntite: chi è?",
@@ -1023,7 +1113,8 @@
     "Nibbio reale",
     "Cuculo"
    ],
-   "x": "Le lunghe penne della coda sono della rondine. Il rondone ha ali più lunghe a falce e la coda corta."
+   "x": "Le lunghe penne della coda sono della rondine. Il rondone ha ali più lunghe a falce e la coda corta.",
+   "k": "Rondine: lunghe penne della coda"
   }
  },
  {
@@ -1042,7 +1133,8 @@
     "Specht",
     "Eichhörnchen"
    ],
-   "x": "Die Sanduhr-Form ist typisch für den Biber, die Späne liegen drum herum. Er fällt Bäume vor allem, um an Rinde, Zweige und Knospen zu kommen – sein Futter."
+   "x": "Die Sanduhr-Form ist typisch für den Biber, die Späne liegen drum herum. Er fällt Bäume vor allem, um an Rinde, Zweige und Knospen zu kommen – sein Futter.",
+   "k": "Biber: nagt Bäume wie eine Sanduhr"
   },
   "en": {
    "q": "Who gnawed this tree like that?",
@@ -1052,7 +1144,8 @@
     "Woodpecker",
     "Squirrel"
    ],
-   "x": "The hourglass shape is typical of a beaver, with chips lying all around. It fells trees mainly to reach the bark, twigs and buds – its food."
+   "x": "The hourglass shape is typical of a beaver, with chips lying all around. It fells trees mainly to reach the bark, twigs and buds – its food.",
+   "k": "Beaver: gnaws trees into an hourglass"
   },
   "fr": {
    "q": "Qui a rongé cet arbre ainsi ?",
@@ -1062,7 +1155,8 @@
     "Pic",
     "Écureuil"
    ],
-   "x": "La forme de sablier est typique du castor, avec des copeaux tout autour. Il abat surtout les arbres pour atteindre l’écorce, les rameaux et les bourgeons – sa nourriture."
+   "x": "La forme de sablier est typique du castor, avec des copeaux tout autour. Il abat surtout les arbres pour atteindre l’écorce, les rameaux et les bourgeons – sa nourriture.",
+   "k": "Castor : ronge les arbres en sablier"
   },
   "es": {
    "q": "¿Quién ha roído este árbol así?",
@@ -1072,7 +1166,8 @@
     "Pájaro carpintero",
     "Ardilla"
    ],
-   "x": "La forma de reloj de arena es típica del castor, con las virutas alrededor. Derriba árboles sobre todo para llegar a la corteza, las ramitas y los brotes: su comida."
+   "x": "La forma de reloj de arena es típica del castor, con las virutas alrededor. Derriba árboles sobre todo para llegar a la corteza, las ramitas y los brotes: su comida.",
+   "k": "Castor: roe los árboles como un reloj de arena"
   },
   "pt": {
    "q": "Quem roeu esta árvore assim?",
@@ -1082,7 +1177,8 @@
     "Pica-pau",
     "Esquilo"
    ],
-   "x": "A forma de ampulheta é típica do castor, com as lascas em volta. Ele derruba árvores sobretudo para alcançar a casca, os raminhos e os brotos – sua comida."
+   "x": "A forma de ampulheta é típica do castor, com as lascas em volta. Ele derruba árvores sobretudo para alcançar a casca, os raminhos e os brotos – sua comida.",
+   "k": "Castor: rói árvores em forma de ampulheta"
   },
   "ja": {
    "q": "この木をこんなふうにかじったのはだれ？",
@@ -1092,7 +1188,8 @@
     "キツツキ",
     "リス"
    ],
-   "x": "砂時計の形はビーバーの特徴で、まわりに木くずが散らばります。木をたおすのは、主にえさの樹皮や小枝、芽を食べるためです。"
+   "x": "砂時計の形はビーバーの特徴で、まわりに木くずが散らばります。木をたおすのは、主にえさの樹皮や小枝、芽を食べるためです。",
+   "k": "ビーバー：木を砂時計の形にかじる"
   },
   "it": {
    "q": "Chi ha rosicchiato così quest’albero?",
@@ -1102,7 +1199,8 @@
     "Picchio",
     "Scoiattolo"
    ],
-   "x": "La forma a clessidra è tipica del castoro, con i trucioli tutto intorno. Abbatte gli alberi soprattutto per arrivare a corteccia, rametti e gemme, il suo cibo."
+   "x": "La forma a clessidra è tipica del castoro, con i trucioli tutto intorno. Abbatte gli alberi soprattutto per arrivare a corteccia, rametti e gemme, il suo cibo.",
+   "k": "Castoro: rosicchia gli alberi a clessidra"
   }
  },
  {
@@ -1121,7 +1219,8 @@
     "Igel",
     "Dachs"
    ],
-   "x": "Maulwurfshügel sind hoch und rund, der Gang führt senkrecht in der Mitte nach unten. Hügel von Wühlmäusen sind flacher, ihr Gang liegt seitlich."
+   "x": "Maulwurfshügel sind hoch und rund, der Gang führt senkrecht in der Mitte nach unten. Hügel von Wühlmäusen sind flacher, ihr Gang liegt seitlich.",
+   "k": "Maulwurf: hohe, runde Erdhügel"
   },
   "en": {
    "q": "Who threw up these mounds of earth in the meadow?",
@@ -1131,7 +1230,8 @@
     "Hedgehog",
     "Badger"
    ],
-   "x": "Molehills are high and round, with the tunnel going straight down in the middle. Vole mounds are flatter and their tunnel is off to the side."
+   "x": "Molehills are high and round, with the tunnel going straight down in the middle. Vole mounds are flatter and their tunnel is off to the side.",
+   "k": "Mole: high, round molehills"
   },
   "fr": {
    "q": "Qui a fait ces monticules de terre dans le pré ?",
@@ -1141,7 +1241,8 @@
     "Hérisson",
     "Blaireau"
    ],
-   "x": "Les taupinières sont hautes et rondes, la galerie descend tout droit au milieu. Les monticules du campagnol sont plus plats, avec la galerie sur le côté."
+   "x": "Les taupinières sont hautes et rondes, la galerie descend tout droit au milieu. Les monticules du campagnol sont plus plats, avec la galerie sur le côté.",
+   "k": "Taupe : taupinières hautes et rondes"
   },
   "es": {
    "q": "¿Quién ha levantado estos montículos de tierra en el prado?",
@@ -1151,7 +1252,8 @@
     "Erizo",
     "Tejón"
    ],
-   "x": "Las toperas son altas y redondas, y el túnel baja recto por el centro. Los montículos del topillo son más planos y su túnel queda a un lado."
+   "x": "Las toperas son altas y redondas, y el túnel baja recto por el centro. Los montículos del topillo son más planos y su túnel queda a un lado.",
+   "k": "Topo: montículos altos y redondos"
   },
   "pt": {
    "q": "Quem levantou estes montinhos de terra no gramado?",
@@ -1161,7 +1263,8 @@
     "Ouriço",
     "Texugo"
    ],
-   "x": "Os montes da toupeira são altos e redondos, e o túnel desce reto pelo meio. Os montinhos do rato-do-campo são mais baixos e o túnel fica de lado."
+   "x": "Os montes da toupeira são altos e redondos, e o túnel desce reto pelo meio. Os montinhos do rato-do-campo são mais baixos e o túnel fica de lado.",
+   "k": "Toupeira: montes altos e redondos"
   },
   "ja": {
    "q": "草地にこの土の山を作ったのはだれ？",
@@ -1171,7 +1274,8 @@
     "ハリネズミ",
     "アナグマ"
    ],
-   "x": "モグラ塚は高く丸く、トンネルは真ん中からまっすぐ下へのびています。ハタネズミの山は平たく、トンネルは横にずれています。"
+   "x": "モグラ塚は高く丸く、トンネルは真ん中からまっすぐ下へのびています。ハタネズミの山は平たく、トンネルは横にずれています。",
+   "k": "モグラ：高く丸い土の山"
   },
   "it": {
    "q": "Chi ha sollevato questi mucchi di terra nel prato?",
@@ -1181,7 +1285,8 @@
     "Riccio",
     "Tasso"
    ],
-   "x": "I cumuli della talpa sono alti e rotondi, con la galleria che scende dritta nel mezzo. Quelli dell’arvicola sono più piatti e la galleria è di lato."
+   "x": "I cumuli della talpa sono alti e rotondi, con la galleria che scende dritta nel mezzo. Quelli dell’arvicola sono più piatti e la galleria è di lato.",
+   "k": "Talpa: cumuli alti e rotondi"
   }
  },
  {
@@ -1200,7 +1305,8 @@
     "Buntspecht",
     "Kleiber"
    ],
-   "x": "Spechte zimmern sich jedes Jahr neue Höhlen. Die alten werden zur Wohnung für viele andere: Meisen, Kleiber, Fledermäuse oder Eichhörnchen."
+   "x": "Spechte zimmern sich jedes Jahr neue Höhlen. Die alten werden zur Wohnung für viele andere: Meisen, Kleiber, Fledermäuse oder Eichhörnchen.",
+   "k": "Buntspecht: zimmert jedes Jahr neue Höhlen"
   },
   "en": {
    "q": "Who carved this round hole into the trunk?",
@@ -1210,7 +1316,8 @@
     "Great spotted woodpecker",
     "Nuthatch"
    ],
-   "x": "Woodpeckers carve new holes every year. The old ones become homes for many others: tits, nuthatches, bats or squirrels."
+   "x": "Woodpeckers carve new holes every year. The old ones become homes for many others: tits, nuthatches, bats or squirrels.",
+   "k": "Woodpecker: carves new holes every year"
   },
   "fr": {
    "q": "Qui a creusé ce trou rond dans le tronc ?",
@@ -1220,7 +1327,8 @@
     "Pic épeiche",
     "Sittelle"
    ],
-   "x": "Les pics creusent de nouvelles loges chaque année. Les anciennes servent de logement à bien d’autres : mésanges, sittelles, chauves-souris ou écureuils."
+   "x": "Les pics creusent de nouvelles loges chaque année. Les anciennes servent de logement à bien d’autres : mésanges, sittelles, chauves-souris ou écureuils.",
+   "k": "Pic épeiche : creuse de nouvelles loges chaque année"
   },
   "es": {
    "q": "¿Quién ha hecho este agujero redondo en el tronco?",
@@ -1230,7 +1338,8 @@
     "Pico picapinos",
     "Trepador azul"
    ],
-   "x": "Los pájaros carpinteros excavan nidos nuevos cada año. Los viejos sirven de hogar a muchos otros: carboneros, trepadores, murciélagos o ardillas."
+   "x": "Los pájaros carpinteros excavan nidos nuevos cada año. Los viejos sirven de hogar a muchos otros: carboneros, trepadores, murciélagos o ardillas.",
+   "k": "Pico picapinos: excava agujeros nuevos cada año"
   },
   "pt": {
    "q": "Quem fez este buraco redondo no tronco?",
@@ -1240,7 +1349,8 @@
     "Pica-pau-malhado-grande",
     "Trepadeira-azul"
    ],
-   "x": "Os pica-paus cavam ninhos novos todo ano. Os velhos viram lar de muitos outros: chapins, trepadeiras, morcegos ou esquilos."
+   "x": "Os pica-paus cavam ninhos novos todo ano. Os velhos viram lar de muitos outros: chapins, trepadeiras, morcegos ou esquilos.",
+   "k": "Pica-pau: cava ninhos novos todo ano"
   },
   "ja": {
    "q": "幹にこの丸い穴をあけたのはだれ？",
@@ -1250,7 +1360,8 @@
     "アカゲラ",
     "ゴジュウカラ"
    ],
-   "x": "キツツキは毎年新しい穴を掘ります。古い穴は、シジュウカラ、ゴジュウカラ、コウモリ、リスなど、たくさんの生きものの家になります。"
+   "x": "キツツキは毎年新しい穴を掘ります。古い穴は、シジュウカラ、ゴジュウカラ、コウモリ、リスなど、たくさんの生きものの家になります。",
+   "k": "キツツキ：毎年新しい穴を掘る"
   },
   "it": {
    "q": "Chi ha scavato questo buco rotondo nel tronco?",
@@ -1260,7 +1371,8 @@
     "Picchio rosso maggiore",
     "Picchio muratore"
    ],
-   "x": "I picchi scavano nidi nuovi ogni anno. Quelli vecchi diventano casa per molti altri: cince, picchi muratori, pipistrelli o scoiattoli."
+   "x": "I picchi scavano nidi nuovi ogni anno. Quelli vecchi diventano casa per molti altri: cince, picchi muratori, pipistrelli o scoiattoli.",
+   "k": "Picchio rosso: scava nidi nuovi ogni anno"
   }
  },
  {
@@ -1279,7 +1391,8 @@
     "Zerkautem Holz",
     "Spinnenseide"
    ],
-   "x": "Wespen raspeln Holz ab, kauen es mit Speichel durch und bauen daraus papierartige Wände. Wespen waren die ersten Papiermacher."
+   "x": "Wespen raspeln Holz ab, kauen es mit Speichel durch und bauen daraus papierartige Wände. Wespen waren die ersten Papiermacher.",
+   "k": "Wespen: bauen Nester aus Papier"
   },
   "en": {
    "q": "What do wasps build a nest like this from?",
@@ -1289,7 +1402,8 @@
     "Chewed wood",
     "Spider silk"
    ],
-   "x": "Wasps scrape off wood, chew it with saliva and build paper-like walls from it. Wasps were the first paper makers."
+   "x": "Wasps scrape off wood, chew it with saliva and build paper-like walls from it. Wasps were the first paper makers.",
+   "k": "Wasps: build nests from paper"
   },
   "fr": {
    "q": "Avec quoi les guêpes construisent-elles un tel nid ?",
@@ -1299,7 +1413,8 @@
     "Du bois mâché",
     "De la soie d’araignée"
    ],
-   "x": "Les guêpes râpent du bois, le mâchent avec leur salive et en font des parois comme du papier. Les guêpes ont été les premières à fabriquer du papier."
+   "x": "Les guêpes râpent du bois, le mâchent avec leur salive et en font des parois comme du papier. Les guêpes ont été les premières à fabriquer du papier.",
+   "k": "Guêpes : nids en papier"
   },
   "es": {
    "q": "¿Con qué construyen las avispas un nido así?",
@@ -1309,7 +1424,8 @@
     "Madera masticada",
     "Seda de araña"
    ],
-   "x": "Las avispas raspan madera, la mastican con saliva y construyen paredes como de papel. Las avispas fueron las primeras en fabricar papel."
+   "x": "Las avispas raspan madera, la mastican con saliva y construyen paredes como de papel. Las avispas fueron las primeras en fabricar papel.",
+   "k": "Avispas: nidos de papel"
   },
   "pt": {
    "q": "Com o que as vespas constroem um ninho assim?",
@@ -1319,7 +1435,8 @@
     "Madeira mastigada",
     "Seda de aranha"
    ],
-   "x": "As vespas raspam madeira, mastigam com saliva e constroem paredes como de papel. As vespas foram as primeiras a fabricar papel."
+   "x": "As vespas raspam madeira, mastigam com saliva e constroem paredes como de papel. As vespas foram as primeiras a fabricar papel.",
+   "k": "Vespas: ninhos de papel"
   },
   "ja": {
    "q": "ハチ（スズメバチ）はこんな巣を何で作る？",
@@ -1329,7 +1446,8 @@
     "かみくだいた木",
     "クモの糸"
    ],
-   "x": "スズメバチは木をけずり、だ液とかみまぜて、紙のような壁を作ります。紙を最初に作ったのはスズメバチなのです。"
+   "x": "スズメバチは木をけずり、だ液とかみまぜて、紙のような壁を作ります。紙を最初に作ったのはスズメバチなのです。",
+   "k": "スズメバチ：紙の巣を作る"
   },
   "it": {
    "q": "Con cosa costruiscono le vespe un nido così?",
@@ -1339,7 +1457,8 @@
     "Legno masticato",
     "Seta di ragno"
    ],
-   "x": "Le vespe raschiano il legno, lo masticano con la saliva e ne fanno pareti simili a carta. Le vespe sono state le prime a fare la carta."
+   "x": "Le vespe raschiano il legno, lo masticano con la saliva e ne fanno pareti simili a carta. Le vespe sono state le prime a fare la carta.",
+   "k": "Vespe: nidi di carta"
   }
  },
  {
@@ -1358,7 +1477,8 @@
     "Wildschwein",
     "Borkenkäfer"
    ],
-   "x": "In einem großen Waldameisenhügel können bis zu einer Million Ameisen leben. Unter dem Hügel reicht das Nest oft genauso tief in die Erde."
+   "x": "In einem großen Waldameisenhügel können bis zu einer Million Ameisen leben. Unter dem Hügel reicht das Nest oft genauso tief in die Erde.",
+   "k": "Waldameisen: bis zu 1 Million in einem Haufen"
   },
   "en": {
    "q": "Who builds mounds like this from needles and twigs?",
@@ -1368,7 +1488,8 @@
     "Wild boar",
     "Bark beetle"
    ],
-   "x": "Up to a million ants can live in a big wood ant mound. Beneath the mound, the nest often reaches just as deep into the ground."
+   "x": "Up to a million ants can live in a big wood ant mound. Beneath the mound, the nest often reaches just as deep into the ground.",
+   "k": "Wood ants: up to 1 million in one mound"
   },
   "fr": {
    "q": "Qui construit de tels dômes d’aiguilles et de brindilles ?",
@@ -1378,7 +1499,8 @@
     "Sanglier",
     "Scolyte"
    ],
-   "x": "Jusqu’à un million de fourmis peuvent vivre dans une grande fourmilière. Sous le dôme, le nid s’enfonce souvent aussi profond dans le sol."
+   "x": "Jusqu’à un million de fourmis peuvent vivre dans une grande fourmilière. Sous le dôme, le nid s’enfonce souvent aussi profond dans le sol.",
+   "k": "Fourmis des bois : jusqu’à 1 million par dôme"
   },
   "es": {
    "q": "¿Quién construye montículos así con agujas y ramitas?",
@@ -1388,7 +1510,8 @@
     "Jabalí",
     "Escarabajo de la corteza"
    ],
-   "x": "En un gran hormiguero de hormigas de bosque pueden vivir hasta un millón de hormigas. Bajo el montículo, el nido suele llegar igual de hondo en la tierra."
+   "x": "En un gran hormiguero de hormigas de bosque pueden vivir hasta un millón de hormigas. Bajo el montículo, el nido suele llegar igual de hondo en la tierra.",
+   "k": "Hormigas rojas: hasta 1 millón por hormiguero"
   },
   "pt": {
    "q": "Quem constrói montes assim com agulhas e raminhos?",
@@ -1398,7 +1521,8 @@
     "Javali",
     "Besouro-da-casca"
    ],
-   "x": "Num grande formigueiro de formigas-da-floresta podem viver até um milhão de formigas. Embaixo do monte, o ninho costuma descer o mesmo tanto na terra."
+   "x": "Num grande formigueiro de formigas-da-floresta podem viver até um milhão de formigas. Embaixo do monte, o ninho costuma descer o mesmo tanto na terra.",
+   "k": "Formigas-da-floresta: até 1 milhão num formigueiro"
   },
   "ja": {
    "q": "針葉や小枝でこんな山を作るのはだれ？",
@@ -1408,7 +1532,8 @@
     "イノシシ",
     "キクイムシ"
    ],
-   "x": "大きなヤマアリの塚には最大100万匹がすみます。塚の下には、同じくらいの深さまで巣が続いていることも。"
+   "x": "大きなヤマアリの塚には最大100万匹がすみます。塚の下には、同じくらいの深さまで巣が続いていることも。",
+   "k": "ヤマアリ：1つの塚に最大100万匹"
   },
   "it": {
    "q": "Chi costruisce mucchi così con aghi e rametti?",
@@ -1418,7 +1543,8 @@
     "Cinghiale",
     "Bostrico"
    ],
-   "x": "In un grande formicaio delle formiche dei boschi possono vivere fino a un milione di formiche. Sotto il cumulo, spesso il nido scende altrettanto nel terreno."
+   "x": "In un grande formicaio delle formiche dei boschi possono vivere fino a un milione di formiche. Sotto il cumulo, spesso il nido scende altrettanto nel terreno.",
+   "k": "Formiche dei boschi: fino a 1 milione per formicaio"
   }
  },
  {
@@ -1437,7 +1563,8 @@
     "Eier einer Schnecke",
     "Ein Spinnennest"
    ],
-   "x": "Die Larve der Schaumzikade bläst Luft in ihren Saft und baut sich so ein Schaumversteck – gegen Austrocknen und Feinde. Mit dem Kuckuck hat die „Kuckucksspucke“ nichts zu tun."
+   "x": "Die Larve der Schaumzikade bläst Luft in ihren Saft und baut sich so ein Schaumversteck – gegen Austrocknen und Feinde. Mit dem Kuckuck hat die „Kuckucksspucke“ nichts zu tun.",
+   "k": "Kuckucksspucke: Versteck einer Zikaden-Larve"
   },
   "en": {
    "q": "What is hiding in this foam on the grass stem?",
@@ -1447,7 +1574,8 @@
     "Snail eggs",
     "A spider nest"
    ],
-   "x": "The froghopper larva blows air into its sap and builds a foam hideout – against drying out and enemies. Despite the name “cuckoo spit”, cuckoos have nothing to do with it."
+   "x": "The froghopper larva blows air into its sap and builds a foam hideout – against drying out and enemies. Despite the name “cuckoo spit”, cuckoos have nothing to do with it.",
+   "k": "Cuckoo spit: hideout of a froghopper larva"
   },
   "fr": {
    "q": "Qui se cache dans cette mousse sur la tige ?",
@@ -1457,7 +1585,8 @@
     "Des œufs d’escargot",
     "Un nid d’araignée"
    ],
-   "x": "La larve du cercope souffle de l’air dans sa sève et se fabrique une cachette de mousse – contre le dessèchement et les ennemis. Le « crachat de coucou » n’a rien à voir avec le coucou."
+   "x": "La larve du cercope souffle de l’air dans sa sève et se fabrique une cachette de mousse – contre le dessèchement et les ennemis. Le « crachat de coucou » n’a rien à voir avec le coucou.",
+   "k": "Crachat de coucou : cachette d’une larve de cercope"
   },
   "es": {
    "q": "¿Qué se esconde en esta espuma del tallo?",
@@ -1467,7 +1596,8 @@
     "Huevos de caracol",
     "Un nido de araña"
    ],
-   "x": "La larva del cercópido sopla aire en su savia y se construye un escondite de espuma, contra la sequedad y los enemigos. La llamada «saliva de cuco» no tiene nada que ver con el cuco."
+   "x": "La larva del cercópido sopla aire en su savia y se construye un escondite de espuma, contra la sequedad y los enemigos. La llamada «saliva de cuco» no tiene nada que ver con el cuco.",
+   "k": "Saliva de cuco: escondite de una larva de cercópido"
   },
   "pt": {
    "q": "O que se esconde nesta espuma no caule?",
@@ -1477,7 +1607,8 @@
     "Ovos de caracol",
     "Um ninho de aranha"
    ],
-   "x": "A larva da cigarrinha-espumosa sopra ar na própria seiva e constrói um esconderijo de espuma contra o ressecamento e os inimigos. A tal “saliva de cuco” não tem nada a ver com o cuco."
+   "x": "A larva da cigarrinha-espumosa sopra ar na própria seiva e constrói um esconderijo de espuma contra o ressecamento e os inimigos. A tal “saliva de cuco” não tem nada a ver com o cuco.",
+   "k": "Espuma no capim: esconderijo de cigarrinha"
   },
   "ja": {
    "q": "草の茎についたこの泡の中にかくれているのは？",
@@ -1487,7 +1618,8 @@
     "カタツムリの卵",
     "クモの巣"
    ],
-   "x": "アワフキムシの幼虫は、自分の出す汁に空気を吹きこんで泡の隠れ家を作ります。乾燥と敵から身を守るためです。ヨーロッパでは「カッコウのつば」と呼ばれますが、カッコウとは無関係です。"
+   "x": "アワフキムシの幼虫は、自分の出す汁に空気を吹きこんで泡の隠れ家を作ります。乾燥と敵から身を守るためです。ヨーロッパでは「カッコウのつば」と呼ばれますが、カッコウとは無関係です。",
+   "k": "草の泡：アワフキムシの幼虫の隠れ家"
   },
   "it": {
    "q": "Cosa si nasconde in questa schiuma sullo stelo?",
@@ -1497,7 +1629,8 @@
     "Uova di chiocciola",
     "Un nido di ragno"
    ],
-   "x": "La larva della sputacchina soffia aria nella sua linfa e si costruisce un rifugio di schiuma contro la secchezza e i nemici. Nonostante il nome «sputo di cuculo», il cuculo non c’entra."
+   "x": "La larva della sputacchina soffia aria nella sua linfa e si costruisce un rifugio di schiuma contro la secchezza e i nemici. Nonostante il nome «sputo di cuculo», il cuculo non c’entra.",
+   "k": "Sputo di cuculo: rifugio di una sputacchina"
   }
  },
  {
@@ -1516,7 +1649,8 @@
     "Junge Spinne",
     "Überwinternder Käfer"
    ],
-   "x": "Die Gallwespe legt ihr Ei ins Blatt, die Eiche bildet darum diese „Galle“. Darin wohnt und frisst die Larve. Aus Galläpfeln machte man früher Tinte."
+   "x": "Die Gallwespe legt ihr Ei ins Blatt, die Eiche bildet darum diese „Galle“. Darin wohnt und frisst die Larve. Aus Galläpfeln machte man früher Tinte.",
+   "k": "Gallwespe: Larve lebt in der Eichen-Galle"
   },
   "en": {
    "q": "Who lives in this ball on the oak leaf?",
@@ -1526,7 +1660,8 @@
     "A young spider",
     "A beetle spending the winter"
    ],
-   "x": "The gall wasp lays its egg in the leaf, and the oak grows this “gall” around it. The larva lives and feeds inside. Oak galls were once used to make ink."
+   "x": "The gall wasp lays its egg in the leaf, and the oak grows this “gall” around it. The larva lives and feeds inside. Oak galls were once used to make ink.",
+   "k": "Gall wasp: larva lives in the oak gall"
   },
   "fr": {
    "q": "Qui habite dans cette boule sur la feuille de chêne ?",
@@ -1536,7 +1671,8 @@
     "Une jeune araignée",
     "Un coléoptère qui hiverne"
    ],
-   "x": "Le cynips pond son œuf dans la feuille, et le chêne forme autour cette « galle ». La larve y vit et s’y nourrit. On fabriquait autrefois de l’encre avec les galles."
+   "x": "Le cynips pond son œuf dans la feuille, et le chêne forme autour cette « galle ». La larve y vit et s’y nourrit. On fabriquait autrefois de l’encre avec les galles.",
+   "k": "Cynips : la larve vit dans la galle du chêne"
   },
   "es": {
    "q": "¿Quién vive en esta bola de la hoja de roble?",
@@ -1546,7 +1682,8 @@
     "Una araña joven",
     "Un escarabajo que pasa el invierno"
    ],
-   "x": "La avispa de las agallas pone su huevo en la hoja y el roble forma a su alrededor esta «agalla». Dentro vive y come la larva. Antes se hacía tinta con las agallas."
+   "x": "La avispa de las agallas pone su huevo en la hoja y el roble forma a su alrededor esta «agalla». Dentro vive y come la larva. Antes se hacía tinta con las agallas.",
+   "k": "Avispa de las agallas: larva dentro de la agalla"
   },
   "pt": {
    "q": "Quem vive nesta bolinha na folha do carvalho?",
@@ -1556,7 +1693,8 @@
     "Uma aranha jovem",
     "Um besouro passando o inverno"
    ],
-   "x": "A vespa-das-galhas põe o ovo na folha, e o carvalho forma em volta essa “galha”. Lá dentro a larva vive e come. Antigamente se fazia tinta com as galhas."
+   "x": "A vespa-das-galhas põe o ovo na folha, e o carvalho forma em volta essa “galha”. Lá dentro a larva vive e come. Antigamente se fazia tinta com as galhas.",
+   "k": "Vespa-das-galhas: larva dentro da galha"
   },
   "ja": {
    "q": "カシの葉についたこの玉の中にすんでいるのは？",
@@ -1566,7 +1704,8 @@
     "子グモ",
     "冬を越す甲虫"
    ],
-   "x": "タマバチが葉に卵を産むと、カシがそのまわりにこの「虫こぶ」を作ります。幼虫は中で暮らして食べます。昔は虫こぶからインクを作りました。"
+   "x": "タマバチが葉に卵を産むと、カシがそのまわりにこの「虫こぶ」を作ります。幼虫は中で暮らして食べます。昔は虫こぶからインクを作りました。",
+   "k": "タマバチ：幼虫は虫こぶの中で暮らす"
   },
   "it": {
    "q": "Chi vive in questa pallina sulla foglia di quercia?",
@@ -1576,7 +1715,8 @@
     "Un ragnetto",
     "Un coleottero che sverna"
    ],
-   "x": "Il cinipide depone l’uovo nella foglia e la quercia ci forma intorno questa «galla». La larva ci vive e si nutre. Un tempo con le galle si faceva l’inchiostro."
+   "x": "Il cinipide depone l’uovo nella foglia e la quercia ci forma intorno questa «galla». La larva ci vive e si nutre. Un tempo con le galle si faceva l’inchiostro.",
+   "k": "Cinipide: la larva vive nella galla"
   }
  },
  {
@@ -1595,7 +1735,8 @@
     "Nest einer Maus",
     "Haarballen einer Katze"
    ],
-   "x": "Ein Gewölle: Fell und Knochen, die die Eule wieder hochgewürgt hat. Aus den winzigen Schädeln darin kann man sogar bestimmen, welche Mäusearten in der Gegend leben."
+   "x": "Ein Gewölle: Fell und Knochen, die die Eule wieder hochgewürgt hat. Aus den winzigen Schädeln darin kann man sogar bestimmen, welche Mäusearten in der Gegend leben.",
+   "k": "Gewölle: verrät, welche Mäuse in der Gegend leben"
   },
   "en": {
    "q": "Grey, furry, with tiny bones: what did you find under the tree?",
@@ -1605,7 +1746,8 @@
     "A mouse nest",
     "A cat’s hairball"
    ],
-   "x": "An owl pellet: fur and bones the owl coughed back up. From the tiny skulls inside you can even tell which kinds of mice live in the area."
+   "x": "An owl pellet: fur and bones the owl coughed back up. From the tiny skulls inside you can even tell which kinds of mice live in the area.",
+   "k": "Owl pellets: reveal which mice live nearby"
   },
   "fr": {
    "q": "Gris, poilu, avec de petits os : qu’as-tu trouvé sous l’arbre ?",
@@ -1615,7 +1757,8 @@
     "Un nid de souris",
     "Une boule de poils de chat"
    ],
-   "x": "Une pelote de réjection : poils et os recrachés par la chouette. Grâce aux minuscules crânes, on peut même savoir quelles espèces de souris vivent dans le coin."
+   "x": "Une pelote de réjection : poils et os recrachés par la chouette. Grâce aux minuscules crânes, on peut même savoir quelles espèces de souris vivent dans le coin.",
+   "k": "Pelotes : révèlent les souris du coin"
   },
   "es": {
    "q": "Gris, peludo y con huesecillos: ¿qué has encontrado bajo el árbol?",
@@ -1625,7 +1768,8 @@
     "Un nido de ratón",
     "Una bola de pelo de gato"
    ],
-   "x": "Una egagrópila: pelo y huesos que el búho ha regurgitado. Por los diminutos cráneos se puede saber incluso qué especies de ratones viven en la zona."
+   "x": "Una egagrópila: pelo y huesos que el búho ha regurgitado. Por los diminutos cráneos se puede saber incluso qué especies de ratones viven en la zona.",
+   "k": "Egagrópilas: revelan los ratones de la zona"
   },
   "pt": {
    "q": "Cinza, peludo e com ossinhos: o que você encontrou debaixo da árvore?",
@@ -1635,7 +1779,8 @@
     "Um ninho de rato",
     "Uma bola de pelo de gato"
    ],
-   "x": "Uma egagrópila: pelos e ossos que a coruja regurgitou. Pelos crânios minúsculos dá até para saber quais espécies de ratos vivem na região."
+   "x": "Uma egagrópila: pelos e ossos que a coruja regurgitou. Pelos crânios minúsculos dá até para saber quais espécies de ratos vivem na região.",
+   "k": "Egagrópilas: revelam os ratos da região"
   },
   "ja": {
    "q": "灰色で毛だらけ、中に小さな骨。木の下で見つけたのは？",
@@ -1645,7 +1790,8 @@
     "ネズミの巣",
     "ネコの毛玉"
    ],
-   "x": "フクロウのペリット：フクロウが吐きもどした毛と骨です。中の小さな頭の骨から、その地域にどんなネズミがすんでいるかまでわかります。"
+   "x": "フクロウのペリット：フクロウが吐きもどした毛と骨です。中の小さな頭の骨から、その地域にどんなネズミがすんでいるかまでわかります。",
+   "k": "ペリット：近くにすむネズミがわかる"
   },
   "it": {
    "q": "Grigia, pelosa e con ossicini: cosa hai trovato sotto l’albero?",
@@ -1655,7 +1801,8 @@
     "Un nido di topo",
     "Un bolo di pelo di gatto"
    ],
-   "x": "Una borra di gufo: pelo e ossa rigurgitati. Dai minuscoli crani dentro si capisce persino quali topi vivono nella zona."
+   "x": "Una borra di gufo: pelo e ossa rigurgitati. Dai minuscoli crani dentro si capisce persino quali topi vivono nella zona.",
+   "k": "Borre: rivelano i topi della zona"
   }
  }
 ]

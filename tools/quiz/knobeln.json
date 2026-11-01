@@ -12,7 +12,8 @@
     "Kraken haben blaues Blut",
     "Biber haben orange Zähne"
    ],
-   "x": "Viele Haie müssen schwimmen, aber nicht alle: Ammenhaie oder Katzenhaie liegen am Grund und pumpen Wasser über ihre Kiemen."
+   "x": "Viele Haie müssen schwimmen, aber nicht alle: Ammenhaie oder Katzenhaie liegen am Grund und pumpen Wasser über ihre Kiemen.",
+   "k": "Ammenhaie: ruhen am Meeresgrund"
   },
   "en": {
    "q": "Which statement is FALSE?",
@@ -22,7 +23,8 @@
     "Octopuses have blue blood",
     "Beavers have orange teeth"
    ],
-   "x": "Many sharks have to swim, but not all: nurse sharks or catsharks lie on the bottom and pump water over their gills."
+   "x": "Many sharks have to swim, but not all: nurse sharks or catsharks lie on the bottom and pump water over their gills.",
+   "k": "Nurse sharks: rest on the seabed"
   },
   "fr": {
    "q": "Quelle affirmation est FAUSSE ?",
@@ -32,7 +34,8 @@
     "Les pieuvres ont le sang bleu",
     "Les castors ont les dents orange"
    ],
-   "x": "Beaucoup de requins doivent nager, mais pas tous : le requin-nourrice ou la roussette restent au fond et pompent l’eau sur leurs branchies."
+   "x": "Beaucoup de requins doivent nager, mais pas tous : le requin-nourrice ou la roussette restent au fond et pompent l’eau sur leurs branchies.",
+   "k": "Requins-nourrices : se reposent au fond"
   },
   "es": {
    "q": "¿Qué afirmación es FALSA?",
@@ -42,7 +45,8 @@
     "Los pulpos tienen sangre azul",
     "Los castores tienen los dientes naranjas"
    ],
-   "x": "Muchos tiburones tienen que nadar, pero no todos: el tiburón nodriza o la pintarroja descansan en el fondo y bombean agua por sus branquias."
+   "x": "Muchos tiburones tienen que nadar, pero no todos: el tiburón nodriza o la pintarroja descansan en el fondo y bombean agua por sus branquias.",
+   "k": "Tiburones nodriza: descansan en el fondo"
   },
   "pt": {
    "q": "Qual afirmação é FALSA?",
@@ -52,7 +56,8 @@
     "Os polvos têm sangue azul",
     "Os castores têm dentes laranja"
    ],
-   "x": "Muitos tubarões precisam nadar, mas não todos: o tubarão-lixa ou o cação-pintado descansam no fundo e bombeiam água pelas brânquias."
+   "x": "Muitos tubarões precisam nadar, mas não todos: o tubarão-lixa ou o cação-pintado descansam no fundo e bombeiam água pelas brânquias.",
+   "k": "Tubarões-lixa: descansam no fundo"
   },
   "ja": {
    "q": "まちがっているのはどれ？",
@@ -62,7 +67,8 @@
     "タコの血は青い",
     "ビーバーの歯はオレンジ色"
    ],
-   "x": "泳ぎ続けなければならないサメは多いですが、全部ではありません。コモリザメやトラザメの仲間は海底で休み、えらに水を送ります。"
+   "x": "泳ぎ続けなければならないサメは多いですが、全部ではありません。コモリザメやトラザメの仲間は海底で休み、えらに水を送ります。",
+   "k": "コモリザメ：海底で休む"
   },
   "it": {
    "q": "Quale affermazione è FALSA?",
@@ -72,7 +78,8 @@
     "I polpi hanno il sangue blu",
     "I castori hanno i denti arancioni"
    ],
-   "x": "Molti squali devono nuotare, ma non tutti: lo squalo nutrice o il gattuccio si posano sul fondo e pompano acqua sulle branchie."
+   "x": "Molti squali devono nuotare, ma non tutti: lo squalo nutrice o il gattuccio si posano sul fondo e pompano acqua sulle branchie.",
+   "k": "Squali nutrice: riposano sul fondo"
   }
  },
  {
@@ -88,7 +95,8 @@
     "Fledermäuse sind blind",
     "Hummeln fliegen auch bei Kälte"
    ],
-   "x": "Fledermäuse sehen gut. Nachts orientieren sie sich aber zusätzlich mit Ultraschall-Echos."
+   "x": "Fledermäuse sehen gut. Nachts orientieren sie sich aber zusätzlich mit Ultraschall-Echos.",
+   "k": "Fledermäuse: können gut sehen"
   },
   "en": {
    "q": "Which statement is FALSE?",
@@ -98,7 +106,8 @@
     "Bats are blind",
     "Bumblebees fly even in the cold"
    ],
-   "x": "Bats can see well. At night, they also find their way using ultrasound echoes."
+   "x": "Bats can see well. At night, they also find their way using ultrasound echoes.",
+   "k": "Bats: can see well"
   },
   "fr": {
    "q": "Quelle affirmation est FAUSSE ?",
@@ -108,7 +117,8 @@
     "Les chauves-souris sont aveugles",
     "Les bourdons volent même par temps froid"
    ],
-   "x": "Les chauves-souris voient bien. La nuit, elles s’orientent en plus grâce à l’écho des ultrasons."
+   "x": "Les chauves-souris voient bien. La nuit, elles s’orientent en plus grâce à l’écho des ultrasons.",
+   "k": "Chauves-souris : voient bien"
   },
   "es": {
    "q": "¿Qué afirmación es FALSA?",
@@ -118,7 +128,8 @@
     "Los murciélagos son ciegos",
     "Los abejorros vuelan incluso con frío"
    ],
-   "x": "Los murciélagos ven bien. De noche se orientan además con el eco de los ultrasonidos."
+   "x": "Los murciélagos ven bien. De noche se orientan además con el eco de los ultrasonidos.",
+   "k": "Murciélagos: ven bien"
   },
   "pt": {
    "q": "Qual afirmação é FALSA?",
@@ -128,7 +139,8 @@
     "Os morcegos são cegos",
     "As mamangavas voam até no frio"
    ],
-   "x": "Os morcegos enxergam bem. À noite, eles se orientam também pelo eco dos ultrassons."
+   "x": "Os morcegos enxergam bem. À noite, eles se orientam também pelo eco dos ultrassons.",
+   "k": "Morcegos: enxergam bem"
   },
   "ja": {
    "q": "まちがっているのはどれ？",
@@ -138,7 +150,8 @@
     "コウモリは目が見えない",
     "マルハナバチは寒くても飛ぶ"
    ],
-   "x": "コウモリはちゃんと目が見えます。夜は超音波のこだまも使って道を見つけます。"
+   "x": "コウモリはちゃんと目が見えます。夜は超音波のこだまも使って道を見つけます。",
+   "k": "コウモリ：目もちゃんと見える"
   },
   "it": {
    "q": "Quale affermazione è FALSA?",
@@ -148,7 +161,8 @@
     "I pipistrelli sono ciechi",
     "I bombi volano anche al freddo"
    ],
-   "x": "I pipistrelli ci vedono bene. Di notte si orientano anche con l’eco degli ultrasuoni."
+   "x": "I pipistrelli ci vedono bene. Di notte si orientano anche con l’eco degli ultrasuoni.",
+   "k": "Pipistrelli: ci vedono bene"
   }
  },
  {
@@ -164,7 +178,8 @@
     "Etwa 1 Esslöffel",
     "Etwa ein halbes Glas"
    ],
-   "x": "Nur etwa ein Zwölftel Teelöffel! Für ein Glas Honig fliegen Bienen zusammen eine Strecke, die mehrmals um die Erde reicht."
+   "x": "Nur etwa ein Zwölftel Teelöffel! Für ein Glas Honig fliegen Bienen zusammen eine Strecke, die mehrmals um die Erde reicht.",
+   "k": "Biene: macht im Leben 1/12 Teelöffel Honig"
   },
   "en": {
    "q": "Guess: how much honey does a worker bee make in her whole life?",
@@ -174,7 +189,8 @@
     "About 1 tablespoon",
     "About half a jar"
    ],
-   "x": "Only about a twelfth of a teaspoon! For one jar of honey, bees together fly a distance that would go around the Earth several times."
+   "x": "Only about a twelfth of a teaspoon! For one jar of honey, bees together fly a distance that would go around the Earth several times.",
+   "k": "Bee: makes 1/12 teaspoon of honey in its life"
   },
   "fr": {
    "q": "Devine : combien de miel une abeille ouvrière produit-elle dans toute sa vie ?",
@@ -184,7 +200,8 @@
     "Environ 1 cuillère à soupe",
     "Environ un demi-pot"
    ],
-   "x": "Seulement un douzième de cuillère à café ! Pour un pot de miel, les abeilles parcourent ensemble une distance de plusieurs fois le tour de la Terre."
+   "x": "Seulement un douzième de cuillère à café ! Pour un pot de miel, les abeilles parcourent ensemble une distance de plusieurs fois le tour de la Terre.",
+   "k": "Abeille : 1/12 de cuillère de miel dans sa vie"
   },
   "es": {
    "q": "Adivina: ¿cuánta miel produce una abeja obrera en toda su vida?",
@@ -194,7 +211,8 @@
     "Una cucharada",
     "Medio tarro"
    ],
-   "x": "¡Solo una doceava parte de cucharadita! Para un tarro de miel, las abejas recorren juntas una distancia de varias vueltas a la Tierra."
+   "x": "¡Solo una doceava parte de cucharadita! Para un tarro de miel, las abejas recorren juntas una distancia de varias vueltas a la Tierra.",
+   "k": "Abeja: 1/12 de cucharadita de miel en su vida"
   },
   "pt": {
    "q": "Adivinhe: quanto mel uma abelha operária produz na vida toda?",
@@ -204,7 +222,8 @@
     "Uma colher de sopa",
     "Meio pote"
    ],
-   "x": "Só um doze avos de colher de chá! Para um pote de mel, as abelhas voam juntas uma distância de várias voltas ao redor da Terra."
+   "x": "Só um doze avos de colher de chá! Para um pote de mel, as abelhas voam juntas uma distância de várias voltas ao redor da Terra.",
+   "k": "Abelha: 1/12 de colher de chá de mel na vida"
   },
   "ja": {
    "q": "予想してみよう：働きバチ1匹が一生に作るハチミツの量は？",
@@ -214,7 +233,8 @@
     "大さじ約1杯",
     "びん半分くらい"
    ],
-   "x": "たった小さじ12分の1ほど！ハチミツ1びんのために、ハチたちは合わせて地球を何周もする距離を飛びます。"
+   "x": "たった小さじ12分の1ほど！ハチミツ1びんのために、ハチたちは合わせて地球を何周もする距離を飛びます。",
+   "k": "ミツバチ：一生でハチミツ小さじ12分の1"
   },
   "it": {
    "q": "Indovina: quanto miele produce un’ape operaia in tutta la vita?",
@@ -224,7 +244,8 @@
     "Circa 1 cucchiaio",
     "Circa mezzo vasetto"
    ],
-   "x": "Solo un dodicesimo di cucchiaino! Per un vasetto di miele, le api insieme volano una distanza pari a diversi giri della Terra."
+   "x": "Solo un dodicesimo di cucchiaino! Per un vasetto di miele, le api insieme volano una distanza pari a diversi giri della Terra.",
+   "k": "Ape: 1/12 di cucchiaino di miele in tutta la vita"
   }
  },
  {
@@ -240,7 +261,8 @@
     "Mehrere Hundert bis über tausend",
     "Etwa eine Million"
    ],
-   "x": "Eine Zwergfledermaus wiegt nur rund 5 Gramm, fängt aber pro Nacht Hunderte bis über tausend Mücken und andere kleine Insekten."
+   "x": "Eine Zwergfledermaus wiegt nur rund 5 Gramm, fängt aber pro Nacht Hunderte bis über tausend Mücken und andere kleine Insekten.",
+   "k": "Zwergfledermaus: frisst über 1.000 Mücken pro Nacht"
   },
   "en": {
    "q": "Guess: how many insects does a tiny pipistrelle bat eat in one night?",
@@ -250,7 +272,8 @@
     "Several hundred to over a thousand",
     "About a million"
    ],
-   "x": "A pipistrelle weighs only about 5 grams, but catches hundreds to over a thousand midges and other small insects in one night."
+   "x": "A pipistrelle weighs only about 5 grams, but catches hundreds to over a thousand midges and other small insects in one night.",
+   "k": "Pipistrelle: eats over 1,000 midges a night"
   },
   "fr": {
    "q": "Devine : combien d’insectes une petite pipistrelle mange-t-elle en une nuit ?",
@@ -260,7 +283,8 @@
     "Plusieurs centaines à plus de mille",
     "Environ un million"
    ],
-   "x": "Une pipistrelle ne pèse qu’environ 5 grammes, mais attrape en une nuit des centaines, voire plus de mille moucherons et autres petits insectes."
+   "x": "Une pipistrelle ne pèse qu’environ 5 grammes, mais attrape en une nuit des centaines, voire plus de mille moucherons et autres petits insectes.",
+   "k": "Pipistrelle : plus de 1 000 moustiques par nuit"
   },
   "es": {
    "q": "Adivina: ¿cuántos insectos come un pequeño murciélago enano en una noche?",
@@ -270,7 +294,8 @@
     "De varios cientos a más de mil",
     "Un millón"
    ],
-   "x": "Un murciélago enano pesa solo unos 5 gramos, pero en una noche caza de cientos a más de mil mosquitos y otros insectos pequeños."
+   "x": "Un murciélago enano pesa solo unos 5 gramos, pero en una noche caza de cientos a más de mil mosquitos y otros insectos pequeños.",
+   "k": "Murciélago enano: más de 1.000 mosquitos por noche"
   },
   "pt": {
    "q": "Adivinhe: quantos insetos um pequeno morcego-anão come numa noite?",
@@ -280,7 +305,8 @@
     "De centenas a mais de mil",
     "Um milhão"
    ],
-   "x": "Um morcego-anão pesa só uns 5 gramas, mas numa noite caça de centenas a mais de mil mosquitos e outros insetos pequenos."
+   "x": "Um morcego-anão pesa só uns 5 gramas, mas numa noite caça de centenas a mais de mil mosquitos e outros insetos pequenos.",
+   "k": "Morcego-anão: mais de 1.000 mosquitos por noite"
   },
   "ja": {
    "q": "予想してみよう：小さなアブラコウモリは一晩に何匹の虫を食べる？",
@@ -290,7 +316,8 @@
     "数百〜1000匹以上",
     "約100万匹"
    ],
-   "x": "アブラコウモリの仲間は体重わずか約5グラムなのに、一晩で数百から1000匹以上の蚊や小さな虫をつかまえます。"
+   "x": "アブラコウモリの仲間は体重わずか約5グラムなのに、一晩で数百から1000匹以上の蚊や小さな虫をつかまえます。",
+   "k": "アブラコウモリ：一晩に1000匹以上の虫"
   },
   "it": {
    "q": "Indovina: quanti insetti mangia in una notte un piccolo pipistrello nano?",
@@ -300,7 +327,8 @@
     "Da centinaia a oltre mille",
     "Circa un milione"
    ],
-   "x": "Un pipistrello nano pesa solo circa 5 grammi, ma in una notte cattura da centinaia a oltre mille moscerini e altri piccoli insetti."
+   "x": "Un pipistrello nano pesa solo circa 5 grammi, ma in una notte cattura da centinaia a oltre mille moscerini e altri piccoli insetti.",
+   "k": "Pipistrello nano: oltre 1.000 moscerini a notte"
   }
  },
  {
@@ -316,7 +344,8 @@
     "Etwa 200 Gramm",
     "Etwa 1 Kilo"
    ],
-   "x": "Neugeborene Igel wiegen 12 bis 25 Gramm. Ihre Stacheln sind weich und stecken unter einer Hautschicht, damit die Geburt nicht wehtut – nach einigen Stunden kommen sie heraus."
+   "x": "Neugeborene Igel wiegen 12 bis 25 Gramm. Ihre Stacheln sind weich und stecken unter einer Hautschicht, damit die Geburt nicht wehtut – nach einigen Stunden kommen sie heraus.",
+   "k": "Igel-Baby: wiegt 12 bis 25 g"
   },
   "en": {
    "q": "Guess: how much does a baby hedgehog weigh at birth?",
@@ -326,7 +355,8 @@
     "About 200 grams",
     "About 1 kilo"
    ],
-   "x": "Newborn hedgehogs weigh 12 to 25 grams. Their spines are soft and covered by a layer of skin so birth doesn’t hurt – they come out after a few hours."
+   "x": "Newborn hedgehogs weigh 12 to 25 grams. Their spines are soft and covered by a layer of skin so birth doesn’t hurt – they come out after a few hours.",
+   "k": "Baby hedgehog: weighs 12 to 25 g"
   },
   "fr": {
    "q": "Devine : combien pèse un bébé hérisson à la naissance ?",
@@ -336,7 +366,8 @@
     "Environ 200 grammes",
     "Environ 1 kilo"
    ],
-   "x": "Un hérisson nouveau-né pèse 12 à 25 grammes. Ses piquants sont mous et couverts d’une couche de peau pour que la naissance ne fasse pas mal – ils sortent après quelques heures."
+   "x": "Un hérisson nouveau-né pèse 12 à 25 grammes. Ses piquants sont mous et couverts d’une couche de peau pour que la naissance ne fasse pas mal – ils sortent après quelques heures.",
+   "k": "Bébé hérisson : 12 à 25 g"
   },
   "es": {
    "q": "Adivina: ¿cuánto pesa un erizo al nacer?",
@@ -346,7 +377,8 @@
     "Unos 200 gramos",
     "Un kilo"
    ],
-   "x": "Un erizo recién nacido pesa de 12 a 25 gramos. Sus púas son blandas y están cubiertas por una capa de piel para que el parto no duela; salen a las pocas horas."
+   "x": "Un erizo recién nacido pesa de 12 a 25 gramos. Sus púas son blandas y están cubiertas por una capa de piel para que el parto no duela; salen a las pocas horas.",
+   "k": "Cría de erizo: 12 a 25 g"
   },
   "pt": {
    "q": "Adivinhe: quanto pesa um ouriço ao nascer?",
@@ -356,7 +388,8 @@
     "Uns 200 gramas",
     "Um quilo"
    ],
-   "x": "Um ouriço recém-nascido pesa de 12 a 25 gramas. Os espinhos são moles e cobertos por uma camada de pele, para o parto não doer; eles saem em poucas horas."
+   "x": "Um ouriço recém-nascido pesa de 12 a 25 gramas. Os espinhos são moles e cobertos por uma camada de pele, para o parto não doer; eles saem em poucas horas.",
+   "k": "Filhote de ouriço: 12 a 25 g"
   },
   "ja": {
    "q": "予想してみよう：生まれたてのハリネズミの体重は？",
@@ -366,7 +399,8 @@
     "約200グラム",
     "約1キロ"
    ],
-   "x": "生まれたてのハリネズミは12〜25グラム。トゲはやわらかく、皮ふの膜におおわれているので出産は痛くありません。トゲは数時間で出てきます。"
+   "x": "生まれたてのハリネズミは12〜25グラム。トゲはやわらかく、皮ふの膜におおわれているので出産は痛くありません。トゲは数時間で出てきます。",
+   "k": "ハリネズミの赤ちゃん：12〜25グラム"
   },
   "it": {
    "q": "Indovina: quanto pesa un riccio appena nato?",
@@ -376,7 +410,8 @@
     "Circa 200 grammi",
     "Circa 1 chilo"
    ],
-   "x": "I ricci appena nati pesano 12–25 grammi. Gli aculei sono morbidi e coperti da uno strato di pelle, così il parto non fa male: spuntano dopo poche ore."
+   "x": "I ricci appena nati pesano 12–25 grammi. Gli aculei sono morbidi e coperti da uno strato di pelle, così il parto non fa male: spuntano dopo poche ore.",
+   "k": "Riccio neonato: 12–25 g"
   }
  },
  {
@@ -392,7 +427,8 @@
     "Etwa 250.000",
     "Etwa 2,5 Millionen"
    ],
-   "x": "Rund 25.000 – die meisten Federn aller Vögel, ein großer Teil davon am langen Hals. Ein Kolibri hat nur etwa 1.000."
+   "x": "Rund 25.000 – die meisten Federn aller Vögel, ein großer Teil davon am langen Hals. Ein Kolibri hat nur etwa 1.000.",
+   "k": "Höckerschwan: rund 25.000 Federn"
   },
   "en": {
    "q": "Guess: how many feathers does a mute swan have?",
@@ -402,7 +438,8 @@
     "About 250,000",
     "About 2.5 million"
    ],
-   "x": "Around 25,000 – the most feathers of any bird, many of them on the long neck. A hummingbird has only about 1,000."
+   "x": "Around 25,000 – the most feathers of any bird, many of them on the long neck. A hummingbird has only about 1,000.",
+   "k": "Mute swan: about 25,000 feathers"
   },
   "fr": {
    "q": "Devine : combien de plumes a un cygne tuberculé ?",
@@ -412,7 +449,8 @@
     "Environ 250 000",
     "Environ 2,5 millions"
    ],
-   "x": "Environ 25 000 – le record chez les oiseaux, dont une grande partie sur le long cou. Un colibri n’en a qu’environ 1 000."
+   "x": "Environ 25 000 – le record chez les oiseaux, dont une grande partie sur le long cou. Un colibri n’en a qu’environ 1 000.",
+   "k": "Cygne tuberculé : environ 25 000 plumes"
   },
   "es": {
    "q": "Adivina: ¿cuántas plumas tiene un cisne vulgar?",
@@ -422,7 +460,8 @@
     "Unas 250.000",
     "Unos 2,5 millones"
    ],
-   "x": "Unas 25.000, el récord entre las aves, muchas de ellas en el largo cuello. Un colibrí tiene solo unas 1.000."
+   "x": "Unas 25.000, el récord entre las aves, muchas de ellas en el largo cuello. Un colibrí tiene solo unas 1.000.",
+   "k": "Cisne vulgar: unas 25.000 plumas"
   },
   "pt": {
    "q": "Adivinhe: quantas penas tem um cisne-branco?",
@@ -432,7 +471,8 @@
     "Umas 250.000",
     "Uns 2,5 milhões"
    ],
-   "x": "Cerca de 25.000 – o recorde entre as aves, muitas delas no pescoço comprido. Um beija-flor tem só umas 1.000."
+   "x": "Cerca de 25.000 – o recorde entre as aves, muitas delas no pescoço comprido. Um beija-flor tem só umas 1.000.",
+   "k": "Cisne-branco: cerca de 25.000 penas"
   },
   "ja": {
    "q": "予想してみよう：コブハクチョウの羽は何枚？",
@@ -442,7 +482,8 @@
     "約25万枚",
     "約250万枚"
    ],
-   "x": "約2万5000枚。鳥の中でいちばん多く、その多くは長い首にあります。ハチドリはたった約1000枚です。"
+   "x": "約2万5000枚。鳥の中でいちばん多く、その多くは長い首にあります。ハチドリはたった約1000枚です。",
+   "k": "コブハクチョウ：羽は約2万5000枚"
   },
   "it": {
    "q": "Indovina: quante piume ha un cigno reale?",
@@ -452,7 +493,8 @@
     "Circa 250.000",
     "Circa 2,5 milioni"
    ],
-   "x": "Circa 25.000: il record tra gli uccelli, molte sul lungo collo. Un colibrì ne ha solo circa 1.000."
+   "x": "Circa 25.000: il record tra gli uccelli, molte sul lungo collo. Un colibrì ne ha solo circa 1.000.",
+   "k": "Cigno reale: circa 25.000 piume"
   }
  },
  {
@@ -468,7 +510,8 @@
     "Die Zunge zum Fliegenfangen",
     "Ein längerer Schwanz für das Leben an Land"
    ],
-   "x": "Zuerst wachsen die Hinterbeine, dann die Vorderbeine. Zum Schluss wird der Schwanz abgebaut – und als Baumaterial wiederverwertet."
+   "x": "Zuerst wachsen die Hinterbeine, dann die Vorderbeine. Zum Schluss wird der Schwanz abgebaut – und als Baumaterial wiederverwertet.",
+   "k": "Kaulquappe: zuerst wachsen die Hinterbeine"
   },
   "en": {
    "q": "What does a tadpole grow first?",
@@ -478,7 +521,8 @@
     "A tongue for catching flies",
     "A longer tail for life on land"
    ],
-   "x": "The back legs grow first, then the front legs. Finally the tail is absorbed – and recycled as building material."
+   "x": "The back legs grow first, then the front legs. Finally the tail is absorbed – and recycled as building material.",
+   "k": "Tadpole: back legs grow first"
   },
   "fr": {
    "q": "Qu’est-ce qui pousse en premier chez le têtard ?",
@@ -488,7 +532,8 @@
     "Une langue pour attraper les mouches",
     "Une queue plus longue pour la vie sur terre"
    ],
-   "x": "Les pattes arrière poussent d’abord, puis les pattes avant. Enfin, la queue est résorbée – et recyclée comme matériau."
+   "x": "Les pattes arrière poussent d’abord, puis les pattes avant. Enfin, la queue est résorbée – et recyclée comme matériau.",
+   "k": "Têtard : les pattes arrière poussent d’abord"
   },
   "es": {
    "q": "¿Qué le crece primero a un renacuajo?",
@@ -498,7 +543,8 @@
     "Una lengua para cazar moscas",
     "Una cola más larga para vivir en tierra"
    ],
-   "x": "Primero crecen las patas traseras y luego las delanteras. Al final la cola se reabsorbe y se recicla como material."
+   "x": "Primero crecen las patas traseras y luego las delanteras. Al final la cola se reabsorbe y se recicla como material.",
+   "k": "Renacuajo: primero le crecen las patas traseras"
   },
   "pt": {
    "q": "O que cresce primeiro num girino?",
@@ -508,7 +554,8 @@
     "Uma língua para pegar moscas",
     "Uma cauda mais longa para viver em terra"
    ],
-   "x": "Primeiro crescem as patas de trás, depois as da frente. No fim, a cauda é reabsorvida e reciclada como material."
+   "x": "Primeiro crescem as patas de trás, depois as da frente. No fim, a cauda é reabsorvida e reciclada como material.",
+   "k": "Girino: primeiro crescem as patas de trás"
   },
   "ja": {
    "q": "オタマジャクシに最初に生えるのは？",
@@ -518,7 +565,8 @@
     "ハエをとる舌",
     "陸で暮らすための長いしっぽ"
    ],
-   "x": "まず後ろ脚、次に前脚が生えます。最後にしっぽが体に吸収され、材料として再利用されます。"
+   "x": "まず後ろ脚、次に前脚が生えます。最後にしっぽが体に吸収され、材料として再利用されます。",
+   "k": "オタマジャクシ：まず後ろ脚が生える"
   },
   "it": {
    "q": "Cosa cresce per prima cosa a un girino?",
@@ -528,7 +576,8 @@
     "Una lingua per catturare mosche",
     "Una coda più lunga per la terraferma"
    ],
-   "x": "Prima crescono le zampe posteriori, poi quelle anteriori. Alla fine la coda viene riassorbita e riciclata come materiale."
+   "x": "Prima crescono le zampe posteriori, poi quelle anteriori. Alla fine la coda viene riassorbita e riciclata come materiale.",
+   "k": "Girino: crescono prima le zampe posteriori"
   }
  },
  {
@@ -544,7 +593,8 @@
     "Strauß",
     "Uhu"
    ],
-   "x": "Kalmare der Tiefsee haben Augen so groß wie ein Fußball, etwa 27 cm. Damit erkennen sie im Dunkeln die Pottwale, die sie jagen."
+   "x": "Kalmare der Tiefsee haben Augen so groß wie ein Fußball, etwa 27 cm. Damit erkennen sie im Dunkeln die Pottwale, die sie jagen.",
+   "k": "Riesenkalmar: Augen so groß wie ein Fußball"
   },
   "en": {
    "q": "Which animal has the largest eyes in the world?",
@@ -554,7 +604,8 @@
     "Ostrich",
     "Eagle owl"
    ],
-   "x": "Deep-sea squids have eyes as big as a football, about 27 cm. They use them to spot the sperm whales that hunt them in the dark."
+   "x": "Deep-sea squids have eyes as big as a football, about 27 cm. They use them to spot the sperm whales that hunt them in the dark.",
+   "k": "Colossal squid: eyes as big as a football"
   },
   "fr": {
    "q": "Quel animal a les plus grands yeux du monde ?",
@@ -564,7 +615,8 @@
     "Autruche",
     "Grand-duc"
    ],
-   "x": "Les calmars des abysses ont des yeux grands comme un ballon de foot, environ 27 cm. Ils repèrent ainsi dans le noir les cachalots qui les chassent."
+   "x": "Les calmars des abysses ont des yeux grands comme un ballon de foot, environ 27 cm. Ils repèrent ainsi dans le noir les cachalots qui les chassent.",
+   "k": "Calmar colossal : yeux grands comme un ballon"
   },
   "es": {
    "q": "¿Qué animal tiene los ojos más grandes del mundo?",
@@ -574,7 +626,8 @@
     "Avestruz",
     "Búho real"
    ],
-   "x": "Los calamares de las profundidades tienen ojos del tamaño de un balón, unos 27 cm. Así ven en la oscuridad a los cachalotes que los cazan."
+   "x": "Los calamares de las profundidades tienen ojos del tamaño de un balón, unos 27 cm. Así ven en la oscuridad a los cachalotes que los cazan.",
+   "k": "Calamar colosal: ojos como un balón"
   },
   "pt": {
    "q": "Que animal tem os maiores olhos do mundo?",
@@ -584,7 +637,8 @@
     "Avestruz",
     "Bufo-real"
    ],
-   "x": "As lulas das profundezas têm olhos do tamanho de uma bola, uns 27 cm. Assim elas enxergam no escuro os cachalotes que as caçam."
+   "x": "As lulas das profundezas têm olhos do tamanho de uma bola, uns 27 cm. Assim elas enxergam no escuro os cachalotes que as caçam.",
+   "k": "Lula-colossal: olhos do tamanho de uma bola"
   },
   "ja": {
    "q": "世界でいちばん大きな目をもつ動物は？",
@@ -594,7 +648,8 @@
     "ダチョウ",
     "ワシミミズク"
    ],
-   "x": "深海のイカの目はサッカーボールほど、約27センチ。暗やみで自分を狙うマッコウクジラを見つけるためです。"
+   "x": "深海のイカの目はサッカーボールほど、約27センチ。暗やみで自分を狙うマッコウクジラを見つけるためです。",
+   "k": "ダイオウホウズキイカ：目はボールほど"
   },
   "it": {
    "q": "Quale animale ha gli occhi più grandi del mondo?",
@@ -604,7 +659,8 @@
     "Struzzo",
     "Gufo reale"
    ],
-   "x": "I calamari degli abissi hanno occhi grandi come un pallone, circa 27 cm. Li usano per vedere al buio i capodogli che li cacciano."
+   "x": "I calamari degli abissi hanno occhi grandi come un pallone, circa 27 cm. Li usano per vedere al buio i capodogli che li cacciano.",
+   "k": "Calamaro colossale: occhi grandi come un pallone"
   }
  },
  {
@@ -620,7 +676,8 @@
     "Wildschwein",
     "Maulwurf"
    ],
-   "x": "Füchse ziehen gern in Dachsbaue ein. Manchmal wohnen beide sogar gleichzeitig darin – in verschiedenen Röhren."
+   "x": "Füchse ziehen gern in Dachsbaue ein. Manchmal wohnen beide sogar gleichzeitig darin – in verschiedenen Röhren.",
+   "k": "Füchse: wohnen gern im Dachsbau"
   },
   "en": {
    "q": "Who often digs the den that a fox later lives in?",
@@ -630,7 +687,8 @@
     "Wild boar",
     "Mole"
    ],
-   "x": "Foxes like to move into badger setts. Sometimes both even live there at the same time – in different tunnels."
+   "x": "Foxes like to move into badger setts. Sometimes both even live there at the same time – in different tunnels.",
+   "k": "Foxes: like to live in badger setts"
   },
   "fr": {
    "q": "Qui creuse souvent le terrier où vivra ensuite un renard ?",
@@ -640,7 +698,8 @@
     "Le sanglier",
     "La taupe"
    ],
-   "x": "Le renard s’installe volontiers dans un terrier de blaireau. Parfois, les deux y vivent même en même temps – dans des galeries différentes."
+   "x": "Le renard s’installe volontiers dans un terrier de blaireau. Parfois, les deux y vivent même en même temps – dans des galeries différentes.",
+   "k": "Renards : aiment les terriers de blaireau"
   },
   "es": {
    "q": "¿Quién suele cavar la madriguera donde después vive un zorro?",
@@ -650,7 +709,8 @@
     "El jabalí",
     "El topo"
    ],
-   "x": "Los zorros se mudan con gusto a madrigueras de tejón. A veces viven los dos a la vez, en túneles distintos."
+   "x": "Los zorros se mudan con gusto a madrigueras de tejón. A veces viven los dos a la vez, en túneles distintos.",
+   "k": "Zorros: viven a gusto en tejoneras"
   },
   "pt": {
    "q": "Quem costuma cavar a toca onde depois mora uma raposa?",
@@ -660,7 +720,8 @@
     "O javali",
     "A toupeira"
    ],
-   "x": "As raposas adoram se mudar para tocas de texugo. Às vezes os dois moram lá ao mesmo tempo, em túneis diferentes."
+   "x": "As raposas adoram se mudar para tocas de texugo. Às vezes os dois moram lá ao mesmo tempo, em túneis diferentes.",
+   "k": "Raposas: gostam de tocas de texugo"
   },
   "ja": {
    "q": "あとでキツネがすむ巣穴を、よく掘っているのは？",
@@ -670,7 +731,8 @@
     "イノシシ",
     "モグラ"
    ],
-   "x": "キツネはアナグマの巣穴に引っこすのが好き。ときには両方が同時に、別々のトンネルで暮らしていることも。"
+   "x": "キツネはアナグマの巣穴に引っこすのが好き。ときには両方が同時に、別々のトンネルで暮らしていることも。",
+   "k": "キツネ：アナグマの巣穴に住みたがる"
   },
   "it": {
    "q": "Chi scava spesso la tana in cui poi vive una volpe?",
@@ -680,7 +742,8 @@
     "Il cinghiale",
     "La talpa"
    ],
-   "x": "Le volpi si trasferiscono volentieri nelle tane dei tassi. A volte ci vivono tutti e due insieme, in gallerie diverse."
+   "x": "Le volpi si trasferiscono volentieri nelle tane dei tassi. A volte ci vivono tutti e due insieme, in gallerie diverse.",
+   "k": "Volpi: amano le tane dei tassi"
   }
  },
  {
@@ -696,7 +759,8 @@
     "So sehen sie Fische besser",
     "Damit Feinde sie für Äste halten"
    ],
-   "x": "Auf einem Bein halten Flamingos die Balance fast ohne Muskelkraft. Über das eingezogene Bein verlieren sie außerdem weniger Wärme."
+   "x": "Auf einem Bein halten Flamingos die Balance fast ohne Muskelkraft. Über das eingezogene Bein verlieren sie außerdem weniger Wärme.",
+   "k": "Flamingos: auf einem Bein spart Kraft und Wärme"
   },
   "en": {
    "q": "Why do flamingos often stand on one leg?",
@@ -706,7 +770,8 @@
     "They can see fish better",
     "So enemies think they are branches"
    ],
-   "x": "On one leg, flamingos keep their balance with almost no muscle effort. They also lose less heat through the tucked-up leg."
+   "x": "On one leg, flamingos keep their balance with almost no muscle effort. They also lose less heat through the tucked-up leg.",
+   "k": "Flamingos: one leg saves energy and heat"
   },
   "fr": {
    "q": "Pourquoi les flamants se tiennent-ils souvent sur une patte ?",
@@ -716,7 +781,8 @@
     "Ils voient mieux les poissons",
     "Pour que les ennemis les prennent pour des branches"
    ],
-   "x": "Sur une patte, le flamant garde l’équilibre presque sans effort musculaire. Et il perd moins de chaleur par la patte repliée."
+   "x": "Sur une patte, le flamant garde l’équilibre presque sans effort musculaire. Et il perd moins de chaleur par la patte repliée.",
+   "k": "Flamants : une patte économise énergie et chaleur"
   },
   "es": {
    "q": "¿Por qué los flamencos se apoyan a menudo en una pata?",
@@ -726,7 +792,8 @@
     "Ven mejor los peces",
     "Para que los enemigos los tomen por ramas"
    ],
-   "x": "Sobre una pata, el flamenco mantiene el equilibrio casi sin esfuerzo muscular. Además pierde menos calor por la pata recogida."
+   "x": "Sobre una pata, el flamenco mantiene el equilibrio casi sin esfuerzo muscular. Además pierde menos calor por la pata recogida.",
+   "k": "Flamencos: una pata ahorra energía y calor"
   },
   "pt": {
    "q": "Por que os flamingos muitas vezes ficam numa perna só?",
@@ -736,7 +803,8 @@
     "Enxergam melhor os peixes",
     "Para os inimigos acharem que são galhos"
    ],
-   "x": "Numa perna só, o flamingo se equilibra quase sem esforço muscular. Além disso, perde menos calor pela perna recolhida."
+   "x": "Numa perna só, o flamingo se equilibra quase sem esforço muscular. Além disso, perde menos calor pela perna recolhida.",
+   "k": "Flamingos: uma perna poupa energia e calor"
   },
   "ja": {
    "q": "フラミンゴがよく片脚で立つのはなぜ？",
@@ -746,7 +814,8 @@
     "魚がよく見える",
     "敵に枝だと思わせる"
    ],
-   "x": "片脚だと、フラミンゴは筋肉をほとんど使わずにバランスをとれます。さらに、引っこめた脚から熱が逃げにくくなります。"
+   "x": "片脚だと、フラミンゴは筋肉をほとんど使わずにバランスをとれます。さらに、引っこめた脚から熱が逃げにくくなります。",
+   "k": "フラミンゴ：片脚で力と熱を節約"
   },
   "it": {
    "q": "Perché i fenicotteri stanno spesso su una zampa sola?",
@@ -756,7 +825,8 @@
     "Vedono meglio i pesci",
     "Per sembrare rami ai nemici"
    ],
-   "x": "Su una zampa sola il fenicottero sta in equilibrio quasi senza sforzo muscolare. In più perde meno calore dalla zampa raccolta."
+   "x": "Su una zampa sola il fenicottero sta in equilibrio quasi senza sforzo muscolare. In più perde meno calore dalla zampa raccolta.",
+   "k": "Fenicotteri: una zampa risparmia energia e calore"
   }
  },
  {
@@ -772,7 +842,8 @@
     "Tintenfisch",
     "Hai"
    ],
-   "x": "Tintenfische sind Weichtiere, verwandt mit Schnecken. Seepferdchen und Aale sehen ungewöhnlich aus, sind aber echte Fische."
+   "x": "Tintenfische sind Weichtiere, verwandt mit Schnecken. Seepferdchen und Aale sehen ungewöhnlich aus, sind aber echte Fische.",
+   "k": "Tintenfisch: kein Fisch, sondern Weichtier"
   },
   "en": {
    "q": "Which animal is NOT a fish?",
@@ -782,7 +853,8 @@
     "Squid",
     "Shark"
    ],
-   "x": "Squids are molluscs, related to snails. Seahorses and eels look unusual, but they are real fish."
+   "x": "Squids are molluscs, related to snails. Seahorses and eels look unusual, but they are real fish.",
+   "k": "Squid: not a fish but a mollusc"
   },
   "fr": {
    "q": "Quel animal n’est PAS un poisson ?",
@@ -792,7 +864,8 @@
     "Calmar",
     "Requin"
    ],
-   "x": "Le calmar est un mollusque, parent de l’escargot. L’hippocampe et l’anguille ont l’air étranges, mais ce sont de vrais poissons."
+   "x": "Le calmar est un mollusque, parent de l’escargot. L’hippocampe et l’anguille ont l’air étranges, mais ce sont de vrais poissons.",
+   "k": "Calmar : pas un poisson mais un mollusque"
   },
   "es": {
    "q": "¿Qué animal NO es un pez?",
@@ -802,7 +875,8 @@
     "Calamar",
     "Tiburón"
    ],
-   "x": "El calamar es un molusco, pariente del caracol. El caballito de mar y la anguila parecen raros, pero son peces de verdad."
+   "x": "El calamar es un molusco, pariente del caracol. El caballito de mar y la anguila parecen raros, pero son peces de verdad.",
+   "k": "Calamar: no es un pez, es un molusco"
   },
   "pt": {
    "q": "Que animal NÃO é um peixe?",
@@ -812,7 +886,8 @@
     "Lula",
     "Tubarão"
    ],
-   "x": "A lula é um molusco, parente do caracol. O cavalo-marinho e a enguia parecem estranhos, mas são peixes de verdade."
+   "x": "A lula é um molusco, parente do caracol. O cavalo-marinho e a enguia parecem estranhos, mas são peixes de verdade.",
+   "k": "Lula: não é peixe, é molusco"
   },
   "ja": {
    "q": "魚ではないのはどれ？",
@@ -822,7 +897,8 @@
     "イカ",
     "サメ"
    ],
-   "x": "イカは軟体動物で、カタツムリの親せき。タツノオトシゴやウナギは変わった姿ですが、れっきとした魚です。"
+   "x": "イカは軟体動物で、カタツムリの親せき。タツノオトシゴやウナギは変わった姿ですが、れっきとした魚です。",
+   "k": "イカ：魚ではなく軟体動物"
   },
   "it": {
    "q": "Quale animale NON è un pesce?",
@@ -832,7 +908,8 @@
     "Calamaro",
     "Squalo"
    ],
-   "x": "Il calamaro è un mollusco, parente della chiocciola. Cavallucci marini e anguille sembrano strani, ma sono veri pesci."
+   "x": "Il calamaro è un mollusco, parente della chiocciola. Cavallucci marini e anguille sembrano strani, ma sono veri pesci.",
+   "k": "Calamaro: non è un pesce ma un mollusco"
   }
  },
  {
@@ -848,7 +925,8 @@
     "Schnabeltier",
     "Pinguin"
    ],
-   "x": "Pinguine sind Vögel, die nicht fliegen können. Das Schnabeltier legt zwar Eier, säugt seine Jungen aber und ist ein Säugetier."
+   "x": "Pinguine sind Vögel, die nicht fliegen können. Das Schnabeltier legt zwar Eier, säugt seine Jungen aber und ist ein Säugetier.",
+   "k": "Pinguin: Vogel, kein Säugetier"
   },
   "en": {
    "q": "Which animal is NOT a mammal?",
@@ -858,7 +936,8 @@
     "Platypus",
     "Penguin"
    ],
-   "x": "Penguins are birds that can’t fly. The platypus lays eggs, but it feeds its young with milk and is a mammal."
+   "x": "Penguins are birds that can’t fly. The platypus lays eggs, but it feeds its young with milk and is a mammal.",
+   "k": "Penguin: a bird, not a mammal"
   },
   "fr": {
    "q": "Quel animal n’est PAS un mammifère ?",
@@ -868,7 +947,8 @@
     "Ornithorynque",
     "Manchot"
    ],
-   "x": "Le manchot est un oiseau qui ne vole pas. L’ornithorynque pond des œufs, mais il allaite ses petits : c’est un mammifère."
+   "x": "Le manchot est un oiseau qui ne vole pas. L’ornithorynque pond des œufs, mais il allaite ses petits : c’est un mammifère.",
+   "k": "Manchot : un oiseau, pas un mammifère"
   },
   "es": {
    "q": "¿Qué animal NO es un mamífero?",
@@ -878,7 +958,8 @@
     "Ornitorrinco",
     "Pingüino"
    ],
-   "x": "El pingüino es un ave que no vuela. El ornitorrinco pone huevos, pero amamanta a sus crías y es un mamífero."
+   "x": "El pingüino es un ave que no vuela. El ornitorrinco pone huevos, pero amamanta a sus crías y es un mamífero.",
+   "k": "Pingüino: un ave, no un mamífero"
   },
   "pt": {
    "q": "Que animal NÃO é um mamífero?",
@@ -888,7 +969,8 @@
     "Ornitorrinco",
     "Pinguim"
    ],
-   "x": "O pinguim é uma ave que não voa. O ornitorrinco põe ovos, mas amamenta os filhotes e é um mamífero."
+   "x": "O pinguim é uma ave que não voa. O ornitorrinco põe ovos, mas amamenta os filhotes e é um mamífero.",
+   "k": "Pinguim: ave, não mamífero"
   },
   "ja": {
    "q": "哺乳類ではないのはどれ？",
@@ -898,7 +980,8 @@
     "カモノハシ",
     "ペンギン"
    ],
-   "x": "ペンギンは飛べない鳥。カモノハシは卵を産みますが、子どもをお乳で育てる哺乳類です。"
+   "x": "ペンギンは飛べない鳥。カモノハシは卵を産みますが、子どもをお乳で育てる哺乳類です。",
+   "k": "ペンギン：哺乳類ではなく鳥"
   },
   "it": {
    "q": "Quale animale NON è un mammifero?",
@@ -908,7 +991,8 @@
     "Ornitorinco",
     "Pinguino"
    ],
-   "x": "Il pinguino è un uccello che non vola. L’ornitorinco depone uova, ma allatta i piccoli ed è un mammifero."
+   "x": "Il pinguino è un uccello che non vola. L’ornitorinco depone uova, ma allatta i piccoli ed è un mammifero.",
+   "k": "Pinguino: un uccello, non un mammifero"
   }
  },
  {
@@ -924,7 +1008,8 @@
     "Über 100-mal so weit",
     "Etwa 10.000-mal so weit"
    ],
-   "x": "Ein Floh springt rund 30 cm weit – über hundertmal seine Körperlänge. Ein Mensch müsste dafür weiter springen als ein Fußballfeld lang ist."
+   "x": "Ein Floh springt rund 30 cm weit – über hundertmal seine Körperlänge. Ein Mensch müsste dafür weiter springen als ein Fußballfeld lang ist.",
+   "k": "Floh: springt 100-mal so weit, wie er lang ist"
   },
   "en": {
    "q": "Guess: how far does a flea jump compared to its size?",
@@ -934,7 +1019,8 @@
     "Over 100 times as far",
     "About 10,000 times as far"
    ],
-   "x": "A flea jumps about 30 cm – over a hundred times its body length. A human would have to jump further than a football pitch is long."
+   "x": "A flea jumps about 30 cm – over a hundred times its body length. A human would have to jump further than a football pitch is long.",
+   "k": "Flea: jumps 100 times its body length"
   },
   "fr": {
    "q": "Devine : à quelle distance une puce saute-t-elle par rapport à sa taille ?",
@@ -944,7 +1030,8 @@
     "Plus de 100 fois",
     "Environ 10 000 fois"
    ],
-   "x": "Une puce saute environ 30 cm – plus de cent fois la longueur de son corps. Un humain devrait sauter plus loin que la longueur d’un terrain de foot."
+   "x": "Une puce saute environ 30 cm – plus de cent fois la longueur de son corps. Un humain devrait sauter plus loin que la longueur d’un terrain de foot.",
+   "k": "Puce : saute 100 fois sa longueur"
   },
   "es": {
    "q": "Adivina: ¿cuánto salta una pulga en relación con su tamaño?",
@@ -954,7 +1041,8 @@
     "Más de 100 veces",
     "Unas 10.000 veces"
    ],
-   "x": "Una pulga salta unos 30 cm, más de cien veces su longitud. Un humano tendría que saltar más que lo que mide un campo de fútbol."
+   "x": "Una pulga salta unos 30 cm, más de cien veces su longitud. Un humano tendría que saltar más que lo que mide un campo de fútbol.",
+   "k": "Pulga: salta 100 veces su longitud"
   },
   "pt": {
    "q": "Adivinhe: quanto pula uma pulga em relação ao seu tamanho?",
@@ -964,7 +1052,8 @@
     "Mais de 100 vezes",
     "Umas 10.000 vezes"
    ],
-   "x": "Uma pulga pula uns 30 cm – mais de cem vezes o seu comprimento. Um humano teria de pular mais que o comprimento de um campo de futebol."
+   "x": "Uma pulga pula uns 30 cm – mais de cem vezes o seu comprimento. Um humano teria de pular mais que o comprimento de um campo de futebol.",
+   "k": "Pulga: salta 100 vezes seu tamanho"
   },
   "ja": {
    "q": "予想してみよう：ノミは体の大きさの何倍跳ぶ？",
@@ -974,7 +1063,8 @@
     "100倍以上",
     "約1万倍"
    ],
-   "x": "ノミは約30センチ跳びます。体長の100倍以上です。人間なら、サッカー場の長さより遠くまで跳ぶことになります。"
+   "x": "ノミは約30センチ跳びます。体長の100倍以上です。人間なら、サッカー場の長さより遠くまで跳ぶことになります。",
+   "k": "ノミ：体長の100倍跳ぶ"
   },
   "it": {
    "q": "Indovina: quanto salta una pulce rispetto alla sua taglia?",
@@ -984,7 +1074,8 @@
     "Oltre 100 volte",
     "Circa 10.000 volte"
    ],
-   "x": "Una pulce salta circa 30 cm, oltre cento volte la sua lunghezza. Una persona dovrebbe saltare più di un campo da calcio."
+   "x": "Una pulce salta circa 30 cm, oltre cento volte la sua lunghezza. Una persona dovrebbe saltare più di un campo da calcio.",
+   "k": "Pulce: salta 100 volte la sua lunghezza"
   }
  },
  {
@@ -1000,7 +1091,8 @@
     "Raupe – Ei – Puppe – Falter",
     "Ei – Raupe – Falter – Puppe"
    ],
-   "x": "Aus dem Ei schlüpft die Raupe, sie frisst und wächst, verpuppt sich, und in der Puppe wird ihr ganzer Körper zum Falter umgebaut."
+   "x": "Aus dem Ei schlüpft die Raupe, sie frisst und wächst, verpuppt sich, und in der Puppe wird ihr ganzer Körper zum Falter umgebaut.",
+   "k": "Schmetterling: Ei – Raupe – Puppe – Falter"
   },
   "en": {
    "q": "Which order is right for a butterfly?",
@@ -1010,7 +1102,8 @@
     "Caterpillar – egg – pupa – butterfly",
     "Egg – caterpillar – butterfly – pupa"
    ],
-   "x": "A caterpillar hatches from the egg, eats and grows, turns into a pupa, and inside the pupa its whole body is rebuilt into a butterfly."
+   "x": "A caterpillar hatches from the egg, eats and grows, turns into a pupa, and inside the pupa its whole body is rebuilt into a butterfly.",
+   "k": "Butterfly: egg – caterpillar – pupa – butterfly"
   },
   "fr": {
    "q": "Quel est le bon ordre chez le papillon ?",
@@ -1020,7 +1113,8 @@
     "Chenille – œuf – chrysalide – papillon",
     "Œuf – chenille – papillon – chrysalide"
    ],
-   "x": "La chenille sort de l’œuf, mange et grandit, devient chrysalide, et dans la chrysalide tout son corps se transforme en papillon."
+   "x": "La chenille sort de l’œuf, mange et grandit, devient chrysalide, et dans la chrysalide tout son corps se transforme en papillon.",
+   "k": "Papillon : œuf – chenille – chrysalide – papillon"
   },
   "es": {
    "q": "¿Qué orden es el correcto en la mariposa?",
@@ -1030,7 +1124,8 @@
     "Oruga – huevo – crisálida – mariposa",
     "Huevo – oruga – mariposa – crisálida"
    ],
-   "x": "Del huevo sale la oruga, que come y crece, se convierte en crisálida, y dentro todo su cuerpo se transforma en mariposa."
+   "x": "Del huevo sale la oruga, que come y crece, se convierte en crisálida, y dentro todo su cuerpo se transforma en mariposa.",
+   "k": "Mariposa: huevo – oruga – crisálida – mariposa"
   },
   "pt": {
    "q": "Qual é a ordem certa na borboleta?",
@@ -1040,7 +1135,8 @@
     "Lagarta – ovo – crisálida – borboleta",
     "Ovo – lagarta – borboleta – crisálida"
    ],
-   "x": "Do ovo sai a lagarta, que come e cresce, vira crisálida, e lá dentro todo o corpo se transforma em borboleta."
+   "x": "Do ovo sai a lagarta, que come e cresce, vira crisálida, e lá dentro todo o corpo se transforma em borboleta.",
+   "k": "Borboleta: ovo – lagarta – crisálida – borboleta"
   },
   "ja": {
    "q": "チョウの正しい順番はどれ？",
@@ -1050,7 +1146,8 @@
     "幼虫 – 卵 – さなぎ – チョウ",
     "卵 – 幼虫 – チョウ – さなぎ"
    ],
-   "x": "卵から幼虫がかえり、食べて大きくなってさなぎになります。さなぎの中で、体全体がチョウに作りかえられます。"
+   "x": "卵から幼虫がかえり、食べて大きくなってさなぎになります。さなぎの中で、体全体がチョウに作りかえられます。",
+   "k": "チョウ：卵→幼虫→さなぎ→成虫"
   },
   "it": {
    "q": "Qual è l’ordine giusto per una farfalla?",
@@ -1060,7 +1157,8 @@
     "Bruco – uovo – crisalide – farfalla",
     "Uovo – bruco – farfalla – crisalide"
    ],
-   "x": "Dall’uovo esce il bruco, che mangia e cresce, diventa crisalide, e dentro la crisalide tutto il corpo si trasforma in farfalla."
+   "x": "Dall’uovo esce il bruco, che mangia e cresce, diventa crisalide, e dentro la crisalide tutto il corpo si trasforma in farfalla.",
+   "k": "Farfalla: uovo – bruco – crisalide – farfalla"
   }
  },
  {
@@ -1074,7 +1172,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Ein Mythos! Goldfische können sich Dinge monatelang merken und lassen sich sogar auf Töne oder Farben trainieren."
+   "x": "Ein Mythos! Goldfische können sich Dinge monatelang merken und lassen sich sogar auf Töne oder Farben trainieren.",
+   "k": "Goldfische: erinnern sich monatelang"
   },
   "en": {
    "q": "True or false? Goldfish have a memory of only three seconds.",
@@ -1082,7 +1181,8 @@
     "True",
     "False"
    ],
-   "x": "A myth! Goldfish can remember things for months and can even be trained to respond to sounds or colours."
+   "x": "A myth! Goldfish can remember things for months and can even be trained to respond to sounds or colours.",
+   "k": "Goldfish: remember things for months"
   },
   "fr": {
    "q": "Vrai ou faux ? Le poisson rouge n’a que trois secondes de mémoire.",
@@ -1090,7 +1190,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Un mythe ! Le poisson rouge se souvient de choses pendant des mois et peut même être dressé à réagir à des sons ou des couleurs."
+   "x": "Un mythe ! Le poisson rouge se souvient de choses pendant des mois et peut même être dressé à réagir à des sons ou des couleurs.",
+   "k": "Poissons rouges : se souviennent des mois"
   },
   "es": {
    "q": "¿Verdadero o falso? Los peces de colores solo tienen tres segundos de memoria.",
@@ -1098,7 +1199,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "¡Un mito! Los peces de colores recuerdan cosas durante meses e incluso se les puede entrenar con sonidos o colores."
+   "x": "¡Un mito! Los peces de colores recuerdan cosas durante meses e incluso se les puede entrenar con sonidos o colores.",
+   "k": "Peces de colores: recuerdan durante meses"
   },
   "pt": {
    "q": "Verdadeiro ou falso? O peixinho-dourado tem memória de só três segundos.",
@@ -1106,7 +1208,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Um mito! Os peixinhos-dourados lembram coisas por meses e podem até ser treinados com sons ou cores."
+   "x": "Um mito! Os peixinhos-dourados lembram coisas por meses e podem até ser treinados com sons ou cores.",
+   "k": "Peixinhos-dourados: lembram por meses"
   },
   "ja": {
    "q": "正しい？まちがい？ 金魚の記憶はたった3秒しかもたない。",
@@ -1114,7 +1217,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "これは俗説！金魚は何か月も物事を覚えていられ、音や色に反応するよう訓練することもできます。"
+   "x": "これは俗説！金魚は何か月も物事を覚えていられ、音や色に反応するよう訓練することもできます。",
+   "k": "金魚：何か月も覚えている"
   },
   "it": {
    "q": "Vero o falso? I pesci rossi hanno una memoria di soli tre secondi.",
@@ -1122,7 +1226,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Un mito! I pesci rossi ricordano le cose per mesi e possono persino essere addestrati a rispondere a suoni o colori."
+   "x": "Un mito! I pesci rossi ricordano le cose per mesi e possono persino essere addestrati a rispondere a suoni o colori.",
+   "k": "Pesci rossi: ricordano per mesi"
   }
  },
  {
@@ -1138,7 +1243,8 @@
     "Hummeln können stechen",
     "Strauße stecken bei Gefahr den Kopf in den Sand"
    ],
-   "x": "Ein Mythos: Strauße legen sich bei Gefahr flach auf den Boden – oder rennen mit bis zu 70 km/h davon."
+   "x": "Ein Mythos: Strauße legen sich bei Gefahr flach auf den Boden – oder rennen mit bis zu 70 km/h davon.",
+   "k": "Strauß: steckt den Kopf nicht in den Sand"
   },
   "en": {
    "q": "Which statement is FALSE?",
@@ -1148,7 +1254,8 @@
     "Bumblebees can sting",
     "Ostriches bury their heads in the sand when in danger"
    ],
-   "x": "A myth: in danger, ostriches lie flat on the ground – or run away at up to 70 km/h."
+   "x": "A myth: in danger, ostriches lie flat on the ground – or run away at up to 70 km/h.",
+   "k": "Ostrich: doesn't bury its head in the sand"
   },
   "fr": {
    "q": "Quelle affirmation est FAUSSE ?",
@@ -1158,7 +1265,8 @@
     "Les bourdons peuvent piquer",
     "L’autruche cache sa tête dans le sable en cas de danger"
    ],
-   "x": "Un mythe : en cas de danger, l’autruche se couche à plat sur le sol – ou s’enfuit à 70 km/h."
+   "x": "Un mythe : en cas de danger, l’autruche se couche à plat sur le sol – ou s’enfuit à 70 km/h.",
+   "k": "Autruche : ne met pas la tête dans le sable"
   },
   "es": {
    "q": "¿Qué afirmación es FALSA?",
@@ -1168,7 +1276,8 @@
     "Los abejorros pueden picar",
     "El avestruz esconde la cabeza en la arena ante el peligro"
    ],
-   "x": "Un mito: ante el peligro, el avestruz se tumba en el suelo o huye corriendo a hasta 70 km/h."
+   "x": "Un mito: ante el peligro, el avestruz se tumba en el suelo o huye corriendo a hasta 70 km/h.",
+   "k": "Avestruz: no esconde la cabeza en la arena"
   },
   "pt": {
    "q": "Qual afirmação é FALSA?",
@@ -1178,7 +1287,8 @@
     "As mamangavas podem picar",
     "O avestruz enterra a cabeça na areia quando há perigo"
    ],
-   "x": "Um mito: em perigo, o avestruz se deita no chão ou foge correndo a até 70 km/h."
+   "x": "Um mito: em perigo, o avestruz se deita no chão ou foge correndo a até 70 km/h.",
+   "k": "Avestruz: não enterra a cabeça na areia"
   },
   "ja": {
    "q": "まちがっているのはどれ？",
@@ -1188,7 +1298,8 @@
     "マルハナバチは刺すことがある",
     "ダチョウは危ないと頭を砂にうめる"
    ],
-   "x": "これは俗説。ダチョウは危ないときは地面にふせるか、時速70キロで走って逃げます。"
+   "x": "これは俗説。ダチョウは危ないときは地面にふせるか、時速70キロで走って逃げます。",
+   "k": "ダチョウ：頭を砂にうめない"
   },
   "it": {
    "q": "Quale affermazione è FALSA?",
@@ -1198,7 +1309,8 @@
     "I bombi possono pungere",
     "Lo struzzo nasconde la testa nella sabbia quando c’è pericolo"
    ],
-   "x": "Un mito: in caso di pericolo lo struzzo si sdraia a terra, oppure scappa correndo fino a 70 km/h."
+   "x": "Un mito: in caso di pericolo lo struzzo si sdraia a terra, oppure scappa correndo fino a 70 km/h.",
+   "k": "Struzzo: non nasconde la testa nella sabbia"
   }
  },
  {
@@ -1214,7 +1326,8 @@
     "Bis zu doppelt so weit, wie es lang ist",
     "Zehnmal so weit, wie es lang ist"
    ],
-   "x": "Bis zur doppelten Körperlänge (ohne Schwanz) – und das in einem Bruchteil einer Sekunde. Die klebrige Zungenspitze hält auch große Insekten fest."
+   "x": "Bis zur doppelten Körperlänge (ohne Schwanz) – und das in einem Bruchteil einer Sekunde. Die klebrige Zungenspitze hält auch große Insekten fest.",
+   "k": "Chamäleon: Zunge doppelt so lang wie der Körper"
   },
   "en": {
    "q": "Guess: how far can a chameleon shoot out its tongue?",
@@ -1224,7 +1337,8 @@
     "Up to twice its body length",
     "Ten times its body length"
    ],
-   "x": "Up to twice its body length (without the tail) – in a fraction of a second. The sticky tongue tip holds even large insects."
+   "x": "Up to twice its body length (without the tail) – in a fraction of a second. The sticky tongue tip holds even large insects.",
+   "k": "Chameleon: tongue twice its body length"
   },
   "fr": {
    "q": "Devine : jusqu’où un caméléon peut-il projeter sa langue ?",
@@ -1234,7 +1348,8 @@
     "Jusqu’à deux fois sa longueur",
     "Dix fois sa longueur"
    ],
-   "x": "Jusqu’à deux fois la longueur de son corps (sans la queue) – en une fraction de seconde. Le bout collant retient même de gros insectes."
+   "x": "Jusqu’à deux fois la longueur de son corps (sans la queue) – en une fraction de seconde. Le bout collant retient même de gros insectes.",
+   "k": "Caméléon : langue deux fois son corps"
   },
   "es": {
    "q": "Adivina: ¿hasta dónde lanza un camaleón su lengua?",
@@ -1244,7 +1359,8 @@
     "Hasta el doble de su longitud",
     "Diez veces su longitud"
    ],
-   "x": "Hasta el doble de la longitud de su cuerpo (sin la cola), en una fracción de segundo. La punta pegajosa sujeta incluso insectos grandes."
+   "x": "Hasta el doble de la longitud de su cuerpo (sin la cola), en una fracción de segundo. La punta pegajosa sujeta incluso insectos grandes.",
+   "k": "Camaleón: lengua el doble de su cuerpo"
   },
   "pt": {
    "q": "Adivinhe: até onde o camaleão lança a língua?",
@@ -1254,7 +1370,8 @@
     "Até o dobro do comprimento dele",
     "Dez vezes o comprimento dele"
    ],
-   "x": "Até o dobro do comprimento do corpo (sem a cauda), numa fração de segundo. A ponta grudenta segura até insetos grandes."
+   "x": "Até o dobro do comprimento do corpo (sem a cauda), numa fração de segundo. A ponta grudenta segura até insetos grandes.",
+   "k": "Camaleão: língua com o dobro do corpo"
   },
   "ja": {
    "q": "予想してみよう：カメレオンは舌をどこまでのばせる？",
@@ -1264,7 +1381,8 @@
     "体長の2倍まで",
     "体長の10倍"
    ],
-   "x": "体長（しっぽをのぞく）の2倍まで、一瞬でのばします。ねばねばの舌の先は、大きな虫もしっかりつかまえます。"
+   "x": "体長（しっぽをのぞく）の2倍まで、一瞬でのばします。ねばねばの舌の先は、大きな虫もしっかりつかまえます。",
+   "k": "カメレオン：舌は体の2倍"
   },
   "it": {
    "q": "Indovina: fin dove arriva la lingua del camaleonte?",
@@ -1274,7 +1392,8 @@
     "Fino al doppio della sua lunghezza",
     "Dieci volte la sua lunghezza"
    ],
-   "x": "Fino al doppio della lunghezza del corpo (senza coda), in una frazione di secondo. La punta appiccicosa trattiene anche insetti grandi."
+   "x": "Fino al doppio della lunghezza del corpo (senza coda), in una frazione di secondo. La punta appiccicosa trattiene anche insetti grandi.",
+   "k": "Camaleonte: lingua lunga il doppio del corpo"
   }
  },
  {
@@ -1290,7 +1409,8 @@
     "Etwa 20 Billionen",
     "Etwa 20 Billiarden"
    ],
-   "x": "Forscher schätzten 2022: rund 20 Billiarden – eine 2 mit 16 Nullen. Das sind etwa 2,5 Millionen Ameisen pro Mensch."
+   "x": "Forscher schätzten 2022: rund 20 Billiarden – eine 2 mit 16 Nullen. Das sind etwa 2,5 Millionen Ameisen pro Mensch.",
+   "k": "Ameisen: 20 Billiarden auf der Erde"
   },
   "en": {
    "q": "Guess: roughly how many ants live on Earth?",
@@ -1300,7 +1420,8 @@
     "About 20 trillion",
     "About 20 quadrillion"
    ],
-   "x": "Researchers estimated in 2022: around 20 quadrillion – a 2 with 16 zeros. That’s about 2.5 million ants per person."
+   "x": "Researchers estimated in 2022: around 20 quadrillion – a 2 with 16 zeros. That’s about 2.5 million ants per person.",
+   "k": "Ants: 20 quadrillion on Earth"
   },
   "fr": {
    "q": "Devine : combien de fourmis vivent environ sur Terre ?",
@@ -1310,7 +1431,8 @@
     "Environ 20 000 milliards",
     "Environ 20 millions de milliards"
    ],
-   "x": "Selon une estimation de 2022 : environ 20 millions de milliards – un 2 suivi de 16 zéros. Soit environ 2,5 millions de fourmis par personne."
+   "x": "Selon une estimation de 2022 : environ 20 millions de milliards – un 2 suivi de 16 zéros. Soit environ 2,5 millions de fourmis par personne.",
+   "k": "Fourmis : 20 millions de milliards sur Terre"
   },
   "es": {
    "q": "Adivina: ¿cuántas hormigas viven aproximadamente en la Tierra?",
@@ -1320,7 +1442,8 @@
     "Unos 20 billones",
     "Unos 20.000 billones"
    ],
-   "x": "Según una estimación de 2022: unos 20.000 billones, un 2 seguido de 16 ceros. Son unos 2,5 millones de hormigas por persona."
+   "x": "Según una estimación de 2022: unos 20.000 billones, un 2 seguido de 16 ceros. Son unos 2,5 millones de hormigas por persona.",
+   "k": "Hormigas: 20.000 billones en la Tierra"
   },
   "pt": {
    "q": "Adivinhe: quantas formigas vivem mais ou menos na Terra?",
@@ -1330,7 +1453,8 @@
     "Uns 20 trilhões",
     "Uns 20 quatrilhões"
    ],
-   "x": "Segundo uma estimativa de 2022: uns 20 quatrilhões – um 2 com 16 zeros. São cerca de 2,5 milhões de formigas por pessoa."
+   "x": "Segundo uma estimativa de 2022: uns 20 quatrilhões – um 2 com 16 zeros. São cerca de 2,5 milhões de formigas por pessoa.",
+   "k": "Formigas: 20 quatrilhões na Terra"
   },
   "ja": {
    "q": "予想してみよう：地球にはアリがだいたい何匹いる？",
@@ -1340,7 +1464,8 @@
     "約2京匹",
     "約2000京匹"
    ],
-   "x": "2022年の研究の推定では約2京匹。2のあとに0が16個です。1人あたり約250万匹になります。"
+   "x": "2022年の研究の推定では約2京匹。2のあとに0が16個です。1人あたり約250万匹になります。",
+   "k": "アリ：地球に約2京匹"
   },
   "it": {
    "q": "Indovina: quante formiche vivono più o meno sulla Terra?",
@@ -1350,7 +1475,8 @@
     "Circa 20.000 miliardi",
     "Circa 20 biliardi"
    ],
-   "x": "Secondo una stima del 2022: circa 20 biliardi, cioè un 2 seguito da 16 zeri. Sono circa 2,5 milioni di formiche per persona."
+   "x": "Secondo una stima del 2022: circa 20 biliardi, cioè un 2 seguito da 16 zeri. Sono circa 2,5 milioni di formiche per persona.",
+   "k": "Formiche: 20 biliardi sulla Terra"
   }
  },
  {
@@ -1366,7 +1492,8 @@
     "Damit Löwen sie nicht von Felsen unterscheiden",
     "Gegen Sonnenbrand"
    ],
-   "x": "Versuche zeigen: Bremsen landen auf gestreiften Flächen viel seltener – das Muster bringt sie beim Anflug durcheinander."
+   "x": "Versuche zeigen: Bremsen landen auf gestreiften Flächen viel seltener – das Muster bringt sie beim Anflug durcheinander.",
+   "k": "Zebrastreifen: halten Bremsen fern"
   },
   "en": {
    "q": "According to current knowledge, what are zebra stripes most likely good for?",
@@ -1376,7 +1503,8 @@
     "So lions can’t tell them from rocks",
     "Against sunburn"
    ],
-   "x": "Experiments show that horseflies land far less often on striped surfaces – the pattern confuses them as they approach."
+   "x": "Experiments show that horseflies land far less often on striped surfaces – the pattern confuses them as they approach.",
+   "k": "Zebra stripes: keep horseflies away"
   },
   "fr": {
    "q": "Selon les connaissances actuelles, à quoi servent le plus probablement les rayures du zèbre ?",
@@ -1386,7 +1514,8 @@
     "À ressembler à des rochers pour les lions",
     "À éviter les coups de soleil"
    ],
-   "x": "Des expériences le montrent : les taons se posent bien plus rarement sur des surfaces rayées – le motif les désoriente à l’approche."
+   "x": "Des expériences le montrent : les taons se posent bien plus rarement sur des surfaces rayées – le motif les désoriente à l’approche.",
+   "k": "Rayures du zèbre : éloignent les taons"
   },
   "es": {
    "q": "Según lo que se sabe hoy, ¿para qué sirven probablemente las rayas de la cebra?",
@@ -1396,7 +1525,8 @@
     "Para que los leones las confundan con rocas",
     "Contra las quemaduras del sol"
    ],
-   "x": "Los experimentos muestran que los tábanos se posan mucho menos en superficies rayadas: el dibujo los confunde al acercarse."
+   "x": "Los experimentos muestran que los tábanos se posan mucho menos en superficies rayadas: el dibujo los confunde al acercarse.",
+   "k": "Rayas de la cebra: alejan a los tábanos"
   },
   "pt": {
    "q": "Pelo que se sabe hoje, para que servem provavelmente as listras da zebra?",
@@ -1406,7 +1536,8 @@
     "Para os leões as confundirem com pedras",
     "Contra queimaduras de sol"
    ],
-   "x": "Experimentos mostram que as mutucas pousam muito menos em superfícies listradas: o desenho as confunde na aproximação."
+   "x": "Experimentos mostram que as mutucas pousam muito menos em superfícies listradas: o desenho as confunde na aproximação.",
+   "k": "Listras da zebra: afastam mutucas"
   },
   "ja": {
    "q": "いまわかっている中で、シマウマのしまもようはたぶん何の役に立つ？",
@@ -1416,7 +1547,8 @@
     "ライオンに岩とまちがえさせる",
     "日焼けを防ぐ"
    ],
-   "x": "実験では、アブはしまもようの面にずっととまりにくいことがわかっています。近づくとき、もようで混乱するのです。"
+   "x": "実験では、アブはしまもようの面にずっととまりにくいことがわかっています。近づくとき、もようで混乱するのです。",
+   "k": "シマウマのしま：アブを寄せつけない"
   },
   "it": {
    "q": "Secondo le conoscenze attuali, a cosa servono probabilmente le strisce della zebra?",
@@ -1426,7 +1558,8 @@
     "A farsi scambiare per rocce dai leoni",
     "Contro le scottature"
    ],
-   "x": "Gli esperimenti mostrano che i tafani si posano molto meno sulle superfici a strisce: il disegno li confonde mentre si avvicinano."
+   "x": "Gli esperimenti mostrano che i tafani si posano molto meno sulle superfici a strisce: il disegno li confonde mentre si avvicinano.",
+   "k": "Strisce della zebra: tengono lontani i tafani"
   }
  },
  {
@@ -1442,7 +1575,8 @@
     "Mit Duftwolken im Wind",
     "Gar nicht – nur aus der Nähe"
    ],
-   "x": "Elefanten brummen im Infraschall. Diese tiefen Töne reichen kilometerweit – andere Elefanten spüren sie sogar über die Füße im Boden."
+   "x": "Elefanten brummen im Infraschall. Diese tiefen Töne reichen kilometerweit – andere Elefanten spüren sie sogar über die Füße im Boden.",
+   "k": "Elefanten: reden per Infraschall über Kilometer"
   },
   "en": {
    "q": "How do elephants communicate over many kilometres?",
@@ -1452,7 +1586,8 @@
     "With clouds of scent in the wind",
     "They don’t – only up close"
    ],
-   "x": "Elephants rumble in infrasound. These deep sounds travel for kilometres – other elephants even feel them through their feet in the ground."
+   "x": "Elephants rumble in infrasound. These deep sounds travel for kilometres – other elephants even feel them through their feet in the ground.",
+   "k": "Elephants: talk by infrasound over kilometres"
   },
   "fr": {
    "q": "Comment les éléphants communiquent-ils sur des kilomètres ?",
@@ -1462,7 +1597,8 @@
     "Avec des nuages d’odeurs dans le vent",
     "Pas du tout – seulement de près"
    ],
-   "x": "Les éléphants grondent en infrasons. Ces sons graves portent sur des kilomètres – les autres éléphants les sentent même par les pieds, dans le sol."
+   "x": "Les éléphants grondent en infrasons. Ces sons graves portent sur des kilomètres – les autres éléphants les sentent même par les pieds, dans le sol.",
+   "k": "Éléphants : parlent en infrasons sur des km"
   },
   "es": {
    "q": "¿Cómo se comunican los elefantes a muchos kilómetros?",
@@ -1472,7 +1608,8 @@
     "Con nubes de olor en el viento",
     "No lo hacen: solo de cerca"
    ],
-   "x": "Los elefantes emiten infrasonidos. Esos sonidos graves llegan a kilómetros, y otros elefantes los notan incluso con las patas a través del suelo."
+   "x": "Los elefantes emiten infrasonidos. Esos sonidos graves llegan a kilómetros, y otros elefantes los notan incluso con las patas a través del suelo.",
+   "k": "Elefantes: hablan por infrasonido a kilómetros"
   },
   "pt": {
    "q": "Como os elefantes se comunicam a muitos quilômetros?",
@@ -1482,7 +1619,8 @@
     "Com nuvens de cheiro no vento",
     "Não se comunicam: só de perto"
    ],
-   "x": "Os elefantes emitem infrassons. Esses sons graves chegam a quilômetros, e outros elefantes os sentem até pelas patas, através do chão."
+   "x": "Os elefantes emitem infrassons. Esses sons graves chegam a quilômetros, e outros elefantes os sentem até pelas patas, através do chão.",
+   "k": "Elefantes: falam por infrassom a quilômetros"
   },
   "ja": {
    "q": "ゾウは何キロもはなれた仲間と、どうやって連絡をとる？",
@@ -1492,7 +1630,8 @@
     "風に乗せたにおいで",
     "とらない。近くだけ"
    ],
-   "x": "ゾウは低周波の音でゴロゴロと鳴きます。この低い音は何キロも届き、ほかのゾウは地面を通して足でも感じとります。"
+   "x": "ゾウは低周波の音でゴロゴロと鳴きます。この低い音は何キロも届き、ほかのゾウは地面を通して足でも感じとります。",
+   "k": "ゾウ：低周波で何キロも会話"
   },
   "it": {
    "q": "Come comunicano gli elefanti a molti chilometri di distanza?",
@@ -1502,7 +1641,8 @@
     "Con nuvole di odore nel vento",
     "Non lo fanno: solo da vicino"
    ],
-   "x": "Gli elefanti emettono infrasuoni. Questi suoni gravi arrivano a chilometri, e gli altri elefanti li sentono persino con le zampe, attraverso il terreno."
+   "x": "Gli elefanti emettono infrasuoni. Questi suoni gravi arrivano a chilometri, e gli altri elefanti li sentono persino con le zampe, attraverso il terreno.",
+   "k": "Elefanti: comunicano a infrasuoni per km"
   }
  },
  {
@@ -1516,7 +1656,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Ihre Flugmuskeln brauchen Wärme. Darum sonnen sich Tagfalter morgens mit ausgebreiteten Flügeln oder zittern sich warm."
+   "x": "Ihre Flugmuskeln brauchen Wärme. Darum sonnen sich Tagfalter morgens mit ausgebreiteten Flügeln oder zittern sich warm.",
+   "k": "Schmetterlinge: fliegen erst warm"
   },
   "en": {
    "q": "True or false? Many butterflies can only fly once they have warmed up.",
@@ -1524,7 +1665,8 @@
     "True",
     "False"
    ],
-   "x": "Their flight muscles need warmth. That’s why butterflies sunbathe with open wings in the morning or shiver to warm up."
+   "x": "Their flight muscles need warmth. That’s why butterflies sunbathe with open wings in the morning or shiver to warm up.",
+   "k": "Butterflies: only fly once warm"
   },
   "fr": {
    "q": "Vrai ou faux ? Beaucoup de papillons ne peuvent voler qu’après s’être réchauffés.",
@@ -1532,7 +1674,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Leurs muscles de vol ont besoin de chaleur. C’est pourquoi les papillons se chauffent au soleil, ailes ouvertes, le matin, ou frissonnent pour se réchauffer."
+   "x": "Leurs muscles de vol ont besoin de chaleur. C’est pourquoi les papillons se chauffent au soleil, ailes ouvertes, le matin, ou frissonnent pour se réchauffer.",
+   "k": "Papillons : volent seulement une fois réchauffés"
   },
   "es": {
    "q": "¿Verdadero o falso? Muchas mariposas solo pueden volar cuando se han calentado.",
@@ -1540,7 +1683,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Sus músculos de vuelo necesitan calor. Por eso, por la mañana, toman el sol con las alas abiertas o tiritan para calentarse."
+   "x": "Sus músculos de vuelo necesitan calor. Por eso, por la mañana, toman el sol con las alas abiertas o tiritan para calentarse.",
+   "k": "Mariposas: vuelan cuando se calientan"
   },
   "pt": {
    "q": "Verdadeiro ou falso? Muitas borboletas só conseguem voar depois de se aquecer.",
@@ -1548,7 +1692,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Os músculos de voo precisam de calor. Por isso, de manhã, elas tomam sol de asas abertas ou tremem para se aquecer."
+   "x": "Os músculos de voo precisam de calor. Por isso, de manhã, elas tomam sol de asas abertas ou tremem para se aquecer.",
+   "k": "Borboletas: só voam depois de aquecer"
   },
   "ja": {
    "q": "正しい？まちがい？ 多くのチョウは体が温まってからでないと飛べない。",
@@ -1556,7 +1701,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "飛ぶための筋肉には温かさが必要です。だからチョウは朝、羽を広げて日光浴をしたり、ふるえて体を温めたりします。"
+   "x": "飛ぶための筋肉には温かさが必要です。だからチョウは朝、羽を広げて日光浴をしたり、ふるえて体を温めたりします。",
+   "k": "チョウ：体が温まってから飛ぶ"
   },
   "it": {
    "q": "Vero o falso? Molte farfalle possono volare solo dopo essersi scaldate.",
@@ -1564,7 +1710,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "I muscoli del volo hanno bisogno di calore. Per questo al mattino le farfalle prendono il sole ad ali aperte o tremano per scaldarsi."
+   "x": "I muscoli del volo hanno bisogno di calore. Per questo al mattino le farfalle prendono il sole ad ali aperte o tremano per scaldarsi.",
+   "k": "Farfalle: volano solo da calde"
   }
  },
  {
@@ -1578,7 +1725,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Ja – sie geben dem Fell einen grünlichen Schimmer, eine gute Tarnung im Regenwald. Sogar eigene Mottenarten leben darin."
+   "x": "Ja – sie geben dem Fell einen grünlichen Schimmer, eine gute Tarnung im Regenwald. Sogar eigene Mottenarten leben darin.",
+   "k": "Faultier: im Fell wachsen Algen"
   },
   "en": {
    "q": "True or false? Algae grow in sloths’ fur.",
@@ -1586,7 +1734,8 @@
     "True",
     "False"
    ],
-   "x": "Yes – they give the fur a greenish tint, good camouflage in the rainforest. Even special kinds of moths live in it."
+   "x": "Yes – they give the fur a greenish tint, good camouflage in the rainforest. Even special kinds of moths live in it.",
+   "k": "Sloth: algae grow in its fur"
   },
   "fr": {
    "q": "Vrai ou faux ? Des algues poussent dans la fourrure des paresseux.",
@@ -1594,7 +1743,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Oui – elles donnent au pelage un reflet verdâtre, un bon camouflage dans la forêt tropicale. Des papillons de nuit spéciaux y vivent même."
+   "x": "Oui – elles donnent au pelage un reflet verdâtre, un bon camouflage dans la forêt tropicale. Des papillons de nuit spéciaux y vivent même.",
+   "k": "Paresseux : des algues poussent dans son pelage"
   },
   "es": {
    "q": "¿Verdadero o falso? En el pelo de los perezosos crecen algas.",
@@ -1602,7 +1752,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Sí, le dan al pelo un tono verdoso, buen camuflaje en la selva. Hasta viven en él polillas especiales."
+   "x": "Sí, le dan al pelo un tono verdoso, buen camuflaje en la selva. Hasta viven en él polillas especiales.",
+   "k": "Perezoso: le crecen algas en el pelo"
   },
   "pt": {
    "q": "Verdadeiro ou falso? No pelo do bicho-preguiça crescem algas.",
@@ -1610,7 +1761,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "Sim, elas dão ao pelo um tom esverdeado – boa camuflagem na floresta. Até mariposas especiais vivem nele."
+   "x": "Sim, elas dão ao pelo um tom esverdeado – boa camuflagem na floresta. Até mariposas especiais vivem nele.",
+   "k": "Bicho-preguiça: tem algas no pelo"
   },
   "ja": {
    "q": "正しい？まちがい？ ナマケモノの毛には藻が生えている。",
@@ -1618,7 +1770,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "そう！藻で毛が緑っぽくなり、熱帯雨林でいいカモフラージュになります。毛の中には専用のガまですんでいます。"
+   "x": "そう！藻で毛が緑っぽくなり、熱帯雨林でいいカモフラージュになります。毛の中には専用のガまですんでいます。",
+   "k": "ナマケモノ：毛に藻が生える"
   },
   "it": {
    "q": "Vero o falso? Nel pelo dei bradipi crescono alghe.",
@@ -1626,7 +1779,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "Sì: danno al pelo una sfumatura verde, un buon mimetismo nella foresta pluviale. Ci vivono perfino falene particolari."
+   "x": "Sì: danno al pelo una sfumatura verde, un buon mimetismo nella foresta pluviale. Ci vivono perfino falene particolari.",
+   "k": "Bradipo: nel pelo crescono alghe"
   }
  },
  {
@@ -1640,7 +1794,8 @@
     "Wahr",
     "Falsch"
    ],
-   "x": "Ihre Zunge ist am Mundboden festgewachsen. Sie hilft beim Schlucken und dichtet zusammen mit einer Klappe den Rachen ab, wenn sie unter Wasser das Maul öffnen."
+   "x": "Ihre Zunge ist am Mundboden festgewachsen. Sie hilft beim Schlucken und dichtet zusammen mit einer Klappe den Rachen ab, wenn sie unter Wasser das Maul öffnen.",
+   "k": "Krokodile: können die Zunge nicht rausstrecken"
   },
   "en": {
    "q": "True or false? Crocodiles can’t stick out their tongue.",
@@ -1648,7 +1803,8 @@
     "True",
     "False"
    ],
-   "x": "Their tongue is attached to the floor of the mouth. It helps with swallowing and, together with a flap, seals the throat when they open their mouth underwater."
+   "x": "Their tongue is attached to the floor of the mouth. It helps with swallowing and, together with a flap, seals the throat when they open their mouth underwater.",
+   "k": "Crocodiles: can't stick out their tongue"
   },
   "fr": {
    "q": "Vrai ou faux ? Les crocodiles ne peuvent pas tirer la langue.",
@@ -1656,7 +1812,8 @@
     "Vrai",
     "Faux"
    ],
-   "x": "Leur langue est fixée au plancher de la bouche. Elle aide à avaler et, avec un clapet, ferme la gorge quand ils ouvrent la gueule sous l’eau."
+   "x": "Leur langue est fixée au plancher de la bouche. Elle aide à avaler et, avec un clapet, ferme la gorge quand ils ouvrent la gueule sous l’eau.",
+   "k": "Crocodiles : ne peuvent pas tirer la langue"
   },
   "es": {
    "q": "¿Verdadero o falso? Los cocodrilos no pueden sacar la lengua.",
@@ -1664,7 +1821,8 @@
     "Verdadero",
     "Falso"
    ],
-   "x": "Su lengua está unida al suelo de la boca. Ayuda a tragar y, junto con una válvula, cierra la garganta cuando abren la boca bajo el agua."
+   "x": "Su lengua está unida al suelo de la boca. Ayuda a tragar y, junto con una válvula, cierra la garganta cuando abren la boca bajo el agua.",
+   "k": "Cocodrilos: no pueden sacar la lengua"
   },
   "pt": {
    "q": "Verdadeiro ou falso? Os crocodilos não conseguem pôr a língua para fora.",
@@ -1672,7 +1830,8 @@
     "Verdadeiro",
     "Falso"
    ],
-   "x": "A língua é presa ao fundo da boca. Ela ajuda a engolir e, junto com uma válvula, fecha a garganta quando abrem a boca debaixo d’água."
+   "x": "A língua é presa ao fundo da boca. Ela ajuda a engolir e, junto com uma válvula, fecha a garganta quando abrem a boca debaixo d’água.",
+   "k": "Crocodilos: não conseguem pôr a língua para fora"
   },
   "ja": {
    "q": "正しい？まちがい？ ワニは舌を外に出せない。",
@@ -1680,7 +1839,8 @@
     "正しい",
     "まちがい"
    ],
-   "x": "舌は口の底にくっついています。飲みこむのを助け、弁と一緒に、水中で口を開けたときにのどをふさぎます。"
+   "x": "舌は口の底にくっついています。飲みこむのを助け、弁と一緒に、水中で口を開けたときにのどをふさぎます。",
+   "k": "ワニ：舌を外に出せない"
   },
   "it": {
    "q": "Vero o falso? I coccodrilli non possono tirare fuori la lingua.",
@@ -1688,7 +1848,8 @@
     "Vero",
     "Falso"
    ],
-   "x": "La lingua è attaccata al fondo della bocca. Aiuta a deglutire e, con una valvola, chiude la gola quando aprono la bocca sott’acqua."
+   "x": "La lingua è attaccata al fondo della bocca. Aiuta a deglutire e, con una valvola, chiude la gola quando aprono la bocca sott’acqua.",
+   "k": "Coccodrilli: non possono tirare fuori la lingua"
   }
  }
 ]
