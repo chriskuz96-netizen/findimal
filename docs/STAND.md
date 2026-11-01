@@ -156,6 +156,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   `keep_bindings` mit `plain_text` angeben, sonst gehen die Variablen verloren.
 - Gewerbe anmelden, Fragebogen Finanzamt (Kleinunternehmer), ggf. USt-IdNr. für AdMob.
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
+- App-Store-Kategorie prüfen: „Bildung“ gilt laut RevenueCat 2026 als schwierige Kategorie für neue Apps.
+  Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen.
 - Server für alle öffnen (`OFFEN = ja`) – im App Store hat niemand einen Findimal-Code. Vorher Apple App Attest
   einbauen (Server prüft, dass Anfragen aus der echten App kommen). Anthropic-Monatslimit klein halten.
