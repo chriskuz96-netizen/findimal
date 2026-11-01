@@ -214,6 +214,14 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Später, wenn die ersten Geräte da sind: mit dem iOS-27.1-Werkzeug (oder neuer) bauen, Seiten an die Breite anpassen
   (Sammlung mehr Spalten, Startseite, Saison-Karten), im Simulator bzw. auf einem echten Gerät testen.
 - Apple verlangt laut Berichten ab April 2027 Duo-Bildschirmfotos im App Store.
+- **Entschieden 1.11.: vor dem Start fürs Duo optimieren** (zusammen mit dem Bau für Abo/Werbung/Server-Schutz):
+  1. Expo SDK 57 → 58 (baut mit iOS 27.1; Apps mit älterem Werkzeug erscheinen auf dem Innen-Bildschirm klein
+     in der Mitte). Danach alle Web-Tests und einen TestFlight-Bau prüfen.
+  2. Seiten an die Breite anpassen: Sammlung mehr Spalten, Startseite/Saison-Karten nebeneinander, Quiz und
+     Steckbrief mit Maximalbreite, SafeAreaView auch seitlich (Statusbalken rechts beim Duo).
+  3. Duo-Bildschirmfotos in App Store Connect hochladen → Abzeichen „Made for iPhone Duo“, Chance auf Apples
+     Duo-Sammlungen. (Ob optimierte Apps in der Suche höher stehen, ist nicht belegt.)
+  Testen: Layout im Browser in Duo-Größe; echtes Gerät oder Xcode-Simulator fehlt bisher.
 
 ## Ideen für später (wenn viele Spieler da sind)
 - Weltweite Rangliste ausbauen: eigenes Fenster mit Filtern nach **Land und Region** und nach **Saison**
