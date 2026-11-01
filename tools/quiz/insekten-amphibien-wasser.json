@@ -63,6 +63,16 @@
     "南へ渡る"
    ],
    "x": "葉っぱの間で、何にも守られずに冬を越します。体の中の天然の不凍液が、凍るのを防いでいます。"
+  },
+  "it": {
+   "q": "Come passa l’inverno la cedronella?",
+   "a": [
+    "Da bruco nel terreno",
+    "Da crisalide su un ramo",
+    "Da adulta, allo scoperto tra i cespugli",
+    "Migra a sud"
+   ],
+   "x": "Sverna senza riparo tra le foglie. Un antigelo naturale nel corpo le impedisce di congelare."
   }
  },
  {
@@ -129,6 +139,16 @@
     "約20年"
    ],
    "x": "気候によって3〜5年、根を食べて育ちます。成虫になってからは数週間しか生きません。"
+  },
+  "it": {
+   "q": "Quanto vivono nel terreno le larve del maggiolino?",
+   "a": [
+    "Circa 2 settimane",
+    "Diversi anni",
+    "Una sola estate",
+    "Circa 20 anni"
+   ],
+   "x": "A seconda del clima, le larve mangiano radici per 3–5 anni. Il maggiolino adulto poi vive solo poche settimane."
   }
  },
  {
@@ -183,6 +203,14 @@
     "まちがい"
    ],
    "x": "これは俗説。マダニはふつう高さ1メートルくらいまでの草や茂みで待ち、通りかかった人や動物にくっつきます。"
+  },
+  "it": {
+   "q": "Vero o falso? Le zecche di solito cadono dagli alberi su persone e animali.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Un mito: le zecche aspettano di solito nell’erba e nei cespugli fino a circa 1 m d’altezza e si attaccano a chi passa."
   }
  },
  {
@@ -249,6 +277,16 @@
     "ワラジムシ"
    ],
    "x": "ワラジムシは陸にすむ甲殻類。脚は14本で、しめった隠れ家が必要です。"
+  },
+  "it": {
+   "q": "Quale di questi animali NON è un insetto?",
+   "a": [
+    "Forbicina",
+    "Pesciolino d’argento",
+    "Gerride",
+    "Porcellino di terra"
+   ],
+   "x": "I porcellini di terra sono crostacei che vivono sulla terraferma. Hanno 14 zampe e hanno bisogno di nascondigli umidi."
   }
  },
  {
@@ -315,6 +353,16 @@
     "イモリのような両生類"
    ],
    "x": "脚のないトカゲです。ほかのトカゲと同じく、まぶたがあり、しっぽを切ることもできます。"
+  },
+  "it": {
+   "q": "Cos’è l’orbettino?",
+   "a": [
+    "Una lucertola senza zampe",
+    "Un piccolo serpente",
+    "Un grosso lombrico",
+    "Un anfibio come il tritone"
+   ],
+   "x": "È una lucertola senza zampe: ha le palpebre e può staccare la coda, proprio come le altre lucertole."
   }
  },
  {
@@ -381,6 +429,16 @@
     "何も食べない"
    ],
    "x": "口がはたらかないのです。成虫の命は数時間から数日だけ。子孫を残すためだけに生きます。"
+  },
+  "it": {
+   "q": "Cosa mangiano le effimere adulte?",
+   "a": [
+    "Nettare dei fiori",
+    "Piccoli moscerini",
+    "Alghe",
+    "Proprio niente"
+   ],
+   "x": "La loro bocca non funziona. Gli adulti vivono solo da poche ore a pochi giorni, solo per riprodursi."
   }
  },
  {
@@ -435,6 +493,14 @@
     "まちがい"
    ],
    "x": "メスは卵を育てるために血が必要です。オスは植物の汁や花の蜜だけを吸います。"
+  },
+  "it": {
+   "q": "Vero o falso? Pungono solo le zanzare femmine.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Hanno bisogno di sangue per far sviluppare le uova. I maschi si nutrono solo di linfa e nettare."
   }
  },
  {
@@ -501,6 +567,16 @@
     "空っぽのカタツムリの殻"
    ],
    "x": "半分以上が地面に巣を作ります。日当たりのよい裸の地面のほうが、ハチホテルより役立つことも多いのです。"
+  },
+  "it": {
+   "q": "Dove nidifica la maggior parte delle specie di api selvatiche in Germania?",
+   "a": [
+    "Nel terreno",
+    "Negli steli cavi delle piante",
+    "Nei buchi del legno morto",
+    "Nei gusci vuoti di chiocciola"
+   ],
+   "x": "Più della metà nidifica nel terreno. Spesso un pezzo di terra nuda e soleggiata aiuta più di un hotel per api."
   }
  },
  {
@@ -567,6 +643,16 @@
     "オスが卵を運ぶ"
    ],
    "x": "卵は母親の体の中で育ちます。春になると、えらのある幼生を冷たい小川に産み出します。"
+  },
+  "it": {
+   "q": "Come si riproduce la salamandra pezzata in Europa centrale?",
+   "a": [
+    "Depone ammassi di uova negli stagni",
+    "Seppellisce le uova nella terra umida",
+    "Le femmine rilasciano larve nei ruscelli",
+    "Il maschio porta le uova"
+   ],
+   "x": "Le uova si sviluppano nel corpo della madre. In primavera lei rilascia larve con le branchie nei ruscelli freschi."
   }
  },
  {
@@ -633,6 +719,16 @@
     "2〜4年"
    ],
    "x": "標高によって2〜4年。子どもは完全に育った姿で生まれるので、水は必要ありません。"
+  },
+  "it": {
+   "q": "Quanto dura la gravidanza della salamandra alpina?",
+   "a": [
+    "Circa 3 settimane",
+    "Circa 3 mesi",
+    "Esattamente 1 anno",
+    "Da 2 a 4 anni"
+   ],
+   "x": "A seconda dell’altitudine, da 2 a 4 anni. I piccoli nascono già completamente sviluppati: non serve l’acqua."
   }
  },
  {
@@ -687,6 +783,14 @@
     "まちがい"
    ],
    "x": "その途中で道路を渡ることが多いのです。カエル用の柵やトンネルが、毎年たくさんの命を救っています。"
+  },
+  "it": {
+   "q": "Vero o falso? In primavera i rospi comuni tornano di solito nello stagno dove sono cresciuti.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Lungo la strada attraversano spesso le carreggiate. Barriere e tunnel per rospi salvano ogni anno molti animali."
   }
  },
  {
@@ -753,6 +857,16 @@
     "ハマトビムシの穴"
    ],
    "x": "タマシキゴカイは砂を飲みこみ、中の小さな生きものを消化して、砂をくるくると押し出します。"
+  },
+  "it": {
+   "q": "Cosa sono i mucchietti di sabbia arrotolati sulle piane fangose del Mare dei Wadden?",
+   "a": [
+    "Uova di granchio",
+    "Escrementi del verme arenicola",
+    "Nidi di cozze",
+    "Tane di pulci di mare"
+   ],
+   "x": "L’arenicola inghiotte sabbia, ne digerisce i piccoli organismi e la spinge fuori in spirali."
   }
  },
  {
@@ -819,6 +933,16 @@
     "海沿いの汽水"
    ],
    "x": "日当たりのよい小さな水たまりを使います。水のたまったタイヤのあとでも。そこには魚などの天敵がほとんどいません。"
+  },
+  "it": {
+   "q": "Dove depone preferibilmente le uova l’ululone dal ventre giallo?",
+   "a": [
+    "In pozzanghere basse e solchi",
+    "In laghi profondi",
+    "In torrenti di montagna veloci",
+    "In acqua salmastra costiera"
+   ],
+   "x": "Usa piccole pozze soleggiate, anche i solchi delle ruote pieni d’acqua. Lì non ci sono quasi pesci o altri predatori."
   }
  },
  {
@@ -873,6 +997,14 @@
     "まちがい"
    ],
    "x": "ヨーロッパクサリヘビと、めずらしいアスプクサリヘビ。アスプクサリヘビはドイツでは黒い森の南部にしかいません。"
+  },
+  "it": {
+   "q": "Vero o falso? In Germania ci sono due specie autoctone di serpenti velenosi.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Il marasso e la rara vipera comune, che in Germania vive solo nella Foresta Nera meridionale."
   }
  },
  {
@@ -939,6 +1071,16 @@
     "頭の後ろの黄色い三日月もよう"
    ],
    "x": "無害なグラススネークは瞳が丸く、泳ぐのが大好き。おどかされると、よく死んだふりをします。"
+  },
+  "it": {
+   "q": "Di solito, come si riconosce la natrice dal collare?",
+   "a": [
+    "Una fascia a zigzag sul dorso",
+    "Un sonaglio sulla coda",
+    "Pupille verticali a fessura",
+    "Mezzelune gialle dietro la testa"
+   ],
+   "x": "L’innocua natrice ha pupille rotonde e adora nuotare. Se minacciata, spesso si finge morta."
   }
  },
  {
@@ -1005,6 +1147,16 @@
     "毒腺がある"
    ],
    "x": "新しいしっぽには背骨がなく、軟骨の棒が1本あるだけ。ふつう短くて、色もちがいます。"
+  },
+  "it": {
+   "q": "Cosa ha di diverso la coda ricresciuta di una lucertola?",
+   "a": [
+    "Ha il doppio delle vertebre",
+    "Un bastoncino di cartilagine sostituisce le vertebre",
+    "È sempre più lunga di prima",
+    "Contiene una ghiandola velenosa"
+   ],
+   "x": "La nuova coda non ha vertebre, solo un bastoncino di cartilagine. Di solito è più corta e di colore diverso."
   }
  },
  {
@@ -1071,6 +1223,16 @@
     "水の中から皮ふで"
    ],
    "x": "水草の間に網を張り、水面から運んだ空気の泡をためます。まるで潜水鐘のようです。"
+  },
+  "it": {
+   "q": "Come respira il ragno palombaro (Argyroneta), che vive quasi solo sott’acqua?",
+   "a": [
+    "Con branchie sull’addome",
+    "Trattiene il respiro per ore",
+    "Da una campana d’aria che si costruisce",
+    "Con la pelle, dall’acqua"
+   ],
+   "x": "Tesse una tela tra le piante acquatiche e la riempie di bolle d’aria prese in superficie, come una campana da palombaro."
   }
  },
  {
@@ -1125,6 +1287,14 @@
     "まちがい"
    ],
    "x": "夜にはよく新しい池へ飛んでいきます。潜るときは、羽の下に空気をためて持っていきます。"
+  },
+  "it": {
+   "q": "Vero o falso? Il ditisco vive in acqua ma sa anche volare.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Di notte vola spesso verso nuovi stagni. Quando si immerge porta una riserva d’aria sotto le elitre."
   }
  },
  {
@@ -1191,6 +1361,16 @@
     "毒針で"
    ],
    "x": "マスクは変化した下くちびるです。一瞬で前に飛び出し、オタマジャクシや幼虫などをつかまえます。"
+  },
+  "it": {
+   "q": "Come cattura le prede la larva della libellula?",
+   "a": [
+    "Con una «maschera» estensibile",
+    "Con una lingua appiccicosa",
+    "Con una rete di seta",
+    "Con un pungiglione velenoso"
+   ],
+   "x": "La maschera è un labbro inferiore trasformato. Scatta in avanti in un lampo e afferra girini, larve e altro."
   }
  },
  {
@@ -1245,6 +1425,14 @@
     "まちがい"
    ],
    "x": "トンボにさなぎの時期はありません。ヤゴが水から上がって最後の脱皮をすると、成虫が出てきます。"
+  },
+  "it": {
+   "q": "Vero o falso? Come le farfalle, anche le libellule passano per lo stadio di crisalide.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Le libellule non hanno crisalide: la larva esce dall’acqua, fa l’ultima muta e ne esce l’adulto."
   }
  },
  {
@@ -1311,6 +1499,16 @@
     "実はハエの仲間"
    ],
    "x": "羽のないメスが草の中で光り、飛んでいるオスを呼びます。光は化学反応で作られ、熱くありません。"
+  },
+  "it": {
+   "q": "Cosa è vero sulla lucciola europea (Lampyris)?",
+   "a": [
+    "Solo i maschi brillano",
+    "Le femmine non sanno volare",
+    "La sua luce scotta come una lampadina",
+    "In realtà è una mosca"
+   ],
+   "x": "Le femmine senza ali brillano nell’erba per attirare i maschi in volo. La luce è prodotta chimicamente ed è fredda."
   }
  },
  {
@@ -1377,6 +1575,16 @@
     "くさった木"
    ],
    "x": "カタツムリをつかまえ、毒のある口でまひさせて食べます。しめった自然な庭が必要です。"
+  },
+  "it": {
+   "q": "Di cosa si nutrono le larve della lucciola?",
+   "a": [
+    "Afidi",
+    "Nettare",
+    "Chiocciole",
+    "Legno marcio"
+   ],
+   "x": "Cacciano chiocciole, le paralizzano con un morso velenoso e le mangiano. Hanno bisogno di giardini umidi e naturali."
   }
  },
  {
@@ -1431,6 +1639,14 @@
     "まちがい"
    ],
    "x": "これは俗説。星の数は種類で決まっています。たとえばナナホシテントウやフタホシテントウ。"
+  },
+  "it": {
+   "q": "Vero o falso? Si capisce l’età di una coccinella contando i puntini.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Un mito: il numero di puntini dipende dalla specie, per esempio coccinella a sette punti o a due punti."
   }
  },
  {
@@ -1497,6 +1713,16 @@
     "若い女王バチだけ"
    ],
    "x": "群れは秋に死んでしまいます。交尾をすませた若い女王バチだけが土の中で冬を越し、春に新しい群れを作ります。"
+  },
+  "it": {
+   "q": "Quali bombi sopravvivono all’inverno?",
+   "a": [
+    "Tutta la colonia nel nido",
+    "Solo le operaie",
+    "Solo i maschi",
+    "Solo le giovani regine"
+   ],
+   "x": "La colonia muore in autunno. Solo le giovani regine fecondate svernano nel terreno e in primavera fondano una nuova colonia."
   }
  },
  {
@@ -1551,6 +1777,14 @@
     "まちがい"
    ],
    "x": "古い俗説です。ヨーロッパのモンスズメバチの毒は、ミツバチの毒より危険なわけではありません。危ないのは主にアレルギーのある人です。"
+  },
+  "it": {
+   "q": "Vero o falso? Tre punture di calabrone possono uccidere un adulto sano.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Un vecchio mito: il veleno del calabrone non è più pericoloso di quello dell’ape. Le punture sono rischiose soprattutto per chi è allergico."
   }
  },
  {
@@ -1617,6 +1851,16 @@
     "アブラムシが巣の部屋を作る"
    ],
    "x": "アブラムシは甘い甘露を出します。アリはそれを「しぼり」、お返しにテントウムシなどの敵を追いはらいます。"
+  },
+  "it": {
+   "q": "Perché alcune formiche proteggono gli afidi?",
+   "a": [
+    "Ricevono melata dolce",
+    "Mangiano le uova degli afidi",
+    "Gli afidi scaldano il nido",
+    "Gli afidi costruiscono le camere del nido"
+   ],
+   "x": "Gli afidi espellono una melata zuccherina. Le formiche li «mungono» e in cambio tengono lontani nemici come le coccinelle."
   }
  },
  {
@@ -1671,6 +1915,14 @@
     "まちがい"
    ],
    "x": "ミヤマイモリやスベイモリなどは、ほとんど春の繁殖期にだけ水に入り、ほかの時期は陸で暮らします。"
+  },
+  "it": {
+   "q": "Vero o falso? I tritoni passano tutto l’anno in acqua.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Tritone alpestre, tritone punteggiato e simili entrano in acqua per lo più solo per riprodursi in primavera; per il resto vivono sulla terraferma."
   }
  },
  {
@@ -1737,6 +1989,16 @@
     "タンポポ"
    ],
    "x": "イラクサはクジャクチョウやヒメアカタテハ、ヨーロッパアカタテハのゆりかご。庭に野生のすみっこを残しておこう！"
+  },
+  "it": {
+   "q": "Di quale pianta si nutrono i bruchi della vanessa occhio di pavone?",
+   "a": [
+    "Ortica",
+    "Cavolo",
+    "Quercia",
+    "Tarassaco"
+   ],
+   "x": "L’ortica è un asilo per occhio di pavone, vanessa dell’ortica e vulcano. Lascia un angolo selvatico in giardino!"
   }
  },
  {
@@ -1803,6 +2065,16 @@
     "北アメリカから"
    ],
    "x": "ヒメアカタテハは何世代もかけてアフリカから北ヨーロッパへ渡ります。何千キロものリレーです。"
+  },
+  "it": {
+   "q": "Da dove vengono molte vanesse del cardo che compaiono in Europa centrale in primavera?",
+   "a": [
+    "Dalla Scandinavia",
+    "Dalla Siberia",
+    "Dal Nord Africa e dal Sud Europa",
+    "Dal Nord America"
+   ],
+   "x": "Le vanesse del cardo migrano in più generazioni dall’Africa al Nord Europa: una staffetta di migliaia di chilometri."
   }
  },
  {
@@ -1869,6 +2141,16 @@
     "鳥の巣に卵を産む"
    ],
    "x": "まず卵のうを糸いぼにつけて運びます。かえった子どもたちは、何日か母親の背中に乗って過ごします。"
+  },
+  "it": {
+   "q": "Come si prendono cura dei piccoli le femmine di ragno lupo?",
+   "a": [
+    "Li portano sul dorso",
+    "Li nutrono con il nettare",
+    "Depongono le uova in acqua",
+    "Depongono le uova nei nidi degli uccelli"
+   ],
+   "x": "Prima si trascinano dietro il sacco delle uova attaccato alle filiere. Poi i piccoli appena nati viaggiano qualche giorno sul loro dorso."
   }
  },
  {
@@ -1923,6 +2205,14 @@
     "まちがい"
    ],
    "x": "こうして糸の貴重なたんぱく質を再利用します。多くはほぼ毎日網を張り直します。"
+  },
+  "it": {
+   "q": "Vero o falso? I ragni crociati spesso mangiano la vecchia tela prima di costruirne una nuova.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Così riciclano le preziose proteine della seta. Molti rifanno la tela quasi ogni giorno."
   }
  },
  {
@@ -1989,6 +2279,16 @@
     "節のある脚"
    ],
    "x": "ザトウムシはクモの仲間（クモガタ類）ですが、クモではありません。網を張らず、体はひとつのかたまりに見えます。"
+  },
+  "it": {
+   "q": "Cosa manca a un opilione, a differenza dei veri ragni?",
+   "a": [
+    "Gli occhi",
+    "La bocca",
+    "Le ghiandole della seta",
+    "Le zampe articolate"
+   ],
+   "x": "Gli opilioni sono aracnidi ma non ragni: non costruiscono tele e il loro corpo sembra un pezzo unico."
   }
  },
  {
@@ -2043,6 +2343,14 @@
     "まちがい"
    ],
    "x": "生きのびられるのはたいてい前の部分だけで、新しいおしりが生えてくることがあります。後ろの部分はふつう死んでしまいます。"
+  },
+  "it": {
+   "q": "Vero o falso? Se tagli un lombrico in due, ottieni due lombrichi completi.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Di solito sopravvive solo la parte anteriore, che può far ricrescere la parte posteriore. La parte dietro di solito muore."
   }
  },
  {
@@ -2097,6 +2405,14 @@
     "まちがい"
    ],
    "x": "かわりに、油をたっぷりふくんだ大きな肝臓で浮力を得ます。沈まないように泳ぎ続けなければならないサメも多いのです。"
+  },
+  "it": {
+   "q": "Vero o falso? Gli squali non hanno la vescica natatoria.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Al suo posto, un grande fegato ricco d’olio dà agli squali la spinta per galleggiare. Molti devono nuotare sempre per non affondare."
   }
  },
  {
@@ -2163,6 +2479,16 @@
     "どちらでもない。卵は砂の上"
    ],
    "x": "メスがオスのおなかの育児のうに卵を入れます。卵はそこで育ち、オスが子どもを「出産」します。"
+  },
+  "it": {
+   "q": "Nel cavalluccio marino, quale genitore partorisce i piccoli?",
+   "a": [
+    "La femmina",
+    "Il maschio",
+    "Entrambi, a turno",
+    "Nessuno: le uova stanno nella sabbia"
+   ],
+   "x": "La femmina mette le uova nella tasca incubatrice del maschio. Lì si sviluppano finché lui non «partorisce» i piccoli."
   }
  },
  {
@@ -2229,6 +2555,16 @@
     "鳥のえさ台として"
    ],
    "x": "ハサミムシは昼間そこにかくれ、夜にアブラムシを食べます。それに、わざと耳に入ってくることはありません。"
+  },
+  "it": {
+   "q": "Perché i giardinieri appendono a testa in giù vasi di terracotta pieni di paglia di legno?",
+   "a": [
+    "Come trappola per lumache",
+    "Come casa invernale per ricci",
+    "Come rifugio per le forbicine",
+    "Come mangiatoia per uccelli"
+   ],
+   "x": "Di giorno le forbicine ci si nascondono e di notte mangiano gli afidi. E no, non entrano apposta nelle orecchie."
   }
  },
  {
@@ -2295,6 +2631,16 @@
     "無害なハチのそっくりさん"
    ],
    "x": "変装で敵をこわがらせるのです。多くのハナアブの幼虫はアブラムシを食べます。庭の名助っ人！"
+  },
+  "it": {
+   "q": "I sirfidi somigliano spesso alle vespe. Cosa è vero?",
+   "a": [
+    "Pungono più forte delle vespe",
+    "Hanno quattro ali come le vespe",
+    "Sono vespe giovani",
+    "Sono innocui imitatori delle vespe"
+   ],
+   "x": "Il travestimento spaventa i nemici. Le larve di molti sirfidi mangiano afidi: veri aiutanti del giardino!"
   }
  },
  {
@@ -2361,6 +2707,16 @@
     "チョウとガ"
    ],
    "x": "記載されている種は約35万〜40万。甲虫は地球でいちばん種の多い動物グループです。"
+  },
+  "it": {
+   "q": "Quale gruppo di animali ha più specie conosciute al mondo?",
+   "a": [
+    "Uccelli",
+    "Pesci",
+    "Coleotteri",
+    "Farfalle e falene"
+   ],
+   "x": "Con circa 350.000–400.000 specie descritte, i coleotteri sono il gruppo di animali più ricco di specie della Terra."
   }
  },
  {
@@ -2427,6 +2783,16 @@
     "山の川"
    ],
    "x": "ウナギは何千キロも旅して、大西洋のサルガッソー海へ向かいます。幼生は海流に乗ってヨーロッパへもどります。"
+  },
+  "it": {
+   "q": "Dove si riproduce l’anguilla europea?",
+   "a": [
+    "Nel Lago di Costanza",
+    "Nel Mar dei Sargassi",
+    "Nel Mare dei Wadden",
+    "Nei torrenti di montagna"
+   ],
+   "x": "Le anguille viaggiano per migliaia di chilometri fino al Mar dei Sargassi, nell’Atlantico. Le larve tornano in Europa trasportate dalle correnti."
   }
  },
  {
@@ -2493,6 +2859,16 @@
     "ウナギについていく"
    ],
    "x": "若いサケはふるさとの川のにおいを覚えます。何年もあとに、そのにおいをたよりに海からもどってきます。"
+  },
+  "it": {
+   "q": "Come riconoscono i salmoni il fiume natale per deporre le uova?",
+   "a": [
+    "Dal colore dell’acqua",
+    "Dal rumore delle cascate",
+    "Dall’odore dell’acqua",
+    "Seguono le anguille"
+   ],
+   "x": "I giovani salmoni memorizzano l’odore delle acque di casa. Anni dopo lo usano per ritrovare la strada dal mare."
   }
  },
  {
@@ -2559,6 +2935,16 @@
     "暖かい白や黄色っぽい光"
    ],
    "x": "虫は特に青い光や紫外線に引きよせられます。おすすめは、下向きの暖かい白色のランプ。または明かりなし。"
+  },
+  "it": {
+   "q": "Quale luce da giardino attira meno insetti di notte?",
+   "a": [
+    "Luce bianca fredda",
+    "Luce bluastra",
+    "Lampade che emettono UV",
+    "Luce bianca calda, giallastra"
+   ],
+   "x": "Gli insetti sono attratti soprattutto da luce blu e UV. Meglio: lampade bianco caldo rivolte verso il basso, o nessuna luce."
   }
  },
  {
@@ -2625,6 +3011,16 @@
     "巣を作って卵を守る"
    ],
    "x": "オスはおなかが赤くなり、植物で巣を作って、卵に新しい水を送り続けます。"
+  },
+  "it": {
+   "q": "Cosa fa il maschio di spinarello nella stagione riproduttiva?",
+   "a": [
+    "Porta le uova in bocca",
+    "Seppellisce le uova e se ne va",
+    "Attacca le uova agli uccelli acquatici",
+    "Costruisce un nido e sorveglia la covata"
+   ],
+   "x": "Il maschio diventa rosso sul ventre, costruisce un nido con materiale vegetale e sventola acqua fresca sulle uova."
   }
  },
  {
@@ -2691,6 +3087,16 @@
     "ふたはしない"
    ],
    "x": "土にもぐり、石灰質のふたで殻の口を閉じます。ドイツではリンゴマイマイは保護されています。"
+  },
+  "it": {
+   "q": "Come chiude il guscio d’inverno la chiocciola degli orti (Helix pomatia)?",
+   "a": [
+    "Con un coperchio di calcare",
+    "Con una foglia arrotolata",
+    "Con un tappo di terra",
+    "Non lo chiude"
+   ],
+   "x": "Si interra e chiude l’apertura con un coperchio calcareo. In Germania la chiocciola degli orti è protetta."
   }
  },
  {
@@ -2757,6 +3163,16 @@
     "水草が多すぎること"
    ],
    "x": "シグナルザリガニなどアメリカの種は、病原体を運んでも自分は発病しません。在来のザリガニにはたいてい命取りです。"
+  },
+  "it": {
+   "q": "Qual è la minaccia più grande per il gambero di fiume europeo?",
+   "a": [
+    "Inverni freddi",
+    "La peste dei gamberi introdotta",
+    "I castori",
+    "Troppe piante acquatiche"
+   ],
+   "x": "Specie americane come il gambero segnale portano il patogeno senza ammalarsi. Per i gamberi autoctoni di solito è mortale."
   }
  },
  {
@@ -2823,6 +3239,16 @@
     "腕から吸いこむ"
    ],
    "x": "管足で貝の殻を少しこじあけ、胃を中に押しこんで、その場で貝を消化します。"
+  },
+  "it": {
+   "q": "Come mangia una cozza la stella marina?",
+   "a": [
+    "La rompe con i denti",
+    "La sbatte contro le rocce",
+    "Spinge lo stomaco dentro la cozza",
+    "La aspira con le braccia"
+   ],
+   "x": "Con i pedicelli apre un po’ le valve, spinge dentro lo stomaco e digerisce la cozza sul posto."
   }
  },
  {
@@ -2889,6 +3315,16 @@
     "泡に乗って流れる"
    ],
    "x": "小さな幼生（グロキディウム）は魚のえらやひれにくっつき、しばらくヒッチハイクします。"
+  },
+  "it": {
+   "q": "Come si diffondono le larve delle cozze d’acqua dolce come l’anodonta?",
+   "a": [
+    "Si attaccano ai pesci",
+    "Le porta il vento",
+    "Strisciano nel terreno",
+    "Galleggiano nei fiocchi di schiuma"
+   ],
+   "x": "Le minuscole larve (glochidi) si attaccano alle branchie o alle pinne dei pesci e viaggiano con loro per un po’."
   }
  },
  {
@@ -2955,6 +3391,16 @@
     "幅3〜5センチ"
    ],
    "x": "木口の穴はひび割れやすく、幼虫がカビることもあります。かわいた堅い木の側面に、直径数ミリの穴をあけよう。"
+  },
+  "it": {
+   "q": "Qual è il modo migliore per forare nidi per api selvatiche nel legno?",
+   "a": [
+    "Nel legno di testa (taglio)",
+    "Nel lato del legno",
+    "Nel morbido legno di abete rosso",
+    "Larghi 3–5 cm"
+   ],
+   "x": "I fori nel legno di testa si crepano facilmente e la covata può ammuffire. Meglio: legno duro e secco, forato di lato, largo pochi mm."
   }
  },
  {
@@ -3021,6 +3467,16 @@
     "限られた植物からだけ花粉を集める"
    ],
    "x": "こうした専門家には、たとえばホタルブクロやヤナギが必要です。その植物が消えると、ハチも消えてしまいます。"
+  },
+  "it": {
+   "q": "Molte api selvatiche sono «oligolettiche». Cosa significa?",
+   "a": [
+    "Vivono da sole, senza colonia",
+    "Volano solo di notte",
+    "Non hanno pungiglione",
+    "Raccolgono polline da poche piante"
+   ],
+   "x": "Questi specialisti hanno bisogno per esempio di campanule o salici. Se spariscono queste piante, sparisce anche l’ape."
   }
  },
  {
@@ -3087,6 +3543,16 @@
     "約30年"
    ],
    "x": "幼虫は何年もかけて、よく古いカシのくさった木を食べて育ちます。成虫になると数週間しか生きません。"
+  },
+  "it": {
+   "q": "Quanto si sviluppano nel legno marcio le larve del cervo volante?",
+   "a": [
+    "Circa 2 settimane",
+    "Una sola estate",
+    "Di solito da 3 a 8 anni",
+    "Circa 30 anni"
+   ],
+   "x": "Le larve si nutrono per anni di legno marcio, spesso di vecchie querce. Il coleottero adulto poi vive solo poche settimane."
   }
  },
  {
@@ -3153,6 +3619,16 @@
     "前脚"
    ],
    "x": "キリギリスの仲間は前脚にある鼓膜で音を聞きます。バッタの仲間はおなかにあります。"
+  },
+  "it": {
+   "q": "Dove sono le orecchie della cavalletta verde?",
+   "a": [
+    "Sulla testa",
+    "Sulle antenne",
+    "Sull’addome",
+    "Sulle zampe anteriori"
+   ],
+   "x": "Le tettigonie (cavallette verdi) sentono con timpani sulle zampe anteriori. Gli acrididi (le cavallette comuni) invece li hanno sull’addome."
   }
  }
 ]

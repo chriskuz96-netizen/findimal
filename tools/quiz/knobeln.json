@@ -63,6 +63,16 @@
     "ビーバーの歯はオレンジ色"
    ],
    "x": "泳ぎ続けなければならないサメは多いですが、全部ではありません。コモリザメやトラザメの仲間は海底で休み、えらに水を送ります。"
+  },
+  "it": {
+   "q": "Quale affermazione è FALSA?",
+   "a": [
+    "I gufi non possono muovere gli occhi",
+    "Tutti gli squali devono nuotare sempre per respirare",
+    "I polpi hanno il sangue blu",
+    "I castori hanno i denti arancioni"
+   ],
+   "x": "Molti squali devono nuotare, ma non tutti: lo squalo nutrice o il gattuccio si posano sul fondo e pompano acqua sulle branchie."
   }
  },
  {
@@ -129,6 +139,16 @@
     "マルハナバチは寒くても飛ぶ"
    ],
    "x": "コウモリはちゃんと目が見えます。夜は超音波のこだまも使って道を見つけます。"
+  },
+  "it": {
+   "q": "Quale affermazione è FALSA?",
+   "a": [
+    "Le formiche portano molte volte il proprio peso",
+    "I picchi tamburellano più di 10 volte al secondo",
+    "I pipistrelli sono ciechi",
+    "I bombi volano anche al freddo"
+   ],
+   "x": "I pipistrelli ci vedono bene. Di notte si orientano anche con l’eco degli ultrasuoni."
   }
  },
  {
@@ -195,6 +215,16 @@
     "びん半分くらい"
    ],
    "x": "たった小さじ12分の1ほど！ハチミツ1びんのために、ハチたちは合わせて地球を何周もする距離を飛びます。"
+  },
+  "it": {
+   "q": "Indovina: quanto miele produce un’ape operaia in tutta la vita?",
+   "a": [
+    "Circa 1/12 di cucchiaino",
+    "Circa 1 cucchiaino",
+    "Circa 1 cucchiaio",
+    "Circa mezzo vasetto"
+   ],
+   "x": "Solo un dodicesimo di cucchiaino! Per un vasetto di miele, le api insieme volano una distanza pari a diversi giri della Terra."
   }
  },
  {
@@ -261,6 +291,16 @@
     "約100万匹"
    ],
    "x": "アブラコウモリの仲間は体重わずか約5グラムなのに、一晩で数百から1000匹以上の蚊や小さな虫をつかまえます。"
+  },
+  "it": {
+   "q": "Indovina: quanti insetti mangia in una notte un piccolo pipistrello nano?",
+   "a": [
+    "Circa 5",
+    "Circa 50",
+    "Da centinaia a oltre mille",
+    "Circa un milione"
+   ],
+   "x": "Un pipistrello nano pesa solo circa 5 grammi, ma in una notte cattura da centinaia a oltre mille moscerini e altri piccoli insetti."
   }
  },
  {
@@ -327,6 +367,16 @@
     "約1キロ"
    ],
    "x": "生まれたてのハリネズミは12〜25グラム。トゲはやわらかく、皮ふの膜におおわれているので出産は痛くありません。トゲは数時間で出てきます。"
+  },
+  "it": {
+   "q": "Indovina: quanto pesa un riccio appena nato?",
+   "a": [
+    "Circa 2 grammi",
+    "Circa 20 grammi",
+    "Circa 200 grammi",
+    "Circa 1 chilo"
+   ],
+   "x": "I ricci appena nati pesano 12–25 grammi. Gli aculei sono morbidi e coperti da uno strato di pelle, così il parto non fa male: spuntano dopo poche ore."
   }
  },
  {
@@ -393,6 +443,16 @@
     "約250万枚"
    ],
    "x": "約2万5000枚。鳥の中でいちばん多く、その多くは長い首にあります。ハチドリはたった約1000枚です。"
+  },
+  "it": {
+   "q": "Indovina: quante piume ha un cigno reale?",
+   "a": [
+    "Circa 2.500",
+    "Circa 25.000",
+    "Circa 250.000",
+    "Circa 2,5 milioni"
+   ],
+   "x": "Circa 25.000: il record tra gli uccelli, molte sul lungo collo. Un colibrì ne ha solo circa 1.000."
   }
  },
  {
@@ -459,6 +519,16 @@
     "陸で暮らすための長いしっぽ"
    ],
    "x": "まず後ろ脚、次に前脚が生えます。最後にしっぽが体に吸収され、材料として再利用されます。"
+  },
+  "it": {
+   "q": "Cosa cresce per prima cosa a un girino?",
+   "a": [
+    "Le zampe posteriori",
+    "Le zampe anteriori",
+    "Una lingua per catturare mosche",
+    "Una coda più lunga per la terraferma"
+   ],
+   "x": "Prima crescono le zampe posteriori, poi quelle anteriori. Alla fine la coda viene riassorbita e riciclata come materiale."
   }
  },
  {
@@ -525,6 +595,16 @@
     "ワシミミズク"
    ],
    "x": "深海のイカの目はサッカーボールほど、約27センチ。暗やみで自分を狙うマッコウクジラを見つけるためです。"
+  },
+  "it": {
+   "q": "Quale animale ha gli occhi più grandi del mondo?",
+   "a": [
+    "Balenottera azzurra",
+    "Calamaro colossale",
+    "Struzzo",
+    "Gufo reale"
+   ],
+   "x": "I calamari degli abissi hanno occhi grandi come un pallone, circa 27 cm. Li usano per vedere al buio i capodogli che li cacciano."
   }
  },
  {
@@ -591,6 +671,16 @@
     "モグラ"
    ],
    "x": "キツネはアナグマの巣穴に引っこすのが好き。ときには両方が同時に、別々のトンネルで暮らしていることも。"
+  },
+  "it": {
+   "q": "Chi scava spesso la tana in cui poi vive una volpe?",
+   "a": [
+    "Il tasso",
+    "Il coniglio",
+    "Il cinghiale",
+    "La talpa"
+   ],
+   "x": "Le volpi si trasferiscono volentieri nelle tane dei tassi. A volte ci vivono tutti e due insieme, in gallerie diverse."
   }
  },
  {
@@ -657,6 +747,16 @@
     "敵に枝だと思わせる"
    ],
    "x": "片脚だと、フラミンゴは筋肉をほとんど使わずにバランスをとれます。さらに、引っこめた脚から熱が逃げにくくなります。"
+  },
+  "it": {
+   "q": "Perché i fenicotteri stanno spesso su una zampa sola?",
+   "a": [
+    "Risparmiano energia e calore",
+    "L’altra zampa è stanca",
+    "Vedono meglio i pesci",
+    "Per sembrare rami ai nemici"
+   ],
+   "x": "Su una zampa sola il fenicottero sta in equilibrio quasi senza sforzo muscolare. In più perde meno calore dalla zampa raccolta."
   }
  },
  {
@@ -723,6 +823,16 @@
     "サメ"
    ],
    "x": "イカは軟体動物で、カタツムリの親せき。タツノオトシゴやウナギは変わった姿ですが、れっきとした魚です。"
+  },
+  "it": {
+   "q": "Quale animale NON è un pesce?",
+   "a": [
+    "Cavalluccio marino",
+    "Anguilla",
+    "Calamaro",
+    "Squalo"
+   ],
+   "x": "Il calamaro è un mollusco, parente della chiocciola. Cavallucci marini e anguille sembrano strani, ma sono veri pesci."
   }
  },
  {
@@ -789,6 +899,16 @@
     "ペンギン"
    ],
    "x": "ペンギンは飛べない鳥。カモノハシは卵を産みますが、子どもをお乳で育てる哺乳類です。"
+  },
+  "it": {
+   "q": "Quale animale NON è un mammifero?",
+   "a": [
+    "Pipistrello",
+    "Delfino",
+    "Ornitorinco",
+    "Pinguino"
+   ],
+   "x": "Il pinguino è un uccello che non vola. L’ornitorinco depone uova, ma allatta i piccoli ed è un mammifero."
   }
  },
  {
@@ -855,6 +975,16 @@
     "約1万倍"
    ],
    "x": "ノミは約30センチ跳びます。体長の100倍以上です。人間なら、サッカー場の長さより遠くまで跳ぶことになります。"
+  },
+  "it": {
+   "q": "Indovina: quanto salta una pulce rispetto alla sua taglia?",
+   "a": [
+    "Circa il doppio",
+    "Circa 10 volte",
+    "Oltre 100 volte",
+    "Circa 10.000 volte"
+   ],
+   "x": "Una pulce salta circa 30 cm, oltre cento volte la sua lunghezza. Una persona dovrebbe saltare più di un campo da calcio."
   }
  },
  {
@@ -921,6 +1051,16 @@
     "卵 – 幼虫 – チョウ – さなぎ"
    ],
    "x": "卵から幼虫がかえり、食べて大きくなってさなぎになります。さなぎの中で、体全体がチョウに作りかえられます。"
+  },
+  "it": {
+   "q": "Qual è l’ordine giusto per una farfalla?",
+   "a": [
+    "Uovo – bruco – crisalide – farfalla",
+    "Uovo – crisalide – bruco – farfalla",
+    "Bruco – uovo – crisalide – farfalla",
+    "Uovo – bruco – farfalla – crisalide"
+   ],
+   "x": "Dall’uovo esce il bruco, che mangia e cresce, diventa crisalide, e dentro la crisalide tutto il corpo si trasforma in farfalla."
   }
  },
  {
@@ -975,6 +1115,14 @@
     "まちがい"
    ],
    "x": "これは俗説！金魚は何か月も物事を覚えていられ、音や色に反応するよう訓練することもできます。"
+  },
+  "it": {
+   "q": "Vero o falso? I pesci rossi hanno una memoria di soli tre secondi.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Un mito! I pesci rossi ricordano le cose per mesi e possono persino essere addestrati a rispondere a suoni o colori."
   }
  },
  {
@@ -1041,6 +1189,16 @@
     "ダチョウは危ないと頭を砂にうめる"
    ],
    "x": "これは俗説。ダチョウは危ないときは地面にふせるか、時速70キロで走って逃げます。"
+  },
+  "it": {
+   "q": "Quale affermazione è FALSA?",
+   "a": [
+    "I coccodrilli vivevano già al tempo dei dinosauri",
+    "La chiocciola striscia su un solo piede",
+    "I bombi possono pungere",
+    "Lo struzzo nasconde la testa nella sabbia quando c’è pericolo"
+   ],
+   "x": "Un mito: in caso di pericolo lo struzzo si sdraia a terra, oppure scappa correndo fino a 70 km/h."
   }
  },
  {
@@ -1107,6 +1265,16 @@
     "体長の10倍"
    ],
    "x": "体長（しっぽをのぞく）の2倍まで、一瞬でのばします。ねばねばの舌の先は、大きな虫もしっかりつかまえます。"
+  },
+  "it": {
+   "q": "Indovina: fin dove arriva la lingua del camaleonte?",
+   "a": [
+    "Metà della sua lunghezza",
+    "Circa la sua lunghezza",
+    "Fino al doppio della sua lunghezza",
+    "Dieci volte la sua lunghezza"
+   ],
+   "x": "Fino al doppio della lunghezza del corpo (senza coda), in una frazione di secondo. La punta appiccicosa trattiene anche insetti grandi."
   }
  },
  {
@@ -1173,6 +1341,16 @@
     "約2000京匹"
    ],
    "x": "2022年の研究の推定では約2京匹。2のあとに0が16個です。1人あたり約250万匹になります。"
+  },
+  "it": {
+   "q": "Indovina: quante formiche vivono più o meno sulla Terra?",
+   "a": [
+    "Circa 20 milioni",
+    "Circa 20 miliardi",
+    "Circa 20.000 miliardi",
+    "Circa 20 biliardi"
+   ],
+   "x": "Secondo una stima del 2022: circa 20 biliardi, cioè un 2 seguito da 16 zeri. Sono circa 2,5 milioni di formiche per persona."
   }
  },
  {
@@ -1239,6 +1417,16 @@
     "日焼けを防ぐ"
    ],
    "x": "実験では、アブはしまもようの面にずっととまりにくいことがわかっています。近づくとき、もようで混乱するのです。"
+  },
+  "it": {
+   "q": "Secondo le conoscenze attuali, a cosa servono probabilmente le strisce della zebra?",
+   "a": [
+    "A tenere lontane le mosche che pungono",
+    "A mimetizzarsi nell’erba alta",
+    "A farsi scambiare per rocce dai leoni",
+    "Contro le scottature"
+   ],
+   "x": "Gli esperimenti mostrano che i tafani si posano molto meno sulle superfici a strisce: il disegno li confonde mentre si avvicinano."
   }
  },
  {
@@ -1305,6 +1493,16 @@
     "とらない。近くだけ"
    ],
    "x": "ゾウは低周波の音でゴロゴロと鳴きます。この低い音は何キロも届き、ほかのゾウは地面を通して足でも感じとります。"
+  },
+  "it": {
+   "q": "Come comunicano gli elefanti a molti chilometri di distanza?",
+   "a": [
+    "Con suoni gravissimi che non sentiamo",
+    "Sventolando le orecchie come segnali",
+    "Con nuvole di odore nel vento",
+    "Non lo fanno: solo da vicino"
+   ],
+   "x": "Gli elefanti emettono infrasuoni. Questi suoni gravi arrivano a chilometri, e gli altri elefanti li sentono persino con le zampe, attraverso il terreno."
   }
  },
  {
@@ -1359,6 +1557,14 @@
     "まちがい"
    ],
    "x": "飛ぶための筋肉には温かさが必要です。だからチョウは朝、羽を広げて日光浴をしたり、ふるえて体を温めたりします。"
+  },
+  "it": {
+   "q": "Vero o falso? Molte farfalle possono volare solo dopo essersi scaldate.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "I muscoli del volo hanno bisogno di calore. Per questo al mattino le farfalle prendono il sole ad ali aperte o tremano per scaldarsi."
   }
  },
  {
@@ -1413,6 +1619,14 @@
     "まちがい"
    ],
    "x": "そう！藻で毛が緑っぽくなり、熱帯雨林でいいカモフラージュになります。毛の中には専用のガまですんでいます。"
+  },
+  "it": {
+   "q": "Vero o falso? Nel pelo dei bradipi crescono alghe.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Sì: danno al pelo una sfumatura verde, un buon mimetismo nella foresta pluviale. Ci vivono perfino falene particolari."
   }
  },
  {
@@ -1467,6 +1681,14 @@
     "まちがい"
    ],
    "x": "舌は口の底にくっついています。飲みこむのを助け、弁と一緒に、水中で口を開けたときにのどをふさぎます。"
+  },
+  "it": {
+   "q": "Vero o falso? I coccodrilli non possono tirare fuori la lingua.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "La lingua è attaccata al fondo della bocca. Aiuta a deglutire e, con una valvola, chiude la gola quando aprono la bocca sott’acqua."
   }
  }
 ]

@@ -63,6 +63,21 @@ const PT_ADJ: [string, string][] = [
   ['Brilhante', 'Brilhante'], ['Orgulhoso', 'Orgulhosa'], ['Brincalhão', 'Brincalhona'], ['Dorminhoco', 'Dorminhoca'], ['Destemido', 'Destemida'],
 ];
 
+const IT_NOUNS: Animal[] = [
+  { n: 'Lupo', g: 'm' }, { n: 'Riccio', g: 'm' }, { n: 'Gufo', g: 'm' }, { n: 'Tasso', g: 'm' }, { n: 'Castoro', g: 'm' },
+  { n: 'Falco', g: 'm' }, { n: 'Merlo', g: 'm' }, { n: 'Scoiattolo', g: 'm' }, { n: 'Picchio', g: 'm' }, { n: 'Cervo', g: 'm' },
+  { n: 'Ghiro', g: 'm' }, { n: 'Pettirosso', g: 'm' }, { n: 'Martin pescatore', g: 'm' }, { n: 'Camoscio', g: 'm' }, { n: 'Stambecco', g: 'm' },
+  { n: 'Volpe', g: 'f' }, { n: 'Civetta', g: 'f' }, { n: 'Libellula', g: 'f' }, { n: 'Ape', g: 'f' }, { n: 'Lontra', g: 'f' },
+  { n: 'Rana', g: 'f' }, { n: 'Coccinella', g: 'f' }, { n: 'Lucciola', g: 'f' }, { n: 'Rondine', g: 'f' }, { n: 'Marmotta', g: 'f' },
+  { n: 'Formica', g: 'f' }, { n: 'Lucertola', g: 'f' }, { n: 'Cicogna', g: 'f' }, { n: 'Farfalla', g: 'f' }, { n: 'Lince', g: 'f' },
+];
+const IT_ADJ: [string, string][] = [
+  ['Furbo', 'Furba'], ['Curioso', 'Curiosa'], ['Coraggioso', 'Coraggiosa'], ['Veloce', 'Veloce'], ['Birichino', 'Birichina'],
+  ['Tranquillo', 'Tranquilla'], ['Allegro', 'Allegra'], ['Agile', 'Agile'], ['Selvaggio', 'Selvaggia'], ['Piccolo', 'Piccola'],
+  ['Sveglio', 'Sveglia'], ['Audace', 'Audace'], ['Sognatore', 'Sognatrice'], ['Felice', 'Felice'], ['Silenzioso', 'Silenziosa'],
+  ['Brillante', 'Brillante'], ['Fiero', 'Fiera'], ['Giocherellone', 'Giocherellona'], ['Dormiglione', 'Dormigliona'], ['Intrepido', 'Intrepida'],
+];
+
 // Japanisch: Adjektiv + Tier, ohne Leerzeichen (z. B. „すばやいキツネ“)
 const JA_ADJ = ['すばやい', 'しずかな', '好奇心いっぱいの', '勇敢な', 'かしこい', 'ワイルドな', 'ごきげんな', '用心深い', 'ふわふわの', '元気な', 'やさしい', 'いたずらな', 'のんびり', 'ちいさな', 'ねむたい', 'ラッキーな', 'すばしこい', 'おおらかな', 'きらきらの', '力持ちの'];
 const JA_ANIMALS = ['キツネ', 'タヌキ', 'アナグマ', 'ハリネズミ', 'フクロウ', 'トンボ', 'リス', 'コマドリ', 'カブトムシ', 'クワガタ', 'シカ', 'カワウソ', 'ウサギ', 'ハヤブサ', 'サギ', 'カエル', 'カワセミ', 'キツツキ', 'コウモリ', 'カタツムリ', 'ホタル', 'ツル', 'カラス', 'モグラ', 'イタチ', 'メジロ', 'ツバメ', 'スズメ', 'ヤモリ', 'ムササビ', 'テントウムシ', 'オコジョ', 'ライチョウ', 'カモシカ'];
@@ -75,9 +90,9 @@ export function randomNickname(lang: Lang): string {
     const a = pick(DE_ANIMALS);
     return `${cap(pick(DE_ADJ))}${DE_END[a.g]} ${a.n}`;
   }
-  if (lang === 'fr' || lang === 'es' || lang === 'pt') {
-    const a = pick(lang === 'fr' ? FR_NOUNS : lang === 'es' ? ES_NOUNS : PT_NOUNS);
-    const [m, f] = pick(lang === 'fr' ? FR_ADJ : lang === 'es' ? ES_ADJ : PT_ADJ);
+  if (lang === 'fr' || lang === 'es' || lang === 'pt' || lang === 'it') {
+    const a = pick({ fr: FR_NOUNS, es: ES_NOUNS, pt: PT_NOUNS, it: IT_NOUNS }[lang]);
+    const [m, f] = pick({ fr: FR_ADJ, es: ES_ADJ, pt: PT_ADJ, it: IT_ADJ }[lang]);
     return `${a.n} ${a.g === 'f' ? f : m}`;
   }
   if (lang === 'ja') return `${pick(JA_ADJ)}${pick(JA_ANIMALS)}`;

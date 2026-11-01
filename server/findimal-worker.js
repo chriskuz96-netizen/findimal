@@ -273,7 +273,7 @@ function cleanSaison(d) {
   };
 }
 
-const LANGUAGES = { de: 'Deutsch', en: 'Englisch', fr: 'Französisch', es: 'Spanisch', pt: 'Portugiesisch (Brasilien)', ja: 'Japanisch' };
+const LANGUAGES = { de: 'Deutsch', en: 'Englisch', fr: 'Französisch', es: 'Spanisch', pt: 'Portugiesisch (Brasilien)', ja: 'Japanisch', it: 'Italienisch' };
 
 function languageRule(lang) {
   const name = LANGUAGES[lang] || LANGUAGES.de;
@@ -325,6 +325,7 @@ const BAD_WORDS = [
   'fuck', 'shit', 'bitch', 'cunt', 'cock', 'pussy', 'nigg', 'faggot', 'whore', 'slut', 'rape', 'porn',
   'sex', 'putain', 'merde', 'salope', 'puta', 'mierda', 'cabron', 'polla',
   'porra', 'caralho', 'buceta', 'viado', 'cuzao', 'foder', 'fodase',
+  'cazzo', 'stronz', 'troia', 'puttana', 'vaffanculo', 'minchia', 'coglion', 'frocio',
 ];
 const BAD_WORDS_JA = ['ちんこ', 'ちんぽ', 'まんこ', 'チンコ', 'マンコ', 'セックス', 'せっくす', '死ね', '殺す', 'うんこ', 'クソ', 'ヤリマン', 'ブス', 'キモい'];
 function cleanName(raw) {
@@ -590,6 +591,7 @@ const INVITE_TEXT = {
   es: ['te invita a Findimal!', 'Coleccionad animales juntos y comparad vuestros puntos. Los dos recibís 1 foto gratis extra y 50 XP.', 'Abrir Findimal', 'Necesitas la app «Expo Go»:', 'Expo Go en la App Store', 'Código de amigo'],
   pt: ['convida você para o Findimal!', 'Colecionem animais juntos e comparem seus pontos. Vocês dois ganham 1 foto grátis extra e 50 XP.', 'Abrir o Findimal', 'Você precisa do app “Expo Go”:', 'Expo Go na App Store', 'Código de amigo'],
   ja: ['さんからFindimalへの招待です！', 'いっしょに生きものを集めて、ポイントを比べよう。2人とも無料写真1枚と50 XPがもらえます。', 'Findimalを開く', '「Expo Go」アプリが必要です：', 'App StoreのExpo Go', 'フレンドコード'],
+  it: ['ti invita su Findimal!', 'Collezionate animali insieme e confrontate i vostri punti. Ricevete entrambi 1 foto gratis in più e 50 XP.', 'Apri Findimal', 'Ti serve l’app «Expo Go»:', 'Expo Go nell’App Store', 'Codice amico'],
 };
 const esc = (v) => String(v).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
@@ -635,6 +637,7 @@ const PRIVACY_DATE = {
   es: 'Actualizado: noviembre de 2026',
   pt: 'Atualizado: novembro de 2026',
   ja: '更新日：2026年11月',
+  it: 'Aggiornato: novembre 2026',
 };
 
 const PRIVACY = {
@@ -812,6 +815,35 @@ const PRIVACY = {
       ['運営者情報', `<p>{OPERATOR}</p>`],
     ],
   },
+  it: {
+    title: 'Privacy e note legali',
+    sections: [
+      ['In breve', `<ul>
+<li>Findimal non richiede account, indirizzo email né nome vero.</li>
+<li>I tuoi ritrovamenti e le tue foto restano sul tuo telefono.</li>
+<li>Solo la foto che vuoi identificare viene inviata per poco tempo al nostro server e al servizio di IA Anthropic. Lì non la conserviamo.</li>
+<li>La classifica mostra solo soprannome, punti e immagine del profilo, nessun luogo. Se con Plus scegli una tua foto di un animale come immagine del profilo, ne viene salvata una piccola miniatura mostrata nella classifica; prima viene controllato automaticamente che non ci siano persone. Puoi disattivare la classifica nel profilo in qualsiasi momento: anche l’immagine viene eliminata.</li>
+</ul>`],
+      ['Foto per l’identificazione', `<p>Quando identifichi una foto, l’app invia al server di Findimal una copia ridotta, senza dati di posizione, e al massimo la zona approssimativa («Europa centrale» o «Mediterraneo») perché l’IA distingua meglio specie simili. Il server inoltra la foto all’IA di Anthropic PBC (USA) e restituisce il risultato. Il server di Findimal non conserva la foto. Anthropic tratta i dati secondo le sue condizioni per i clienti aziendali: non vengono usati per addestrare l’IA e sono conservati solo per un tempo limitato, per esempio per individuare abusi. Il trasferimento negli USA si basa su garanzie adeguate (clausole contrattuali tipo dell’UE o EU-US Data Privacy Framework).</p>
+<p>Finalità: l’identificazione che richiedi. Base giuridica: art. 6, par. 1, lett. b GDPR (uso della funzione dell’app).</p>
+<p>Per favore non fotografare persone, volti o targhe.</p>`],
+      ['Cosa resta sul tuo telefono', `<p>La tua collezione (foto, nomi degli animali, data), il tuo nome, le risposte del quiz, le impostazioni e le medaglie sono salvati solo sul tuo telefono. «Reimposta il profilo» nel profilo o l’eliminazione dell’app li cancellano.</p>
+<p><b>Zona:</b> per «Vicino a te adesso» inserisci tu la tua zona. Se la fai rilevare dalla posizione, il telefono cerca il nome del luogo tramite il servizio di localizzazione del sistema. Viene salvato solo il nome del luogo, sul tuo telefono. Se scrivi tu la zona, il telefono chiede al servizio di localizzazione solo in quale paese si trova; viene salvato solo il paese (per la pagina della stagione). Allo stesso modo ogni ritrovamento riceve il nome del luogo in cui è stata scattata la foto: dalla tua posizione (solo se l’hai consentito), altrimenti dal luogo inserito nell’app. Puoi cambiarlo per ogni ritrovamento. Findimal non legge i dati di posizione salvati nelle foto. Anche qui si salva solo il nome, mai la posizione esatta, e resta sul tuo telefono.</p>`],
+      ['«Vicino a te adesso»', `<p>Per i consigli nella schermata iniziale, l’app invia al server la zona che hai inserito (per esempio «Milano»), l’ora del giorno e la lingua. Il risultato viene conservato fino a 26 ore e usato per tutti gli utenti della stessa zona. Non viene salvato nulla che lo colleghi a te.</p>`],
+      ['La stagione nel tuo paese', `<p>Se sei fuori dall’Europa centrale, per la pagina della stagione l’app invia al server solo il tuo paese (per esempio «TH» per la Thailandia), una zona climatica approssimativa (la latitudine arrotondata a 10 gradi, una fascia larga oltre 1.000 km), il mese e la lingua. Questa zona climatica viene salvata anche sul tuo telefono. L’IA descrive una volta la stagione lì; il risultato viene salvato e usato per tutti gli utenti di quel paese e di quella zona climatica. Nessun luogo esatto né dato del dispositivo viene inviato.</p>`],
+      ['Gli animali più avvistati della stagione', `<p>Quando viene identificato un animale selvatico, il server conta in modo anonimo di quale specie si trattava e in quale stagione, senza foto, dispositivo, luogo o nome. Da qui nasce la lista degli animali più avvistati nella pagina della stagione. Gli animali domestici non vengono contati. Non è possibile risalire a te.</p>`],
+      ['Limite giornaliero di foto gratis', `<p>Per limitare le foto gratis, l’app crea un identificativo casuale per il tuo telefono. Con questo il server conta quante foto sono state identificate al giorno; senza identificativo usa l’indirizzo IP. I contatori vengono cancellati automaticamente dopo 48 ore. Base giuridica: art. 6, par. 1, lett. f GDPR (protezione da abusi e costi illimitati).</p>`],
+      ['Classifica', `<p>Se durante la configurazione scegli un nome da esploratore (soprannome), entri automaticamente nella classifica; puoi disattivarlo in qualsiasi momento nel profilo con «Mostrami nella classifica». Finché sei in classifica, il server salva il tuo soprannome, i punti (XP), il livello, il numero di specie, l’immagine del profilo, il codice amico e chi sono i tuoi amici. I tuoi amici possono vederlo; i 100 migliori esploratori compaiono nella classifica mondiale. I soprannomi con parolacce, link o numeri di telefono vengono sostituiti automaticamente con «Entdecker». Se segnali una voce, salviamo il tuo codice amico insieme alla voce segnalata; dopo diverse segnalazioni viene nascosta. Per il bonus invito (una foto gratis in più), il server salva anche l’identificativo casuale del tuo telefono con la tua voce e ricorda che quel telefono ha già ricevuto il bonus; l’identificativo non viene mai mostrato a nessuno. «Lascia la classifica» cancella la tua voce. Base giuridica: art. 6, par. 1, lett. f GDPR (legittimo interesse a una classifica comune come parte del gioco); puoi opporti in qualsiasi momento disattivando la classifica nel profilo. Se entri da solo con «Partecipa», lo fai con il tuo consenso (art. 6, par. 1, lett. a GDPR).</p>`],
+      ['Server su Cloudflare', `<p>Il server di Findimal gira su Cloudflare, Inc. (USA) come responsabile del trattamento. Per motivi tecnici viene trattato il tuo indirizzo IP. Cloudflare è certificata secondo l’EU-US Data Privacy Framework.</p>`],
+      ['Pubblicità', `<p>La versione gratuita mostra alcuni piccoli spazi contrassegnati come «Pubblicità». Nella versione di prova sono solo segnaposto. Nell’app definitiva gli annunci arrivano da Google AdMob (Google Ireland Ltd.) e sono impostati come <b>non personalizzati</b> e adatti alle famiglie. Google tratta dati tecnici come indirizzo IP e tipo di dispositivo per mostrare gli annunci e prevenire frodi. Findimal Plus non ha pubblicità. Questa informativa verrà aggiornata quando saranno aggiunti gli annunci.</p>`],
+      ['Acquisti (Findimal Plus)', `<p>L’abbonamento si sottoscrive e si paga tramite lo store di app (Apple o Google). Non riceviamo dati di pagamento, solo la conferma che esiste un abbonamento.</p>`],
+      ['Bambini', `<p>Findimal è pensata per le famiglie. L’app non chiede dati personali; basta un soprannome inventato. Consigliamo ai genitori di accompagnare i bambini sotto i 16 anni nell’uso della classifica.</p>`],
+      ['I tuoi diritti', `<p>Hai diritto di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità dei dati, opposizione e revoca del consenso. Scrivi all’indirizzo email qui sotto. Puoi anche presentare reclamo a un’autorità di controllo per la protezione dei dati (in Italia il Garante per la protezione dei dati personali).</p>
+<p>Poiché quasi tutto è salvato solo sul tuo telefono, puoi cancellare tu stesso la maggior parte dei dati: «Reimposta il profilo» nel profilo, «Lascia la classifica» nelle Sfide oppure eliminando l’app.</p>`],
+      ['Titolare', `<p>Nome e indirizzo: vedi le note legali qui sotto. Email: {EMAIL}</p>`],
+      ['Note legali', `<p>{OPERATOR}</p>`],
+    ],
+  },
 };
 
 function privacyPage(url, env = {}) {
@@ -952,6 +984,28 @@ const HELP = {
       ['プライバシー', `<p><a href="/datenschutz?l=ja">プライバシーポリシーと運営者情報</a></p>`],
     ],
   },
+  it: {
+    title: 'Aiuto e contatti',
+    sections: [
+      ['Contatti', `<p>Domande, errori o idee? Scrivici: <a href="mailto:{EMAIL}">{EMAIL}</a><br>Di solito rispondiamo entro pochi giorni.</p>`],
+      ['La promessa Findimal: non disturbare gli animali', `<ul>
+<li>Mantieni le distanze: meglio lo zoom che avvicinarsi.</li>
+<li>Non toccare, non nutrire e non catturare gli animali.</li>
+<li>Lascia in pace nidi, tane e cuccioli.</li>
+<li>Fai silenzio e resta sui sentieri. Le aree protette hanno spesso regole proprie.</li>
+</ul>`],
+      ['Findimal non riconosce il mio animale', `<ul>
+<li>Usa lo zoom invece di avvicinarti e fai in modo che l’animale sia nitido e ben illuminato.</li>
+<li>Se Findimal non è sicuro, scatta una seconda foto da un’altra angolazione: spesso aiuta.</li>
+<li>Findimal usa l’intelligenza artificiale e può sbagliare. Non toccare animali che non conosci con certezza.</li>
+</ul>`],
+      ['Quante foto posso identificare?', `<p>3 animali al giorno gratis. Con Findimal Plus le foto sono illimitate e senza pubblicità.</p>`],
+      ['Disdire Findimal Plus', `<p>L’abbonamento è gestito dallo store di app. Su iPhone: <b>Impostazioni → [il tuo nome] → Abbonamenti → Findimal</b> e tocca «Annulla abbonamento», almeno 24 ore prima del rinnovo. I rimborsi li gestisce Apple su reportaproblem.apple.com. Su Android: Google Play → profilo → <b>Pagamenti e abbonamenti → Abbonamenti</b>.</p>`],
+      ['Cancellare i miei dati', `<p>La tua collezione è salvata solo sul tuo telefono. «Reimposta il profilo» nel profilo la cancella. Per rimuovere la tua voce dalla classifica, tocca «Lascia la classifica» nelle Sfide.</p>`],
+      ['Un nome nella classifica è inadatto', `<p>Tieni premuta la voce e scegli «Segnala». Sparisce subito per te e verrà controllata. Puoi anche scriverci per email.</p>`],
+      ['Privacy', `<p><a href="/datenschutz?l=it">Privacy e note legali</a></p>`],
+    ],
+  },
 };
 const HELP_DATE = PRIVACY_DATE;
 
@@ -965,7 +1019,7 @@ function infoPage(url, content, path, dates = PRIVACY_DATE, env = {}) {
   const lang = content[asked] ? asked : asked ? 'en' : 'de'; // unbekannte Sprache: Englisch
   const p = content[lang];
   // Links zu den anderen Sprachen
-  const NAMES = { de: 'Deutsch', en: 'English', fr: 'Français', es: 'Español', pt: 'Português', ja: '日本語' };
+  const NAMES = { de: 'Deutsch', en: 'English', fr: 'Français', es: 'Español', pt: 'Português', ja: '日本語', it: 'Italiano' };
   const langs = Object.keys(content)
     .filter((l) => l !== lang)
     .map((l) => `<a href="${path}${l === 'de' ? '' : '?l=' + l}">${NAMES[l]}</a>`)

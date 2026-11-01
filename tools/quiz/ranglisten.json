@@ -63,6 +63,16 @@
     "人間"
    ],
    "x": "チーターは時速約110キロ、プロングホーンは90キロ近く、ノウサギは約70キロ。いちばん速い人間でも45キロ弱です。"
+  },
+  "it": {
+   "q": "Chi corre più veloce? Il più veloce per primo.",
+   "a": [
+    "Ghepardo",
+    "Antilocapra",
+    "Lepre europea",
+    "Essere umano"
+   ],
+   "x": "Ghepardo fino a circa 110 km/h, antilocapra quasi 90, lepre circa 70, e l’essere umano più veloce poco meno di 45 km/h."
   }
  },
  {
@@ -129,6 +139,16 @@
     "イエスズメ"
    ],
    "x": "ハヤブサは時速300キロ以上、イヌワシは急降下で約240キロ、アマツバメは飛行中100キロ以上、スズメは約40キロ。"
+  },
+  "it": {
+   "q": "Chi è più veloce in aria? Il più veloce per primo.",
+   "a": [
+    "Falco pellegrino (in picchiata)",
+    "Aquila reale (in picchiata)",
+    "Rondone comune",
+    "Passera europea"
+   ],
+   "x": "Falco pellegrino oltre 300 km/h, aquila reale circa 240 km/h in picchiata, rondone oltre 100 km/h in volo, passera circa 40 km/h."
   }
  },
  {
@@ -195,6 +215,16 @@
     "人間"
    ],
    "x": "シャチは時速50キロ以上、アシカは約40キロ、カワウソは10キロちょっと。トップスイマーの人間でも9キロ弱です。"
+  },
+  "it": {
+   "q": "Chi nuota più veloce? Il più veloce per primo.",
+   "a": [
+    "Orca",
+    "Leone marino della California",
+    "Lontra europea",
+    "Essere umano"
+   ],
+   "x": "Le orche superano i 50 km/h, i leoni marini circa 40, le lontre poco più di 10 km/h. I migliori nuotatori umani arrivano a poco meno di 9 km/h."
   }
  },
  {
@@ -261,6 +291,16 @@
     "ホッキョクグマ"
    ],
    "x": "シロナガスクジラは約150トン、オスのゾウは約6トン、カバは1.5〜3トン、オスのホッキョクグマは400〜700キロ。"
+  },
+  "it": {
+   "q": "Chi è più pesante? Il più pesante per primo.",
+   "a": [
+    "Balenottera azzurra",
+    "Elefante africano",
+    "Ippopotamo",
+    "Orso polare"
+   ],
+   "x": "Balenottera azzurra fino a circa 150 tonnellate, elefante maschio circa 6 tonnellate, ippopotamo 1,5–3 tonnellate, orso polare maschio 400–700 kg."
   }
  },
  {
@@ -327,6 +367,16 @@
     "イヌ"
    ],
    "x": "ニシオンデンザメは数百年、ゾウガメは100年をゆうに超え、ゾウは約70年まで、イヌはふつう10〜15年です。"
+  },
+  "it": {
+   "q": "Chi vive più a lungo? Il più longevo per primo.",
+   "a": [
+    "Squalo della Groenlandia",
+    "Tartaruga gigante",
+    "Elefante asiatico",
+    "Cane"
+   ],
+   "x": "Squalo della Groenlandia diversi secoli, tartaruga gigante ben oltre 100 anni, elefante fino a circa 70, cane di solito 10–15 anni."
   }
  },
  {
@@ -393,6 +443,16 @@
     "キリン"
    ],
    "x": "コアラは最大20時間、ネコは12〜16時間、大人の人間は約8時間。キリンは細切れで4時間未満のことも多いです。"
+  },
+  "it": {
+   "q": "Chi dorme di più al giorno? Il più dormiglione per primo.",
+   "a": [
+    "Koala",
+    "Gatto domestico",
+    "Essere umano",
+    "Giraffa"
+   ],
+   "x": "Il koala dorme fino a 20 ore, il gatto 12–16, un adulto circa 8, e la giraffa spesso meno di 4 ore, a brevi riprese."
   }
  },
  {
@@ -459,6 +519,16 @@
     "人間"
    ],
    "x": "キリンは最大5.5メートル、ゾウは約4メートル、ダチョウは約2.7メートル（世界最大の鳥）。人間は平均1.7メートルです。"
+  },
+  "it": {
+   "q": "Chi è più alto (da terra alla cima della testa)? Il più alto per primo.",
+   "a": [
+    "Giraffa",
+    "Elefante africano",
+    "Struzzo",
+    "Essere umano"
+   ],
+   "x": "Giraffa fino a 5,5 m, elefante circa 4 m, struzzo fino a circa 2,7 m, il più grande uccello del mondo. Una persona misura in media 1,70 m."
   }
  },
  {
@@ -525,6 +595,16 @@
     "ハチドリ"
    ],
    "x": "ダチョウの卵は約1.5キロ。ニワトリの卵20個以上分です。エミューは約600グラム、ニワトリは60グラム、ハチドリはたった約0.5グラム。"
+  },
+  "it": {
+   "q": "Di chi è l’uovo più pesante? Il più pesante per primo.",
+   "a": [
+    "Struzzo",
+    "Emù",
+    "Gallina",
+    "Colibrì"
+   ],
+   "x": "Un uovo di struzzo pesa circa 1,5 kg, quanto oltre 20 uova di gallina. Uovo di emù circa 600 g, di gallina 60 g, di colibrì solo mezzo grammo."
   }
  },
  {
@@ -591,6 +671,16 @@
     "コフキコガネ"
    ],
    "x": "ヤスデは種類によって数十本から数百本（1300本以上の種も）。カニは10本、クモは8本、甲虫は6本です。"
+  },
+  "it": {
+   "q": "Chi ha più zampe? Chi ne ha di più per primo.",
+   "a": [
+    "Millepiedi",
+    "Granchio",
+    "Ragno crociato",
+    "Maggiolino"
+   ],
+   "x": "A seconda della specie, i millepiedi hanno da decine a centinaia di zampe (una specie oltre 1.300). Il granchio ne ha 10, il ragno 8, il coleottero 6."
   }
  },
  {
@@ -657,6 +747,16 @@
     "イヌ"
    ],
    "x": "ゾウは約22か月、キリンは約15か月、人間は9か月、イヌはたった2か月ちょっとです。"
+  },
+  "it": {
+   "q": "Chi ha la gravidanza più lunga? La più lunga per prima.",
+   "a": [
+    "Elefante africano",
+    "Giraffa",
+    "Essere umano",
+    "Cane"
+   ],
+   "x": "L’elefantessa porta il piccolo per circa 22 mesi, la giraffa circa 15, l’essere umano 9, e la cagna solo poco più di 2 mesi."
   }
  },
  {
@@ -723,6 +823,16 @@
     "シロナガスクジラ"
    ],
    "x": "小さなコビトジャコウネズミは1分に1000回以上、ネズミは500〜600回、人間は約70回。潜っているシロナガスクジラはたった2〜10回です。"
+  },
+  "it": {
+   "q": "Il cuore di chi batte più veloce? Il più veloce per primo.",
+   "a": [
+    "Mustiolo etrusco",
+    "Topo domestico",
+    "Essere umano",
+    "Balenottera azzurra"
+   ],
+   "x": "Il minuscolo mustiolo supera i 1.000 battiti al minuto, il topo 500–600, l’essere umano circa 70, la balenottera azzurra in immersione solo 2–10."
   }
  },
  {
@@ -789,6 +899,16 @@
     "ジャイアントパンダ"
    ],
    "x": "シロナガスクジラの赤ちゃんは約2.5トン、ゾウは約100キロ、人間は3.5キロ。パンダの赤ちゃんはたった約100グラムです。"
+  },
+  "it": {
+   "q": "Di chi è il piccolo più pesante alla nascita? Il più pesante per primo.",
+   "a": [
+    "Balenottera azzurra",
+    "Elefante africano",
+    "Essere umano",
+    "Panda gigante"
+   ],
+   "x": "Un piccolo di balenottera azzurra pesa circa 2,5 tonnellate, un elefantino circa 100 kg, un neonato 3,5 kg, e un cucciolo di panda solo circa 100 grammi."
   }
  },
  {
@@ -855,6 +975,16 @@
     "クロウタドリ"
    ],
    "x": "1973年、マダラハゲワシが高度1万1000メートル以上で飛行機にぶつかりました。インドガンは7000〜8000メートルでヒマラヤを越えます。コウノトリはふつう数百〜1000メートルで渡り、クロウタドリは地面の近くにいます。"
+  },
+  "it": {
+   "q": "Chi vola più in alto? Il più alto per primo.",
+   "a": [
+    "Grifone di Rüppell",
+    "Oca indiana",
+    "Cicogna bianca",
+    "Merlo"
+   ],
+   "x": "Nel 1973 un grifone di Rüppell si scontrò con un aereo a oltre 11.000 m. L’oca indiana attraversa l’Himalaya a 7.000–8.000 m. La cicogna migra di solito a poche centinaia fino a mille metri; il merlo resta vicino al suolo."
   }
  },
  {
@@ -921,6 +1051,16 @@
     "人間（道具なし）"
    ],
    "x": "アカボウクジラは3000メートル近く、マッコウクジラは2000メートル以上、コウテイペンギンは500メートル以上。素潜りの人間は100メートルちょっとです。"
+  },
+  "it": {
+   "q": "Chi si immerge più a fondo? Il più profondo per primo.",
+   "a": [
+    "Zifio",
+    "Capodoglio",
+    "Pinguino imperatore",
+    "Essere umano (senza attrezzatura)"
+   ],
+   "x": "Lo zifio scende a quasi 3.000 m, il capodoglio a oltre 2.000 m, il pinguino imperatore a oltre 500 m. Gli apneisti superano di poco i 100 m."
   }
  },
  {
@@ -987,6 +1127,16 @@
     "オオアリクイ"
    ],
    "x": "ハンドウイルカは80〜100本、イヌは42本、大人の人間は32本。オオアリクイは0本。長い舌でアリをなめとります。"
+  },
+  "it": {
+   "q": "Chi ha più denti? Chi ne ha di più per primo.",
+   "a": [
+    "Tursiope",
+    "Cane",
+    "Essere umano",
+    "Formichiere gigante"
+   ],
+   "x": "Il tursiope ha 80–100 denti, il cane 42, l’essere umano adulto 32. Il formichiere non ne ha nessuno: lecca le formiche con la lunga lingua."
   }
  },
  {
@@ -1053,6 +1203,16 @@
     "人間"
    ],
    "x": "イリエワニのかむ力はこれまで測った中で最強で、カバの約2倍。ライオンはずっと弱く、人間はそのほんの一部です。"
+  },
+  "it": {
+   "q": "Chi morde più forte? Il più forte per primo.",
+   "a": [
+    "Coccodrillo marino",
+    "Ippopotamo",
+    "Leone",
+    "Essere umano"
+   ],
+   "x": "Il coccodrillo marino ha il morso più forte mai misurato, circa il doppio di quello dell’ippopotamo. Il leone morde molto più debole, l’essere umano con una piccola frazione."
   }
  },
  {
@@ -1119,6 +1279,16 @@
     "クロウタドリ"
    ],
    "x": "ワタリアホウドリは翼の端から端まで最大3.5メートル、アンデスコンドルは3メートルちょっと、コウノトリは約2メートル、クロウタドリは40センチ弱です。"
+  },
+  "it": {
+   "q": "Chi ha l’apertura alare più grande? La più grande per prima.",
+   "a": [
+    "Albatro urlatore",
+    "Condor delle Ande",
+    "Cicogna bianca",
+    "Merlo"
+   ],
+   "x": "L’albatro urlatore misura fino a 3,5 m da un’ala all’altra, il condor poco più di 3 m, la cicogna circa 2 m, il merlo poco meno di 40 cm."
   }
  },
  {
@@ -1185,6 +1355,16 @@
     "ハンドウイルカ"
    ],
    "x": "シロナガスクジラは最大30メートル、ジンベエザメ（最大の魚）は12メートル以上、ホホジロザメは約6メートル、ハンドウイルカは2〜4メートル。"
+  },
+  "it": {
+   "q": "Chi è più lungo? Il più lungo per primo.",
+   "a": [
+    "Balenottera azzurra",
+    "Squalo balena",
+    "Squalo bianco",
+    "Tursiope"
+   ],
+   "x": "La balenottera azzurra arriva a 30 m, lo squalo balena (il pesce più grande) a oltre 12 m, lo squalo bianco a circa 6 m, il tursiope a 2–4 m."
   }
  },
  {
@@ -1251,6 +1431,16 @@
     "ギャロップする馬"
    ],
    "x": "カタツムリは1時間に数メートル、ナマケモノは約200〜250メートル。人間は時速約5キロで歩き、ウマは時速40キロ以上でかけます。"
+  },
+  "it": {
+   "q": "Chi è il più LENTO? Il più lento per primo.",
+   "a": [
+    "Chiocciola",
+    "Bradipo tridattilo",
+    "Persona a passeggio",
+    "Cavallo al galoppo"
+   ],
+   "x": "Una chiocciola fa solo pochi metri all’ora, un bradipo circa 200–250 m. Una persona cammina a circa 5 km/h, un cavallo galoppa a oltre 40 km/h."
   }
  },
  {
@@ -1317,6 +1507,16 @@
     "人間"
    ],
    "x": "1秒に20万回以上の振動（200キロヘルツ）が聞こえるコウモリもいます。イルカは約150キロヘルツ、イヌは約45キロヘルツ。人間は最大20キロヘルツで、年をとると下がります。"
+  },
+  "it": {
+   "q": "Chi sente i suoni più acuti? Il più acuto per primo.",
+   "a": [
+    "Pipistrello",
+    "Delfino",
+    "Cane",
+    "Essere umano"
+   ],
+   "x": "Alcuni pipistrelli sentono oltre 200.000 vibrazioni al secondo (200 kHz), il delfino fino a circa 150 kHz, il cane circa 45 kHz. L’essere umano al massimo 20 kHz, e meno con l’età."
   }
  },
  {
@@ -1383,6 +1583,16 @@
     "カモノハシ"
    ],
    "x": "鳥は体温が特に高く、ニワトリは約41℃。イヌは約38.5℃、人間は37℃、カモノハシはたった約32℃です。"
+  },
+  "it": {
+   "q": "Il corpo di chi è più caldo? Il più caldo per primo.",
+   "a": [
+    "Gallina",
+    "Cane",
+    "Essere umano",
+    "Ornitorinco"
+   ],
+   "x": "Gli uccelli sono molto caldi: la gallina circa 41 °C. Il cane circa 38,5 °C, l’essere umano 37 °C, l’ornitorinco solo circa 32 °C."
   }
  },
  {
@@ -1449,6 +1659,16 @@
     "人類"
    ],
    "x": "クラゲは5億年以上前から、サメは4億年以上前から。恐竜は約2億3000万年前に現れ、私たちの種はたった約30万年前からです。"
+  },
+  "it": {
+   "q": "Chi è comparso prima sulla Terra? Il più antico per primo.",
+   "a": [
+    "Meduse",
+    "Squali",
+    "Dinosauri",
+    "Esseri umani"
+   ],
+   "x": "Le meduse esistono da oltre 500 milioni di anni, gli squali da oltre 400 milioni, i dinosauri comparvero circa 230 milioni di anni fa, la nostra specie solo circa 300.000 anni fa."
   }
  },
  {
@@ -1515,6 +1735,16 @@
     "アフリカゾウ"
    ],
    "x": "ハツカネズミは1年に最大50匹、アナウサギは20〜30匹、キツネは1回に4〜6匹。ゾウは4〜5年に1頭だけです。"
+  },
+  "it": {
+   "q": "Chi ha più piccoli all’anno? Chi ne ha di più per primo.",
+   "a": [
+    "Topo domestico",
+    "Coniglio selvatico",
+    "Volpe rossa",
+    "Elefante africano"
+   ],
+   "x": "Il topo domestico può avere fino a 50 piccoli all’anno, il coniglio 20–30, la volpe una cucciolata di 4–6. Un’elefantessa ha un piccolo solo ogni 4–5 anni."
   }
  },
  {
@@ -1581,6 +1811,16 @@
     "イヌワシ"
    ],
    "x": "ダチョウは100キロ以上、コウテイペンギンは20〜40キロ、コブハクチョウは約10キロ（飛べる鳥ではトップクラス）。イヌワシは3〜6キロです。"
+  },
+  "it": {
+   "q": "Quale uccello è più pesante? Il più pesante per primo.",
+   "a": [
+    "Struzzo",
+    "Pinguino imperatore",
+    "Cigno reale",
+    "Aquila reale"
+   ],
+   "x": "Lo struzzo supera i 100 kg, il pinguino imperatore pesa 20–40 kg, il cigno reale circa 10 kg, uno degli uccelli volanti più pesanti. L’aquila reale pesa 3–6 kg."
   }
  },
  {
@@ -1647,6 +1887,16 @@
     "飼いネコ"
    ],
    "x": "カゲロウの成虫は数時間から数日だけ。でも幼虫としては最大3年生きます。夏の働きバチは約6週間、ネズミは1〜2年、ネコは約15年です。"
+  },
+  "it": {
+   "q": "Chi vive MENO da adulto? La vita più breve per prima.",
+   "a": [
+    "Effimera",
+    "Ape operaia estiva",
+    "Topo domestico",
+    "Gatto domestico"
+   ],
+   "x": "L’effimera adulta vive spesso da poche ore a pochi giorni, ma come larva fino a tre anni. L’operaia estiva circa 6 settimane, il topo 1–2 anni, il gatto circa 15 anni."
   }
  },
  {
@@ -1713,6 +1963,16 @@
     "コウテイペンギン"
    ],
    "x": "マンボウのメスは約3億個の卵をもつことがあります。ヒキガエルは数千個のひも状の卵、ウミガメは1回に約100個、コウテイペンギンはたった1個。"
+  },
+  "it": {
+   "q": "Chi depone più uova in una volta? Chi ne depone di più per primo.",
+   "a": [
+    "Pesce luna",
+    "Rospo comune",
+    "Tartaruga marina",
+    "Pinguino imperatore"
+   ],
+   "x": "Una femmina di pesce luna può portare circa 300 milioni di uova, il rospo depone cordoni con qualche migliaio, la tartaruga marina circa 100 per covata, il pinguino imperatore uno solo."
   }
  },
  {
@@ -1779,6 +2039,16 @@
     "アカギツネ"
    ],
    "x": "5センチちょっとのマメハチドリは世界最小の鳥。ハタネズミは約10センチ、リスは20センチちょっと（しっぽなし）、キツネは約70センチです。"
+  },
+  "it": {
+   "q": "Chi è più piccolo? Il più piccolo per primo.",
+   "a": [
+    "Colibrì di Elena",
+    "Arvicola campestre",
+    "Scoiattolo rosso",
+    "Volpe rossa"
+   ],
+   "x": "Con poco più di 5 cm, il colibrì di Elena è l’uccello più piccolo del mondo. Un’arvicola misura circa 10 cm, uno scoiattolo poco più di 20 cm (senza coda), una volpe circa 70 cm."
   }
  },
  {
@@ -1845,6 +2115,16 @@
     "ユーラシアカワウソ"
    ],
    "x": "記録ではアカボウクジラが4時間近く潜りました。ゾウアザラシは最大約2時間、ハンドウイルカはふつう10分未満、カワウソは数分です。"
+  },
+  "it": {
+   "q": "Chi resta più a lungo sott’acqua? Chi resiste di più per primo.",
+   "a": [
+    "Zifio",
+    "Elefante marino del sud",
+    "Tursiope",
+    "Lontra europea"
+   ],
+   "x": "Record: uno zifio è rimasto sott’acqua quasi 4 ore. L’elefante marino resiste fino a circa 2 ore, il tursiope di solito meno di 10 minuti, la lontra pochi minuti."
   }
  },
  {
@@ -1911,6 +2191,16 @@
     "ハリネズミ"
    ],
    "x": "ダチョウは時速70キロで走る、走る鳥でいちばんの俊足。キツネは約50キロ、リスは20キロちょっと。ハリネズミは最大でも時速約9キロです。"
+  },
+  "it": {
+   "q": "Chi è più veloce sulla terraferma? Il più veloce per primo.",
+   "a": [
+    "Struzzo",
+    "Volpe rossa",
+    "Scoiattolo rosso",
+    "Riccio"
+   ],
+   "x": "Lo struzzo corre fino a 70 km/h, l’uccello più veloce a piedi. La volpe arriva a circa 50, lo scoiattolo a poco più di 20 km/h. Il riccio trotterella al massimo a circa 9 km/h."
   }
  },
  {
@@ -1977,6 +2267,16 @@
     "チンパンジー"
    ],
    "x": "マッコウクジラの脳は約8キロで、動物界でいちばん重い。ゾウは約5キロ、人間は1.3〜1.4キロ、チンパンジーは400グラム弱です。"
+  },
+  "it": {
+   "q": "Il cervello di chi pesa di più? Il più pesante per primo.",
+   "a": [
+    "Capodoglio",
+    "Elefante africano",
+    "Essere umano",
+    "Scimpanzé"
+   ],
+   "x": "Il cervello del capodoglio pesa circa 8 kg, il più pesante del regno animale. Quello dell’elefante circa 5 kg, dell’essere umano 1,3–1,4 kg, dello scimpanzé poco meno di 400 g."
   }
  }
 ]

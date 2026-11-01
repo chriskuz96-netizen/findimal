@@ -51,6 +51,14 @@
     "チーター"
    ],
    "x": "チーターのほうが速いですが、全力で走れるのは数百メートルだけ。プロングホーンは時速50キロ以上で何キロも走り続けられます。"
+  },
+  "it": {
+   "q": "Chi riesce a mantenere a lungo un’alta velocità?",
+   "a": [
+    "Antilocapra",
+    "Ghepardo"
+   ],
+   "x": "Il ghepardo è più veloce, ma scatta solo per poche centinaia di metri. L’antilocapra tiene oltre 50 km/h per chilometri."
   }
  },
  {
@@ -105,6 +113,14 @@
     "アムールトラ"
    ],
    "x": "オスのホッキョクグマは400〜700キロ。陸上最大の肉食動物です。アムールトラは約300キロです。"
+  },
+  "it": {
+   "q": "Chi è il più grande carnivoro terrestre?",
+   "a": [
+    "Orso polare",
+    "Tigre siberiana"
+   ],
+   "x": "I maschi di orso polare pesano 400–700 kg: sono i più grandi carnivori terrestri. Le tigri siberiane arrivano a circa 300 kg."
   }
  },
  {
@@ -159,6 +175,14 @@
     "ゼニガタアザラシ"
    ],
    "x": "アザラシはクマやイタチと同じ「イヌ型」の肉食動物です。ハイエナはイヌに似ていますが、ネコに近い親せきです。"
+  },
+  "it": {
+   "q": "Chi è più vicino parente del cane?",
+   "a": [
+    "Iena maculata",
+    "Foca comune"
+   ],
+   "x": "Le foche appartengono ai carnivori «simili al cane», insieme a orsi e mustelidi. Le iene sembrano cani, ma sono più vicine ai gatti."
   }
  },
  {
@@ -213,6 +237,14 @@
     "ハチドリ"
    ],
    "x": "ハチドリは1秒に最大80回、8の字に羽ばたきます。だから空中で止まったり、後ろ向きに飛んだりできます。"
+  },
+  "it": {
+   "q": "Chi sa volare all’indietro?",
+   "a": [
+    "Passero",
+    "Colibrì"
+   ],
+   "x": "I colibrì battono le ali fino a 80 volte al secondo disegnando un otto. Così restano sospesi in aria e volano persino all’indietro."
   }
  },
  {
@@ -267,6 +299,14 @@
     "サイ"
    ],
    "x": "ウマ、サイ、バクは奇蹄類です。ウシは偶蹄類で、ウマよりクジラのほうに近い親せきです。"
+  },
+  "it": {
+   "q": "Chi è più vicino parente del cavallo?",
+   "a": [
+    "Mucca",
+    "Rinoceronte"
+   ],
+   "x": "Cavalli, rinoceronti e tapiri sono perissodattili. Le mucche sono artiodattili, e quindi più vicine alle balene che ai cavalli."
   }
  },
  {
@@ -321,6 +361,14 @@
     "生まれたての赤ちゃん"
    ],
    "x": "赤ちゃんは約300個の骨をもって生まれます。その多くがあとでくっつき、大人は206個になります。"
+  },
+  "it": {
+   "q": "Chi ha più ossa?",
+   "a": [
+    "Un adulto",
+    "Un neonato"
+   ],
+   "x": "I neonati nascono con circa 300 ossa. Molte si saldano in seguito: gli adulti ne hanno 206."
   }
  },
  {
@@ -375,6 +423,14 @@
     "カンガルーネズミ"
    ],
    "x": "北アメリカの砂漠にすむカンガルーネズミは、一生水を飲まないことも。かわいた種から水分をとります。ラクダは2週間ほどです。"
+  },
+  "it": {
+   "q": "Chi resiste più a lungo senza bere?",
+   "a": [
+    "Dromedario",
+    "Ratto canguro"
+   ],
+   "x": "Il ratto canguro dei deserti nordamericani spesso non beve mai in tutta la vita: ricava l’acqua dai semi secchi. I cammelli resistono circa due settimane."
   }
  },
  {
@@ -429,6 +485,14 @@
     "アナウサギ"
    ],
    "x": "ウサギはやわらかいフンをすぐに食べます。2回目の消化で、消化しにくい植物からビタミンや栄養をとり出すのです。"
+  },
+  "it": {
+   "q": "Chi mangia di proposito una parte dei propri escrementi?",
+   "a": [
+    "Capriolo",
+    "Coniglio selvatico"
+   ],
+   "x": "I conigli mangiano subito le feci molli. Al secondo passaggio estraggono vitamine e nutrienti dal loro cibo vegetale difficile da digerire."
   }
  },
  {
@@ -483,6 +547,14 @@
     "ワニ"
    ],
    "x": "ワニは石を飲みこみます。胃の中で食べものをすりつぶすのを助け、潜るときのおもりにもなるのかもしれません。"
+  },
+  "it": {
+   "q": "Chi inghiotte sassi di proposito?",
+   "a": [
+    "Leone",
+    "Coccodrillo"
+   ],
+   "x": "I coccodrilli inghiottono sassi. Nello stomaco aiutano a sminuzzare il cibo e forse fanno da zavorra per le immersioni."
   }
  },
  {
@@ -537,6 +609,14 @@
     "イヌ"
    ],
    "x": "ウマは脚の関節をロックして、立ったままうとうとできます。でも深く眠るときは横になります。"
+  },
+  "it": {
+   "q": "Chi sa sonnecchiare in piedi?",
+   "a": [
+    "Cavallo",
+    "Cane"
+   ],
+   "x": "I cavalli bloccano le articolazioni delle zampe e sonnecchiano in piedi. Per il sonno profondo però si sdraiano anche loro."
   }
  },
  {
@@ -591,6 +671,14 @@
     "ナマケモノ"
    ],
    "x": "コアラは有袋類。生まれたときの赤ちゃんは豆粒ほどで、何か月も袋の中で育ちます。"
+  },
+  "it": {
+   "q": "Chi porta il piccolo in un marsupio?",
+   "a": [
+    "Koala",
+    "Bradipo"
+   ],
+   "x": "I koala sono marsupiali. Alla nascita il piccolo è grande come un fagiolo e cresce per mesi nel marsupio."
   }
  },
  {
@@ -645,6 +733,14 @@
     "ハリネズミ"
    ],
    "x": "オーストラリアのハリモグラは卵を産み、おなかの袋で温めます。トゲがあってもハリネズミの親せきではありません。ハリネズミは赤ちゃんを産みます。"
+  },
+  "it": {
+   "q": "Quale mammifero depone le uova?",
+   "a": [
+    "Echidna",
+    "Riccio"
+   ],
+   "x": "L’echidna australiana depone uova e le cova in una tasca sulla pancia. Nonostante gli aculei non è parente del riccio, che partorisce piccoli vivi."
   }
  },
  {
@@ -699,6 +795,14 @@
     "ビーバー"
    ],
    "x": "カモノハシのオスは後ろ脚に毒のけづめがあります。人が刺されるとものすごく痛いですが、命に別状はありません。"
+  },
+  "it": {
+   "q": "Chi è velenoso?",
+   "a": [
+    "Ornitorinco maschio",
+    "Castoro"
+   ],
+   "x": "Il maschio di ornitorinco ha uno sperone velenoso sulle zampe posteriori. Per l’uomo la puntura è dolorosissima, ma non mortale."
   }
  },
  {
@@ -753,6 +857,14 @@
     "イヌ"
    ],
    "x": "コアラの指紋は人間とそっくりで、顕微鏡でも見分けにくいほど。私たちとは近い親せきでもないのに、です。"
+  },
+  "it": {
+   "q": "Chi ha impronte digitali come le nostre?",
+   "a": [
+    "Koala",
+    "Cane"
+   ],
+   "x": "Le impronte dei koala somigliano tanto alle nostre da essere difficili da distinguere anche al microscopio, anche se non siamo affatto parenti stretti."
   }
  },
  {
@@ -807,6 +919,14 @@
     "イヌ"
    ],
    "x": "ウマは人と同じように全身で汗をかきます。イヌの汗腺はほぼ足の裏だけで、ハアハアと息をして体を冷やします。"
+  },
+  "it": {
+   "q": "Chi suda su tutto il corpo?",
+   "a": [
+    "Cavallo",
+    "Cane"
+   ],
+   "x": "I cavalli sudano su tutto il corpo come noi. I cani hanno ghiandole sudoripare quasi solo sulle zampe e si rinfrescano ansimando."
   }
  },
  {
@@ -861,6 +981,14 @@
     "アシカ"
    ],
    "x": "ゾウアザラシは最大約2時間、水深1000メートル以上まで潜ります。アシカはふつう数分で上がってきます。"
+  },
+  "it": {
+   "q": "Chi resta più a lungo sott’acqua?",
+   "a": [
+    "Elefante marino",
+    "Leone marino"
+   ],
+   "x": "Gli elefanti marini si immergono fino a circa 2 ore e a oltre 1.000 m di profondità. I leoni marini di solito restano giù solo pochi minuti."
   }
  },
  {
@@ -915,6 +1043,14 @@
     "ミツバチ"
    ],
    "x": "大きなトンボは時速50キロ以上で飛び、飛びながら獲物をつかまえます。ミツバチは時速25〜30キロほどです。"
+  },
+  "it": {
+   "q": "Chi vola più veloce?",
+   "a": [
+    "Libellula",
+    "Ape mellifera"
+   ],
+   "x": "Le grandi libellule superano i 50 km/h e catturano le prede in volo. Le api volano a circa 25–30 km/h."
   }
  },
  {
@@ -969,6 +1105,14 @@
     "エイ"
    ],
    "x": "エイは平たくなったサメのようなもの。骨格も同じく軟骨です。イルカは哺乳類で、空気を吸って呼吸します。"
+  },
+  "it": {
+   "q": "Chi è più vicino parente dello squalo?",
+   "a": [
+    "Delfino",
+    "Razza"
+   ],
+   "x": "Le razze sono in pratica squali appiattiti, anche loro con lo scheletro di cartilagine. I delfini sono mammiferi e respirano aria."
   }
  },
  {
@@ -1023,6 +1167,14 @@
     "人間"
    ],
    "x": "シャコには色を感じる細胞が12種類、私たちには3種類しかありません。それでも、色の見分けはむしろ苦手。脳での処理のしかたがちがうのです。"
+  },
+  "it": {
+   "q": "Chi ha più tipi di recettori del colore negli occhi?",
+   "a": [
+    "Canocchia pavone",
+    "Essere umano"
+   ],
+   "x": "La canocchia pavone ha 12 tipi di recettori del colore, noi solo 3. Eppure distingue i colori peggio: il suo cervello li elabora in modo diverso."
   }
  },
  {
@@ -1077,6 +1229,14 @@
     "世界中の人間"
    ],
    "x": "2022年の研究では、世界中のアリを合わせた重さは、人間全体の約5分の1と推定されています。2京匹もいますが、1匹1匹はとても小さいのです。"
+  },
+  "it": {
+   "q": "Cosa pesa di più in totale?",
+   "a": [
+    "Tutte le formiche",
+    "Tutti gli esseri umani"
+   ],
+   "x": "Secondo uno studio del 2022, tutte le formiche del mondo insieme pesano circa un quinto di tutti gli esseri umani. Sono 20 biliardi, ma ognuna è minuscola."
   }
  },
  {
@@ -1131,6 +1291,14 @@
     "メス"
    ],
    "x": "オスは2か月間、卵を足の上にのせておなかの皮でおおいます。南極の冬に、何も食べずに。その間メスは海にいます。"
+  },
+  "it": {
+   "q": "Chi cova l’uovo nel pinguino imperatore?",
+   "a": [
+    "Il maschio",
+    "La femmina"
+   ],
+   "x": "Il maschio tiene l’uovo sui piedi sotto una piega della pancia per due mesi, nell’inverno antartico e senza mangiare. Nel frattempo la femmina è in mare."
   }
  },
  {
@@ -1185,6 +1353,14 @@
     "イカ"
    ],
    "x": "信じられないけれど、ヒトデやウニは脊椎動物と同じ大きな動物グループに入ります。イカは軟体動物で、私たちからは遠い存在です。"
+  },
+  "it": {
+   "q": "Chi è più vicino parente di noi esseri umani?",
+   "a": [
+    "Stella marina",
+    "Calamaro"
+   ],
+   "x": "Difficile da credere: stelle e ricci di mare fanno parte dello stesso grande gruppo dei vertebrati. I calamari sono molluschi e più lontani da noi."
   }
  },
  {
@@ -1239,6 +1415,14 @@
     "イヌ"
    ],
    "x": "イルカは脳の半分ずつ眠ります。もう半分は起きていて、呼吸を続け、危険を見張ります。"
+  },
+  "it": {
+   "q": "Chi dorme con metà cervello?",
+   "a": [
+    "Delfino",
+    "Cane"
+   ],
+   "x": "I delfini dormono con una metà del cervello alla volta. L’altra resta sveglia: così continuano a respirare e controllano i pericoli."
   }
  },
  {
@@ -1293,6 +1477,14 @@
     "グリーンバシリスク"
    ],
    "x": "バシリスクは後ろ脚で水の上を走ります。すばやく足をたたきつけるので沈まないのです。イグアナは泳ぎます。"
+  },
+  "it": {
+   "q": "Chi sa correre sull’acqua?",
+   "a": [
+    "Iguana verde",
+    "Basilisco piumato"
+   ],
+   "x": "Il basilisco corre sull’acqua sulle zampe posteriori: batte i piedi così in fretta da non affondare. Le iguane nuotano."
   }
  },
  {
@@ -1347,6 +1539,14 @@
     "マガモ"
    ],
    "x": "ハクチョウのペアは、ふつうどちらかが生きている限り一緒です。マガモは毎年新しいパートナーを見つけます。"
+  },
+  "it": {
+   "q": "Chi di solito resta con lo stesso partner per tutta la vita?",
+   "a": [
+    "Cigno reale",
+    "Germano reale"
+   ],
+   "x": "Le coppie di cigni di solito restano insieme finché entrambi sono vivi. I germani reali trovano un nuovo partner ogni anno."
   }
  },
  {
@@ -1401,6 +1601,14 @@
     "ネコ"
    ],
    "x": "ネコには瞬膜があり、目の上をさっと動いて目を守ります。人間には目頭にほんの小さななごりが残っているだけです。"
+  },
+  "it": {
+   "q": "Chi ha una terza palpebra?",
+   "a": [
+    "Essere umano",
+    "Gatto"
+   ],
+   "x": "I gatti hanno una membrana nittitante che scorre sull’occhio per proteggerlo. In noi ne resta solo un minuscolo residuo nell’angolo dell’occhio."
   }
  }
 ]

@@ -51,6 +51,14 @@
     "オウム"
    ],
    "x": "イヌワシは急降下で時速200キロ以上。オウムはふつう時速30〜60キロで飛びます。"
+  },
+  "it": {
+   "q": "Chi è più veloce?",
+   "a": [
+    "Aquila",
+    "Pappagallo"
+   ],
+   "x": "In picchiata l’aquila reale supera i 200 km/h. I pappagalli volano di solito a 30–60 km/h."
   }
  },
  {
@@ -105,6 +113,14 @@
     "トラ"
    ],
    "x": "トラは1日16〜20時間うとうとします。キリンが眠るのは数時間だけ。立ったまま、短い仮眠を重ねます。"
+  },
+  "it": {
+   "q": "Chi dorme di più al giorno?",
+   "a": [
+    "Giraffa",
+    "Tigre"
+   ],
+   "x": "Le tigri sonnecchiano 16–20 ore al giorno. Le giraffe dormono solo poche ore, spesso in piedi e a brevi riprese."
   }
  },
  {
@@ -159,6 +175,14 @@
     "トカゲ"
    ],
    "x": "DNAを比べると、カメはトカゲやヘビよりも、鳥やワニに近い親せきだとわかります。"
+  },
+  "it": {
+   "q": "Chi è più vicino parente degli uccelli?",
+   "a": [
+    "Tartaruga",
+    "Lucertola"
+   ],
+   "x": "Il confronto del DNA mostra che le tartarughe sono più vicine a uccelli e coccodrilli che a lucertole e serpenti."
   }
  },
  {
@@ -213,6 +237,14 @@
     "カタツムリ"
    ],
    "x": "カニも昆虫も、かたい殻と節のある脚をもつ節足動物。昆虫は甲殻類から進化したほどです。"
+  },
+  "it": {
+   "q": "Chi è più vicino parente degli insetti?",
+   "a": [
+    "Granchio",
+    "Chiocciola"
+   ],
+   "x": "Granchi e insetti sono artropodi, con corazza e zampe articolate. Gli insetti si sono addirittura evoluti dai crostacei."
   }
  },
  {
@@ -267,6 +299,14 @@
     "トラ"
    ],
    "x": "パンダは1日に12〜38キロの竹を食べます。竹はエネルギーが少ないからです。トラは平均すると1日5〜7キロの肉で足ります。"
+  },
+  "it": {
+   "q": "Chi mangia più chili di cibo al giorno?",
+   "a": [
+    "Panda",
+    "Tigre"
+   ],
+   "x": "Un panda mangia 12–38 kg di bambù al giorno, perché dà pochissima energia. A una tigre bastano in media 5–7 kg di carne al giorno."
   }
  },
  {
@@ -321,6 +361,14 @@
     "カエル"
    ],
    "x": "トカゲは舌をチロチロ出してにおいの粒をつかまえ、口の天井にあるにおいの器官へ運びます。カエルは舌を獲物をとるためだけに使います。"
+  },
+  "it": {
+   "q": "Chi sente gli odori con la lingua?",
+   "a": [
+    "Lucertola",
+    "Rana"
+   ],
+   "x": "Le lucertole guizzano la lingua per raccogliere particelle di odore e portarle a un organo olfattivo nel palato. Le rane usano la lingua solo per catturare le prede."
   }
  },
  {
@@ -375,6 +423,14 @@
     "トカゲ"
    ],
    "x": "カエルはうすくしめった皮ふから酸素をとり入れます。冬の池の底では、ほぼ皮ふだけで呼吸します。トカゲの皮ふはかわいたうろこです。"
+  },
+  "it": {
+   "q": "Chi respira anche con la pelle?",
+   "a": [
+    "Rana",
+    "Lucertola"
+   ],
+   "x": "Le rane assorbono ossigeno dalla pelle sottile e umida; d’inverno, sul fondo dello stagno, quasi solo così. Le lucertole hanno la pelle secca e squamosa."
   }
  },
  {
@@ -429,6 +485,14 @@
     "ミツバチ"
    ],
    "x": "ミツバチには紫外線が見えます。多くの花には、蜜まで導く滑走路のような紫外線の模様があります。私たちには見えません。"
+  },
+  "it": {
+   "q": "Chi vede la luce ultravioletta?",
+   "a": [
+    "Orso bruno",
+    "Ape"
+   ],
+   "x": "Le api vedono la luce UV. Molti fiori hanno disegni UV che portano al nettare come piste di atterraggio, invisibili per noi."
   }
  },
  {
@@ -483,6 +547,14 @@
     "カニ"
    ],
    "x": "ミツバチには大きな複眼が2つと、頭の上に小さな単眼が3つ。全部で5つです。カニの目は柄の先についた2つです。"
+  },
+  "it": {
+   "q": "Chi ha più occhi?",
+   "a": [
+    "Ape",
+    "Granchio"
+   ],
+   "x": "Le api hanno due grandi occhi composti e tre piccoli occhi semplici sulla testa: cinque in tutto. I granchi hanno due occhi su peduncoli."
   }
  },
  {
@@ -537,6 +609,14 @@
     "ウミガメ"
    ],
    "x": "メスのタコは数十万個もの卵を産み、何週間も何も食べずに守ります。ウミガメは1回に約100個です。"
+  },
+  "it": {
+   "q": "Chi depone più uova in una volta?",
+   "a": [
+    "Polpo",
+    "Tartaruga marina"
+   ],
+   "x": "Una femmina di polpo depone fino a centinaia di migliaia di uova e le sorveglia per settimane senza mangiare. Le tartarughe marine ne depongono circa 100 per covata."
   }
  },
  {
@@ -591,6 +671,14 @@
     "オウム"
    ],
    "x": "ニシオンデンザメは数百年生きることがあり、知られている中でいちばん長生きな脊椎動物です。大型のオウムは60〜80年です。"
+  },
+  "it": {
+   "q": "Chi vive più a lungo?",
+   "a": [
+    "Squalo della Groenlandia",
+    "Pappagallo"
+   ],
+   "x": "Lo squalo della Groenlandia può vivere diversi secoli: è il vertebrato più longevo conosciuto. I grandi pappagalli arrivano a 60–80 anni."
   }
  },
  {
@@ -645,6 +733,14 @@
     "カメ"
    ],
    "x": "サメは4億年以上前からいます。木よりも昔からです。カメは約2億2000万年前からです。"
+  },
+  "it": {
+   "q": "Chi è comparso prima sulla Terra?",
+   "a": [
+    "Squalo",
+    "Tartaruga"
+   ],
+   "x": "Gli squali esistono da oltre 400 milioni di anni, più degli alberi. Le tartarughe solo da circa 220 milioni di anni."
   }
  },
  {
@@ -699,6 +795,14 @@
     "ペンギン"
    ],
    "x": "ジェンツーペンギンは水中で時速約35キロ。水中ではどの鳥よりも速いです。カワウソは時速10キロちょっとです。"
+  },
+  "it": {
+   "q": "Chi nuota più veloce?",
+   "a": [
+    "Lontra",
+    "Pinguino"
+   ],
+   "x": "Il pinguino papua raggiunge sott’acqua circa 35 km/h, più di qualsiasi altro uccello in acqua. La lontra nuota a poco più di 10 km/h."
   }
  },
  {
@@ -753,6 +857,14 @@
     "カエル"
    ],
    "x": "北アメリカのアメリカアカガエルは、冬に体の3分の2が凍り、心臓も呼吸も止まります。細胞の中の糖が体を守り、春にとけて元にもどります。ハリネズミには凍らない巣が必要です。"
+  },
+  "it": {
+   "q": "Chi sopravvive anche quasi completamente congelato?",
+   "a": [
+    "Riccio",
+    "Rana"
+   ],
+   "x": "La rana dei boschi nordamericana d’inverno congela per due terzi; cuore e respiro si fermano. Lo zucchero nelle cellule la protegge e in primavera si scongela. Il riccio ha bisogno di un nido al riparo dal gelo."
   }
  },
  {
@@ -807,6 +919,14 @@
     "オウム"
    ],
    "x": "鳥は今も生きている恐竜です。トカゲは大昔の生きものに見えますが、遠い親せきにすぎません。"
+  },
+  "it": {
+   "q": "Chi discende dai dinosauri?",
+   "a": [
+    "Lucertola",
+    "Pappagallo"
+   ],
+   "x": "Gli uccelli sono i dinosauri di oggi. Le lucertole sembrano preistoriche, ma sono solo parenti lontane."
   }
  },
  {
@@ -861,6 +981,14 @@
     "パンダ"
    ],
    "x": "トラは短い距離なら時速50〜65キロで走ります。パンダはいざとなれば時速約30キロです。"
+  },
+  "it": {
+   "q": "Chi è più veloce sulla terraferma?",
+   "a": [
+    "Tigre",
+    "Panda"
+   ],
+   "x": "Le tigri scattano a 50–65 km/h su brevi distanze. I panda, se serve, arrivano a circa 30 km/h."
   }
  },
  {
@@ -915,6 +1043,14 @@
     "コイ"
    ],
    "x": "多くのシクリッドでは、親が卵を口に入れ、その間ずっと何も食べません。子どもも危ないときは口の中へ逃げこみます。コイは卵を水草に産みつけるだけです。"
+  },
+  "it": {
+   "q": "Chi tiene le uova in bocca finché i piccoli non nascono?",
+   "a": [
+    "Ciclide incubatore orale",
+    "Carpa"
+   ],
+   "x": "In molti ciclidi un genitore prende le uova in bocca e per tutto quel tempo non mangia. Anche i piccoli, in caso di pericolo, si rifugiano nella sua bocca. Le carpe depongono le uova sulle piante."
   }
  },
  {
@@ -969,6 +1105,14 @@
     "タコ"
    ],
    "x": "タコの神経細胞の約3分の2は腕にあります。それぞれの腕が、まるで自分の考えをもっているかのように、さわり、味わい、つかみます。"
+  },
+  "it": {
+   "q": "Chi ha la maggior parte dei neuroni nelle braccia?",
+   "a": [
+    "Pappagallo",
+    "Polpo"
+   ],
+   "x": "Circa due terzi dei neuroni di un polpo sono nelle braccia. Ogni braccio può sentire, gustare e afferrare quasi come se avesse una testa sua."
   }
  },
  {
@@ -1023,6 +1167,14 @@
     "ヒグマ"
    ],
    "x": "大人のキリンは800〜1200キロ。とても大きなヒグマでも、ふつうはずっと軽いです。"
+  },
+  "it": {
+   "q": "Chi è più pesante?",
+   "a": [
+    "Giraffa",
+    "Orso bruno"
+   ],
+   "x": "Una giraffa adulta pesa 800–1.200 kg. Anche gli orsi bruni molto grandi di solito pesano molto meno."
   }
  },
  {
@@ -1077,6 +1229,14 @@
     "ミツバチ"
    ],
    "x": "夏のミツバチの巣には3万〜5万匹。ほぼ全員が1匹の女王バチの娘です。テントウムシは単独で暮らします。"
+  },
+  "it": {
+   "q": "Chi vive in una colonia con migliaia di sorelle?",
+   "a": [
+    "Coccinella",
+    "Ape"
+   ],
+   "x": "D’estate un alveare ha 30.000–50.000 api, quasi tutte figlie dell’unica regina. Le coccinelle vivono da sole."
   }
  },
  {
@@ -1131,6 +1291,14 @@
     "ハリネズミ"
    ],
    "x": "小さな動物は心臓が速い。起きているハリネズミは1分に約200回、クマはたった40〜50回ほどです。"
+  },
+  "it": {
+   "q": "Il cuore di chi batte più veloce?",
+   "a": [
+    "Orso bruno",
+    "Riccio"
+   ],
+   "x": "Gli animali piccoli hanno il cuore veloce: quello di un riccio sveglio batte circa 200 volte al minuto, quello di un orso solo 40–50."
   }
  },
  {
@@ -1185,6 +1353,14 @@
     "ワシ"
    ],
    "x": "フクロウの目には、暗い光を感じる細胞（桿体）がとてもたくさんあります。ワシは昼間にくっきり見えるタイプです。"
+  },
+  "it": {
+   "q": "Chi vede meglio al crepuscolo?",
+   "a": [
+    "Gufo",
+    "Aquila"
+   ],
+   "x": "Gli occhi dei gufi hanno moltissimi bastoncelli, le cellule per la luce debole. Le aquile invece vedono più nitido di giorno."
   }
  },
  {
@@ -1239,6 +1415,14 @@
     "ヒグマ"
    ],
    "x": "リクガメの多くは50年から100年以上生きます。野生のヒグマはふつう20〜30年です。"
+  },
+  "it": {
+   "q": "Chi vive più a lungo?",
+   "a": [
+    "Tartaruga",
+    "Orso bruno"
+   ],
+   "x": "Molte tartarughe terrestri vivono da 50 a oltre 100 anni. Gli orsi bruni in natura arrivano di solito a 20–30 anni."
   }
  },
  {
@@ -1293,6 +1477,14 @@
     "タコ"
    ],
    "x": "タコの皮ふには何千もの色の細胞があり、一瞬で開いたり閉じたりします。かくれたり、気分を表したりするためです。"
+  },
+  "it": {
+   "q": "Chi cambia colore in un lampo?",
+   "a": [
+    "Pappagallo",
+    "Polpo"
+   ],
+   "x": "I polpi hanno nella pelle migliaia di cellule colorate che aprono e chiudono in una frazione di secondo, per nascondersi e mostrare il loro umore."
   }
  }
 ]

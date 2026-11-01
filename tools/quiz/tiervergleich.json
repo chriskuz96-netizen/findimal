@@ -63,6 +63,16 @@
     "カタツムリ"
    ],
    "x": "タコには、えらの心臓が2つと、青い血を全身に送る本体の心臓が1つあります。"
+  },
+  "it": {
+   "q": "Quale di questi animali ha tre cuori?",
+   "a": [
+    "Granchio",
+    "Polpo",
+    "Squalo",
+    "Chiocciola"
+   ],
+   "x": "I polpi hanno due cuori branchiali e un cuore principale che pompa il loro sangue blu in tutto il corpo."
   }
  },
  {
@@ -129,6 +139,16 @@
     "ハリネズミ"
    ],
    "x": "冬眠中のハリネズミの体温は約5℃まで下がります。リスは休むだけで、よく起きて食べます。"
+  },
+  "it": {
+   "q": "Quale animale va davvero in letargo?",
+   "a": [
+    "Scoiattolo",
+    "Capriolo",
+    "Volpe",
+    "Riccio"
+   ],
+   "x": "In letargo la temperatura del riccio scende a circa 5 °C. Gli scoiattoli riposano soltanto e si svegliano spesso per mangiare."
   }
  },
  {
@@ -195,6 +215,16 @@
     "カニ"
    ],
    "x": "昆虫の脚はみんな6本。テントウムシもそうです。カニの脚は10本、タコの腕は8本です。"
+  },
+  "it": {
+   "q": "Quale animale ha esattamente sei zampe?",
+   "a": [
+    "Coccinella",
+    "Polpo",
+    "Chiocciola",
+    "Granchio"
+   ],
+   "x": "Tutti gli insetti hanno sei zampe, anche la coccinella. I granchi hanno dieci zampe e i polpi otto braccia."
   }
  },
  {
@@ -261,6 +291,16 @@
     "カエル"
    ],
    "x": "サメは軟骨魚類。軟骨は骨より軽くてしなやか。私たちの鼻と同じです。"
+  },
+  "it": {
+   "q": "Di chi è lo scheletro fatto di cartilagine invece che di osso?",
+   "a": [
+    "Tartaruga",
+    "Squalo",
+    "Pinguino",
+    "Rana"
+   ],
+   "x": "Gli squali sono pesci cartilaginei. La cartilagine è più leggera e flessibile dell’osso, come nel nostro naso."
   }
  },
  {
@@ -327,6 +367,16 @@
     "フラミンゴ"
    ],
    "x": "フラミンゴはカロテノイドをたっぷりふくむ藻や小さなエビを食べます。この色素がないと色があせてしまいます。"
+  },
+  "it": {
+   "q": "Quale uccello prende il colore dal cibo?",
+   "a": [
+    "Pappagallo",
+    "Aquila",
+    "Gufo",
+    "Fenicottero"
+   ],
+   "x": "I fenicotteri mangiano alghe e gamberetti pieni di carotenoidi. Senza questi pigmenti diventerebbero pallidi."
   }
  },
  {
@@ -393,6 +443,16 @@
     "コウテイペンギン"
    ],
    "x": "キーウィの卵はメスの体重の約5分の1。ダチョウの卵は一番大きな卵ですが、あの巨体にしては小さめです。"
+  },
+  "it": {
+   "q": "Quale uccello depone l’uovo più grande rispetto al corpo?",
+   "a": [
+    "Kiwi",
+    "Struzzo",
+    "Gallina",
+    "Pinguino imperatore"
+   ],
+   "x": "Un uovo di kiwi pesa circa un quinto della femmina. Quello di struzzo è l’uovo più grande in assoluto, ma piccolo per un uccello così enorme."
   }
  },
  {
@@ -459,6 +519,16 @@
     "トラ"
    ],
    "x": "パンダの「にせの親指」は大きくなった手首の骨。竹の茎をつかむのに役立ちます。"
+  },
+  "it": {
+   "q": "Quale animale ha un osso del polso ingrandito che funziona come un pollice in più?",
+   "a": [
+    "Lontra",
+    "Scoiattolo",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "Il «falso pollice» del panda è un osso del polso ingrandito. Lo aiuta ad afferrare le canne di bambù."
   }
  },
  {
@@ -525,6 +595,16 @@
     "パンダ"
    ],
    "x": "濃い色は、アカシアの葉をむしるときに舌が日焼けしないためと考えられています。"
+  },
+  "it": {
+   "q": "Quale animale ha una lingua blu scuro lunga circa 45 cm?",
+   "a": [
+    "Giraffa",
+    "Capriolo",
+    "Tigre",
+    "Panda"
+   ],
+   "x": "Il colore scuro probabilmente protegge la lingua della giraffa dalle scottature mentre strappa le foglie di acacia."
   }
  },
  {
@@ -591,6 +671,16 @@
     "トラ"
    ],
    "x": "トラの皮ふは黒いしまの下が黒っぽくなっています。毛をそっても、もようが見えるのです。"
+  },
+  "it": {
+   "q": "Quale animale ha la pelle a strisce anche sotto il pelo?",
+   "a": [
+    "Volpe",
+    "Capriolo",
+    "Scoiattolo",
+    "Tigre"
+   ],
+   "x": "La pelle della tigre è scura sotto le strisce scure: il disegno si vedrebbe anche se fosse rasata."
   }
  },
  {
@@ -657,6 +747,16 @@
     "キリン"
    ],
    "x": "カワウソは水中で耳と鼻の穴を閉じ、何分も潜っていられます。"
+  },
+  "it": {
+   "q": "Quale animale può chiudere orecchie e narici quando si immerge?",
+   "a": [
+    "Tigre",
+    "Lontra",
+    "Volpe",
+    "Giraffa"
+   ],
+   "x": "Sott’acqua le lontre chiudono orecchie e narici e possono restare giù diversi minuti."
   }
  },
  {
@@ -723,6 +823,16 @@
     "ペンギン"
    ],
    "x": "ペンギンは海水を飲めます。塩類腺が塩をこしとり、くちばしからポタポタたらします。"
+  },
+  "it": {
+   "q": "Quale animale ha una ghiandola sopra gli occhi che toglie il sale dall’acqua di mare?",
+   "a": [
+    "Gufo",
+    "Lontra",
+    "Pappagallo",
+    "Pinguino"
+   ],
+   "x": "I pinguini possono bere acqua di mare: una ghiandola del sale filtra il sale, che poi gocciola dal becco."
   }
  },
  {
@@ -789,6 +899,16 @@
     "ミツバチ"
    ],
    "x": "カタツムリの歯舌はやすりのよう。すり減った歯は、どんどん新しい歯に生えかわります。"
+  },
+  "it": {
+   "q": "Quale animale ha una lingua a raspa con migliaia di dentini?",
+   "a": [
+    "Chiocciola",
+    "Farfalla",
+    "Tartaruga",
+    "Ape"
+   ],
+   "x": "La radula della chiocciola funziona come una lima. I denti consumati vengono sostituiti di continuo da nuovi."
   }
  },
  {
@@ -855,6 +975,16 @@
     "カワウソ"
    ],
    "x": "サメにはロレンチーニ器官があります。鼻先の小さな穴で、かくれた獲物の筋肉が出す電気を感じとります。"
+  },
+  "it": {
+   "q": "Quale animale percepisce i deboli campi elettrici delle prede?",
+   "a": [
+    "Polpo",
+    "Pinguino",
+    "Squalo",
+    "Lontra"
+   ],
+   "x": "Gli squali hanno le ampolle di Lorenzini: pori sul muso che percepiscono l’elettricità dei muscoli delle prede nascoste."
   }
  },
  {
@@ -921,6 +1051,16 @@
     "カニ"
    ],
    "x": "ミツバチは「8の字ダンス」で、えさ場の方向と距離を仲間に伝えます。"
+  },
+  "it": {
+   "q": "Quale animale usa una danza per dire agli altri dove trovare cibo?",
+   "a": [
+    "Ape",
+    "Farfalla",
+    "Coccinella",
+    "Granchio"
+   ],
+   "x": "Con la danza dell’addome l’ape comunica alle compagne direzione e distanza di una fonte di cibo."
   }
  },
  {
@@ -987,6 +1127,16 @@
     "トカゲ"
    ],
    "x": "チョウの足には味を感じるセンサーがあります。メスはそれで、卵を産むのにいい植物か確かめます。"
+  },
+  "it": {
+   "q": "Quale animale sente i sapori con i piedi?",
+   "a": [
+    "Gufo",
+    "Farfalla",
+    "Rana",
+    "Lucertola"
+   ],
+   "x": "Le farfalle hanno sensori del gusto sulle zampe. Le femmine li usano per capire se una pianta va bene per le uova."
   }
  },
  {
@@ -1053,6 +1203,16 @@
     "テントウムシ"
    ],
    "x": "この「反射出血」で敵を追いはらいます。テントウムシの黄色い液は苦くて、いやなにおいがします。"
+  },
+  "it": {
+   "q": "Quale animale, se minacciato, spreme dalle articolazioni delle zampe un sangue giallo e amaro?",
+   "a": [
+    "Ape",
+    "Farfalla",
+    "Chiocciola",
+    "Coccinella"
+   ],
+   "x": "Questo «sanguinamento riflesso» scoraggia i predatori: il liquido giallo della coccinella è amaro e puzza."
   }
  },
  {
@@ -1119,6 +1279,16 @@
     "オウム"
    ],
    "x": "切れたトカゲのしっぽはクネクネ動き続け、敵の気をそらします。しっぽはまた生えますが、短くなります。"
+  },
+  "it": {
+   "q": "Quale animale può staccare la coda in caso di pericolo?",
+   "a": [
+    "Tartaruga",
+    "Riccio",
+    "Lucertola",
+    "Pappagallo"
+   ],
+   "x": "La coda staccata della lucertola continua a dimenarsi e distrae il nemico. Ricresce, ma più corta."
   }
  },
  {
@@ -1185,6 +1355,16 @@
     "カエル"
    ],
    "x": "カエルは飲みこむとき目玉を引っこめます。目玉が上から食べものを押して、のどへ送りこむのです。"
+  },
+  "it": {
+   "q": "Quale animale tira gli occhi verso l’interno quando deglutisce, per spingere giù il cibo?",
+   "a": [
+    "Gufo",
+    "Pappagallo",
+    "Lontra",
+    "Rana"
+   ],
+   "x": "Le rane ritraggono i bulbi oculari quando deglutiscono: premono sul cibo dall’alto e lo spingono in gola."
   }
  },
  {
@@ -1251,6 +1431,16 @@
     "ペンギン"
    ],
    "x": "カニは銅をふくむヘモシアニンで酸素を運びます。私たちの血が赤いのは鉄のおかげです。"
+  },
+  "it": {
+   "q": "Di chi è il sangue bluastro a causa del rame?",
+   "a": [
+    "Squalo",
+    "Granchio",
+    "Rana",
+    "Pinguino"
+   ],
+   "x": "I granchi trasportano l’ossigeno con l’emocianina, che contiene rame. Il nostro sangue è rosso per il ferro."
   }
  },
  {
@@ -1317,6 +1507,16 @@
     "テントウムシ"
    ],
    "x": "カニは十脚類（10本の脚）。いちばん前の1対が強いはさみになっています。"
+  },
+  "it": {
+   "q": "Quale animale ha dieci zampe, contando le chele?",
+   "a": [
+    "Granchio",
+    "Ape",
+    "Polpo",
+    "Coccinella"
+   ],
+   "x": "I granchi sono decapodi («dieci piedi»). Il primo paio di zampe è diventato due chele robuste."
   }
  },
  {
@@ -1383,6 +1583,16 @@
     "カメ"
    ],
    "x": "タコには骨がありません。通れる穴の大きさを決めるのは、かたいくちばしだけです。"
+  },
+  "it": {
+   "q": "Quale animale passa da un buco appena più grande del suo becco?",
+   "a": [
+    "Polpo",
+    "Squalo",
+    "Granchio",
+    "Tartaruga"
+   ],
+   "x": "I polpi non hanno ossa. Solo il loro becco duro limita le aperture in cui possono infilarsi."
   }
  },
  {
@@ -1449,6 +1659,16 @@
     "オウム"
    ],
    "x": "オウムの足は対趾足。枝をつかんだり、手のように食べものを持ったりできます。"
+  },
+  "it": {
+   "q": "Quale uccello ha due dita rivolte in avanti e due indietro?",
+   "a": [
+    "Aquila",
+    "Fenicottero",
+    "Pinguino",
+    "Pappagallo"
+   ],
+   "x": "I pappagalli hanno piedi zigodattili per afferrare i rami e tenere il cibo come con una mano."
   }
  },
  {
@@ -1515,6 +1735,16 @@
     "オウム"
    ],
    "x": "飛ぶ鳥の骨は中が空洞です。ペンギンは潜るとき浮き上がらないように、重い骨が必要なのです。"
+  },
+  "it": {
+   "q": "Quale uccello ha ossa pesanti e piene invece che piene d’aria?",
+   "a": [
+    "Aquila",
+    "Gufo",
+    "Pinguino",
+    "Pappagallo"
+   ],
+   "x": "Gli uccelli che volano hanno ossa cave. I pinguini hanno bisogno di ossa pesanti per non risalire mentre si immergono."
   }
  },
  {
@@ -1581,6 +1811,16 @@
     "パンダ"
    ],
    "x": "キリンの心臓は約11キロ。約2メートル上の頭まで血を送らなければなりません。"
+  },
+  "it": {
+   "q": "Quale di questi mammiferi ha la pressione sanguigna più alta?",
+   "a": [
+    "Giraffa",
+    "Tigre",
+    "Orso",
+    "Panda"
+   ],
+   "x": "Il cuore della giraffa pesa circa 11 kg e deve pompare il sangue fino alla testa, circa 2 metri più in alto."
   }
  },
  {
@@ -1647,6 +1887,16 @@
     "クマ"
    ],
    "x": "トラの耳の白い点は、母親についていく子どもへの目印になっていると考えられています。"
+  },
+  "it": {
+   "q": "Quale animale ha vistose macchie bianche sul retro delle orecchie?",
+   "a": [
+    "Panda",
+    "Volpe",
+    "Tigre",
+    "Orso"
+   ],
+   "x": "Le macchie bianche sulle orecchie della tigre probabilmente fanno da segnale per i cuccioli che seguono la madre."
   }
  },
  {
@@ -1713,6 +1963,16 @@
     "パンダ"
    ],
    "x": "生まれたてのパンダはわずか約100グラム。板チョコ1枚くらいの重さです。"
+  },
+  "it": {
+   "q": "Di chi è il cucciolo appena nato che pesa solo circa 1/900 della madre?",
+   "a": [
+    "Giraffa",
+    "Tigre",
+    "Lontra",
+    "Panda"
+   ],
+   "x": "Un panda appena nato pesa solo circa 100 g, più o meno come una tavoletta di cioccolato."
   }
  },
  {
@@ -1779,6 +2039,16 @@
     "ノロジカ"
    ],
    "x": "クマは私たちと同じように足の裏全体で歩きます。キツネやトラはつま先で、ノロジカはひづめで歩きます。"
+  },
+  "it": {
+   "q": "Quale animale cammina appoggiando a terra tutta la pianta del piede?",
+   "a": [
+    "Volpe",
+    "Orso",
+    "Tigre",
+    "Capriolo"
+   ],
+   "x": "Gli orsi camminano sull’intera pianta come noi. Volpi e tigri camminano sulle dita, i caprioli sugli zoccoli."
   }
  },
  {
@@ -1845,6 +2115,16 @@
     "キツネ"
    ],
    "x": "パンダはクマの仲間ですが、食べものの99%は竹。1日に最大12時間も食べ続けます。"
+  },
+  "it": {
+   "q": "Quale animale appartiene ai carnivori ma mangia quasi solo piante?",
+   "a": [
+    "Panda",
+    "Lontra",
+    "Tigre",
+    "Volpe"
+   ],
+   "x": "Il panda è un orso, eppure il 99% della sua dieta è bambù: mangia fino a 12 ore al giorno."
   }
  },
  {
@@ -1911,6 +2191,16 @@
     "ペンギン"
    ],
    "x": "ワシの目には、視細胞が私たちよりずっと密に並んでいます。高い空から獲物を見つけられます。"
+  },
+  "it": {
+   "q": "Quale uccello vede circa quattro o cinque volte più nitido di un essere umano?",
+   "a": [
+    "Aquila",
+    "Fenicottero",
+    "Gufo",
+    "Pinguino"
+   ],
+   "x": "Le aquile hanno cellule visive molto più fitte delle nostre e avvistano le prede da grandi altezze."
   }
  },
  {
@@ -1977,6 +2267,16 @@
     "オウム"
    ],
    "x": "ワシは毎年巣を増築します。幅2メートル以上、とても重くなることもあります。"
+  },
+  "it": {
+   "q": "Quale uccello costruisce enormi nidi di rami, spesso usati per molti anni?",
+   "a": [
+    "Gufo",
+    "Aquila",
+    "Fenicottero",
+    "Pappagallo"
+   ],
+   "x": "Le aquile ingrandiscono il nido ogni anno: può superare i 2 m di larghezza e diventare pesantissimo."
   }
  },
  {
@@ -2043,6 +2343,16 @@
     "フクロウ"
    ],
    "x": "羽のふちがくしのようになっていて、空気の流れをやわらげます。だからネズミはフクロウが来ても気づきません。"
+  },
+  "it": {
+   "q": "Quale uccello vola quasi in silenzio?",
+   "a": [
+    "Aquila",
+    "Pappagallo",
+    "Fenicottero",
+    "Gufo"
+   ],
+   "x": "I bordi a pettine delle penne ammorbidiscono il flusso d’aria: così il topo non sente arrivare il gufo."
   }
  },
  {
@@ -2109,6 +2419,16 @@
     "カワウソ"
    ],
    "x": "フクロウの首の骨は14個。首の長いキリンも、ほとんどの哺乳類と同じく7個しかありません。"
+  },
+  "it": {
+   "q": "Quale animale ha PIÙ vertebre cervicali di un essere umano?",
+   "a": [
+    "Giraffa",
+    "Gufo",
+    "Tigre",
+    "Lontra"
+   ],
+   "x": "I gufi hanno 14 vertebre cervicali. La giraffa, nonostante il collo lungo, ne ha solo 7, come quasi tutti i mammiferi."
   }
  },
  {
@@ -2175,6 +2495,16 @@
     "カタツムリ"
    ],
    "x": "リスは秋に木の実や種を埋めます。忘れられたたくわえが芽を出し、新しい木に育ちます。"
+  },
+  "it": {
+   "q": "Quale animale pianta alberi per sbaglio, seppellendo e dimenticando il cibo?",
+   "a": [
+    "Riccio",
+    "Scoiattolo",
+    "Capriolo",
+    "Chiocciola"
+   ],
+   "x": "In autunno gli scoiattoli seppelliscono noci e semi. Le provviste dimenticate germogliano e diventano nuovi alberi."
   }
  },
  {
@@ -2241,6 +2571,16 @@
     "カワウソ"
    ],
    "x": "リスはげっ歯類。前歯はずっとのび続け、かじることですり減ります。"
+  },
+  "it": {
+   "q": "Di chi sono gli incisivi che crescono per tutta la vita?",
+   "a": [
+    "Scoiattolo",
+    "Riccio",
+    "Volpe",
+    "Lontra"
+   ],
+   "x": "Gli scoiattoli sono roditori. I loro incisivi crescono sempre e si consumano rosicchiando."
   }
  },
  {
@@ -2307,6 +2647,16 @@
     "リス"
    ],
    "x": "リスは後ろ足を後ろ向きに回せるので、頭を下にしてもつめでしっかりつかめます。"
+  },
+  "it": {
+   "q": "Quale animale sa correre giù da un tronco a testa in giù?",
+   "a": [
+    "Lontra",
+    "Riccio",
+    "Capriolo",
+    "Scoiattolo"
+   ],
+   "x": "Gli scoiattoli ruotano le zampe posteriori all’indietro, così gli artigli fanno presa anche scendendo a testa in giù."
   }
  },
  {
@@ -2373,6 +2723,16 @@
     "リス"
    ],
    "x": "ハリネズミのこの「アンティング」はまだなぞ。身を守るためか、においの合図かもしれません。"
+  },
+  "it": {
+   "q": "Quale animale a volte mastica sostanze strane fino a farne schiuma e se la spalma sul dorso?",
+   "a": [
+    "Volpe",
+    "Riccio",
+    "Capriolo",
+    "Scoiattolo"
+   ],
+   "x": "Questa «auto-unzione» dei ricci è ancora un mistero: forse protezione, forse un segnale olfattivo."
   }
  },
  {
@@ -2439,6 +2799,16 @@
     "トラ"
    ],
    "x": "ノロジカのオスは秋に角を落とします。新しい骨の角が、袋角と呼ばれるやわらかい皮ふの下で育ちます。"
+  },
+  "it": {
+   "q": "Quale animale perde i palchi ogni anno e ne fa crescere di nuovi?",
+   "a": [
+    "Giraffa",
+    "Capriolo",
+    "Panda",
+    "Tigre"
+   ],
+   "x": "I caprioli maschi perdono i palchi in autunno. I nuovi palchi ossei ricrescono sotto una pelle morbida chiamata velluto."
   }
  },
  {
@@ -2505,6 +2875,16 @@
     "リス"
    ],
    "x": "ノロジカはおどろくと、大きなほえるような声を出します。イヌだと思う人も多いのです。"
+  },
+  "it": {
+   "q": "Quale animale «abbaia» nel bosco quando si spaventa?",
+   "a": [
+    "Capriolo",
+    "Cinghiale",
+    "Tasso",
+    "Scoiattolo"
+   ],
+   "x": "I caprioli, quando si allarmano, emettono forti versi simili a latrati. Molti escursionisti pensano a un cane."
   }
  },
  {
@@ -2571,6 +2951,16 @@
     "カタツムリ"
    ],
    "x": "カメは甲羅からぬけ出せません。甲羅は骨でできていて、骨格としっかりつながっています。"
+  },
+  "it": {
+   "q": "Di chi è il guscio saldato alla colonna vertebrale e alle costole?",
+   "a": [
+    "Granchio",
+    "Riccio",
+    "Tartaruga",
+    "Chiocciola"
+   ],
+   "x": "La tartaruga non può mai uscire dal guscio: è fatto di osso e saldamente unito allo scheletro."
   }
  },
  {
@@ -2637,6 +3027,16 @@
     "トラ"
    ],
    "x": "カメは何百万年も前から歯がありません。角質のくちばしで植物や獲物を切ります。"
+  },
+  "it": {
+   "q": "Quale animale non ha denti ma un becco corneo affilato?",
+   "a": [
+    "Lucertola",
+    "Tartaruga",
+    "Squalo",
+    "Tigre"
+   ],
+   "x": "Le tartarughe non hanno denti da milioni di anni. Il loro becco corneo taglia piante e prede."
   }
  },
  {
@@ -2703,6 +3103,16 @@
     "カメ"
    ],
    "x": "カタツムリ、二枚貝、タコはみんな軟体動物。カニは甲殻類です。"
+  },
+  "it": {
+   "q": "Quale animale è un mollusco e quindi parente del polpo?",
+   "a": [
+    "Granchio",
+    "Coccinella",
+    "Chiocciola",
+    "Tartaruga"
+   ],
+   "x": "Chiocciole, vongole e polpi sono tutti molluschi. I granchi invece sono crostacei."
   }
  },
  {
@@ -2769,6 +3179,16 @@
     "カタツムリ"
    ],
    "x": "働きバチはおなかの腺からロウのうすい板を出し、それで巣を作ります。"
+  },
+  "it": {
+   "q": "Quale animale produce cera con ghiandole sull’addome?",
+   "a": [
+    "Farfalla",
+    "Ape",
+    "Coccinella",
+    "Chiocciola"
+   ],
+   "x": "Le api operaie secernono scagliette di cera da ghiandole sull’addome e con queste costruiscono i favi."
   }
  },
  {
@@ -2835,6 +3255,16 @@
     "テントウムシ"
    ],
    "x": "テントウムシは卵、幼虫、さなぎ、成虫と変わります。オタマジャクシはさなぎにならずにカエルになります。"
+  },
+  "it": {
+   "q": "Quale animale passa per una metamorfosi con lo stadio di pupa?",
+   "a": [
+    "Rana",
+    "Granchio",
+    "Lucertola",
+    "Coccinella"
+   ],
+   "x": "Le coccinelle passano da uovo a larva, pupa e coleottero. I girini diventano rane senza pupa."
   }
  },
  {
@@ -2901,6 +3331,16 @@
     "オウム"
    ],
    "x": "チョウはチョウ目（鱗翅目＝うろこの羽）。色は何千もの小さなうろこから生まれます。"
+  },
+  "it": {
+   "q": "Di chi sono le ali coperte di minuscole squame?",
+   "a": [
+    "Ape",
+    "Coccinella",
+    "Farfalla",
+    "Pappagallo"
+   ],
+   "x": "Le farfalle sono lepidotteri, cioè «ali a squame». I loro colori vengono da migliaia di squamette."
   }
  },
  {
@@ -2967,6 +3407,16 @@
     "カワウソ"
    ],
    "x": "キツネの瞳は飼いネコのように縦長。でもトラなどの大型のネコ科は瞳が丸いのです。"
+  },
+  "it": {
+   "q": "Quale animale ha pupille verticali a fessura?",
+   "a": [
+    "Tigre",
+    "Volpe",
+    "Orso",
+    "Lontra"
+   ],
+   "x": "Le volpi hanno pupille a fessura come i gatti di casa. I grandi felini come la tigre, invece, hanno pupille rotonde."
   }
  },
  {
@@ -3033,6 +3483,16 @@
     "キツネ"
    ],
    "x": "キツネはオオカミや飼いイヌと同じイヌ科。カワウソはイタチ科、パンダはクマ科、トラはネコ科です。"
+  },
+  "it": {
+   "q": "Quale animale appartiene alla famiglia dei cani?",
+   "a": [
+    "Lontra",
+    "Panda",
+    "Tigre",
+    "Volpe"
+   ],
+   "x": "Le volpi sono canidi, come lupi e cani. Le lontre sono mustelidi, i panda orsi e le tigri felini."
   }
  },
  {
@@ -3099,6 +3559,16 @@
     "パンダ"
    ],
    "x": "カワウソは水にくらしに合わせたイタチ科の仲間。アナグマやケナガイタチ、イタチの親せきです。"
+  },
+  "it": {
+   "q": "Quale animale appartiene ai mustelidi?",
+   "a": [
+    "Volpe",
+    "Scoiattolo",
+    "Lontra",
+    "Panda"
+   ],
+   "x": "Le lontre sono mustelidi adattati all’acqua, parenti di tassi, puzzole e donnole."
   }
  },
  {
@@ -3165,6 +3635,16 @@
     "サメ"
    ],
    "x": "サメの皮ふには、小さな歯のような楯鱗があります。逆向きになでると紙やすりのようです。"
+  },
+  "it": {
+   "q": "Di chi è la pelle coperta di minuscoli «denti cutanei»?",
+   "a": [
+    "Lucertola",
+    "Tartaruga",
+    "Rana",
+    "Squalo"
+   ],
+   "x": "La pelle dello squalo ha scaglie placoidi fatte come dentini. Accarezzata contropelo sembra carta vetrata."
   }
  },
  {
@@ -3231,6 +3711,16 @@
     "カエル"
    ],
    "x": "カエルは水を飲みません。皮ふ、特におなかのうすい部分から水を吸いこみます。"
+  },
+  "it": {
+   "q": "Quale animale non beve con la bocca ma assorbe l’acqua con la pelle?",
+   "a": [
+    "Lucertola",
+    "Tartaruga",
+    "Riccio",
+    "Rana"
+   ],
+   "x": "Le rane non bevono: assorbono l’acqua con la pelle, soprattutto da una zona sottile sulla pancia."
   }
  },
  {
@@ -3297,6 +3787,16 @@
     "カワウソ"
    ],
    "x": "カメはかわいたうろこの皮ふをもつ爬虫類。カエルは両生類、タコは軟体動物です。"
+  },
+  "it": {
+   "q": "Quale di questi animali è un rettile?",
+   "a": [
+    "Rana",
+    "Polpo",
+    "Tartaruga",
+    "Lontra"
+   ],
+   "x": "Le tartarughe sono rettili con la pelle secca e squamosa. Le rane sono anfibi e i polpi molluschi."
   }
  }
 ]

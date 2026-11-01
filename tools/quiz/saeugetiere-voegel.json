@@ -63,6 +63,16 @@
     "シジュウカラ"
    ],
    "x": "頭を下にして下りられる在来の鳥はゴジュウカラだけ。キツツキやキバシリは上にしか登れません。"
+  },
+  "it": {
+   "q": "Quale uccello dell’Europa centrale sa scendere lungo un tronco a testa in giù?",
+   "a": [
+    "Picchio rosso maggiore",
+    "Picchio muratore",
+    "Rampichino comune",
+    "Cinciallegra"
+   ],
+   "x": "Il picchio muratore è l’unico uccello nostrano che si arrampica anche a testa in giù. Picchi e rampichini salgono solo verso l’alto."
   }
  },
  {
@@ -117,6 +127,14 @@
     "まちがい"
    ],
    "x": "ハリネズミは乳糖を消化できず、牛乳を飲むとおなかをこわします。あげるなら水がいちばんです。"
+  },
+  "it": {
+   "q": "Vero o falso? Il latte è un buon cibo per i ricci.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "I ricci non digeriscono il lattosio; il latte gli dà la diarrea. La bevanda giusta per loro è l’acqua."
   }
  },
  {
@@ -171,6 +189,14 @@
     "まちがい"
    ],
    "x": "正しい！モモンガやムササビは滑空するだけ。コウモリは長い指の間に張った皮ふのつばさで、本当に飛びます。"
+  },
+  "it": {
+   "q": "Vero o falso? I pipistrelli sono gli unici mammiferi capaci di volare davvero.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Vero! Gli scoiattoli volanti planano soltanto. I pipistrelli volano con vere ali di pelle tesa tra le lunghe dita."
   }
  },
  {
@@ -237,6 +263,16 @@
     "360度"
    ],
    "x": "フクロウは首を約270度回せます。大きな目がほとんど動かないので、そのかわりです。"
+  },
+  "it": {
+   "q": "Di quanto può girare la testa un gufo, più o meno?",
+   "a": [
+    "90 gradi",
+    "180 gradi",
+    "270 gradi",
+    "360 gradi"
+   ],
+   "x": "I gufi girano la testa di circa 270 gradi. Così compensano i grandi occhi, che quasi non si muovono."
   }
  },
  {
@@ -303,6 +339,16 @@
     "オオタカ"
    ],
    "x": "ハヤブサは時速300キロ以上で獲物に向かって急降下します。世界一速い動物です。"
+  },
+  "it": {
+   "q": "Quale uccello supera i 300 km/h in picchiata di caccia?",
+   "a": [
+    "Gheppio",
+    "Falco pellegrino",
+    "Rondone comune",
+    "Astore"
+   ],
+   "x": "Il falco pellegrino si getta sulle prede a oltre 300 km/h: è l’animale più veloce del mondo."
   }
  },
  {
@@ -369,6 +415,16 @@
     "カピバラ"
    ],
    "x": "南アメリカのカピバラは50キロ以上になることも。ヨーロッパ最大のげっ歯類はビーバーです。"
+  },
+  "it": {
+   "q": "Qual è il roditore più grande del mondo?",
+   "a": [
+    "Castoro",
+    "Istrice",
+    "Marmotta",
+    "Capibara"
+   ],
+   "x": "Il capibara sudamericano può superare i 50 kg. Il castoro è il roditore più grande d’Europa."
   }
  },
  {
@@ -435,6 +491,16 @@
     "そのままにする"
    ],
    "x": "カッコウのひなは、仮親の卵やひなを巣の外に押し出し、えさをひとりじめします。"
+  },
+  "it": {
+   "q": "Cosa fa il pulcino di cuculo appena nato con le altre uova del nido?",
+   "a": [
+    "Le spinge fuori dal nido",
+    "Le tiene al caldo",
+    "Le mangia",
+    "Le lascia stare"
+   ],
+   "x": "Il pulcino di cuculo spinge fuori dal nido uova e pulcini dei genitori adottivi, così riceve tutto il cibo."
   }
  },
  {
@@ -501,6 +567,16 @@
     "白黒のまだら"
    ],
    "x": "黒くて黄色いくちばしなのはオスだけ。メスはこげ茶色で、巣の上で目立ちません。"
+  },
+  "it": {
+   "q": "Di che colore è la femmina del merlo?",
+   "a": [
+    "Nera",
+    "Grigia con il petto rosso",
+    "Marrone scuro",
+    "A macchie bianche e nere"
+   ],
+   "x": "Solo il maschio è nero con il becco giallo. La femmina è marrone scuro, così è mimetizzata sul nido."
   }
  },
  {
@@ -567,6 +643,16 @@
     "やわらかい綿毛"
    ],
    "x": "フクロウはネズミを丸飲みし、消化できない骨や毛をあとでかたまりにして吐き出します。"
+  },
+  "it": {
+   "q": "Cos’è una borra di gufo?",
+   "a": [
+    "Un nido di piume",
+    "Ossa e pelo rigurgitati",
+    "Un richiamo di corteggiamento",
+    "Piumino morbido"
+   ],
+   "x": "I gufi inghiottono i topi interi e poi rigurgitano ossa e pelo indigeribili in una pallottola compatta."
   }
  },
  {
@@ -633,6 +719,16 @@
     "ヨーロッパノスリ"
    ],
    "x": "ヨーロッパノスリはドイツでいちばん多い猛禽類。畑のそばの杭によくとまっています。"
+  },
+  "it": {
+   "q": "Qual è il rapace più comune in Germania?",
+   "a": [
+    "Nibbio reale",
+    "Astore",
+    "Aquila di mare",
+    "Poiana"
+   ],
+   "x": "La poiana è il rapace più comune in Germania; la si vede spesso sui pali ai margini dei campi."
   }
  },
  {
@@ -687,6 +783,14 @@
     "まちがい"
    ],
    "x": "まちがい！ノロジカとアカシカは別の種。ノロジカはアカシカよりずっと小さいです。"
+  },
+  "it": {
+   "q": "Vero o falso? Il capriolo è la femmina del cervo.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Falso! Capriolo e cervo nobile sono due specie diverse. Il capriolo è molto più piccolo del cervo."
   }
  },
  {
@@ -753,6 +857,16 @@
     "ダマジカ"
    ],
    "x": "ヘラジカは世界最大のシカ。大きなオスは肩の高さが約2メートルで、幅広い平らな角をもちます。"
+  },
+  "it": {
+   "q": "Qual è la specie di cervo più grande del mondo?",
+   "a": [
+    "Alce",
+    "Cervo nobile",
+    "Renna",
+    "Daino"
+   ],
+   "x": "L’alce è il cervo più grande del mondo. I grandi maschi arrivano a circa 2 m al garrese e hanno palchi larghi e piatti."
   }
  },
  {
@@ -819,6 +933,16 @@
     "トラフズク"
    ],
    "x": "ワシミミズクはヨーロッパ最大のフクロウで、翼を広げると最大約1.8メートル。ハリネズミまで狩ります。"
+  },
+  "it": {
+   "q": "Qual è il gufo più grande d’Europa?",
+   "a": [
+    "Allocco",
+    "Barbagianni",
+    "Gufo reale",
+    "Gufo comune"
+   ],
+   "x": "Il gufo reale è il più grande d’Europa, con un’apertura alare fino a circa 1,8 m. Caccia persino i ricci."
   }
  },
  {
@@ -885,6 +1009,16 @@
     "ノロジカ"
    ],
    "x": "オオヤマネは最大約7か月眠ります。アナグマやリスは休む時間が増えるだけ、ノロジカは冬も活動します。"
+  },
+  "it": {
+   "q": "Quale di questi animali va davvero in letargo?",
+   "a": [
+    "Tasso",
+    "Ghiro",
+    "Scoiattolo rosso",
+    "Capriolo"
+   ],
+   "x": "Il ghiro dorme fino a circa 7 mesi. Tassi e scoiattoli riposano solo di più; i caprioli restano attivi."
   }
  },
  {
@@ -951,6 +1085,16 @@
     "落ちてまた生える"
    ],
    "x": "シカは毎年角を落とします。新しい角は数か月で生え、袋角と呼ばれる皮ふにおおわれています。"
+  },
+  "it": {
+   "q": "Cosa succede ogni anno ai palchi del cervo maschio?",
+   "a": [
+    "Continuano ad allungarsi",
+    "Diventano bianchi",
+    "Non cambiano mai",
+    "Cadono e ricrescono"
+   ],
+   "x": "I cervi perdono i palchi ogni anno. Quelli nuovi ricrescono in pochi mesi, coperti da una pelle chiamata velluto."
   }
  },
  {
@@ -1017,6 +1161,16 @@
     "ポーランド"
    ],
    "x": "アカトビの約半分はドイツで繁殖します。深く切れこんだ赤さび色の尾が目印です。"
+  },
+  "it": {
+   "q": "In quale paese nidifica circa metà dei nibbi reali del mondo?",
+   "a": [
+    "Spagna",
+    "Germania",
+    "Francia",
+    "Polonia"
+   ],
+   "x": "Circa metà dei nibbi reali nidifica in Germania. Si riconosce dalla coda rosso ruggine profondamente forcuta."
   }
  },
  {
@@ -1083,6 +1237,16 @@
     "一生ずっと"
    ],
    "x": "最大約10か月、休まず飛び続けるアマツバメもいます。飛びながら食べて飲み、着地するのは子育てのときだけ。"
+  },
+  "it": {
+   "q": "Per quanto tempo i rondoni comuni restano in aria senza posarsi?",
+   "a": [
+    "Al massimo un giorno",
+    "Circa una settimana",
+    "Fino a circa 10 mesi",
+    "Tutta la vita"
+   ],
+   "x": "Alcuni rondoni restano in volo fino a circa 10 mesi senza sosta. Mangiano e bevono in volo e si posano solo per nidificare."
   }
  },
  {
@@ -1149,6 +1313,16 @@
     "血がつまっている"
    ],
    "x": "エナメル質の鉄でオレンジ色になり、とてもかたくなります。木を切りたおすのにぴったり。"
+  },
+  "it": {
+   "q": "Perché gli incisivi del castoro sono arancioni?",
+   "a": [
+    "Ferro nello smalto",
+    "Colore della corteccia",
+    "Una malattia dei denti",
+    "Sono pieni di sangue"
+   ],
+   "x": "Il ferro nello smalto lo rende arancione ed extra duro: perfetto per abbattere alberi."
   }
  },
  {
@@ -1215,6 +1389,16 @@
     "上昇する暖かい空気がない"
    ],
    "x": "コウノトリは上昇気流に乗って飛びます。上昇気流は陸の上ではできますが、海の上ではほとんどできません。だからジブラルタルやボスポラスを回り道します。"
+  },
+  "it": {
+   "q": "Perché le cicogne bianche non attraversano semplicemente il Mediterraneo verso l’Africa?",
+   "a": [
+    "Hanno paura dei gabbiani",
+    "Non sanno nuotare",
+    "Sul mare fa troppo freddo",
+    "Mancano le correnti d’aria calda ascendenti"
+   ],
+   "x": "Le cicogne planano sulle correnti ascensionali calde, che si formano sulla terra ma quasi non sul mare. Per questo fanno il giro da Gibilterra o dal Bosforo."
   }
  },
  {
@@ -1281,6 +1465,16 @@
     "モリバト"
    ],
    "x": "カケスは秋に何千個ものドングリを地面にかくします。見つけられなかったドングリが芽を出し、新しいカシになります。"
+  },
+  "it": {
+   "q": "Quale uccello «pianta» molte nuove querce grazie alle provviste invernali dimenticate?",
+   "a": [
+    "Picchio rosso maggiore",
+    "Ghiandaia",
+    "Merlo",
+    "Colombaccio"
+   ],
+   "x": "In autunno la ghiandaia nasconde migliaia di ghiande nel terreno. Quelle che non ritrova possono germogliare in nuove querce."
   }
  },
  {
@@ -1347,6 +1541,16 @@
     "砂浜のくぼみ"
    ],
    "x": "カワセミはくちばしで川のがけに、長さ1メートル近いトンネルを掘ります。巣は一番奥にあります。"
+  },
+  "it": {
+   "q": "Dove nidifica il martin pescatore?",
+   "a": [
+    "In un nido di canne",
+    "In un buco d’albero",
+    "In una galleria che scava da sé",
+    "In una buca sulla spiaggia"
+   ],
+   "x": "Il martin pescatore scava col becco una galleria, spesso lunga quasi un metro, nelle rive ripide. La camera del nido è in fondo."
   }
  },
  {
@@ -1413,6 +1617,16 @@
     "筋肉に力を入れ続ける"
    ],
    "x": "腱のしくみで、体重がかかると指が閉じたままになります。だからぶら下がるのに力がいらないのです。"
+  },
+  "it": {
+   "q": "Perché i pipistrelli dormono appesi a testa in giù senza fatica?",
+   "a": [
+    "Il loro peso blocca gli artigli",
+    "Si attaccano con la saliva",
+    "Hanno ventose sui piedi",
+    "Tengono i muscoli in tensione"
+   ],
+   "x": "Un meccanismo dei tendini tiene le dita chiuse mentre il peso del corpo tira: stare appesi non costa fatica."
   }
  },
  {
@@ -1479,6 +1693,16 @@
     "約7万本"
    ],
    "x": "大人のハリネズミには約6000〜8000本のトゲがあります。トゲは毛が変化したものです。"
+  },
+  "it": {
+   "q": "Quanti aculei ha più o meno un riccio adulto?",
+   "a": [
+    "Circa 70",
+    "Circa 700",
+    "Circa 7.000",
+    "Circa 70.000"
+   ],
+   "x": "Un riccio adulto ha circa 6.000–8.000 aculei. In realtà sono peli trasformati."
   }
  },
  {
@@ -1545,6 +1769,16 @@
     "モグラ"
    ],
    "x": "ネズミに似ていますが、トガリネズミはげっ歯類ではありません。モグラやハリネズミと同じ食虫類の仲間です。"
+  },
+  "it": {
+   "q": "Di quale di questi animali è più vicino parente il toporagno?",
+   "a": [
+    "Topo domestico",
+    "Scoiattolo rosso",
+    "Coniglio",
+    "Talpa"
+   ],
+   "x": "Anche se sembrano topi, i toporagni non sono roditori. Come talpe e ricci, appartengono agli insettivori."
   }
  },
  {
@@ -1611,6 +1845,16 @@
     "ちがいはない"
    ],
    "x": "ノウサギの赤ちゃんは、浅いくぼみで毛が生えて目が開いた状態で生まれます。アナウサギは巣穴で、毛がなく目も見えない状態で生まれます。"
+  },
+  "it": {
+   "q": "In cosa differiscono i leprotti appena nati dai coniglietti?",
+   "a": [
+    "I leprotti hanno pelo e occhi aperti",
+    "I leprotti sono nudi e ciechi",
+    "I leprotti nascono da uova",
+    "Non c’è differenza"
+   ],
+   "x": "I leprotti nascono con il pelo e gli occhi aperti in una piccola conca. I conigli nascono nudi e ciechi in una tana."
   }
  },
  {
@@ -1677,6 +1921,16 @@
     "温めない。ただ寒がる"
    ],
    "x": "カワウソは脂肪が少ないかわりに、動物でもトップクラスに密な毛皮をもっています。毛の間に空気の層をためて断熱します。"
+  },
+  "it": {
+   "q": "Come si tiene al caldo la lontra nell’acqua fredda?",
+   "a": [
+    "Uno spesso strato di grasso",
+    "Una pelliccia fittissima",
+    "Tremando di continuo",
+    "Non lo fa: ha solo freddo"
+   ],
+   "x": "Le lontre hanno poco grasso ma una delle pellicce più fitte del regno animale, che trattiene uno strato isolante d’aria."
   }
  },
  {
@@ -1743,6 +1997,16 @@
     "オーストラリア"
    ],
    "x": "タヌキは東アジア原産。毛皮のために東ヨーロッパに放され、西へ広がってドイツまで来ました。"
+  },
+  "it": {
+   "q": "Da dove viene in origine il cane procione, che oggi vive anche in Germania?",
+   "a": [
+    "Nord America",
+    "Sud America",
+    "Asia orientale",
+    "Australia"
+   ],
+   "x": "Il cane procione viene dall’Asia orientale. Fu liberato in Europa orientale per la pelliccia e si è diffuso verso ovest fino alla Germania."
   }
  },
  {
@@ -1809,6 +2073,16 @@
     "ヨーロッパコマドリ"
    ],
    "x": "キクイタダキと親せきのマミジロキクイタダキは、わずか5〜6グラム。ミソサザイはもう少し重いです。"
+  },
+  "it": {
+   "q": "Quale uccello è, insieme a un parente stretto, il più piccolo d’Europa?",
+   "a": [
+    "Regolo",
+    "Scricciolo",
+    "Cinciarella",
+    "Pettirosso"
+   ],
+   "x": "Il regolo e il suo parente fiorrancino pesano solo 5–6 grammi. Lo scricciolo è un po’ più pesante."
   }
  },
  {
@@ -1875,6 +2149,16 @@
     "キョクアジサシ"
    ],
    "x": "キョクアジサシは毎年北極と南極の間を行き来します。何万キロにもなることがよくあります。"
+  },
+  "it": {
+   "q": "Quale di questi uccelli compie ogni anno la migrazione più lunga?",
+   "a": [
+    "Cicogna bianca",
+    "Cuculo",
+    "Rondine",
+    "Sterna artica"
+   ],
+   "x": "La sterna artica viaggia ogni anno tra Artide e Antartide: spesso decine di migliaia di chilometri."
   }
  },
  {
@@ -1941,6 +2225,16 @@
     "アカシカ"
    ],
    "x": "ヨーロッパバイソンのオスは最大約900キロ。一度は野生で絶滅しましたが、動物園の個体で救われました。"
+  },
+  "it": {
+   "q": "Qual è il mammifero terrestre selvatico più pesante d’Europa?",
+   "a": [
+    "Bisonte europeo",
+    "Alce",
+    "Orso bruno",
+    "Cervo nobile"
+   ],
+   "x": "I maschi di bisonte europeo possono pesare fino a circa 900 kg. Estinto in natura, è stato salvato grazie agli animali degli zoo."
   }
  },
  {
@@ -1995,6 +2289,14 @@
     "まちがい"
    ],
    "x": "正しい！カラスの仲間は鳴禽類に入ります。ワタリガラスは世界最大の鳴禽類です。"
+  },
+  "it": {
+   "q": "Vero o falso? Il corvo imperiale è un uccello canoro.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Vero! Corvi e cornacchie sono uccelli canori. Il corvo imperiale è addirittura il più grande uccello canoro del mondo."
   }
  },
  {
@@ -2049,6 +2351,14 @@
     "まちがい"
    ],
    "x": "正しい！母親はわざとそこに置いていき、お乳をあげにもどってきます。さわらないでね。人のにおいがついてしまいます。"
+  },
+  "it": {
+   "q": "Vero o falso? Un cerbiatto da solo nell’erba alta di solito non è stato abbandonato.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Vero! La madre lo lascia lì apposta e torna ad allattarlo. Non toccarlo, altrimenti prende l’odore umano."
   }
  },
  {
@@ -2103,6 +2413,14 @@
     "まちがい"
    ],
    "x": "まちがい！ウサギは独自のグループ、ウサギ目です。上の前歯の後ろに、小さな歯がもう1対あります。"
+  },
+  "it": {
+   "q": "Vero o falso? Lepri e conigli sono roditori.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Falso! Formano un ordine a sé, i lagomorfi. Dietro gli incisivi superiori hanno un secondo paio di dentini."
   }
  },
  {
@@ -2157,6 +2475,14 @@
     "まちがい"
    ],
    "x": "まちがい！ホッキョクグマの皮ふは黒。毛は本当は無色で透き通っていて、白く見えるだけです。"
+  },
+  "it": {
+   "q": "Vero o falso? Sotto la pelliccia bianca, l’orso polare ha anche la pelle bianca.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Falso! La pelle dell’orso polare è nera. I peli in realtà sono incolori e trasparenti; sembrano solo bianchi."
   }
  },
  {
@@ -2211,6 +2537,14 @@
     "まちがい"
    ],
    "x": "正しい！ハート形の顔が音を集め、左右で少しずれた位置にある耳へ届けます。だから獲物の位置がぴたりとわかります。"
+  },
+  "it": {
+   "q": "Vero o falso? I barbagianni catturano i topi nel buio totale solo con l’udito.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Vero! Il disco facciale a forma di cuore convoglia i suoni verso orecchie poste a altezze leggermente diverse: così localizzano la preda."
   }
  },
  {
@@ -2277,6 +2611,16 @@
     "胃の中に"
    ],
    "x": "舌は長い骨の棒にのっていて、頭の骨の後ろをぐるりと回っています。だからアリの巣の奥まで届くのです。"
+  },
+  "it": {
+   "q": "Dove tiene il picchio verde la sua lunghissima lingua quando non la usa?",
+   "a": [
+    "Arrotolata in una sacca della gola",
+    "Piegata nel becco",
+    "Avvolta intorno al cranio",
+    "Nello stomaco"
+   ],
+   "x": "La lingua poggia su lunghi bastoncini ossei che girano intorno al retro del cranio. Così arriva in fondo ai formicai."
   }
  },
  {
@@ -2343,6 +2687,16 @@
     "春にもう一度交尾する"
    ],
    "x": "ノロジカでは、胚が12月ごろまで休みます（着床遅延）。だから赤ちゃんはえさの多い時期に生まれます。"
+  },
+  "it": {
+   "q": "I caprioli si accoppiano in piena estate, ma i piccoli nascono solo a maggio o giugno dell’anno dopo. Perché?",
+   "a": [
+    "La femmina porta due piccoli a turno",
+    "L’embrione si ferma per mesi",
+    "I piccoli crescono lentissimi",
+    "Si accoppiano di nuovo in primavera"
+   ],
+   "x": "Nel capriolo l’embrione resta a riposo fino a circa dicembre (impianto ritardato): così i piccoli nascono quando c’è molto cibo."
   }
  },
  {
@@ -2409,6 +2763,16 @@
     "2015年"
    ],
    "x": "2000年、ザクセン州ラウジッツでオオカミのペアが子育てをしました。ドイツでオオカミが繁殖しなかった100年以上を経てのことです。"
+  },
+  "it": {
+   "q": "In che anno sono nati di nuovo cuccioli di lupo selvatici in Germania?",
+   "a": [
+    "1975",
+    "1990",
+    "2000",
+    "2015"
+   ],
+   "x": "Nel 2000 una coppia di lupi ha allevato i cuccioli in Lusazia, in Sassonia, dopo oltre 100 anni senza lupi riprodotti in Germania."
   }
  },
  {
@@ -2475,6 +2839,16 @@
     "ふさふさで先が黒く丸いしっぽ"
    ],
    "x": "ヤマネコのしっぽは太くふさふさで、黒い輪があり、先が黒く丸くなっています。耳の房毛はオオヤマネコの特徴です。"
+  },
+  "it": {
+   "q": "Cosa aiuta a distinguere il gatto selvatico europeo da un gatto domestico tigrato?",
+   "a": [
+    "Ciuffi sulle orecchie",
+    "Zampe bianche",
+    "Una coda lunga e sottile",
+    "Coda folta con la punta nera e arrotondata"
+   ],
+   "x": "Il gatto selvatico ha una coda folta con anelli neri e la punta nera smussata. I ciuffi sulle orecchie sono della lince."
   }
  },
  {
@@ -2541,6 +2915,16 @@
     "1994年"
    ],
    "x": "1934年、ヘッセン州のエーダー湖でアライグマ2組が放されました。いまでは北アメリカ生まれのアライグマがドイツでとても多くなっています。"
+  },
+  "it": {
+   "q": "In che anno i procioni furono liberati di proposito in natura in Germania per la prima volta?",
+   "a": [
+    "1834",
+    "1934",
+    "1974",
+    "1994"
+   ],
+   "x": "Nel 1934 due coppie di procioni furono liberate presso il lago Edersee, in Assia. Oggi questi nordamericani sono comunissimi in Germania."
   }
  },
  {
@@ -2607,6 +2991,16 @@
     "ゼニガタアザラシ"
    ],
    "x": "アザラシは食肉目の仲間。北海とバルト海の沿岸にいるハイイロアザラシのオスは最大約300キロです。"
+  },
+  "it": {
+   "q": "Qual è il carnivoro selvatico più grande della Germania?",
+   "a": [
+    "Lupo",
+    "Lince",
+    "Foca grigia",
+    "Foca comune"
+   ],
+   "x": "Le foche appartengono ai carnivori. I maschi di foca grigia sulle coste del Mare del Nord e del Baltico pesano fino a circa 300 kg."
   }
  },
  {
@@ -2673,6 +3067,16 @@
     "花の蜜"
    ],
    "x": "両親とも、そのうでチーズのような栄養たっぷりの「ピジョンミルク」を作ります。鳥としてはとてもめずらしいことです。"
+  },
+  "it": {
+   "q": "Cosa danno i piccioni ai pulcini appena nati?",
+   "a": [
+    "«Latte di gozzo»",
+    "Insetti masticati",
+    "Lombrichi",
+    "Nettare"
+   ],
+   "x": "Entrambi i genitori producono nel gozzo un nutriente «latte di gozzo» simile a formaggio: molto insolito per gli uccelli."
   }
  },
  {
@@ -2739,6 +3143,16 @@
     "ゾウ"
    ],
    "x": "DNAを調べると、カバにいちばん近いのはクジラやイルカ。長い間信じられていたブタではありません。"
+  },
+  "it": {
+   "q": "Quali animali sono i parenti viventi più stretti dell’ippopotamo?",
+   "a": [
+    "Maiali",
+    "Balene",
+    "Rinoceronti",
+    "Elefanti"
+   ],
+   "x": "Gli studi sul DNA mostrano che gli ippopotami sono più vicini a balene e delfini, non ai maiali come si è creduto a lungo."
   }
  },
  {
@@ -2805,6 +3219,16 @@
     "巣をいくつも作って選ばせる"
    ],
    "x": "オスは未完成のボール形の巣をいくつも作ります。メスがひとつを選び、中にやわらかい材料をしきます。"
+  },
+  "it": {
+   "q": "Come conquista una femmina il maschio di scricciolo?",
+   "a": [
+    "Le porta bacche",
+    "Danza sull’acqua",
+    "Il suo piumaggio diventa rosso",
+    "Costruisce più nidi tra cui scegliere"
+   ],
+   "x": "Il maschio costruisce diversi nidi a palla non finiti. La femmina ne sceglie uno e lo imbottisce di materiale morbido."
   }
  },
  {
@@ -2871,6 +3295,16 @@
     "夏の間ずっと眠る"
    ],
    "x": "カモは風切羽が一度に全部ぬけ、3〜4週間ほど飛べなくなります。オスはその間、地味な羽の色になります。"
+  },
+  "it": {
+   "q": "Cosa succede ai germani reali durante la muta estiva?",
+   "a": [
+    "Perdono la voce",
+    "Diventano tutti bianchi",
+    "Per settimane non possono volare",
+    "Dormono tutta l’estate"
+   ],
+   "x": "Le anatre perdono tutte le penne remiganti insieme e per circa 3–4 settimane non volano. I maschi in quel periodo hanno un piumaggio semplice e spento."
   }
  },
  {
@@ -2937,6 +3371,16 @@
     "バク"
    ],
    "x": "ゾウはマナティーやジュゴンなどの海牛と近い親せき。小さなハイラックスとも親せきです。"
+  },
+  "it": {
+   "q": "Quale gruppo di animali è tra i parenti viventi più stretti dell’elefante?",
+   "a": [
+    "Sirenii (lamantini)",
+    "Rinoceronti",
+    "Ippopotami",
+    "Tapiri"
+   ],
+   "x": "Gli elefanti sono parenti stretti dei sirenii (lamantini e dugonghi) e dei piccoli irace delle rocce."
   }
  },
  {
@@ -2991,6 +3435,14 @@
     "まちがい"
    ],
    "x": "まちがい！似ているだけです。アマツバメはツバメよりハチドリに近い親せきです。"
+  },
+  "it": {
+   "q": "Vero o falso? I rondoni comuni sono parenti stretti delle rondini.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Falso! Si somigliano soltanto. I rondoni sono più vicini ai colibrì che alle rondini."
   }
  },
  {
@@ -3045,6 +3497,14 @@
     "まちがい"
    ],
    "x": "正しい！ムナジロカワガラスは流れの速い川に潜って虫の幼虫をとり、川底を歩くこともできます。"
+  },
+  "it": {
+   "q": "Vero o falso? Esiste un uccello canoro dell’Europa centrale che si tuffa e cammina sott’acqua sul fondo del torrente.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Vero! Il merlo acquaiolo si tuffa nei torrenti veloci per cercare larve di insetti e cammina persino sul fondo."
   }
  },
  {
@@ -3099,6 +3559,14 @@
     "まちがい"
    ],
    "x": "正しい！頭をかまれたミミズは動けなくなり、冬の食料として新鮮なまま保たれます。"
+  },
+  "it": {
+   "q": "Vero o falso? Le talpe tengono dispense di lombrichi vivi paralizzati con un morso.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Vero! Un morso alla testa immobilizza i vermi, che restano freschi come scorta di cibo per l’inverno."
   }
  },
  {
@@ -3153,6 +3621,14 @@
     "まちがい"
    ],
    "x": "正しい！冬はコマドリのメスも自分のなわばりを守ります。その方法がさえずりなのです。"
+  },
+  "it": {
+   "q": "Vero o falso? In autunno e in inverno cantano anche le femmine di pettirosso.",
+   "a": [
+    "Vero",
+    "Falso"
+   ],
+   "x": "Vero! D’inverno anche le femmine di pettirosso difendono un proprio territorio, e lo fanno cantando."
   }
  }
 ]

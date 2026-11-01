@@ -66,6 +66,16 @@
     "ノウサギ"
    ],
    "x": "つめのある4本の指と小さな肉球：キツネです。細長い楕円形が特徴で、肉球と指の間にX字のすき間があります。"
+  },
+  "it": {
+   "q": "Di chi è questa impronta?",
+   "a": [
+    "Volpe",
+    "Capriolo",
+    "Tasso",
+    "Lepre"
+   ],
+   "x": "Quattro dita con unghie e un piccolo cuscinetto: una volpe. Tipico è l’ovale stretto: tra cuscinetto e dita resta uno spazio vuoto a forma di X."
   }
  },
  {
@@ -135,6 +145,16 @@
     "アナグマ"
    ],
    "x": "細くてとがった2つに分かれたひづめ：ノロジカの足あとです。イノシシはひづめが太く、後ろにたいてい副蹄のあとが2つあります。"
+  },
+  "it": {
+   "q": "Chi è passato nel fango qui?",
+   "a": [
+    "Cinghiale",
+    "Capriolo",
+    "Cane",
+    "Tasso"
+   ],
+   "x": "Due metà di zoccolo strette e appuntite: l’impronta di un capriolo. Il cinghiale ha zoccoli più larghi e di solito dietro i segni di due speroni."
   }
  },
  {
@@ -204,6 +224,16 @@
     "シャモア"
    ],
    "x": "2つの点は副蹄です。イノシシでは低く広い位置にあって、ほぼ必ずあとが残ります。シカではふつう、やわらかい地面のときだけです。"
+  },
+  "it": {
+   "q": "Due zoccoli e due puntini dietro: chi era?",
+   "a": [
+    "Capriolo",
+    "Cervo nobile",
+    "Cinghiale",
+    "Camoscio"
+   ],
+   "x": "I due puntini sono gli speroni. Nel cinghiale sono bassi e larghi e lasciano quasi sempre il segno; nei cervidi di solito solo su terreno morbido."
   }
  },
  {
@@ -273,6 +303,16 @@
     "ノウサギ"
    ],
    "x": "幅広い肉球の前に、5本の指がほぼ一列に並んでいます：アナグマです。前足の長いつめで、大きな巣穴を掘ります。"
+  },
+  "it": {
+   "q": "Di chi è questa impronta?",
+   "a": [
+    "Volpe",
+    "Tasso",
+    "Lontra",
+    "Lepre"
+   ],
+   "x": "Cinque dita quasi in fila davanti a un largo cuscinetto: un tasso. Con le lunghe unghie delle zampe anteriori scava tane enormi."
   }
  },
  {
@@ -342,6 +382,16 @@
     "キツネ"
    ],
    "x": "ノウサギは長い後ろ足を前足より前につき、前足は前後に並びます。リスは前足も左右に並べてつきます。"
+  },
+  "it": {
+   "q": "Queste tracce sulla neve (direzione verso l’alto): chi ha saltato qui?",
+   "a": [
+    "Scoiattolo",
+    "Lepre",
+    "Capriolo",
+    "Volpe"
+   ],
+   "x": "La lepre appoggia le lunghe zampe posteriori davanti a quelle anteriori, e le anteriori una dietro l’altra. Lo scoiattolo mette anche le anteriori affiancate."
   }
  },
  {
@@ -411,6 +461,16 @@
     "アオサギ"
    ],
    "x": "前向きの3本の指が水かきでつながっています：カモです。カラス、ハト、サギには水かきがありません。"
+  },
+  "it": {
+   "q": "Chi ha lasciato questa impronta sulla riva?",
+   "a": [
+    "Cornacchia",
+    "Piccione",
+    "Germano reale",
+    "Airone cenerino"
+   ],
+   "x": "Tre dita in avanti unite da una membrana: un’anatra. Cornacchie, piccioni e aironi non hanno piedi palmati."
   }
  },
  {
@@ -480,6 +540,16 @@
     "オオバン"
    ],
    "x": "前に細い指が3本、後ろに長い指が1本：枝をつかむカラスのような鳥の特徴です。カモやハクチョウには水かき、オオバンには弁足があります。"
+  },
+  "it": {
+   "q": "Quale uccello ha lasciato questa impronta?",
+   "a": [
+    "Germano reale",
+    "Cornacchia nera",
+    "Cigno reale",
+    "Folaga"
+   ],
+   "x": "Tre dita sottili in avanti e una lunga indietro: tipico di uccelli come la cornacchia, che così si aggrappano ai rami. Anatre e cigni hanno piedi palmati, la folaga dita lobate."
   }
  },
  {
@@ -549,6 +619,16 @@
     "ヨーロッパアマツバメ"
    ],
    "x": "幅広い翼の先に広がった「指」、短くて丸い尾：ヨーロッパノスリです。畑のふちの杭にとまってネズミを探していることもよくあります。アカトビなら尾が深く切れこんでいます。"
+  },
+  "it": {
+   "q": "Chi volteggia sopra il campo?",
+   "a": [
+    "Nibbio reale",
+    "Poiana",
+    "Cicogna bianca",
+    "Rondone comune"
+   ],
+   "x": "Ali larghe con le «dita» aperte e coda corta e arrotondata: la poiana. Spesso sta sui pali ai margini dei campi a spiare i topi. Il nibbio reale avrebbe la coda profondamente forcuta."
   }
  },
  {
@@ -618,6 +698,16 @@
     "オオタカ"
    ],
    "x": "深く切れこんだ尾でアカトビとわかります。滑空中は尾をくるくる動かし、舵のように使います。"
+  },
+  "it": {
+   "q": "Chi è? Guarda la coda!",
+   "a": [
+    "Poiana",
+    "Nibbio reale",
+    "Gheppio",
+    "Astore"
+   ],
+   "x": "La coda profondamente forcuta tradisce il nibbio reale. Mentre plana la gira di continuo e la usa come timone."
   }
  },
  {
@@ -687,6 +777,16 @@
     "ヨーロッパノスリ"
    ],
    "x": "長い首は前へ、長い脚は後ろへ：シュバシコウです。アオサギは飛ぶとき首を縮め、ハクチョウは脚が短いです。"
+  },
+  "it": {
+   "q": "Chi vola con il collo disteso?",
+   "a": [
+    "Airone cenerino",
+    "Cicogna bianca",
+    "Cigno reale",
+    "Poiana"
+   ],
+   "x": "Collo lungo in avanti, zampe lunghe indietro: la cicogna bianca. L’airone in volo ritrae il collo e il cigno ha le zampe corte."
   }
  },
  {
@@ -756,6 +856,16 @@
     "カワウ"
    ],
    "x": "サギは飛ぶとき首をS字に折りたたみ、頭を引っこめます。コウノトリやツルは首をのばして飛びます。"
+  },
+  "it": {
+   "q": "Zampe lunghe indietro, ma il collo ritratto. Chi è?",
+   "a": [
+    "Cicogna bianca",
+    "Gru cenerina",
+    "Airone cenerino",
+    "Cormorano"
+   ],
+   "x": "Gli aironi piegano il collo a S e ritirano la testa in volo. Cicogne e gru volano con il collo disteso."
   }
  },
  {
@@ -825,6 +935,16 @@
     "チョウゲンボウ"
    ],
    "x": "かま形の翼と、短く切れこんだ尾：ヨーロッパアマツバメです。足はとても小さく、地面にはほとんど降りず、壁にしがみつくほうが得意です。"
+  },
+  "it": {
+   "q": "Chi sfreccia sopra i tetti con ali a forma di falce?",
+   "a": [
+    "Rondine",
+    "Rondone comune",
+    "Balestruccio",
+    "Gheppio"
+   ],
+   "x": "Ali a falce e coda corta e forcuta: il rondone comune. Le zampe sono minuscole: non si posa quasi mai a terra e preferisce aggrapparsi ai muri."
   }
  },
  {
@@ -894,6 +1014,16 @@
     "カッコウ"
    ],
    "x": "長くのびた尾羽はツバメのもの。アマツバメの翼はもっと長いかま形で、尾は短めです。"
+  },
+  "it": {
+   "q": "Lunghe penne della coda e ali appuntite: chi è?",
+   "a": [
+    "Rondone comune",
+    "Rondine",
+    "Nibbio reale",
+    "Cuculo"
+   ],
+   "x": "Le lunghe penne della coda sono della rondine. Il rondone ha ali più lunghe a falce e la coda corta."
   }
  },
  {
@@ -963,6 +1093,16 @@
     "リス"
    ],
    "x": "砂時計の形はビーバーの特徴で、まわりに木くずが散らばります。木をたおすのは、主にえさの樹皮や小枝、芽を食べるためです。"
+  },
+  "it": {
+   "q": "Chi ha rosicchiato così quest’albero?",
+   "a": [
+    "Castoro",
+    "Cinghiale",
+    "Picchio",
+    "Scoiattolo"
+   ],
+   "x": "La forma a clessidra è tipica del castoro, con i trucioli tutto intorno. Abbatte gli alberi soprattutto per arrivare a corteccia, rametti e gemme, il suo cibo."
   }
  },
  {
@@ -1032,6 +1172,16 @@
     "アナグマ"
    ],
    "x": "モグラ塚は高く丸く、トンネルは真ん中からまっすぐ下へのびています。ハタネズミの山は平たく、トンネルは横にずれています。"
+  },
+  "it": {
+   "q": "Chi ha sollevato questi mucchi di terra nel prato?",
+   "a": [
+    "Arvicola",
+    "Talpa",
+    "Riccio",
+    "Tasso"
+   ],
+   "x": "I cumuli della talpa sono alti e rotondi, con la galleria che scende dritta nel mezzo. Quelli dell’arvicola sono più piatti e la galleria è di lato."
   }
  },
  {
@@ -1101,6 +1251,16 @@
     "ゴジュウカラ"
    ],
    "x": "キツツキは毎年新しい穴を掘ります。古い穴は、シジュウカラ、ゴジュウカラ、コウモリ、リスなど、たくさんの生きものの家になります。"
+  },
+  "it": {
+   "q": "Chi ha scavato questo buco rotondo nel tronco?",
+   "a": [
+    "Scoiattolo",
+    "Allocco",
+    "Picchio rosso maggiore",
+    "Picchio muratore"
+   ],
+   "x": "I picchi scavano nidi nuovi ogni anno. Quelli vecchi diventano casa per molti altri: cince, picchi muratori, pipistrelli o scoiattoli."
   }
  },
  {
@@ -1170,6 +1330,16 @@
     "クモの糸"
    ],
    "x": "スズメバチは木をけずり、だ液とかみまぜて、紙のような壁を作ります。紙を最初に作ったのはスズメバチなのです。"
+  },
+  "it": {
+   "q": "Con cosa costruiscono le vespe un nido così?",
+   "a": [
+    "Cera d’api",
+    "Argilla",
+    "Legno masticato",
+    "Seta di ragno"
+   ],
+   "x": "Le vespe raschiano il legno, lo masticano con la saliva e ne fanno pareti simili a carta. Le vespe sono state le prime a fare la carta."
   }
  },
  {
@@ -1239,6 +1409,16 @@
     "キクイムシ"
    ],
    "x": "大きなヤマアリの塚には最大100万匹がすみます。塚の下には、同じくらいの深さまで巣が続いていることも。"
+  },
+  "it": {
+   "q": "Chi costruisce mucchi così con aghi e rametti?",
+   "a": [
+    "Talpa",
+    "Formica rossa dei boschi",
+    "Cinghiale",
+    "Bostrico"
+   ],
+   "x": "In un grande formicaio delle formiche dei boschi possono vivere fino a un milione di formiche. Sotto il cumulo, spesso il nido scende altrettanto nel terreno."
   }
  },
  {
@@ -1308,6 +1488,16 @@
     "クモの巣"
    ],
    "x": "アワフキムシの幼虫は、自分の出す汁に空気を吹きこんで泡の隠れ家を作ります。乾燥と敵から身を守るためです。ヨーロッパでは「カッコウのつば」と呼ばれますが、カッコウとは無関係です。"
+  },
+  "it": {
+   "q": "Cosa si nasconde in questa schiuma sullo stelo?",
+   "a": [
+    "Sputo di cuculo",
+    "Una larva di sputacchina",
+    "Uova di chiocciola",
+    "Un nido di ragno"
+   ],
+   "x": "La larva della sputacchina soffia aria nella sua linfa e si costruisce un rifugio di schiuma contro la secchezza e i nemici. Nonostante il nome «sputo di cuculo», il cuculo non c’entra."
   }
  },
  {
@@ -1377,6 +1567,16 @@
     "冬を越す甲虫"
    ],
    "x": "タマバチが葉に卵を産むと、カシがそのまわりにこの「虫こぶ」を作ります。幼虫は中で暮らして食べます。昔は虫こぶからインクを作りました。"
+  },
+  "it": {
+   "q": "Chi vive in questa pallina sulla foglia di quercia?",
+   "a": [
+    "Un bruco di falena",
+    "Una larva di cinipide",
+    "Un ragnetto",
+    "Un coleottero che sverna"
+   ],
+   "x": "Il cinipide depone l’uovo nella foglia e la quercia ci forma intorno questa «galla». La larva ci vive e si nutre. Un tempo con le galle si faceva l’inchiostro."
   }
  },
  {
@@ -1446,6 +1646,16 @@
     "ネコの毛玉"
    ],
    "x": "フクロウのペリット：フクロウが吐きもどした毛と骨です。中の小さな頭の骨から、その地域にどんなネズミがすんでいるかまでわかります。"
+  },
+  "it": {
+   "q": "Grigia, pelosa e con ossicini: cosa hai trovato sotto l’albero?",
+   "a": [
+    "Escrementi di volpe",
+    "Una borra di gufo",
+    "Un nido di topo",
+    "Un bolo di pelo di gatto"
+   ],
+   "x": "Una borra di gufo: pelo e ossa rigurgitati. Dai minuscoli crani dentro si capisce persino quali topi vivono nella zona."
   }
  }
 ]

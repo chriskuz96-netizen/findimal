@@ -525,6 +525,84 @@ const TEXTS: Record<Lang, Record<SeasonId, Text>> = {
       ],
     },
   },
+  it: {
+    spring: {
+      name: 'Primavera in Europa centrale',
+      phenomena: [
+        { title: 'Il merlo canta', text: 'Già prima dell’alba canta il suo canto territoriale, spesso in cima ad antenne e tetti.', where: 'Giardini e parchi, al mattino presto' },
+        { title: 'Le coccinelle si svegliano', text: 'Dopo l’inverno prendono spesso il sole insieme su muri e pali caldi.', where: 'Muri soleggiati, verso mezzogiorno' },
+        { title: 'Prime farfalle', text: 'La cedronella sverna da adulta, quindi è una delle prime farfalle dell’anno.', where: 'Margini del bosco nei giorni di sole' },
+        { title: 'Chiocciole a spasso', text: 'Dopo una pioggia tiepida di primavera, le chiocciole spuntano dappertutto.', where: 'Bordi dei sentieri e muri, dopo la pioggia' },
+      ],
+      spectacle: [
+        { short: '🐸 Migrazione dei rospi', title: 'I rospi in cammino', text: 'Nelle notti miti e umide i rospi comuni migrano verso i loro stagni, spesso attraversando le strade. Molti volontari li portano dall’altra parte.', where: 'Stagni e sentieri nel bosco, la sera' },
+        { short: '🪺 Tornano le cicogne', title: 'Tornano le cicogne', text: 'Dopo l’inverno in Africa o in Spagna, le cicogne bianche tornano ai loro nidi su tetti e pali.', where: 'Paesi e prati umidi' },
+      ],
+      help: [
+        { title: 'Appendi una cassetta nido', text: 'Meglio già a marzo, in un posto tranquillo e non in pieno sole.' },
+        { title: 'Lascia fiorire il tarassaco', text: 'I primi fiori sono il primo cibo per api selvatiche e bombi.' },
+        { title: 'Lascia stare le siepi', text: 'Ora gli uccelli fanno il nido. Rimanda le potature drastiche all’autunno.' },
+        { title: 'Aiuta i rospi', text: 'Rallenta vicino ai passaggi dei rospi e sostieni le barriere di protezione.' },
+      ],
+    },
+    summer: {
+      name: 'Estate in Europa centrale',
+      phenomena: [
+        { title: 'Libellule allo stagno', text: 'L’aeshna pattuglia gli stagni del giardino e cattura piccoli insetti in volo.', where: 'Stagni e ruscelli, col sole' },
+        { title: 'Lucertole al sole', text: 'Al mattino si scaldano su sassi e muri. Avvicinati piano!', where: 'Muri e sassi soleggiati' },
+        { title: 'Le api raccolgono', text: 'Le api raccolgono nettare e polline: su lavanda e trifoglio puoi avvicinarti molto.', where: 'Giardini fioriti, lavanda' },
+        { title: 'Ranocchie giovani', text: 'I girini diventano minuscole rane che lasciano l’acqua ed esplorano la terraferma.', where: 'Rive e prati umidi' },
+      ],
+      spectacle: [
+        { short: '✨ Lucciole', title: 'Le lucciole brillano', text: 'Nelle calde notti di giugno le lucciole si accendono. I maschi volano, le femmine brillano a terra.', where: 'Margini del bosco, dopo il tramonto' },
+        { short: '🐦 Rondoni', title: 'I rondoni a caccia', text: 'Con strilli acuti sfrecciano sopra i tetti. Dormono persino in volo e ripartono già a inizio agosto.', where: 'Sopra le città, la sera' },
+      ],
+      help: [
+        { title: 'Prepara un abbeveratoio per api', text: 'Un piattino d’acqua con qualche sasso per posarsi aiuta le api quando fa caldo.' },
+        { title: 'Lascia un angolo selvatico', text: 'Lascia un pezzo di prato senza falciare: fiori per gli insetti, rifugi per i piccoli animali.' },
+        { title: 'Spegni le luci', text: 'Meno luci all’aperto proteggono insetti notturni e pipistrelli.' },
+        { title: 'Niente veleni in giardino', text: 'Senza pesticidi coccinelle, ricci e uccelli restano in salute.' },
+      ],
+    },
+    autumn: {
+      name: 'Autunno in Europa centrale',
+      phenomena: [
+        { title: 'Gli scoiattoli fanno scorte', text: 'Ora nascondono noci per l’inverno e sono indaffaratissimi.', where: 'Parchi e giardini' },
+        { title: 'Il pettirosso', text: 'È curioso e spesso si avvicina tantissimo quando rastrelli le foglie in giardino.', where: 'Giardini e siepi' },
+        { title: 'La stagione delle ragnatele', text: 'Ora le ragnatele sono al massimo. Nelle mattine di nebbia brillano di rugiada.', where: 'Recinti e siepi, al mattino presto' },
+        { title: 'I ricci fanno il pieno', text: 'Mangiano tantissimo prima del letargo. Un mucchio di foglie è la casa invernale perfetta.', where: 'Siepi e giardini, la sera' },
+      ],
+      spectacle: [
+        { short: '🕊️ Migrazione delle gru', title: 'Le gru migrano', text: 'Volano verso sud in grandi formazioni a V. Ascolta i loro richiami simili a trombe nel cielo.', where: 'In cielo, mattina e sera' },
+        { short: '🦌 Bramito dei cervi', title: 'Il bramito del cervo', text: 'Fino a metà ottobre i cervi maschi bramiscono per impressionare i rivali. Osserva solo da molto lontano.', where: 'Margini del bosco al crepuscolo' },
+      ],
+      help: [
+        { title: 'Lascia le foglie', text: 'Ricci, coleotteri e ragni passano l’inverno sotto i mucchi di foglie. Lasciane almeno un angolo.' },
+        { title: 'Lascia gli steli', text: 'Le api selvatiche svernano negli steli cavi. Taglia solo in primavera.' },
+        { title: 'Aiuta i ricci nel modo giusto', text: 'Mai dare latte, li fa stare male. Un piattino d’acqua aiuta di più.' },
+        { title: 'Spegni le luci', text: 'Meno luci all’aperto proteggono insetti notturni e pipistrelli.' },
+      ],
+    },
+    winter: {
+      name: 'Inverno in Europa centrale',
+      phenomena: [
+        { title: 'Cinciallegra alla mangiatoia', text: 'Testa nera, pancia gialla: ora la cinciallegra è l’ospite più frequente alla mangiatoia.', where: 'Giardini e balconi, di giorno' },
+        { title: 'Cinciarella', text: 'Piccola, blu e gialla e agilissima: si appende persino a testa in giù alle palle di grasso.', where: 'Mangiatoie e giardini' },
+        { title: 'Anatre sul lago', text: 'Germani reali e tanti ospiti dal nord si radunano sulle acque non ghiacciate.', where: 'Laghi e fiumi' },
+        { title: 'Gli scoiattoli restano svegli', text: 'Gli scoiattoli non vanno in letargo. Cercano le noci che hanno nascosto in autunno.', where: 'Parchi e boschi' },
+      ],
+      spectacle: [
+        { short: '🐾 Tracce sulla neve', title: 'Tracce sulla neve', text: 'Ora le volpi sono indaffarate nel periodo degli amori. Sulla neve le loro impronte si allineano come perle su un filo.', where: 'Bordi dei campi e sentieri nel bosco' },
+        { short: '🍒 Ospiti d’inverno', title: 'Ospiti dal nord', text: 'In alcuni inverni arrivano i beccofrusoni dalla Scandinavia e saccheggiano i cespugli di bacche.', where: 'Cespugli di bacche in città' },
+      ],
+      help: [
+        { title: 'Nutri gli uccelli nel modo giusto', text: 'Semi di girasole e palle di grasso senza retina, niente pane. Tieni pulita la mangiatoia.' },
+        { title: 'Non disturbare chi dorme', text: 'Ora lascia stare i mucchi di foglie e rami: dentro dormono i ricci.' },
+        { title: 'Acqua non ghiacciata', text: 'Un piattino d’acqua fresca aiuta gli uccelli quando gela.' },
+        { title: 'Pulisci le cassette nido', text: 'Togli i vecchi nidi entro fine febbraio, così in primavera gli uccelli possono nidificare di nuovo.' },
+      ],
+    },
+  },
 };
 
 export type Phenomenon = { icon: GroupId; title: string; text: string; where: string; match: string[] };
