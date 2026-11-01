@@ -92,6 +92,13 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - „Entfernen“ bei Freunden lässt die Person in der weltweiten Liste. Weltweit verschwindet jemand nur durch Melden
   (bei einem selbst sofort, für alle nach 3 Meldungen).
 
+## Saison weltweit (1.11.)
+- Saison-Seite außerhalb Mitteleuropas: KI pro Land, Monat, Sprache – jetzt zusätzlich pro Breitengrad-Streifen
+  (10°, `findimal-lat-band`, nur beim Standort/Ort-Eintippen ermittelt; Server-Schlüssel `saison:v2:<Land>:<Band>:…`).
+  So bekommen große Länder (Brasilien, Australien, USA …) die passende Klimazone.
+- Saison-Namen in Tropen/Südhalbkugel (Zone „other“ und Band < 25° bzw. unbekannt) nach Monaten:
+  „Saison Sep.–Nov. 2026“ statt „Herbst 2026“ (`useNeutralSeasons` in `src/zone.ts`).
+
 ## Bilder ohne Kameradaten (30.10.)
 - Aus der Fotoauswahl und ohne Kameradaten (Make/Model/Objektiv/Aufnahmezeit, `hasCameraData` in `src/camera.ts`):
   wird bestimmt, aber als `bildart: 'fremd'` gespeichert → „Nur zum Nachschlagen“, keine XP/Rangliste/Abzeichen.

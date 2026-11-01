@@ -1160,7 +1160,10 @@ export default {
       const m = Number(body.m);
       const lang = Object.hasOwn(LANGUAGES, String(body.lang)) ? body.lang : 'de';
       if (!/^[A-Z]{2}$/.test(cc) || !Number.isInteger(m) || m < 1 || m > 12) return json({ fehler: 'Ungültige Anfrage.' }, 400);
-      const key = `saison:v1:${cc}:${m}:${lang}`;
+      // grober Breitengrad-Streifen (10°-Schritte): große Länder haben mehrere Klimazonen (Regenwald vs. Süden)
+      const b = Number(body.b);
+      const band = Number.isInteger(b) && b % 10 === 0 && b >= -60 && b <= 70 ? b : null;
+      const key = band === null ? `saison:v1:${cc}:${m}:${lang}` : `saison:v2:${cc}:${band}:${m}:${lang}`;
       if (env.DB) {
         const cached = await env.DB.get(key);
         if (cached) return new Response(cached, { headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS } });
@@ -1174,7 +1177,15 @@ export default {
       if (stop) return stop;
       const MONTHS = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
       const res = await claude(env, MODEL, SAISON_SYSTEM + languageRule(lang), SAISON_SCHEMA, [
-        { type: 'text', text: `Land (ISO-Code): ${cc}\nMonat: ${MONTHS[m - 1]}` },
+        {
+          type: 'text',
+          text:
+            `Land (ISO-Code): ${cc}\nMonat: ${MONTHS[m - 1]}` +
+            (band === null
+              ? ''
+              : `\nGegend: um ${Math.abs(band)}° ${band < 0 ? 'südlicher' : 'nördlicher'} Breite – beschreibe die Jahreszeit ` +
+                'für den Teil des Landes, der in dieser Breite liegt (hat das Land dort keine Fläche, für den nächstgelegenen Teil).'),
+        },
       ], 45_000);
       if (res.error) return res.error;
       const clean = cleanSaison(res.data);

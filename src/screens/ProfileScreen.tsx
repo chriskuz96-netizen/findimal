@@ -34,6 +34,7 @@ import { favoriteGroup, levelTitle, Progress } from '../progress';
 import { GroupIcon } from '../groups';
 import { Icon } from '../components/Icon';
 import { seasonName } from '../components/Leaderboard';
+import { useNeutralSeasons } from '../zone';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 
 type Props = {
@@ -56,6 +57,7 @@ export function ProfileScreen(props: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
+  const neutral = useNeutralSeasons();
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
   const [picking, setPicking] = useState(false); // Auswahlfenster fürs Profilbild
@@ -266,11 +268,11 @@ export function ProfileScreen(props: Props) {
             {(
               [
                 [fav ? <GroupIcon id={fav.id} size={14} color={colors.accentLight} /> : null, fav ? t(`g.${fav.id}` as 'g.bird') : '–', t('lb.fav')],
-                [<Icon name="star" size={13} color={colors.accentLight} />, `${season.sxp.toLocaleString(locale)} XP`, seasonName(season.season, t)],
+                [<Icon name="star" size={13} color={colors.accentLight} />, `${season.sxp.toLocaleString(locale)} XP`, seasonName(season.season, t, neutral)],
                 [
                   <Icon name="trophy" size={13} color={colors.accentLight} />,
                   season.best ? t('pro.rankShort', { rank: season.best.r }) : '–',
-                  season.best ? seasonName(season.best.s, t) : t('lb.bestSeason'),
+                  season.best ? seasonName(season.best.s, t, neutral) : t('lb.bestSeason'),
                 ],
               ] as const
             ).map(([icon, value, label], i) => (

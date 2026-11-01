@@ -40,6 +40,7 @@ import { usePlus } from '../plus';
 import { levelTitle, previousSeasonKey, SEASON_REWARDS, seasonReward, XP } from '../progress';
 import { GroupIcon, GroupId } from '../groups';
 import { seasonDaysLeft } from '../season';
+import { useNeutralSeasons } from '../zone';
 import { bonusPhotos } from '../usage';
 import { colors, fonts, Palette, spacing } from '../theme';
 import { Icon } from './Icon';
@@ -60,15 +61,18 @@ type Props = {
 const pretty = (code: string) => `${code.slice(0, 3)} ${code.slice(3)}`;
 
 // "autumn-2026" -> "Herbst 2026", "winter-2026" -> "Winter 2026/27"
-export function seasonName(key: string, t: (k: never, v?: Record<string, string | number>) => string): string {
+// neutral: nach Monaten benennen („Saison Sep.–Nov. 2026“) – in den Tropen und auf der Südhalbkugel
+export function seasonName(key: string, t: (k: never, v?: Record<string, string | number>) => string, neutral = false): string {
   const [id, y] = key.split('-');
   const year = id === 'winter' ? `${y}/${String(Number(y) + 1).slice(2)}` : y;
+  if (neutral) return t('sn.neutral' as never, { range: t(`sn.range.${id}` as never), year });
   return `${t(`sn.${id}` as never)} ${year}`;
 }
 
 // Rangliste mit Freunden: eigener Freundescode, Freunde hinzufügen, nach XP sortiert.
 export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, onBonus, onSeasonAward, p }: Props) {
   const { t, locale, lang } = useI18n();
+  const neutral = useNeutralSeasons(); // Saison nach Monaten benennen (Tropen, Südhalbkugel)
   // Plus hat unbegrenzte Fotos: dann nur XP erwähnen (das Gratis-Foto bekommt nur der Freund)
   const { plus } = usePlus();
   const plusRef = useRef(plus);
@@ -120,7 +124,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
     if (award) {
       onSeasonAward?.(award.awards);
       if (award.xp > 0)
-        Alert.alert(t('lb.awardTitle'), t('lb.award', { season: seasonName(previousSeasonKey(new Date()), t), rank: award.rank, xp: award.xp }));
+        Alert.alert(t('lb.awardTitle'), t('lb.award', { season: seasonName(previousSeasonKey(new Date()), t, neutral), rank: award.rank, xp: award.xp }));
     }
     // Wer mich hinzugefügt hat, landet auch in meiner Liste
     const bonusBefore = await bonusPhotos();
@@ -470,7 +474,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
                   <Icon name="trophy" size={16} color={colors.accentLight} />
                 </View>
                 <Text style={[styles.pcardLineText, { color: p.ink }]}>
-                  {t('lb.bestSeason')}: <Text style={styles.pcardBold}>{t('lb.bestValue', { rank: cardPerson.best.r, season: seasonName(cardPerson.best.s, t) })}</Text>
+                  {t('lb.bestSeason')}: <Text style={styles.pcardBold}>{t('lb.bestValue', { rank: cardPerson.best.r, season: seasonName(cardPerson.best.s, t, neutral) })}</Text>
                 </Text>
               </View>
             )}
@@ -600,7 +604,7 @@ export function Leaderboard({ stats, invite, onInviteDone, onRank, onFriends, on
       {view === 'season' && !!stats.season && (
         <View style={[styles.seasonBox, { backgroundColor: p.bg }]}>
           <Text style={[styles.seasonHead, { color: p.ink }]}>
-            {seasonName(stats.season, t)} · {t('lb.seasonLeft', { n: seasonDaysLeft(new Date()) })}
+            {seasonName(stats.season, t, neutral)} · {t('lb.seasonLeft', { n: seasonDaysLeft(new Date()) })}
           </Text>
           <Text style={[styles.small, { color: p.mute, marginTop: 3 }]}>
             {t('lb.seasonRewards')} {SEASON_REWARDS.map((r) => `${r.upTo === 1 ? '1.' : `Top ${r.upTo}`} +${r.xp}`).join(' · ')} XP

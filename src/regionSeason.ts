@@ -5,6 +5,7 @@ import { GroupId } from './groups';
 import { Lang } from './i18n';
 import { getAppKey } from './identify';
 import { Season, seasonId, SkyMood } from './season';
+import { loadBand } from './zone';
 
 // Saison-Seite für Länder außerhalb Mitteleuropas: der Server lässt sie einmal pro Land, Monat und
 // Sprache von der KI schreiben und speichert sie für alle. Hier wird sie zusätzlich auf dem Handy gemerkt.
@@ -29,7 +30,7 @@ const MOOD: Record<Raw['stimmung'], SkyMood> = {
   trocken: 'summer',
 };
 
-const cacheKey = (cc: string, m: number, lang: Lang) => `findimal-saison-${cc}-${m}-${lang}`;
+const cacheKey = (cc: string, band: number | null, m: number, lang: Lang) => `findimal-saison-${cc}${band === null ? '' : `@${band}`}-${m}-${lang}`;
 
 // Zeitraum der Jahreszeit dort (Monate 1–12, auch über den Jahreswechsel)
 function range(now: Date, start: number | null, end: number | null): { start: Date; end: Date } | undefined {
@@ -58,7 +59,8 @@ function toSeason(raw: Raw, now: Date): Season | null {
 
 export async function loadRegionSeason(cc: string, lang: Lang, now = new Date()): Promise<Season | null> {
   const m = now.getMonth() + 1;
-  const key = cacheKey(cc, m, lang);
+  const band = await loadBand(); // grober Breitengrad-Streifen (große Länder mit mehreren Klimazonen)
+  const key = cacheKey(cc, band, m, lang);
   try {
     const cached = await AsyncStorage.getItem(key);
     if (cached) return toSeason(JSON.parse(cached), now);
@@ -70,7 +72,7 @@ export async function loadRegionSeason(cc: string, lang: Lang, now = new Date())
     const res = await fetch(SERVER_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey() },
-      body: JSON.stringify({ mode: 'saison', cc, m, lang }),
+      body: JSON.stringify({ mode: 'saison', cc, m, lang, ...(band === null ? {} : { b: band }) }),
     });
     if (!res.ok) return null;
     const raw = (await res.json()) as Raw;

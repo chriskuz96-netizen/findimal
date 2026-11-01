@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from 'react';
 
 // Grober Naturraum für die Natur-Tipps, damit sie zum Wohnort passen:
 // - central: Mittel- und Nordeuropa (Frost und Schnee im Winter)
@@ -77,4 +78,35 @@ export async function loadZone(): Promise<Zone> {
   }
   const cc = deviceCountry();
   return cc ? zoneOf(cc) : 'central';
+}
+
+// Grobe geografische Breite (auf 10° gerundet, z. B. -10 = Nordbrasilien, -30 = Südbrasilien) – damit große
+// Länder mit mehreren Klimazonen die passende Saison bekommen. Ein Streifen von gut 1.000 km, kein Ort.
+const BAND_KEY = 'findimal-lat-band';
+export async function saveBand(lat: number): Promise<void> {
+  if (!Number.isFinite(lat)) return;
+  const band = Math.max(-60, Math.min(70, Math.round(lat / 10) * 10));
+  await AsyncStorage.setItem(BAND_KEY, String(band)).catch(() => {});
+}
+export async function clearBand(): Promise<void> {
+  await AsyncStorage.removeItem(BAND_KEY).catch(() => {});
+}
+export async function loadBand(): Promise<number | null> {
+  try {
+    const raw = await AsyncStorage.getItem(BAND_KEY);
+    const n = raw === null ? NaN : Number(raw);
+    return Number.isFinite(n) ? n : null;
+  } catch {
+    return null;
+  }
+}
+
+// Saison-Namen nach Monaten statt „Herbst 2026“: in den Tropen und auf der Südhalbkugel passen unsere
+// europäischen Jahreszeiten nicht (Nordamerika, Japan usw. behalten die gewohnten Namen)
+export function useNeutralSeasons(): boolean {
+  const [neutral, setNeutral] = useState(false);
+  useEffect(() => {
+    Promise.all([loadZone(), loadBand()]).then(([zone, band]) => setNeutral(zone === 'other' && (band === null || band < 25)));
+  }, []);
+  return neutral;
 }
