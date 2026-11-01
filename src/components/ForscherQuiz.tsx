@@ -7,6 +7,7 @@ import { showRewarded } from '../ads';
 import { usePlus } from '../plus';
 import { AdSlot } from './AdSlot';
 import { Explorer } from './Explorer';
+import { Icon } from './Icon';
 import { QUIZ_ART, QUIZ_ART_BG } from './QuizArt';
 import {
   answer,
@@ -653,26 +654,29 @@ function Result({
   const avg = times.length ? times.reduce((a, b) => a + b, 0) / times.length / 1000 : 0;
   // gelernt: die Fakten zu falschen Antworten (bei 10/10 die zu den drei schwersten Fragen)
   const missed = round.q.filter((id, i) => byId.get(id)?.right !== round.a[i]);
-  // 5 Stichpunkte (große iPhones 7): zuerst die falsch beantworteten, darunter die schwersten zuerst (die haben die verblüffendsten
-  // Fakten); bei weniger als 5 Fehlern mit den schwersten übrigen Fragen auffüllen. Passt so auf eine Seite.
+  // Stichpunkte: alle falsch beantworteten (bis zu 10), die schwersten zuerst (die haben die verblüffendsten Fakten);
+  // bei weniger als 5 Fehlern mit den schwersten übrigen Fragen auf 5 auffüllen. Kopf in einer Zeile, damit alles
+  // ohne Scrollen auf eine Seite passt.
   const qs = round.q.map((id) => byId.get(id)!).filter(Boolean);
   const byLvl = (list: BankQuestion[]) => [...list].sort((a, b) => b.lvl - a.lvl);
   const wrong = byLvl(qs.filter((q) => missed.includes(q.id)));
   const small = useWindowDimensions().height < 740; // kleine iPhones: Kopf etwas kompakter, damit nichts scrollt
-  const facts = [...wrong, ...byLvl(qs.filter((q) => !missed.includes(q.id)))].slice(0, small ? 5 : 7);
+  const facts = [...wrong, ...byLvl(qs.filter((q) => !missed.includes(q.id)))].slice(0, Math.max(5, wrong.length));
   return (
     <View style={{ flex: 1, paddingBottom: bottom + 8 }}>
-      <ScrollView alwaysBounceVertical={false} contentContainerStyle={{ paddingTop: insets.top + (small ? 16 : 44), paddingBottom: 12 }}>
+      <ScrollView alwaysBounceVertical={false} contentContainerStyle={{ paddingTop: insets.top + (small ? 12 : 28), paddingBottom: 12 }}>
         <Text style={[styles.resLabel, { color: p.mute }]}>{t('fq.resultTitle')}</Text>
-        <Text style={[styles.resBig, small && styles.resBigSmall, { color: p.ink }]}>
-          {correct} / {round.q.length}
-        </Text>
-        <View style={styles.resPill}>
-          <Text style={styles.resPillText}>+{xp} XP</Text>
-        </View>
-        <View style={styles.chips}>
-          <View style={[styles.chip, { backgroundColor: p.card }]}>
-            <Text style={[styles.chipText, { color: p.ink }]}>{days === 1 ? t('fq.inARow1') : t('fq.inARow', { n: days })}</Text>
+        {/* Ergebnis, XP, Serie und Tempo in einer Zeile (bricht bei langen Texten sauber um) */}
+        <View style={styles.resRow}>
+          <Text style={[styles.resBig, small && styles.resBigSmall, { color: p.ink }]}>
+            {correct} / {round.q.length}
+          </Text>
+          <View style={styles.resPill}>
+            <Text style={styles.resPillText}>+{xp} XP</Text>
+          </View>
+          <View style={[styles.chip, styles.chipRow, { backgroundColor: p.card }]}>
+            <Icon name="flame" size={14} color={colors.accent} />
+            <Text style={[styles.chipText, { color: p.ink }]}>{days === 1 ? t('fq.days1') : t('fq.days', { n: days })}</Text>
           </View>
           {avg > 0 && (
             <View style={[styles.chip, { backgroundColor: p.card }]}>
@@ -776,19 +780,20 @@ const styles = StyleSheet.create({
   next: { marginHorizontal: 18, marginTop: 10, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
   nextText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
   adBar: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingTop: 6 },
-  resLabel: { fontFamily: fonts.sansBold, fontSize: 15, textAlign: 'center' },
-  resBig: { fontFamily: fonts.serifBold, fontSize: 56, textAlign: 'center', marginTop: 4 },
-  resBigSmall: { fontSize: 44, marginTop: 0 },
-  resPill: { alignSelf: 'center', backgroundColor: colors.accent, borderRadius: 14, paddingHorizontal: 16, paddingVertical: 8, marginTop: 10 },
-  resPillText: { fontFamily: fonts.sansBold, fontSize: 18, color: colors.ink },
-  chips: { flexDirection: 'row', justifyContent: 'center', gap: 10, marginTop: 14 },
-  chip: { borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8 },
+  resLabel: { fontFamily: fonts.sansBold, fontSize: 14, textAlign: 'center' },
+  resRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 6, marginTop: 6, marginHorizontal: spacing.gutter },
+  resBig: { fontFamily: fonts.serifBold, fontSize: 34, marginRight: 4 },
+  resBigSmall: { fontSize: 27, marginRight: 0 },
+  resPill: { backgroundColor: colors.accent, borderRadius: 12, paddingHorizontal: 11, paddingVertical: 6 },
+  resPillText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.ink },
+  chip: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 7 },
+  chipRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   chipText: { fontFamily: fonts.sansBold, fontSize: 13 },
-  learn: { marginHorizontal: spacing.gutter, marginTop: 18, borderRadius: 18, padding: 16, paddingBottom: 12 },
-  learnTitle: { fontFamily: fonts.serifBold, fontSize: 17, marginBottom: 4 },
-  fact: { flexDirection: 'row', paddingVertical: 3 },
-  factDot: { fontFamily: fonts.sansBold, fontSize: 16, lineHeight: 22, width: 16 },
-  factText: { flex: 1, fontFamily: fonts.sans, fontSize: 15.5, lineHeight: 22 },
+  learn: { marginHorizontal: spacing.gutter, marginTop: 14, borderRadius: 18, paddingHorizontal: 16, paddingTop: 12, paddingBottom: 10 },
+  learnTitle: { fontFamily: fonts.serifBold, fontSize: 16, marginBottom: 4 },
+  fact: { flexDirection: 'row', paddingVertical: 2 },
+  factDot: { fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 19, width: 14 },
+  factText: { flex: 1, fontFamily: fonts.sans, fontSize: 14, lineHeight: 19 },
   factHead: { fontFamily: fonts.sansBold },
   done: { marginHorizontal: spacing.gutter, marginTop: 16, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
   doneText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
