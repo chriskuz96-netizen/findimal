@@ -8,6 +8,8 @@ import { usePlus } from '../plus';
 import { AdSlot } from './AdSlot';
 import { Explorer } from './Explorer';
 import { Icon } from './Icon';
+import { QuizShareCard } from './QuizShareCard';
+import { shareCard } from './ShareCard';
 import { QUIZ_ART, QUIZ_ART_BG } from './QuizArt';
 import {
   answer,
@@ -662,15 +664,17 @@ function Result({
   const wrong = byLvl(qs.filter((q) => missed.includes(q.id)));
   const small = useWindowDimensions().height < 740; // kleine iPhones: Kopf etwas kompakter, damit nichts scrollt
   const facts = [...wrong, ...byLvl(qs.filter((q) => !missed.includes(q.id)))].slice(0, Math.max(5, wrong.length));
+  const bigExplorer = !small && facts.length <= 7; // große Figur nur, wenn genug Platz ist – sonst klein neben dem Ergebnis
+  const shareRef = useRef<View>(null);
   return (
     <View style={{ flex: 1, paddingBottom: bottom + 8 }}>
       {/* auf großen iPhones alles größer und senkrecht mittig, damit unten keine leere Fläche bleibt */}
       <ScrollView
         alwaysBounceVertical={false}
-        contentContainerStyle={{ flexGrow: 1, justifyContent: small ? 'flex-start' : 'center', paddingTop: insets.top + (small ? 12 : 20), paddingBottom: 12 }}
+        contentContainerStyle={{ flexGrow: 1, justifyContent: small ? 'flex-start' : 'center', paddingTop: insets.top + (small ? 52 : 20), paddingBottom: 12 }}
       >
-        {/* Forscher-Figur nur, wenn genug Platz ist (große iPhones, höchstens 7 Fakten) */}
-        {!small && facts.length <= 7 && (
+        {/* Forscher-Figur: groß, wenn genug Platz ist (große iPhones, höchstens 7 Fakten) */}
+        {bigExplorer && (
           <View style={styles.resExplorer}>
             <Explorer size={96} />
           </View>
@@ -678,6 +682,7 @@ function Result({
         <Text style={[styles.resLabel, { color: p.mute }]}>{t('fq.resultTitle')}</Text>
         {/* Ergebnis, XP, Serie und Tempo in einer Zeile (bricht bei langen Texten sauber um) */}
         <View style={styles.resRow}>
+          {!bigExplorer && <Explorer size={small ? 34 : 40} />}
           <Text style={[styles.resBig, small ? styles.resBigSmall : styles.resBigRoomy, { color: p.ink }]}>
             {correct} / {round.q.length}
           </Text>
@@ -688,7 +693,7 @@ function Result({
             <Icon name="flame" size={14} color={colors.accent} />
             <Text style={[styles.chipText, { color: p.ink }]}>{days === 1 ? t('fq.days1') : t('fq.days', { n: days })}</Text>
           </View>
-          {avg > 0 && (
+          {avg > 0 && !small && (
             <View style={[styles.chip, { backgroundColor: p.card }]}>
               <Text style={[styles.chipText, { color: p.ink }]}>{t('fq.avg', { s: avg.toFixed(1).replace('.', lang === 'en' ? '.' : ',') })}</Text>
             </View>
@@ -701,6 +706,25 @@ function Result({
           ))}
         </View>
       </ScrollView>
+      {/* Ergebnis teilen: Bild mit Forscher, Ergebnis, Serie und 3 Fakten */}
+      <Pressable
+        onPress={() => shareCard(shareRef, t)}
+        accessibilityRole="button"
+        accessibilityLabel={t('res.shareShort')}
+        hitSlop={10}
+        style={[styles.shareBtn, { top: insets.top + 8, backgroundColor: p.card }]}
+      >
+        <Icon name="share" size={20} color={p.moss} />
+      </Pressable>
+      <QuizShareCard
+        ref={shareRef}
+        t={t}
+        correct={correct}
+        total={round.q.length}
+        days={days}
+        xp={xp}
+        facts={facts.slice(0, 3).map((q) => q.t[lang].k)}
+      />
       <Pressable onPress={onDone} style={styles.done} accessibilityRole="button">
         <Text style={styles.doneText}>{t('fq.finish')}</Text>
       </Pressable>
@@ -796,6 +820,7 @@ const styles = StyleSheet.create({
   resBigSmall: { fontSize: 27, marginRight: 0 },
   resBigRoomy: { fontSize: 40 },
   resExplorer: { alignItems: 'center', marginBottom: 12 },
+  shareBtn: { position: 'absolute', right: spacing.gutter, width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' },
   resPill: { backgroundColor: colors.accent, borderRadius: 12, paddingHorizontal: 11, paddingVertical: 6 },
   resPillText: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.ink },
   chip: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 7 },

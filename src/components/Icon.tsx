@@ -21,7 +21,8 @@ export type IconName =
   | 'phone'
   | 'book'
   | 'play'
-  | 'flame';
+  | 'flame'
+  | 'share';
 
 export function Icon({ name, size = 22, color = colors.accent }: { name: IconName; size?: number; color?: string }) {
   const s = { fill: 'none', stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
@@ -33,6 +34,7 @@ export function Icon({ name, size = 22, color = colors.accent }: { name: IconNam
           fill={color}
         />
       )}
+      {name === 'share' && <Path d="M12 3v12M8 7l4-4 4 4M8 10H7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-1" {...s} />}
       {name === 'binoculars' && (
         <>
           <Circle cx={6.5} cy={15.5} r={3.5} {...s} />
