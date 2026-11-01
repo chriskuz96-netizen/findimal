@@ -607,6 +607,33 @@ function QuizPicture({ id, size }: { id: string; size: number }) {
   );
 }
 
+// Ein gelernter Fakt: Frage klein, richtige Antwort groß – die Erklärung erst beim Antippen
+// (vorher stand nur die Erklärung da, und man wusste oft nicht, um welches Tier es ging)
+function LearnItem({ q, p }: { q: BankQuestion; p: Palette }) {
+  const { lang } = useI18n();
+  const [open, setOpen] = useState(false);
+  const tx = q.t[lang];
+  // Rangliste: die Antworten stehen schon in der richtigen Reihenfolge
+  const answer = q.type === 'rank' ? tx.a.map((a, i) => `${i + 1}.\u00a0${a.replace(/ /g, '\u00a0')}`).join(' · ') : tx.a[q.right];
+  return (
+    <Pressable
+      onPress={() => setOpen((v) => !v)}
+      accessibilityRole="button"
+      accessibilityState={{ expanded: open }}
+      style={[styles.fact, { borderTopColor: p.line }]}
+    >
+      <View style={styles.factRow}>
+        <View style={{ flex: 1 }}>
+          <Text style={[styles.factQ, { color: p.mute }]}>{tx.q}</Text>
+          <Text style={[styles.factA, { color: p.moss }]}>✓ {answer}</Text>
+        </View>
+        <Text style={[styles.factMore, { color: p.mute, transform: [{ rotate: open ? '90deg' : '0deg' }] }]}>›</Text>
+      </View>
+      {open && <Text style={[styles.factX, { color: p.ink }]}>{tx.x}</Text>}
+    </Pressable>
+  );
+}
+
 // Auswertung: Ergebnis, XP, Serie, Tempo und was man heute gelernt hat
 // „Fertig“ steht fest unten über der Werbung; nur die gelernten Fakten scrollen, falls es viele sind
 function Result({
@@ -655,9 +682,7 @@ function Result({
         <View style={[styles.learn, { backgroundColor: p.card }]}>
           <Text style={[styles.learnTitle, { color: p.ink }]}>{missed.length ? t('fq.learned') : t('fq.perfect')}</Text>
           {facts.map((q) => (
-            <Text key={q.id} style={[styles.fact, { color: p.ink, borderTopColor: p.line }]}>
-              {q.t[lang].x}
-            </Text>
+            <LearnItem key={q.id} q={q} p={p} />
           ))}
         </View>
       </ScrollView>
@@ -759,7 +784,12 @@ const styles = StyleSheet.create({
   chipText: { fontFamily: fonts.sansBold, fontSize: 13 },
   learn: { marginHorizontal: spacing.gutter, marginTop: 22, borderRadius: 18, padding: 16 },
   learnTitle: { fontFamily: fonts.serifBold, fontSize: 17, marginBottom: 4 },
-  fact: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, paddingVertical: 9, borderTopWidth: 1 },
+  fact: { paddingVertical: 10, borderTopWidth: 1 },
+  factRow: { flexDirection: 'row', alignItems: 'center' },
+  factQ: { fontFamily: fonts.sans, fontSize: 13, lineHeight: 18 },
+  factA: { fontFamily: fonts.sansBold, fontSize: 15.5, lineHeight: 21, marginTop: 2 },
+  factMore: { fontFamily: fonts.sansBold, fontSize: 22, marginLeft: 10, width: 14, textAlign: 'center' },
+  factX: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20, marginTop: 6 },
   done: { marginHorizontal: spacing.gutter, marginTop: 16, backgroundColor: '#1F6E47', borderRadius: 16, paddingVertical: 15, alignItems: 'center' },
   doneText: { fontFamily: fonts.sansBold, fontSize: 17, color: colors.white },
 });
