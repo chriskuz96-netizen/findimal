@@ -213,6 +213,11 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   (Sammlung mehr Spalten, Startseite, Saison-Karten), im Simulator bzw. auf einem echten Gerät testen.
 - Apple verlangt laut Berichten ab April 2027 Duo-Bildschirmfotos im App Store.
 
+## Nächstes Projekt: Hunde-App (Idee vom 1.11.2026)
+- Arbeitstitel „Hunde-App“. Erst angehen, wenn Findimal auf iPhone und Android gestartet ist.
+- Noch keine Details festgelegt. Wiederverwendbar aus Findimal: Expo-Aufbau, Server auf Cloudflare,
+  KI-Bilderkennung (Findimal erkennt schon Hunderassen), Abo und Werbung, Übersetzungen, Rangliste/Freunde.
+
 ## Ideen für später (wenn viele Spieler da sind)
 - Weltweite Rangliste ausbauen: eigenes Fenster mit Filtern nach **Land und Region** und nach **Saison**
   (z. B. „Herbst 2026“). Eigene **Platznummer** anzeigen (z. B. „Platz 740 von 1.000“ statt „–“) – dafür muss
