@@ -43,6 +43,14 @@
     "Guepardo"
    ],
    "x": "O guepardo é mais rápido, mas só dispara por algumas centenas de metros. A antilocapra mantém mais de 50 km/h por quilômetros."
+  },
+  "ja": {
+   "q": "速いスピードを長く続けられるのはどっち？",
+   "a": [
+    "プロングホーン",
+    "チーター"
+   ],
+   "x": "チーターのほうが速いですが、全力で走れるのは数百メートルだけ。プロングホーンは時速50キロ以上で何キロも走り続けられます。"
   }
  },
  {
@@ -89,6 +97,14 @@
     "Tigre-siberiano"
    ],
    "x": "O urso-polar macho pesa de 400 a 700 kg e é o maior carnívoro terrestre. O tigre-siberiano chega a uns 300 kg."
+  },
+  "ja": {
+   "q": "陸上で最大の肉食動物はどっち？",
+   "a": [
+    "ホッキョクグマ",
+    "アムールトラ"
+   ],
+   "x": "オスのホッキョクグマは400〜700キロ。陸上最大の肉食動物です。アムールトラは約300キロです。"
   }
  },
  {
@@ -135,6 +151,14 @@
     "Foca-comum"
    ],
    "x": "As focas pertencem aos carnívoros “caniformes”, como ursos e mustelídeos. A hiena parece um cachorro, mas é mais aparentada com os gatos."
+  },
+  "ja": {
+   "q": "イヌに近い親せきはどっち？",
+   "a": [
+    "ブチハイエナ",
+    "ゼニガタアザラシ"
+   ],
+   "x": "アザラシはクマやイタチと同じ「イヌ型」の肉食動物です。ハイエナはイヌに似ていますが、ネコに近い親せきです。"
   }
  },
  {
@@ -181,6 +205,14 @@
     "Beija-flor"
    ],
    "x": "O beija-flor bate as asas até 80 vezes por segundo, num movimento em forma de oito. Assim ele para no ar e até voa para trás."
+  },
+  "ja": {
+   "q": "後ろ向きに飛べるのはどっち？",
+   "a": [
+    "スズメ",
+    "ハチドリ"
+   ],
+   "x": "ハチドリは1秒に最大80回、8の字に羽ばたきます。だから空中で止まったり、後ろ向きに飛んだりできます。"
   }
  },
  {
@@ -227,6 +259,14 @@
     "Rinoceronte"
    ],
    "x": "Cavalos, rinocerontes e antas são perissodáctilos. A vaca é um artiodáctilo, mais aparentada com as baleias do que com o cavalo."
+  },
+  "ja": {
+   "q": "ウマに近い親せきはどっち？",
+   "a": [
+    "ウシ",
+    "サイ"
+   ],
+   "x": "ウマ、サイ、バクは奇蹄類です。ウシは偶蹄類で、ウマよりクジラのほうに近い親せきです。"
   }
  },
  {
@@ -273,6 +313,14 @@
     "Um recém-nascido"
    ],
    "x": "Os bebês nascem com cerca de 300 ossos. Muitos se fundem depois: um adulto tem 206."
+  },
+  "ja": {
+   "q": "骨の数が多いのはどっち？",
+   "a": [
+    "大人",
+    "生まれたての赤ちゃん"
+   ],
+   "x": "赤ちゃんは約300個の骨をもって生まれます。その多くがあとでくっつき、大人は206個になります。"
   }
  },
  {
@@ -319,6 +367,14 @@
     "Rato-canguru"
    ],
    "x": "O rato-canguru dos desertos da América do Norte muitas vezes não bebe a vida inteira: ele tira a água de sementes secas. O dromedário aguenta umas duas semanas."
+  },
+  "ja": {
+   "q": "水を飲まずに長く過ごせるのはどっち？",
+   "a": [
+    "ヒトコブラクダ",
+    "カンガルーネズミ"
+   ],
+   "x": "北アメリカの砂漠にすむカンガルーネズミは、一生水を飲まないことも。かわいた種から水分をとります。ラクダは2週間ほどです。"
   }
  },
  {
@@ -365,6 +421,14 @@
     "Coelho-selvagem"
    ],
    "x": "O coelho come logo umas bolinhas moles. Na segunda passagem, ele aproveita as vitaminas e os nutrientes da comida vegetal, difícil de digerir."
+  },
+  "ja": {
+   "q": "自分のフンの一部をわざと食べるのはどっち？",
+   "a": [
+    "ノロジカ",
+    "アナウサギ"
+   ],
+   "x": "ウサギはやわらかいフンをすぐに食べます。2回目の消化で、消化しにくい植物からビタミンや栄養をとり出すのです。"
   }
  },
  {
@@ -411,6 +475,14 @@
     "Crocodilo"
    ],
    "x": "Os crocodilos engolem pedras. No estômago elas ajudam a triturar a comida e talvez sirvam de lastro para mergulhar."
+  },
+  "ja": {
+   "q": "わざと石を飲みこむのはどっち？",
+   "a": [
+    "ライオン",
+    "ワニ"
+   ],
+   "x": "ワニは石を飲みこみます。胃の中で食べものをすりつぶすのを助け、潜るときのおもりにもなるのかもしれません。"
   }
  },
  {
@@ -457,6 +529,14 @@
     "Cachorro"
    ],
    "x": "O cavalo consegue travar as articulações das pernas e cochilar em pé. Para o sono profundo, ele também se deita."
+  },
+  "ja": {
+   "q": "立ったままうとうとできるのはどっち？",
+   "a": [
+    "ウマ",
+    "イヌ"
+   ],
+   "x": "ウマは脚の関節をロックして、立ったままうとうとできます。でも深く眠るときは横になります。"
   }
  },
  {
@@ -503,6 +583,14 @@
     "Bicho-preguiça"
    ],
    "x": "O coala é um marsupial. Ao nascer, o filhote tem o tamanho de um feijão e continua crescendo na bolsa por meses."
+  },
+  "ja": {
+   "q": "赤ちゃんを袋に入れて育てるのはどっち？",
+   "a": [
+    "コアラ",
+    "ナマケモノ"
+   ],
+   "x": "コアラは有袋類。生まれたときの赤ちゃんは豆粒ほどで、何か月も袋の中で育ちます。"
   }
  },
  {
@@ -549,6 +637,14 @@
     "Ouriço"
    ],
    "x": "A equidna australiana põe ovos e os choca numa bolsa na barriga. Apesar dos espinhos, não é parente do ouriço, que tem filhotes vivos."
+  },
+  "ja": {
+   "q": "卵を産む哺乳類はどっち？",
+   "a": [
+    "ハリモグラ",
+    "ハリネズミ"
+   ],
+   "x": "オーストラリアのハリモグラは卵を産み、おなかの袋で温めます。トゲがあってもハリネズミの親せきではありません。ハリネズミは赤ちゃんを産みます。"
   }
  },
  {
@@ -595,6 +691,14 @@
     "Castor"
    ],
    "x": "O ornitorrinco macho tem um esporão venenoso nas patas traseras. A picada é muito dolorosa para humanos, mas não mata."
+  },
+  "ja": {
+   "q": "毒があるのはどっち？",
+   "a": [
+    "カモノハシのオス",
+    "ビーバー"
+   ],
+   "x": "カモノハシのオスは後ろ脚に毒のけづめがあります。人が刺されるとものすごく痛いですが、命に別状はありません。"
   }
  },
  {
@@ -641,6 +745,14 @@
     "Cachorro"
    ],
    "x": "As digitais do coala são tão parecidas com as nossas que é difícil diferenciá-las até no microscópio – embora ele não seja nosso parente próximo."
+  },
+  "ja": {
+   "q": "私たちのような指紋があるのはどっち？",
+   "a": [
+    "コアラ",
+    "イヌ"
+   ],
+   "x": "コアラの指紋は人間とそっくりで、顕微鏡でも見分けにくいほど。私たちとは近い親せきでもないのに、です。"
   }
  },
  {
@@ -687,6 +799,14 @@
     "Cachorro"
    ],
    "x": "O cavalo sua pelo corpo todo, como nós. O cachorro tem glândulas de suor quase só nas almofadinhas das patas e se refresca ofegando."
+  },
+  "ja": {
+   "q": "全身で汗をかくのはどっち？",
+   "a": [
+    "ウマ",
+    "イヌ"
+   ],
+   "x": "ウマは人と同じように全身で汗をかきます。イヌの汗腺はほぼ足の裏だけで、ハアハアと息をして体を冷やします。"
   }
  },
  {
@@ -733,6 +853,14 @@
     "Leão-marinho"
    ],
    "x": "O elefante-marinho mergulha por até cerca de 2 horas e a mais de 1.000 m. O leão-marinho costuma ficar só alguns minutos."
+  },
+  "ja": {
+   "q": "水中に長くいられるのはどっち？",
+   "a": [
+    "ゾウアザラシ",
+    "アシカ"
+   ],
+   "x": "ゾウアザラシは最大約2時間、水深1000メートル以上まで潜ります。アシカはふつう数分で上がってきます。"
   }
  },
  {
@@ -779,6 +907,14 @@
     "Abelha"
    ],
    "x": "Libélulas grandes passam dos 50 km/h e caçam em pleno voo. A abelha voa a uns 25–30 km/h."
+  },
+  "ja": {
+   "q": "飛ぶのが速いのはどっち？",
+   "a": [
+    "トンボ",
+    "ミツバチ"
+   ],
+   "x": "大きなトンボは時速50キロ以上で飛び、飛びながら獲物をつかまえます。ミツバチは時速25〜30キロほどです。"
   }
  },
  {
@@ -825,6 +961,14 @@
     "Raia"
    ],
    "x": "A raia é basicamente um tubarão achatado, também com esqueleto de cartilagem. O golfinho é um mamífero e respira ar."
+  },
+  "ja": {
+   "q": "サメに近い親せきはどっち？",
+   "a": [
+    "イルカ",
+    "エイ"
+   ],
+   "x": "エイは平たくなったサメのようなもの。骨格も同じく軟骨です。イルカは哺乳類で、空気を吸って呼吸します。"
   }
  },
  {
@@ -871,6 +1015,14 @@
     "Humano"
    ],
    "x": "A tamarutaca tem 12 tipos de receptores de cor, e nós só 3. Mesmo assim, ela diferencia cores pior: seu cérebro processa as cores de outro jeito."
+  },
+  "ja": {
+   "q": "目の色を感じる細胞の種類が多いのはどっち？",
+   "a": [
+    "シャコ",
+    "人間"
+   ],
+   "x": "シャコには色を感じる細胞が12種類、私たちには3種類しかありません。それでも、色の見分けはむしろ苦手。脳での処理のしかたがちがうのです。"
   }
  },
  {
@@ -917,6 +1069,14 @@
     "Todos os humanos"
    ],
    "x": "Um estudo de 2022 calcula que todas as formigas do mundo juntas pesam um quinto do peso de todos os humanos. São 20 quatrilhões, mas cada uma é minúscula."
+  },
+  "ja": {
+   "q": "全部合わせると重いのはどっち？",
+   "a": [
+    "世界中のアリ",
+    "世界中の人間"
+   ],
+   "x": "2022年の研究では、世界中のアリを合わせた重さは、人間全体の約5分の1と推定されています。2京匹もいますが、1匹1匹はとても小さいのです。"
   }
  },
  {
@@ -963,6 +1123,14 @@
     "A fêmea"
    ],
    "x": "O macho segura o ovo por dois meses sobre os pés, debaixo de uma dobra da barriga, em pleno inverno antártico e sem comer. A fêmea fica enquanto isso no mar."
+  },
+  "ja": {
+   "q": "コウテイペンギンで卵を温めるのはどっち？",
+   "a": [
+    "オス",
+    "メス"
+   ],
+   "x": "オスは2か月間、卵を足の上にのせておなかの皮でおおいます。南極の冬に、何も食べずに。その間メスは海にいます。"
   }
  },
  {
@@ -1009,6 +1177,14 @@
     "Lula"
    ],
    "x": "Parece incrível, mas estrelas-do-mar e ouriços-do-mar pertencem ao mesmo grande grupo que os vertebrados. A lula é um molusco, mais distante de nós."
+  },
+  "ja": {
+   "q": "私たち人間に近い親せきはどっち？",
+   "a": [
+    "ヒトデ",
+    "イカ"
+   ],
+   "x": "信じられないけれど、ヒトデやウニは脊椎動物と同じ大きな動物グループに入ります。イカは軟体動物で、私たちからは遠い存在です。"
   }
  },
  {
@@ -1055,6 +1231,14 @@
     "Cachorro"
    ],
    "x": "O golfinho dorme com uma metade do cérebro de cada vez. A outra continua acordada – assim ele segue respirando e fica atento aos perigos."
+  },
+  "ja": {
+   "q": "脳の半分ずつ眠るのはどっち？",
+   "a": [
+    "イルカ",
+    "イヌ"
+   ],
+   "x": "イルカは脳の半分ずつ眠ります。もう半分は起きていて、呼吸を続け、危険を見張ります。"
   }
  },
  {
@@ -1101,6 +1285,14 @@
     "Basilisco-verde"
    ],
    "x": "O basilisco corre sobre a água com as patas traseiras: bate na superfície tão rápido que não afunda. A iguana nada."
+  },
+  "ja": {
+   "q": "水の上を走れるのはどっち？",
+   "a": [
+    "グリーンイグアナ",
+    "グリーンバシリスク"
+   ],
+   "x": "バシリスクは後ろ脚で水の上を走ります。すばやく足をたたきつけるので沈まないのです。イグアナは泳ぎます。"
   }
  },
  {
@@ -1147,6 +1339,14 @@
     "Pato-real"
    ],
    "x": "Os casais de cisnes costumam ficar juntos enquanto vivem. O pato-real procura um novo par todo ano."
+  },
+  "ja": {
+   "q": "ふつう一生同じパートナーといるのはどっち？",
+   "a": [
+    "コブハクチョウ",
+    "マガモ"
+   ],
+   "x": "ハクチョウのペアは、ふつうどちらかが生きている限り一緒です。マガモは毎年新しいパートナーを見つけます。"
   }
  },
  {
@@ -1193,6 +1393,14 @@
     "Gato"
    ],
    "x": "O gato tem uma membrana nictitante que passa pelo olho para protegê-lo. Em nós sobrou só um pequeno resto no canto do olho."
+  },
+  "ja": {
+   "q": "3つ目のまぶたがあるのはどっち？",
+   "a": [
+    "人間",
+    "ネコ"
+   ],
+   "x": "ネコには瞬膜があり、目の上をさっと動いて目を守ります。人間には目頭にほんの小さななごりが残っているだけです。"
   }
  }
 ]

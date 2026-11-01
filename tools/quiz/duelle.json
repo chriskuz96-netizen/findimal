@@ -43,6 +43,14 @@
     "Papagaio"
    ],
    "x": "Em mergulho, a águia-real passa dos 200 km/h. Os papagaios costumam voar a 30 a 60 km/h."
+  },
+  "ja": {
+   "q": "速いのはどっち？",
+   "a": [
+    "ワシ",
+    "オウム"
+   ],
+   "x": "イヌワシは急降下で時速200キロ以上。オウムはふつう時速30〜60キロで飛びます。"
   }
  },
  {
@@ -89,6 +97,14 @@
     "Tigre"
    ],
    "x": "O tigre cochila de 16 a 20 horas por dia. A girafa dorme só poucas horas, muitas vezes em pé e em sonecas curtas."
+  },
+  "ja": {
+   "q": "1日によく眠るのはどっち？",
+   "a": [
+    "キリン",
+    "トラ"
+   ],
+   "x": "トラは1日16〜20時間うとうとします。キリンが眠るのは数時間だけ。立ったまま、短い仮眠を重ねます。"
   }
  },
  {
@@ -135,6 +151,14 @@
     "Lagarto"
    ],
    "x": "Comparações de DNA mostram: as tartarugas são mais aparentadas com aves e crocodilos do que com lagartos e cobras."
+  },
+  "ja": {
+   "q": "鳥により近い親せきはどっち？",
+   "a": [
+    "カメ",
+    "トカゲ"
+   ],
+   "x": "DNAを比べると、カメはトカゲやヘビよりも、鳥やワニに近い親せきだとわかります。"
   }
  },
  {
@@ -181,6 +205,14 @@
     "Caracol"
    ],
    "x": "Caranguejos e insetos são artrópodes, com carapaça e patas articuladas. Os insetos até evoluíram a partir de crustáceos."
+  },
+  "ja": {
+   "q": "昆虫により近い親せきはどっち？",
+   "a": [
+    "カニ",
+    "カタツムリ"
+   ],
+   "x": "カニも昆虫も、かたい殻と節のある脚をもつ節足動物。昆虫は甲殻類から進化したほどです。"
   }
  },
  {
@@ -227,6 +259,14 @@
     "Tigre"
    ],
    "x": "Um panda come de 12 a 38 kg de bambu por dia, porque ele dá muito pouca energia. Um tigre se vira, em média, com 5 a 7 kg de carne por dia."
+  },
+  "ja": {
+   "q": "1日に食べる量（キロ）が多いのはどっち？",
+   "a": [
+    "パンダ",
+    "トラ"
+   ],
+   "x": "パンダは1日に12〜38キロの竹を食べます。竹はエネルギーが少ないからです。トラは平均すると1日5〜7キロの肉で足ります。"
   }
  },
  {
@@ -273,6 +313,14 @@
     "Rã"
    ],
    "x": "Os lagartos põem a língua para fora para captar cheiros e os levam a um órgão do olfato no céu da boca. As rãs usam a língua só para caçar."
+  },
+  "ja": {
+   "q": "舌でにおいをかぐのはどっち？",
+   "a": [
+    "トカゲ",
+    "カエル"
+   ],
+   "x": "トカゲは舌をチロチロ出してにおいの粒をつかまえ、口の天井にあるにおいの器官へ運びます。カエルは舌を獲物をとるためだけに使います。"
   }
  },
  {
@@ -319,6 +367,14 @@
     "Lagarto"
    ],
    "x": "As rãs absorvem oxigênio pela pele fina e úmida; no inverno, no fundo do lago, quase só assim. Os lagartos têm pele seca com escamas."
+  },
+  "ja": {
+   "q": "皮ふでも呼吸するのはどっち？",
+   "a": [
+    "カエル",
+    "トカゲ"
+   ],
+   "x": "カエルはうすくしめった皮ふから酸素をとり入れます。冬の池の底では、ほぼ皮ふだけで呼吸します。トカゲの皮ふはかわいたうろこです。"
   }
  },
  {
@@ -365,6 +421,14 @@
     "Abelha"
    ],
    "x": "As abelhas veem a luz UV. Muitas flores têm desenhos em UV que levam ao néctar como pistas de pouso – invisíveis para nós."
+  },
+  "ja": {
+   "q": "紫外線が見えるのはどっち？",
+   "a": [
+    "ヒグマ",
+    "ミツバチ"
+   ],
+   "x": "ミツバチには紫外線が見えます。多くの花には、蜜まで導く滑走路のような紫外線の模様があります。私たちには見えません。"
   }
  },
  {
@@ -411,6 +475,14 @@
     "Caranguejo"
    ],
    "x": "As abelhas têm dois grandes olhos compostos e três olhinhos simples no alto da cabeça – cinco no total. Os caranguejos têm dois olhos em pedúnculos."
+  },
+  "ja": {
+   "q": "目が多いのはどっち？",
+   "a": [
+    "ミツバチ",
+    "カニ"
+   ],
+   "x": "ミツバチには大きな複眼が2つと、頭の上に小さな単眼が3つ。全部で5つです。カニの目は柄の先についた2つです。"
   }
  },
  {
@@ -457,6 +529,14 @@
     "Tartaruga"
    ],
    "x": "Uma fêmea de polvo põe até centenas de milhares de ovos e os vigia por semanas sem comer. As tartarugas marinhas põem cerca de 100 ovos por ninhada."
+  },
+  "ja": {
+   "q": "一度に産む卵が多いのはどっち？",
+   "a": [
+    "タコ",
+    "ウミガメ"
+   ],
+   "x": "メスのタコは数十万個もの卵を産み、何週間も何も食べずに守ります。ウミガメは1回に約100個です。"
   }
  },
  {
@@ -503,6 +583,14 @@
     "Papagaio"
    ],
    "x": "O tubarão-da-groenlândia pode viver várias centenas de anos – é o vertebrado mais longevo conhecido. Os papagaios grandes chegam a 60 ou 80 anos."
+  },
+  "ja": {
+   "q": "長生きなのはどっち？",
+   "a": [
+    "ニシオンデンザメ",
+    "オウム"
+   ],
+   "x": "ニシオンデンザメは数百年生きることがあり、知られている中でいちばん長生きな脊椎動物です。大型のオウムは60〜80年です。"
   }
  },
  {
@@ -549,6 +637,14 @@
     "Tartaruga"
    ],
    "x": "Os tubarões existem há mais de 400 milhões de anos – mais tempo que as árvores. As tartarugas, só há cerca de 220 milhões."
+  },
+  "ja": {
+   "q": "地球に先に現れたのはどっち？",
+   "a": [
+    "サメ",
+    "カメ"
+   ],
+   "x": "サメは4億年以上前からいます。木よりも昔からです。カメは約2億2000万年前からです。"
   }
  },
  {
@@ -595,6 +691,14 @@
     "Pinguim"
    ],
    "x": "O pinguim-gentoo chega a uns 35 km/h debaixo d’água – mais que qualquer outra ave na água. A lontra nada a pouco mais de 10 km/h."
+  },
+  "ja": {
+   "q": "泳ぐのが速いのはどっち？",
+   "a": [
+    "カワウソ",
+    "ペンギン"
+   ],
+   "x": "ジェンツーペンギンは水中で時速約35キロ。水中ではどの鳥よりも速いです。カワウソは時速10キロちょっとです。"
   }
  },
  {
@@ -641,6 +745,14 @@
     "Rã"
    ],
    "x": "A rã-da-floresta da América do Norte congela em dois terços no inverno: o coração e a respiração param. O açúcar protege suas células, e na primavera ela descongela. O ouriço precisa de um ninho sem geada."
+  },
+  "ja": {
+   "q": "ほとんどカチコチに凍っても生きのびられるのはどっち？",
+   "a": [
+    "ハリネズミ",
+    "カエル"
+   ],
+   "x": "北アメリカのアメリカアカガエルは、冬に体の3分の2が凍り、心臓も呼吸も止まります。細胞の中の糖が体を守り、春にとけて元にもどります。ハリネズミには凍らない巣が必要です。"
   }
  },
  {
@@ -687,6 +799,14 @@
     "Papagaio"
    ],
    "x": "As aves são os dinossauros que vivem hoje. Os lagartos parecem pré-históricos, mas são só parentes distantes."
+  },
+  "ja": {
+   "q": "恐竜の子孫はどっち？",
+   "a": [
+    "トカゲ",
+    "オウム"
+   ],
+   "x": "鳥は今も生きている恐竜です。トカゲは大昔の生きものに見えますが、遠い親せきにすぎません。"
   }
  },
  {
@@ -733,6 +853,14 @@
     "Panda"
    ],
    "x": "O tigre corre a 50 ou 65 km/h em distâncias curtas. O panda chega a uns 30 km/h, se precisar."
+  },
+  "ja": {
+   "q": "陸上で速いのはどっち？",
+   "a": [
+    "トラ",
+    "パンダ"
+   ],
+   "x": "トラは短い距離なら時速50〜65キロで走ります。パンダはいざとなれば時速約30キロです。"
   }
  },
  {
@@ -779,6 +907,14 @@
     "Carpa"
    ],
    "x": "Em muitos ciclídeos, um dos pais guarda os ovos na boca sem comer nada. Os filhotes até voltam para a boca se houver perigo. A carpa simplesmente põe os ovos nas plantas."
+  },
+  "ja": {
+   "q": "子どもがかえるまで卵を口の中で守るのはどっち？",
+   "a": [
+    "マウスブルーダーのシクリッド",
+    "コイ"
+   ],
+   "x": "多くのシクリッドでは、親が卵を口に入れ、その間ずっと何も食べません。子どもも危ないときは口の中へ逃げこみます。コイは卵を水草に産みつけるだけです。"
   }
  },
  {
@@ -825,6 +961,14 @@
     "Polvo"
    ],
    "x": "Cerca de dois terços dos neurônios do polvo estão nos braços. Cada braço consegue tocar, sentir sabores e agarrar quase como se tivesse cabeça própria."
+  },
+  "ja": {
+   "q": "神経細胞の大部分が腕にあるのはどっち？",
+   "a": [
+    "オウム",
+    "タコ"
+   ],
+   "x": "タコの神経細胞の約3分の2は腕にあります。それぞれの腕が、まるで自分の考えをもっているかのように、さわり、味わい、つかみます。"
   }
  },
  {
@@ -871,6 +1015,14 @@
     "Urso-pardo"
    ],
    "x": "Uma girafa adulta pesa de 800 a 1.200 kg. Mesmo ursos-pardos muito grandes costumam pesar bem menos."
+  },
+  "ja": {
+   "q": "重いのはどっち？",
+   "a": [
+    "キリン",
+    "ヒグマ"
+   ],
+   "x": "大人のキリンは800〜1200キロ。とても大きなヒグマでも、ふつうはずっと軽いです。"
   }
  },
  {
@@ -917,6 +1069,14 @@
     "Abelha"
    ],
    "x": "No verão, uma colmeia tem de 30.000 a 50.000 abelhas, quase todas filhas da única rainha. As joaninhas vivem sozinhas."
+  },
+  "ja": {
+   "q": "何千匹もの姉妹と一緒に暮らすのはどっち？",
+   "a": [
+    "テントウムシ",
+    "ミツバチ"
+   ],
+   "x": "夏のミツバチの巣には3万〜5万匹。ほぼ全員が1匹の女王バチの娘です。テントウムシは単独で暮らします。"
   }
  },
  {
@@ -963,6 +1123,14 @@
     "Ouriço"
    ],
    "x": "Animais pequenos têm o coração rápido: o do ouriço acordado bate cerca de 200 vezes por minuto; o do urso, só 40 ou 50."
+  },
+  "ja": {
+   "q": "心臓が速く打つのはどっち？",
+   "a": [
+    "ヒグマ",
+    "ハリネズミ"
+   ],
+   "x": "小さな動物は心臓が速い。起きているハリネズミは1分に約200回、クマはたった40〜50回ほどです。"
   }
  },
  {
@@ -1009,6 +1177,14 @@
     "Águia"
    ],
    "x": "Os olhos da coruja têm muitíssimos bastonetes, células para a luz fraca. A águia, por outro lado, enxerga com mais nitidez de dia."
+  },
+  "ja": {
+   "q": "夕暮れによく見えるのはどっち？",
+   "a": [
+    "フクロウ",
+    "ワシ"
+   ],
+   "x": "フクロウの目には、暗い光を感じる細胞（桿体）がとてもたくさんあります。ワシは昼間にくっきり見えるタイプです。"
   }
  },
  {
@@ -1055,6 +1231,14 @@
     "Urso-pardo"
    ],
    "x": "Muitas tartarugas terrestres vivem de 50 a mais de 100 anos. Os ursos-pardos na natureza costumam chegar a 20 ou 30 anos."
+  },
+  "ja": {
+   "q": "長生きなのはどっち？",
+   "a": [
+    "カメ",
+    "ヒグマ"
+   ],
+   "x": "リクガメの多くは50年から100年以上生きます。野生のヒグマはふつう20〜30年です。"
   }
  },
  {
@@ -1101,6 +1285,14 @@
     "Polvo"
    ],
    "x": "O polvo tem milhares de células de cor na pele, que abre e fecha em uma fração de segundo – para se camuflar e mostrar o humor."
+  },
+  "ja": {
+   "q": "一瞬で体の色を変えられるのはどっち？",
+   "a": [
+    "オウム",
+    "タコ"
+   ],
+   "x": "タコの皮ふには何千もの色の細胞があり、一瞬で開いたり閉じたりします。かくれたり、気分を表したりするためです。"
   }
  }
 ]

@@ -273,7 +273,7 @@ function cleanSaison(d) {
   };
 }
 
-const LANGUAGES = { de: 'Deutsch', en: 'Englisch', fr: 'Französisch', es: 'Spanisch', pt: 'Portugiesisch (Brasilien)' };
+const LANGUAGES = { de: 'Deutsch', en: 'Englisch', fr: 'Französisch', es: 'Spanisch', pt: 'Portugiesisch (Brasilien)', ja: 'Japanisch' };
 
 function languageRule(lang) {
   const name = LANGUAGES[lang] || LANGUAGES.de;
@@ -324,7 +324,9 @@ const BAD_WORDS = [
   'schwuchtel', 'neger', 'nazi', 'hitler', 'kanake', 'bumsen', 'porno', 'titten', 'muschi', 'penis', 'vagina',
   'fuck', 'shit', 'bitch', 'cunt', 'cock', 'pussy', 'nigg', 'faggot', 'whore', 'slut', 'rape', 'porn',
   'sex', 'putain', 'merde', 'salope', 'puta', 'mierda', 'cabron', 'polla',
+  'porra', 'caralho', 'buceta', 'viado', 'cuzao', 'foder', 'fodase',
 ];
+const BAD_WORDS_JA = ['ちんこ', 'ちんぽ', 'まんこ', 'チンコ', 'マンコ', 'セックス', 'せっくす', '死ね', '殺す', 'うんこ', 'クソ', 'ヤリマン', 'ブス', 'キモい'];
 function cleanName(raw) {
   const name = String(raw || '').replace(/[\u0000-\u001f]/g, '').replace(/\s+/g, ' ').trim().slice(0, 20);
   if (!name) return 'Entdecker';
@@ -333,7 +335,7 @@ function cleanName(raw) {
     .replace(/0/g, 'o').replace(/1/g, 'i').replace(/3/g, 'e').replace(/4/g, 'a').replace(/5/g, 's').replace(/@/g, 'a')
     .replace(/[^a-zäöüß]/g, '');
   const contact = /(https?:|www\.|\.(com|de|net|org)\b|@|\d{5,})/i.test(name.replace(/\s/g, ''));
-  if (contact || BAD_WORDS.some((w) => flat.includes(w))) return 'Entdecker';
+  if (contact || BAD_WORDS.some((w) => flat.includes(w)) || BAD_WORDS_JA.some((w) => name.includes(w))) return 'Entdecker';
   return name;
 }
 
@@ -587,6 +589,7 @@ const INVITE_TEXT = {
   fr: ['t’invite sur Findimal !', 'Collectionnez des animaux ensemble et comparez vos points. Vous recevez tous les deux 1 photo gratuite en plus et 50 XP.', 'Ouvrir Findimal', 'Il te faut l’app « Expo Go » :', 'Expo Go sur l’App Store', 'Code ami'],
   es: ['te invita a Findimal!', 'Coleccionad animales juntos y comparad vuestros puntos. Los dos recibís 1 foto gratis extra y 50 XP.', 'Abrir Findimal', 'Necesitas la app «Expo Go»:', 'Expo Go en la App Store', 'Código de amigo'],
   pt: ['convida você para o Findimal!', 'Colecionem animais juntos e comparem seus pontos. Vocês dois ganham 1 foto grátis extra e 50 XP.', 'Abrir o Findimal', 'Você precisa do app “Expo Go”:', 'Expo Go na App Store', 'Código de amigo'],
+  ja: ['さんからFindimalへの招待です！', 'いっしょに生きものを集めて、ポイントを比べよう。2人とも無料写真1枚と50 XPがもらえます。', 'Findimalを開く', '「Expo Go」アプリが必要です：', 'App StoreのExpo Go', 'フレンドコード'],
 };
 const esc = (v) => String(v).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
@@ -595,11 +598,12 @@ function invitePage(url) {
   const name = (url.searchParams.get('n') || 'Jemand').slice(0, 20);
   const app = url.searchParams.get('u') || '';
   const tx = INVITE_TEXT[url.searchParams.get('l')] || INVITE_TEXT.de;
+  const sep = /^[\u3000-\u9fff]/.test(tx[0]) ? '' : ' '; // Japanisch: „Taroさんから…“ ohne Leerzeichen
   // nur Links in Findimal bzw. Expo Go erlauben (keine Weiterleitung auf fremde Seiten)
   const ok = CODE.test(code) && /^(exps?|findimal):\/\//.test(app);
   const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(name)} ${esc(tx[0])}</title>
-<meta property="og:title" content="${esc(name)} ${esc(tx[0])}"><meta property="og:description" content="${esc(tx[1])}">
+<title>${esc(name)}${sep}${esc(tx[0])}</title>
+<meta property="og:title" content="${esc(name)}${sep}${esc(tx[0])}"><meta property="og:description" content="${esc(tx[1])}">
 <meta property="og:image" content="${url.origin}/icon.png"><meta property="og:site_name" content="Findimal">
 <link rel="apple-touch-icon" href="/icon.png"><link rel="icon" href="/icon.png"><style>
 body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#143F2A;color:#fff;text-align:center;padding:48px 20px}
@@ -607,7 +611,7 @@ img.logo{width:96px;height:96px;border-radius:22px;margin-bottom:16px}
 h1{font-size:26px;margin:0 0 8px}p{opacity:.85;line-height:1.4}
 a.b{display:inline-block;margin:22px 0;background:#E8833A;color:#13261C;font-weight:700;font-size:18px;padding:15px 28px;border-radius:16px;text-decoration:none}
 .c{font-size:26px;letter-spacing:3px;font-weight:700;color:#FFD2A8}small a{color:#FFD2A8}</style></head><body>
-<img class="logo" src="/icon.png" alt=""><h1>${esc(name)} ${esc(tx[0])}</h1><p>${esc(tx[1])}</p>
+<img class="logo" src="/icon.png" alt=""><h1>${esc(name)}${sep}${esc(tx[0])}</h1><p>${esc(tx[1])}</p>
 ${ok ? `<a class="b" href="${esc(app)}">${esc(tx[2])}</a>` : ''}
 <p>${esc(tx[5])}</p><div class="c">${esc(code.slice(0, 3))} ${esc(code.slice(3, 6))}</div>
 <p><small>${esc(tx[3])} <a href="https://apps.apple.com/app/expo-go/id982107779">${esc(tx[4])}</a></small></p>
@@ -630,6 +634,7 @@ const PRIVACY_DATE = {
   fr: 'Mise à jour : novembre 2026',
   es: 'Actualizado: noviembre de 2026',
   pt: 'Atualizado: novembro de 2026',
+  ja: '更新日：2026年11月',
 };
 
 const PRIVACY = {
@@ -778,6 +783,35 @@ const PRIVACY = {
       ['Informações legais', `<p>{OPERATOR}</p>`],
     ],
   },
+  ja: {
+    title: 'プライバシーポリシーと運営者情報',
+    sections: [
+      ['かんたんに言うと', `<ul>
+<li>Findimalにはアカウント、メールアドレス、本名は必要ありません。</li>
+<li>見つけた生きものと写真は、あなたのスマホに残ります。</li>
+<li>判定したい写真だけが、短い時間だけ私たちのサーバーとAIサービスのAnthropicに送られます。そこで保存はしません。</li>
+<li>ランキングに表示されるのはニックネーム、ポイント、プロフィール画像だけで、場所は表示されません。Plusで自分の動物の写真をプロフィール画像にすると、小さなサムネイルが保存されてランキングに表示されます。事前に、人が写っていないかを自動でチェックします。ランキングはプロフィールでいつでもオフにでき、そのとき画像も削除されます。</li>
+</ul>`],
+      ['判定のための写真', `<p>写真を判定するとき、アプリは位置情報をふくまない縮小コピーをFindimalサーバーに送ります。似た種を見分けやすくするため、大まかな地域（「中央ヨーロッパ」または「地中海地域」）を一緒に送ることもあります。サーバーは写真をAnthropic PBC（アメリカ）のAIに転送し、結果を返します。Findimalサーバーは写真を保存しません。Anthropicは法人向けの条件にしたがってデータを扱います。データはAIの学習には使われず、不正利用の検知などのために限られた期間だけ保存されます。アメリカへの移転は、適切な保護措置（EUの標準契約条項またはEU-US Data Privacy Framework）にもとづきます。</p>
+<p>目的：あなたが求める判定のため。法的根拠：GDPR第6条1項b（アプリ機能の利用）。</p>
+<p>人や顔、車のナンバープレートは撮影しないでください。</p>`],
+      ['スマホに残るもの', `<p>コレクション（写真、生きものの名前、日付）、名前、クイズの回答、設定、バッジは、あなたのスマホにだけ保存されます。プロフィールの「プロフィールをリセット」またはアプリの削除で消えます。</p>
+<p><b>地域：</b>「いま、あなたの近くで」のために、地域は自分で入力します。現在地から決める場合、スマホはOSの位置情報サービスで地名を調べます。保存されるのは地名だけで、あなたのスマホの中です。地域を自分で入力した場合、スマホは位置情報サービスにその場所がどの国にあるかだけをたずね、保存されるのは国だけです（季節のページのため）。同じように、見つけた生きものには撮影した場所の名前がつきます。位置情報（許可した場合のみ）から、そうでなければアプリに入力した場所から決まります。名前は発見ごとに変更できます。Findimalは写真に保存された位置情報を読みません。ここでも保存されるのは名前だけで、正確な位置は保存されず、あなたのスマホに残ります。</p>`],
+      ['「いま、あなたの近くで」', `<p>ホーム画面のヒントのために、アプリはあなたが入力した地域（例：「東京」）、時間帯、言語をサーバーに送ります。結果は最大26時間保存され、同じ地域のすべての利用者に使われます。あなたと結びつく情報は保存されません。</p>`],
+      ['あなたの国の季節', `<p>中央ヨーロッパの外にいる場合、アプリは季節のページのために、あなたの国（例：日本なら「JP」）、大まかな気候帯（緯度を10度単位に丸めたもの。幅1000キロ以上の帯です）、月、言語だけをサーバーに送ります。この気候帯はあなたのスマホにも保存されます。AIがその地域の季節を一度説明し、結果は保存されて、同じ国と気候帯のすべての利用者に使われます。正確な場所や端末の情報は送られません。</p>`],
+      ['今シーズンよく見つかっている生きもの', `<p>野生の生きものが判定されると、サーバーはどの種がどの季節に見つかったかを匿名で数えます。写真、端末、場所、名前はふくみません。これが季節のページの「よく見つかっている」リストになります。ペットは数えません。あなたと結びつけることはできません。</p>`],
+      ['無料写真の1日の上限', `<p>無料写真を制限するため、アプリはあなたのスマホ用にランダムな識別子を作ります。サーバーはそれを使って1日に判定された写真の数を数えます。識別子がない場合はIPアドレスを使います。カウンターは48時間後に自動で削除されます。法的根拠：GDPR第6条1項f（不正利用と際限ない費用からの保護）。</p>`],
+      ['ランキング', `<p>最初の設定で探検家ネーム（ニックネーム）を決めると、自動でランキングに参加します。プロフィールの「ランキングに表示する」でいつでもオフにできます。ランキングに参加している間、サーバーはニックネーム、ポイント（XP）、レベル、種の数、プロフィール画像、フレンドコード、友だちの情報を保存します。友だちはこれを見ることができ、上位100人の探検家は世界ランキングに表示されます。悪い言葉、リンク、電話番号をふくむニックネームは自動で「Entdecker」に置きかえられます。項目を通報すると、あなたのフレンドコードがその項目と一緒に保存され、何度も通報された項目は非表示になります。招待ボーナス（無料写真1枚）のため、サーバーはあなたのスマホのランダムな識別子も記録と一緒に保存し、そのスマホがすでにボーナスを受け取ったことを記録します。識別子がだれかに表示されることはありません。「ランキングから抜ける」で記録は削除されます。法的根拠：GDPR第6条1項f（ゲームの一部としての共通ランキングという正当な利益）。プロフィールでランキングをオフにすれば、いつでも異議を申し立てたことになります。「参加する」から自分で参加した場合は、同意にもとづきます（GDPR第6条1項a）。</p>`],
+      ['Cloudflareのサーバー', `<p>FindimalのサーバーはCloudflare, Inc.（アメリカ）で、委託先として動いています。技術的な理由で、あなたのIPアドレスが処理されます。CloudflareはEU-US Data Privacy Frameworkの認証を受けています。</p>`],
+      ['広告', `<p>無料版では、「広告」と表示された小さな広告枠がいくつかあります。テスト版ではただの仮の枠です。完成版のアプリでは、広告はGoogle AdMob（Google Ireland Ltd.）から配信され、<b>パーソナライズなし</b>、家族向けに設定されます。Googleは広告の配信と不正防止のため、IPアドレスや端末の種類などの技術データを処理します。Findimal Plusには広告がありません。広告を導入したら、このポリシーを更新します。</p>`],
+      ['購入（Findimal Plus）', `<p>サブスクリプションはアプリストア（AppleまたはGoogle）で契約・支払いされます。私たちは支払い情報を受け取らず、サブスクリプションがあるという確認だけを受け取ります。</p>`],
+      ['子ども', `<p>Findimalは家族向けのアプリです。個人情報は求めず、考えたニックネームだけで使えます。16歳未満の子どもがランキングを使うときは、保護者が見守ることをおすすめします。</p>`],
+      ['あなたの権利', `<p>あなたには、開示、訂正、削除、処理の制限、データポータビリティ、異議申し立て、同意の撤回の権利があります。下のメールアドレスまでご連絡ください。データ保護の監督機関に苦情を申し立てることもできます（日本では個人情報保護委員会）。</p>
+<p>ほとんどすべてがあなたのスマホにだけ保存されているので、多くのデータは自分で削除できます：プロフィールの「プロフィールをリセット」、チャレンジの「ランキングから抜ける」、またはアプリの削除。</p>`],
+      ['責任者', `<p>名前と住所：すぐ下の運営者情報をご覧ください。メール：{EMAIL}</p>`],
+      ['運営者情報', `<p>{OPERATOR}</p>`],
+    ],
+  },
 };
 
 function privacyPage(url, env = {}) {
@@ -896,6 +930,28 @@ const HELP = {
       ['Privacidade', `<p><a href="/datenschutz?l=pt">Política de privacidade e informações legais</a></p>`],
     ],
   },
+  ja: {
+    title: 'ヘルプとお問い合わせ',
+    sections: [
+      ['お問い合わせ', `<p>質問、不具合、アイデアはこちらへ：<a href="mailto:{EMAIL}">{EMAIL}</a><br>ふつう数日以内にお返事します。返信は英語またはドイツ語になる場合があります。</p>`],
+      ['Findimalの約束：生きものをじゃましない', `<ul>
+<li>距離をとろう。近づくよりズームしよう。</li>
+<li>生きものにさわらない、えさをあげない、つかまえない。</li>
+<li>巣や穴、赤ちゃんはそっとしておこう。</li>
+<li>静かにして、道からはずれないようにしよう。自然保護区には独自のルールがあることも多いです。</li>
+</ul>`],
+      ['Findimalが生きものを判定できない', `<ul>
+<li>近づくよりズームして、生きものにピントが合い、明るく写るようにしよう。</li>
+<li>Findimalに自信がないときは、別の角度からもう1枚撮ってみよう。それでうまくいくことがよくあります。</li>
+<li>Findimalは人工知能を使っていて、まちがえることもあります。確かにわからない生きものにはさわらないでね。</li>
+</ul>`],
+      ['何枚の写真を判定できる？', `<p>無料で1日3匹まで。Findimal Plusなら写真は無制限で、広告もありません。</p>`],
+      ['Findimal Plusを解約する', `<p>サブスクリプションはアプリストアで管理されています。iPhone：<b>設定 → [あなたの名前] → サブスクリプション → Findimal</b>を開き、「サブスクリプションをキャンセル」をタップ。更新の24時間以上前に行ってください。返金はreportaproblem.apple.comでAppleが対応します。Android：Google Play → プロフィール → <b>お支払いと定期購入 → 定期購入</b>。</p>`],
+      ['データを削除したい', `<p>コレクションはあなたのスマホにだけ保存されています。プロフィールの「プロフィールをリセット」で削除できます。ランキングの記録を消すには、チャレンジで「ランキングから抜ける」をタップしてください。</p>`],
+      ['ランキングの名前が不適切', `<p>その項目を長押しして「通報」を選んでください。あなたの画面からすぐに消え、確認されます。メールで連絡することもできます。</p>`],
+      ['プライバシー', `<p><a href="/datenschutz?l=ja">プライバシーポリシーと運営者情報</a></p>`],
+    ],
+  },
 };
 const HELP_DATE = PRIVACY_DATE;
 
@@ -909,7 +965,7 @@ function infoPage(url, content, path, dates = PRIVACY_DATE, env = {}) {
   const lang = content[asked] ? asked : asked ? 'en' : 'de'; // unbekannte Sprache: Englisch
   const p = content[lang];
   // Links zu den anderen Sprachen
-  const NAMES = { de: 'Deutsch', en: 'English', fr: 'Français', es: 'Español', pt: 'Português' };
+  const NAMES = { de: 'Deutsch', en: 'English', fr: 'Français', es: 'Español', pt: 'Português', ja: '日本語' };
   const langs = Object.keys(content)
     .filter((l) => l !== lang)
     .map((l) => `<a href="${path}${l === 'de' ? '' : '?l=' + l}">${NAMES[l]}</a>`)

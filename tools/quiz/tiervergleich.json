@@ -53,6 +53,16 @@
     "Caracol"
    ],
    "x": "O polvo tem dois corações das brânquias e um principal, que bombeia o sangue azul pelo corpo."
+  },
+  "ja": {
+   "q": "心臓が3つある動物は？",
+   "a": [
+    "カニ",
+    "タコ",
+    "サメ",
+    "カタツムリ"
+   ],
+   "x": "タコには、えらの心臓が2つと、青い血を全身に送る本体の心臓が1つあります。"
   }
  },
  {
@@ -109,6 +119,16 @@
     "Ouriço"
    ],
    "x": "Ao hibernar, o ouriço baixa a temperatura para uns 5 °C. O esquilo só descansa e acorda muitas vezes para comer."
+  },
+  "ja": {
+   "q": "本当の冬眠をするのは？",
+   "a": [
+    "リス",
+    "ノロジカ",
+    "キツネ",
+    "ハリネズミ"
+   ],
+   "x": "冬眠中のハリネズミの体温は約5℃まで下がります。リスは休むだけで、よく起きて食べます。"
   }
  },
  {
@@ -165,6 +185,16 @@
     "Caranguejo"
    ],
    "x": "Todos os insetos têm seis patas, inclusive a joaninha. O caranguejo tem dez e o polvo oito braços."
+  },
+  "ja": {
+   "q": "脚がちょうど6本の動物は？",
+   "a": [
+    "テントウムシ",
+    "タコ",
+    "カタツムリ",
+    "カニ"
+   ],
+   "x": "昆虫の脚はみんな6本。テントウムシもそうです。カニの脚は10本、タコの腕は8本です。"
   }
  },
  {
@@ -221,6 +251,16 @@
     "Rã"
    ],
    "x": "O tubarão é um peixe cartilaginoso. A cartilagem é mais leve e flexível que o osso, como a do nariz."
+  },
+  "ja": {
+   "q": "骨格が骨ではなく軟骨でできているのは？",
+   "a": [
+    "カメ",
+    "サメ",
+    "ペンギン",
+    "カエル"
+   ],
+   "x": "サメは軟骨魚類。軟骨は骨より軽くてしなやか。私たちの鼻と同じです。"
   }
  },
  {
@@ -277,6 +317,16 @@
     "Flamingo"
    ],
    "x": "O flamingo come algas e pequenos crustáceos com carotenoides. Sem esses pigmentos, ele ficaria pálido."
+  },
+  "ja": {
+   "q": "食べもので体の色が決まる鳥は？",
+   "a": [
+    "オウム",
+    "ワシ",
+    "フクロウ",
+    "フラミンゴ"
+   ],
+   "x": "フラミンゴはカロテノイドをたっぷりふくむ藻や小さなエビを食べます。この色素がないと色があせてしまいます。"
   }
  },
  {
@@ -333,6 +383,16 @@
     "Pinguim-imperador"
    ],
    "x": "Um ovo de quiuí pesa cerca de um quinto do peso da fêmea. O de avestruz é o maior ovo de todos, mas pequeno para uma ave tão enorme."
+  },
+  "ja": {
+   "q": "体の大きさに比べていちばん大きな卵を産む鳥は？",
+   "a": [
+    "キーウィ",
+    "ダチョウ",
+    "ニワトリ",
+    "コウテイペンギン"
+   ],
+   "x": "キーウィの卵はメスの体重の約5分の1。ダチョウの卵は一番大きな卵ですが、あの巨体にしては小さめです。"
   }
  },
  {
@@ -389,6 +449,16 @@
     "Tigre"
    ],
    "x": "O “falso polegar” do panda é um osso do punho aumentado. Serve para segurar o bambu."
+  },
+  "ja": {
+   "q": "手首の骨が大きくなって、もう1本の親指のように使える動物は？",
+   "a": [
+    "カワウソ",
+    "リス",
+    "パンダ",
+    "トラ"
+   ],
+   "x": "パンダの「にせの親指」は大きくなった手首の骨。竹の茎をつかむのに役立ちます。"
   }
  },
  {
@@ -445,6 +515,16 @@
     "Panda"
    ],
    "x": "A cor escura protegeria a língua da girafa do sol enquanto ela arranca folhas de acácia."
+  },
+  "ja": {
+   "q": "長さ約45センチの濃い青色の舌をもつ動物は？",
+   "a": [
+    "キリン",
+    "ノロジカ",
+    "トラ",
+    "パンダ"
+   ],
+   "x": "濃い色は、アカシアの葉をむしるときに舌が日焼けしないためと考えられています。"
   }
  },
  {
@@ -501,6 +581,16 @@
     "Tigre"
    ],
    "x": "Debaixo das listras escuras do tigre a pele também é escura: mesmo raspado, as listras apareceriam."
+  },
+  "ja": {
+   "q": "毛の下の皮ふにもしまもようがある動物は？",
+   "a": [
+    "キツネ",
+    "ノロジカ",
+    "リス",
+    "トラ"
+   ],
+   "x": "トラの皮ふは黒いしまの下が黒っぽくなっています。毛をそっても、もようが見えるのです。"
   }
  },
  {
@@ -557,6 +647,16 @@
     "Girafa"
    ],
    "x": "A lontra fecha orelhas e nariz debaixo d’água e consegue mergulhar por vários minutos."
+  },
+  "ja": {
+   "q": "潜るときに耳と鼻の穴を閉じられる動物は？",
+   "a": [
+    "トラ",
+    "カワウソ",
+    "キツネ",
+    "キリン"
+   ],
+   "x": "カワウソは水中で耳と鼻の穴を閉じ、何分も潜っていられます。"
   }
  },
  {
@@ -613,6 +713,16 @@
     "Pinguim"
    ],
    "x": "O pinguim pode beber água do mar: uma glândula filtra o sal, que depois pinga pelo bico."
+  },
+  "ja": {
+   "q": "目の上に、海水から塩をとりのぞく腺がある動物は？",
+   "a": [
+    "フクロウ",
+    "カワウソ",
+    "オウム",
+    "ペンギン"
+   ],
+   "x": "ペンギンは海水を飲めます。塩類腺が塩をこしとり、くちばしからポタポタたらします。"
   }
  },
  {
@@ -669,6 +779,16 @@
     "Abelha"
    ],
    "x": "A rádula do caracol funciona como uma lixa. Os dentes gastos são substituídos sem parar."
+  },
+  "ja": {
+   "q": "何千もの小さな歯が並んだ、やすりのような舌をもつ動物は？",
+   "a": [
+    "カタツムリ",
+    "チョウ",
+    "カメ",
+    "ミツバチ"
+   ],
+   "x": "カタツムリの歯舌はやすりのよう。すり減った歯は、どんどん新しい歯に生えかわります。"
   }
  },
  {
@@ -725,6 +845,16 @@
     "Lontra"
    ],
    "x": "O tubarão tem ampolas de Lorenzini: poros no focinho que captam a eletricidade de presas escondidas."
+  },
+  "ja": {
+   "q": "獲物の弱い電気を感じとれる動物は？",
+   "a": [
+    "タコ",
+    "ペンギン",
+    "サメ",
+    "カワウソ"
+   ],
+   "x": "サメにはロレンチーニ器官があります。鼻先の小さな穴で、かくれた獲物の筋肉が出す電気を感じとります。"
   }
  },
  {
@@ -781,6 +911,16 @@
     "Caranguejo"
    ],
    "x": "Com a dança do requebrado, a abelha conta a direção e a distância de uma fonte de alimento."
+  },
+  "ja": {
+   "q": "ダンスでえさの場所を仲間に伝える動物は？",
+   "a": [
+    "ミツバチ",
+    "チョウ",
+    "テントウムシ",
+    "カニ"
+   ],
+   "x": "ミツバチは「8の字ダンス」で、えさ場の方向と距離を仲間に伝えます。"
   }
  },
  {
@@ -837,6 +977,16 @@
     "Lagarto"
    ],
    "x": "A borboleta tem sensores de gosto nas patas. Assim a fêmea confere se uma planta serve para os ovos."
+  },
+  "ja": {
+   "q": "足で味を感じる動物は？",
+   "a": [
+    "フクロウ",
+    "チョウ",
+    "カエル",
+    "トカゲ"
+   ],
+   "x": "チョウの足には味を感じるセンサーがあります。メスはそれで、卵を産むのにいい植物か確かめます。"
   }
  },
  {
@@ -893,6 +1043,16 @@
     "Joaninha"
    ],
    "x": "Esse “sangramento reflexo” espanta os predadores: o líquido amarelo da joaninha é amargo."
+  },
+  "ja": {
+   "q": "危険を感じると、脚の関節から苦い黄色い血を出す動物は？",
+   "a": [
+    "ミツバチ",
+    "チョウ",
+    "カタツムリ",
+    "テントウムシ"
+   ],
+   "x": "この「反射出血」で敵を追いはらいます。テントウムシの黄色い液は苦くて、いやなにおいがします。"
   }
  },
  {
@@ -949,6 +1109,16 @@
     "Papagaio"
    ],
    "x": "A cauda do lagarto continua se mexendo e distrai o inimigo. Ela cresce de novo, mas mais curta."
+  },
+  "ja": {
+   "q": "危ないとき、しっぽを切りはなせる動物は？",
+   "a": [
+    "カメ",
+    "ハリネズミ",
+    "トカゲ",
+    "オウム"
+   ],
+   "x": "切れたトカゲのしっぽはクネクネ動き続け、敵の気をそらします。しっぽはまた生えますが、短くなります。"
   }
  },
  {
@@ -1005,6 +1175,16 @@
     "Rã"
    ],
    "x": "Ao engolir, a rã afunda os olhos. Eles pressionam o bocado de cima e o empurram para a garganta."
+  },
+  "ja": {
+   "q": "飲みこむとき、目玉を内側に引っこめて食べものを押しこむ動物は？",
+   "a": [
+    "フクロウ",
+    "オウム",
+    "カワウソ",
+    "カエル"
+   ],
+   "x": "カエルは飲みこむとき目玉を引っこめます。目玉が上から食べものを押して、のどへ送りこむのです。"
   }
  },
  {
@@ -1061,6 +1241,16 @@
     "Pinguim"
    ],
    "x": "O caranguejo transporta oxigênio com hemocianina, que contém cobre. Nosso sangue é vermelho por causa do ferro."
+  },
+  "ja": {
+   "q": "銅のせいで血が青っぽいのは？",
+   "a": [
+    "サメ",
+    "カニ",
+    "カエル",
+    "ペンギン"
+   ],
+   "x": "カニは銅をふくむヘモシアニンで酸素を運びます。私たちの血が赤いのは鉄のおかげです。"
   }
  },
  {
@@ -1117,6 +1307,16 @@
     "Joaninha"
    ],
    "x": "O caranguejo é um decápode (“dez pés”). Seu primeiro par de patas virou pinças fortes."
+  },
+  "ja": {
+   "q": "はさみも数えると脚が10本の動物は？",
+   "a": [
+    "カニ",
+    "ミツバチ",
+    "タコ",
+    "テントウムシ"
+   ],
+   "x": "カニは十脚類（10本の脚）。いちばん前の1対が強いはさみになっています。"
   }
  },
  {
@@ -1173,6 +1373,16 @@
     "Tartaruga"
    ],
    "x": "O polvo não tem ossos. Só o bico duro limita as aberturas por onde ele consegue passar."
+  },
+  "ja": {
+   "q": "くちばしよりほんの少し大きいだけの穴を通りぬけられる動物は？",
+   "a": [
+    "タコ",
+    "サメ",
+    "カニ",
+    "カメ"
+   ],
+   "x": "タコには骨がありません。通れる穴の大きさを決めるのは、かたいくちばしだけです。"
   }
  },
  {
@@ -1229,6 +1439,16 @@
     "Papagaio"
    ],
    "x": "O papagaio tem pés zigodáctilos: agarra-se aos galhos e segura a comida como se fosse uma mão."
+  },
+  "ja": {
+   "q": "指が2本前、2本後ろを向いている鳥は？",
+   "a": [
+    "ワシ",
+    "フラミンゴ",
+    "ペンギン",
+    "オウム"
+   ],
+   "x": "オウムの足は対趾足。枝をつかんだり、手のように食べものを持ったりできます。"
   }
  },
  {
@@ -1285,6 +1505,16 @@
     "Papagaio"
    ],
    "x": "As aves que voam têm ossos ocos. O pinguim precisa de ossos pesados para não boiar ao mergulhar."
+  },
+  "ja": {
+   "q": "空気の入った骨ではなく、重くて中身のつまった骨をもつ鳥は？",
+   "a": [
+    "ワシ",
+    "フクロウ",
+    "ペンギン",
+    "オウム"
+   ],
+   "x": "飛ぶ鳥の骨は中が空洞です。ペンギンは潜るとき浮き上がらないように、重い骨が必要なのです。"
   }
  },
  {
@@ -1341,6 +1571,16 @@
     "Panda"
    ],
    "x": "O coração da girafa pesa uns 11 kg e precisa bombear o sangue uns 2 metros até a cabeça."
+  },
+  "ja": {
+   "q": "この中でいちばん血圧が高い哺乳類は？",
+   "a": [
+    "キリン",
+    "トラ",
+    "クマ",
+    "パンダ"
+   ],
+   "x": "キリンの心臓は約11キロ。約2メートル上の頭まで血を送らなければなりません。"
   }
  },
  {
@@ -1397,6 +1637,16 @@
     "Urso"
    ],
    "x": "As manchas brancas nas orelhas do tigre serviriam de sinal para os filhotes que seguem a mãe."
+  },
+  "ja": {
+   "q": "耳の後ろに目立つ白い点がある動物は？",
+   "a": [
+    "パンダ",
+    "キツネ",
+    "トラ",
+    "クマ"
+   ],
+   "x": "トラの耳の白い点は、母親についていく子どもへの目印になっていると考えられています。"
   }
  },
  {
@@ -1453,6 +1703,16 @@
     "Panda"
    ],
    "x": "Um panda recém-nascido pesa uns 100 g – mais ou menos o mesmo que uma barra de chocolate."
+  },
+  "ja": {
+   "q": "生まれたての赤ちゃんが母親の約900分の1の重さしかないのは？",
+   "a": [
+    "キリン",
+    "トラ",
+    "カワウソ",
+    "パンダ"
+   ],
+   "x": "生まれたてのパンダはわずか約100グラム。板チョコ1枚くらいの重さです。"
   }
  },
  {
@@ -1509,6 +1769,16 @@
     "Corço"
    ],
    "x": "O urso anda sobre a planta inteira do pé, como nós. Raposa e tigre apoiam os dedos; o corço, os cascos."
+  },
+  "ja": {
+   "q": "足の裏全体を地面につけて歩く動物は？",
+   "a": [
+    "キツネ",
+    "クマ",
+    "トラ",
+    "ノロジカ"
+   ],
+   "x": "クマは私たちと同じように足の裏全体で歩きます。キツネやトラはつま先で、ノロジカはひづめで歩きます。"
   }
  },
  {
@@ -1565,6 +1835,16 @@
     "Raposa"
    ],
    "x": "O panda é um urso, mas 99 % da dieta dele é bambu: ele come até 12 horas por dia."
+  },
+  "ja": {
+   "q": "食肉目なのに、ほとんど植物しか食べない動物は？",
+   "a": [
+    "パンダ",
+    "カワウソ",
+    "トラ",
+    "キツネ"
+   ],
+   "x": "パンダはクマの仲間ですが、食べものの99%は竹。1日に最大12時間も食べ続けます。"
   }
  },
  {
@@ -1621,6 +1901,16 @@
     "Pinguim"
    ],
    "x": "A águia tem células visuais muito mais densas que as nossas e avista presas de grandes alturas."
+  },
+  "ja": {
+   "q": "人間の4〜5倍くっきり見える鳥は？",
+   "a": [
+    "ワシ",
+    "フラミンゴ",
+    "フクロウ",
+    "ペンギン"
+   ],
+   "x": "ワシの目には、視細胞が私たちよりずっと密に並んでいます。高い空から獲物を見つけられます。"
   }
  },
  {
@@ -1677,6 +1967,16 @@
     "Papagaio"
    ],
    "x": "A águia aumenta o ninho todo ano; ele pode passar de 2 m de largura e chegar a pesar muitíssimo."
+  },
+  "ja": {
+   "q": "枝で巨大な巣を作り、何年も使い続けることが多い鳥は？",
+   "a": [
+    "フクロウ",
+    "ワシ",
+    "フラミンゴ",
+    "オウム"
+   ],
+   "x": "ワシは毎年巣を増築します。幅2メートル以上、とても重くなることもあります。"
   }
  },
  {
@@ -1733,6 +2033,16 @@
     "Coruja"
    ],
    "x": "As bordas das penas em forma de pente suavizam o ar: o rato não ouve a coruja chegar."
+  },
+  "ja": {
+   "q": "ほとんど音を立てずに飛ぶ鳥は？",
+   "a": [
+    "ワシ",
+    "オウム",
+    "フラミンゴ",
+    "フクロウ"
+   ],
+   "x": "羽のふちがくしのようになっていて、空気の流れをやわらげます。だからネズミはフクロウが来ても気づきません。"
   }
  },
  {
@@ -1789,6 +2099,16 @@
     "Lontra"
    ],
    "x": "A coruja tem 14. Apesar do pescoço comprido, a girafa tem só 7, como quase todos os mamíferos."
+  },
+  "ja": {
+   "q": "人間より首の骨が多い動物は？",
+   "a": [
+    "キリン",
+    "フクロウ",
+    "トラ",
+    "カワウソ"
+   ],
+   "x": "フクロウの首の骨は14個。首の長いキリンも、ほとんどの哺乳類と同じく7個しかありません。"
   }
  },
  {
@@ -1845,6 +2165,16 @@
     "Caracol"
    ],
    "x": "O esquilo enterra nozes e sementes no outono. As reservas esquecidas germinam e viram árvores."
+  },
+  "ja": {
+   "q": "食べものを埋めて忘れることで、うっかり木を植える動物は？",
+   "a": [
+    "ハリネズミ",
+    "リス",
+    "ノロジカ",
+    "カタツムリ"
+   ],
+   "x": "リスは秋に木の実や種を埋めます。忘れられたたくわえが芽を出し、新しい木に育ちます。"
   }
  },
  {
@@ -1901,6 +2231,16 @@
     "Lontra"
    ],
    "x": "O esquilo é um roedor. Os dentes da frente crescem sem parar e se desgastam ao roer."
+  },
+  "ja": {
+   "q": "前歯が一生のびつづけるのは？",
+   "a": [
+    "リス",
+    "ハリネズミ",
+    "キツネ",
+    "カワウソ"
+   ],
+   "x": "リスはげっ歯類。前歯はずっとのび続け、かじることですり減ります。"
   }
  },
  {
@@ -1957,6 +2297,16 @@
     "Esquilo"
    ],
    "x": "O esquilo gira as patas traseiras para trás para se agarrar com as unhas ao descer de cabeça para baixo."
+  },
+  "ja": {
+   "q": "頭を下にして木の幹をかけ下りられる動物は？",
+   "a": [
+    "カワウソ",
+    "ハリネズミ",
+    "ノロジカ",
+    "リス"
+   ],
+   "x": "リスは後ろ足を後ろ向きに回せるので、頭を下にしてもつめでしっかりつかめます。"
   }
  },
  {
@@ -2013,6 +2363,16 @@
     "Esquilo"
    ],
    "x": "Essa “autounção” do ouriço ainda é um mistério: talvez proteção ou um sinal de cheiro."
+  },
+  "ja": {
+   "q": "ときどき変なものをかんで泡にし、背中にぬりつける動物は？",
+   "a": [
+    "キツネ",
+    "ハリネズミ",
+    "ノロジカ",
+    "リス"
+   ],
+   "x": "ハリネズミのこの「アンティング」はまだなぞ。身を守るためか、においの合図かもしれません。"
   }
  },
  {
@@ -2069,6 +2429,16 @@
     "Tigre"
    ],
    "x": "O corço macho perde os chifres no outono. Os novos, de osso, crescem debaixo de uma pele chamada veludo."
+  },
+  "ja": {
+   "q": "毎年角を落として、新しく生やす動物は？",
+   "a": [
+    "キリン",
+    "ノロジカ",
+    "パンダ",
+    "トラ"
+   ],
+   "x": "ノロジカのオスは秋に角を落とします。新しい骨の角が、袋角と呼ばれるやわらかい皮ふの下で育ちます。"
   }
  },
  {
@@ -2125,6 +2495,16 @@
     "Esquilo"
    ],
    "x": "O corço solta gritos fortes parecidos com latidos quando sente perigo. Muita gente que passeia acha que é um cachorro."
+  },
+  "ja": {
+   "q": "森でおどろくと「ほえる」動物は？",
+   "a": [
+    "ノロジカ",
+    "イノシシ",
+    "アナグマ",
+    "リス"
+   ],
+   "x": "ノロジカはおどろくと、大きなほえるような声を出します。イヌだと思う人も多いのです。"
   }
  },
  {
@@ -2181,6 +2561,16 @@
     "Caracol"
    ],
    "x": "A tartaruga nunca pode sair da carapaça: ela é de osso e ligada ao esqueleto."
+  },
+  "ja": {
+   "q": "甲羅が背骨やろっ骨とくっついているのは？",
+   "a": [
+    "カニ",
+    "ハリネズミ",
+    "カメ",
+    "カタツムリ"
+   ],
+   "x": "カメは甲羅からぬけ出せません。甲羅は骨でできていて、骨格としっかりつながっています。"
   }
  },
  {
@@ -2237,6 +2627,16 @@
     "Tigre"
    ],
    "x": "A tartaruga não tem dentes há milhões de anos. O bico córneo corta plantas e presas."
+  },
+  "ja": {
+   "q": "歯がなく、するどい角質のくちばしをもつ動物は？",
+   "a": [
+    "トカゲ",
+    "カメ",
+    "サメ",
+    "トラ"
+   ],
+   "x": "カメは何百万年も前から歯がありません。角質のくちばしで植物や獲物を切ります。"
   }
  },
  {
@@ -2293,6 +2693,16 @@
     "Tartaruga"
    ],
    "x": "Caracóis, mexilhões e polvos são moluscos. O caranguejo, por outro lado, é um crustáceo."
+  },
+  "ja": {
+   "q": "軟体動物で、タコの親せきなのは？",
+   "a": [
+    "カニ",
+    "テントウムシ",
+    "カタツムリ",
+    "カメ"
+   ],
+   "x": "カタツムリ、二枚貝、タコはみんな軟体動物。カニは甲殻類です。"
   }
  },
  {
@@ -2349,6 +2759,16 @@
     "Caracol"
    ],
    "x": "As operárias soltam escamas de cera por glândulas do abdômen e constroem os favos com elas."
+  },
+  "ja": {
+   "q": "おなかの腺でロウを作る動物は？",
+   "a": [
+    "チョウ",
+    "ミツバチ",
+    "テントウムシ",
+    "カタツムリ"
+   ],
+   "x": "働きバチはおなかの腺からロウのうすい板を出し、それで巣を作ります。"
   }
  },
  {
@@ -2405,6 +2825,16 @@
     "Joaninha"
    ],
    "x": "A joaninha passa de ovo a larva, pupa e adulto. O girino vira rã sem pupa."
+  },
+  "ja": {
+   "q": "さなぎの時期がある変態をする動物は？",
+   "a": [
+    "カエル",
+    "カニ",
+    "トカゲ",
+    "テントウムシ"
+   ],
+   "x": "テントウムシは卵、幼虫、さなぎ、成虫と変わります。オタマジャクシはさなぎにならずにカエルになります。"
   }
  },
  {
@@ -2461,6 +2891,16 @@
     "Papagaio"
    ],
    "x": "As borboletas são lepidópteros, “asas com escamas”. As cores vêm de milhares de escamas minúsculas."
+  },
+  "ja": {
+   "q": "羽が小さなうろこでおおわれているのは？",
+   "a": [
+    "ミツバチ",
+    "テントウムシ",
+    "チョウ",
+    "オウム"
+   ],
+   "x": "チョウはチョウ目（鱗翅目＝うろこの羽）。色は何千もの小さなうろこから生まれます。"
   }
  },
  {
@@ -2517,6 +2957,16 @@
     "Lontra"
    ],
    "x": "A raposa tem pupilas em fenda, como o gato. Os grandes felinos, como o tigre, têm pupilas redondas."
+  },
+  "ja": {
+   "q": "縦長の瞳をもつ動物は？",
+   "a": [
+    "トラ",
+    "キツネ",
+    "クマ",
+    "カワウソ"
+   ],
+   "x": "キツネの瞳は飼いネコのように縦長。でもトラなどの大型のネコ科は瞳が丸いのです。"
   }
  },
  {
@@ -2573,6 +3023,16 @@
     "Raposa"
    ],
    "x": "A raposa é um canídeo, como o lobo e o cachorro. A lontra é um mustelídeo, o panda um urso e o tigre um felino."
+  },
+  "ja": {
+   "q": "イヌ科の動物は？",
+   "a": [
+    "カワウソ",
+    "パンダ",
+    "トラ",
+    "キツネ"
+   ],
+   "x": "キツネはオオカミや飼いイヌと同じイヌ科。カワウソはイタチ科、パンダはクマ科、トラはネコ科です。"
   }
  },
  {
@@ -2629,6 +3089,16 @@
     "Panda"
    ],
    "x": "A lontra é um mustelídeo adaptado à água, parente do texugo, do furão e da doninha."
+  },
+  "ja": {
+   "q": "イタチ科の動物は？",
+   "a": [
+    "キツネ",
+    "リス",
+    "カワウソ",
+    "パンダ"
+   ],
+   "x": "カワウソは水にくらしに合わせたイタチ科の仲間。アナグマやケナガイタチ、イタチの親せきです。"
   }
  },
  {
@@ -2685,6 +3155,16 @@
     "Tubarão"
    ],
    "x": "A pele do tubarão tem escamas placoides, como dentes minúsculos. Passando a mão ao contrário, parece lixa."
+  },
+  "ja": {
+   "q": "皮ふが小さな「皮歯」でおおわれているのは？",
+   "a": [
+    "トカゲ",
+    "カメ",
+    "カエル",
+    "サメ"
+   ],
+   "x": "サメの皮ふには、小さな歯のような楯鱗があります。逆向きになでると紙やすりのようです。"
   }
  },
  {
@@ -2741,6 +3221,16 @@
     "Rã"
    ],
    "x": "A rã não bebe: absorve a água pela pele, sobretudo por uma área fina da barriga."
+  },
+  "ja": {
+   "q": "口で飲まずに、皮ふから水を吸収する動物は？",
+   "a": [
+    "トカゲ",
+    "カメ",
+    "ハリネズミ",
+    "カエル"
+   ],
+   "x": "カエルは水を飲みません。皮ふ、特におなかのうすい部分から水を吸いこみます。"
   }
  },
  {
@@ -2797,6 +3287,16 @@
     "Lontra"
    ],
    "x": "A tartaruga é um réptil de pele seca e escamosa. A rã é um anfíbio e o polvo um molusco."
+  },
+  "ja": {
+   "q": "この中で爬虫類はどれ？",
+   "a": [
+    "カエル",
+    "タコ",
+    "カメ",
+    "カワウソ"
+   ],
+   "x": "カメはかわいたうろこの皮ふをもつ爬虫類。カエルは両生類、タコは軟体動物です。"
   }
  }
 ]

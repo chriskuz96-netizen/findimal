@@ -46,7 +46,7 @@ export function NearbyList({
         <Explorer size={30} />
         <View>
           <Text style={[styles.when, { color: p.mute }]}>
-            {region || t('near.yourArea')}, {t(daytime() === 'day' ? 'near.day' : 'near.eve')}
+            {region || t('near.yourArea')}{lang === 'ja' ? '・' : ', '}{t(daytime() === 'day' ? 'near.day' : 'near.eve')}
           </Text>
           <Text style={[styles.title, { color: p.ink }]}>{t('near.title')}</Text>
         </View>

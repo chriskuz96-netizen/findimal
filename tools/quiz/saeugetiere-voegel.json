@@ -53,6 +53,16 @@
     "Chapim-real"
    ],
    "x": "A trepadeira-azul é a única ave nativa que desce os troncos de cabeça para baixo. Pica-paus e trepadeiras só sobem."
+  },
+  "ja": {
+   "q": "中央ヨーロッパの鳥で、頭を下にして木の幹を下りられるのはどれ？",
+   "a": [
+    "アカゲラ",
+    "ゴジュウカラ",
+    "タンシキバシリ",
+    "シジュウカラ"
+   ],
+   "x": "頭を下にして下りられる在来の鳥はゴジュウカラだけ。キツツキやキバシリは上にしか登れません。"
   }
  },
  {
@@ -99,6 +109,14 @@
     "Falso"
    ],
    "x": "Os ouriços não toleram lactose, e o leite causa diarreia neles. O certo é dar água."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ 牛乳はハリネズミにとってよい食べもの。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "ハリネズミは乳糖を消化できず、牛乳を飲むとおなかをこわします。あげるなら水がいちばんです。"
   }
  },
  {
@@ -145,6 +163,14 @@
     "Falso"
    ],
    "x": "Certo! Os esquilos-voadores só planam. Os morcegos voam com uma membrana de pele entre os dedos longos."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ 自分の力で本当に飛べる哺乳類はコウモリだけ。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "正しい！モモンガやムササビは滑空するだけ。コウモリは長い指の間に張った皮ふのつばさで、本当に飛びます。"
   }
  },
  {
@@ -201,6 +227,16 @@
     "360 graus"
    ],
    "x": "As corujas giram a cabeça uns 270 graus, porque os olhos grandes quase não se mexem."
+  },
+  "ja": {
+   "q": "フクロウは首をだいたい何度まで回せる？",
+   "a": [
+    "90度",
+    "180度",
+    "270度",
+    "360度"
+   ],
+   "x": "フクロウは首を約270度回せます。大きな目がほとんど動かないので、そのかわりです。"
   }
  },
  {
@@ -257,6 +293,16 @@
     "Açor"
    ],
    "x": "O falcão-peregrino se lança sobre as presas a mais de 300 km/h: é o animal mais rápido do mundo."
+  },
+  "ja": {
+   "q": "狩りの急降下で時速300キロを超える鳥は？",
+   "a": [
+    "チョウゲンボウ",
+    "ハヤブサ",
+    "ヨーロッパアマツバメ",
+    "オオタカ"
+   ],
+   "x": "ハヤブサは時速300キロ以上で獲物に向かって急降下します。世界一速い動物です。"
   }
  },
  {
@@ -313,6 +359,16 @@
     "Capivara"
    ],
    "x": "A capivara sul-americana pode passar dos 50 kg. O castor é o maior roedor da Europa."
+  },
+  "ja": {
+   "q": "世界最大のネズミの仲間（げっ歯類）は？",
+   "a": [
+    "ビーバー",
+    "ヤマアラシ",
+    "マーモット",
+    "カピバラ"
+   ],
+   "x": "南アメリカのカピバラは50キロ以上になることも。ヨーロッパ最大のげっ歯類はビーバーです。"
   }
  },
  {
@@ -369,6 +425,16 @@
     "Deixa-os em paz"
    ],
    "x": "O filhote de cuco empurra para fora do ninho os ovos e filhotes dos anfitriões, para ficar com toda a comida."
+  },
+  "ja": {
+   "q": "かえったばかりのカッコウのひなは、巣のほかの卵をどうする？",
+   "a": [
+    "巣の外に押し出す",
+    "温める",
+    "食べる",
+    "そのままにする"
+   ],
+   "x": "カッコウのひなは、仮親の卵やひなを巣の外に押し出し、えさをひとりじめします。"
   }
  },
  {
@@ -425,6 +491,16 @@
     "Pintada de branco e preto"
    ],
    "x": "Só o macho é preto com bico amarelo. A fêmea é marrom-escura, o que a camufla ao chocar."
+  },
+  "ja": {
+   "q": "クロウタドリのメスは何色？",
+   "a": [
+    "黒",
+    "灰色で胸が赤い",
+    "こげ茶色",
+    "白黒のまだら"
+   ],
+   "x": "黒くて黄色いくちばしなのはオスだけ。メスはこげ茶色で、巣の上で目立ちません。"
   }
  },
  {
@@ -481,6 +557,16 @@
     "A penugem macia"
    ],
    "x": "As corujas engolem os ratos inteiros e depois regurgitam numa bola os ossos e pelos não digeridos."
+  },
+  "ja": {
+   "q": "フクロウのペリット（吐きもどし）とは何？",
+   "a": [
+    "羽で作った巣",
+    "吐き出した骨と毛",
+    "求愛の鳴き声",
+    "やわらかい綿毛"
+   ],
+   "x": "フクロウはネズミを丸飲みし、消化できない骨や毛をあとでかたまりにして吐き出します。"
   }
  },
  {
@@ -537,6 +623,16 @@
     "Águia-de-asa-redonda"
    ],
    "x": "A águia-de-asa-redonda é a ave de rapina mais comum da Alemanha; costuma pousar em postes ao lado dos campos."
+  },
+  "ja": {
+   "q": "ドイツでいちばん多い猛禽類は？",
+   "a": [
+    "アカトビ",
+    "オオタカ",
+    "オジロワシ",
+    "ヨーロッパノスリ"
+   ],
+   "x": "ヨーロッパノスリはドイツでいちばん多い猛禽類。畑のそばの杭によくとまっています。"
   }
  },
  {
@@ -583,6 +679,14 @@
     "Falso"
    ],
    "x": "Falso! O corço e o veado-vermelho são duas espécies diferentes. O corço é bem menor."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ノロジカはアカシカのメスのこと。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "まちがい！ノロジカとアカシカは別の種。ノロジカはアカシカよりずっと小さいです。"
   }
  },
  {
@@ -639,6 +743,16 @@
     "Gamo"
    ],
    "x": "O alce é o maior cervídeo do mundo. Os machos grandes chegam a uns 2 m na cernelha e têm chifres em forma de pá."
+  },
+  "ja": {
+   "q": "世界最大のシカは？",
+   "a": [
+    "ヘラジカ",
+    "アカシカ",
+    "トナカイ",
+    "ダマジカ"
+   ],
+   "x": "ヘラジカは世界最大のシカ。大きなオスは肩の高さが約2メートルで、幅広い平らな角をもちます。"
   }
  },
  {
@@ -695,6 +809,16 @@
     "Bufo-pequeno"
    ],
    "x": "O bufo-real é a maior coruja da Europa, com até uns 1,8 m de envergadura. Ele caça até ouriços."
+  },
+  "ja": {
+   "q": "ヨーロッパ最大のフクロウは？",
+   "a": [
+    "モリフクロウ",
+    "メンフクロウ",
+    "ワシミミズク",
+    "トラフズク"
+   ],
+   "x": "ワシミミズクはヨーロッパ最大のフクロウで、翼を広げると最大約1.8メートル。ハリネズミまで狩ります。"
   }
  },
  {
@@ -751,6 +875,16 @@
     "Corço"
    ],
    "x": "O arganaz dorme até uns 7 meses. O texugo e o esquilo só diminuem a atividade; o corço continua ativo."
+  },
+  "ja": {
+   "q": "本当の冬眠をするのはどれ？",
+   "a": [
+    "アナグマ",
+    "オオヤマネ",
+    "キタリス",
+    "ノロジカ"
+   ],
+   "x": "オオヤマネは最大約7か月眠ります。アナグマやリスは休む時間が増えるだけ、ノロジカは冬も活動します。"
   }
  },
  {
@@ -807,6 +941,16 @@
     "Caem e crescem de novo"
    ],
    "x": "Os veados perdem os chifres todo ano. Os novos crescem em poucos meses, cobertos por uma pele chamada veludo."
+  },
+  "ja": {
+   "q": "アカシカのオスの角は毎年どうなる？",
+   "a": [
+    "どんどん長くなる",
+    "白くなる",
+    "変わらない",
+    "落ちてまた生える"
+   ],
+   "x": "シカは毎年角を落とします。新しい角は数か月で生え、袋角と呼ばれる皮ふにおおわれています。"
   }
  },
  {
@@ -863,6 +1007,16 @@
     "Polônia"
    ],
    "x": "Cerca de metade dos milhafres-reais se reproduz na Alemanha. Ele é reconhecido pela cauda avermelhada bem bifurcada."
+  },
+  "ja": {
+   "q": "世界のアカトビの約半分が繁殖している国は？",
+   "a": [
+    "スペイン",
+    "ドイツ",
+    "フランス",
+    "ポーランド"
+   ],
+   "x": "アカトビの約半分はドイツで繁殖します。深く切れこんだ赤さび色の尾が目印です。"
   }
  },
  {
@@ -919,6 +1073,16 @@
     "A vida inteira"
    ],
    "x": "Alguns andorinhões passam até uns 10 meses voando sem parar. Comem e bebem em voo e só pousam para se reproduzir."
+  },
+  "ja": {
+   "q": "ヨーロッパアマツバメは、着地せずにどれくらい空にいられる？",
+   "a": [
+    "最大1日",
+    "約1週間",
+    "最大約10か月",
+    "一生ずっと"
+   ],
+   "x": "最大約10か月、休まず飛び続けるアマツバメもいます。飛びながら食べて飲み、着地するのは子育てのときだけ。"
   }
  },
  {
@@ -975,6 +1139,16 @@
     "Estão cheios de sangue"
    ],
    "x": "O ferro no esmalte deixa os dentes laranja e muito duros – ideais para derrubar árvores."
+  },
+  "ja": {
+   "q": "ビーバーの前歯がオレンジ色なのはなぜ？",
+   "a": [
+    "エナメル質に鉄がふくまれる",
+    "木の皮の色がつく",
+    "歯の病気",
+    "血がつまっている"
+   ],
+   "x": "エナメル質の鉄でオレンジ色になり、とてもかたくなります。木を切りたおすのにぴったり。"
   }
  },
  {
@@ -1031,6 +1205,16 @@
     "Faltam correntes de ar quente"
    ],
    "x": "As cegonhas planam com correntes térmicas, que se formam sobre a terra e quase não sobre o mar. Por isso passam por Gibraltar ou pelo Bósforo."
+  },
+  "ja": {
+   "q": "シュバシコウが地中海をまっすぐ渡ってアフリカへ行かないのはなぜ？",
+   "a": [
+    "カモメがこわい",
+    "泳げない",
+    "海の上は寒すぎる",
+    "上昇する暖かい空気がない"
+   ],
+   "x": "コウノトリは上昇気流に乗って飛びます。上昇気流は陸の上ではできますが、海の上ではほとんどできません。だからジブラルタルやボスポラスを回り道します。"
   }
  },
  {
@@ -1087,6 +1271,16 @@
     "Pombo-torcaz"
    ],
    "x": "No outono, o gaio esconde milhares de bolotas no chão. As que ele esquece podem germinar e virar carvalhos."
+  },
+  "ja": {
+   "q": "冬のたくわえを忘れることで、たくさんのカシの木を「植える」鳥は？",
+   "a": [
+    "アカゲラ",
+    "カケス",
+    "クロウタドリ",
+    "モリバト"
+   ],
+   "x": "カケスは秋に何千個ものドングリを地面にかくします。見つけられなかったドングリが芽を出し、新しいカシになります。"
   }
  },
  {
@@ -1143,6 +1337,16 @@
     "Num buraco na praia"
    ],
    "x": "O guarda-rios cava com o bico um túnel de quase um metro em barrancos de rios. No fundo fica o ninho."
+  },
+  "ja": {
+   "q": "カワセミはどこに巣を作る？",
+   "a": [
+    "ヨシの巣",
+    "木の穴",
+    "自分で掘ったトンネル",
+    "砂浜のくぼみ"
+   ],
+   "x": "カワセミはくちばしで川のがけに、長さ1メートル近いトンネルを掘ります。巣は一番奥にあります。"
   }
  },
  {
@@ -1199,6 +1403,16 @@
     "Contraem os músculos o tempo todo"
    ],
    "x": "Um mecanismo de tendões mantém os dedos fechados enquanto o peso do corpo puxa: ficar pendurado não custa esforço."
+  },
+  "ja": {
+   "q": "コウモリが力を使わずに逆さまにぶら下がって眠れるのはなぜ？",
+   "a": [
+    "体重でつめがロックされる",
+    "唾液でくっつく",
+    "足に吸盤がある",
+    "筋肉に力を入れ続ける"
+   ],
+   "x": "腱のしくみで、体重がかかると指が閉じたままになります。だからぶら下がるのに力がいらないのです。"
   }
  },
  {
@@ -1255,6 +1469,16 @@
     "Uns 70.000"
    ],
    "x": "Um ouriço adulto tem uns 6.000 a 8.000 espinhos. São pelos modificados."
+  },
+  "ja": {
+   "q": "大人のハリネズミのトゲはだいたい何本？",
+   "a": [
+    "約70本",
+    "約700本",
+    "約7000本",
+    "約7万本"
+   ],
+   "x": "大人のハリネズミには約6000〜8000本のトゲがあります。トゲは毛が変化したものです。"
   }
  },
  {
@@ -1311,6 +1535,16 @@
     "Toupeira"
    ],
    "x": "Embora pareçam ratos, os musaranhos não são roedores. Como a toupeira e o ouriço, são insetívoros."
+  },
+  "ja": {
+   "q": "トガリネズミにいちばん近い親せきは？",
+   "a": [
+    "ハツカネズミ",
+    "キタリス",
+    "ウサギ",
+    "モグラ"
+   ],
+   "x": "ネズミに似ていますが、トガリネズミはげっ歯類ではありません。モグラやハリネズミと同じ食虫類の仲間です。"
   }
  },
  {
@@ -1367,6 +1601,16 @@
     "Não há diferença"
    ],
    "x": "Os filhotes de lebre nascem com pelo e olhos abertos num buraco simples. Os de coelho nascem pelados e cegos numa toca."
+  },
+  "ja": {
+   "q": "生まれたてのヤブノウサギは、アナウサギの赤ちゃんとどうちがう？",
+   "a": [
+    "毛があって目が開いている",
+    "毛がなく目が見えない",
+    "卵からかえる",
+    "ちがいはない"
+   ],
+   "x": "ノウサギの赤ちゃんは、浅いくぼみで毛が生えて目が開いた状態で生まれます。アナウサギは巣穴で、毛がなく目も見えない状態で生まれます。"
   }
  },
  {
@@ -1423,6 +1667,16 @@
     "Não se mantém: passa frio"
    ],
    "x": "A lontra quase não tem gordura, mas tem um dos pelos mais densos do reino animal, que prende uma camada de ar isolante."
+  },
+  "ja": {
+   "q": "ユーラシアカワウソは冷たい水の中でどうやって体を温める？",
+   "a": [
+    "厚い脂肪の層",
+    "とても密な毛皮",
+    "ずっとふるえている",
+    "温めない。ただ寒がる"
+   ],
+   "x": "カワウソは脂肪が少ないかわりに、動物でもトップクラスに密な毛皮をもっています。毛の間に空気の層をためて断熱します。"
   }
  },
  {
@@ -1479,6 +1733,16 @@
     "Austrália"
    ],
    "x": "O cão-guaxinim vem da Ásia Oriental. Foi solto no Leste Europeu por causa da pele e se espalhou até a Alemanha."
+  },
+  "ja": {
+   "q": "いまドイツにもすむタヌキは、もともとどこから来た？",
+   "a": [
+    "北アメリカ",
+    "南アメリカ",
+    "東アジア",
+    "オーストラリア"
+   ],
+   "x": "タヌキは東アジア原産。毛皮のために東ヨーロッパに放され、西へ広がってドイツまで来ました。"
   }
  },
  {
@@ -1535,6 +1799,16 @@
     "Pisco-de-peito-ruivo"
    ],
    "x": "A estrelinha-de-poupa e a estrelinha-real pesam só uns 5 ou 6 gramas. A carriça é um pouco mais pesada."
+  },
+  "ja": {
+   "q": "近い親せきと並んで、ヨーロッパでいちばん小さい鳥は？",
+   "a": [
+    "キクイタダキ",
+    "ミソサザイ",
+    "アオガラ",
+    "ヨーロッパコマドリ"
+   ],
+   "x": "キクイタダキと親せきのマミジロキクイタダキは、わずか5〜6グラム。ミソサザイはもう少し重いです。"
   }
  },
  {
@@ -1591,6 +1865,16 @@
     "Andorinha-do-mar-ártica"
    ],
    "x": "A andorinha-do-mar-ártica viaja todo ano entre o Ártico e a Antártida: muitas vezes dezenas de milhares de quilômetros."
+  },
+  "ja": {
+   "q": "毎年いちばん長い距離を渡る鳥は？",
+   "a": [
+    "シュバシコウ",
+    "カッコウ",
+    "ツバメ",
+    "キョクアジサシ"
+   ],
+   "x": "キョクアジサシは毎年北極と南極の間を行き来します。何万キロにもなることがよくあります。"
   }
  },
  {
@@ -1647,6 +1931,16 @@
     "Veado-vermelho"
    ],
    "x": "Os machos de bisão-europeu pesam até uns 900 kg. Ele foi extinto na natureza e salvo graças a animais de zoológico."
+  },
+  "ja": {
+   "q": "ヨーロッパでいちばん重い野生の陸上哺乳類は？",
+   "a": [
+    "ヨーロッパバイソン",
+    "ヘラジカ",
+    "ヒグマ",
+    "アカシカ"
+   ],
+   "x": "ヨーロッパバイソンのオスは最大約900キロ。一度は野生で絶滅しましたが、動物園の個体で救われました。"
   }
  },
  {
@@ -1693,6 +1987,14 @@
     "Falso"
    ],
    "x": "Certo! Os corvídeos são aves canoras. O corvo é até a maior ave canora do mundo."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ワタリガラスは鳴禽類（スズメ目の歌う鳥）である。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "正しい！カラスの仲間は鳴禽類に入ります。ワタリガラスは世界最大の鳴禽類です。"
   }
  },
  {
@@ -1739,6 +2041,14 @@
     "Falso"
    ],
    "x": "Verdadeiro! A mãe o deixa ali de propósito e volta para amamentá-lo. Por favor, não toque: ele ficaria com cheiro de gente."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ 高い草の中にひとりでいるシカの赤ちゃんは、たいてい見捨てられたわけではない。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "正しい！母親はわざとそこに置いていき、お乳をあげにもどってきます。さわらないでね。人のにおいがついてしまいます。"
   }
  },
  {
@@ -1785,6 +2095,14 @@
     "Falso"
    ],
    "x": "Falso! São lagomorfos. Atrás dos dentes da frente de cima, eles têm um segundo par de dentinhos."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ノウサギやアナウサギはげっ歯類である。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "まちがい！ウサギは独自のグループ、ウサギ目です。上の前歯の後ろに、小さな歯がもう1対あります。"
   }
  },
  {
@@ -1831,6 +2149,14 @@
     "Falso"
    ],
    "x": "Falso! A pele dele é preta. Os pelos, na verdade, são incolores e transparentes; só parecem brancos."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ホッキョクグマは白い毛の下の皮ふも白い。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "まちがい！ホッキョクグマの皮ふは黒。毛は本当は無色で透き通っていて、白く見えるだけです。"
   }
  },
  {
@@ -1877,6 +2203,14 @@
     "Falso"
    ],
    "x": "Certo! O disco facial em forma de coração leva o som aos ouvidos assimétricos e localiza a presa com precisão."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ メンフクロウは真っ暗やみでも、音だけでネズミをつかまえられる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "正しい！ハート形の顔が音を集め、左右で少しずれた位置にある耳へ届けます。だから獲物の位置がぴたりとわかります。"
   }
  },
  {
@@ -1933,6 +2267,16 @@
     "No estômago"
    ],
    "x": "A língua se apoia em ossos longos que contornam o crânio por trás. Assim ele consegue fuçar fundo nos formigueiros."
+  },
+  "ja": {
+   "q": "ヨーロッパアオゲラのとても長い舌は、使わないときどこにしまわれている？",
+   "a": [
+    "のどの袋に巻いて",
+    "くちばしの中に折りたたんで",
+    "頭の骨のまわりに巻きつけて",
+    "胃の中に"
+   ],
+   "x": "舌は長い骨の棒にのっていて、頭の骨の後ろをぐるりと回っています。だからアリの巣の奥まで届くのです。"
   }
  },
  {
@@ -1989,6 +2333,16 @@
     "Eles acasalam de novo na primavera"
    ],
    "x": "No corço, o embrião fica em pausa até dezembro (implantação tardia); assim os filhotes nascem quando há bastante comida."
+  },
+  "ja": {
+   "q": "ノロジカは真夏に交尾するのに、赤ちゃんが生まれるのは翌年の5〜6月。なぜ？",
+   "a": [
+    "メスが2頭を順番におなかで育てる",
+    "胚が何か月も休む",
+    "赤ちゃんの成長がとてもゆっくり",
+    "春にもう一度交尾する"
+   ],
+   "x": "ノロジカでは、胚が12月ごろまで休みます（着床遅延）。だから赤ちゃんはえさの多い時期に生まれます。"
   }
  },
  {
@@ -2045,6 +2399,16 @@
     "2015"
    ],
    "x": "Em 2000, um casal de lobos criou filhotes na Lusácia (Saxônia), depois de mais de 100 anos sem lobos se reproduzindo na Alemanha."
+  },
+  "ja": {
+   "q": "ドイツで野生のオオカミの子どもが再び生まれたのは何年？",
+   "a": [
+    "1975年",
+    "1990年",
+    "2000年",
+    "2015年"
+   ],
+   "x": "2000年、ザクセン州ラウジッツでオオカミのペアが子育てをしました。ドイツでオオカミが繁殖しなかった100年以上を経てのことです。"
   }
  },
  {
@@ -2101,6 +2465,16 @@
     "Cauda peluda com ponta preta arredondada"
    ],
    "x": "O gato-selvagem tem uma cauda grossa e peluda, com anéis pretos e ponta preta arredondada. Os tufos nas orelhas são do lince."
+  },
+  "ja": {
+   "q": "ヨーロッパヤマネコとトラ柄の飼いネコの見分け方は？",
+   "a": [
+    "耳の先の房毛",
+    "白い足",
+    "長くて細いしっぽ",
+    "ふさふさで先が黒く丸いしっぽ"
+   ],
+   "x": "ヤマネコのしっぽは太くふさふさで、黒い輪があり、先が黒く丸くなっています。耳の房毛はオオヤマネコの特徴です。"
   }
  },
  {
@@ -2157,6 +2531,16 @@
     "1994"
    ],
    "x": "Em 1934, dois casais foram soltos perto do lago Edersee (Hesse). Hoje esses norte-americanos são muito comuns na Alemanha."
+  },
+  "ja": {
+   "q": "ドイツでアライグマが初めて意図的に野に放されたのは何年？",
+   "a": [
+    "1834年",
+    "1934年",
+    "1974年",
+    "1994年"
+   ],
+   "x": "1934年、ヘッセン州のエーダー湖でアライグマ2組が放されました。いまでは北アメリカ生まれのアライグマがドイツでとても多くなっています。"
   }
  },
  {
@@ -2213,6 +2597,16 @@
     "Foca-comum"
    ],
    "x": "As focas pertencem aos carnívoros. Os machos de foca-cinzenta do mar do Norte e do Báltico pesam até uns 300 kg."
+  },
+  "ja": {
+   "q": "ドイツ最大の野生の肉食動物は？",
+   "a": [
+    "オオカミ",
+    "オオヤマネコ",
+    "ハイイロアザラシ",
+    "ゼニガタアザラシ"
+   ],
+   "x": "アザラシは食肉目の仲間。北海とバルト海の沿岸にいるハイイロアザラシのオスは最大約300キロです。"
   }
  },
  {
@@ -2269,6 +2663,16 @@
     "Com néctar de flores"
    ],
    "x": "Os dois pais produzem no papo um “leite” nutritivo, parecido com queijo. Isso é muito raro entre as aves."
+  },
+  "ja": {
+   "q": "ハトはかえったばかりのひなに何をあげる？",
+   "a": [
+    "「ピジョンミルク」",
+    "かみくだいた虫",
+    "ミミズ",
+    "花の蜜"
+   ],
+   "x": "両親とも、そのうでチーズのような栄養たっぷりの「ピジョンミルク」を作ります。鳥としてはとてもめずらしいことです。"
   }
  },
  {
@@ -2325,6 +2729,16 @@
     "Os elefantes"
    ],
    "x": "O DNA mostra: os hipopótamos são mais aparentados com baleias e golfinhos do que com os porcos, como se pensou por muito tempo."
+  },
+  "ja": {
+   "q": "カバにいちばん近い現生の親せきは？",
+   "a": [
+    "ブタ",
+    "クジラ",
+    "サイ",
+    "ゾウ"
+   ],
+   "x": "DNAを調べると、カバにいちばん近いのはクジラやイルカ。長い間信じられていたブタではありません。"
   }
  },
  {
@@ -2381,6 +2795,16 @@
     "Constrói vários ninhos para ela escolher"
    ],
    "x": "O macho constrói vários ninhos redondos inacabados. A fêmea escolhe um e o forra com material macio."
+  },
+  "ja": {
+   "q": "ミソサザイのオスはどうやってメスの気を引く？",
+   "a": [
+    "ベリーを運ぶ",
+    "水の上で踊る",
+    "羽が赤くなる",
+    "巣をいくつも作って選ばせる"
+   ],
+   "x": "オスは未完成のボール形の巣をいくつも作ります。メスがひとつを選び、中にやわらかい材料をしきます。"
   }
  },
  {
@@ -2437,6 +2861,16 @@
     "Dormem o verão inteiro"
    ],
    "x": "Os patos perdem todas as penas de voo ao mesmo tempo e não voam por 3 ou 4 semanas. Os machos ficam então com uma plumagem sem graça."
+  },
+  "ja": {
+   "q": "夏の換羽の時期、マガモはどうなる？",
+   "a": [
+    "声が出なくなる",
+    "真っ白になる",
+    "何週間も飛べなくなる",
+    "夏の間ずっと眠る"
+   ],
+   "x": "カモは風切羽が一度に全部ぬけ、3〜4週間ほど飛べなくなります。オスはその間、地味な羽の色になります。"
   }
  },
  {
@@ -2493,6 +2927,16 @@
     "As antas"
    ],
    "x": "Os elefantes são aparentados com os sirênios (peixes-boi e dugongos) e com os pequenos híraces."
+  },
+  "ja": {
+   "q": "ゾウにいちばん近い現生の親せきのグループは？",
+   "a": [
+    "海牛（マナティーなど）",
+    "サイ",
+    "カバ",
+    "バク"
+   ],
+   "x": "ゾウはマナティーやジュゴンなどの海牛と近い親せき。小さなハイラックスとも親せきです。"
   }
  },
  {
@@ -2539,6 +2983,14 @@
     "Falso"
    ],
    "x": "Falso! Eles só se parecem. Os andorinhões são mais aparentados com os beija-flores do que com as andorinhas."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ヨーロッパアマツバメはツバメの近い親せきである。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "まちがい！似ているだけです。アマツバメはツバメよりハチドリに近い親せきです。"
   }
  },
  {
@@ -2585,6 +3037,14 @@
     "Falso"
    ],
    "x": "Certo! O melro-d’água mergulha em riachos rápidos procurando larvas de insetos e até caminha pelo fundo."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ 中央ヨーロッパには、水に潜って川底を歩ける鳴禽類がいる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "正しい！ムナジロカワガラスは流れの速い川に潜って虫の幼虫をとり、川底を歩くこともできます。"
   }
  },
  {
@@ -2631,6 +3091,14 @@
     "Falso"
    ],
    "x": "Certo! Uma mordida na cabeça imobiliza as minhocas, que ficam frescas como reserva para o inverno."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ モグラは、かんでまひさせた生きたミミズを貯蔵庫にたくわえる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "正しい！頭をかまれたミミズは動けなくなり、冬の食料として新鮮なまま保たれます。"
   }
  },
  {
@@ -2677,6 +3145,14 @@
     "Falso"
    ],
    "x": "Certo! No inverno, as fêmeas também defendem seu próprio território – e fazem isso cantando."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ 秋と冬には、ヨーロッパコマドリのメスもさえずる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "正しい！冬はコマドリのメスも自分のなわばりを守ります。その方法がさえずりなのです。"
   }
  }
 ]

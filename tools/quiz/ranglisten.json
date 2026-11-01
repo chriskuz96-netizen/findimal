@@ -53,6 +53,16 @@
     "Humano"
    ],
    "x": "Guepardo até uns 110 km/h, antilocapra quase 90, lebre uns 70, e o humano mais rápido pouco menos de 45 km/h."
+  },
+  "ja": {
+   "q": "走るのが速いのは？ 速い順に。",
+   "a": [
+    "チーター",
+    "プロングホーン",
+    "ヤブノウサギ",
+    "人間"
+   ],
+   "x": "チーターは時速約110キロ、プロングホーンは90キロ近く、ノウサギは約70キロ。いちばん速い人間でも45キロ弱です。"
   }
  },
  {
@@ -109,6 +119,16 @@
     "Pardal"
    ],
    "x": "Falcão-peregrino mais de 300 km/h, águia-real uns 240 km/h em mergulho, andorinhão mais de 100 km/h voando, pardal uns 40 km/h."
+  },
+  "ja": {
+   "q": "空でいちばん速いのは？ 速い順に。",
+   "a": [
+    "ハヤブサ（急降下）",
+    "イヌワシ（急降下）",
+    "ヨーロッパアマツバメ",
+    "イエスズメ"
+   ],
+   "x": "ハヤブサは時速300キロ以上、イヌワシは急降下で約240キロ、アマツバメは飛行中100キロ以上、スズメは約40キロ。"
   }
  },
  {
@@ -165,6 +185,16 @@
     "Humano"
    ],
    "x": "A orca passa dos 50 km/h, o leão-marinho uns 40 e a lontra pouco mais de 10 km/h. Os melhores nadadores humanos chegam a quase 9 km/h."
+  },
+  "ja": {
+   "q": "泳ぐのが速いのは？ 速い順に。",
+   "a": [
+    "シャチ",
+    "カリフォルニアアシカ",
+    "ユーラシアカワウソ",
+    "人間"
+   ],
+   "x": "シャチは時速50キロ以上、アシカは約40キロ、カワウソは10キロちょっと。トップスイマーの人間でも9キロ弱です。"
   }
  },
  {
@@ -221,6 +251,16 @@
     "Urso-polar"
    ],
    "x": "Baleia-azul até umas 150 toneladas, elefante macho umas 6 toneladas, hipopótamo de 1,5 a 3 toneladas, urso-polar macho de 400 a 700 kg."
+  },
+  "ja": {
+   "q": "重いのは？ 重い順に。",
+   "a": [
+    "シロナガスクジラ",
+    "アフリカゾウ",
+    "カバ",
+    "ホッキョクグマ"
+   ],
+   "x": "シロナガスクジラは約150トン、オスのゾウは約6トン、カバは1.5〜3トン、オスのホッキョクグマは400〜700キロ。"
   }
  },
  {
@@ -277,6 +317,16 @@
     "Cachorro"
    ],
    "x": "Tubarão-da-groenlândia vários séculos, tartaruga-gigante bem mais de 100 anos, elefante até uns 70, cachorro normalmente de 10 a 15 anos."
+  },
+  "ja": {
+   "q": "長生きなのは？ 長生きな順に。",
+   "a": [
+    "ニシオンデンザメ",
+    "ゾウガメ",
+    "アジアゾウ",
+    "イヌ"
+   ],
+   "x": "ニシオンデンザメは数百年、ゾウガメは100年をゆうに超え、ゾウは約70年まで、イヌはふつう10〜15年です。"
   }
  },
  {
@@ -333,6 +383,16 @@
     "Girafa"
    ],
    "x": "O coala dorme até 20 horas, o gato de 12 a 16, um adulto umas 8, e a girafa muitas vezes menos de 4 horas, aos pouquinhos."
+  },
+  "ja": {
+   "q": "1日によく眠るのは？ 長く眠る順に。",
+   "a": [
+    "コアラ",
+    "飼いネコ",
+    "人間",
+    "キリン"
+   ],
+   "x": "コアラは最大20時間、ネコは12〜16時間、大人の人間は約8時間。キリンは細切れで4時間未満のことも多いです。"
   }
  },
  {
@@ -389,6 +449,16 @@
     "Humano"
    ],
    "x": "Girafa até 5,5 m, elefante uns 4 m, avestruz até uns 2,7 m (a maior ave do mundo). Um humano mede em média 1,70 m."
+  },
+  "ja": {
+   "q": "背が高いのは（地面から頭のてっぺんまで）？ 高い順に。",
+   "a": [
+    "キリン",
+    "アフリカゾウ",
+    "ダチョウ",
+    "人間"
+   ],
+   "x": "キリンは最大5.5メートル、ゾウは約4メートル、ダチョウは約2.7メートル（世界最大の鳥）。人間は平均1.7メートルです。"
   }
  },
  {
@@ -445,6 +515,16 @@
     "Beija-flor"
    ],
    "x": "Um ovo de avestruz pesa uns 1,5 kg – tanto quanto mais de 20 ovos de galinha. O de emu uns 600 g, o de galinha 60 g e o de beija-flor só meio grama."
+  },
+  "ja": {
+   "q": "卵が重いのは？ 重い順に。",
+   "a": [
+    "ダチョウ",
+    "エミュー",
+    "ニワトリ",
+    "ハチドリ"
+   ],
+   "x": "ダチョウの卵は約1.5キロ。ニワトリの卵20個以上分です。エミューは約600グラム、ニワトリは60グラム、ハチドリはたった約0.5グラム。"
   }
  },
  {
@@ -501,6 +581,16 @@
     "Besouro-de-junho"
    ],
    "x": "Conforme a espécie, o piolho-de-cobra tem de dezenas a centenas de patas (uma espécie tem mais de 1.300). O caranguejo tem 10, a aranha 8 e o besouro 6."
+  },
+  "ja": {
+   "q": "脚が多いのは？ 多い順に。",
+   "a": [
+    "ヤスデ",
+    "カニ",
+    "オニグモ",
+    "コフキコガネ"
+   ],
+   "x": "ヤスデは種類によって数十本から数百本（1300本以上の種も）。カニは10本、クモは8本、甲虫は6本です。"
   }
  },
  {
@@ -557,6 +647,16 @@
     "Cachorro"
    ],
    "x": "A elefanta carrega o filhote por uns 22 meses, a girafa uns 15, o humano 9 e a cadela pouco mais de 2 meses."
+  },
+  "ja": {
+   "q": "妊娠期間が長いのは？ 長い順に。",
+   "a": [
+    "アフリカゾウ",
+    "キリン",
+    "人間",
+    "イヌ"
+   ],
+   "x": "ゾウは約22か月、キリンは約15か月、人間は9か月、イヌはたった2か月ちょっとです。"
   }
  },
  {
@@ -613,6 +713,16 @@
     "Baleia-azul"
    ],
    "x": "O minúsculo musaranho-pigmeu passa de 1.000 batidas por minuto, o camundongo de 500 a 600, o humano umas 70 e a baleia-azul, mergulhando, só de 2 a 10."
+  },
+  "ja": {
+   "q": "心臓が速く打つのは？ 速い順に。",
+   "a": [
+    "コビトジャコウネズミ",
+    "ハツカネズミ",
+    "人間",
+    "シロナガスクジラ"
+   ],
+   "x": "小さなコビトジャコウネズミは1分に1000回以上、ネズミは500〜600回、人間は約70回。潜っているシロナガスクジラはたった2〜10回です。"
   }
  },
  {
@@ -669,6 +779,16 @@
     "Panda-gigante"
    ],
    "x": "Um filhote de baleia-azul pesa umas 2,5 toneladas, o de elefante uns 100 kg, um bebê humano 3,5 kg e um filhote de panda só uns 100 gramas."
+  },
+  "ja": {
+   "q": "生まれたときの赤ちゃんが重いのは？ 重い順に。",
+   "a": [
+    "シロナガスクジラ",
+    "アフリカゾウ",
+    "人間",
+    "ジャイアントパンダ"
+   ],
+   "x": "シロナガスクジラの赤ちゃんは約2.5トン、ゾウは約100キロ、人間は3.5キロ。パンダの赤ちゃんはたった約100グラムです。"
   }
  },
  {
@@ -725,6 +845,16 @@
     "Melro"
    ],
    "x": "Em 1973, um abutre-de-rüppell bateu num avião a mais de 11.000 m. O ganso-de-cabeça-listrada cruza o Himalaia a 7.000–8.000 m. A cegonha migra normalmente a algumas centenas ou mil metros; o melro fica perto do chão."
+  },
+  "ja": {
+   "q": "高く飛ぶのは？ 高い順に。",
+   "a": [
+    "マダラハゲワシ",
+    "インドガン",
+    "シュバシコウ",
+    "クロウタドリ"
+   ],
+   "x": "1973年、マダラハゲワシが高度1万1000メートル以上で飛行機にぶつかりました。インドガンは7000〜8000メートルでヒマラヤを越えます。コウノトリはふつう数百〜1000メートルで渡り、クロウタドリは地面の近くにいます。"
   }
  },
  {
@@ -781,6 +911,16 @@
     "Humano (sem equipamento)"
    ],
    "x": "A baleia-bicuda-de-cuvier desce a quase 3.000 m, o cachalote a mais de 2.000 m, o pinguim-imperador a mais de 500 m. Os mergulhadores livres passam por pouco dos 100 m."
+  },
+  "ja": {
+   "q": "深く潜るのは？ 深い順に。",
+   "a": [
+    "アカボウクジラ",
+    "マッコウクジラ",
+    "コウテイペンギン",
+    "人間（道具なし）"
+   ],
+   "x": "アカボウクジラは3000メートル近く、マッコウクジラは2000メートル以上、コウテイペンギンは500メートル以上。素潜りの人間は100メートルちょっとです。"
   }
  },
  {
@@ -837,6 +977,16 @@
     "Tamanduá-bandeira"
    ],
    "x": "O golfinho-nariz-de-garrafa tem de 80 a 100 dentes, o cachorro 42 e o humano adulto 32. O tamanduá não tem nenhum: pega as formigas com a língua comprida."
+  },
+  "ja": {
+   "q": "歯が多いのは？ 多い順に。",
+   "a": [
+    "ハンドウイルカ",
+    "イヌ",
+    "人間",
+    "オオアリクイ"
+   ],
+   "x": "ハンドウイルカは80〜100本、イヌは42本、大人の人間は32本。オオアリクイは0本。長い舌でアリをなめとります。"
   }
  },
  {
@@ -893,6 +1043,16 @@
     "Humano"
    ],
    "x": "O crocodilo-de-água-salgada tem a mordida mais forte já medida, umas duas vezes a do hipopótamo. O leão morde bem mais fraco, e o humano com só uma fração disso."
+  },
+  "ja": {
+   "q": "かむ力が強いのは？ 強い順に。",
+   "a": [
+    "イリエワニ",
+    "カバ",
+    "ライオン",
+    "人間"
+   ],
+   "x": "イリエワニのかむ力はこれまで測った中で最強で、カバの約2倍。ライオンはずっと弱く、人間はそのほんの一部です。"
   }
  },
  {
@@ -949,6 +1109,16 @@
     "Melro"
    ],
    "x": "O albatroz-errante mede até 3,5 m de ponta a ponta das asas, o condor-dos-andes pouco mais de 3 m, a cegonha uns 2 m e o melro pouco menos de 40 cm."
+  },
+  "ja": {
+   "q": "翼を広げた長さが大きいのは？ 大きい順に。",
+   "a": [
+    "ワタリアホウドリ",
+    "アンデスコンドル",
+    "シュバシコウ",
+    "クロウタドリ"
+   ],
+   "x": "ワタリアホウドリは翼の端から端まで最大3.5メートル、アンデスコンドルは3メートルちょっと、コウノトリは約2メートル、クロウタドリは40センチ弱です。"
   }
  },
  {
@@ -1005,6 +1175,16 @@
     "Golfinho-nariz-de-garrafa"
    ],
    "x": "A baleia-azul chega a 30 m, o tubarão-baleia (o maior peixe) a mais de 12 m, o tubarão-branco a uns 6 m e o golfinho a 2–4 m."
+  },
+  "ja": {
+   "q": "体が長いのは？ 長い順に。",
+   "a": [
+    "シロナガスクジラ",
+    "ジンベエザメ",
+    "ホホジロザメ",
+    "ハンドウイルカ"
+   ],
+   "x": "シロナガスクジラは最大30メートル、ジンベエザメ（最大の魚）は12メートル以上、ホホジロザメは約6メートル、ハンドウイルカは2〜4メートル。"
   }
  },
  {
@@ -1061,6 +1241,16 @@
     "Cavalo a galope"
    ],
    "x": "Um caracol avança só alguns metros por hora, uma preguiça uns 200–250 m. Um humano passeia a uns 5 km/h e um cavalo galopa a mais de 40 km/h."
+  },
+  "ja": {
+   "q": "いちばん「おそい」のは？ おそい順に。",
+   "a": [
+    "カタツムリ",
+    "ミユビナマケモノ",
+    "散歩中の人間",
+    "ギャロップする馬"
+   ],
+   "x": "カタツムリは1時間に数メートル、ナマケモノは約200〜250メートル。人間は時速約5キロで歩き、ウマは時速40キロ以上でかけます。"
   }
  },
  {
@@ -1117,6 +1307,16 @@
     "Humano"
    ],
    "x": "Alguns morcegos ouvem mais de 200.000 vibrações por segundo (200 kHz), o golfinho até uns 150 kHz, o cachorro uns 45 kHz. O humano ouve no máximo até 20 kHz – e menos com a idade."
+  },
+  "ja": {
+   "q": "高い音が聞こえるのは？ 高い順に。",
+   "a": [
+    "コウモリ",
+    "イルカ",
+    "イヌ",
+    "人間"
+   ],
+   "x": "1秒に20万回以上の振動（200キロヘルツ）が聞こえるコウモリもいます。イルカは約150キロヘルツ、イヌは約45キロヘルツ。人間は最大20キロヘルツで、年をとると下がります。"
   }
  },
  {
@@ -1173,6 +1373,16 @@
     "Ornitorrinco"
    ],
    "x": "As aves são bem quentes: a galinha uns 41 °C. O cachorro tem uns 38,5 °C, o humano 37 °C e o ornitorrinco só uns 32 °C."
+  },
+  "ja": {
+   "q": "体温が高いのは？ 高い順に。",
+   "a": [
+    "ニワトリ",
+    "イヌ",
+    "人間",
+    "カモノハシ"
+   ],
+   "x": "鳥は体温が特に高く、ニワトリは約41℃。イヌは約38.5℃、人間は37℃、カモノハシはたった約32℃です。"
   }
  },
  {
@@ -1229,6 +1439,16 @@
     "Humanos"
    ],
    "x": "As águas-vivas existem há mais de 500 milhões de anos, os tubarões há mais de 400 milhões, os dinossauros surgiram há uns 230 milhões e nossa espécie há só uns 300.000 anos."
+  },
+  "ja": {
+   "q": "地球に先に現れたのは？ 古い順に。",
+   "a": [
+    "クラゲ",
+    "サメ",
+    "恐竜",
+    "人類"
+   ],
+   "x": "クラゲは5億年以上前から、サメは4億年以上前から。恐竜は約2億3000万年前に現れ、私たちの種はたった約30万年前からです。"
   }
  },
  {
@@ -1285,6 +1505,16 @@
     "Elefante-africano"
    ],
    "x": "O camundongo pode ter até 50 filhotes por ano, o coelho de 20 a 30 e a raposa uma ninhada de 4 a 6. Uma elefanta tem só um filhote a cada 4 ou 5 anos."
+  },
+  "ja": {
+   "q": "1年に生まれる子どもが多いのは？ 多い順に。",
+   "a": [
+    "ハツカネズミ",
+    "アナウサギ",
+    "アカギツネ",
+    "アフリカゾウ"
+   ],
+   "x": "ハツカネズミは1年に最大50匹、アナウサギは20〜30匹、キツネは1回に4〜6匹。ゾウは4〜5年に1頭だけです。"
   }
  },
  {
@@ -1341,6 +1571,16 @@
     "Águia-real"
    ],
    "x": "O avestruz passa dos 100 kg, o pinguim-imperador pesa de 20 a 40 kg, o cisne uns 10 kg (uma das aves voadoras mais pesadas). A águia-real pesa de 3 a 6 kg."
+  },
+  "ja": {
+   "q": "重い鳥は？ 重い順に。",
+   "a": [
+    "ダチョウ",
+    "コウテイペンギン",
+    "コブハクチョウ",
+    "イヌワシ"
+   ],
+   "x": "ダチョウは100キロ以上、コウテイペンギンは20〜40キロ、コブハクチョウは約10キロ（飛べる鳥ではトップクラス）。イヌワシは3〜6キロです。"
   }
  },
  {
@@ -1397,6 +1637,16 @@
     "Gato doméstico"
    ],
    "x": "A efêmera adulta costuma viver de horas a poucos dias, mas como larva até três anos. A operária de verão umas 6 semanas, o camundongo de 1 a 2 anos e o gato uns 15 anos."
+  },
+  "ja": {
+   "q": "大人になってからの命が「短い」のは？ 短い順に。",
+   "a": [
+    "カゲロウ",
+    "夏の働きバチ",
+    "ハツカネズミ",
+    "飼いネコ"
+   ],
+   "x": "カゲロウの成虫は数時間から数日だけ。でも幼虫としては最大3年生きます。夏の働きバチは約6週間、ネズミは1〜2年、ネコは約15年です。"
   }
  },
  {
@@ -1453,6 +1703,16 @@
     "Pinguim-imperador"
    ],
    "x": "Uma fêmea de peixe-lua pode carregar uns 300 milhões de ovos, o sapo põe cordões com alguns milhares, a tartaruga-marinha uns 100 por ninhada e o pinguim-imperador só um."
+  },
+  "ja": {
+   "q": "一度に産む卵が多いのは？ 多い順に。",
+   "a": [
+    "マンボウ",
+    "ヒキガエル",
+    "ウミガメ",
+    "コウテイペンギン"
+   ],
+   "x": "マンボウのメスは約3億個の卵をもつことがあります。ヒキガエルは数千個のひも状の卵、ウミガメは1回に約100個、コウテイペンギンはたった1個。"
   }
  },
  {
@@ -1509,6 +1769,16 @@
     "Raposa-vermelha"
    ],
    "x": "Com pouco mais de 5 cm, o beija-flor-abelha é a menor ave do mundo. Um rato-do-campo mede uns 10 cm, um esquilo pouco mais de 20 cm (sem cauda) e uma raposa uns 70 cm."
+  },
+  "ja": {
+   "q": "小さいのは？ 小さい順に。",
+   "a": [
+    "マメハチドリ",
+    "ハタネズミ",
+    "キタリス",
+    "アカギツネ"
+   ],
+   "x": "5センチちょっとのマメハチドリは世界最小の鳥。ハタネズミは約10センチ、リスは20センチちょっと（しっぽなし）、キツネは約70センチです。"
   }
  },
  {
@@ -1565,6 +1835,16 @@
     "Lontra-europeia"
    ],
    "x": "Recorde: uma baleia-bicuda-de-cuvier ficou quase 4 horas submersa. O elefante-marinho aguenta até umas 2 horas, o golfinho normalmente menos de 10 minutos e a lontra alguns minutos."
+  },
+  "ja": {
+   "q": "水中に長くいられるのは？ 長い順に。",
+   "a": [
+    "アカボウクジラ",
+    "ミナミゾウアザラシ",
+    "ハンドウイルカ",
+    "ユーラシアカワウソ"
+   ],
+   "x": "記録ではアカボウクジラが4時間近く潜りました。ゾウアザラシは最大約2時間、ハンドウイルカはふつう10分未満、カワウソは数分です。"
   }
  },
  {
@@ -1621,6 +1901,16 @@
     "Ouriço"
    ],
    "x": "O avestruz corre até 70 km/h, a ave mais rápida a pé. A raposa chega a uns 50 e o esquilo a pouco mais de 20 km/h. O ouriço trota no máximo a uns 9 km/h."
+  },
+  "ja": {
+   "q": "陸で速いのは？ 速い順に。",
+   "a": [
+    "ダチョウ",
+    "アカギツネ",
+    "キタリス",
+    "ハリネズミ"
+   ],
+   "x": "ダチョウは時速70キロで走る、走る鳥でいちばんの俊足。キツネは約50キロ、リスは20キロちょっと。ハリネズミは最大でも時速約9キロです。"
   }
  },
  {
@@ -1677,6 +1967,16 @@
     "Chimpanzé"
    ],
    "x": "O cérebro do cachalote pesa uns 8 kg, o mais pesado do reino animal. O do elefante uns 5 kg, o humano de 1,3 a 1,4 kg e o do chimpanzé pouco menos de 400 g."
+  },
+  "ja": {
+   "q": "脳が重いのは？ 重い順に。",
+   "a": [
+    "マッコウクジラ",
+    "アフリカゾウ",
+    "人間",
+    "チンパンジー"
+   ],
+   "x": "マッコウクジラの脳は約8キロで、動物界でいちばん重い。ゾウは約5キロ、人間は1.3〜1.4キロ、チンパンジーは400グラム弱です。"
   }
  }
 ]

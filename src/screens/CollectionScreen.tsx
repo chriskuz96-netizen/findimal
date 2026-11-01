@@ -71,7 +71,9 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
       <View style={[styles.hx, { paddingTop: insets.top + 30 }]}>
         <HeaderBackground />
         <View style={styles.titleRow}>
-          <Text style={styles.h2}>{t('col.title')}</Text>
+          <Text style={[styles.h2, styles.h2Fit]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.6}>
+            {t('col.title')}
+          </Text>
           {/* klein oben rechts: wer sammelt – antippen öffnet das Profil */}
           <Pressable
             onPress={onOpenProfile}
@@ -258,6 +260,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white },
+  h2Fit: { flexShrink: 1, marginRight: 10 }, // lange Titel (z. B. Japanisch) in einer Zeile
   titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
   me: {
     flexDirection: 'row',

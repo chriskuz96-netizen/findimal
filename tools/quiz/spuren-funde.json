@@ -56,6 +56,16 @@
     "Lebre"
    ],
    "x": "Quatro dedos com unhas e uma almofadinha pequena: uma raposa. O típico é o oval estreito: entre a almofadinha e os dedos fica um vão em forma de X."
+  },
+  "ja": {
+   "q": "これはだれの足あと？",
+   "a": [
+    "キツネ",
+    "ノロジカ",
+    "アナグマ",
+    "ノウサギ"
+   ],
+   "x": "つめのある4本の指と小さな肉球：キツネです。細長い楕円形が特徴で、肉球と指の間にX字のすき間があります。"
   }
  },
  {
@@ -115,6 +125,16 @@
     "Texugo"
    ],
    "x": "Duas metades de casco estreitas e pontudas: a pegada de um corço. O javali tem cascos mais largos e, atrás, quase sempre duas marcas dos dedos de trás."
+  },
+  "ja": {
+   "q": "ここのぬかるみを歩いたのはだれ？",
+   "a": [
+    "イノシシ",
+    "ノロジカ",
+    "イヌ",
+    "アナグマ"
+   ],
+   "x": "細くてとがった2つに分かれたひづめ：ノロジカの足あとです。イノシシはひづめが太く、後ろにたいてい副蹄のあとが2つあります。"
   }
  },
  {
@@ -174,6 +194,16 @@
     "Camurça"
    ],
    "x": "Os dois pontos são os dedos de trás. No javali eles ficam baixos e afastados e quase sempre marcam; em corços e veados, normalmente só em chão mole."
+  },
+  "ja": {
+   "q": "ひづめが2つと、後ろに点が2つ。だれのもの？",
+   "a": [
+    "ノロジカ",
+    "アカシカ",
+    "イノシシ",
+    "シャモア"
+   ],
+   "x": "2つの点は副蹄です。イノシシでは低く広い位置にあって、ほぼ必ずあとが残ります。シカではふつう、やわらかい地面のときだけです。"
   }
  },
  {
@@ -233,6 +263,16 @@
     "Lebre"
    ],
    "x": "Cinco dedos quase em fila na frente de uma almofada larga: um texugo. Com as unhas compridas das patas da frente ele cava tocas enormes."
+  },
+  "ja": {
+   "q": "これはだれの足あと？",
+   "a": [
+    "キツネ",
+    "アナグマ",
+    "カワウソ",
+    "ノウサギ"
+   ],
+   "x": "幅広い肉球の前に、5本の指がほぼ一列に並んでいます：アナグマです。前足の長いつめで、大きな巣穴を掘ります。"
   }
  },
  {
@@ -292,6 +332,16 @@
     "Raposa"
    ],
    "x": "A lebre apoia as patas traseiras compridas na frente das dianteiras, e as dianteiras ficam uma atrás da outra. O esquilo põe também as dianteiras uma ao lado da outra."
+  },
+  "ja": {
+   "q": "雪の上のこの足あと（上へ進んでいる）。はねたのはだれ？",
+   "a": [
+    "リス",
+    "ノウサギ",
+    "ノロジカ",
+    "キツネ"
+   ],
+   "x": "ノウサギは長い後ろ足を前足より前につき、前足は前後に並びます。リスは前足も左右に並べてつきます。"
   }
  },
  {
@@ -351,6 +401,16 @@
     "Garça-real"
    ],
    "x": "Três dedos para a frente unidos por membranas: um pato. Gralhas, pombos e garças não têm membranas."
+  },
+  "ja": {
+   "q": "岸にこの足あとを残したのはだれ？",
+   "a": [
+    "カラス",
+    "ハト",
+    "マガモ",
+    "アオサギ"
+   ],
+   "x": "前向きの3本の指が水かきでつながっています：カモです。カラス、ハト、サギには水かきがありません。"
   }
  },
  {
@@ -410,6 +470,16 @@
     "Galeirão"
    ],
    "x": "Três dedos finos para a frente e um comprido para trás: típico de aves como a gralha, que assim se agarram aos galhos. Patos e cisnes têm membranas, o galeirão tem lobos."
+  },
+  "ja": {
+   "q": "この足あとを残した鳥は？",
+   "a": [
+    "マガモ",
+    "ハシボソガラス",
+    "コブハクチョウ",
+    "オオバン"
+   ],
+   "x": "前に細い指が3本、後ろに長い指が1本：枝をつかむカラスのような鳥の特徴です。カモやハクチョウには水かき、オオバンには弁足があります。"
   }
  },
  {
@@ -469,6 +539,16 @@
     "Andorinhão-preto"
    ],
    "x": "Asas largas com os “dedos” abertos e uma cauda curta e redonda: a águia-de-asa-redonda. Muitas vezes espreita ratos pousada num poste ao lado dos campos. O milhafre-real teria a cauda bem bifurcada."
+  },
+  "ja": {
+   "q": "畑の上で輪をえがいて飛んでいるのはだれ？",
+   "a": [
+    "アカトビ",
+    "ヨーロッパノスリ",
+    "シュバシコウ",
+    "ヨーロッパアマツバメ"
+   ],
+   "x": "幅広い翼の先に広がった「指」、短くて丸い尾：ヨーロッパノスリです。畑のふちの杭にとまってネズミを探していることもよくあります。アカトビなら尾が深く切れこんでいます。"
   }
  },
  {
@@ -528,6 +608,16 @@
     "Açor"
    ],
    "x": "A cauda bem bifurcada denuncia o milhafre-real. Ao planar, ele a gira sem parar e a usa como leme."
+  },
+  "ja": {
+   "q": "これはだれ？ 尾に注目！",
+   "a": [
+    "ヨーロッパノスリ",
+    "アカトビ",
+    "チョウゲンボウ",
+    "オオタカ"
+   ],
+   "x": "深く切れこんだ尾でアカトビとわかります。滑空中は尾をくるくる動かし、舵のように使います。"
   }
  },
  {
@@ -587,6 +677,16 @@
     "Águia-de-asa-redonda"
    ],
    "x": "Pescoço comprido para a frente e pernas compridas para trás: a cegonha-branca. A garça recolhe o pescoço ao voar e o cisne tem pernas curtas."
+  },
+  "ja": {
+   "q": "首をまっすぐのばして飛んでいるのはだれ？",
+   "a": [
+    "アオサギ",
+    "シュバシコウ",
+    "コブハクチョウ",
+    "ヨーロッパノスリ"
+   ],
+   "x": "長い首は前へ、長い脚は後ろへ：シュバシコウです。アオサギは飛ぶとき首を縮め、ハクチョウは脚が短いです。"
   }
  },
  {
@@ -646,6 +746,16 @@
     "Corvo-marinho"
    ],
    "x": "As garças dobram o pescoço em forma de S e recolhem a cabeça ao voar. Cegonhas e grous voam com o pescoço esticado."
+  },
+  "ja": {
+   "q": "長い脚は後ろへのびているのに、首は縮めている。だれ？",
+   "a": [
+    "シュバシコウ",
+    "クロヅル",
+    "アオサギ",
+    "カワウ"
+   ],
+   "x": "サギは飛ぶとき首をS字に折りたたみ、頭を引っこめます。コウノトリやツルは首をのばして飛びます。"
   }
  },
  {
@@ -705,6 +815,16 @@
     "Peneireiro"
    ],
    "x": "Asas em forma de foice e cauda curta bifurcada: o andorinhão-preto. As patas são minúsculas: quase nunca pousa no chão e prefere se agarrar às paredes."
+  },
+  "ja": {
+   "q": "かま形の翼で屋根の上をびゅんびゅん飛ぶのはだれ？",
+   "a": [
+    "ツバメ",
+    "ヨーロッパアマツバメ",
+    "ニシイワツバメ",
+    "チョウゲンボウ"
+   ],
+   "x": "かま形の翼と、短く切れこんだ尾：ヨーロッパアマツバメです。足はとても小さく、地面にはほとんど降りず、壁にしがみつくほうが得意です。"
   }
  },
  {
@@ -764,6 +884,16 @@
     "Cuco"
    ],
    "x": "As penas compridas da cauda são da andorinha-das-chaminés. O andorinhão tem asas mais longas em forma de foice e a cauda curta."
+  },
+  "ja": {
+   "q": "長い尾羽ととがった翼。だれ？",
+   "a": [
+    "ヨーロッパアマツバメ",
+    "ツバメ",
+    "アカトビ",
+    "カッコウ"
+   ],
+   "x": "長くのびた尾羽はツバメのもの。アマツバメの翼はもっと長いかま形で、尾は短めです。"
   }
  },
  {
@@ -823,6 +953,16 @@
     "Esquilo"
    ],
    "x": "A forma de ampulheta é típica do castor, com as lascas em volta. Ele derruba árvores sobretudo para alcançar a casca, os raminhos e os brotos – sua comida."
+  },
+  "ja": {
+   "q": "この木をこんなふうにかじったのはだれ？",
+   "a": [
+    "ビーバー",
+    "イノシシ",
+    "キツツキ",
+    "リス"
+   ],
+   "x": "砂時計の形はビーバーの特徴で、まわりに木くずが散らばります。木をたおすのは、主にえさの樹皮や小枝、芽を食べるためです。"
   }
  },
  {
@@ -882,6 +1022,16 @@
     "Texugo"
    ],
    "x": "Os montes da toupeira são altos e redondos, e o túnel desce reto pelo meio. Os montinhos do rato-do-campo são mais baixos e o túnel fica de lado."
+  },
+  "ja": {
+   "q": "草地にこの土の山を作ったのはだれ？",
+   "a": [
+    "ハタネズミ",
+    "モグラ",
+    "ハリネズミ",
+    "アナグマ"
+   ],
+   "x": "モグラ塚は高く丸く、トンネルは真ん中からまっすぐ下へのびています。ハタネズミの山は平たく、トンネルは横にずれています。"
   }
  },
  {
@@ -941,6 +1091,16 @@
     "Trepadeira-azul"
    ],
    "x": "Os pica-paus cavam ninhos novos todo ano. Os velhos viram lar de muitos outros: chapins, trepadeiras, morcegos ou esquilos."
+  },
+  "ja": {
+   "q": "幹にこの丸い穴をあけたのはだれ？",
+   "a": [
+    "リス",
+    "モリフクロウ",
+    "アカゲラ",
+    "ゴジュウカラ"
+   ],
+   "x": "キツツキは毎年新しい穴を掘ります。古い穴は、シジュウカラ、ゴジュウカラ、コウモリ、リスなど、たくさんの生きものの家になります。"
   }
  },
  {
@@ -1000,6 +1160,16 @@
     "Seda de aranha"
    ],
    "x": "As vespas raspam madeira, mastigam com saliva e constroem paredes como de papel. As vespas foram as primeiras a fabricar papel."
+  },
+  "ja": {
+   "q": "ハチ（スズメバチ）はこんな巣を何で作る？",
+   "a": [
+    "ミツロウ",
+    "粘土",
+    "かみくだいた木",
+    "クモの糸"
+   ],
+   "x": "スズメバチは木をけずり、だ液とかみまぜて、紙のような壁を作ります。紙を最初に作ったのはスズメバチなのです。"
   }
  },
  {
@@ -1059,6 +1229,16 @@
     "Besouro-da-casca"
    ],
    "x": "Num grande formigueiro de formigas-da-floresta podem viver até um milhão de formigas. Embaixo do monte, o ninho costuma descer o mesmo tanto na terra."
+  },
+  "ja": {
+   "q": "針葉や小枝でこんな山を作るのはだれ？",
+   "a": [
+    "モグラ",
+    "ヨーロッパアカヤマアリ",
+    "イノシシ",
+    "キクイムシ"
+   ],
+   "x": "大きなヤマアリの塚には最大100万匹がすみます。塚の下には、同じくらいの深さまで巣が続いていることも。"
   }
  },
  {
@@ -1118,6 +1298,16 @@
     "Um ninho de aranha"
    ],
    "x": "A larva da cigarrinha-espumosa sopra ar na própria seiva e constrói um esconderijo de espuma contra o ressecamento e os inimigos. A tal “saliva de cuco” não tem nada a ver com o cuco."
+  },
+  "ja": {
+   "q": "草の茎についたこの泡の中にかくれているのは？",
+   "a": [
+    "鳥のカッコウのつば",
+    "アワフキムシの幼虫",
+    "カタツムリの卵",
+    "クモの巣"
+   ],
+   "x": "アワフキムシの幼虫は、自分の出す汁に空気を吹きこんで泡の隠れ家を作ります。乾燥と敵から身を守るためです。ヨーロッパでは「カッコウのつば」と呼ばれますが、カッコウとは無関係です。"
   }
  },
  {
@@ -1177,6 +1367,16 @@
     "Um besouro passando o inverno"
    ],
    "x": "A vespa-das-galhas põe o ovo na folha, e o carvalho forma em volta essa “galha”. Lá dentro a larva vive e come. Antigamente se fazia tinta com as galhas."
+  },
+  "ja": {
+   "q": "カシの葉についたこの玉の中にすんでいるのは？",
+   "a": [
+    "ガの幼虫",
+    "タマバチの幼虫",
+    "子グモ",
+    "冬を越す甲虫"
+   ],
+   "x": "タマバチが葉に卵を産むと、カシがそのまわりにこの「虫こぶ」を作ります。幼虫は中で暮らして食べます。昔は虫こぶからインクを作りました。"
   }
  },
  {
@@ -1236,6 +1436,16 @@
     "Uma bola de pelo de gato"
    ],
    "x": "Uma egagrópila: pelos e ossos que a coruja regurgitou. Pelos crânios minúsculos dá até para saber quais espécies de ratos vivem na região."
+  },
+  "ja": {
+   "q": "灰色で毛だらけ、中に小さな骨。木の下で見つけたのは？",
+   "a": [
+    "キツネのフン",
+    "フクロウのペリット",
+    "ネズミの巣",
+    "ネコの毛玉"
+   ],
+   "x": "フクロウのペリット：フクロウが吐きもどした毛と骨です。中の小さな頭の骨から、その地域にどんなネズミがすんでいるかまでわかります。"
   }
  }
 ]

@@ -11,7 +11,7 @@ Aufruf: python3 tools/make_quiz_bank.py
 import glob, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LANGS = ['de', 'en', 'fr', 'es', 'pt']
+LANGS = ['de', 'en', 'fr', 'es', 'pt', 'ja']
 ART = open(os.path.join(ROOT, 'src/components/QuizArt.tsx'), encoding='utf-8').read()
 
 qs, ids = [], set()

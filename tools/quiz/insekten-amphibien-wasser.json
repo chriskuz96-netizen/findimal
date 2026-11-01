@@ -53,6 +53,16 @@
     "Migra para o sul"
    ],
    "x": "Ela hiberna sem abrigo entre as folhas. Um anticongelante natural no corpo impede que congele."
+  },
+  "ja": {
+   "q": "ヤマキチョウはどうやって冬を越す？",
+   "a": [
+    "幼虫で土の中",
+    "さなぎで枝の上",
+    "成虫のまま、むき出しで茂みの中",
+    "南へ渡る"
+   ],
+   "x": "葉っぱの間で、何にも守られずに冬を越します。体の中の天然の不凍液が、凍るのを防いでいます。"
   }
  },
  {
@@ -109,6 +119,16 @@
     "Uns 20 anos"
    ],
    "x": "Conforme o clima, as larvas comem raízes por 3 a 5 anos. O besouro adulto vive depois só algumas semanas."
+  },
+  "ja": {
+   "q": "コフキコガネの幼虫は土の中で何年くらい暮らす？",
+   "a": [
+    "約2週間",
+    "数年",
+    "ひと夏だけ",
+    "約20年"
+   ],
+   "x": "気候によって3〜5年、根を食べて育ちます。成虫になってからは数週間しか生きません。"
   }
  },
  {
@@ -155,6 +175,14 @@
     "Falso"
    ],
    "x": "É um mito: eles esperam na grama e nos arbustos até 1 m de altura e se agarram quando alguém passa."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ マダニはふつう木の上から人や動物に落ちてくる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "これは俗説。マダニはふつう高さ1メートルくらいまでの草や茂みで待ち、通りかかった人や動物にくっつきます。"
   }
  },
  {
@@ -211,6 +239,16 @@
     "Tatuzinho-de-jardim"
    ],
    "x": "Os tatuzinhos são crustáceos terrestres. Têm 14 patas e precisam de esconderijos úmidos."
+  },
+  "ja": {
+   "q": "昆虫ではないのはどれ？",
+   "a": [
+    "ハサミムシ",
+    "シミ",
+    "アメンボ",
+    "ワラジムシ"
+   ],
+   "x": "ワラジムシは陸にすむ甲殻類。脚は14本で、しめった隠れ家が必要です。"
   }
  },
  {
@@ -267,6 +305,16 @@
     "Um anfíbio como o tritão"
    ],
    "x": "É um lagarto sem patas: tem pálpebras e pode soltar a cauda, como outros lagartos."
+  },
+  "ja": {
+   "q": "ヒメアシナシトカゲ（スローワーム）とは何？",
+   "a": [
+    "脚のないトカゲ",
+    "小さなヘビ",
+    "大きなミミズ",
+    "イモリのような両生類"
+   ],
+   "x": "脚のないトカゲです。ほかのトカゲと同じく、まぶたがあり、しっぽを切ることもできます。"
   }
  },
  {
@@ -323,6 +371,16 @@
     "De nada"
    ],
    "x": "Suas peças bucais são atrofiadas. Os adultos vivem de horas a poucos dias, só para se reproduzir."
+  },
+  "ja": {
+   "q": "カゲロウの成虫は何を食べる？",
+   "a": [
+    "花の蜜",
+    "小さな蚊",
+    "藻",
+    "何も食べない"
+   ],
+   "x": "口がはたらかないのです。成虫の命は数時間から数日だけ。子孫を残すためだけに生きます。"
   }
  },
  {
@@ -369,6 +427,14 @@
     "Falso"
    ],
    "x": "Elas precisam de sangue para que os ovos se desenvolvam. Os machos tomam só néctar e seiva de plantas."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ 人を刺すのはメスの蚊だけ。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "メスは卵を育てるために血が必要です。オスは植物の汁や花の蜜だけを吸います。"
   }
  },
  {
@@ -425,6 +491,16 @@
     "Em conchas vazias de caracol"
    ],
    "x": "Mais da metade faz ninho no solo. Pedaços de terra nua e ensolarada muitas vezes ajudam mais que um hotel de insetos."
+  },
+  "ja": {
+   "q": "ドイツの野生のハナバチの多くは、どこに巣を作る？",
+   "a": [
+    "地面の中",
+    "中が空洞の植物の茎",
+    "枯れ木の穴",
+    "空っぽのカタツムリの殻"
+   ],
+   "x": "半分以上が地面に巣を作ります。日当たりのよい裸の地面のほうが、ハチホテルより役立つことも多いのです。"
   }
  },
  {
@@ -481,6 +557,16 @@
     "O macho carrega os ovos"
    ],
    "x": "Os ovos se desenvolvem dentro da mãe. Na primavera, ela solta larvas com brânquias em riachos frescos."
+  },
+  "ja": {
+   "q": "中央ヨーロッパのファイアサラマンダーはどうやって子孫を残す？",
+   "a": [
+    "池に卵のかたまりを産む",
+    "しめった土に卵を埋める",
+    "メスが小川に幼生を産む",
+    "オスが卵を運ぶ"
+   ],
+   "x": "卵は母親の体の中で育ちます。春になると、えらのある幼生を冷たい小川に産み出します。"
   }
  },
  {
@@ -537,6 +623,16 @@
     "De 2 a 4 anos"
    ],
    "x": "Conforme a altitude, de 2 a 4 anos. Os filhotes já nascem transformados, sem precisar de água."
+  },
+  "ja": {
+   "q": "アルプスサラマンダーのメスの妊娠期間は？",
+   "a": [
+    "約3週間",
+    "約3か月",
+    "ちょうど1年",
+    "2〜4年"
+   ],
+   "x": "標高によって2〜4年。子どもは完全に育った姿で生まれるので、水は必要ありません。"
   }
  },
  {
@@ -583,6 +679,14 @@
     "Falso"
    ],
    "x": "No caminho, eles muitas vezes atravessam estradas. Cercas e passagens para anfíbios salvam muitos deles todo ano."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ヒキガエルは春、たいてい自分が育った池にもどる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "その途中で道路を渡ることが多いのです。カエル用の柵やトンネルが、毎年たくさんの命を救っています。"
   }
  },
  {
@@ -639,6 +743,16 @@
     "Tocas de pulgas-do-mar"
    ],
    "x": "O verme Arenicola engole areia, digere os organismos minúsculos que ela contém e solta a areia em forma de rolinhos."
+  },
+  "ja": {
+   "q": "ワッデン海の干潟にある、くるくる巻いた砂の山は何？",
+   "a": [
+    "カニの卵",
+    "タマシキゴカイのフン",
+    "貝の巣",
+    "ハマトビムシの穴"
+   ],
+   "x": "タマシキゴカイは砂を飲みこみ、中の小さな生きものを消化して、砂をくるくると押し出します。"
   }
  },
  {
@@ -695,6 +809,16 @@
     "Em água salobra na costa"
    ],
    "x": "Ele usa poças pequenas e ensolaradas, até marcas de pneu com água. Ali quase não há peixes nem predadores."
+  },
+  "ja": {
+   "q": "キバラスズガエルが好んで卵を産む場所は？",
+   "a": [
+    "浅い水たまりやわだち",
+    "深い湖",
+    "流れの速い山の川",
+    "海沿いの汽水"
+   ],
+   "x": "日当たりのよい小さな水たまりを使います。水のたまったタイヤのあとでも。そこには魚などの天敵がほとんどいません。"
   }
  },
  {
@@ -741,6 +865,14 @@
     "Falso"
    ],
    "x": "A víbora-europeia e a rara víbora-áspide, que na Alemanha só vive no sul da Floresta Negra."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ドイツには在来の毒ヘビが2種いる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "ヨーロッパクサリヘビと、めずらしいアスプクサリヘビ。アスプクサリヘビはドイツでは黒い森の南部にしかいません。"
   }
  },
  {
@@ -797,6 +929,16 @@
     "Meias-luas amarelas na nuca"
    ],
    "x": "Essa cobra inofensiva tem pupilas redondas e nada muito bem. Em perigo, muitas vezes finge de morta."
+  },
+  "ja": {
+   "q": "ヨーロッパヤマカガシ（グラススネーク）は、ふつう何で見分ける？",
+   "a": [
+    "背中のジグザグもよう",
+    "しっぽのガラガラ",
+    "縦長の瞳",
+    "頭の後ろの黄色い三日月もよう"
+   ],
+   "x": "無害なグラススネークは瞳が丸く、泳ぐのが大好き。おどかされると、よく死んだふりをします。"
   }
  },
  {
@@ -853,6 +995,16 @@
     "Contém uma glândula de veneno"
    ],
    "x": "A cauda nova não tem mais vértebras, só uma haste de cartilagem. Costuma ser mais curta e de outra cor."
+  },
+  "ja": {
+   "q": "トカゲの生えかわったしっぽは何がちがう？",
+   "a": [
+    "背骨が2倍ある",
+    "背骨のかわりに軟骨の棒がある",
+    "必ず前より長い",
+    "毒腺がある"
+   ],
+   "x": "新しいしっぽには背骨がなく、軟骨の棒が1本あるだけ。ふつう短くて、色もちがいます。"
   }
  },
  {
@@ -909,6 +1061,16 @@
     "Pela pele, tirando ar da água"
    ],
    "x": "Ela tece uma teia entre plantas aquáticas e a enche de bolhas de ar da superfície: um sino de mergulho."
+  },
+  "ja": {
+   "q": "ほぼ水中だけで暮らすミズグモは、どうやって呼吸する？",
+   "a": [
+    "おなかのえらで",
+    "何時間も息を止める",
+    "自分で作った空気の部屋から",
+    "水の中から皮ふで"
+   ],
+   "x": "水草の間に網を張り、水面から運んだ空気の泡をためます。まるで潜水鐘のようです。"
   }
  },
  {
@@ -955,6 +1117,14 @@
     "Falso"
    ],
    "x": "À noite, muitas vezes voa para novas lagoas. Ao mergulhar, leva uma reserva de ar debaixo dos élitros."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ゲンゴロウの仲間は水中で暮らすが、空も飛べる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "夜にはよく新しい池へ飛んでいきます。潜るときは、羽の下に空気をためて持っていきます。"
   }
  },
  {
@@ -1011,6 +1181,16 @@
     "Com um ferrão venenoso"
    ],
    "x": "A máscara é um lábio inferior modificado. Ela dispara num instante e pega girinos, larvas e mais."
+  },
+  "ja": {
+   "q": "ヤゴはどうやって獲物をつかまえる？",
+   "a": [
+    "のびる「マスク」で",
+    "ねばねばの舌で",
+    "糸の網で",
+    "毒針で"
+   ],
+   "x": "マスクは変化した下くちびるです。一瞬で前に飛び出し、オタマジャクシや幼虫などをつかまえます。"
   }
  },
  {
@@ -1057,6 +1237,14 @@
     "Falso"
    ],
    "x": "As libélulas não têm pupa: a larva sai da água, faz a última muda e o adulto emerge."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ トンボもチョウのように、さなぎの時期がある。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "トンボにさなぎの時期はありません。ヤゴが水から上がって最後の脱皮をすると、成虫が出てきます。"
   }
  },
  {
@@ -1113,6 +1301,16 @@
     "Na verdade é uma mosca"
    ],
    "x": "As fêmeas sem asas brilham na grama para atrair os machos voadores. A luz é química e fria."
+  },
+  "ja": {
+   "q": "ヨーロッパツチボタルについて正しいのは？",
+   "a": [
+    "光るのはオスだけ",
+    "メスは飛べない",
+    "光はランプのように熱い",
+    "実はハエの仲間"
+   ],
+   "x": "羽のないメスが草の中で光り、飛んでいるオスを呼びます。光は化学反応で作られ、熱くありません。"
   }
  },
  {
@@ -1169,6 +1367,16 @@
     "De madeira podre"
    ],
    "x": "Elas caçam caracóis, paralisam-nos com uma mordida venenosa e os comem. Precisam de jardins úmidos e naturais."
+  },
+  "ja": {
+   "q": "ツチボタルの幼虫は何を食べる？",
+   "a": [
+    "アブラムシ",
+    "花の蜜",
+    "カタツムリ",
+    "くさった木"
+   ],
+   "x": "カタツムリをつかまえ、毒のある口でまひさせて食べます。しめった自然な庭が必要です。"
   }
  },
  {
@@ -1215,6 +1423,14 @@
     "Falso"
    ],
    "x": "É um mito: o número de pintas depende da espécie, como a joaninha-de-sete-pintas ou a de duas pintas."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ テントウムシの年齢は、星の数でわかる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "これは俗説。星の数は種類で決まっています。たとえばナナホシテントウやフタホシテントウ。"
   }
  },
  {
@@ -1271,6 +1487,16 @@
     "Só as rainhas jovens"
    ],
    "x": "A colônia morre no outono. Só as rainhas jovens fecundadas hibernam no solo e fundam uma colônia na primavera."
+  },
+  "ja": {
+   "q": "冬を越すマルハナバチはどれ？",
+   "a": [
+    "巣の中の群れ全体",
+    "働きバチだけ",
+    "オスだけ",
+    "若い女王バチだけ"
+   ],
+   "x": "群れは秋に死んでしまいます。交尾をすませた若い女王バチだけが土の中で冬を越し、春に新しい群れを作ります。"
   }
  },
  {
@@ -1317,6 +1543,14 @@
     "Falso"
    ],
    "x": "É um velho mito: o veneno do vespão não é mais perigoso que o da abelha. O risco é sobretudo para pessoas alérgicas."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ スズメバチに3回刺されると、健康な大人でも死ぬ。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "古い俗説です。ヨーロッパのモンスズメバチの毒は、ミツバチの毒より危険なわけではありません。危ないのは主にアレルギーのある人です。"
   }
  },
  {
@@ -1373,6 +1607,16 @@
     "Os pulgões cavam o ninho"
    ],
    "x": "Os pulgões soltam uma melada açucarada. As formigas os “ordenham” e, em troca, afastam inimigos como as joaninhas."
+  },
+  "ja": {
+   "q": "アリがアブラムシを守るのはなぜ？",
+   "a": [
+    "甘い甘露がもらえる",
+    "アブラムシの卵を食べる",
+    "アブラムシが巣を温める",
+    "アブラムシが巣の部屋を作る"
+   ],
+   "x": "アブラムシは甘い甘露を出します。アリはそれを「しぼり」、お返しにテントウムシなどの敵を追いはらいます。"
   }
  },
  {
@@ -1419,6 +1663,14 @@
     "Falso"
    ],
    "x": "O tritão-alpino e outros costumam ir à água só para se reproduzir na primavera; no resto do ano vivem em terra."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ イモリは一年中、水の中で暮らす。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "ミヤマイモリやスベイモリなどは、ほとんど春の繁殖期にだけ水に入り、ほかの時期は陸で暮らします。"
   }
  },
  {
@@ -1475,6 +1727,16 @@
     "Dente-de-leão"
    ],
    "x": "As urtigas são o berçário da borboleta-pavão, da borboleta-da-urtiga e do almirante-vermelho. Deixe um cantinho selvagem no jardim!"
+  },
+  "ja": {
+   "q": "クジャクチョウの幼虫が食べる植物は？",
+   "a": [
+    "イラクサ",
+    "キャベツ",
+    "カシ",
+    "タンポポ"
+   ],
+   "x": "イラクサはクジャクチョウやヒメアカタテハ、ヨーロッパアカタテハのゆりかご。庭に野生のすみっこを残しておこう！"
   }
  },
  {
@@ -1531,6 +1793,16 @@
     "Da América do Norte"
    ],
    "x": "Elas migram em várias gerações da África até o norte da Europa: um revezamento de milhares de quilômetros."
+  },
+  "ja": {
+   "q": "春に中央ヨーロッパに現れるヒメアカタテハの多くは、どこから来る？",
+   "a": [
+    "スカンジナビアから",
+    "シベリアから",
+    "北アフリカと南ヨーロッパから",
+    "北アメリカから"
+   ],
+   "x": "ヒメアカタテハは何世代もかけてアフリカから北ヨーロッパへ渡ります。何千キロものリレーです。"
   }
  },
  {
@@ -1587,6 +1859,16 @@
     "Põem os ovos em ninhos de aves"
    ],
    "x": "Primeiro elas arrastam o saco de ovos preso às fiandeiras. Depois os filhotes viajam alguns dias nas costas da mãe."
+  },
+  "ja": {
+   "q": "コモリグモのメスはどうやって子育てする？",
+   "a": [
+    "子どもを背中にのせて運ぶ",
+    "花の蜜をあげる",
+    "水の中に卵を産む",
+    "鳥の巣に卵を産む"
+   ],
+   "x": "まず卵のうを糸いぼにつけて運びます。かえった子どもたちは、何日か母親の背中に乗って過ごします。"
   }
  },
  {
@@ -1633,6 +1915,14 @@
     "Falso"
    ],
    "x": "Assim ela recicla as valiosas proteínas da seda. Muitas refazem a teia quase todo dia."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ オニグモの仲間は、新しい網を張る前に古い網を食べることが多い。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "こうして糸の貴重なたんぱく質を再利用します。多くはほぼ毎日網を張り直します。"
   }
  },
  {
@@ -1689,6 +1979,16 @@
     "Patas articuladas"
    ],
    "x": "Os opiliões são aracnídeos, mas não aranhas: não tecem teias e o corpo parece de uma peça só."
+  },
+  "ja": {
+   "q": "ザトウムシには、本物のクモとちがって何がない？",
+   "a": [
+    "目",
+    "口",
+    "糸を出す腺",
+    "節のある脚"
+   ],
+   "x": "ザトウムシはクモの仲間（クモガタ類）ですが、クモではありません。網を張らず、体はひとつのかたまりに見えます。"
   }
  },
  {
@@ -1735,6 +2035,14 @@
     "Falso"
    ],
    "x": "Normalmente só a parte da frente pode sobreviver e regenerar uma nova parte de trás. A parte de trás costuma morrer."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ ミミズを2つに切ると、2匹の完全なミミズになる。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "生きのびられるのはたいてい前の部分だけで、新しいおしりが生えてくることがあります。後ろの部分はふつう死んでしまいます。"
   }
  },
  {
@@ -1781,6 +2089,14 @@
     "Falso"
    ],
    "x": "Um fígado grande e cheio de óleo ajuda a flutuar. Muitos precisam nadar para não afundar."
+  },
+  "ja": {
+   "q": "正しい？まちがい？ サメには浮き袋がない。",
+   "a": [
+    "正しい",
+    "まちがい"
+   ],
+   "x": "かわりに、油をたっぷりふくんだ大きな肝臓で浮力を得ます。沈まないように泳ぎ続けなければならないサメも多いのです。"
   }
  },
  {
@@ -1837,6 +2153,16 @@
     "Ninguém: os ovos ficam na areia"
    ],
    "x": "A fêmea deposita os ovos na bolsa incubadora do macho. Ali eles se desenvolvem até que ele “dá à luz”."
+  },
+  "ja": {
+   "q": "タツノオトシゴで子どもを産むのはどっちの親？",
+   "a": [
+    "メス",
+    "オス",
+    "両方が交代で",
+    "どちらでもない。卵は砂の上"
+   ],
+   "x": "メスがオスのおなかの育児のうに卵を入れます。卵はそこで育ち、オスが子どもを「出産」します。"
   }
  },
  {
@@ -1893,6 +2219,16 @@
     "Como comedouro para pássaros"
    ],
    "x": "As tesourinhas se escondem neles de dia e comem pulgões à noite. E não, elas não entram de propósito nos ouvidos."
+  },
+  "ja": {
+   "q": "園芸好きが、木毛をつめた植木鉢を逆さにつるすのはなぜ？",
+   "a": [
+    "ナメクジのわなとして",
+    "ハリネズミの冬の家として",
+    "ハサミムシの隠れ家として",
+    "鳥のえさ台として"
+   ],
+   "x": "ハサミムシは昼間そこにかくれ、夜にアブラムシを食べます。それに、わざと耳に入ってくることはありません。"
   }
  },
  {
@@ -1949,6 +2285,16 @@
     "São inofensivas e imitam vespas"
    ],
    "x": "O disfarce assusta os inimigos. As larvas de muitas moscas-das-flores comem pulgões – ótimas ajudantes do jardim!"
+  },
+  "ja": {
+   "q": "ハナアブはハチによく似ている。正しいのは？",
+   "a": [
+    "ハチより強く刺す",
+    "ハチのように羽が4枚ある",
+    "ハチの子ども",
+    "無害なハチのそっくりさん"
+   ],
+   "x": "変装で敵をこわがらせるのです。多くのハナアブの幼虫はアブラムシを食べます。庭の名助っ人！"
   }
  },
  {
@@ -2005,6 +2351,16 @@
     "As borboletas"
    ],
    "x": "Com cerca de 350.000 a 400.000 espécies descritas, os besouros são o grupo animal com mais espécies da Terra."
+  },
+  "ja": {
+   "q": "世界で知られている種の数がいちばん多い動物グループは？",
+   "a": [
+    "鳥",
+    "魚",
+    "甲虫",
+    "チョウとガ"
+   ],
+   "x": "記載されている種は約35万〜40万。甲虫は地球でいちばん種の多い動物グループです。"
   }
  },
  {
@@ -2061,6 +2417,16 @@
     "Em riachos de montanha"
    ],
    "x": "As enguias percorrem milhares de quilômetros até o mar dos Sargaços. Suas larvas voltam à Europa com as correntes."
+  },
+  "ja": {
+   "q": "ヨーロッパウナギはどこで産卵する？",
+   "a": [
+    "ボーデン湖",
+    "サルガッソー海",
+    "ワッデン海",
+    "山の川"
+   ],
+   "x": "ウナギは何千キロも旅して、大西洋のサルガッソー海へ向かいます。幼生は海流に乗ってヨーロッパへもどります。"
   }
  },
  {
@@ -2117,6 +2483,16 @@
     "Seguem as enguias"
    ],
    "x": "Os salmões jovens memorizam o cheiro do rio natal. Anos depois, usam isso para voltar do mar."
+  },
+  "ja": {
+   "q": "サケは産卵のため、どうやって生まれた川を見分ける？",
+   "a": [
+    "水の色で",
+    "滝の音で",
+    "水のにおいで",
+    "ウナギについていく"
+   ],
+   "x": "若いサケはふるさとの川のにおいを覚えます。何年もあとに、そのにおいをたよりに海からもどってきます。"
   }
  },
  {
@@ -2173,6 +2549,16 @@
     "Luz branca quente, amarelada"
    ],
    "x": "Os insetos vêm sobretudo à luz azul e UV. Melhor: lâmpadas quentes voltadas para baixo – ou luz nenhuma."
+  },
+  "ja": {
+   "q": "夜に虫がいちばん集まりにくい庭の明かりは？",
+   "a": [
+    "白っぽい冷たい光",
+    "青っぽい光",
+    "紫外線を出すランプ",
+    "暖かい白や黄色っぽい光"
+   ],
+   "x": "虫は特に青い光や紫外線に引きよせられます。おすすめは、下向きの暖かい白色のランプ。または明かりなし。"
   }
  },
  {
@@ -2229,6 +2615,16 @@
     "Constrói um ninho e cuida da desova"
    ],
    "x": "O macho fica com a barriga vermelha, constrói um ninho com restos de plantas e abana os ovos com água fresca."
+  },
+  "ja": {
+   "q": "イトヨのオスは繁殖期に何をする？",
+   "a": [
+    "卵を口に入れて運ぶ",
+    "卵を埋めて泳ぎ去る",
+    "卵を水鳥にくっつける",
+    "巣を作って卵を守る"
+   ],
+   "x": "オスはおなかが赤くなり、植物で巣を作って、卵に新しい水を送り続けます。"
   }
  },
  {
@@ -2285,6 +2681,16 @@
     "Ele não fecha"
    ],
    "x": "Ele se enterra e fecha a abertura com uma tampa de calcário. Na Alemanha é uma espécie protegida."
+  },
+  "ja": {
+   "q": "エスカルゴ（リンゴマイマイ）は冬にどうやって殻にふたをする？",
+   "a": [
+    "石灰のふたで",
+    "丸めた葉っぱで",
+    "土のせんで",
+    "ふたはしない"
+   ],
+   "x": "土にもぐり、石灰質のふたで殻の口を閉じます。ドイツではリンゴマイマイは保護されています。"
   }
  },
  {
@@ -2341,6 +2747,16 @@
     "Plantas aquáticas demais"
    ],
    "x": "Espécies americanas, como o lagostim-sinal, carregam o patógeno sem adoecer. Para os lagostins nativos costuma ser mortal."
+  },
+  "ja": {
+   "q": "在来のヨーロッパザリガニにとって、いちばんの脅威は？",
+   "a": [
+    "寒い冬",
+    "持ちこまれたザリガニペスト",
+    "ビーバー",
+    "水草が多すぎること"
+   ],
+   "x": "シグナルザリガニなどアメリカの種は、病原体を運んでも自分は発病しません。在来のザリガニにはたいてい命取りです。"
   }
  },
  {
@@ -2397,6 +2813,16 @@
     "Suga-o pelos braços"
    ],
    "x": "Ela abre um pouco as conchas com os pés ambulacrais, coloca o estômago para dentro e digere o mexilhão ali mesmo."
+  },
+  "ja": {
+   "q": "ヒトデはどうやって貝を食べる？",
+   "a": [
+    "歯で割る",
+    "岩にたたきつける",
+    "胃を貝の中に押しこむ",
+    "腕から吸いこむ"
+   ],
+   "x": "管足で貝の殻を少しこじあけ、胃を中に押しこんで、その場で貝を消化します。"
   }
  },
  {
@@ -2453,6 +2879,16 @@
     "Flutuam na espuma"
    ],
    "x": "As larvas minúsculas (gloquídios) se agarram às brânquias ou nadadeiras dos peixes e viajam com eles por um tempo."
+  },
+  "ja": {
+   "q": "ドブガイなど在来の淡水の貝の幼生は、どうやって広がる？",
+   "a": [
+    "魚にくっつく",
+    "風に飛ばされる",
+    "土の中をはう",
+    "泡に乗って流れる"
+   ],
+   "x": "小さな幼生（グロキディウム）は魚のえらやひれにくっつき、しばらくヒッチハイクします。"
   }
  },
  {
@@ -2509,6 +2945,16 @@
     "Com 3 a 5 cm de diâmetro"
    ],
    "x": "Furos no topo racham e a cria pode mofar. Melhor: madeira dura e seca, furada pela lateral, com poucos milímetros."
+  },
+  "ja": {
+   "q": "野生のハナバチの巣穴を木にあけるとき、いちばんいい方法は？",
+   "a": [
+    "木口（切り口）にあける",
+    "木の側面にあける",
+    "やわらかいトウヒ材にあける",
+    "幅3〜5センチ"
+   ],
+   "x": "木口の穴はひび割れやすく、幼虫がカビることもあります。かわいた堅い木の側面に、直径数ミリの穴をあけよう。"
   }
  },
  {
@@ -2565,6 +3011,16 @@
     "Coletam pólen de poucas plantas"
    ],
    "x": "Essas especialistas precisam, por exemplo, de campânulas ou salgueiros. Se essas plantas somem, a abelha também some."
+  },
+  "ja": {
+   "q": "多くの野生のハナバチは「狭訪花性」。どういう意味？",
+   "a": [
+    "群れを作らず単独で暮らす",
+    "夜だけ飛ぶ",
+    "針がない",
+    "限られた植物からだけ花粉を集める"
+   ],
+   "x": "こうした専門家には、たとえばホタルブクロやヤナギが必要です。その植物が消えると、ハチも消えてしまいます。"
   }
  },
  {
@@ -2621,6 +3077,16 @@
     "Uns 30 anos"
    ],
    "x": "As larvas comem madeira podre, muitas vezes de carvalhos velhos, por anos. O adulto vive depois só algumas semanas."
+  },
+  "ja": {
+   "q": "ヨーロッパミヤマクワガタの幼虫は、くさった木の中で何年育つ？",
+   "a": [
+    "約2週間",
+    "ひと夏だけ",
+    "ふつう3〜8年",
+    "約30年"
+   ],
+   "x": "幼虫は何年もかけて、よく古いカシのくさった木を食べて育ちます。成虫になると数週間しか生きません。"
   }
  },
  {
@@ -2677,6 +3143,16 @@
     "Nas patas da frente"
    ],
    "x": "As esperanças ouvem com tímpanos nas patas da frente. Os gafanhotos de antenas curtas os têm no abdômen."
+  },
+  "ja": {
+   "q": "キリギリスの仲間の耳はどこにある？",
+   "a": [
+    "頭",
+    "触角",
+    "おなか",
+    "前脚"
+   ],
+   "x": "キリギリスの仲間は前脚にある鼓膜で音を聞きます。バッタの仲間はおなかにあります。"
   }
  }
 ]

@@ -63,6 +63,10 @@ const PT_ADJ: [string, string][] = [
   ['Brilhante', 'Brilhante'], ['Orgulhoso', 'Orgulhosa'], ['Brincalhão', 'Brincalhona'], ['Dorminhoco', 'Dorminhoca'], ['Destemido', 'Destemida'],
 ];
 
+// Japanisch: Adjektiv + Tier, ohne Leerzeichen (z. B. „すばやいキツネ“)
+const JA_ADJ = ['すばやい', 'しずかな', '好奇心いっぱいの', '勇敢な', 'かしこい', 'ワイルドな', 'ごきげんな', '用心深い', 'ふわふわの', '元気な', 'やさしい', 'いたずらな', 'のんびり', 'ちいさな', 'ねむたい', 'ラッキーな', 'すばしこい', 'おおらかな', 'きらきらの', '力持ちの'];
+const JA_ANIMALS = ['キツネ', 'タヌキ', 'アナグマ', 'ハリネズミ', 'フクロウ', 'トンボ', 'リス', 'コマドリ', 'カブトムシ', 'クワガタ', 'シカ', 'カワウソ', 'ウサギ', 'ハヤブサ', 'サギ', 'カエル', 'カワセミ', 'キツツキ', 'コウモリ', 'カタツムリ', 'ホタル', 'ツル', 'カラス', 'モグラ', 'イタチ', 'メジロ', 'ツバメ', 'スズメ', 'ヤモリ', 'ムササビ', 'テントウムシ', 'オコジョ', 'ライチョウ', 'カモシカ'];
+
 const pick = <T,>(list: T[]) => list[Math.floor(Math.random() * list.length)];
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -76,5 +80,6 @@ export function randomNickname(lang: Lang): string {
     const [m, f] = pick(lang === 'fr' ? FR_ADJ : lang === 'es' ? ES_ADJ : PT_ADJ);
     return `${a.n} ${a.g === 'f' ? f : m}`;
   }
+  if (lang === 'ja') return `${pick(JA_ADJ)}${pick(JA_ANIMALS)}`;
   return `${pick(EN_ADJ)} ${pick(EN_ANIMALS)}`;
 }
