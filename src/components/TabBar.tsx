@@ -43,13 +43,14 @@ function TabIcon({ id, color }: { id: Tab; color: string }) {
 
 // Menüleiste unten
 // dots: kleiner oranger Punkt an Menüpunkten mit Neuem (z. B. neues Abzeichen in den Challenges)
-export function TabBar({ active, onSelect, dots = [] }: { active: Tab; onSelect: (t: Tab) => void; dots?: Tab[] }) {
+// tabs: welche Menüpunkte (bei zwei Seiten auf dem aufgeklappten Duo fehlt „Entdecken“, das steht links)
+export function TabBar({ active, onSelect, dots = [], tabs = TABS }: { active: Tab; onSelect: (t: Tab) => void; dots?: Tab[]; tabs?: Tab[] }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
   return (
     <View style={[styles.bar, { backgroundColor: p.card, borderTopColor: p.line, paddingBottom: insets.bottom }]}>
-      {TABS.map((id) => {
+      {tabs.map((id) => {
         const on = id === active;
         const color = on ? p.moss : p.mute;
         return (

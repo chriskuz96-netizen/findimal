@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AppLogo } from '../components/AppLogo';
@@ -18,6 +18,7 @@ import { Ladybug } from '../components/animals/Ladybug';
 import { Robin } from '../components/animals/Robin';
 import { Squirrel } from '../components/animals/Squirrel';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
+import { usePane } from '../layout';
 
 
 type Props = {
@@ -64,7 +65,7 @@ export function StartScreen({
   const { plus } = usePlus();
   // direkt nach der Einrichtung „Willkommen“, danach „Willkommen zurück“
   const greeting = name ? t(firstVisit ? 'start.welcomeNew' : 'start.welcome', { name, nick: nickname }) : t('start.hello');
-  const { width, height } = useWindowDimensions();
+  const { width, height } = usePane(); // bei zwei Seiten (Duo quer) nur die linke Hälfte
   const [nearbyHeight, setNearbyHeight] = useState(maxNearby);
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
   const hint = !!quizOpen && !!onOpenQuiz;

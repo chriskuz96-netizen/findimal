@@ -47,6 +47,8 @@ module.exports = ({ config }) => ({
     'expo-font',
     'expo-sharing',
     'expo-status-bar',
+    // Handys starten im Hochformat; nur große Bildschirme (aufgeklapptes iPhone Duo) dürfen drehen – siehe src/layout.tsx
+    ['expo-screen-orientation', { initialOrientation: 'PORTRAIT_UP' }],
     [
       'expo-image-picker',
       { cameraPermission: de.NSCameraUsageDescription, photosPermission: de.NSPhotoLibraryUsageDescription, microphonePermission: false },

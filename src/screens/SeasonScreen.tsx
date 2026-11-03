@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AdSlot } from '../components/AdSlot';
@@ -16,6 +16,7 @@ import { loadRegionSeason } from '../regionSeason';
 import { Phenomenon, Season, seasonFor, seasonId, seasonRange } from '../season';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 import { hasOwnSeason, loadCountry } from '../zone';
+import { usePane } from '../layout';
 
 
 // Zählt die App-Starts (einmal pro Start hochgezählt), damit das Naturschauspiel jedes Mal wechselt
@@ -87,7 +88,7 @@ export function SeasonScreen({
   const [showSpec, setShowSpec] = useState(false);
   const loading = region === 'loading';
   const spec = !loading && season.spectacle.length ? season.spectacle[launch % season.spectacle.length] : null;
-  const quarter = Math.floor((Math.min(useWindowDimensions().width, 520) - spacing.gutter * 2 - GAP) / 2);
+  const quarter = Math.floor((Math.min(usePane().width, 520) - spacing.gutter * 2 - GAP) / 2);
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: p.bg }} contentContainerStyle={{ paddingBottom: 24 }}>

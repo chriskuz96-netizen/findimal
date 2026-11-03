@@ -218,6 +218,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   Sammlung 3–4 Spalten ab 600 Punkten Breite, Quiz höchstens 640 breit. Achtung: kleine Updates (eas update) gehen
   jetzt getrennt an 1.0.0 (alter Bau, vom Zweig `main`) und 1.1.0 (neuer Bau, vom Zweig `sdk58-duo`). Nach dem Test
   `sdk58-duo` in `main` übernehmen und nur noch 1.1.0 bedienen.
+  **Duo quer (ab 800 breit und breiter als hoch): zwei Seiten** – links immer Entdecken, rechts Sammlung/Challenges/
+  Saison mit eigener Tab-Leiste (src/layout.tsx: useSplit, PaneSize/usePane, useOrientationPolicy). Drehen ist nur
+  erlaubt, wenn die kürzere Bildschirmseite ≥ 600 ist (expo-screen-orientation); Handys bleiben im Hochformat.
+  Das Duo ist ein Buch-Klapphandy: zugeklappt ca. 466×678, aufgeklappt ca. 951×669 mit Falz senkrecht in der Mitte.
   Gesture Handler 3: alter Baukasten (Gesture.Pan/Native) ist veraltet, funktioniert aber; später auf Hooks umstellen.
 - **Entschieden 1.11.: vor dem Start fürs Duo optimieren** (zusammen mit dem Bau für Abo/Werbung/Server-Schutz):
   1. Expo SDK 57 → 58 (baut mit iOS 27.1; Apps mit älterem Werkzeug erscheinen auf dem Innen-Bildschirm klein

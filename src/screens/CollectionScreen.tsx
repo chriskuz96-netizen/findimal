@@ -7,7 +7,6 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  useWindowDimensions,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -21,6 +20,7 @@ import { useI18n } from '../i18n';
 import { displayName } from '../names';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 import { levelTitle } from '../progress';
+import { usePane } from '../layout';
 
 type Props = {
   finds: Find[];
@@ -41,7 +41,7 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
   const [filter, setFilter] = useState<GroupId | null>(null);
   // Kachelbreite fest ausrechnen – Prozentwerte zeigt das iPhone hier nicht zuverlässig an.
   // Normale iPhones 2 Spalten, aufgeklapptes iPhone Duo (ab 600 Punkten Breite) 3, sehr breite Bildschirme 4.
-  const { width } = useWindowDimensions();
+  const { width } = usePane(); // bei zwei Seiten (Duo quer) nur die rechte Hälfte
   const cols = width >= 900 ? 4 : width >= 600 ? 3 : 2;
   const tileW = Math.floor((width - spacing.gutter * 2 - GAP * (cols - 1)) / cols);
 

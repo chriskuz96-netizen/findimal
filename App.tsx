@@ -5,9 +5,9 @@ import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert, AppState, StyleSheet, View } from 'react-native';
+import { Alert, AppState, StyleSheet, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { OnOpen, OnPicked, Photo, pickPhoto, takePhoto } from './src/camera';
 import { AppLogo } from './src/components/AppLogo';
@@ -18,6 +18,8 @@ import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
+import { PaneSize, useOrientationPolicy, useSplit } from './src/layout';
+import { darkPalette, lightPalette } from './src/theme';
 import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar, loadMe, loadSeasonAwards, SeasonAwards, syncMe } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
@@ -83,6 +85,12 @@ function Main() {
   const codeChecked = useRef(false);
   const [finds, setFinds] = useState<Find[]>([]);
   const [tab, setTab] = useState<Tab>('start');
+  // aufgeklapptes iPhone Duo quer: zwei Seiten – links immer Entdecken, rechts der gewählte Menüpunkt
+  useOrientationPolicy();
+  const split = useSplit();
+  const win = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const scheme = useColorScheme();
   // Neues Foto (wird bestimmt) oder geöffneter Fund aus der Sammlung
   const [photo, setPhoto] = useState<Photo | null>(null);
   // Gratis-Fotos, die heute noch übrig sind (der Server zählt verbindlich)
@@ -543,13 +551,10 @@ function Main() {
     />
   ) : null;
 
-  return (
+  // eine Seite der App (bei zwei Seiten wird sie links bzw. rechts gezeichnet)
+  const screen = (which: Tab) => (
     <>
-      <StatusBar style="light" />
-      {/* Seiten darunter: Animationen anhalten, solange Profil oder Ergebnis darüber liegt */}
-      <LoopsPaused.Provider value={!!overlay}>
-      <View style={{ flex: 1 }}>
-        {tab === 'start' && (
+        {which === 'start' && (
           <StartScreen
             firstVisit={firstVisit}
             name={name}
@@ -571,7 +576,7 @@ function Main() {
             onOpenQuiz={() => setTab('challenges')}
           />
         )}
-        {tab === 'collection' && (
+        {which === 'collection' && (
           <CollectionScreen
             finds={finds}
             name={name}
@@ -583,7 +588,7 @@ function Main() {
             onDiscover={() => setTab('start')}
           />
         )}
-        {tab === 'challenges' && (
+        {which === 'challenges' && (
           <ChallengesScreen
             active={!overlay}
             freshBadges={freshBadges}
@@ -612,12 +617,40 @@ function Main() {
             onSeasonAward={setSeasonAwards}
           />
         )}
-        {tab === 'season' && (
+        {which === 'season' && (
           <SeasonScreen finds={realFinds} place={region ?? ''} onChangePlace={() => setAskRegion(true)} />
         )}
-      </View>
+    </>
+  );
+  const leftW = Math.floor(win.width / 2);
+  const rightTab: Tab = tab === 'start' ? 'collection' : tab; // rechts nie „Entdecken“ – das steht links
+
+  return (
+    <>
+      <StatusBar style="light" />
+      {/* Seiten darunter: Animationen anhalten, solange Profil oder Ergebnis darüber liegt */}
+      <LoopsPaused.Provider value={!!overlay}>
+      {split ? (
+        // zwei Seiten (Duo quer, Falz in der Mitte): links Entdecken mit Kamera, rechts Sammlung/Challenges/Saison
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <PaneSize width={leftW} height={win.height}>
+            <View style={{ width: leftW, paddingBottom: insets.bottom, backgroundColor: (scheme === 'dark' ? darkPalette : lightPalette).bg }}>
+              {screen('start')}
+            </View>
+          </PaneSize>
+          <View style={styles.paneLine} />
+          <PaneSize width={win.width - leftW - StyleSheet.hairlineWidth} height={win.height}>
+            <View style={{ flex: 1 }}>
+              <View style={{ flex: 1 }}>{screen(rightTab)}</View>
+              <TabBar active={rightTab} onSelect={setTab} dots={dots} tabs={RIGHT_TABS} />
+            </View>
+          </PaneSize>
+        </View>
+      ) : (
+        <View style={{ flex: 1 }}>{screen(tab)}</View>
+      )}
       </LoopsPaused.Provider>
-      <TabBar active={tab} onSelect={setTab} dots={dots} />
+      {!split && <TabBar active={tab} onSelect={setTab} dots={dots} />}
       {overlay && <View style={StyleSheet.absoluteFill}>{overlay}</View>}
       <LimitSheet visible={limitOpen} onClose={() => setLimitOpen(false)} />
       {/* Foto ist gewählt und wird noch vorbereitet (z. B. aus iCloud geladen) – sieht schon aus wie die Ergebnisseite */}
@@ -634,3 +667,10 @@ function Main() {
   );
 }
 
+
+// rechte Seite bei zwei Seiten (Duo quer): alles außer „Entdecken“
+const RIGHT_TABS: Tab[] = ['collection', 'challenges', 'season'];
+
+const styles = StyleSheet.create({
+  paneLine: { width: StyleSheet.hairlineWidth, backgroundColor: 'rgba(0,0,0,0.18)' },
+});
