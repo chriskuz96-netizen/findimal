@@ -490,7 +490,8 @@ function Main() {
     return { id: id!, reward: computeReward(before, after, isNew) };
   };
 
-  const overlay = showProfile ? (
+  // Profil: bei zwei Seiten (Duo quer) nur links über Entdecken, sonst über allem
+  const profileEl = showProfile ? (
     <ProfileScreen
       name={name}
       region={region}
@@ -522,6 +523,9 @@ function Main() {
         setName(null);
       }}
     />
+  ) : null;
+  const overlay = profileEl && !split ? (
+    profileEl
   ) : photo ? (
     // key: jedes neue Foto bekommt eine frische Ergebnisseite
     <ResultScreen
@@ -636,6 +640,7 @@ function Main() {
           <PaneSize width={leftW} height={win.height}>
             <View style={{ width: leftW, paddingBottom: insets.bottom, backgroundColor: (scheme === 'dark' ? darkPalette : lightPalette).bg }}>
               {screen('start')}
+              {profileEl && <View style={StyleSheet.absoluteFill}>{profileEl}</View>}
             </View>
           </PaneSize>
           <View style={styles.paneLine} />

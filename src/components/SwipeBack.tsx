@@ -1,9 +1,11 @@
 import { ComponentProps, createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { scheduleOnRN } from 'react-native-worklets';
+
+import { usePane } from '../layout';
 
 // Scrollen der Seite: läuft gleichzeitig mit der Wischgeste, statt auf sie zu warten (sonst ruckelt es).
 // Sobald das Zurückwischen erkannt ist, steht das Scrollen still (locked).
@@ -26,7 +28,7 @@ export function SwipeScrollView(props: ComponentProps<typeof ScrollView>) {
 // Die Geste und die Bewegung laufen direkt auf dem Bildschirm-Thread (nicht über JavaScript),
 // deshalb folgt die Seite dem Finger ohne Ruckeln. Weit genug oder schnell genug gewischt -> onBack.
 export function SwipeBack({ onBack, enabled = true, children }: { onBack: () => void; enabled?: boolean; children: ReactNode }) {
-  const { width } = useWindowDimensions();
+  const { width } = usePane(); // bei zwei Seiten (Duo quer) nur die Seitenbreite
   const x = useSharedValue(0);
   // immer die aktuelle Funktion nutzen
   const back = useRef(onBack);

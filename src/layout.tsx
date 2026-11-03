@@ -1,4 +1,3 @@
-import * as ScreenOrientation from 'expo-screen-orientation';
 import { createContext, ReactNode, useContext, useEffect } from 'react';
 import { Dimensions, Platform, useWindowDimensions } from 'react-native';
 
@@ -37,10 +36,18 @@ export function usePane(): Pane {
 export function useOrientationPolicy(): void {
   useEffect(() => {
     if (Platform.OS === 'web') return;
+    // erst hier laden: in älteren Bauten (vor 1.1.0 Bau 13) fehlt der Gerätebaustein – dann einfach nichts tun
+    let SO: typeof import('expo-screen-orientation') | null = null;
+    try {
+      SO = require('expo-screen-orientation');
+    } catch {
+      return;
+    }
+    const so = SO!;
     const apply = () => {
       const { width, height } = Dimensions.get('screen');
       const big = Math.min(width, height) >= BIG_SCREEN;
-      (big ? ScreenOrientation.unlockAsync() : ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)).catch(() => {});
+      (big ? so.unlockAsync() : so.lockAsync(so.OrientationLock.PORTRAIT_UP)).catch(() => {});
     };
     apply();
     const sub = Dimensions.addEventListener('change', apply);
