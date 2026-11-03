@@ -298,7 +298,8 @@ export function ForscherQuiz({
           // Bild und Kacheln werden kleiner – so passt die Erklärung immer darunter.
           // Nach der Auflösung: irgendwo hintippen geht auch weiter.
           <View
-            style={{ flex: 1, paddingBottom: adH + 8 }}
+            // auf breiten Bildschirmen (aufgeklapptes iPhone Duo) höchstens 640 breit und mittig
+            style={{ flex: 1, paddingBottom: adH + 8, width: '100%', maxWidth: 640, alignSelf: 'center' }}
             onStartShouldSetResponder={() => phaseRef.current === 'reveal'}
             onResponderRelease={next}
           >

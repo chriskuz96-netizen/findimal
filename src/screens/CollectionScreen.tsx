@@ -39,9 +39,11 @@ export function CollectionScreen({ finds, name, avatar, level, onOpenProfile, on
   const insets = useSafeAreaInsets();
   const { t, locale } = useI18n();
   const [filter, setFilter] = useState<GroupId | null>(null);
-  // Kachelbreite fest ausrechnen (zwei Spalten) – Prozentwerte zeigt das iPhone hier nicht zuverlässig an
+  // Kachelbreite fest ausrechnen – Prozentwerte zeigt das iPhone hier nicht zuverlässig an.
+  // Normale iPhones 2 Spalten, aufgeklapptes iPhone Duo (ab 600 Punkten Breite) 3, sehr breite Bildschirme 4.
   const { width } = useWindowDimensions();
-  const tileW = Math.floor((width - spacing.gutter * 2 - GAP) / 2);
+  const cols = width >= 900 ? 4 : width >= 600 ? 3 : 2;
+  const tileW = Math.floor((width - spacing.gutter * 2 - GAP * (cols - 1)) / cols);
 
   // Arten (pro Art der erste Fund) für Zähler und Gruppen-Übersicht
   const speciesKeys = new Set<string>();
