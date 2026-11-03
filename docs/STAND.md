@@ -219,8 +219,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   jetzt getrennt an 1.0.0 (alter Bau, vom Zweig `main`) und 1.1.0 (neuer Bau, vom Zweig `sdk58-duo`). Nach dem Test
   `sdk58-duo` in `main` übernehmen und nur noch 1.1.0 bedienen.
   **Duo quer (ab 800 breit und breiter als hoch): zwei Seiten** – links immer Entdecken, rechts Sammlung/Challenges/
-  Saison mit eigener Tab-Leiste (src/layout.tsx: useSplit, PaneSize/usePane, useOrientationPolicy). Drehen ist nur
-  erlaubt, wenn die kürzere Bildschirmseite ≥ 600 ist (expo-screen-orientation); Handys bleiben im Hochformat.
+  Saison mit eigener Tab-Leiste (src/layout.tsx: useSplit, PaneSize/usePane). **Drehen ist aus** (fest Hochformat):
+  Bau 13 erlaubte Drehen nur auf großen Bildschirmen (expo-screen-orientation), auf normalen iPhones zuckte die App
+  aber beim Öffnen mancher Fenster kurz quer. Entschieden 3.11.: normale iPhones haben Vorrang, Duo-Drehen erst
+  wieder, wenn es auf echtem Duo/Duo-Simulator getestet werden kann. Seit Bau 14 wieder nur Hochformat.
   Das Duo ist ein Buch-Klapphandy: zugeklappt ca. 466×678, aufgeklappt ca. 951×669 mit Falz senkrecht in der Mitte.
   Gesture Handler 3: alter Baukasten (Gesture.Pan/Native) ist veraltet, funktioniert aber; später auf Hooks umstellen.
 - **Entschieden 1.11.: vor dem Start fürs Duo optimieren** (zusammen mit dem Bau für Abo/Werbung/Server-Schutz):

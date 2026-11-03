@@ -18,7 +18,7 @@ import { CodeScreen } from './src/screens/CodeScreen';
 import { PromiseSheet } from './src/components/PromiseSheet';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { Tab, TabBar } from './src/components/TabBar';
-import { PaneSize, useOrientationPolicy, useSplit } from './src/layout';
+import { PaneSize, useSplit } from './src/layout';
 import { darkPalette, lightPalette } from './src/theme';
 import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar, loadMe, loadSeasonAwards, SeasonAwards, syncMe } from './src/board';
 import { LimitSheet, watchVideo } from './src/components/LimitCard';
@@ -86,7 +86,6 @@ function Main() {
   const [finds, setFinds] = useState<Find[]>([]);
   const [tab, setTab] = useState<Tab>('start');
   // aufgeklapptes iPhone Duo quer: zwei Seiten – links immer Entdecken, rechts der gewählte Menüpunkt
-  useOrientationPolicy();
   const split = useSplit();
   const win = useWindowDimensions();
   const insets = useSafeAreaInsets();

@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useContext, useEffect } from 'react';
-import { Dimensions, Platform, useWindowDimensions } from 'react-native';
+import { createContext, ReactNode, useContext } from 'react';
+import { useWindowDimensions } from 'react-native';
 
 // Bildschirm-Aufteilung fürs iPhone Duo (Buch-Klapphandy):
 // - zugeklappt (ca. 466 × 678) und auf normalen iPhones: eine Seite, nur Hochformat
@@ -8,8 +8,6 @@ import { Dimensions, Platform, useWindowDimensions } from 'react-native';
 //   links immer „Entdecken“, rechts Sammlung, Challenges und Saison
 // Alles richtet sich nur nach der Breite, nicht nach dem Gerätetyp.
 
-// ab dieser kürzeren Bildschirmseite darf gedreht werden (aufgeklapptes Duo; Handys bleiben im Hochformat)
-const BIG_SCREEN = 600;
 // ab dieser Breite (und quer) werden zwei Seiten gezeigt
 const SPLIT_WIDTH = 800;
 
@@ -32,25 +30,7 @@ export function usePane(): Pane {
   return useContext(PaneContext) ?? { width: win.width, height: win.height };
 }
 
-// Drehen nur auf großen Bildschirmen erlauben (beim Auf- und Zuklappen neu prüfen)
-export function useOrientationPolicy(): void {
-  useEffect(() => {
-    if (Platform.OS === 'web') return;
-    // erst hier laden: in älteren Bauten (vor 1.1.0 Bau 13) fehlt der Gerätebaustein – dann einfach nichts tun
-    let SO: typeof import('expo-screen-orientation') | null = null;
-    try {
-      SO = require('expo-screen-orientation');
-    } catch {
-      return;
-    }
-    const so = SO!;
-    const apply = () => {
-      const { width, height } = Dimensions.get('screen');
-      const big = Math.min(width, height) >= BIG_SCREEN;
-      (big ? so.unlockAsync() : so.lockAsync(so.OrientationLock.PORTRAIT_UP)).catch(() => {});
-    };
-    apply();
-    const sub = Dimensions.addEventListener('change', apply);
-    return () => sub.remove();
-  }, []);
-}
+// Drehen ist (noch) aus: die App steht fest im Hochformat (app.json "orientation": "portrait").
+// Ein Versuch, das Drehen nur auf großen Bildschirmen zu erlauben, ließ auf normalen iPhones beim Öffnen
+// mancher Fenster kurz drehen (3.11., Bau 13). Erst wieder einschalten, wenn es auf einem echten iPhone Duo
+// bzw. im Duo-Simulator getestet werden kann. Zeigt das Duo die App von sich aus breit an, greift useSplit trotzdem.
