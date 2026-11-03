@@ -214,6 +214,11 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Später, wenn die ersten Geräte da sind: mit dem iOS-27.1-Werkzeug (oder neuer) bauen, Seiten an die Breite anpassen
   (Sammlung mehr Spalten, Startseite, Saison-Karten), im Simulator bzw. auf einem echten Gerät testen.
 - Apple verlangt laut Berichten ab April 2027 Duo-Bildschirmfotos im App Store.
+- **3.11.: Expo SDK 58 + Duo auf Zweig `sdk58-duo`** (Version 1.1.0, React Native 0.88, EAS-Bild `latest` für Xcode/iOS 27.1).
+  Sammlung 3–4 Spalten ab 600 Punkten Breite, Quiz höchstens 640 breit. Achtung: kleine Updates (eas update) gehen
+  jetzt getrennt an 1.0.0 (alter Bau, vom Zweig `main`) und 1.1.0 (neuer Bau, vom Zweig `sdk58-duo`). Nach dem Test
+  `sdk58-duo` in `main` übernehmen und nur noch 1.1.0 bedienen.
+  Gesture Handler 3: alter Baukasten (Gesture.Pan/Native) ist veraltet, funktioniert aber; später auf Hooks umstellen.
 - **Entschieden 1.11.: vor dem Start fürs Duo optimieren** (zusammen mit dem Bau für Abo/Werbung/Server-Schutz):
   1. Expo SDK 57 → 58 (baut mit iOS 27.1; Apps mit älterem Werkzeug erscheinen auf dem Innen-Bildschirm klein
      in der Mitte). Danach alle Web-Tests und einen TestFlight-Bau prüfen.
