@@ -1,5 +1,5 @@
 import * as Sharing from 'expo-sharing';
-import { forwardRef, RefObject } from 'react';
+import { ComponentRef, forwardRef, RefObject } from 'react';
 import { Alert, Image, StyleSheet, Text, View } from 'react-native';
 import { captureRef } from 'react-native-view-shot';
 
@@ -17,7 +17,10 @@ type Props = { animal: Animal; photo: string; t: Translate; when?: string };
 
 // Teilen-Bild: Foto, Name, „Wusstest du?“ und das Findimal-Logo.
 // Wird außerhalb des Bildschirms gezeichnet und nur zum Teilen fotografiert – alles auf dem Handy, ohne Server.
-export const ShareCard = forwardRef<View, Props>(function ShareCard({ animal, photo, t, when }, ref) {
+// Ref auf eine View (ab React Native 0.88 ist View eine Funktion, deshalb über ComponentRef)
+export type ViewRef = ComponentRef<typeof View>;
+
+export const ShareCard = forwardRef<ViewRef, Props>(function ShareCard({ animal, photo, t, when }, ref) {
   const fact = animal.wusstest_du || animal.kurzbeschreibung;
   const sub = animal.rasse
     ? `${animal.name}${breedGuessed(animal) ? ` · ${t('res.breedGuess')}` : ''}`
@@ -53,7 +56,7 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard({ animal, ph
 });
 
 // Karte als Bild speichern und das Teilen-Menü öffnen
-export async function shareCard(ref: RefObject<View | null>, t: Translate): Promise<void> {
+export async function shareCard(ref: RefObject<ViewRef | null>, t: Translate): Promise<void> {
   try {
     if (!ref.current || !(await Sharing.isAvailableAsync())) throw new Error('nicht verfügbar');
     const uri = await captureRef(ref, { format: 'jpg', quality: 0.9, width: 1080, height: 1350, result: 'tmpfile' });

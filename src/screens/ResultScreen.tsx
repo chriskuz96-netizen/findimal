@@ -19,7 +19,7 @@ import { AdSheet, AdSlot } from '../components/AdSlot';
 import { Explorer } from '../components/Explorer';
 import { LevelUp, claimParty } from '../components/LevelUp';
 import { LimitCard } from '../components/LimitCard';
-import { ShareCard, shareCard } from '../components/ShareCard';
+import { ShareCard, shareCard, ViewRef } from '../components/ShareCard';
 import { Icon, IconName } from '../components/Icon';
 import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, speciesKey, useFindPhoto } from '../finds';
@@ -153,7 +153,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
   // halbseitige Anzeige ab dem 3. Foto des Tages: kommt beim Tippen auf „Weiter“
   const [bigAd, setBigAd] = useState<'due' | 'open' | null>(null);
   const findId = useRef<string | null>(saved?.id ?? null);
-  const shareRef = useRef<View>(null);
+  const shareRef = useRef<ViewRef>(null);
   const savedPhoto = useFindPhoto(saved?.id ?? '');
 
   // Bild ohne Kameradaten (aus dem Netz, Screenshot, Chat …): wird bestimmt, zählt aber nicht (keine Punkte) –

@@ -6,6 +6,7 @@ import { colors, fonts } from '../theme';
 import { AppLogo } from './AppLogo';
 import { Explorer } from './Explorer';
 import { Icon } from './Icon';
+import { ViewRef } from './ShareCard';
 
 // Größe auf dem Bildschirm (unsichtbar) – gespeichert wird in 1080 × 1350 (wie die Fund-Karte)
 const W = 360;
@@ -15,7 +16,7 @@ type Props = { t: Translate; correct: number; total: number; days: number; xp: n
 
 // Teilen-Bild fürs Forscher-Quiz: Forscher, Ergebnis, Serie und bis zu 3 Kurz-Fakten.
 // Wird außerhalb des Bildschirms gezeichnet und mit shareCard() aus ShareCard.tsx fotografiert.
-export const QuizShareCard = forwardRef<View, Props>(function QuizShareCard({ t, correct, total, days, xp, facts }, ref) {
+export const QuizShareCard = forwardRef<ViewRef, Props>(function QuizShareCard({ t, correct, total, days, xp, facts }, ref) {
   return (
     <View ref={ref} collapsable={false} style={styles.card} pointerEvents="none">
       <View style={styles.top}>

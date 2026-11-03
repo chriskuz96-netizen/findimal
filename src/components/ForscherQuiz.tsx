@@ -9,7 +9,7 @@ import { AdSlot } from './AdSlot';
 import { Explorer } from './Explorer';
 import { Icon } from './Icon';
 import { QuizShareCard } from './QuizShareCard';
-import { shareCard } from './ShareCard';
+import { shareCard, ViewRef } from './ShareCard';
 import { QUIZ_ART, QUIZ_ART_BG } from './QuizArt';
 import {
   answer,
@@ -665,7 +665,7 @@ function Result({
   const small = useWindowDimensions().height < 740; // kleine iPhones: Kopf etwas kompakter, damit nichts scrollt
   const facts = [...wrong, ...byLvl(qs.filter((q) => !missed.includes(q.id)))].slice(0, Math.max(5, wrong.length));
   const bigExplorer = !small && facts.length <= 7; // große Figur nur, wenn genug Platz ist – sonst klein neben dem Ergebnis
-  const shareRef = useRef<View>(null);
+  const shareRef = useRef<ViewRef>(null);
   return (
     <View style={{ flex: 1, paddingBottom: bottom + 8 }}>
       {/* auf großen iPhones alles größer und senkrecht mittig, damit unten keine leere Fläche bleibt */}

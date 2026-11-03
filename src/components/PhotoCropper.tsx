@@ -68,7 +68,7 @@ export function PhotoCropper({
   const fns = useRef({ apply, zoomTo });
   fns.current = { apply, zoomTo };
   const last = useRef({ dx: 0, dy: 0, dist: 0 });
-  const dist = (e: { nativeEvent: { touches: { pageX: number; pageY: number }[] } }) => {
+  const dist = (e: { nativeEvent: { touches: readonly { pageX: number; pageY: number }[] } }) => {
     const ts = e.nativeEvent.touches;
     return ts.length >= 2 ? Math.hypot(ts[0].pageX - ts[1].pageX, ts[0].pageY - ts[1].pageY) : 0;
   };

@@ -44,6 +44,9 @@ module.exports = ({ config }) => ({
     infoPlist: { ...(config.ios && config.ios.infoPlist), CFBundleDevelopmentRegion: 'de', CFBundleAllowMixedLocalizations: true },
   },
   plugins: [
+    'expo-font',
+    'expo-sharing',
+    'expo-status-bar',
     [
       'expo-image-picker',
       { cameraPermission: de.NSCameraUsageDescription, photosPermission: de.NSPhotoLibraryUsageDescription, microphonePermission: false },

@@ -1,12 +1,14 @@
 import { ComponentProps, createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
-import { Gesture, GestureDetector, NativeGesture } from 'react-native-gesture-handler';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { scheduleOnRN } from 'react-native-worklets';
 
 // Scrollen der Seite: läuft gleichzeitig mit der Wischgeste, statt auf sie zu warten (sonst ruckelt es).
 // Sobald das Zurückwischen erkannt ist, steht das Scrollen still (locked).
+// Gesture Handler 3: der alte Baukasten (Gesture.Native/Pan) funktioniert weiter, sein Typ wird aber nicht mehr exportiert
+type NativeGesture = ReturnType<typeof Gesture.Native>;
 const ScrollGesture = createContext<{ native: NativeGesture; locked: boolean } | null>(null);
 
 // ScrollView für Seiten in SwipeBack – scrollt flüssig, auch wenn man leicht schräg wischt
