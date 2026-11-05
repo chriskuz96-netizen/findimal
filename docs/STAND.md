@@ -6,7 +6,7 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Apple-Entwickler-Account: freigeschaltet (14.10.2026), eigene Apple-ID nur für Findimal, Einzelperson.
 - Expo: Konto `christianfindimal`, Projekt `findimal` (gehört dem Team `christianfindimals-team`), Projekt-ID `d01f3c01-05fb-435f-b41f-842cf6583f72`
   (in `app.config.js` eingetragen). Zugangsschlüssel als Umgebungsvariable `EXPO_TOKEN`.
-- Cloudflare-Worker: `https://findimal.chriskuz96.workers.dev/` (Code: `server/findimal-worker.js`,
+- Cloudflare-Worker: `https://findimal.findimalapp.workers.dev/` (bis 5.11.2026: `findimal.chriskuz96.workers.dev`) (Code: `server/findimal-worker.js`,
   wird von Hand im Cloudflare-Editor eingefügt). KV-Speicher als `DB` verbunden.
 - Anthropic: Guthaben vorab, Monatslimit klein halten (TestFlight: ca. 20 $).
 
@@ -168,11 +168,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   Dezember 2027 neuen Schlüssel anlegen und in Cloudflare → findimal → Variables and Secrets → `ANTHROPIC_API_KEY` tauschen.
 - Wächter: tägliche geplante Aufgabe „Findimal-Wächter“ (7:52 Uhr) meldet Zugriffe ohne Code (KV-Schlüssel `fremd:Datum`).
   Vorschläge „In deiner Nähe“ gehen seit 15.10. auch ohne Code.
-- **Server-Adresse ohne eigenen Namen:** `findimal.chriskuz96.workers.dev` zeigt „chriskuz96“ (Einladungslinks,
-  Datenschutz, Hilfe). **Entschieden (15.10.):** später nur den Namensteil ändern (Cloudflare → Workers & Pages →
-  Konto-Unterdomäne, z. B. `findimal-app.workers.dev`), keine eigene Domain. Achtung: die alte Adresse geht dann
-  sofort nicht mehr. Deshalb gleichzeitig `SERVER_URL` in `src/config.ts` umstellen und per `eas update`
-  verteilen, die Links in `docs/APPSTORE.md` anpassen. Am besten vor dem Start, wenn nur Tester betroffen sind.
+- **Server-Adresse ohne eigenen Namen: erledigt (5.11.2026).** Konto-Unterdomäne `chriskuz96` → `findimalapp`
+  (Cloudflare erlaubt keinen Bindestrich; ändern nur im Dashboard, nicht per API). Neue Adresse
+  `findimal.findimalapp.workers.dev`. `SERVER_URL` auf main (1.0.0) und sdk58-duo (1.1.0) umgestellt, OTA für beide
+  Laufzeiten verteilt, Links in `docs/APPSTORE.md` angepasst. Alte Einladungslinks funktionieren nicht mehr.
 - GitHub-Projekt ist öffentlich (Server-Adresse sichtbar, Geheimnisse nicht) – ggf. auf privat stellen.
 
 ## Android gleichzeitig starten (entschieden 30.10.)

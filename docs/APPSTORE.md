@@ -63,7 +63,7 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 >
 > Hinweis: Findimal nutzt künstliche Intelligenz und kann sich irren. Bitte fass keine Tiere an, die du nicht sicher kennst, und iss nichts, nur weil eine App es erkannt hat.
 >
-> Datenschutz: https://findimal.chriskuz96.workers.dev/datenschutz
+> Datenschutz: https://findimal.findimalapp.workers.dev/datenschutz
 > Nutzungsbedingungen: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 **Texte für die Bildschirmfotos** (9 Stück, je ein kurzer Satz oben auf dem Bild – fertige Bilder im Zweig `app-assets`, Ordner `store-screenshots`):
@@ -140,7 +140,7 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 >
 > Note: Findimal uses artificial intelligence and can make mistakes. Please don't touch animals you don't know for sure, and never eat anything just because an app identified it.
 >
-> Privacy: https://findimal.chriskuz96.workers.dev/datenschutz?l=en
+> Privacy: https://findimal.findimalapp.workers.dev/datenschutz?l=en
 > Terms of use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 **Screenshot captions:**
@@ -214,7 +214,7 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 >
 > Remarque : Findimal utilise l’intelligence artificielle et peut se tromper. Ne touche pas les animaux que tu ne connais pas avec certitude, et ne mange jamais rien simplement parce qu’une app l’a reconnu.
 >
-> Confidentialité : https://findimal.chriskuz96.workers.dev/datenschutz?l=fr
+> Confidentialité : https://findimal.findimalapp.workers.dev/datenschutz?l=fr
 > Conditions d’utilisation : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 **Légendes des captures d’écran :**
@@ -228,7 +228,7 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 8. Un conseil nature par semaine – sans spam
 9. Findimal Plus : découvrir sans limite
 
-**URL d’assistance :** https://findimal.chriskuz96.workers.dev/hilfe?l=fr
+**URL d’assistance :** https://findimal.findimalapp.workers.dev/hilfe?l=fr
 
 ---
 
@@ -290,7 +290,7 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 >
 > Nota: Findimal usa inteligencia artificial y puede equivocarse. No toques animales que no conozcas con seguridad y nunca comas nada solo porque una app lo haya reconocido.
 >
-> Privacidad: https://findimal.chriskuz96.workers.dev/datenschutz?l=es
+> Privacidad: https://findimal.findimalapp.workers.dev/datenschutz?l=es
 > Condiciones de uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 **Textos de las capturas de pantalla:**
@@ -304,7 +304,7 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 8. Un consejo de naturaleza por semana – sin spam
 9. Findimal Plus: descubre sin límites
 
-**URL de soporte:** https://findimal.chriskuz96.workers.dev/hilfe?l=es
+**URL de soporte:** https://findimal.findimalapp.workers.dev/hilfe?l=es
 
 ---
 
@@ -365,7 +365,7 @@ riconoscere animali,insetti,uccelli,farfalle,natura,bambini,famiglia,giardino,qu
 >
 > Nota: Findimal usa l’intelligenza artificiale e può sbagliare. Non toccare animali che non conosci con certezza e non mangiare mai nulla solo perché un’app l’ha riconosciuto.
 >
-> Privacy: https://findimal.chriskuz96.workers.dev/datenschutz?l=it
+> Privacy: https://findimal.findimalapp.workers.dev/datenschutz?l=it
 > Condizioni d’uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 **Testi degli screenshot:**
@@ -379,7 +379,7 @@ riconoscere animali,insetti,uccelli,farfalle,natura,bambini,famiglia,giardino,qu
 8. Un consiglio sulla natura a settimana, niente spam
 9. Findimal Plus: scopri senza limiti
 
-**URL di supporto:** https://findimal.chriskuz96.workers.dev/hilfe?l=it
+**URL di supporto:** https://findimal.findimalapp.workers.dev/hilfe?l=it
 
 ---
 
@@ -440,7 +440,7 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 >
 > Aviso: o Findimal usa inteligência artificial e pode errar. Não toque em animais que você não conhece com certeza e nunca coma nada só porque um app o reconheceu.
 >
-> Privacidade: https://findimal.chriskuz96.workers.dev/datenschutz?l=pt
+> Privacidade: https://findimal.findimalapp.workers.dev/datenschutz?l=pt
 > Termos de uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 **Textos das capturas de tela:**
@@ -454,7 +454,7 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 8. Uma dica da natureza por semana – sem spam
 9. Findimal Plus: descubra sem limites
 
-**URL de suporte:** https://findimal.chriskuz96.workers.dev/hilfe?l=pt
+**URL de suporte:** https://findimal.findimalapp.workers.dev/hilfe?l=pt
 
 ---
 
@@ -515,7 +515,7 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 >
 > ご注意：Findimalは人工知能を使っていて、まちがえることがあります。確かにわからない生きものにはさわらないでください。アプリが判定したからといって、何かを食べたりしないでください。
 >
-> プライバシー：https://findimal.chriskuz96.workers.dev/datenschutz?l=ja
+> プライバシー：https://findimal.findimalapp.workers.dev/datenschutz?l=ja
 > 利用規約：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 **スクリーンショットの文言:**
@@ -529,7 +529,7 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 8. 週に1回の自然のヒント。スパムなし
 9. Findimal Plus：無制限に発見しよう
 
-**サポートURL:** https://findimal.chriskuz96.workers.dev/hilfe?l=ja
+**サポートURL:** https://findimal.findimalapp.workers.dev/hilfe?l=ja
 
 Hinweis: Vor der Einreichung den japanischen Text am besten einmal von einer Muttersprachlerin oder einem Muttersprachler lesen lassen.
 
@@ -543,8 +543,8 @@ Hinweis: Vor der Einreichung den japanischen Text am besten einmal von einer Mut
 | Zweite Kategorie | Nachschlagewerke |
 | Altersfreigabe | Fragebogen ehrlich ausfüllen; voraussichtlich 4+ (keine Gewalt, keine Glücksspiele, kein freier Internetzugang) |
 | Kategorie „Kinder“ | **nein** (sonst kaum Werbung erlaubt) |
-| Datenschutz-URL | https://findimal.chriskuz96.workers.dev/datenschutz |
-| Support-URL | https://findimal.chriskuz96.workers.dev/hilfe (englisch: …/hilfe?l=en) |
+| Datenschutz-URL | https://findimal.findimalapp.workers.dev/datenschutz |
+| Support-URL | https://findimal.findimalapp.workers.dev/hilfe (englisch: …/hilfe?l=en) |
 | Copyright | 2026 [Name] |
 
 ### App-Datenschutz („Datenschutzangaben“) – Entwurf für TestFlight/ohne Werbung
