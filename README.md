@@ -9,6 +9,7 @@ Beim Bauen der App werden sie nach `assets/` in den Hauptzweig kopiert.
 - `assets/icon-dark.png` – App-Symbol „Dunkel“ (iOS 18+): nur der Fuchs, transparenter Hintergrund, Lupengriff aufgehellt
 - `assets/icon-tinted.png` – App-Symbol „Getönt“: Fuchs in Grau auf Schwarz (iOS färbt es ein)
 - `assets/icon-dark.svg` – Vorlage für beide
+- `assets/adaptive-foreground.png`, `adaptive-background.png`, `adaptive-monochrome.png` – Android-Symbol (adaptiv): Fuchs auf 70 % verkleinert in der Sicherheitszone, Hintergrund = Verlauf des App-Symbols, einfarbig für Android 13+ und als Mitteilungs-Symbol
 - `assets/icon.svg` – Vorlage (aus `src/components/AppLogo.tsx`), seit 15.10. ohne Blätter (clean)
 
 ## Bildschirmfotos für den App Store (`store-screenshots/`)
