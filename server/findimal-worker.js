@@ -1352,13 +1352,13 @@ export default {
     if (!body || typeof body !== 'object') return json({ fehler: 'Ungültige Anfrage.' }, 400);
 
     // Anonyme Nutzerzählung: die App meldet sich höchstens einmal am Tag („hello“). Gespeichert wird nur ein
-    // Prüfwert (Hash) der zufälligen Handy-Kennung unter "u:<Datum>:<Hash>" mit Sprache, App-Version, System
+    // Prüfwert (Hash) der zufälligen Handy-Kennung unter "hi:<Datum>:<Hash>" mit Sprache, App-Version, System
     // und ob es der erste Start war – als Metadaten, damit die Auswertung ohne extra Lesen auskommt. 90 Tage.
     if (body.mode === 'hello') {
       const dev = deviceOf(request);
       if (!dev || !env.DB) return json({ ok: true });
       const day = new Date().toISOString().slice(0, 10);
-      const key = `u:${day}:${(await sha256('u:' + dev)).slice(0, 16)}`;
+      const key = `hi:${day}:${(await sha256('u:' + dev)).slice(0, 16)}`;
       if (!(await env.DB.get(key))) {
         const meta = {
           l: LANGUAGES[body.lang] ? body.lang : '',
