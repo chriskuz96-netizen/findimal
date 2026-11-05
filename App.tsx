@@ -30,6 +30,7 @@ import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { onFriendRequestOpened, syncPush } from './src/push';
 import { forgetShared, useSharedCount } from './src/shared';
+import { sayHello } from './src/hello';
 import { loadZone } from './src/zone';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
@@ -232,6 +233,11 @@ function Main() {
   useEffect(() => {
     if (loaded) planTips(lang);
   }, [lang, loaded]);
+  // Anonyme Nutzerzählung: einmal am Tag beim Server melden
+  useEffect(() => {
+    if (loaded) sayHello(lang);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
   useEffect(
     () =>
       onTipOpened(() => {
