@@ -244,8 +244,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Server: Token unter `pt:<Code>`, bei neuer Anfrage Mitteilung über exp.host (höchstens 1 pro Absender/Empfänger/Tag,
   `pq:`), abgemeldete Handys werden gelöscht, `board_delete` löscht den Token. Datenschutz in 7 Sprachen ergänzt.
 - Braucht neuen Build (Plugin `expo-notifications`, aps-environment production). Push-Fähigkeit der App-ID ist an.
-- **Offen:** APNs-Schlüssel (`AuthKey_….p8`, Team Scoped, Sandbox & Production, liegt in den iPad-Downloads) bei
-  expo.dev → Credentials → iOS → Push Key hochladen. Am iPad nicht möglich (Datei-Auswahl sperrt .p8) – am Computer machen.
+- APNs-Schlüssel (`Findimal Push`, Team Scoped, Sandbox & Production) ist seit 5.11. bei Expo hinterlegt und an die App
+  gebunden. Expo-Konto: `christianfindimal` (eigene Findimal-Gmail-Adresse), Team `christianfindimals-team`.
+  Tipp: am Mac Dateiendungen einblenden (Finder → Einstellungen → Erweitert), sonst versteckt sich `.p8.txt`.
+- **Offen:** Build 15 bauen und testen (zwei Handys: eins schickt die Anfrage, das andere bekommt die Mitteilung).
 - Android später: FCM-Schlüssel (Firebase) bei Expo hinterlegen.
 - Im selben Build: iOS-Berechtigungstexte jetzt auch pt/ja/it (`locales/`).
 
