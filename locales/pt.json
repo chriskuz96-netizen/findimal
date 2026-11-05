@@ -1,6 +1,8 @@
 {
-  "NSCameraUsageDescription": "O Findimal precisa da câmera para que você possa fotografar animais e identificá-los.",
-  "NSPhotoLibraryUsageDescription": "O Findimal precisa acessar suas fotos para que você possa escolher uma foto de animal para identificar.",
-  "NSLocationWhenInUseUsageDescription": "Para que o Findimal sugira animais da sua região e anote onde você os encontrou, sua localização é usada para descobrir o nome do lugar. Só o nome é salvo, no seu celular.",
-  "NSMotionUsageDescription": "O Findimal não usa dados de movimento nem de condicionamento físico. A localização serve apenas para descobrir o nome do lugar dos seus achados."
+  "ios": {
+    "NSCameraUsageDescription": "O Findimal precisa da câmera para que você possa fotografar animais e identificá-los.",
+    "NSPhotoLibraryUsageDescription": "O Findimal precisa acessar suas fotos para que você possa escolher uma foto de animal para identificar.",
+    "NSLocationWhenInUseUsageDescription": "Para que o Findimal sugira animais da sua região e anote onde você os encontrou, sua localização é usada para descobrir o nome do lugar. Só o nome é salvo, no seu celular.",
+    "NSMotionUsageDescription": "O Findimal não usa dados de movimento nem de condicionamento físico. A localização serve apenas para descobrir o nome do lugar dos seus achados."
+  }
 }

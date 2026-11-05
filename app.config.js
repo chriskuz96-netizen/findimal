@@ -1,7 +1,7 @@
 // Ergänzt app.json für den echten App-Bau (EAS). Snack liest nur app.json und ignoriert diese Datei.
 // App-Symbol und Startbild liegen im Zweig "app-assets" und werden vor dem Bauen nach assets/ kopiert.
 const fs = require('fs');
-const de = require('./locales/de.json');
+const de = require('./locales/de.json').ios; // Texte der iOS-Berechtigungsfragen (nur iPhone)
 
 const has = (file) => {
   try {
@@ -59,8 +59,8 @@ module.exports = ({ config }) => ({
           },
         }
       : {}),
-    // nur ungefährer Standort (Ortsname reicht), kein Mikrofon
-    blockedPermissions: ['android.permission.RECORD_AUDIO', 'android.permission.ACCESS_FINE_LOCATION'],
+    // nur ungefährer Standort (Ortsname reicht), kein Mikrofon, keine Fenster über anderen Apps
+    blockedPermissions: ['android.permission.RECORD_AUDIO', 'android.permission.ACCESS_FINE_LOCATION', 'android.permission.SYSTEM_ALERT_WINDOW'],
   },
   plugins: [
     'expo-font',
