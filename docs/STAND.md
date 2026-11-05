@@ -161,6 +161,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen.
 - Server für alle öffnen (`OFFEN = ja`) – im App Store hat niemand einen Findimal-Code. Vorher Apple App Attest
   einbauen (Server prüft, dass Anfragen aus der echten App kommen). Anthropic-Monatslimit klein halten.
+- **Anthropic-Guthaben (5.11.: ca. 4,56 $, Limit 5 $):** kurz vor dem Start in console.anthropic.com Auto-Reload
+  einschalten (unter 10 $ → 20 $ nachladen) und Monatslimit auf ca. 50 $ setzen. Leeres Guthaben = keine Tierbestimmung.
+  Server deckelt auf 300 Bestimmungen/Tag. Nach den ersten Wochen an echte Kosten anpassen.
 - Wächter: tägliche geplante Aufgabe „Findimal-Wächter“ (7:52 Uhr) meldet Zugriffe ohne Code (KV-Schlüssel `fremd:Datum`).
   Vorschläge „In deiner Nähe“ gehen seit 15.10. auch ohne Code.
 - **Server-Adresse ohne eigenen Namen:** `findimal.chriskuz96.workers.dev` zeigt „chriskuz96“ (Einladungslinks,
