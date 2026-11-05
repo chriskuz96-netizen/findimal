@@ -154,7 +154,12 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Impressum: erledigt (15.10.). Name und Anschrift stehen als Cloudflare-Variablen `IMPRESSUM_NAME` und
   `IMPRESSUM_ADRESSE` (nicht im GitHub-Code), Anschrift nur ganz unten. Beim Hochladen des Workers
   `keep_bindings` mit `plain_text` angeben, sonst gehen die Variablen verloren.
-- Gewerbe anmelden, Fragebogen Finanzamt (Kleinunternehmer), ggf. USt-IdNr. für AdMob.
+- **Priorität (entschieden 5.11.): erst Gewerbe, dann App Store.** Schritte: Gewerbeanmeldung (Tätigkeit: Entwicklung
+  und Vertrieb eigener Apps, Einnahmen aus Abos und Werbung), ELSTER-Fragebogen zur steuerlichen Erfassung
+  (Kleinunternehmer § 19 UStG, USt-IdNr. mit beantragen), D-U-N-S-Nummer (kostenlos), eigenes Geschäftskonto.
+  Danach prüfen: Google-Play-Konto als Organisation (12-Tester-Regel gilt dann nicht) – ob ein Einzelunternehmen
+  dafür reicht, vorher in der Play Console prüfen. Apple bleibt vermutlich Einzelperson (Organisation nur für
+  juristische Personen wie GmbH/UG).
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
 - App-Store-Kategorie prüfen: „Bildung“ gilt laut RevenueCat 2026 als schwierige Kategorie für neue Apps.
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
