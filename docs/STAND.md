@@ -270,6 +270,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Später Bereich „Geld“ (Wunsch 5.11.): Einnahmen gegen Kosten pro Monat, Weg zum Ziel 3.000 €/Monat.
   Quellen: Anthropic-Kosten (Admin-API-Schlüssel), Apple Abo/Downloads (Sales/Finance-Reports, Vendor-Nummer),
   Google Play (Berichte-Zugang), AdMob (Freigabe), Cloudflare (fest 0/5 $), Gebühren Apple 99 €/Jahr, Google 25 $ einmalig.
+  Werbe-Ausgaben: Google Ads (geplanter Bericht in Google-Tabelle/Mail oder Google-Ads-API mit Freigabe), ggf. Apple Search Ads.
+  Ziel: Werbeausgaben → neue Nutzer → Einnahmen (Kosten pro neuem Nutzer).
+- Fotos pro Tag: Server zählt seit 5.11. `fotos:<Datum>` = {fotos, erkannt, zusatz, korrektur, fehler}, 400 Tage.
 - Kosten: Cloudflare-KV kostenlos nur 1.000 Schreibvorgänge/Tag; ab ca. 500 täglichen Nutzern Workers Paid (5 $/Monat) nötig.
 
 ## Ideen für später (wenn viele Spieler da sind)
