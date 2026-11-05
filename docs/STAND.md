@@ -186,6 +186,11 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   anlegen, Familien-Richtlinie von Google beachten (Zielgruppe im Fragebogen).
 - Server-Schutz: Apple App Attest gibt es nur auf dem iPhone – für Android braucht der Server die Play Integrity API.
 - Kontrollzentrum-Knopf gibt es nur auf dem iPhone.
+- 5.11.: Adaptives Symbol (app-assets: adaptive-*.png), Mitteilungs-Symbol, Rechte: nur ungefährer Standort, kein
+  Mikrofon, kein SYSTEM_ALERT_WINDOW. `locales/*.json` stehen unter `ios` (sonst bricht der Android-Lint ab).
+  EAS-Profil `android-test` = APK zum direkten Installieren; `production` = AAB für Google Play. Keystore liegt bei Expo.
+  Erste APK (versionCode 3): https://expo.dev/artifacts/eas/c9x8ccqdJFJRpoT2hRz5RJirDftBJyZLSe72_ytvcMU.apk
+  Noch ungetestet auf echtem Gerät. Push auf Android braucht noch Firebase (google-services.json).
 
 ## Aus dem Test vom 15.10. (vor dem Start erledigen)
 - Server: Profilbild-ID beim Speichern gegen erlaubte Werte prüfen (App ist schon abgesichert).
