@@ -17,6 +17,7 @@ import json
 import os
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -53,6 +54,16 @@ def keys(ns, prefix):
             return out
 
 
+def value(ns, key):
+    try:
+        with urllib.request.urlopen(CF + f'/storage/kv/namespaces/{ns}/values/' + urllib.parse.quote(key, safe=''), timeout=60) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return None
+        raise
+
+
 def week_start(d):
     return d - dt.timedelta(days=d.weekday())  # Montag
 
@@ -80,7 +91,9 @@ def main():
             if m.get('n'):
                 new += 1
                 first_day.setdefault(h, d)
-        days.append({'date': d.isoformat(), 'active': len(ks), 'new': new})
+        ph = value(ns, f'fotos:{d.isoformat()}') or {}
+        days.append({'date': d.isoformat(), 'active': len(ks), 'new': new,
+                     'photos': ph.get('fotos', 0), 'found': ph.get('erkannt', 0), 'failed': ph.get('fehler', 0)})
 
     # --- Wochen (Mo–So) ---
     weeks = []
@@ -89,7 +102,8 @@ def main():
         we = ws + dt.timedelta(days=6)
         active = {h for h, s in seen_on.items() if any(ws <= x <= we for x in s)}
         new = {h for h, f in first_day.items() if ws <= f <= we}
-        weeks.append({'week': ws.isoformat(), 'active': len(active), 'new': len(new), '_set': active,
+        photos = sum(x['photos'] for x in days if ws.isoformat() <= x['date'] <= we.isoformat())
+        weeks.append({'week': ws.isoformat(), 'active': len(active), 'new': len(new), 'photos': photos, '_set': active,
                       'complete': we < today})
         ws += dt.timedelta(days=7)
     for a, b in zip(weeks, weeks[1:]):

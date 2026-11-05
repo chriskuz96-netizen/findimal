@@ -1250,6 +1250,20 @@ async function countStranger(env, mode, blocked) {
   await safePut(env, key, JSON.stringify(data), { expirationTtl: 60 * 60 * 24 * 30 });
 }
 
+// Fotos pro Tag: fotos:<Datum> = {fotos, erkannt, zusatz, korrektur, fehler}. Ein Schreibvorgang pro Foto;
+// bei vielen gleichzeitigen Fotos kann ein Zähler mal einen Schritt verpassen (für die Übersicht genau genug).
+async function countPhotos(env, { ok, found, extra, korrektur }) {
+  if (!env.DB) return;
+  const key = `fotos:${new Date().toISOString().slice(0, 10)}`;
+  const d = (await env.DB.get(key, 'json')) || { fotos: 0, erkannt: 0, zusatz: 0, korrektur: 0, fehler: 0 };
+  d.fotos += 1;
+  if (!ok) d.fehler += 1;
+  else if (found) d.erkannt += 1;
+  if (extra) d.zusatz += 1;
+  if (korrektur) d.korrektur += 1;
+  await safePut(env, key, JSON.stringify(d), { expirationTtl: 60 * 60 * 24 * 400 });
+}
+
 // Grenzen für Anfragen ohne Findimal-Code: pro Internetanschluss und für alle zusammen pro Tag.
 // Liefert eine Fehlerantwort oder null.
 async function publicBudget(env, request, kind = 'g') {
@@ -1628,6 +1642,8 @@ export default {
           .catch(() => {}),
       );
     }
+    // Fotos pro Tag für die Wochenübersicht (nur Zahlen, kein Gerät, kein Bild)
+    if (ctx) ctx.waitUntil(countPhotos(env, { ok: res.ok, found, extra: images.length > 1, korrektur: !!korrektur }));
     // gezählt: merken, falls gleich danach noch abgebrochen wird (nur kurz gültig, siehe "cancel")
     if (counter && found) {
       if (rid) await safePut(env, `ok:${rid}`, JSON.stringify({ key: counter.key, bonus: !!counter.bonus, t: Date.now() }), { expirationTtl: 600 });
