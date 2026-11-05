@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert } from 'react-native';
+import { Alert, Platform } from 'react-native';
 
 import { Photo } from './camera';
 import { SERVER_URL } from './config';
@@ -150,7 +150,9 @@ export function warmUp(): void {
 }
 
 // Fragt einmalig nach dem Findimal-Code (APP_KEY aus Cloudflare) und speichert ihn.
+// Alert.prompt gibt es nur auf dem iPhone – auf Android kommt der Code über die Code-Seite beim Start.
 function askForAppKey(t: Translate): Promise<string | null> {
+  if (Platform.OS !== 'ios') return Promise.resolve(null);
   return new Promise((resolve) => {
     Alert.prompt(
       t('id.codeTitle'),

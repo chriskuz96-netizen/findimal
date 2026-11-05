@@ -10,7 +10,17 @@
         "resourceClass": "default",
         "image": "latest"
       },
-      "channel": "production"
+      "channel": "production",
+      "android": {
+        "buildType": "app-bundle"
+      }
+    },
+    "android-test": {
+      "extends": "production",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
     }
   },
   "submit": {

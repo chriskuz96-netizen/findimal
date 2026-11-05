@@ -46,12 +46,36 @@ module.exports = ({ config }) => ({
       : {}),
     infoPlist: { ...(config.ios && config.ios.infoPlist), CFBundleDevelopmentRegion: 'de', CFBundleAllowMixedLocalizations: true },
   },
+  android: {
+    ...config.android,
+    // Adaptives Symbol: Android schneidet es je nach Handy rund, eckig oder als Tropfen zu
+    ...(has('./assets/adaptive-foreground.png')
+      ? {
+          adaptiveIcon: {
+            foregroundImage: './assets/adaptive-foreground.png',
+            backgroundImage: './assets/adaptive-background.png',
+            monochromeImage: './assets/adaptive-monochrome.png',
+            backgroundColor: '#1F4E33',
+          },
+        }
+      : {}),
+    // nur ungefährer Standort (Ortsname reicht), kein Mikrofon
+    blockedPermissions: ['android.permission.RECORD_AUDIO', 'android.permission.ACCESS_FINE_LOCATION'],
+  },
   plugins: [
     'expo-font',
     'expo-sharing',
     'expo-status-bar',
     // Push-Mitteilungen vom Server (Freundschaftsanfragen); die Natur-Tipps plant die App selbst
-    ['expo-notifications', { mode: 'production' }],
+    [
+      'expo-notifications',
+      {
+        mode: 'production',
+        // Android: kleines Symbol in der Statusleiste (weiß auf transparent) und Akzentfarbe
+        ...(has('./assets/adaptive-monochrome.png') ? { icon: './assets/adaptive-monochrome.png' } : {}),
+        color: '#E8833A',
+      },
+    ],
     [
       'expo-image-picker',
       { cameraPermission: de.NSCameraUsageDescription, photosPermission: de.NSPhotoLibraryUsageDescription, microphonePermission: false },
