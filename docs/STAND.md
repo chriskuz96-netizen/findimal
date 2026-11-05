@@ -267,6 +267,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Dashboard: https://claude.ai/artifact/TGesKgmkARLjZH4Fg8kfvy (Datensätze daily/weekly/server/split/totals als Dateien).
 - Geplante Aufgabe „Findimal Wochenbericht“ jeden Montag 8:38 (Berlin) in diese Claude-Sitzung.
 - Später: App-Store-Downloads aus App Store Connect (Sales-Reports, Vendor-Nummer nötig) ergänzen.
+- Später Bereich „Geld“ (Wunsch 5.11.): Einnahmen gegen Kosten pro Monat, Weg zum Ziel 3.000 €/Monat.
+  Quellen: Anthropic-Kosten (Admin-API-Schlüssel), Apple Abo/Downloads (Sales/Finance-Reports, Vendor-Nummer),
+  Google Play (Berichte-Zugang), AdMob (Freigabe), Cloudflare (fest 0/5 $), Gebühren Apple 99 €/Jahr, Google 25 $ einmalig.
 - Kosten: Cloudflare-KV kostenlos nur 1.000 Schreibvorgänge/Tag; ab ca. 500 täglichen Nutzern Workers Paid (5 $/Monat) nötig.
 
 ## Ideen für später (wenn viele Spieler da sind)
