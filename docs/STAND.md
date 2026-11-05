@@ -239,6 +239,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   Testen: Layout im Browser in Duo-Größe; echtes Gerät oder Xcode-Simulator fehlt bisher.
 
 ## Ideen für später (wenn viele Spieler da sind)
+- **„Später bestimmen“ (5.11., Wunsch):** Scheitert der Foto-Upload auch nach den automatischen Wiederholungen,
+  Foto in der App aufbewahren („1 Foto wartet auf Bestimmung“ auf der Startseite), automatisch erneut senden
+  (jede Minute bei offener App und bei jedem Öffnen), Fund mit ursprünglichem Ort und Zeit speichern.
+  Fehlermeldung dann mit zwei Knöpfen: „Nochmal versuchen“ / „Später bestimmen“. Aufwand ca. 1–2 Std., per OTA.
 - Weltweite Rangliste ausbauen: eigenes Fenster mit Filtern nach **Land und Region** und nach **Saison**
   (z. B. „Herbst 2026“). Eigene **Platznummer** anzeigen (z. B. „Platz 740 von 1.000“ statt „–“) – dafür muss
   der Server alle Punktestände kennen, nicht nur die Top 100 (`TOP_SIZE`).
