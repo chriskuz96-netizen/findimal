@@ -33,6 +33,9 @@ module.exports = ({ config }) => ({
     en: './locales/en.json',
     fr: './locales/fr.json',
     es: './locales/es.json',
+    pt: './locales/pt.json',
+    ja: './locales/ja.json',
+    it: './locales/it.json',
   },
   ios: {
     ...config.ios,
@@ -47,6 +50,8 @@ module.exports = ({ config }) => ({
     'expo-font',
     'expo-sharing',
     'expo-status-bar',
+    // Push-Mitteilungen vom Server (Freundschaftsanfragen); die Natur-Tipps plant die App selbst
+    ['expo-notifications', { mode: 'production' }],
     [
       'expo-image-picker',
       { cameraPermission: de.NSCameraUsageDescription, photosPermission: de.NSPhotoLibraryUsageDescription, microphonePermission: false },

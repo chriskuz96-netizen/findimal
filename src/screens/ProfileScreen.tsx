@@ -29,6 +29,7 @@ import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
+import { syncPush } from '../push';
 import { loadZone } from '../zone';
 import { favoriteGroup, levelTitle, Progress } from '../progress';
 import { GroupIcon } from '../groups';
@@ -77,7 +78,7 @@ export function ProfileScreen(props: Props) {
   const toggleTips = async (on: boolean) => {
     setTips(on);
     if (!on) return disableTips();
-    if (await enableTips(lang)) return;
+    if (await enableTips(lang)) return void syncPush(lang);
     // iOS erlaubt keine Mitteilungen: in den Einstellungen einschalten
     setTips(false);
     Alert.alert(t('tips.title'), t('tips.denied'), [

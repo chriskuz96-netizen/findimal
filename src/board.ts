@@ -198,6 +198,16 @@ export async function syncMe(me: Me, stats: MyStats): Promise<void> {
 }
 
 // Aussteigen: Eintrag auf dem Server löschen und alles lokal vergessen.
+// Mitteilungs-Kennung dieses Handys melden (für die Push-Mitteilung bei Freundschaftsanfragen)
+export async function registerPushToken(me: Me, token: string, lang: string): Promise<boolean> {
+  try {
+    const res = await call({ mode: 'board_push', ...me, token, lang });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export async function leave(me: Me): Promise<void> {
   await call({ mode: 'board_delete', ...me }).catch(() => null);
   await AsyncStorage.multiRemove([ME_KEY, FRIENDS_KEY, SENT_KEY, REMOVED_KEY, PENDING_KEY]).catch(() => {});

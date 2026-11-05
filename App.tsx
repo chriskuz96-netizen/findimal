@@ -28,6 +28,7 @@ import { Animal, checkAppKey, getAppKey, translateAnimal, warmUp } from './src/i
 import { updateBeforeSetup } from './src/firstUpdate';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
+import { onFriendRequestOpened, syncPush } from './src/push';
 import { loadZone } from './src/zone';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
@@ -239,12 +240,23 @@ function Main() {
       }),
     [],
   );
+  // Push-Mitteilung bei Freundschaftsanfragen: Kennung beim Start (und Sprachwechsel) melden;
+  // Tippen auf die Mitteilung öffnet die Rangliste mit den Anfragen
+  useEffect(
+    () =>
+      onFriendRequestOpened(() => {
+        setOpenFind(null);
+        setShowProfile(false);
+        setTab('challenges');
+      }),
+    [],
+  );
   // Nach dem ersten Fund einmal fragen, ob man Natur-Tipps möchte
   const askTips = async () => {
     if (findsRef.current.length < 1 || (await loadTips()) !== null || (await loadZone()) === 'other') return;
     Alert.alert(t('tips.askTitle'), t('tips.askText'), [
       { text: t('tips.no'), style: 'cancel', onPress: () => disableTips() },
-      { text: t('tips.yes'), onPress: () => enableTips(lang) },
+      { text: t('tips.yes'), onPress: () => enableTips(lang).then((ok) => void (ok && syncPush(lang))) },
     ]);
   };
 
@@ -383,10 +395,11 @@ function Main() {
     if (!name || !loaded || askCode) return;
     const timer = setTimeout(() => {
       loadMe().then((me) => me && syncMe(me, boardStats));
+      syncPush(lang);
     }, 3000);
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [boardKey, loaded, askCode]);
+  }, [boardKey, loaded, askCode, lang]);
 
   // Kein Ort eingestellt ("Später" gewählt): beim Öffnen der App einmal am Tag wieder nach dem Ort fragen
   const regionChecked = useRef(false);
