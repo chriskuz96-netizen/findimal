@@ -203,14 +203,20 @@ async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, s
 // cancel: zum Abbrechen (dann zählt das Foto nicht als Gratis-Foto)
 export type IdentifyCancel = { rid: string; controller: AbortController };
 
+const newRid = () => Array.from({ length: 20 }, () => 'abcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 36)]).join('');
+
 export function newCancel(): IdentifyCancel {
-  const rid = Array.from({ length: 20 }, () => 'abcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 36)]).join('');
-  return { rid, controller: new AbortController() };
+  return { rid: newRid(), controller: new AbortController() };
 }
 
 // Bricht eine laufende Bestimmung ab und sagt dem Server Bescheid, dass sie nicht zählen soll
 export async function cancelIdentify(c: IdentifyCancel): Promise<void> {
   c.controller.abort();
+  await discard(c.rid);
+}
+
+// Sagt dem Server: Anfrage mit dieser Kennung verwerfen bzw. nicht (mehr) als Gratis-Foto zählen
+async function discard(rid: string): Promise<void> {
   if (!SERVER_URL) return;
   try {
     await fetch(SERVER_URL, {
@@ -220,7 +226,7 @@ export async function cancelIdentify(c: IdentifyCancel): Promise<void> {
         'X-Findimal-Key': await getAppKey(),
         'X-Findimal-Device': await getDeviceId(),
       },
-      body: JSON.stringify({ mode: 'cancel', rid: c.rid }),
+      body: JSON.stringify({ mode: 'cancel', rid }),
     });
   } catch {
     // offline: dann ist die Bestimmung ohnehin nicht angekommen
@@ -229,6 +235,23 @@ export async function cancelIdentify(c: IdentifyCancel): Promise<void> {
 
 // Höchstens so lange wartet die App auf eine Bestimmung (Server: 10 s schnelle KI, dann 25 s genaue KI)
 const IDENTIFY_TIMEOUT = 40_000;
+
+// Bricht die Übertragung ab (z. B. schwacher Empfang beim Hochladen), schickt die App das Foto
+// bis zu zweimal erneut – wie WhatsApp & Co. Vorher wird die alte Anfrage beim Server verworfen,
+// falls sie doch angekommen ist: so zählt das Foto nie doppelt als Gratis-Foto.
+async function sendRetry(photos: Photo[], appKey: string, lang: Lang, c: IdentifyCancel, korrektur?: Korrektur): Promise<Response> {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await send(photos, appKey, lang, c.rid, c.controller.signal, korrektur);
+    } catch (e) {
+      if (c.controller.signal.aborted || attempt >= 2) throw e;
+      await discard(c.rid);
+      c.rid = newRid();
+      await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
+      if (c.controller.signal.aborted) throw e;
+    }
+  }
+}
 
 export async function identify(
   photos: Photo[],
@@ -255,13 +278,13 @@ export async function identify(
     timedOut ? { ok: false, message: t('id.slow') } : { ok: false, message: '', cancelled: true };
   try {
     arm();
-    let res = await send(photos, await getAppKey(), lang, c.rid, signal, korrektur);
+    let res = await sendRetry(photos, await getAppKey(), lang, c, korrektur);
     if (res.status === 401) {
       disarm(); // während der Code-Eingabe läuft keine Zeit
       const key = await askForAppKey(t);
       if (!key) return { ok: false, message: t('id.noCode') };
       arm();
-      res = await send(photos, key, lang, c.rid, signal, korrektur);
+      res = await sendRetry(photos, key, lang, c, korrektur);
       if (res.status === 401) return { ok: false, message: t('id.wrongCode') };
     }
     // Korrekturen haben ein eigenes Tageslimit – die Gratis-Fotos bleiben unberührt
