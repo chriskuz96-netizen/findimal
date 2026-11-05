@@ -29,6 +29,7 @@ import { updateBeforeSetup } from './src/firstUpdate';
 import { LangProvider, useI18n } from './src/i18n';
 import { disableTips, enableTips, loadTips, onTipOpened, planTips } from './src/notify';
 import { onFriendRequestOpened, syncPush } from './src/push';
+import { forgetShared, useSharedCount } from './src/shared';
 import { loadZone } from './src/zone';
 import { isPlusAvatar, PlusProvider, usePlus } from './src/plus';
 import { loadSeenBadges, saveSeenBadges } from './src/seenBadges';
@@ -297,7 +298,8 @@ function Main() {
   const now = new Date();
   // nur echte Funde zählen für Punkte, Arten und Challenges (Internetbilder, Zeichnungen usw. nicht)
   const realFinds = finds.filter(counts);
-  const progress = computeProgress(realFinds, quizTotals(quiz, forscher), now, { bestRank, maxFriends, awardXp });
+  const shared = useSharedCount();
+  const progress = computeProgress(realFinds, quizTotals(quiz, forscher), now, { bestRank, maxFriends, awardXp, shared });
   // Für die Saison-Rangliste und die Profilkarte: XP dieser Jahreszeit, meist fotografierte Gruppe, beste Platzierung
   const fav = favoriteGroup(realFinds);
   const bestSeason = Object.entries(seasonAwards)
@@ -481,7 +483,7 @@ function Main() {
     const quizXp = quizTotals(quizRef.current, forscherRef.current);
     // Stand ohne diesen Fund (bei einem zweiten Foto wird der alte Fund ersetzt)
     const others = findsRef.current.filter((f) => f.id !== replaceId && counts(f));
-    const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends, awardXp });
+    const before = computeProgress(others, quizXp, new Date(), { bestRank, maxFriends, awardXp, shared });
     const isNew = !others.some((f) => speciesKey(f.animal) === speciesKey(animal));
     let id = replaceId;
     let next: Find[];
@@ -498,7 +500,7 @@ function Main() {
       tipsAfterSave.current = false;
       setTimeout(askTips, 300);
     }
-    const after = computeProgress(next.filter(counts), quizXp, new Date(), { bestRank, maxFriends, awardXp });
+    const after = computeProgress(next.filter(counts), quizXp, new Date(), { bestRank, maxFriends, awardXp, shared });
     return { id: id!, reward: computeReward(before, after, isNew) };
   };
 
@@ -521,6 +523,7 @@ function Main() {
       onReset={async () => {
         await resetAll();
         forgetFinds();
+        forgetShared();
         setFinds([]);
         setSeenBadges([]);
         refreshFreeLeft();
