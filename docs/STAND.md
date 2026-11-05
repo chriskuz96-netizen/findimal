@@ -164,6 +164,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - **Anthropic-Guthaben (5.11.: ca. 4,56 $, Limit 5 $):** kurz vor dem Start in console.anthropic.com Auto-Reload
   einschalten (unter 10 $ → 20 $ nachladen) und Monatslimit auf ca. 50 $ setzen. Leeres Guthaben = keine Tierbestimmung.
   Server deckelt auf 300 Bestimmungen/Tag. Nach den ersten Wochen an echte Kosten anpassen.
+- **Anthropic-Schlüssel läuft am 30.12.2027 ab** (neu angelegt am 5.11.2026, Name `findimal-server`). Spätestens Anfang
+  Dezember 2027 neuen Schlüssel anlegen und in Cloudflare → findimal → Variables and Secrets → `ANTHROPIC_API_KEY` tauschen.
 - Wächter: tägliche geplante Aufgabe „Findimal-Wächter“ (7:52 Uhr) meldet Zugriffe ohne Code (KV-Schlüssel `fremd:Datum`).
   Vorschläge „In deiner Nähe“ gehen seit 15.10. auch ohne Code.
 - **Server-Adresse ohne eigenen Namen:** `findimal.chriskuz96.workers.dev` zeigt „chriskuz96“ (Einladungslinks,
