@@ -14,6 +14,7 @@ import type { SeasonAwards, SeasonStats } from '../board';
 import { LevelUp, claimParty } from '../components/LevelUp';
 import { Medal } from '../components/Medal';
 import { GroupIcon, GROUPS } from '../groups';
+import { useBadgeText } from '../badgeText';
 import { useI18n } from '../i18n';
 import { useLoop } from '../hooks/useLoop';
 import { Badge, dayKey, levelAt, levelTitle, Progress, seasonKey, XP } from '../progress';
@@ -81,8 +82,9 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
     onForscher(await rescueStreak(forscher));
     setRescueNote(t('fq.rescued'));
   };
-  const badgeName = (b: Badge) => t(`badge.${b.id}`);
-  const badgeHint = (b: Badge) => t(`badge.${b.id}.hint`);
+  const badgeText = useBadgeText();
+  const badgeName = (b: Badge) => badgeText.name(b.id);
+  const badgeHint = (b: Badge) => badgeText.hint(b.id);
   const span = (progress.nextLevelXp ?? progress.xp) - progress.levelStart;
   const share = progress.nextLevelXp ? (progress.xp - progress.levelStart) / span : 1;
 
@@ -564,6 +566,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
                 p={p}
                 selected={avatar === b.id}
                 fresh={freshBadges.includes(b.id)}
+                name={badgeName(b)}
                 onPress={() => {
                   if (freshBadges.includes(b.id)) onSeeBadges?.([b.id]);
                   Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }));
@@ -672,12 +675,14 @@ function BadgeView({
   p,
   selected,
   fresh,
+  name,
   onPress,
 }: {
   badge: Badge;
   p: Palette;
   selected: boolean;
   fresh: boolean;
+  name: string;
   onPress: () => void;
 }) {
   const { t } = useI18n();
@@ -710,7 +715,7 @@ function BadgeView({
           </View>
         )}
       </Animated.View>
-      <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{t(`badge.${badge.id}`)}</Text>
+      <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{name}</Text>
       {selected && <Text style={[styles.badgeSel, { color: colors.accent }]}>{t('ch.profilePic')}</Text>}
     </Pressable>
   );

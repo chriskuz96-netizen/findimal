@@ -56,13 +56,16 @@ export const ShareCard = forwardRef<ViewRef, Props>(function ShareCard({ animal,
 });
 
 // Karte als Bild speichern und das Teilen-Menü öffnen
-export async function shareCard(ref: RefObject<ViewRef | null>, t: Translate): Promise<void> {
+// true = das Teilen-Fenster wurde geöffnet (ob wirklich gesendet wurde, verrät iOS nicht)
+export async function shareCard(ref: RefObject<ViewRef | null>, t: Translate): Promise<boolean> {
   try {
     if (!ref.current || !(await Sharing.isAvailableAsync())) throw new Error('nicht verfügbar');
     const uri = await captureRef(ref, { format: 'jpg', quality: 0.9, width: 1080, height: 1350, result: 'tmpfile' });
     await Sharing.shareAsync(uri, { mimeType: 'image/jpeg', UTI: 'public.jpeg', dialogTitle: t('res.share') });
+    return true;
   } catch {
     Alert.alert(t('res.share'), t('res.shareFailed'));
+    return false;
   }
 }
 

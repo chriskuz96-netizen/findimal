@@ -117,7 +117,9 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
       );
     case 'species10':
     case 'species25':
-    case 'species50': // Schmetterling mit Zahl
+    case 'species50':
+    case 'species100':
+    case 'species200': // Schmetterling mit Zahl
       return (
         <G>
           <Path d="M0 -2 C-4 -12 -14 -12 -13 -5 C-12 1 -5 1 0 0 Z" fill={c('#E8833A')} />
@@ -128,8 +130,8 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Circle cx={8} cy={-6} r={1.8} fill={c('#13261C')} />
           <Ellipse cx={0} cy={0} rx={1.4} ry={6} fill={c('#13261C')} />
           <Path d="M0 -6 L-3 -11 M0 -6 L3 -11" stroke={c('#13261C')} strokeWidth={1} />
-          <SvgText x={0} y={13.5} fontSize={6.5} fontWeight="bold" fill={c('#FFE9A3')} textAnchor="middle">
-            {id === 'species10' ? '10' : id === 'species25' ? '25' : '50'}
+          <SvgText x={0} y={13.5} fontSize={id === 'species100' || id === 'species200' ? 6 : 6.5} fontWeight="bold" fill={c('#FFE9A3')} textAnchor="middle">
+            {id.slice(7)}
           </SvgText>
         </G>
       );
@@ -304,7 +306,8 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           </SvgText>
         </G>
       );
-    case 'quizStreak30': // Lorbeerkranz mit 30
+    case 'quizStreak30':
+    case 'quizStreak100': // Lorbeerkranz mit Zahl
       return (
         <G>
           <Path d="M-3 12 Q-13 8 -11 -6 M3 12 Q13 8 11 -6" stroke={c('#7CC46A')} strokeWidth={1.2} fill="none" />
@@ -318,8 +321,8 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
               </G>
             );
           })}
-          <SvgText x={0} y={4} fontSize={10} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
-            30
+          <SvgText x={0} y={4} fontSize={id === 'quizStreak100' ? 8 : 10} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
+            {id === 'quizStreak100' ? '100' : '30'}
           </SvgText>
         </G>
       );
@@ -465,7 +468,8 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Path d="M5.2 -6.2 L2 -3" stroke={c('#FFD45E')} strokeWidth={1.8} strokeLinecap="round" />
         </G>
       );
-    case 'birds10': // Vogel mit 10
+    case 'birds10':
+    case 'birds25': // Vogel mit Zahl
       return (
         <G>
           <Path d="M-11 2 Q-6 -8 3 -6 Q8 -10 12 -7 L8 -4 Q8 6 -2 8 Q-9 8 -11 2 Z" fill={c('#5C9BD1')} />
@@ -473,11 +477,12 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Circle cx={6} cy={-6} r={1} fill={c('#13261C')} />
           <Path d="M12 -7 L15 -6 L12 -5 Z" fill={c('#E8B53A')} />
           <SvgText x={0} y={14} fontSize={7.5} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
-            10
+            {id.endsWith('25') ? '25' : '10'}
           </SvgText>
         </G>
       );
-    case 'insects10': // Biene mit 10
+    case 'insects10':
+    case 'insects25': // Biene mit Zahl
       return (
         <G>
           <Ellipse cx={-4} cy={-8} rx={4.5} ry={3} fill={c('#E6F2FA')} opacity={0.9} />
@@ -487,7 +492,7 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Circle cx={-8.5} cy={-2} r={2.6} fill={c('#13261C')} />
           <Path d="M8 -1 L11 -1" stroke={c('#13261C')} strokeWidth={1.4} strokeLinecap="round" />
           <SvgText x={0} y={14} fontSize={7.5} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
-            10
+            {id.endsWith('25') ? '25' : '10'}
           </SvgText>
         </G>
       );
@@ -536,6 +541,177 @@ function Art({ id, earned, g }: { id: BadgeId; earned: boolean; g: string }) {
           <Circle cx={-2.5} cy={-1.5} r={1.3} fill={c('#5A3A28')} />
           <Ellipse cx={1.5} cy={-1} rx={2.3} ry={1.8} fill={c('#5A3A28')} />
           <Path d="M-3 -1 L-5 -5 M-3 -1 L-4 3 M-2 -1 L0 -5 M-2 -1 L0 3 M-7 -2 L-9 -5" stroke={c('#5A3A28')} strokeWidth={0.7} />
+        </G>
+      );
+    case 'finds100': // Fundbuch mit 100
+      return (
+        <G>
+          <Path d="M-10 -11 H8 Q11 -11 11 -8 V11 H-7 Q-10 11 -10 8 Z" fill={c('#C9533B')} />
+          <Path d="M-10 8 Q-10 5 -7 5 H11 V11 H-7 Q-10 11 -10 8 Z" fill={c('#FFF4E2')} />
+          <Path d="M-6 -11 V5" stroke={c('#8E3626')} strokeWidth={1.2} />
+          <Path d="M-1 -8 Q2 -11 5 -8 Q8 -5 5 -3 Q2 -1 -1 -3 Q-3 -5 -1 -8 Z" fill={c('#7CC46A')} />
+          <SvgText x={2.5} y={3} fontSize={6} fontWeight="bold" fill={c('#FFE9A3')} textAnchor="middle">
+            100
+          </SvgText>
+        </G>
+      );
+    case 'streak100': // blaue Stichflamme mit 100
+      return (
+        <G>
+          <Path d="M0 -14 C5 -8 11 -4 11 4 C11 10 6 13 0 13 C-6 13 -11 10 -11 4 C-11 -2 -7 -4 -6 -9 C-3 -6 -1 -4 0 -14 Z" fill={c('#5C6FD1')} />
+          <Path d="M0 -6 C3 -2 7 1 7 6 C7 10 4 12 0 12 C-4 12 -7 10 -7 6 C-7 2 -3 0 0 -6 Z" fill={c('#9FD3F0')} />
+          <SvgText x={0} y={10} fontSize={7} fontWeight="bold" fill={c('#1F2E6B')} textAnchor="middle">
+            100
+          </SvgText>
+        </G>
+      );
+    case 'team10': // viele Köpfe mit 10
+      return (
+        <G>
+          <Circle cx={-10} cy={-4} r={2.8} fill={c('#CFE6F5')} />
+          <Path d="M-14.5 5 Q-14.5 -1 -10 -1 Q-5.5 -1 -5.5 5 Z" fill={c('#CFE6F5')} />
+          <Circle cx={10} cy={-4} r={2.8} fill={c('#CFE6F5')} />
+          <Path d="M5.5 5 Q5.5 -1 10 -1 Q14.5 -1 14.5 5 Z" fill={c('#CFE6F5')} />
+          <Circle cx={-5} cy={-7} r={3.2} fill={c('#E8DDF7')} />
+          <Path d="M-10 3 Q-10 -3 -5 -3 Q0 -3 0 3 Z" fill={c('#E8DDF7')} />
+          <Circle cx={5} cy={-7} r={3.2} fill={c('#E8DDF7')} />
+          <Path d="M0 3 Q0 -3 5 -3 Q10 -3 10 3 Z" fill={c('#E8DDF7')} />
+          <Circle cx={0} cy={-5} r={3.6} fill={c('#FFD45E')} />
+          <Path d="M-6 5 Q-6 -1 0 -1 Q6 -1 6 5 Z" fill={c('#FFD45E')} />
+          <SvgText x={0} y={13.5} fontSize={7.5} fontWeight="bold" fill={c('#FFD45E')} textAnchor="middle">
+            10
+          </SvgText>
+        </G>
+      );
+    case 'world10': // Weltkugel mit Ortsmarkierungen
+      return (
+        <G>
+          <Circle cx={0} cy={1} r={11} fill={c('#5BB0E0')} stroke={c('#FFF4C2')} strokeWidth={1.2} />
+          <Path d="M-8 -5 Q-3 -8 0 -5 Q2 -2 -2 0 Q-5 2 -3 5 Q-1 8 -5 9 Q-10 5 -8 -5 Z" fill={c('#7CC46A')} />
+          <Path d="M3 -8 Q8 -6 10 -1 Q7 1 5 -1 Q2 -3 3 -8 Z M4 4 Q8 3 9 6 Q6 10 3 9 Q2 6 4 4 Z" fill={c('#7CC46A')} />
+          {[
+            [-5, -4],
+            [6, -3],
+            [5, 6],
+          ].map(([x, y], k) => (
+            <G key={k} transform={`translate(${x} ${y})`}>
+              <Path d="M0 0 C-3 -3 -3.5 -5 -3.5 -6 A3.5 3.5 0 0 1 3.5 -6 C3.5 -5 3 -3 0 0 Z" fill={c('#E05A5A')} stroke="#fff" strokeWidth={0.6} />
+              <Circle cx={0} cy={-6} r={1.2} fill="#fff" />
+            </G>
+          ))}
+        </G>
+      );
+    case 'quiz500': // Bücherstapel mit 500
+      return (
+        <G>
+          <Path d="M-11 6 H11 V11 H-11 Z" fill={c('#5C9BD1')} />
+          <Path d="M-9 1 H10 V6 H-9 Z" fill={c('#E8833A')} />
+          <Path d="M-10 -4 H9 V1 H-10 Z" fill={c('#7CC46A')} />
+          <Path d="M-8 -9 H8 V-4 H-8 Z" fill={c('#E05A5A')} />
+          <Path d="M-11 8.5 H11 M-9 3.5 H10 M-10 -1.5 H9 M-8 -6.5 H8" stroke="#fff" strokeOpacity={0.5} strokeWidth={0.7} />
+          <SvgText x={0} y={-10.5} fontSize={6} fontWeight="bold" fill={c('#FFE9A3')} textAnchor="middle">
+            500
+          </SvgText>
+        </G>
+      );
+    case 'expedition': // Kompass
+      return (
+        <G>
+          <Circle cx={0} cy={0} r={12} fill={c('#FFF4E2')} stroke={c('#B7832F')} strokeWidth={2} />
+          <Path d="M0 -10 V-8 M0 10 V8 M-10 0 H-8 M10 0 H8" stroke={c('#7A4A1E')} strokeWidth={1.2} strokeLinecap="round" />
+          <Path d="M0 -8 L3 0 L0 1.5 L-3 0 Z" fill={c('#D9433A')} />
+          <Path d="M0 8 L3 0 L0 -1.5 L-3 0 Z" fill={c('#6B7681')} />
+          <Circle cx={0} cy={0} r={1.3} fill={c('#7A4A1E')} />
+        </G>
+      );
+    case 'allMonths': // Kalender mit 12 Feldern
+      return (
+        <G>
+          <Path d="M-11 -9 Q-12 -9 -12 -8 V11 Q-12 12 -11 12 H11 Q12 12 12 11 V-8 Q12 -9 11 -9 Z" fill={c('#FFFFFF')} />
+          <Path d="M-12 -8 Q-12 -9 -11 -9 H11 Q12 -9 12 -8 V-4 H-12 Z" fill={c('#3E8F5E')} />
+          <Path d="M-6 -12 V-6 M6 -12 V-6" stroke={c('#FFF4C2')} strokeWidth={2} strokeLinecap="round" />
+          {Array.from({ length: 12 }).map((_, i) => (
+            <Circle
+              key={i}
+              cx={-8.4 + (i % 4) * 5.6}
+              cy={-0.5 + Math.floor(i / 4) * 4.6}
+              r={1.7}
+              fill={c(['#9FD3F0', '#9FD3F0', '#7CC46A', '#7CC46A', '#7CC46A', '#FFD45E', '#FFD45E', '#FFD45E', '#E8833A', '#E8833A', '#E8833A', '#9FD3F0'][i])}
+            />
+          ))}
+        </G>
+      );
+    case 'fixer': // Klemmbrett mit Haken
+      return (
+        <G>
+          <Path d="M-9 -9 H9 Q10 -9 10 -8 V12 Q10 13 9 13 H-9 Q-10 13 -10 12 V-8 Q-10 -9 -9 -9 Z" fill={c('#C7803F')} />
+          <Path d="M-7 -6 H7 V10 H-7 Z" fill={c('#FFFFFF')} />
+          <Path d="M-4 -12 H4 Q5 -12 5 -11 V-7 H-5 V-11 Q-5 -12 -4 -12 Z" fill={c('#B9C2CB')} />
+          <Path d="M-4.5 2 L-1 5.5 L5 -2" stroke={c('#3E8F5E')} strokeWidth={2.4} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </G>
+      );
+    case 'photographer': // Kamera
+      return (
+        <G>
+          <Path d="M-5 -8 L-3 -11 H3 L5 -8 Z" fill={c('#4A524B')} />
+          <Path d="M-12 -8 H12 Q13 -8 13 -7 V8 Q13 9 12 9 H-12 Q-13 9 -13 8 V-7 Q-13 -8 -12 -8 Z" fill={c('#3A4440')} />
+          <Circle cx={0} cy={0.5} r={6.5} fill={c('#CFE6F5')} stroke={c('#B9C2CB')} strokeWidth={1.6} />
+          <Circle cx={0} cy={0.5} r={3.2} fill={c('#1F4E6B')} />
+          <Circle cx={-1.3} cy={-0.8} r={1} fill="#fff" fillOpacity={0.8} />
+          <Circle cx={9} cy={-5} r={1.3} fill={c('#FFD45E')} />
+        </G>
+      );
+    case 'share3': // Papierflieger
+      return (
+        <G>
+          <Path d="M-13 1 L13 -10 L4 12 L0 4 Z" fill={c('#FFFFFF')} />
+          <Path d="M0 4 L13 -10 L-2 9 Z" fill={c('#CFE6F5')} />
+          <Path d="M-11 9 Q-8 7 -6 9 M-13 13 Q-9 10 -5 13" stroke={c('#FFD45E')} strokeWidth={1.4} fill="none" strokeLinecap="round" strokeDasharray="2 2" />
+        </G>
+      );
+    case 'spring10': // Tulpe
+      return (
+        <G>
+          <Path d="M0 11 V-1" stroke={c('#7CC46A')} strokeWidth={1.8} />
+          <Path d="M0 9 Q-8 6 -8 -2 Q-3 2 0 7 Z M0 9 Q8 6 8 -2 Q3 2 0 7 Z" fill={c('#7CC46A')} />
+          <Path d="M-6 -11 L-3 -7 L0 -12 L3 -7 L6 -11 V-4 Q6 1 0 1 Q-6 1 -6 -4 Z" fill={c('#F07CA8')} />
+          <Path d="M-3 -7 Q-2 -3 0 -2 Q2 -3 3 -7" stroke="#fff" strokeOpacity={0.5} strokeWidth={0.8} fill="none" />
+        </G>
+      );
+    case 'summer10': // Sonne
+      return (
+        <G>
+          {Array.from({ length: 12 }).map((_, i) => {
+            const a = (i / 12) * Math.PI * 2;
+            return <Path key={i} d={`M${(Math.cos(a) * 8.5).toFixed(2)} ${(Math.sin(a) * 8.5).toFixed(2)} L${(Math.cos(a) * 13).toFixed(2)} ${(Math.sin(a) * 13).toFixed(2)}`} stroke={c('#FFD45E')} strokeWidth={2} strokeLinecap="round" />;
+          })}
+          <Circle cx={0} cy={0} r={7} fill={c('#FFB33A')} />
+          <Circle cx={-2} cy={-2} r={2.4} fill="#fff" fillOpacity={0.35} />
+        </G>
+      );
+    case 'autumn10': // Ahornblatt
+      return (
+        <G>
+          <Path
+            d="M0 -13 L2.5 -7 L6 -9 L5 -3 L11 -5 L8.5 0 L12 2 L5 4.5 L6 8 L1 6 L0.8 13 H-0.8 L-1 6 L-6 8 L-5 4.5 L-12 2 L-8.5 0 L-11 -5 L-5 -3 L-6 -9 L-2.5 -7 Z"
+            fill={c('#E8833A')}
+            stroke={c('#B7531F')}
+            strokeWidth={0.8}
+            strokeLinejoin="round"
+          />
+          <Path d="M0 12 V-9 M0 3 L-7 -2 M0 3 L7 -2" stroke={c('#B7531F')} strokeWidth={0.8} />
+        </G>
+      );
+    case 'winter10': // Schneeflocke
+      return (
+        <G stroke={c('#E6F2FA')} strokeWidth={1.8} strokeLinecap="round">
+          {[0, 60, 120].map((r) => (
+            <G key={r} transform={`rotate(${r})`}>
+              <Path d="M0 -13 V13" />
+              <Path d="M-3.5 -10 L0 -7 L3.5 -10 M-3.5 10 L0 7 L3.5 10" fill="none" />
+            </G>
+          ))}
+          <Circle cx={0} cy={0} r={2.2} fill={c('#9FD3F0')} stroke="none" />
         </G>
       );
     case 'allgroups': // Krone mit sechs Edelsteinen

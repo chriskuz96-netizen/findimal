@@ -17,6 +17,9 @@ export type Animal = {
   name: string;
   rasse?: string; // nur bei Haus- und Nutztieren, z. B. "Golden Retriever"
   rasse_sicher?: boolean; // false = Rasse nur geschätzt
+  // nur in der App gesetzt (für Abzeichen): mit mehreren Fotos bestimmt / per „Stimmt nicht?“ richtiggestellt
+  fotos?: number;
+  korrigiert?: boolean;
   gefaehrdet?: boolean;
   giftig?: boolean; // giftig oder sticht/beißt mit Gift
   gross?: boolean; // ausgewachsen über 1 Meter

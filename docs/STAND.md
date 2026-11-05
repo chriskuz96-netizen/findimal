@@ -251,6 +251,14 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Android später: FCM-Schlüssel (Firebase) bei Expo hinterlegen.
 - Im selben Build: iOS-Berechtigungstexte jetzt auch pt/ja/it (`locales/`).
 
+## Neue Abzeichen (5.11.)
+- 19 neue Abzeichen (jetzt 68): species100/200, finds100, streak100, team10, world10, birds25, insects25, quiz500,
+  quizStreak100, expedition (5 Arten an einem Tag), allMonths, fixer („Stimmt nicht?“ mit anderer Art), photographer
+  (mehrere Fotos), share3 (3 verschiedene Funde geteilt, `src/shared.ts`), spring10/summer10/autumn10/winter10
+  (10 Funde in einer Jahreszeit eines Jahres; in Tropen/Südhalbkugel nach Monaten benannt, `src/badgeText.ts`).
+- Merkmale am Fund: `animal.fotos`, `animal.korrigiert` (bleiben bei `updateFind` erhalten).
+- Ideen für weitere: Abzeichen in Stufen (Bronze → Silber → Gold) statt immer neuer Einzelabzeichen.
+
 ## Ideen für später (wenn viele Spieler da sind)
 - **„Später bestimmen“ (5.11., Wunsch):** Scheitert der Foto-Upload auch nach den automatischen Wiederholungen,
   Foto in der App aufbewahren („1 Foto wartet auf Bestimmung“ auf der Startseite), automatisch erneut senden

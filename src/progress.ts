@@ -161,7 +161,26 @@ export type BadgeId =
   | 'pets3'
   | 'tiny'
   | 'abroad'
-  | 'world5';
+  | 'world5'
+  | 'species100'
+  | 'species200'
+  | 'finds100'
+  | 'streak100'
+  | 'team10'
+  | 'world10'
+  | 'birds25'
+  | 'insects25'
+  | 'quiz500'
+  | 'quizStreak100'
+  | 'expedition'
+  | 'allMonths'
+  | 'fixer'
+  | 'photographer'
+  | 'share3'
+  | 'spring10'
+  | 'summer10'
+  | 'autumn10'
+  | 'winter10';
 
 // Medaillen-Stufe je Abzeichen. Jedes verdiente Abzeichen gibt XP: Bronze 25, Silber 50, Gold 100.
 export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
@@ -214,6 +233,25 @@ export const BADGE_TIER: Record<BadgeId, 'bronze' | 'silver' | 'gold'> = {
   tiny: 'silver',
   abroad: 'silver',
   world5: 'gold',
+  species100: 'gold',
+  species200: 'gold',
+  finds100: 'gold',
+  streak100: 'gold',
+  team10: 'silver',
+  world10: 'gold',
+  birds25: 'gold',
+  insects25: 'gold',
+  quiz500: 'gold',
+  quizStreak100: 'gold',
+  expedition: 'silver',
+  allMonths: 'gold',
+  fixer: 'bronze',
+  photographer: 'bronze',
+  share3: 'bronze',
+  spring10: 'silver',
+  summer10: 'silver',
+  autumn10: 'silver',
+  winter10: 'silver',
 };
 export const BADGE_XP = { bronze: 25, silver: 50, gold: 100 };
 
@@ -310,14 +348,37 @@ function petKinds(finds: Find[]): number {
 // Verschiedene Arten, auf die eine Bedingung zutrifft
 const kinds = (finds: Find[], ok: (f: Find) => boolean) => new Set(finds.filter(ok).map((f) => speciesKey(f.animal))).size;
 
+// „Expedition“: meiste verschiedene Arten an einem einzigen Tag
+function bestDay(finds: Find[]): number {
+  const days = new Map<string, Set<string>>();
+  for (const f of finds) {
+    const k = dayKey(new Date(f.date));
+    const set = days.get(k) ?? new Set<string>();
+    set.add(speciesKey(f.animal));
+    days.set(k, set);
+  }
+  return Math.max(0, ...[...days.values()].map((d) => d.size));
+}
+
+// Funde in einer Jahreszeit (Höchstwert über alle Jahre, z. B. Herbst 2026 oder Herbst 2027)
+function inSeason(finds: Find[], id: string): number {
+  const years = new Map<string, number>();
+  for (const f of finds) {
+    const k = seasonKey(new Date(f.date));
+    if (k.startsWith(id + '-')) years.set(k, (years.get(k) ?? 0) + 1);
+  }
+  return Math.max(0, ...years.values());
+}
+
 // extra.bestRank: bester Platz, den man in der weltweiten Rangliste je hatte (null = nie dabei)
 // extra.maxFriends: höchste Zahl an Freunden in der Rangliste
+// extra.shared: Zahl verschiedener Funde, die man schon geteilt hat
 // quiz: XP und richtige Antworten aus allen Quiz-Runden (Forscher-Quiz und frühere Einzelfragen)
 export function computeProgress(
   finds: Find[],
   quiz: { xp: number; correct: number; stats?: ForscherStats },
   now = new Date(),
-  extra: { bestRank?: number | null; maxFriends?: number; awardXp?: number } = {},
+  extra: { bestRank?: number | null; maxFriends?: number; awardXp?: number; shared?: number } = {},
 ): Progress {
   // Gleiche Art am gleichen Tag zählt nur einmal (für XP und Abzeichen)
   const dayOnce = new Set<string>();
@@ -423,6 +484,28 @@ export function computeProgress(
     // Funde in verschiedenen Ländern (Land kommt vom Standort beim Fotografieren)
     { id: 'abroad', earned: new Set(finds.map((f) => f.country).filter(Boolean)).size >= 2 },
     { id: 'world5', earned: new Set(finds.map((f) => f.country).filter(Boolean)).size >= 5 },
+    // Langzeit-Ziele
+    { id: 'species100', earned: seen.size >= 100 },
+    { id: 'species200', earned: seen.size >= 200 },
+    { id: 'finds100', earned: finds.length >= 100 },
+    { id: 'streak100', earned: longestStreak(finds) >= 100 },
+    { id: 'team10', earned: (extra.maxFriends ?? 0) >= 10 },
+    { id: 'world10', earned: new Set(finds.map((f) => f.country).filter(Boolean)).size >= 10 },
+    { id: 'birds25', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'bird') >= 25 },
+    { id: 'insects25', earned: kinds(finds, (f) => groupOf(f.animal.gruppe)?.id === 'ins') >= 25 },
+    { id: 'quiz500', earned: quiz.correct >= 500 },
+    { id: 'quizStreak100', earned: (qs?.bestStreak ?? 0) >= 100 },
+    // Entdecken mit Köpfchen
+    { id: 'expedition', earned: bestDay(finds) >= 5 },
+    { id: 'allMonths', earned: new Set(finds.map((f) => new Date(f.date).getMonth())).size >= 12 },
+    { id: 'fixer', earned: finds.some((f) => !!f.animal.korrigiert) },
+    { id: 'photographer', earned: finds.some((f) => (f.animal.fotos ?? 1) >= 2) },
+    { id: 'share3', earned: (extra.shared ?? 0) >= 3 },
+    // Jahreszeiten: 10 Funde in einer Jahreszeit (irgendeines Jahres)
+    { id: 'spring10', earned: inSeason(finds, 'spring') >= 10 },
+    { id: 'summer10', earned: inSeason(finds, 'summer') >= 10 },
+    { id: 'autumn10', earned: inSeason(finds, 'autumn') >= 10 },
+    { id: 'winter10', earned: inSeason(finds, 'winter') >= 10 },
   ];
   // XP für verdiente Abzeichen
   for (const b of badges) if (b.earned) xp += BADGE_XP[BADGE_TIER[b.id]];

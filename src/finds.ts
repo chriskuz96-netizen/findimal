@@ -166,7 +166,18 @@ export function updatePlace(id: string, place: string): Promise<Find[]> {
 
 // Ersetzt die Bestimmung eines Fundes (z. B. nach einem zweiten Foto).
 export function updateFind(id: string, animal: Animal): Promise<Find[]> {
-  return change((list) => list.map((f) => (f.id === id ? { ...f, animal } : f)));
+  return change((list) => list.map((f) => (f.id === id ? { ...f, animal: keepMarks(f.animal, animal) } : f)));
+}
+
+// Merkmale für Abzeichen (mehrere Fotos, richtiggestellt) bleiben erhalten, wenn ein Fund neu bestimmt
+// oder der Steckbrief nachgeladen wird
+function keepMarks(old: Animal, next: Animal): Animal {
+  const fotos = Math.max(old.fotos ?? 0, next.fotos ?? 0);
+  return {
+    ...next,
+    ...(fotos > 1 ? { fotos } : {}),
+    ...(old.korrigiert || next.korrigiert ? { korrigiert: true } : {}),
+  };
 }
 
 // Übersetzte Texte eines Fundes speichern (Sprachwechsel)

@@ -23,12 +23,14 @@ import { ShareCard, shareCard, ViewRef } from '../components/ShareCard';
 import { Icon, IconName } from '../components/Icon';
 import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, speciesKey, useFindPhoto } from '../finds';
+import { useBadgeText } from '../badgeText';
 import { useI18n } from '../i18n';
 import { Animal, cancelIdentify, hasDetails, identify, IdentifyCancel, IdentifyResult, Korrektur, loadDetails, newCancel } from '../identify';
 import { breedGuessed, displayName } from '../names';
 import { levelTitle, Progress, Reward } from '../progress';
 import { colors, darkPalette, fonts, lightPalette, Palette, spacing } from '../theme';
 import { usePlus } from '../plus';
+import { markShared } from '../shared';
 import { bigAdDue, markBigAdShown } from '../usage';
 
 type Props =
@@ -191,7 +193,10 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
         setResult(r);
         // alles Erkannte kommt in die Sammlung; Zeichnungen, Internetbilder usw. nur zum Nachschlagen (ohne Punkte)
         if (r.ok && r.animal.tier_gefunden) {
-          const res = await onIdentified(r.animal, findId.current, list[0]);
+          // für Abzeichen merken: mit mehreren Fotos bestimmt, per „Stimmt nicht?“ eine andere Art richtiggestellt
+          const fixed = !!korrektur && prev?.ok && speciesKey(r.animal) !== speciesKey(prev.animal);
+          const marked = { ...r.animal, ...(list.length > 1 ? { fotos: list.length } : {}), ...(fixed ? { korrigiert: true } : {}) };
+          const res = await onIdentified(marked, findId.current, list[0]);
           findId.current = res.id;
           setReward(res.reward);
           if (!korrektur && list.length === 1 && (await bigAdDue())) setBigAd('due');
@@ -392,7 +397,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
                     {/* Fund als schönes Bild teilen (WhatsApp & Co.) */}
                     {!!mainUri && (
                       <Pressable
-                        onPress={() => shareCard(shareRef, t)}
+                        onPress={() => shareCard(shareRef, t).then((ok) => void (ok && markShared(findId.current)))}
                         hitSlop={10}
                         accessibilityRole="button"
                         accessibilityLabel={t('res.share')}
@@ -599,6 +604,7 @@ function Certainty({ value }: { value: Animal['sicherheit'] }) {
 // Belohnungs-Karte: XP mit Aufschlüsselung und Stufenbalken, der sich füllt
 function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: number; p: Palette; bottom: number }) {
   const { t } = useI18n();
+  const badgeText = useBadgeText();
   const pop = useRef(new Animated.Value(0)).current;
   const bar = useRef(new Animated.Value(0)).current;
   const count = useRef(new Animated.Value(0)).current;
@@ -745,7 +751,7 @@ function RewardToast({ reward, photos, p, bottom }: { reward: Reward; photos: nu
           {leveled
             ? t('rew.levelUp', { n: lvl, name: lvlName })
             : reward.items
-                .map((i) => `${i.badge ? `${labels.badge}: ${t(`badge.${i.badge}` as 'badge.first')}` : labels[i.id]} +${i.xp}`)
+                .map((i) => `${i.badge ? `${labels.badge}: ${badgeText.name(i.badge)}` : labels[i.id]} +${i.xp}`)
                 .join(' · ')}
         </Text>
         {photos > 1 && <Text style={[styles.tSub, { marginTop: 2 }]}>{t('rew.updated', { n: photos })}</Text>}
