@@ -238,6 +238,17 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
      Duo-Sammlungen. (Ob optimierte Apps in der Suche höher stehen, ist nicht belegt.)
   Testen: Layout im Browser in Duo-Größe; echtes Gerät oder Xcode-Simulator fehlt bisher.
 
+## Push bei Freundschaftsanfragen (5.11.)
+- App (`src/push.ts`): meldet Expo-Push-Token + Sprache per `board_push`, nur wenn Mitteilungen erlaubt und in der
+  Rangliste dabei (fragt nie extra). Tippen auf die Mitteilung öffnet Challenges/Rangliste.
+- Server: Token unter `pt:<Code>`, bei neuer Anfrage Mitteilung über exp.host (höchstens 1 pro Absender/Empfänger/Tag,
+  `pq:`), abgemeldete Handys werden gelöscht, `board_delete` löscht den Token. Datenschutz in 7 Sprachen ergänzt.
+- Braucht neuen Build (Plugin `expo-notifications`, aps-environment production). Push-Fähigkeit der App-ID ist an.
+- **Offen:** APNs-Schlüssel (`AuthKey_….p8`, Team Scoped, Sandbox & Production, liegt in den iPad-Downloads) bei
+  expo.dev → Credentials → iOS → Push Key hochladen. Am iPad nicht möglich (Datei-Auswahl sperrt .p8) – am Computer machen.
+- Android später: FCM-Schlüssel (Firebase) bei Expo hinterlegen.
+- Im selben Build: iOS-Berechtigungstexte jetzt auch pt/ja/it (`locales/`).
+
 ## Ideen für später (wenn viele Spieler da sind)
 - **„Später bestimmen“ (5.11., Wunsch):** Scheitert der Foto-Upload auch nach den automatischen Wiederholungen,
   Foto in der App aufbewahren („1 Foto wartet auf Bestimmung“ auf der Startseite), automatisch erneut senden
