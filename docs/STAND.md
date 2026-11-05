@@ -259,6 +259,16 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Merkmale am Fund: `animal.fotos`, `animal.korrigiert` (bleiben bei `updateFind` erhalten).
 - Ideen für weitere: Abzeichen in Stufen (Bronze → Silber → Gold) statt immer neuer Einzelabzeichen.
 
+## Wochenzahlen / Dashboard (5.11.)
+- App sagt einmal am Tag `hello` (src/hello.ts); Server speichert `hi:<Datum>:<Hash16>` mit Metadaten
+  (l Sprache, v Version, p System, n erster Start, t Tester), 90 Tage. Datenschutz-Absatz in 7 Sprachen.
+  Achtung: `u:` ist für die Tageslimits belegt.
+- `tools/stats.py stats.json <ordner>` liest KV + Cloudflare-Statistik (+ TestFlight) und schreibt die Dashboard-Dateien.
+- Dashboard: https://claude.ai/artifact/TGesKgmkARLjZH4Fg8kfvy (Datensätze daily/weekly/server/split/totals als Dateien).
+- Geplante Aufgabe „Findimal Wochenbericht“ jeden Montag 8:38 (Berlin) in diese Claude-Sitzung.
+- Später: App-Store-Downloads aus App Store Connect (Sales-Reports, Vendor-Nummer nötig) ergänzen.
+- Kosten: Cloudflare-KV kostenlos nur 1.000 Schreibvorgänge/Tag; ab ca. 500 täglichen Nutzern Workers Paid (5 $/Monat) nötig.
+
 ## Ideen für später (wenn viele Spieler da sind)
 - **„Später bestimmen“ (5.11., Wunsch):** Scheitert der Foto-Upload auch nach den automatischen Wiederholungen,
   Foto in der App aufbewahren („1 Foto wartet auf Bestimmung“ auf der Startseite), automatisch erneut senden

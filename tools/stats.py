@@ -24,6 +24,7 @@ ACCOUNT = 'b35f688e4c54779e61350c343f13bf4b'
 CF = f'https://api.cloudflare.com/client/v4/accounts/{ACCOUNT}'
 APP_ID = '6823092816'
 DAYS = 56  # 8 Wochen
+COUNT_START = dt.date(2026, 11, 5)  # seit diesem Tag zählt der Server Nutzer (davor keine Daten)
 
 
 def cf(path, data=None):
@@ -67,6 +68,8 @@ def main():
     meta_last = {}  # Hash -> letzte Metadaten
     for i in range(DAYS - 1, -1, -1):
         d = today - dt.timedelta(days=i)
+        if d < COUNT_START:
+            continue
         ks = keys(ns, f'hi:{d.isoformat()}:')
         new = 0
         for k in ks:
@@ -81,7 +84,7 @@ def main():
 
     # --- Wochen (Mo–So) ---
     weeks = []
-    ws = week_start(today - dt.timedelta(days=DAYS - 1))
+    ws = week_start(max(today - dt.timedelta(days=DAYS - 1), COUNT_START))
     while ws <= today:
         we = ws + dt.timedelta(days=6)
         active = {h for h, s in seen_on.items() if any(ws <= x <= we for x in s)}
@@ -152,6 +155,26 @@ def main():
         open(sys.argv[1], 'w').write(text)
     else:
         print(text)
+    # Dateien für die Wochenübersicht (Dashboard): python3 tools/stats.py stats.json <ordner>
+    if len(sys.argv) > 2:
+        d = sys.argv[2]
+        os.makedirs(d, exist_ok=True)
+        def put(name, rows):
+            open(os.path.join(d, name), 'w').write(json.dumps(rows, ensure_ascii=False))
+        put('daily.json', days)
+        put('weekly.json', weeks)
+        put('server.json', requests if isinstance(requests, list) else [])
+        labels = {'l': 'Sprache', 'p': 'System', 'v': 'App-Version'}
+        names = {'de': 'Deutsch', 'en': 'Englisch', 'fr': 'Französisch', 'es': 'Spanisch', 'pt': 'Portugiesisch',
+                 'ja': 'Japanisch', 'it': 'Italienisch', 'ios': 'iOS', 'android': 'Android', 'web': 'Web', '?': 'unbekannt', '': 'unbekannt'}
+        rows = []
+        for f, kind in labels.items():
+            for v, n in split(f).items():
+                rows.append({'kind': kind, 'value': names.get(v, v), 'users': n})
+        put('split.json', rows)
+        put('totals.json', [{'board': board, 'push': push,
+                             'testers': (tf or {}).get('testers'), 'installed': (tf or {}).get('installed'),
+                             'active7': len(recent), 'generated': out['generated']}])
 
 
 if __name__ == '__main__':
