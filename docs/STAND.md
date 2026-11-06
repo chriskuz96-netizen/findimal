@@ -188,6 +188,16 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   Laufzeiten verteilt, Links in `docs/APPSTORE.md` angepasst. Alte Einladungslinks funktionieren nicht mehr.
 - GitHub-Projekt ist öffentlich (Server-Adresse sichtbar, Geheimnisse nicht) – ggf. auf privat stellen.
 
+## Einnahmen-Modell (Stand 6.11.)
+- **Plus-Abo** (Haupteinnahme): 1,99 €/Monat oder 14,99 €/Jahr, über App Store/Google Play, technisch mit RevenueCat.
+  Abzüge nur von Plus-Einnahmen: Apple/Google 15 % (Small Business Program beantragen), RevenueCat 1 % erst ab 2.500 $/Monat.
+- **Werbung über AdMob** (Zubrot und Anreiz für Plus): Banner unten im Quiz, Vollbild nach der XP-Animation, halbe
+  Werbeseite ab dem 3. Foto, Belohnungsvideos (Joker, Serie retten, Extra-Foto). Nur nicht-personalisiert und
+  familiengeeignet, EU-Einwilligungsfenster (Google UMP). Kein Abzug durch Apple/RevenueCat; Auszahlung ab ca. 70 €.
+  Plus-Nutzer sehen keine Werbung. Kontotyp (Einzelperson/Unternehmen) ist endgültig → nach dem Play-Konto wählen.
+- Plus und AdMob kommen zusammen in einen Build vor dem Start (Dezember, nach der Gewerbeanmeldung).
+- Kosten: KI (Anthropic), Cloudflare (0 bzw. 5 $/Monat), Apple 99 €/Jahr, Google 25 $ einmalig.
+
 ## Android gleichzeitig starten (entschieden 30.10.)
 - Google Play verlangt bei neuen privaten Konten vor der Freigabe einen geschlossenen Test mit mindestens 12 Testern
   über 14 Tage. Deshalb: Konto (einmalig 25 $) bis ca. 7.11. anlegen, Identität bestätigen lassen, bis ca. 10.11.
