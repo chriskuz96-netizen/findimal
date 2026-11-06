@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AppLogo } from '../components/AppLogo';
 import { CameraButton } from '../components/CameraButton';
+import { Explorer } from '../components/Explorer';
 import { JungleBackground } from '../components/JungleBackground';
 import { NearbyList } from '../components/NearbyList';
 import { Avatar } from '../components/Avatar';
@@ -118,10 +119,7 @@ export function StartScreen({
         {/* ganz kleiner Hinweis: das Forscher-Quiz ist heute noch offen (führt zu den Challenges) */}
         {hint && (
           <View style={[styles.quizHintWrap, { top: insets.top + 58 }]} pointerEvents="box-none">
-            <Pressable onPress={onOpenQuiz} hitSlop={8} accessibilityRole="button" style={({ pressed }) => [styles.quizHint, { opacity: pressed ? 0.7 : 1 }]}>
-              <View style={styles.quizDot} />
-              <Text style={styles.quizHintText}>{t('start.quiz')} ›</Text>
-            </Pressable>
+            <QuizHint label={t('start.quiz')} onPress={onOpenQuiz!} />
           </View>
         )}
 
@@ -240,9 +238,27 @@ const styles = StyleSheet.create({
     textShadowRadius: 10,
   },
   quizHintWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center', zIndex: 2 },
-  quizHint: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: 99, paddingHorizontal: 10, paddingVertical: 4 },
-  quizDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.accent },
-  quizHintText: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.white, opacity: 0.9 },
+  quizHint: { flexDirection: 'row', alignItems: 'center' },
+  quizFig: { zIndex: 1, borderRadius: 99, shadowColor: '#000', shadowOpacity: 0.3, shadowRadius: 4, shadowOffset: { width: 0, height: 2 }, elevation: 3 },
+  // Sprechblase mit kleiner Spitze zum Forscher hin
+  quizTail: { width: 0, height: 0, marginLeft: -2, borderTopWidth: 5, borderBottomWidth: 5, borderRightWidth: 7, borderTopColor: 'transparent', borderBottomColor: 'transparent', borderRightColor: '#FFF6EA' },
+  quizBubble: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 3,
+    backgroundColor: '#FFF6EA',
+    borderRadius: 12,
+    paddingLeft: 9,
+    paddingRight: 7,
+    paddingVertical: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
+  },
+  quizHintText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
+  quizArrow: { fontFamily: fonts.sansBold, fontSize: 15, lineHeight: 16, color: colors.accentDark },
   freeVideoRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 3 },
   freeVideo: {
     fontFamily: fonts.sansBold,
@@ -291,3 +307,50 @@ const styles = StyleSheet.create({
     textShadowRadius: 8,
   },
 });
+
+// Kleiner Forscher mit Sprechblase: das Forscher-Quiz ist heute noch offen. Wippt ab und zu kurz,
+// damit man sieht, dass man draufdrücken kann (nicht bei „Bewegung reduzieren“).
+function QuizHint({ label, onPress }: { label: string; onPress: () => void }) {
+  const nod = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    let loop: Animated.CompositeAnimation | null = null;
+    let alive = true;
+    AccessibilityInfo.isReduceMotionEnabled()
+      .catch(() => false)
+      .then((reduce) => {
+        if (!alive || reduce) return;
+        loop = Animated.loop(
+          Animated.sequence([
+            Animated.delay(3500),
+            Animated.timing(nod, { toValue: 1, duration: 160, easing: Easing.out(Easing.quad), useNativeDriver: true }),
+            Animated.timing(nod, { toValue: -1, duration: 220, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+            Animated.timing(nod, { toValue: 0, duration: 160, easing: Easing.in(Easing.quad), useNativeDriver: true }),
+          ]),
+        );
+        loop.start();
+      });
+    return () => {
+      alive = false;
+      loop?.stop();
+    };
+  }, [nod]);
+  const rotate = nod.interpolate({ inputRange: [-1, 1], outputRange: ['-10deg', '10deg'] });
+  return (
+    <Pressable
+      onPress={onPress}
+      hitSlop={10}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      style={({ pressed }) => [styles.quizHint, { transform: [{ scale: pressed ? 0.95 : 1 }] }]}
+    >
+      <Animated.View style={[styles.quizFig, { transform: [{ rotate }] }]}>
+        <Explorer size={30} />
+      </Animated.View>
+      <View style={styles.quizTail} />
+      <View style={styles.quizBubble}>
+        <Text style={styles.quizHintText}>{label}</Text>
+        <Text style={styles.quizArrow}>›</Text>
+      </View>
+    </Pressable>
+  );
+}
