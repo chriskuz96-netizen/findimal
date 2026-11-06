@@ -17,7 +17,7 @@ import { GroupIcon, GROUPS } from '../groups';
 import { useBadgeText } from '../badgeText';
 import { useI18n } from '../i18n';
 import { useLoop } from '../hooks/useLoop';
-import { Badge, dayKey, levelAt, levelTitle, Progress, seasonKey, XP } from '../progress';
+import { Badge, BADGE_TIER, BADGE_XP, dayKey, levelAt, levelTitle, Progress, seasonKey, XP } from '../progress';
 import { seasonDaysLeft } from '../season';
 import { WeekTask, weekStart } from '../weekly';
 import { ForscherQuiz } from '../components/ForscherQuiz';
@@ -569,7 +569,8 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
                 name={badgeName(b)}
                 onPress={() => {
                   if (freshBadges.includes(b.id)) onSeeBadges?.([b.id]);
-                  Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}` : t('ch.notYet', { hint: badgeHint(b) }));
+                  const xp = `+${BADGE_XP[BADGE_TIER[b.id]]} XP`;
+                  Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}\n\n${xp}` : `${t('ch.notYet', { hint: badgeHint(b) })}\n\n${xp}`);
                 }}
               />
               ),
@@ -716,6 +717,7 @@ function BadgeView({
         )}
       </Animated.View>
       <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{name}</Text>
+      <Text style={[styles.badgeXp, { color: badge.earned ? (p.bg === darkPalette.bg ? colors.accent : colors.accentDark) : p.mute }]}>+{BADGE_XP[BADGE_TIER[badge.id]]} XP</Text>
       {selected && <Text style={[styles.badgeSel, { color: colors.accent }]}>{t('ch.profilePic')}</Text>}
     </Pressable>
   );
@@ -963,5 +965,6 @@ const styles = StyleSheet.create({
   newPill: { backgroundColor: colors.accent, borderRadius: 10, paddingHorizontal: 8, paddingVertical: 3 },
   newPillText: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.white },
   badgeSel: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 1 },
+  badgeXp: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 1, fontVariant: ['tabular-nums'] },
   note: { marginTop: 14, marginHorizontal: spacing.gutter, fontFamily: fonts.sans, fontSize: 12 },
 });
