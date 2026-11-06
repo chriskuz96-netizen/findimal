@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
   specInfoText: { fontFamily: fonts.serifBold, fontSize: 12, color: '#123826', marginTop: -1 },
   specDim: { flex: 1, backgroundColor: 'rgba(0,0,0,0.45)', alignItems: 'center', justifyContent: 'center', padding: 24 },
   specBox: { width: '100%', maxWidth: 380, borderRadius: 20, padding: 20 },
-  specSmall: { fontFamily: fonts.sansBold, fontSize: 12, textTransform: 'uppercase', letterSpacing: 0.6 },
+  specSmall: { fontFamily: fonts.sansBold, fontSize: 12 },
   specBoxTitle: { fontFamily: fonts.serifBold, fontSize: 21, marginTop: 4 },
   specText: { fontFamily: fonts.sans, fontSize: 15, lineHeight: 21, marginTop: 6 },
   specWhere: { fontFamily: fonts.sansBold, fontSize: 13, marginTop: 8 },

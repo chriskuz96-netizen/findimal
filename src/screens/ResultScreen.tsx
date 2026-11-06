@@ -1024,7 +1024,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   tHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  tSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight, textTransform: 'uppercase', letterSpacing: 0.6 },
+  tSmall: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.accentLight },
   tName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
   tXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },
   tGain: { fontFamily: fonts.sansBold, fontSize: 12.5, color: '#9FE0B4' },

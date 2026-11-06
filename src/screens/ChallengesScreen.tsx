@@ -876,7 +876,7 @@ const styles = StyleSheet.create({
   levelBadgeNext: { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.45)' },
   levelBadgeText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.ink },
   levelUser: { fontFamily: fonts.sansBold, fontSize: 15, color: colors.white, marginBottom: 2 },
-  levelCaps: { fontSize: 12, textTransform: 'uppercase', letterSpacing: 0.6 },
+  levelCaps: { fontSize: 12 },
   levelSmall: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.accentLight, marginTop: 2 },
   levelName: { fontFamily: fonts.serifBold, fontSize: 20, color: colors.white },
   levelXp: { fontFamily: fonts.serifBold, fontSize: 19, color: colors.accentLight },

@@ -456,7 +456,7 @@ const styles = StyleSheet.create({
   },
   nameOkText: { fontFamily: fonts.sansBold, fontSize: 18, color: colors.ink },
   nick: { fontFamily: fonts.sansBold, fontSize: 13.5, color: colors.accentLight, marginTop: 2 },
-  nickCaps: { fontSize: 12, textTransform: 'uppercase', letterSpacing: 0.6 },
+  nickCaps: { fontSize: 12 },
   card: {
     marginTop: 12,
     marginHorizontal: spacing.gutter,
@@ -484,7 +484,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  tipsKind: { fontFamily: fonts.sansBold, fontSize: 11, letterSpacing: 0.8, textTransform: 'uppercase' },
+  tipsKind: { fontFamily: fonts.sansBold, fontSize: 11 },
   reset: {
     marginTop: 20,
     marginHorizontal: spacing.gutter,
