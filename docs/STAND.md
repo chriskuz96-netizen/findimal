@@ -154,6 +154,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Impressum: erledigt (15.10.). Name und Anschrift stehen als Cloudflare-Variablen `IMPRESSUM_NAME` und
   `IMPRESSUM_ADRESSE` (nicht im GitHub-Code), Anschrift nur ganz unten. Beim Hochladen des Workers
   `keep_bindings` mit `plain_text` angeben, sonst gehen die Variablen verloren.
+- **6.11.: Gewerbe erst im Dezember.** Vorschlag: iPhone Ende November **kostenlos** starten (kein Plus-Kauf,
+  keine Werbung, Werbeplätze ausblenden, Plus-Testschalter raus). Plus-Abo + AdMob als eigener Build nach der
+  Gewerbeanmeldung. Android: privat mit 12 Testern oder Organisation erst mit D-U-N-S (frühestens ca. Januar).
 - **Priorität (entschieden 5.11.): erst Gewerbe, dann App Store.** Schritte: Gewerbeanmeldung (Tätigkeit: Entwicklung
   und Vertrieb eigener Apps, Einnahmen aus Abos und Werbung), ELSTER-Fragebogen zur steuerlichen Erfassung
   (Kleinunternehmer § 19 UStG, USt-IdNr. mit beantragen), D-U-N-S-Nummer (kostenlos), eigenes Geschäftskonto.
