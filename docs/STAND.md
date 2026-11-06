@@ -170,7 +170,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
 - App-Store-Kategorie prüfen: „Bildung“ gilt laut RevenueCat 2026 als schwierige Kategorie für neue Apps.
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
-- Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen.
+- Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen (entschieden 6.11.: über RevenueCat; Konto mit
+  der Findimal-Gmail-Adresse; später Wechsel auf Eigenbau möglich, Abos liegen bei Apple/Google).
+- **App Store Small Business Program** beantragen (15 % statt 30 % Provision); bei Google Play die 15-%-Stufe prüfen.
 - Server für alle öffnen (`OFFEN = ja`) – im App Store hat niemand einen Findimal-Code. Vorher Apple App Attest
   einbauen (Server prüft, dass Anfragen aus der echten App kommen). Anthropic-Monatslimit klein halten.
 - **Anthropic-Guthaben (5.11.: ca. 4,56 $, Limit 5 $):** kurz vor dem Start in console.anthropic.com Auto-Reload
