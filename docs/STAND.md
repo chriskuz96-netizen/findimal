@@ -304,6 +304,17 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - Fotos pro Tag: Server zählt seit 5.11. `fotos:<Datum>` = {fotos, erkannt, zusatz, korrektur, fehler}, 400 Tage.
 - Kosten: Cloudflare-KV kostenlos nur 1.000 Schreibvorgänge/Tag; ab ca. 500 täglichen Nutzern Workers Paid (5 $/Monat) nötig.
 
+## Weniger KI-Look (Prüfung 6.11., noch nicht umgesetzt)
+- Erkennungszeichen: Überschrift-Schrift Fraunces (+ Grün/Creme/Orange), 38 Texte mit Gedankenstrich „–“, 35 enden mit „!“,
+  „Entdecke“ 35×, Großbuchstaben-Zeilen mit „·“ („HEUTE · 10 FRAGEN“), alles in gleichen Karten mit Pillen, Begrüßung mit
+  drei Funktions-Kacheln, „Fett-Begriff:“-Listen.
+- Vorschlag rausnehmen/reduzieren: Gedankenstriche, Großbuchstaben-Zeilen, Begrüßungs-Kacheln (→ ein Foto/Fuchs + ein Satz),
+  Erklär-Sätze unter Abzeichen, „!“, „Entdecke“/„Forscher“, XP-Pillen, Tierschutz-Hinweis nach jedem Foto.
+- Schrift wechseln: technisch einfach (theme.ts + useFonts, per Update), danach alle Bildschirme prüfen und Store-Bilder neu.
+  Entschieden 6.11.: Schrift vorerst nicht ändern.
+- Behalten: Fuchs, gezeichnete Tiere, Medaillen, Dschungel-Startseite, Grün/Orange. Idee: Fuchs als Figur mit eigener Stimme,
+  Feldtagebuch-Stil (Papier, Stempel, Polaroid-Fotos), echte eigene Tierfotos.
+
 ## Ideen für später (wenn viele Spieler da sind)
 - **„Später bestimmen“ (5.11., Wunsch):** Scheitert der Foto-Upload auch nach den automatischen Wiederholungen,
   Foto in der App aufbewahren („1 Foto wartet auf Bestimmung“ auf der Startseite), automatisch erneut senden
