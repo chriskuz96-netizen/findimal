@@ -234,9 +234,14 @@ function Main() {
     if (loaded) planTips(lang);
   }, [lang, loaded]);
   // Anonyme Nutzerzählung: einmal am Tag beim Server melden
+  // (auch wenn die App aus dem Hintergrund zurückkommt: iOS hält sie oft tagelang offen)
   useEffect(() => {
-    if (loaded) sayHello(lang);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!loaded) return;
+    sayHello(langRef.current);
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') sayHello(langRef.current);
+    });
+    return () => sub.remove();
   }, [loaded]);
   useEffect(
     () =>
