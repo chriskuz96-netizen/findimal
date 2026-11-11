@@ -172,6 +172,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen (entschieden 6.11.: über RevenueCat; Konto mit
   der Findimal-Gmail-Adresse; später Wechsel auf Eigenbau möglich, Abos liegen bei Apple/Google).
+- **Abo-Produkte in App Store Connect angelegt (11.11.):** Gruppe „Findimal Plus“ (22568382), `findimal.plus.yearly`
+  (14,99 €, Stufe 1) und `findimal.plus.monthly` (1,99 €), Texte in 7 Sprachen, Preise in allen 175 Ländern (angeglichen
+  an Deutschland), verfügbar überall. Noch offen: Prüf-Screenshot der Kaufseite, Einreichung mit der App.
+  Hinweis: App zeigt „Unbegrenzt Tiere bestimmen“, der Server erlaubt Plus 30 Fotos am Tag → Text oder Grenze anpassen.
 - **App Store Small Business Program** beantragen (15 % statt 30 % Provision); bei Google Play die 15-%-Stufe prüfen.
 - Server für alle öffnen (`OFFEN = ja`) – im App Store hat niemand einen Findimal-Code. Vorher Apple App Attest
   einbauen (Server prüft, dass Anfragen aus der echten App kommen). Anthropic-Monatslimit klein halten.
