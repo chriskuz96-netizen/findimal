@@ -168,6 +168,8 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   ein Handelsregisterauszug verlangt). Kontotyp lässt sich später schwer ändern. AdMob: Kontotyp „Einzelperson“ oder
   „Unternehmen“ ist endgültig, sonst kein Unterschied außer dem Namen auf der Auszahlung → vor dem Anlegen klären.
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
+- 11.11.: Im App Store gibt es „Findimals: Find the Animals“ (com.bravofoxproductions.findimals), ebenfalls mit Fuchs im
+  Symbol. Vermutlich ein Such-Spiel. Vor dem Start ansehen (Entwickler, Land, Inhalt) und Marke nochmal prüfen (auch USA/EUIPO).
 - App-Store-Kategorie prüfen: „Bildung“ gilt laut RevenueCat 2026 als schwierige Kategorie für neue Apps.
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen (entschieden 6.11.: über RevenueCat; Konto mit
