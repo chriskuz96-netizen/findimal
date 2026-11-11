@@ -134,6 +134,14 @@ def main():
     except Exception as e:  # Auswertung soll nicht an einer Quelle scheitern
         requests = {'error': str(e)[:200]}
 
+    # --- Plus-Geräte mit mehr als 50 Fotos an einem Tag (letzte 7 Tage) ---
+    heavy = []
+    for i in range(7):
+        d = (today - dt.timedelta(days=i)).isoformat()
+        for k in keys(ns, f'viel:{d}:'):
+            n = (k.get('metadata') or {}).get('n') or 0
+            heavy.append({'date': d, 'device': k['name'].split(':')[-1], 'photos': n, 'ki_kosten_eur': round(n * 0.002, 2)})  # ca. 0,2 Cent je Foto
+
     # --- Rangliste, Push ---
     board = len(keys(ns, 'p:'))
     push = len(keys(ns, 'pt:'))
@@ -163,6 +171,7 @@ def main():
         'board': board,
         'push': push,
         'testflight': tf,
+        'heavy': heavy,
     }
     text = json.dumps(out, ensure_ascii=False, indent=1)
     if len(sys.argv) > 1:

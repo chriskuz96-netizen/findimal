@@ -39,9 +39,11 @@ const MODEL = 'claude-sonnet-5-5';
 const DAILY_PHOTOS = 3;
 const DAILY_EXTRA = 6;
 const DAILY_KORREKTUR = 5; // „Stimmt nicht?“ – Vermutung am vorhandenen Foto prüfen (genaues Modell, pro Tag)
-// Findimal Plus (Testphase, bis es das echte Abo gibt): "unbegrenzt", zur Sicherheit aber
-// höchstens 30 Fotos pro Handy und Tag. Geht nur mit dem richtigen APP_KEY.
-const DAILY_PLUS = 30;
+// Findimal Plus: für Menschen unbegrenzt. Die Grenze von 500 am Tag ist nur eine technische Sicherung gegen
+// Programme, die die KI im Dauerlauf nutzen. Ab 50 Fotos an einem Tag merkt sich der Server das Gerät
+// ("viel:<Datum>:<Hash>", für den Wochenbericht); einzelne Geräte lassen sich mit "cap:<Hash>" = Zahl begrenzen.
+const DAILY_PLUS = 500;
+const PLUS_NOTE_FROM = 50;
 // Ohne Findimal-Code (OFFEN = "ja"): KI-Anfragen pro Internetanschluss und Tag
 // (großzügig, weil sich Familien und Schulklassen einen Anschluss teilen)
 const DAILY_PER_IP = 150; // eine Schulklasse im selben WLAN soll nicht ausgebremst werden
@@ -1581,7 +1583,20 @@ export default {
       const key = deviceKey(request, korrektur ? 'k' : extra ? 'x' : 'n');
       const used = Number(await env.DB.get(key)) || 0;
       const plus = tester && request.headers.get('X-Findimal-Plus') === '1'; // Plus testen nur mit Code
-      const max = korrektur ? DAILY_KORREKTUR : plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
+      let max = korrektur ? DAILY_KORREKTUR : plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
+      if (plus && !korrektur && !extra) {
+        const who = (await sha256('u:' + (deviceOf(request) || request.headers.get('CF-Connecting-IP') || '?'))).slice(0, 16);
+        const cap = Number(await env.DB.get('cap:' + who));
+        if (cap > 0) max = Math.min(max, cap); // von Hand gesetzte Grenze für dieses Gerät
+        // viel genutzt: ab 50 Fotos am Tag vermerken (nur an einigen Schwellen, damit es wenig Schreibzugriffe sind)
+        const n = used + 1;
+        if (n === PLUS_NOTE_FROM + 1 || (n > PLUS_NOTE_FROM && n % 50 === 0)) {
+          await safePut(env, `viel:${new Date().toISOString().slice(0, 10)}:${who}`, String(n), {
+            expirationTtl: 60 * 60 * 24 * 90,
+            metadata: { n },
+          });
+        }
+      }
       counter = { key, used };
       if (used >= max && korrektur) return json({ fehler: 'limit_korrektur' }, 429);
       if (used >= max) {
