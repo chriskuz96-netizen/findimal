@@ -169,7 +169,10 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   „Unternehmen“ ist endgültig, sonst kein Unterschied außer dem Namen auf der Auszahlung → vor dem Anlegen klären.
 - Marke „Findimal“: im DPMA/TMview nichts gefunden (Stand Oktober 2026).
 - 11.11.: Im App Store gibt es „Findimals: Find the Animals“ (com.bravofoxproductions.findimals), ebenfalls mit Fuchs im
-  Symbol. Vermutlich ein Such-Spiel. Vor dem Start ansehen (Entwickler, Land, Inhalt) und Marke nochmal prüfen (auch USA/EUIPO).
+  Symbol. Laut App Store: „Hidden object game, kids 6+“ / „Tier-Wimmelbilder“, Bravo Fox Productions GbR (deutsch),
+  Kategorie Bildung, mit In-App-Käufen, 11 Bewertungen. Gleiche Kategorie, gleiche Zielgruppe, fast gleicher Name, auch Fuchs
+  → Verwechslungsgefahr; in Deutschland sind App-Namen auch ohne Eintragung als Werktitel geschützt (wer zuerst da war).
+  Entscheidung offen: umbenennen vor dem Start oder rechtlich prüfen lassen.
 - App-Store-Kategorie prüfen: „Bildung“ gilt laut RevenueCat 2026 als schwierige Kategorie für neue Apps.
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen (entschieden 6.11.: über RevenueCat; Konto mit
