@@ -173,6 +173,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   Kategorie Bildung, mit In-App-Käufen, 11 Bewertungen. Gleiche Kategorie, gleiche Zielgruppe, fast gleicher Name, auch Fuchs
   → Verwechslungsgefahr; in Deutschland sind App-Namen auch ohne Eintragung als Werktitel geschützt (wer zuerst da war).
   Entscheidung offen: umbenennen vor dem Start oder rechtlich prüfen lassen.
+- 11.11.: Umbenennung „Peekimal“ im Code vorbereitet (Commit auf sdk58-duo, noch nicht verteilt). TMview zeigt aber
+  „PEEKIMALS“: US-Anmeldung 99465822 vom 28.10.2025, Klasse 28 (Spielzeug/Spiele), Anmelder Goliath IP Stichting
+  (Spielzeughersteller). Fast gleicher Name, Kinder-Zielgruppe → Name nochmal überdenken, bevor verteilt wird.
 - App-Store-Kategorie prüfen: „Bildung“ gilt laut RevenueCat 2026 als schwierige Kategorie für neue Apps.
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen (entschieden 6.11.: über RevenueCat; Konto mit
