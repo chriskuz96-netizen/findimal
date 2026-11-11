@@ -82,7 +82,7 @@ function Main() {
   const [region, setRegion] = useState<string | null | undefined>(undefined);
   const [askRegion, setAskRegion] = useState(false);
   const [firstVisit, setFirstVisit] = useState(false); // gerade eingerichtet: „Willkommen“ statt „Willkommen zurück“
-  // Testphase: Findimal-Code gleich am Anfang abfragen, wenn der Server einen verlangt
+  // Testphase: Peekimal-Code gleich am Anfang abfragen, wenn der Server einen verlangt
   // (und der gespeicherte fehlt oder nicht mehr stimmt). Einmal pro Start prüfen.
   const [askCode, setAskCode] = useState(false);
   const codeChecked = useRef(false);
@@ -116,7 +116,7 @@ function Main() {
     return () => sub.remove();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // Beim ersten Öffnen der App (nach Name und Ort) einmal das Findimal-Ehrenwort (Tiere nicht stören)
+  // Beim ersten Öffnen der App (nach Name und Ort) einmal das Peekimal-Ehrenwort (Tiere nicht stören)
   const [promised, setPromised] = useState(true);
   useEffect(() => {
     AsyncStorage.getItem('findimal-promise')
@@ -429,7 +429,7 @@ function Main() {
       .catch(() => {});
   }, [name, region]);
 
-  // Solange Schriften oder Name laden: Startbild mit dem Findimal-Symbol.
+  // Solange Schriften oder Name laden: Startbild mit dem Peekimal-Symbol.
   if (!fontsLoaded || !loaded || name === undefined || region === undefined) {
     return (
       <View style={{ flex: 1, backgroundColor: colors.skyMid, alignItems: 'center', justifyContent: 'center' }}>

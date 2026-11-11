@@ -113,7 +113,7 @@ export function StartScreen({
         {/* Schriftzug klein oben in der Mitte, mit dem Fuchs-Symbol */}
         <View style={[styles.brand, { top: insets.top + 18 }]} pointerEvents="none">
           <AppLogo size={30} />
-          <Text style={styles.title}>Findimal</Text>
+          <Text style={styles.title}>Peekimal</Text>
         </View>
 
         {/* ganz kleiner Hinweis: das Forscher-Quiz ist heute noch offen (führt zu den Challenges) */}
@@ -144,7 +144,7 @@ export function StartScreen({
                 : t(freeLeft === 1 ? 'start.freeOne' : 'start.free', { n: freeLeft })}
           </Text>
           {/* keine Gratis-Fotos mehr: Antippen startet direkt das Video (die Kamera öffnet das Fenster) */}
-          {/* alle Videos auch schon weg: Hinweis auf Findimal Plus */}
+          {/* alle Videos auch schon weg: Hinweis auf Peekimal Plus */}
           {!plus && freeLeft === 0 && (
             <Pressable onPress={videosLeft > 0 ? onWatchVideo : onTakePhoto} hitSlop={8} accessibilityRole="button">
               <View style={styles.freeVideoRow}>

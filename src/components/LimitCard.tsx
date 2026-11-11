@@ -21,7 +21,7 @@ export function watchVideo(t: Translate) {
 }
 
 // Fenster, wenn die Gratis-Fotos für heute aufgebraucht sind:
-// Video ansehen (+1 Foto) als Hauptweg, Findimal Plus als zweiter, „morgen weiter“ als ruhiger Ausweg.
+// Video ansehen (+1 Foto) als Hauptweg, Peekimal Plus als zweiter, „morgen weiter“ als ruhiger Ausweg.
 export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: () => void }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
@@ -79,7 +79,7 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
           </Pressable>
           <Text style={[styles.videoMax, { color: p.mute }]}>{t('lim.videoLeft', { n: VIDEOS_PER_DAY - (videos ?? 0) })}</Text>
 
-          {/* Zweiter Weg: Findimal Plus */}
+          {/* Zweiter Weg: Peekimal Plus */}
           <View style={styles.plus}>
             <View style={[styles.plusHead, { marginBottom: 4 }]}>
               <Text style={styles.plusTitle}>★ {t('plus.title')}</Text>
@@ -118,7 +118,7 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
   );
 }
 
-// Alles aufgebraucht (auch die Videos): ein netter Spruch, Findimal Plus wie im Profil, darunter Werbung
+// Alles aufgebraucht (auch die Videos): ein netter Spruch, Peekimal Plus wie im Profil, darunter Werbung
 function DoneSheet({ visible, onClose }: { visible: boolean; onClose: () => void }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();

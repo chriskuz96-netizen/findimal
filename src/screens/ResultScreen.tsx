@@ -552,7 +552,7 @@ export function ResultScreen({ photo, saved, onIdentified, morePhoto, onDetails,
             </>
           )}
 
-          {/* dezente Erinnerung ans Findimal-Ehrenwort */}
+          {/* dezente Erinnerung ans Peekimal-Ehrenwort */}
           <View style={styles.respectRow}>
             <Icon name="paw" size={16} color={p.mute} />
             <Text style={[styles.respect, { color: p.mute, marginTop: 0, marginHorizontal: 0, flexShrink: 1 }]}>{t('res.respect')}</Text>

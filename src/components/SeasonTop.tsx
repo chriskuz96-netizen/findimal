@@ -12,7 +12,7 @@ type Top = { total: number; top: { sci: string; name: string; count: number }[] 
 const MIN_FINDS = 20; // erst zeigen, wenn genug gezählt wurde
 const SHOW = 3;
 
-// Die beliebtesten Tiere der Saison bei allen Findimal-Entdeckern (anonym gezählt auf dem Server).
+// Die beliebtesten Tiere der Saison bei allen Peekimal-Entdeckern (anonym gezählt auf dem Server).
 // Schon selbst gefundene Arten bekommen ein Häkchen.
 export function SeasonTop({ finds, p, first }: { finds: Find[]; p: Palette; first?: boolean }) {
   const { t, lang } = useI18n();

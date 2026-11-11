@@ -172,7 +172,7 @@ export async function join(stats: MyStats): Promise<{ me: Me | null; error: Join
     if (res.status === 503) return { me: null, error: 'nodb' };
     if (res.status === 403) continue; // Code schon vergeben: neuen würfeln
     if (res.status === 400) return { me: null, error: 'old' }; // alter Server-Code ohne Rangliste
-    if (res.status === 401) return { me: null, error: 'key' }; // falscher Findimal-Code
+    if (res.status === 401) return { me: null, error: 'key' }; // falscher Peekimal-Code
     if (!res.ok) return { me: null, error: 'offline' };
     await AsyncStorage.setItem(ME_KEY, JSON.stringify(me)).catch(() => {});
     await AsyncStorage.setItem(SENT_KEY, JSON.stringify(stats)).catch(() => {});
@@ -310,7 +310,7 @@ export async function fetchPeople(ids: string[]): Promise<Person[] | null> {
   }
 }
 
-// Einladungslink: zeigt eine kleine Webseite des Findimal-Servers, die Findimal (in Expo Go)
+// Einladungslink: zeigt eine kleine Webseite des Peekimal-Servers, die Peekimal (in Expo Go)
 // mit dem Freundescode öffnet. Ein normaler https-Link ist in WhatsApp & Co. anklickbar.
 // Kann die App keinen Link auf sich selbst bauen (z. B. in Expo Go/Snack), zeigt die Seite nur Name und Code.
 export function inviteLink(code: string, name: string, lang: string): string {

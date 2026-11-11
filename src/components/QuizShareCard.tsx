@@ -55,7 +55,7 @@ export const QuizShareCard = forwardRef<ViewRef, Props>(function QuizShareCard({
       </View>
       <View style={styles.foot}>
         <AppLogo size={22} />
-        <Text style={styles.brand}>Findimal</Text>
+        <Text style={styles.brand}>Peekimal</Text>
       </View>
     </View>
   );

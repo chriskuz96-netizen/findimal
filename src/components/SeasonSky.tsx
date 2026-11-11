@@ -5,7 +5,7 @@ import Svg, { Circle, G, Line, Path } from 'react-native-svg';
 import { LoopsPaused } from '../hooks/useLoop';
 import { SkyMood } from '../season';
 
-// Kopf der Saison-Seite: immer das Findimal-Grün, dazu großes Symbol, Akzentfarbe und sanft
+// Kopf der Saison-Seite: immer das Peekimal-Grün, dazu großes Symbol, Akzentfarbe und sanft
 // fallende Teilchen passend zur Jahreszeit.
 const GREEN = '#17462F';
 // Volle Farben statt Verläufe (Verläufe wurden auf dem iPhone nicht ganz gestreckt).

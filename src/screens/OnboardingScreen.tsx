@@ -33,7 +33,7 @@ export function OnboardingScreen({ onDone }: Props) {
   return <AskName onDone={onDone} />;
 }
 
-// Willkommensseite: wofür Findimal da ist – Tiere entdecken, sammeln und schützen
+// Willkommensseite: wofür Peekimal da ist – Tiere entdecken, sammeln und schützen
 function Welcome({ onNext }: { onNext: () => void }) {
   const insets = useSafeAreaInsets();
   const { t } = useI18n();
