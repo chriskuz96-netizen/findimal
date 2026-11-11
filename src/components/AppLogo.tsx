@@ -1,6 +1,6 @@
 import Svg, { Circle, Defs, Ellipse, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 
-// Peekimal-Symbol: Fuchs schaut durch eine Lupe auf dunklem Waldgrün.
+// Explorimal-Symbol: Fuchs schaut durch eine Lupe auf dunklem Waldgrün.
 // Wird beim Laden der App gezeigt; als Bild (icon.png) im Zweig design-vorlage.
 export function AppLogo({ size, rounded = true }: { size: number; rounded?: boolean }) {
   return (

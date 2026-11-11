@@ -20,7 +20,7 @@ export const XP = {
 };
 
 // XP ab der jeweiligen Stufe (Namen: Texte 'level.0' bis 'level.19'). Nach Stufe 20 geht es endlos weiter:
-// alle 4.000 XP ein Stern („Peekimal-Legende ★1“, „★2“ …) – man levelt nie „ins Nichts“.
+// alle 4.000 XP ein Stern („Explorimal-Legende ★1“, „★2“ …) – man levelt nie „ins Nichts“.
 const LEVELS = [0, 100, 200, 400, 700, 1100, 1600, 2200, 3000, 4000, 5200, 6600, 8200, 10000, 12000, 14500, 17000, 20000, 23500, 27000];
 const STAR_STEP = 4000;
 
@@ -532,7 +532,7 @@ export function levelAt(xp: number): { level: number; levelStart: number; nextLe
   return { level: LEVELS.length + stars, levelStart: start, nextLevelXp: start + STAR_STEP };
 }
 
-// Name einer Stufe; ab Stufe 21 „Peekimal-Legende ★1“, „★2“ …
+// Name einer Stufe; ab Stufe 21 „Explorimal-Legende ★1“, „★2“ …
 export function levelTitle(level: number, t: Translate): string {
   const n = Math.max(1, Math.floor(level));
   const stars = n - LEVELS.length;

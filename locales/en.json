@@ -1,8 +1,8 @@
 {
   "ios": {
-    "NSCameraUsageDescription": "Peekimal needs the camera so you can photograph animals and have them identified.",
-    "NSPhotoLibraryUsageDescription": "Peekimal needs access to your photos so you can choose an animal photo to identify.",
-    "NSLocationWhenInUseUsageDescription": "So Peekimal can suggest animals from your area and note where you found them, your location is used to find the name of the place. Only the name is stored, on your phone.",
-    "NSMotionUsageDescription": "Peekimal does not use motion or fitness data. Your location is only used to find the place name of your sightings."
+    "NSCameraUsageDescription": "Explorimal needs the camera so you can photograph animals and have them identified.",
+    "NSPhotoLibraryUsageDescription": "Explorimal needs access to your photos so you can choose an animal photo to identify.",
+    "NSLocationWhenInUseUsageDescription": "So Explorimal can suggest animals from your area and note where you found them, your location is used to find the name of the place. Only the name is stored, on your phone.",
+    "NSMotionUsageDescription": "Explorimal does not use motion or fitness data. Your location is only used to find the place name of your sightings."
   }
 }

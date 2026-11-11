@@ -1,8 +1,8 @@
 {
   "ios": {
-    "NSCameraUsageDescription": "動物を撮影して名前を調べるために、Peekimalはカメラを使います。",
-    "NSPhotoLibraryUsageDescription": "調べたい動物の写真を選べるように、Peekimalは写真へのアクセスを使います。",
+    "NSCameraUsageDescription": "動物を撮影して名前を調べるために、Explorimalはカメラを使います。",
+    "NSPhotoLibraryUsageDescription": "調べたい動物の写真を選べるように、Explorimalは写真へのアクセスを使います。",
     "NSLocationWhenInUseUsageDescription": "近くにいる動物を提案したり、見つけた場所を記録したりするために、現在地から地名を調べます。保存されるのは地名だけで、あなたの端末の中だけです。",
-    "NSMotionUsageDescription": "Peekimalはモーションやフィットネスのデータを使いません。位置情報は、見つけた場所の地名を調べるためだけに使います。"
+    "NSMotionUsageDescription": "Explorimalはモーションやフィットネスのデータを使いません。位置情報は、見つけた場所の地名を調べるためだけに使います。"
   }
 }

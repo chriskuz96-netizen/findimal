@@ -15,7 +15,7 @@ const H = 450;
 
 type Props = { animal: Animal; photo: string; t: Translate; when?: string };
 
-// Teilen-Bild: Foto, Name, „Wusstest du?“ und das Peekimal-Logo.
+// Teilen-Bild: Foto, Name, „Wusstest du?“ und das Explorimal-Logo.
 // Wird außerhalb des Bildschirms gezeichnet und nur zum Teilen fotografiert – alles auf dem Handy, ohne Server.
 // Ref auf eine View (ab React Native 0.88 ist View eine Funktion, deshalb über ComponentRef)
 export type ViewRef = ComponentRef<typeof View>;
@@ -45,7 +45,7 @@ export const ShareCard = forwardRef<ViewRef, Props>(function ShareCard({ animal,
         )}
         <View style={styles.foot}>
           <AppLogo size={22} />
-          <Text style={styles.brand}>Peekimal</Text>
+          <Text style={styles.brand}>Explorimal</Text>
           <Text style={styles.footText} numberOfLines={1}>
             {when || t('res.shareFoot')}
           </Text>

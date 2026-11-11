@@ -4,7 +4,7 @@ import { Alert } from 'react-native';
 
 import { Translate } from './i18n';
 
-// Peekimal Plus. Einen echten Kauf (In-App-Abo) gibt es erst in der fertigen App.
+// Explorimal Plus. Einen echten Kauf (In-App-Abo) gibt es erst in der fertigen App.
 // Bis dahin kann man Plus in der Testversion kostenlos einschalten – nur auf diesem Handy.
 // Der Server lässt Plus-Handys dann bis zu 30 Fotos am Tag bestimmen.
 

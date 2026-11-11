@@ -98,7 +98,7 @@ export async function saveMaxFriends(n: number): Promise<void> {
   await AsyncStorage.setItem('findimal-max-friends', String(n)).catch(() => {});
 }
 
-// Löscht alle Peekimal-Daten auf dem Handy (außer dem Peekimal-Code für den Server).
+// Löscht alle Explorimal-Daten auf dem Handy (außer dem Explorimal-Code für den Server).
 const KEEP_ON_RESET = ['findimal-app-key', 'findimal-device', 'findimal-usage', 'findimal-videos', 'findimal-bonus'];
 
 export async function resetAll(): Promise<void> {

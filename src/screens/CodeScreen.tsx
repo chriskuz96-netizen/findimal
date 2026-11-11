@@ -17,7 +17,7 @@ import { useI18n } from '../i18n';
 import { checkAppKey, saveAppKey } from '../identify';
 import { colors, darkPalette, fonts, lightPalette } from '../theme';
 
-// Testphase: Peekimal-Code gleich nach der Begrüßung abfragen (nicht erst beim ersten Foto).
+// Testphase: Explorimal-Code gleich nach der Begrüßung abfragen (nicht erst beim ersten Foto).
 // Kommt nur, wenn der Server einen Code verlangt – ist er später für alle offen, sieht man die Seite nie.
 export function CodeScreen({ onDone }: { onDone: () => void }) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;

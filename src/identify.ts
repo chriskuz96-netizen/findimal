@@ -149,7 +149,7 @@ export function warmUp(): void {
     .catch(() => {});
 }
 
-// Fragt einmalig nach dem Peekimal-Code (APP_KEY aus Cloudflare) und speichert ihn.
+// Fragt einmalig nach dem Explorimal-Code (APP_KEY aus Cloudflare) und speichert ihn.
 // Alert.prompt gibt es nur auf dem iPhone – auf Android kommt der Code über die Code-Seite beim Start.
 function askForAppKey(t: Translate): Promise<string | null> {
   if (Platform.OS !== 'ios') return Promise.resolve(null);
@@ -204,7 +204,7 @@ async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, s
   });
 }
 
-// Schickt ein oder mehrere Fotos desselben Tieres an den Peekimal-Server und liefert den Steckbrief.
+// Schickt ein oder mehrere Fotos desselben Tieres an den Explorimal-Server und liefert den Steckbrief.
 // cancel: zum Abbrechen (dann zählt das Foto nicht als Gratis-Foto)
 export type IdentifyCancel = { rid: string; controller: AbortController };
 

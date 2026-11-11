@@ -176,6 +176,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
 - 11.11.: Umbenennung „Peekimal“ im Code vorbereitet (Commit auf sdk58-duo, noch nicht verteilt). TMview zeigt aber
   „PEEKIMALS“: US-Anmeldung 99465822 vom 28.10.2025, Klasse 28 (Spielzeug/Spiele), Anmelder Goliath IP Stichting
   (Spielzeughersteller). Fast gleicher Name, Kinder-Zielgruppe → Name nochmal überdenken, bevor verteilt wird.
+- 11.11.: Neuer Name **Explorimal** (explore + animal, passt zum Forscher). DPMA und TMview: nichts gefunden (selbst geprüft).
+  Im Code umbenannt (Commit auf sdk58-duo), noch nicht verteilt: OTA, Server, App-Store-Name und Abo-Gruppe folgen nach Freigabe.
+  App Store und Google Play noch selbst nach „Explorimal“ durchsuchen.
 - App-Store-Kategorie prüfen: „Bildung“ gilt laut RevenueCat 2026 als schwierige Kategorie für neue Apps.
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen (entschieden 6.11.: über RevenueCat; Konto mit

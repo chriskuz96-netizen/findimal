@@ -292,7 +292,7 @@ export function ProfileScreen(props: Props) {
           </View>
         </Card>
 
-        {/* Peekimal Plus: was dazugehört */}
+        {/* Explorimal Plus: was dazugehört */}
         <PlusCard name={name} />
 
         {/* Natur-Tipps als Mitteilung (einmal pro Woche): hervorgehoben, mit Glocke */}
@@ -364,7 +364,7 @@ export function ProfileScreen(props: Props) {
           <Text style={[styles.resetText, { color: colors.coral }]}>{t('pro.reset')}</Text>
         </Pressable>
 
-        {/* Hilfe sowie Datenschutz und Impressum (Webseiten des Peekimal-Servers) */}
+        {/* Hilfe sowie Datenschutz und Impressum (Webseiten des Explorimal-Servers) */}
         <View style={styles.links}>
           {(
             [

@@ -5,7 +5,7 @@ import { askForPlus, PLUS_SHOWCASE, usePlus } from '../plus';
 import { colors, fonts, spacing } from '../theme';
 import { Avatar } from './Avatar';
 
-// Peekimal Plus: was dazugehört (gleiches Design im Profil und im Fenster „Fotos aufgebraucht“)
+// Explorimal Plus: was dazugehört (gleiches Design im Profil und im Fenster „Fotos aufgebraucht“)
 export function PlusCard({ name, style, onGet }: { name: string; style?: ViewStyle; onGet?: () => void }) {
   const { t } = useI18n();
   const { plus, setPlus } = usePlus();
