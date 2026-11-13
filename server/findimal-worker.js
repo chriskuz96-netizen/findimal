@@ -1380,6 +1380,13 @@ export default {
       if (url.pathname === '/datenschutz' || url.pathname === '/impressum') return privacyPage(url, env);
       if (url.pathname === '/hilfe' || url.pathname === '/support') return helpPage(url);
       if (url.pathname.startsWith('/profilbild/')) return photoResponse(env, url.pathname.slice(12));
+      // Für Google AdMob: bestätigt, dass die Werbung in Explorimal zu diesem Konto gehört
+      if (url.pathname === '/app-ads.txt')
+        return new Response('google.com, pub-2020103478208185, DIRECT, f08c47fec0942fa0\n', {
+          headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'public, max-age=3600' },
+        });
+      // Startseite (im App Store als Website eingetragen): zur Hilfe-Seite
+      if (url.pathname === '/') return Response.redirect(new URL('/hilfe' + url.search, url).toString(), 302);
     }
     if (request.method !== 'POST') return json({ fehler: 'Explorimal-Server läuft.' });
 
