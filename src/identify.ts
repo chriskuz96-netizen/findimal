@@ -3,7 +3,7 @@ import { Alert, Platform } from 'react-native';
 
 import { Photo } from './camera';
 import { SERVER_URL } from './config';
-import { hasPlus } from './plus';
+import { hasPlus, plusUserId } from './plus';
 import { loadZone } from './zone';
 import { FREE_PHOTOS_PER_DAY, getDeviceId, setBonusPhotos, setUsedToday, usedToday } from './usage';
 import { Lang, Translate } from './i18n';
@@ -189,7 +189,7 @@ async function send(photos: Photo[], appKey: string, lang: Lang, rid?: string, s
       'Content-Type': 'application/json',
       'X-Findimal-Key': appKey,
       'X-Findimal-Device': await getDeviceId(),
-      ...((await hasPlus()) ? { 'X-Findimal-Plus': '1' } : {}),
+      ...((await hasPlus()) ? { 'X-Findimal-Plus': '1', ...(plusUserId() ? { 'X-Findimal-RC': plusUserId()! } : {}) } : {}),
     },
     // zone: grobe Gegend (z. B. Mitteleuropa) – hilft bei ähnlichen Arten, ist aber kein Standort
     body: JSON.stringify({

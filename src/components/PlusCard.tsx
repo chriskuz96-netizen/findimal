@@ -1,14 +1,14 @@
 import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 import { useI18n } from '../i18n';
-import { askForPlus, PLUS_SHOWCASE, usePlus } from '../plus';
+import { askForPlus, PLUS_SHOWCASE, plusPurchasable, usePlus } from '../plus';
 import { colors, fonts, spacing } from '../theme';
 import { Avatar } from './Avatar';
 
 // Explorimal Plus: was dazugehört (gleiches Design im Profil und im Fenster „Fotos aufgebraucht“)
 export function PlusCard({ name, style, onGet }: { name: string; style?: ViewStyle; onGet?: () => void }) {
   const { t } = useI18n();
-  const { plus, setPlus } = usePlus();
+  const { plus, setPlus, manage } = usePlus();
   return (
     <View style={[styles.card, style]}>
       <Text style={styles.title}>★ {t('plus.title')}</Text>
@@ -28,8 +28,8 @@ export function PlusCard({ name, style, onGet }: { name: string; style?: ViewSty
         ))}
       </View>
       {plus ? (
-        <Pressable onPress={() => setPlus(false)} style={styles.end} accessibilityRole="button">
-          <Text style={styles.endText}>{t('plus.end')}</Text>
+        <Pressable onPress={() => (plusPurchasable ? manage() : setPlus(false))} style={styles.end} accessibilityRole="button">
+          <Text style={styles.endText}>{t(plusPurchasable ? 'plus.manage' : 'plus.end')}</Text>
         </Pressable>
       ) : (
         <>
@@ -43,7 +43,8 @@ export function PlusCard({ name, style, onGet }: { name: string; style?: ViewSty
           >
             <Text style={styles.btnText}>{t('plus.get')}</Text>
           </Pressable>
-          <Text style={styles.price}>{t('plus.price')}</Text>
+          {/* in der App zeigt die Kaufseite die echten Preise (je nach Land und Währung) */}
+          {!plusPurchasable && <Text style={styles.price}>{t('plus.price')}</Text>}
         </>
       )}
     </View>

@@ -297,6 +297,29 @@ const TRANSLATE_FIELDS = ['name', 'rasse', 'kurzbeschreibung', 'wusstest_du', 'h
 const CODE = /^[A-HJ-NP-Z2-9]{6}$/; // Freundescode, z. B. "K7QX2M" (ohne 0/O und 1/I)
 const int = (v, max) => Math.max(0, Math.min(max, Math.floor(Number(v) || 0)));
 
+// Hat dieses Handy ein aktives Plus-Abo? Fragt RevenueCat (geheimer Schlüssel RC_SECRET, nur hier am Server)
+// und merkt sich die Antwort kurz, damit nicht jedes Foto eine Anfrage auslöst.
+async function rcPlus(env, rcId) {
+  if (!rcId || !env.RC_SECRET || !env.DB || rcId.length > 100) return false;
+  const key = 'rc:' + (await sha256(rcId)).slice(0, 24);
+  const cached = await env.DB.get(key);
+  if (cached) return cached === '1';
+  let active = false;
+  try {
+    const res = await fetch('https://api.revenuecat.com/v1/subscribers/' + encodeURIComponent(rcId), {
+      headers: { Authorization: 'Bearer ' + env.RC_SECRET },
+    });
+    if (!res.ok) return false; // RevenueCat gerade nicht erreichbar: lieber nicht merken
+    const ent = (await res.json())?.subscriber?.entitlements?.plus;
+    active = !!ent && (!ent.expires_date || Date.parse(ent.expires_date) > Date.now());
+  } catch {
+    return false;
+  }
+  // aktiv: eine Stunde merken, nicht aktiv: 10 Minuten (z. B. kurz nach dem Kauf)
+  await safePut(env, key, active ? '1' : '0', { expirationTtl: active ? 3600 : 600 });
+  return active;
+}
+
 async function sha256(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
@@ -1114,7 +1137,7 @@ ul{padding-left:20px}li{margin:4px 0}a{color:#1F6E47}small{color:#5B6B60}</style
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, X-Findimal-Key, X-Findimal-Device, X-Findimal-Plus',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Findimal-Key, X-Findimal-Device, X-Findimal-Plus, X-Findimal-RC',
   'Access-Control-Expose-Headers': 'X-Findimal-Used, X-Findimal-Bonus',
 };
 
@@ -1582,7 +1605,10 @@ export default {
     if (env.DB) {
       const key = deviceKey(request, korrektur ? 'k' : extra ? 'x' : 'n');
       const used = Number(await env.DB.get(key)) || 0;
-      const plus = tester && request.headers.get('X-Findimal-Plus') === '1'; // Plus testen nur mit Code
+      // Plus: echtes Abo (bei RevenueCat geprüft) oder zum Testen mit Tester-Code
+      const plus =
+        request.headers.get('X-Findimal-Plus') === '1' &&
+        ((!!env.APP_KEY && tester) || (await rcPlus(env, request.headers.get('X-Findimal-RC'))));
       let max = korrektur ? DAILY_KORREKTUR : plus ? DAILY_PLUS : extra ? DAILY_EXTRA : DAILY_PHOTOS;
       if (plus && !korrektur && !extra) {
         const who = (await sha256('u:' + (deviceOf(request) || request.headers.get('CF-Connecting-IP') || '?'))).slice(0, 16);
