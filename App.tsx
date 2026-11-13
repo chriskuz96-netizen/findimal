@@ -21,7 +21,8 @@ import { Tab, TabBar } from './src/components/TabBar';
 import { PaneSize, useSplit } from './src/layout';
 import { darkPalette, lightPalette } from './src/theme';
 import { allowAutoJoin, autoJoin, codeFromUrl, ensurePhotoAvatar, loadMe, loadSeasonAwards, SeasonAwards, syncMe } from './src/board';
-import { LimitSheet, watchVideo } from './src/components/LimitCard';
+import { LimitSheet, onVideoReward, watchVideo } from './src/components/LimitCard';
+import { ads } from './src/ads';
 import { bonusPhotos, FREE_PHOTOS_PER_DAY, usedToday, VIDEOS_PER_DAY, videosToday } from './src/usage';
 import { addFind, counts, Find, forgetFinds, loadFinds, removeFind, speciesKey, translateFindTexts, updateFind, updatePlace } from './src/finds';
 import { Animal, checkAppKey, getAppKey, translateAnimal, warmUp } from './src/identify';
@@ -292,6 +293,23 @@ function Main() {
     Linking.getInitialURL().then(handle).catch(() => {});
     const sub = Linking.addEventListener('url', (e) => handle(e.url));
     return () => sub.remove();
+  }, []);
+
+  // Werbung vorbereiten (fragt in der EU einmal nach der Einwilligung) – nicht für Plus-Kunden.
+  // Kurz warten, damit der Plus-Stand von RevenueCat schon da ist.
+  useEffect(() => {
+    if (plus || !name) return;
+    const timer = setTimeout(() => ads(), 2500);
+    return () => clearTimeout(timer);
+  }, [plus, name]);
+
+  // Nach einem Belohnungs-Video (+1 Foto): Zähler neu und gleich die Kamera öffnen
+  useEffect(() => {
+    onVideoReward(() => {
+      refreshFreeLeft();
+      setWantCamera(true);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Kamera öffnen, sobald die App fertig geladen ist (Name und Region bekannt)

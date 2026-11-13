@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 
 import { ADMOB_BANNER_IOS, ADMOB_REWARDED_IOS, ADS_LIVE } from './config';
+import { loadGma } from './gma';
 import { markRewardedToday, rewardedToday } from './usage';
 
 // Werbung über Google AdMob: nur nicht personalisiert, familiengeeignet (Altersfreigabe „G“).
@@ -18,7 +19,8 @@ export function ads(): Promise<GMA | null> {
   if (Platform.OS !== 'ios') return Promise.resolve(null);
   gmaPromise ??= (async () => {
     try {
-      const gma = await import('react-native-google-mobile-ads');
+      const gma = await loadGma();
+      if (!gma) return null;
       try {
         await gma.AdsConsent.gatherConsent(); // zeigt das Fenster nur, wenn nötig (EU) und noch nicht beantwortet
       } catch {
@@ -51,7 +53,8 @@ export async function bannerId(): Promise<string | null> {
 
 // Datenschutz-Einstellungen für Werbung (Pflicht in der EU: Einwilligung jederzeit änderbar)
 export async function privacyOptionsNeeded(): Promise<boolean> {
-  const gma = await ads();
+  if (!gmaPromise) return false; // Werbung (noch) nicht gestartet, z. B. bei Plus: nichts zu ändern
+  const gma = await gmaPromise;
   if (!gma) return false;
   const info = await gma.AdsConsent.getConsentInfo().catch(() => null);
   return info?.privacyOptionsRequirementStatus === gma.AdsConsentPrivacyOptionsRequirementStatus.REQUIRED;

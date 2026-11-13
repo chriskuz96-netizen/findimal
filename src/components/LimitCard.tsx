@@ -3,10 +3,22 @@ import { Alert, Modal, Pressable, ScrollView, StyleSheet, Text, useColorScheme, 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Path } from 'react-native-svg';
 
+import { playRewarded } from '../ads';
+import { SERVER_URL } from '../config';
 import { Translate, useI18n } from '../i18n';
-import { askForPlus, PLUS_SHOWCASE, usePlus } from '../plus';
+import { getAppKey } from '../identify';
+import { askForPlus, PLUS_SHOWCASE, plusPurchasable, usePlus } from '../plus';
 import { colors, darkPalette, fonts, lightPalette, Palette } from '../theme';
-import { FREE_PHOTOS_PER_DAY, VIDEOS_PER_DAY, videosToday } from '../usage';
+import {
+  addVideoToday,
+  bonusPhotos,
+  FREE_PHOTOS_PER_DAY,
+  getDeviceId,
+  markRewardedToday,
+  setBonusPhotos,
+  VIDEOS_PER_DAY,
+  videosToday,
+} from '../usage';
 import { AdSlot } from './AdSlot';
 import { PlusCard } from './PlusCard';
 import { Avatar } from './Avatar';
@@ -14,10 +26,41 @@ import { Explorer } from './Explorer';
 
 const GOLD = '#E8B53A';
 
-// Belohnungs-Video starten: gibt es erst in der fertigen App (kommt mit AdMob).
-// Danach: addVideoToday() und direkt die Kamera öffnen.
-export function watchVideo(t: Translate) {
-  Alert.alert(t('lim.title'), t('lim.soon'));
+// Belohnungs-Video: nach dem fertig angesehenen Video schreibt der Server 1 Extra-Foto gut
+// (höchstens 3 am Tag), dann öffnet die App direkt die Kamera (onVideoReward, setzt App.tsx).
+let rewardHandler: (() => void) | null = null;
+export const onVideoReward = (fn: () => void) => {
+  rewardHandler = fn;
+};
+let watching = false;
+export async function watchVideo(t: Translate, onDone?: () => void) {
+  if (watching) return;
+  watching = true;
+  try {
+    if ((await videosToday()) >= VIDEOS_PER_DAY) return;
+    const r = await playRewarded();
+    if (r === 'none') return Alert.alert(t('lim.title'), t('ad.noVideo'));
+    if (r !== 'earned') return;
+    await markRewardedToday();
+    await addVideoToday();
+    let bonus: number | null = null;
+    try {
+      const res = await fetch(SERVER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Findimal-Key': await getAppKey(), 'X-Findimal-Device': await getDeviceId() },
+        body: JSON.stringify({ mode: 'video' }),
+      });
+      const data = (await res.json()) as { bonus?: number };
+      if (typeof data.bonus === 'number') bonus = data.bonus;
+    } catch {
+      // offline: vorläufig hier gutschreiben, der Server zählt beim nächsten Foto verbindlich
+    }
+    await setBonusPhotos(bonus ?? (await bonusPhotos()) + 1);
+    onDone?.();
+    rewardHandler?.();
+  } finally {
+    watching = false;
+  }
 }
 
 // Fenster, wenn die Gratis-Fotos für heute aufgebraucht sind:
@@ -56,7 +99,7 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
         <View style={styles.body}>
           {/* Hauptweg: Video ansehen */}
           <Pressable
-            onPress={() => watchVideo(t)}
+            onPress={() => watchVideo(t, onClose)}
             accessibilityRole="button"
             style={({ pressed }) => [styles.video, { transform: [{ scale: pressed ? 0.98 : 1 }] }]}
           >
@@ -103,9 +146,9 @@ export function LimitSheet({ visible, onClose }: { visible: boolean; onClose: ()
               accessibilityRole="button"
               style={({ pressed }) => [styles.plusBtn, { opacity: pressed ? 0.85 : 1 }]}
             >
-              <Text style={styles.plusBtnText}>{t('lim.plusBtn')}</Text>
+              <Text style={styles.plusBtnText}>{t(plusPurchasable ? 'plus.get' : 'lim.plusBtn')}</Text>
             </Pressable>
-            <Text style={styles.plusYear}>{t('lim.plusYear')}</Text>
+            {!plusPurchasable && <Text style={styles.plusYear}>{t('lim.plusYear')}</Text>}
           </View>
 
           {/* Ruhiger Ausweg */}

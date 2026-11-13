@@ -1,22 +1,79 @@
 import { useEffect, useRef, useState } from 'react';
-import { Animated, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Animated, Platform, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Icon } from './Icon';
+import { ads, adsReady, bannerId, requestOptions } from '../ads';
 import { useI18n } from '../i18n';
 import { askForPlus, usePlus } from '../plus';
 import { colors, fonts, Palette, spacing } from '../theme';
 
-// Platz für eine native Anzeige (AdMob), gut als "Anzeige" gekennzeichnet.
-// In Expo Go/Snack gibt es noch keine echte Werbung – dann steht hier ein Platzhalter.
-// Später: nur für Gratis-Nutzer, familiengeeignet und nicht personalisiert.
+// Werbeplatz (Google AdMob), gut als „Anzeige“ gekennzeichnet: nur für Gratis-Nutzer,
+// familiengeeignet und nicht personalisiert. In der App ein echter Banner; gibt es gerade keinen
+// (keine Einwilligung, offline, nichts zu zeigen), bleibt der Platz leer. Im Browser ein Platzhalter.
 type Placement = 'result' | 'details' | 'season' | 'challenges' | 'collection' | 'profile' | 'limit';
+type Size = 'inline' | 'bar' | 'big';
+const web = Platform.OS === 'web';
+
+function useBanner() {
+  const [b, setB] = useState<{ gma: typeof import('react-native-google-mobile-ads'); id: string } | null>(null);
+  useEffect(() => {
+    if (web) return;
+    let alive = true;
+    bannerId().then(async (id) => {
+      const gma = id ? await ads() : null;
+      if (alive && gma && id) setB({ gma, id });
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+  return b;
+}
+
+// Der eigentliche Banner. onShown: erst wenn wirklich eine Anzeige geladen ist (dann erscheint die Beschriftung)
+function Banner({ size, onShown }: { size: Size; onShown: (on: boolean) => void }) {
+  const b = useBanner();
+  const { width } = useWindowDimensions();
+  if (!b) return null;
+  const { BannerAd, BannerAdSize } = b.gma;
+  return (
+    <BannerAd
+      unitId={b.id}
+      size={size === 'big' ? BannerAdSize.MEDIUM_RECTANGLE : size === 'bar' ? BannerAdSize.ANCHORED_ADAPTIVE_BANNER : BannerAdSize.INLINE_ADAPTIVE_BANNER}
+      width={size === 'inline' ? Math.min(width - 2 * spacing.gutter - 24, 400) : undefined}
+      maxHeight={size === 'inline' ? 120 : undefined}
+      requestOptions={requestOptions}
+      onAdLoaded={() => onShown(true)}
+      onAdFailedToLoad={() => onShown(false)}
+    />
+  );
+}
 
 // compact: schmale Leiste (fest am unteren Rand der Sammlung)
 export function AdSlot({ p, compact }: { p: Palette; placement: Placement; compact?: boolean }) {
   const { t } = useI18n();
   const { plus } = usePlus();
+  const [shown, setShown] = useState(false);
   if (plus) return null; // Plus: keine Werbung
+  if (!web) {
+    // Platz bleibt unsichtbar, bis eine Anzeige da ist
+    return (
+      <View
+        style={
+          shown
+            ? compact
+              ? [styles.barReal, { backgroundColor: p.card, borderColor: p.line }]
+              : [styles.card, { backgroundColor: p.card, borderColor: p.line, alignItems: 'center' }]
+            : styles.hidden
+        }
+        accessibilityLabel={t('ad.label')}
+      >
+        {shown && <Text style={[styles.label, { color: p.mute }, compact && styles.labelBar]}>{t('ad.label')}</Text>}
+        <Banner size={compact ? 'bar' : 'inline'} onShown={setShown} />
+      </View>
+    );
+  }
   if (compact) {
     return (
       <View style={[styles.bar, { backgroundColor: p.card, borderColor: p.line }]} accessibilityLabel={t('ad.label')}>
@@ -57,6 +114,11 @@ export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
   const [wait, setWait] = useState(CLOSE_AFTER);
 
   useEffect(() => {
+    // In der App ohne Werbung (keine Einwilligung, offline): gleich weiter
+    if (!web && !adsReady()) {
+      onClose();
+      return;
+    }
     Animated.timing(slide, {
       toValue: 0,
       duration: 350,
@@ -104,12 +166,20 @@ export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
             <Text style={[styles.closeText, { color: p.ink }]}>{wait > 0 ? wait : '✕'}</Text>
           </Pressable>
         </View>
-        {/* Platzhalter für Bild oder kurzes Video ohne Ton */}
-        <View style={[styles.sheetMedia, { backgroundColor: p.line }]}>
-          <Icon name="play" size={34} color={colors.accent} />
-        </View>
-        <Text style={[styles.title, { color: p.ink, marginTop: 12 }]}>{t('ad.placeholderTitle')}</Text>
-        <Text style={[styles.text, { color: p.mute }]}>{t('ad.placeholderText')}</Text>
+        {web ? (
+          <>
+            {/* Platzhalter für Bild oder kurzes Video ohne Ton */}
+            <View style={[styles.sheetMedia, { backgroundColor: p.line }]}>
+              <Icon name="play" size={34} color={colors.accent} />
+            </View>
+            <Text style={[styles.title, { color: p.ink, marginTop: 12 }]}>{t('ad.placeholderTitle')}</Text>
+            <Text style={[styles.text, { color: p.mute }]}>{t('ad.placeholderText')}</Text>
+          </>
+        ) : (
+          <View style={styles.sheetReal}>
+            <Banner size="big" onShown={(on) => !on && onClose()} />
+          </View>
+        )}
         {/* Ansporn für Plus */}
         <Pressable
           onPress={() => askForPlus(t, setPlus)}
@@ -124,6 +194,10 @@ export function AdSheet({ p, onClose }: { p: Palette; onClose: () => void }) {
 }
 
 const styles = StyleSheet.create({
+  hidden: { height: 0, overflow: 'hidden' },
+  barReal: { borderTopWidth: 1, alignItems: 'center', paddingTop: 2 },
+  labelBar: { alignSelf: 'center', marginBottom: 2, fontSize: 9 },
+  sheetReal: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   sheet: {
     position: 'absolute',
     left: 0,

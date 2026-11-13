@@ -27,6 +27,7 @@ import { join, leave, loadMe, Me } from '../board';
 import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
+import { privacyOptionsNeeded, showAdPrivacy } from '../ads';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
 import { syncPush } from '../push';
@@ -58,6 +59,11 @@ export function ProfileScreen(props: Props) {
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
   const insets = useSafeAreaInsets();
   const { t, lang, locale } = useI18n();
+  // Einwilligung für Werbung jederzeit ändern (Pflicht in der EU) – nur wenn Google es verlangt
+  const [adPrivacy, setAdPrivacy] = useState(false);
+  useEffect(() => {
+    privacyOptionsNeeded().then(setAdPrivacy);
+  }, []);
   const neutral = useNeutralSeasons();
   const [newName, setNewName] = useState(name);
   const [editing, setEditing] = useState(false);
@@ -366,6 +372,11 @@ export function ProfileScreen(props: Props) {
 
         {/* Hilfe sowie Datenschutz und Impressum (Webseiten des Explorimal-Servers) */}
         <View style={styles.links}>
+          {adPrivacy && (
+            <Pressable onPress={showAdPrivacy} accessibilityRole="button" style={styles.privacy}>
+              <Text style={[styles.privacyText, { color: p.mute }]}>{t('pro.adPrivacy')}</Text>
+            </Pressable>
+          )}
           {(
             [
               ['hilfe', 'pro.help'],

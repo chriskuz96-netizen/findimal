@@ -10,5 +10,5 @@ export const RC_IOS_KEY = 'appl_IdVDnsqoXFYeRZaWWOGBwPDMkZE';
 // ADS_LIVE = false: nur Googles Test-Anzeigen (zum Entwickeln und für TestFlight). Erst zum Start auf true.
 export const ADS_LIVE = false;
 export const ADMOB_APP_ID_IOS = 'ca-app-pub-2020103478208185~8370136450';
-export const ADMOB_BANNER_IOS = ''; // kommt noch („Banner 2“, ohne Partner-Bidding)
+export const ADMOB_BANNER_IOS = 'ca-app-pub-2020103478208185/1026173915';
 export const ADMOB_REWARDED_IOS = 'ca-app-pub-2020103478208185/7272677205';

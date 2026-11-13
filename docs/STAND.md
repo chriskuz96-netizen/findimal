@@ -189,6 +189,14 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   wieder verwendbar). Noch offen: Prüf-Screenshot der Kaufseite, Einreichung mit der App.
 - **RevenueCat (13.11.):** Projekt „explorimal“, App Store-App mit Bundle-ID `com.chriskuz.findimal`, In-App-Purchase-Key
   hinterlegt; Produkte, Entitlement `plus` und Offering `default` ($rc_annual/$rc_monthly) werden eingerichtet.
+- **RevenueCat + AdMob eingebaut (13.11., Version 1.2.0):** Kaufseite (Jahr/Monat aus Offering `default`, Wiederherstellen,
+  Abo verwalten), Server prüft Plus bei RevenueCat (Secret `RC_SECRET` in Cloudflare, Antwort 1 h im KV unter `rc:`).
+  AdMob iOS-App `ca-app-pub-2020103478208185~8370136450`, Banner „Banner 2“ `…/1026173915`, Belohnung `…/7272677205`
+  (der erste „Banner“ hat versehentlich Partner-Bidding, nicht nutzen). Einwilligung über Googles UMP-Fenster, nur nicht
+  personalisiert, Freigabe „G“; „Datenschutz-Einstellungen für Werbung“ im Profil. Belohnungs-Video → Server `mode: video`
+  (max. 3/Tag, `vid:<Datum>:<Handy>`, schreibt `bonus:` gut). **`ADS_LIVE` in src/config.ts erst zum Start auf true**
+  (bis dahin Test-Anzeigen). In AdMob noch offen: Zahlungsprofil (Einzelperson), DSGVO-Nachricht unter „Privacy &
+  messaging“ anlegen, app-ads.txt. Zum Start außerdem `OFFEN=ja` im Worker setzen (sonst nur mit Tester-Code).
 - **Plus ohne spürbare Grenze (entschieden 11.11.):** Server-Sicherung 500/Tag gegen Programme; ab 50 Fotos/Tag wird das
   Gerät unter `viel:<Datum>:<Hash>` vermerkt → steht im Wochenbericht (mit geschätzten KI-Kosten), dann einzeln regeln mit
   KV `cap:<Hash>` = Zahl. **Vor dem Start:** Plus am Server über RevenueCat prüfen (bisher glaubt er dem App-Kopf
