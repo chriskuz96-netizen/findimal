@@ -183,9 +183,12 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   Vor der Einreichung überlegen, ob „Nachschlagewerke“ als Hauptkategorie besser passt.
 - Test-Schalter für Plus aus der App entfernen, echtes Abo einbauen (entschieden 6.11.: über RevenueCat; Konto mit
   der Findimal-Gmail-Adresse; später Wechsel auf Eigenbau möglich, Abos liegen bei Apple/Google).
-- **Abo-Produkte in App Store Connect angelegt (11.11.):** Gruppe „Findimal Plus“ (22568382), `findimal.plus.yearly`
-  (14,99 €, Stufe 1) und `findimal.plus.monthly` (1,99 €), Texte in 7 Sprachen, Preise in allen 175 Ländern (angeglichen
-  an Deutschland), verfügbar überall. Noch offen: Prüf-Screenshot der Kaufseite, Einreichung mit der App.
+- **Abo-Produkte in App Store Connect (13.11. neu angelegt):** Gruppe „Explorimal Plus“ (22568382), `explorimal.plus.yearly`
+  (6834375500, 14,99 €, Stufe 1) und `explorimal.plus.monthly` (6834375437, 1,99 €, Stufe 2), Texte in 7 Sprachen, Preise in
+  allen 175 Ländern (angeglichen an Deutschland), verfügbar überall. Die alten `findimal.plus.*` wurden gelöscht (IDs nie
+  wieder verwendbar). Noch offen: Prüf-Screenshot der Kaufseite, Einreichung mit der App.
+- **RevenueCat (13.11.):** Projekt „explorimal“, App Store-App mit Bundle-ID `com.chriskuz.findimal`, In-App-Purchase-Key
+  hinterlegt; Produkte, Entitlement `plus` und Offering `default` ($rc_annual/$rc_monthly) werden eingerichtet.
 - **Plus ohne spürbare Grenze (entschieden 11.11.):** Server-Sicherung 500/Tag gegen Programme; ab 50 Fotos/Tag wird das
   Gerät unter `viel:<Datum>:<Hash>` vermerkt → steht im Wochenbericht (mit geschätzten KI-Kosten), dann einzeln regeln mit
   KV `cap:<Hash>` = Zahl. **Vor dem Start:** Plus am Server über RevenueCat prüfen (bisher glaubt er dem App-Kopf
