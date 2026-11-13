@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   h2: { fontFamily: fonts.serifBold, fontSize: 28, color: colors.white },
-  h2Fit: { flexShrink: 1, marginRight: 10 }, // lange Titel (z. B. Japanisch) in einer Zeile
+  h2Fit: { flexShrink: 0, marginRight: 10 }, // Titel bleibt ganz (alle Sprachen kurz); die Profil-Ecke rechts wird kleiner
   titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
   me: {
     flexDirection: 'row',
