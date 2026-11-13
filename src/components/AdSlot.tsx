@@ -13,6 +13,7 @@ import { colors, fonts, Palette, spacing } from '../theme';
 // (keine Einwilligung, offline, nichts zu zeigen), bleibt der Platz leer. Im Browser ein Platzhalter.
 type Placement = 'result' | 'details' | 'season' | 'challenges' | 'collection' | 'profile' | 'limit';
 type Size = 'inline' | 'bar' | 'big';
+const BANNER_H = 120; // Höhe des Banners im Inhalt (Google liefert bei dieser Breite 120)
 const web = Platform.OS === 'web';
 
 function useBanner(fixed: boolean) {
@@ -42,7 +43,7 @@ function Banner({ size, onShown }: { size: Size; onShown: (on: boolean) => void 
       unitId={b.id}
       size={size === 'big' ? BannerAdSize.MEDIUM_RECTANGLE : size === 'bar' ? BannerAdSize.ANCHORED_ADAPTIVE_BANNER : BannerAdSize.INLINE_ADAPTIVE_BANNER}
       width={size === 'inline' ? Math.min(width - 2 * spacing.gutter - 24, 400) : undefined}
-      maxHeight={size === 'inline' ? 120 : undefined}
+      maxHeight={size === 'inline' ? BANNER_H : undefined}
       requestOptions={requestOptions}
       onAdLoaded={(d) => {
         adLog(`Banner ${size} geladen ${d?.width ?? '?'}×${d?.height ?? '?'}`);
@@ -62,7 +63,24 @@ export const AdSlot = memo(function AdSlot({ p, compact }: { p: Palette; placeme
   const { t } = useI18n();
   const { plus } = usePlus();
   const [shown, setShown] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const onShown = (on: boolean) => {
+    setShown(on);
+    if (!on) setFailed(true);
+  };
   if (plus) return null; // Plus: keine Werbung
+  if (!web && !compact && adsReady() && !failed) {
+    // Werbung ist bereit: Platz in voller Höhe gleich freihalten, damit die Seite beim Laden nicht
+    // springt (das ruckelte beim Scrollen). Kommt keine Anzeige, verschwindet der Platz wieder.
+    return (
+      <View style={[styles.card, { backgroundColor: p.card, borderColor: p.line, alignItems: 'center' }]} accessibilityLabel={t('ad.label')}>
+        <Text style={[styles.label, { color: p.mute }]}>{t('ad.label')}</Text>
+        <View style={{ minHeight: BANNER_H, justifyContent: 'center' }}>
+          <Banner size="inline" onShown={onShown} />
+        </View>
+      </View>
+    );
+  }
   if (!web) {
     // Platz bleibt unsichtbar, bis eine Anzeige da ist
     return (
@@ -77,7 +95,7 @@ export const AdSlot = memo(function AdSlot({ p, compact }: { p: Palette; placeme
         accessibilityLabel={t('ad.label')}
       >
         {shown && <Text style={[styles.label, { color: p.mute }, compact && styles.labelBar]}>{t('ad.label')}</Text>}
-        <Banner size={compact ? 'bar' : 'inline'} onShown={setShown} />
+        <Banner size={compact ? 'bar' : 'inline'} onShown={onShown} />
       </View>
     );
   }

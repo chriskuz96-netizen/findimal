@@ -526,6 +526,8 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
             p={p}
           />
 
+          {/* Anzeigen-Platz unter der Rangliste */}
+          <AdSlot p={p} placement='challenges' />
 
         </Animated.View>
 
@@ -575,9 +577,6 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
             )}
           </View>
         </View>
-
-        {/* Anzeigen-Platz ganz unten (weiter oben bremste der Banner beim Scrollen durch die Seite) */}
-        <AdSlot p={p} placement='challenges' />
 
         <Text style={[styles.note, { color: p.mute }]}>
           {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
