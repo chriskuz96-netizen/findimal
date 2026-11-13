@@ -550,8 +550,6 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
             p={p}
           />
 
-          {/* Anzeigen-Platz unter der Rangliste */}
-          <AdSlot p={p} placement='challenges' />
 
         </Animated.View>
 
@@ -644,6 +642,8 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
           {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
         </Text>
       </ScrollView>
+      {/* Feste Anzeigen-Leiste unten wie in der Sammlung (Test: scrollt flüssiger als ein Banner in der Seite) */}
+      <AdSlot p={p} placement='challenges' compact />
 
       {/* Forscher-Quiz im eigenen Fenster */}
       <ForscherQuiz
