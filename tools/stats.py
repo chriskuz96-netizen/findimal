@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Findimal-Kennzahlen für die Wochenübersicht.
+"""Explorimal-Kennzahlen für die Wochenübersicht.
 
 Liest (nur lesend):
 - Cloudflare KV „findimal-rangliste“: anonyme Tageszählung hi:<Datum>:<Hash> (Metadaten l/v/p/n/t),
@@ -103,14 +103,23 @@ def main():
         active = {h for h, s in seen_on.items() if any(ws <= x <= we for x in s)}
         new = {h for h, f in first_day.items() if ws <= f <= we}
         photos = sum(x['photos'] for x in days if ws.isoformat() <= x['date'] <= we.isoformat())
+        # wie oft: an wie vielen Tagen dieser Woche war jedes aktive Gerät da
+        per_user = [sum(1 for x in seen_on[h] if ws <= x <= we) for h in active]
+        total = sum(1 for s in seen_on.values() if min(s) <= we)  # alle Geräte bis Wochenende
         weeks.append({'week': ws.isoformat(), 'active': len(active), 'new': len(new), 'photos': photos, '_set': active,
-                      'complete': we < today})
+                      'total': total, 'days_per_user': round(sum(per_user) / len(per_user), 2) if per_user else None,
+                      '_per_user': per_user, 'complete': we < today})
         ws += dt.timedelta(days=7)
     for a, b in zip(weeks, weeks[1:]):
         b['returning'] = len(a['_set'] & b['_set'])
         b['retention'] = round(100 * b['returning'] / len(a['_set'])) if a['_set'] else None
+    # Häufigkeit in der letzten vollen Woche (sonst der laufenden)
+    full = [w for w in weeks if w['complete']] or weeks
+    fw = full[-1] if full else None
+    buckets = [('1 Tag', 1, 1), ('2 bis 3 Tage', 2, 3), ('4 bis 6 Tage', 4, 6), ('alle 7 Tage', 7, 7)]
+    frequency = [{'week': fw['week'], 'bucket': b, 'users': sum(1 for n in fw['_per_user'] if lo <= n <= hi)} for b, lo, hi in buckets] if fw else []
     for w in weeks:
-        w.pop('_set')
+        w.pop('_set'); w.pop('_per_user')
 
     # --- Aufteilung der letzten 7 Tage ---
     recent = {h for h, s in seen_on.items() if any(x > today - dt.timedelta(days=7) for x in s)}
@@ -172,6 +181,8 @@ def main():
         'push': push,
         'testflight': tf,
         'heavy': heavy,
+        'frequency': frequency,
+        'users_total': len(seen_on),
     }
     text = json.dumps(out, ensure_ascii=False, indent=1)
     if len(sys.argv) > 1:
@@ -187,6 +198,7 @@ def main():
         put('daily.json', days)
         put('weekly.json', weeks)
         put('server.json', requests if isinstance(requests, list) else [])
+        put('frequency.json', frequency)
         labels = {'l': 'Sprache', 'p': 'System', 'v': 'App-Version'}
         names = {'de': 'Deutsch', 'en': 'Englisch', 'fr': 'Französisch', 'es': 'Spanisch', 'pt': 'Portugiesisch',
                  'ja': 'Japanisch', 'it': 'Italienisch', 'ios': 'iOS', 'android': 'Android', 'web': 'Web', '?': 'unbekannt', '': 'unbekannt'}
@@ -197,7 +209,7 @@ def main():
         put('split.json', rows)
         put('totals.json', [{'board': board, 'push': push,
                              'testers': (tf or {}).get('testers'), 'installed': (tf or {}).get('installed'),
-                             'active7': len(recent), 'generated': out['generated']}])
+                             'active7': len(recent), 'users_total': len(seen_on), 'generated': out['generated']}])
 
 
 if __name__ == '__main__':
