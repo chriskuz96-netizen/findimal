@@ -642,7 +642,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
           {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
         </Text>
       </ScrollView>
-      {/* Feste Anzeigen-Leiste unten wie in der Sammlung (Test: scrollt flüssiger als ein Banner in der Seite) */}
+      {/* Feste Anzeigen-Leiste unten wie in der Sammlung: ein Banner mitten in der Seite ließ das Scrollen ruckeln */}
       <AdSlot p={p} placement='challenges' compact />
 
       {/* Forscher-Quiz im eigenen Fenster */}
