@@ -154,13 +154,19 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
     return () => cancelAnimationFrame(frame);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleBadges]);
-  // Reihenfolge: neue zuerst, dann verdiente (spätere zuerst, die sind meist die jüngsten), dann die noch offenen
-  const rank = (b: Badge, i: number) => (freshBadges.includes(b.id) ? 0 : b.earned ? 1000 - i : 2000 + i);
-  const badgeList = progress.badges
+  // Reihenfolge: neue zuerst, dann verdiente (spätere zuerst, die sind meist die jüngsten), dann die offenen –
+  // die, bei denen man schon am weitesten ist, vorn. Eingeklappt ist immer mindestens ein offenes dabei
+  // (das nächste, das man freischalten kann).
+  const progressOf = (b: Badge) => (b.need && b.have ? b.have / b.need : 0);
+  const rank = (b: Badge, i: number) =>
+    freshBadges.includes(b.id) ? 0 : b.earned ? 1000 - i : 3000 - Math.round(progressOf(b) * 1000) + i / 100;
+  const sorted = progress.badges
     .map((b, i) => ({ b, r: rank(b, i) }))
     .sort((x, y) => x.r - y.r)
-    .map((x) => x.b)
-    .slice(0, visibleBadges);
+    .map((x) => x.b);
+  const nextUp = sorted.find((b) => !b.earned);
+  let badgeList = sorted.slice(0, visibleBadges);
+  if (nextUp && !badgeList.includes(nextUp)) badgeList = [...badgeList.slice(0, -1), nextUp];
   useEffect(() => {
     if (!active) return; // erst animieren, wenn man die Seite wirklich sieht
     let alive = true;
@@ -738,6 +744,16 @@ function BadgeView({
       </Animated.View>
       <Text style={[styles.badgeName, { color: badge.earned ? p.ink : p.mute }]}>{name}</Text>
       <Text style={[styles.badgeXp, { color: badge.earned ? (p.bg === darkPalette.bg ? colors.accent : colors.accentDark) : p.mute }]}>+{BADGE_XP[BADGE_TIER[badge.id]]} XP</Text>
+      {!badge.earned && !!badge.need && !!badge.have && badge.need > 1 && (
+        <View style={styles.badgeProg} accessibilityLabel={`${badge.have} / ${badge.need}`}>
+          <View style={[styles.badgeTrack, { backgroundColor: p.line }]}>
+            <View style={[styles.badgeFill, { width: `${Math.round((badge.have / badge.need) * 100)}%` }]} />
+          </View>
+          <Text style={[styles.badgeProgText, { color: p.mute }]}>
+            {badge.have} / {badge.need}
+          </Text>
+        </View>
+      )}
       {selected && <Text style={[styles.badgeSel, { color: colors.accent }]}>{t('ch.profilePic')}</Text>}
     </Pressable>
   );
@@ -988,5 +1004,9 @@ const styles = StyleSheet.create({
   newPillText: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.white },
   badgeSel: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 1 },
   badgeXp: { fontFamily: fonts.sansBold, fontSize: 11, marginTop: 1, fontVariant: ['tabular-nums'] },
+  badgeProg: { alignItems: 'center', marginTop: 4, width: 72 },
+  badgeTrack: { width: 72, height: 6, borderRadius: 3, overflow: 'hidden' },
+  badgeFill: { height: 6, borderRadius: 3, backgroundColor: colors.accent },
+  badgeProgText: { fontFamily: fonts.sansBold, fontSize: 10.5, marginTop: 2, fontVariant: ['tabular-nums'] },
   note: { marginTop: 14, marginHorizontal: spacing.gutter, fontFamily: fonts.sans, fontSize: 12 },
 });
