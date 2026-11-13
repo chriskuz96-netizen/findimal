@@ -196,7 +196,9 @@ Notiz für die nächste Arbeitssitzung (Stand: 14. Oktober 2026).
   personalisiert, Freigabe „G“; „Datenschutz-Einstellungen für Werbung“ im Profil. Belohnungs-Video → Server `mode: video`
   (max. 3/Tag, `vid:<Datum>:<Handy>`, schreibt `bonus:` gut). **`ADS_LIVE` in src/config.ts erst zum Start auf true**
   (bis dahin Test-Anzeigen). In AdMob noch offen: Zahlungsprofil (Einzelperson), DSGVO-Nachricht unter „Privacy &
-  messaging“ anlegen, app-ads.txt. Zum Start außerdem `OFFEN=ja` im Worker setzen (sonst nur mit Tester-Code).
+  messaging“ anlegen. app-ads.txt liegt seit 13.11. unter `findimal.findimalapp.workers.dev/app-ads.txt`
+  (Marketing-URL im App Store zeigt dorthin); ob AdMob eine workers.dev-Adresse anerkennt, im AdMob-Tab
+  „app-ads.txt“ prüfen, sonst eigene Domain nehmen. Zum Start außerdem `OFFEN=ja` im Worker setzen (sonst nur mit Tester-Code).
 - **Plus ohne spürbare Grenze (entschieden 11.11.):** Server-Sicherung 500/Tag gegen Programme; ab 50 Fotos/Tag wird das
   Gerät unter `viel:<Datum>:<Hash>` vermerkt → steht im Wochenbericht (mit geschätzten KI-Kosten), dann einzeln regeln mit
   KV `cap:<Hash>` = Zahl. **Vor dem Start:** Plus am Server über RevenueCat prüfen (bisher glaubt er dem App-Kopf
