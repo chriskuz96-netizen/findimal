@@ -64,6 +64,15 @@ module.exports = ({ config }) => ({
   },
   plugins: [
     'expo-font',
+    // Werbung (Google AdMob). Android hat noch keine eigene AdMob-App: bis dahin Googles Beispiel-Kennung,
+    // sonst startet die Android-App nicht.
+    [
+      'react-native-google-mobile-ads',
+      {
+        iosAppId: 'ca-app-pub-2020103478208185~8370136450',
+        androidAppId: 'ca-app-pub-3940256099942544~3347511713',
+      },
+    ],
     'expo-sharing',
     'expo-status-bar',
     // Push-Mitteilungen vom Server (Freundschaftsanfragen); die Natur-Tipps plant die App selbst
