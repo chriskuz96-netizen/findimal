@@ -1,7 +1,7 @@
 # Explorimal – Texte für App Store und TestFlight
 
 Zum Kopieren in App Store Connect. Zeichengrenzen von Apple sind eingehalten.
-Stand: November 2026.
+Stand: 13. November 2026. In App Store Connect eingetragen (Version 1.2.0, alle 7 Sprachen).
 
 ---
 
@@ -17,49 +17,49 @@ tier,bestimmen,erkennen,insekten,vögel,käfer,schmetterling,natur,kinder,famili
 ```
 
 **Werbetext** (max. 170, jederzeit ohne Prüfung änderbar – passend zur Jahreszeit):
-> Neu im Herbst: Igel, Eichhörnchen und Kreuzspinnen entdecken! Foto machen, Tier erkennen, Abzeichen sammeln – und Tipps, wie du Tieren durch den Winter hilfst.
+> Neu im Herbst: Igel, Eichhörnchen und Kreuzspinnen entdecken! Foto machen, Tier erkennen, Abzeichen sammeln und Tipps, wie du Tieren durch den Winter hilfst.
 
 **Beschreibung:**
 
-> Was krabbelt da im Beet? Welcher Vogel singt im Baum? Mit Explorimal machst du ein Foto – und erfährst sofort, welches Tier du gefunden hast.
+> Was krabbelt da im Beet? Welcher Vogel singt im Baum? Mit Explorimal machst du ein Foto und erfährst sofort, welches Tier du gefunden hast.
 >
 > Explorimal macht aus jedem Spaziergang eine kleine Entdeckungsreise. Für Familien, Kinder und alle, die Natur neugierig macht.
 >
-> WARUM ES FINDIMAL GIBT
-> Uns liegen Tiere am Herzen. Wer genau hinschaut, entdeckt, wie viel Leben direkt vor der Haustür steckt – und was man kennt und mag, das schützt man auch. Mit Explorimal wollen wir mehr Menschen für Tiere begeistern und sie wieder öfter nach draußen in die Natur bringen. Also: Handy raus, Augen auf – und dann viel Zeit draußen!
+> WARUM ES EXPLORIMAL GIBT
+> Uns liegen Tiere am Herzen. Wer genau hinschaut, entdeckt, wie viel Leben direkt vor der Haustür steckt. Und was man kennt und mag, das schützt man auch. Mit Explorimal wollen wir mehr Menschen für Tiere begeistern und sie wieder öfter nach draußen in die Natur bringen. Also: Handy raus, Augen auf und ab nach draußen!
 >
 > FOTOGRAFIEREN UND ERKENNEN
-> • Foto machen oder aus deinen Bildern wählen – Explorimal sagt dir, welches Tier es ist
+> • Foto machen oder aus deinen Bildern wählen: Explorimal sagt dir, welches Tier es ist
 > • Insekten, Vögel, Säugetiere, Spinnen, Schnecken, Fische, Reptilien und Amphibien
 > • Bei Haustieren und Nutztieren auch die Rasse
 > • Unsicher? Ein zweites Foto aus einem anderen Blickwinkel hilft
 >
 > STAUNEN UND LERNEN
 > • Steckbrief zu jedem Tier: Größe, Lebensraum, Nahrung und mehr
-> • „Wusstest du?“ – ein überraschender Fakt zu jedem Fund
+> • „Wusstest du?“: ein überraschender Fakt zu jedem Fund
 > • Tägliche Quizfragen rund um Tiere
 >
 > SAMMELN UND ENTDECKEN
-> • Deine eigene Sammlung mit allen Funden – nach Tiergruppen sortiert
+> • Deine eigene Sammlung mit allen Funden: nach Tiergruppen sortiert
 > • „Jetzt in deiner Nähe“: Tiere, die du gerade in deiner Gegend finden kannst
 >
 > SAISON UND TIERSCHUTZ
 > • Saison-Tiere: Was jetzt draußen los ist
 > • Einfache Tipps, wie du Tieren in Garten und Natur hilfst
-> • Natur-Tipp der Woche als Mitteilung – freiwillig und höchstens einmal pro Woche
+> • Natur-Tipp der Woche als Mitteilung: freiwillig und höchstens einmal pro Woche
 > • Das Explorimal-Ehrenwort: Tiere beobachten, ohne sie zu stören
 >
 > CHALLENGES MIT FREUNDEN
 > • Erfahrungspunkte, Stufen und Abzeichen
 > • Saison-Ziel: Tiere aus drei Gruppen entdecken
-> • Rangliste mit Freunden – lade sie per Link ein
+> • Rangliste mit Freunden: lade sie per Link ein
 >
 > DEINE DATEN BLEIBEN BEI DIR
 > Kein Konto nötig. Deine Sammlung und deine Fotos bleiben auf deinem iPhone.
 >
-> FINDIMAL PLUS
-> Kostenlos kannst du jeden Tag 3 Tiere bestimmen. Mit Explorimal Plus gibt es unbegrenzt Fotos, keine Werbung und 24 exklusive Tier-Profilbilder mit goldenem Rahmen.
-> Explorimal Plus kostet 1,99 € im Monat oder 14,99 € im Jahr. Das Abo verlängert sich automatisch, wenn es nicht mindestens 24 Stunden vor Ablauf in den Einstellungen deines Apple-Accounts gekündigt wird.
+> EXPLORIMAL PLUS
+> Kostenlos kannst du jeden Tag 3 Tiere bestimmen. Mit kurzen Videos gibt es bis zu 3 Fotos mehr am Tag. Mit Explorimal Plus gibt es unbegrenzt Fotos, keine Werbung und 24 exklusive Tier-Profilbilder mit goldenem Rahmen.
+> Explorimal Plus gibt es als Monats- oder Jahresabo. Das Abo verlängert sich automatisch, wenn es nicht mindestens 24 Stunden vor Ablauf in den Einstellungen deines Apple-Accounts gekündigt wird.
 >
 > Hinweis: Explorimal nutzt künstliche Intelligenz und kann sich irren. Bitte fass keine Tiere an, die du nicht sicher kennst, und iss nichts, nur weil eine App es erkannt hat.
 >
@@ -94,26 +94,26 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 ```
 
 **Promotional text:**
-> New this autumn: spot hedgehogs, squirrels and garden spiders! Snap a photo, identify the animal, earn badges – and learn how to help wildlife through winter.
+> New this autumn: spot hedgehogs, squirrels and garden spiders! Snap a photo, identify the animal, earn badges and learn how to help wildlife through winter.
 
 **Description:**
 
-> What's crawling in the flower bed? Which bird is singing in the tree? Snap a photo with Explorimal – and find out right away which animal you've found.
+> What's crawling in the flower bed? Which bird is singing in the tree? Snap a photo with Explorimal and find out right away which animal you've found.
 >
 > Explorimal turns every walk into a little expedition. For families, kids and anyone curious about nature.
 >
-> WHY FINDIMAL EXISTS
-> Animals are close to our hearts. Look closely and you'll discover how much life there is right outside your door – and what we know and love, we protect. With Explorimal we want to get more people excited about animals and bring them back outside into nature more often. So: phone out, eyes open – and then lots of time outdoors!
+> WHY EXPLORIMAL EXISTS
+> Animals are close to our hearts. Look closely and you'll discover how much life there is right outside your door. And what we know and love, we protect. With Explorimal we want to get more people excited about animals and bring them back outside into nature more often. So: phone out, eyes open, and head outside!
 >
 > SNAP AND IDENTIFY
-> • Take a photo or pick one from your library – Explorimal tells you which animal it is
+> • Take a photo or pick one from your library: Explorimal tells you which animal it is
 > • Insects, birds, mammals, spiders, snails, fish, reptiles and amphibians
 > • Breeds for pets and farm animals, too
 > • Not sure? A second photo from another angle helps
 >
 > WONDER AND LEARN
 > • A fact sheet for every animal: size, habitat, food and more
-> • "Did you know?" – a surprising fact for every find
+> • "Did you know?": a surprising fact for every find
 > • Daily animal quiz questions
 >
 > COLLECT AND EXPLORE
@@ -123,20 +123,20 @@ animal finder,identifier,insect,bird,bug,nature,kids,family,wildlife,garden,butt
 > SEASONS AND WILDLIFE CARE
 > • Seasonal animals: what's happening outside right now
 > • Simple tips to help animals in your garden and in nature
-> • Nature tip of the week as a notification – optional and at most once a week
+> • Nature tip of the week as a notification: optional and at most once a week
 > • The Explorimal promise: watch animals without disturbing them
 >
 > CHALLENGES WITH FRIENDS
 > • Experience points, levels and badges
 > • Seasonal goal: discover animals from three groups
-> • Leaderboard with friends – invite them with a link
+> • Leaderboard with friends: invite them with a link
 >
 > YOUR DATA STAYS WITH YOU
 > No account needed. Your collection and your photos stay on your iPhone.
 >
-> FINDIMAL PLUS
-> Identify 3 animals a day for free. Explorimal Plus gives you unlimited photos, no ads and 24 exclusive animal profile pictures with a golden frame.
-> Explorimal Plus costs €1.99 per month or €14.99 per year. The subscription renews automatically unless cancelled in your Apple account settings at least 24 hours before the end of the current period.
+> EXPLORIMAL PLUS
+> Identify 3 animals a day for free. Short videos unlock up to 3 more photos a day. Explorimal Plus gives you unlimited photos, no ads and 24 exclusive animal profile pictures with a golden frame.
+> Explorimal Plus is available as a monthly or yearly subscription. The subscription renews automatically unless cancelled in your Apple account settings at least 24 hours before the end of the current period.
 >
 > Note: Explorimal uses artificial intelligence and can make mistakes. Please don't touch animals you don't know for sure, and never eat anything just because an app identified it.
 >
@@ -168,26 +168,26 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 ```
 
 **Texte promotionnel :**
-> Nouveau cet automne : hérissons, écureuils et araignées ! Photographie un animal, découvre son nom, gagne des badges – et aide les animaux à passer l’hiver.
+> Nouveau cet automne : hérissons, écureuils et araignées ! Photographie un animal, découvre son nom, gagne des badges et aide les animaux à passer l’hiver.
 
 **Description :**
 
-> Qu’est-ce qui rampe dans le potager ? Quel oiseau chante dans l’arbre ? Avec Explorimal, prends une photo – et découvre aussitôt quel animal tu as trouvé.
+> Qu’est-ce qui rampe dans le potager ? Quel oiseau chante dans l’arbre ? Avec Explorimal, prends une photo et découvre aussitôt quel animal tu as trouvé.
 >
 > Explorimal transforme chaque promenade en petite expédition. Pour les familles, les enfants et tous les curieux de nature.
 >
-> POURQUOI FINDIMAL
-> Les animaux nous tiennent à cœur. En regardant de près, on découvre combien la vie foisonne juste devant sa porte – et ce que l’on connaît et aime, on le protège. Avec Explorimal, nous voulons passionner davantage de monde pour les animaux et donner envie de sortir plus souvent dans la nature. Alors : téléphone en main, yeux grands ouverts – et beaucoup de temps dehors !
+> POURQUOI EXPLORIMAL
+> Les animaux nous tiennent à cœur. En regardant de près, on découvre combien la vie foisonne juste devant sa porte. Et ce que l’on connaît et aime, on le protège. Avec Explorimal, nous voulons passionner davantage de monde pour les animaux et donner envie de sortir plus souvent dans la nature. Alors : téléphone en main, yeux grands ouverts et beaucoup de temps dehors !
 >
 > PHOTOGRAPHIER ET IDENTIFIER
-> • Prends une photo ou choisis-en une dans ta galerie – Explorimal te dit de quel animal il s’agit
+> • Prends une photo ou choisis-en une dans ta galerie: Explorimal te dit de quel animal il s’agit
 > • Insectes, oiseaux, mammifères, araignées, escargots, poissons, reptiles et amphibiens
 > • Aussi la race des animaux domestiques et d’élevage
 > • Pas sûr ? Une deuxième photo sous un autre angle aide
 >
 > S’ÉMERVEILLER ET APPRENDRE
 > • Une fiche pour chaque animal : taille, habitat, alimentation et plus
-> • « Le savais-tu ? » – un fait surprenant pour chaque trouvaille
+> • « Le savais-tu ? »: un fait surprenant pour chaque trouvaille
 > • Des questions de quiz chaque jour
 >
 > COLLECTIONNER ET EXPLORER
@@ -197,20 +197,20 @@ animal finder,reconnaître,insecte,oiseau,papillon,nature,enfant,famille,jardin,
 > SAISONS ET PROTECTION DES ANIMAUX
 > • Les animaux de la saison : ce qui se passe dehors en ce moment
 > • Des conseils simples pour aider les animaux au jardin et dans la nature
-> • L’astuce nature de la semaine en notification – facultative et au maximum une fois par semaine
+> • L’astuce nature de la semaine en notification: facultative et au maximum une fois par semaine
 > • La promesse Explorimal : observer les animaux sans les déranger
 >
 > DÉFIS ENTRE AMIS
 > • Points d’expérience, niveaux et badges
 > • Objectif de saison : découvrir des animaux de trois groupes
-> • Classement entre amis – invite-les avec un lien
+> • Classement entre amis: invite-les avec un lien
 >
 > TES DONNÉES RESTENT CHEZ TOI
 > Aucun compte nécessaire. Ta collection et tes photos restent sur ton iPhone.
 >
-> FINDIMAL PLUS
-> Identifie gratuitement 3 animaux par jour. Explorimal Plus offre des photos illimitées, sans publicité, et 24 photos de profil animales exclusives avec un cadre doré.
-> Explorimal Plus coûte 1,99 € par mois ou 14,99 € par an. L’abonnement se renouvelle automatiquement s’il n’est pas résilié dans les réglages de ton compte Apple au moins 24 heures avant la fin de la période en cours.
+> EXPLORIMAL PLUS
+> Identifie gratuitement 3 animaux par jour. De courtes vidéos te donnent jusqu’à 3 photos de plus par jour. Explorimal Plus offre des photos illimitées, sans publicité, et 24 photos de profil animales exclusives avec un cadre doré.
+> Explorimal Plus est disponible en abonnement mensuel ou annuel. L’abonnement se renouvelle automatiquement s’il n’est pas résilié dans les réglages de ton compte Apple au moins 24 heures avant la fin de la période en cours.
 >
 > Remarque : Explorimal utilise l’intelligence artificielle et peut se tromper. Ne touche pas les animaux que tu ne connais pas avec certitude, et ne mange jamais rien simplement parce qu’une app l’a reconnu.
 >
@@ -248,22 +248,22 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 
 **Descripción:**
 
-> ¿Qué se arrastra por el huerto? ¿Qué pájaro canta en el árbol? Con Explorimal haces una foto – y descubres al instante qué animal has encontrado.
+> ¿Qué se arrastra por el huerto? ¿Qué pájaro canta en el árbol? Con Explorimal haces una foto y descubres al instante qué animal has encontrado.
 >
 > Explorimal convierte cada paseo en una pequeña expedición. Para familias, niños y cualquiera con curiosidad por la naturaleza.
 >
-> POR QUÉ EXISTE FINDIMAL
+> POR QUÉ EXISTE EXPLORIMAL
 > Los animales nos importan de corazón. Si miras con atención, descubres cuánta vida hay justo delante de tu puerta, y lo que conocemos y queremos, lo protegemos. Con Explorimal queremos que más gente se entusiasme con los animales y salga más a menudo a la naturaleza. Así que: móvil en mano, ojos bien abiertos… ¡y mucho tiempo al aire libre!
 >
 > FOTOGRAFIAR E IDENTIFICAR
-> • Haz una foto o elige una de tu galería – Explorimal te dice qué animal es
+> • Haz una foto o elige una de tu galería: Explorimal te dice qué animal es
 > • Insectos, aves, mamíferos, arañas, caracoles, peces, reptiles y anfibios
 > • También la raza de mascotas y animales de granja
 > • ¿No está claro? Una segunda foto desde otro ángulo ayuda
 >
 > ASOMBRARSE Y APRENDER
 > • Una ficha de cada animal: tamaño, hábitat, alimentación y más
-> • «¿Sabías que…?» – un dato sorprendente de cada hallazgo
+> • «¿Sabías que…?»: un dato sorprendente de cada hallazgo
 > • Preguntas de quiz cada día
 >
 > COLECCIONAR Y EXPLORAR
@@ -279,14 +279,14 @@ animal finder,identificar,insecto,pájaro,ave,mariposa,naturaleza,niños,familia
 > RETOS CON AMIGOS
 > • Puntos de experiencia, niveles e insignias
 > • Objetivo de temporada: descubre animales de tres grupos
-> • Clasificación con amigos – invítalos con un enlace
+> • Clasificación con amigos: invítalos con un enlace
 >
 > TUS DATOS SE QUEDAN CONTIGO
 > No necesitas cuenta. Tu colección y tus fotos se quedan en tu iPhone.
 >
-> FINDIMAL PLUS
-> Identifica gratis 3 animales al día. Explorimal Plus te da fotos ilimitadas, sin anuncios y 24 fotos de perfil de animales exclusivas con marco dorado.
-> Explorimal Plus cuesta 1,99 € al mes o 14,99 € al año. La suscripción se renueva automáticamente salvo que la canceles en los ajustes de tu cuenta de Apple al menos 24 horas antes de que termine el periodo actual.
+> EXPLORIMAL PLUS
+> Identifica gratis 3 animales al día. Con vídeos cortos consigues hasta 3 fotos más al día. Explorimal Plus te da fotos ilimitadas, sin anuncios y 24 fotos de perfil de animales exclusivas con marco dorado.
+> Explorimal Plus está disponible como suscripción mensual o anual. La suscripción se renueva automáticamente salvo que la canceles en los ajustes de tu cuenta de Apple al menos 24 horas antes de que termine el periodo actual.
 >
 > Nota: Explorimal usa inteligencia artificial y puede equivocarse. No toques animales que no conozcas con seguridad y nunca comas nada solo porque una app lo haya reconocido.
 >
@@ -328,7 +328,7 @@ riconoscere animali,insetti,uccelli,farfalle,natura,bambini,famiglia,giardino,qu
 >
 > Explorimal trasforma ogni passeggiata in una piccola spedizione. Per famiglie, bambini e chiunque sia curioso della natura.
 >
-> PERCHÉ ESISTE FINDIMAL
+> PERCHÉ ESISTE EXPLORIMAL
 > Gli animali ci stanno a cuore. Se guardi con attenzione, scopri quanta vita c’è proprio davanti a casa, e ciò che conosciamo e amiamo, lo proteggiamo. Con Explorimal vogliamo che più persone si appassionino agli animali e passino più tempo nella natura. Quindi: telefono in mano, occhi aperti… e tanto tempo all’aria aperta!
 >
 > FOTOGRAFA E IDENTIFICA
@@ -359,9 +359,9 @@ riconoscere animali,insetti,uccelli,farfalle,natura,bambini,famiglia,giardino,qu
 > I TUOI DATI RESTANO TUOI
 > Non serve un account. La tua collezione e le tue foto restano sul tuo telefono.
 >
-> FINDIMAL PLUS
-> Identifica gratis 3 animali al giorno. Explorimal Plus ti dà foto illimitate, niente pubblicità, il jolly nel quiz e 24 immagini del profilo esclusive di animali con cornice dorata.
-> Explorimal Plus costa 1,99 € al mese o 14,99 € all’anno. L’abbonamento si rinnova automaticamente, a meno che tu non lo disdica nelle impostazioni del tuo account Apple almeno 24 ore prima della fine del periodo in corso.
+> EXPLORIMAL PLUS
+> Identifica gratis 3 animali al giorno. Con brevi video ottieni fino a 3 foto in più al giorno. Explorimal Plus ti dà foto illimitate, niente pubblicità, il jolly nel quiz e 24 immagini del profilo esclusive di animali con cornice dorata.
+> Explorimal Plus è disponibile con abbonamento mensile o annuale. L’abbonamento si rinnova automaticamente, a meno che tu non lo disdica nelle impostazioni del tuo account Apple almeno 24 ore prima della fine del periodo in corso.
 >
 > Nota: Explorimal usa l’intelligenza artificiale e può sbagliare. Non toccare animali che non conosci con certezza e non mangiare mai nulla solo perché un’app l’ha riconosciuto.
 >
@@ -399,22 +399,22 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 
 **Descrição:**
 
-> Que bicho é esse no jardim? Que pássaro está cantando na árvore? Com o Explorimal você tira uma foto – e descobre na hora que animal encontrou.
+> Que bicho é esse no jardim? Que pássaro está cantando na árvore? Com o Explorimal você tira uma foto e descobre na hora que animal encontrou.
 >
 > O Explorimal transforma cada passeio numa pequena expedição. Para famílias, crianças e qualquer pessoa curiosa pela natureza.
 >
-> POR QUE O FINDIMAL EXISTE
-> Os animais são muito importantes para nós. Quem olha com atenção descobre quanta vida existe bem na porta de casa – e o que a gente conhece e ama, a gente protege. Com o Explorimal queremos que mais pessoas se encantem pelos animais e saiam mais vezes para a natureza. Então: celular na mão, olhos bem abertos… e muito tempo ao ar livre!
+> POR QUE O EXPLORIMAL EXISTE
+> Os animais são muito importantes para nós. Quem olha com atenção descobre quanta vida existe bem na porta de casa. E o que a gente conhece e ama, a gente protege. Com o Explorimal queremos que mais pessoas se encantem pelos animais e saiam mais vezes para a natureza. Então: celular na mão, olhos bem abertos… e muito tempo ao ar livre!
 >
 > FOTOGRAFAR E IDENTIFICAR
-> • Tire uma foto ou escolha uma da galeria – o Explorimal diz que animal é
+> • Tire uma foto ou escolha uma da galeria: o Explorimal diz que animal é
 > • Insetos, aves, mamíferos, aranhas, caracóis, peixes, répteis e anfíbios
 > • Também a raça de animais de estimação e de fazenda
 > • Não ficou claro? Uma segunda foto de outro ângulo ajuda
 >
 > SE ENCANTAR E APRENDER
 > • Uma ficha de cada animal: tamanho, habitat, alimentação e mais
-> • “Você sabia?” – uma curiosidade surpreendente de cada achado
+> • “Você sabia?”: uma curiosidade surpreendente de cada achado
 > • Quiz do explorador: 10 perguntas difíceis por dia, com coringa 50:50
 >
 > COLECIONAR E EXPLORAR
@@ -422,20 +422,20 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 > • “Perto de você agora”: animais que você pode encontrar agora na sua região
 >
 > TEMPORADAS E CUIDADO COM OS ANIMAIS
-> • Animais da temporada: o que está acontecendo lá fora agora – onde você mora
+> • Animais da temporada: o que está acontecendo lá fora agora: onde você mora
 > • Dicas simples para ajudar os animais no jardim e na natureza
 > • A promessa Explorimal: observar os animais sem incomodá-los
 >
 > DESAFIOS COM AMIGOS
 > • Pontos de experiência, níveis e medalhas
 > • Meta da temporada: descubra animais de três grupos
-> • Ranking com amigos e ranking da temporada – convide pelo link
+> • Ranking com amigos e ranking da temporada: convide pelo link
 >
 > SEUS DADOS FICAM COM VOCÊ
 > Não precisa de conta. Sua coleção e suas fotos ficam no seu celular.
 >
-> FINDIMAL PLUS
-> Identifique 3 animais por dia de graça. O Explorimal Plus oferece fotos ilimitadas, sem anúncios, coringa no quiz e 24 fotos de perfil exclusivas de animais com moldura dourada.
+> EXPLORIMAL PLUS
+> Identifique 3 animais por dia de graça. Com vídeos curtos você ganha até 3 fotos a mais por dia. O Explorimal Plus oferece fotos ilimitadas, sem anúncios, coringa no quiz e 24 fotos de perfil exclusivas de animais com moldura dourada.
 > O Explorimal Plus é uma assinatura mensal ou anual; o preço aparece na App Store. A assinatura é renovada automaticamente, a menos que você a cancele nos ajustes da sua conta Apple pelo menos 24 horas antes do fim do período atual.
 >
 > Aviso: o Explorimal usa inteligência artificial e pode errar. Não toque em animais que você não conhece com certeza e nunca coma nada só porque um app o reconheceu.
@@ -478,7 +478,7 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 >
 > Explorimalは、いつもの散歩を小さな探検に変えるアプリです。家族、子ども、自然が好きなすべての人に。
 >
-> FINDIMALをつくった理由
+> EXPLORIMALをつくった理由
 > 私たちは生きものが大好きです。よく見ると、家のすぐ前にもたくさんの命があることに気づきます。知って好きになったものは、守りたくなるもの。Explorimalで、もっと多くの人が生きものに夢中になって、外に出かけてほしいと思っています。スマホを持って、目を大きく開けて、外へ出かけよう！
 >
 > 撮って調べる
@@ -509,8 +509,8 @@ identificar animal,inseto,pássaro,ave,borboleta,natureza,crianças,família,jar
 > データはあなたの手元に
 > アカウントは不要です。コレクションと写真はあなたのスマホに残ります。
 >
-> FINDIMAL PLUS
-> 1日3匹まで無料で判定できます。Explorimal Plusなら写真は無制限、広告なし、クイズのジョーカーつき、金色のフレームがついた限定の動物アイコン24種類が使えます。
+> EXPLORIMAL PLUS
+> 1日3匹まで無料で判定できます。短い動画を見ると、1日あと3回まで追加で判定できます。Explorimal Plusなら写真は無制限、広告なし、クイズのジョーカーつき、金色のフレームがついた限定の動物アイコン24種類が使えます。
 > Explorimal Plusは月額または年額のサブスクリプションです。価格はApp Storeに表示されます。現在の期間が終わる24時間以上前にAppleアカウントの設定で解約しない限り、自動で更新されます。
 >
 > ご注意：Explorimalは人工知能を使っていて、まちがえることがあります。確かにわからない生きものにはさわらないでください。アプリが判定したからといって、何かを食べたりしないでください。
