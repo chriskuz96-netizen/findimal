@@ -3,7 +3,7 @@ import { Animated, Platform, Pressable, StyleSheet, Text, useWindowDimensions, V
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Icon } from './Icon';
-import { ads, adsReady, bannerId, requestOptions } from '../ads';
+import { adLog, ads, adsReady, bannerId, requestOptions } from '../ads';
 import { useI18n } from '../i18n';
 import { askForPlus, usePlus } from '../plus';
 import { colors, fonts, Palette, spacing } from '../theme';
@@ -45,7 +45,10 @@ function Banner({ size, onShown }: { size: Size; onShown: (on: boolean) => void 
       maxHeight={size === 'inline' ? 120 : undefined}
       requestOptions={requestOptions}
       onAdLoaded={() => onShown(true)}
-      onAdFailedToLoad={() => onShown(false)}
+      onAdFailedToLoad={(e) => {
+        adLog('Banner: ' + String(e?.message ?? e).slice(0, 100));
+        onShown(false);
+      }}
     />
   );
 }

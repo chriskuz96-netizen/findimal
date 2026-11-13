@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {
   Alert,
   Modal,
+  Platform,
   Pressable,
   StyleSheet,
   Switch,
@@ -27,7 +28,7 @@ import { join, leave, loadMe, Me } from '../board';
 import { SwipeBack, SwipeScrollView } from '../components/SwipeBack';
 import { Find, speciesKey } from '../finds';
 import { SERVER_URL } from '../config';
-import { privacyOptionsNeeded, showAdPrivacy } from '../ads';
+import { adLog, privacyOptionsNeeded, showAdPrivacy } from '../ads';
 import { useI18n } from '../i18n';
 import { disableTips, enableTips, loadTips, testTip } from '../notify';
 import { syncPush } from '../push';
@@ -61,8 +62,10 @@ export function ProfileScreen(props: Props) {
   const { t, lang, locale } = useI18n();
   // Einwilligung für Werbung jederzeit ändern (Pflicht in der EU) – nur wenn Google es verlangt
   const [adPrivacy, setAdPrivacy] = useState(false);
+  const [adDiag, setAdDiag] = useState('');
   useEffect(() => {
     privacyOptionsNeeded().then(setAdPrivacy);
+    setAdDiag(adLog());
   }, []);
   const neutral = useNeutralSeasons();
   const [newName, setNewName] = useState(name);
@@ -393,6 +396,12 @@ export function ProfileScreen(props: Props) {
             </Pressable>
           ))}
         </View>
+        {/* Fehlersuche Werbung (nur während der Testphase, vor dem Start entfernen) */}
+        {Platform.OS === 'ios' && !!adDiag && (
+          <Text selectable style={{ fontFamily: fonts.sans, fontSize: 10, color: p.mute, marginHorizontal: spacing.gutter, marginTop: 6 }}>
+            {adDiag}
+          </Text>
+        )}
       </SwipeScrollView>
     </SwipeBack>
     </>
