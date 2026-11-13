@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { Animated, Platform, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -57,7 +57,8 @@ function Banner({ size, onShown }: { size: Size; onShown: (on: boolean) => void 
 }
 
 // compact: schmale Leiste (fest am unteren Rand der Sammlung)
-export function AdSlot({ p, compact }: { p: Palette; placement: Placement; compact?: boolean }) {
+// memo: die Seiten zeichnen sich oft neu (z. B. Abzeichen nach und nach) – der Banner muss dabei nicht mit
+export const AdSlot = memo(function AdSlot({ p, compact }: { p: Palette; placement: Placement; compact?: boolean }) {
   const { t } = useI18n();
   const { plus } = usePlus();
   const [shown, setShown] = useState(false);
@@ -105,7 +106,7 @@ export function AdSlot({ p, compact }: { p: Palette; placement: Placement; compa
       </View>
     </View>
   );
-}
+});
 
 // Halbseitige Anzeige: schiebt sich von unten über die halbe Seite (ab dem 3. Foto des Tages,
 // höchstens einmal am Tag, beim Tippen auf „Weiter“). Nach 2 Sekunden mit ✕ schließen.
