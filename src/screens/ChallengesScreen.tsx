@@ -556,7 +556,14 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
           style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}
           onLayout={(e) => (badgesY.current = e.nativeEvent.layout.y)}
         >
-          <View style={styles.bh}>
+          {/* Kopf antippen: auf- und zuklappen (oben, damit man nach dem Aufklappen nicht nach unten muss) */}
+          <Pressable
+            style={styles.bh}
+            onPress={() => setAllBadges((v) => !v)}
+            disabled={progress.badges.length <= BADGES_FOLDED}
+            accessibilityRole="button"
+            accessibilityLabel={allBadges ? t('ch.lessBadges') : t('ch.allBadges', { n: progress.badges.length })}
+          >
             <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>{t('ch.badges')}</Text>
             {freshBadges.length > 0 && (
               <View style={styles.newPill}>
@@ -566,7 +573,12 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
             <Text style={[styles.small, { color: p.mute, marginLeft: 8 }]}>
               {progress.badges.filter((b) => b.earned).length} / {progress.badges.length}
             </Text>
-          </View>
+            {progress.badges.length > BADGES_FOLDED && (
+              <View style={[styles.foldBtn, { borderColor: p.line }]}>
+                <Text style={[styles.foldBtnText, { color: p.ink }]}>{allBadges ? '▴' : '▾'}</Text>
+              </View>
+            )}
+          </Pressable>
           <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
           <View style={styles.badges}>
             {badgeList.map((b, i) =>
@@ -965,6 +977,8 @@ const styles = StyleSheet.create({
   sub: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 20 },
   blk: { marginTop: 26, marginHorizontal: spacing.gutter },
   bh: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 },
+  foldBtn: { marginLeft: 10, width: 30, height: 30, borderRadius: 15, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+  foldBtnText: { fontFamily: fonts.sansBold, fontSize: 14, lineHeight: 16 },
   trail: { marginTop: 12, paddingLeft: 4 },
   st: { flexDirection: 'row', gap: 14, alignItems: 'center', paddingVertical: 8 },
   stLine: { position: 'absolute', left: 13, top: 38, bottom: -10, borderLeftWidth: 2, borderStyle: 'dashed' },
