@@ -11,7 +11,7 @@ import { colors, fonts, Palette, spacing } from '../theme';
 // Werbeplatz (Google AdMob), gut als „Anzeige“ gekennzeichnet: nur für Gratis-Nutzer,
 // familiengeeignet und nicht personalisiert. In der App ein echter Banner; gibt es gerade keinen
 // (keine Einwilligung, offline, nichts zu zeigen), bleibt der Platz leer. Im Browser ein Platzhalter.
-type Placement = 'result' | 'details' | 'season' | 'challenges' | 'collection' | 'profile' | 'limit';
+type Placement = 'start' | 'result' | 'details' | 'season' | 'challenges' | 'collection' | 'profile' | 'limit';
 type Size = 'inline' | 'bar' | 'big';
 const BANNER_H = 120; // Höhe des Banners im Inhalt (Google liefert bei dieser Breite 120)
 const web = Platform.OS === 'web';

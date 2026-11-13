@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { AdSlot } from '../components/AdSlot';
 import { AppLogo } from '../components/AppLogo';
 import { CameraButton } from '../components/CameraButton';
 import { Explorer } from '../components/Explorer';
@@ -20,6 +21,7 @@ import { Robin } from '../components/animals/Robin';
 import { Squirrel } from '../components/animals/Squirrel';
 import { colors, darkPalette, fonts, lightPalette, spacing } from '../theme';
 import { usePane } from '../layout';
+import { daysUsed, START_AD_FROM_DAY } from '../usage';
 
 
 type Props = {
@@ -70,8 +72,20 @@ export function StartScreen({
   const [nearbyHeight, setNearbyHeight] = useState(maxNearby);
   // Wie im Entwurf: clamp(120px, 21vh, 168px)
   const hint = !!quizOpen && !!onOpenQuiz;
+  // feste Werbeleiste unten erst ab dem 3. Tag (nie mit Plus)
+  const [adBar, setAdBar] = useState(false);
+  useEffect(() => {
+    if (plus) return setAdBar(false);
+    let alive = true;
+    daysUsed().then((n) => alive && setAdBar(n >= START_AD_FROM_DAY));
+    return () => {
+      alive = false;
+    };
+  }, [plus]);
   // kleine iPhones: mit Quiz-Hinweis etwas kleinere Kamera, damit oben und unten Luft bleibt
-  const camSize = Math.min(168, Math.max(hint && height < 760 ? 108 : 120, height * 0.21 - (hint && height < 760 ? 26 : 0)));
+  // mit Werbeleiste auf kleinen iPhones ebenfalls etwas kleiner
+  const small = height < 760 && (hint || adBar);
+  const camSize = Math.min(168, Math.max(small ? 108 : 120, height * 0.21 - (small ? 26 : 0)));
 
   return (
     <View style={[styles.screen, { backgroundColor: p.bg }]}>
@@ -158,9 +172,12 @@ export function StartScreen({
           </View>
         </View>
 
-        <View style={styles.greetingWrap} pointerEvents="none">
-          <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting}</Text>
-        </View>
+        {/* kleine iPhones mit Werbeleiste: kein Platz für den Gruß (würde die Gratis-Fotos überdecken) */}
+        {!(adBar && height < 760) && (
+          <View style={styles.greetingWrap} pointerEvents="none">
+            <Text style={[styles.greeting, { width: Math.min(180, width * 0.48) }]}>{greeting}</Text>
+          </View>
+        )}
       </View>
       {/* Platz für „Jetzt in deiner Nähe“ wächst nur: sonst springt der grüne Bereich, z. B. beim Sprachwechsel */}
       <View
@@ -172,6 +189,8 @@ export function StartScreen({
       >
         <NearbyList region={region} onSetRegion={onSetRegion} onTypeRegion={onTypeRegion} />
       </View>
+      {/* Werbeleiste ganz unten, mit Abstand zu den Foto-Knöpfen (unter „In deiner Nähe“) */}
+      {adBar && <AdSlot p={p} placement='start' compact />}
     </View>
   );
 }

@@ -104,3 +104,24 @@ export async function bonusPhotos(): Promise<number> {
 export async function setBonusPhotos(n: number): Promise<void> {
   await AsyncStorage.setItem(BONUS_KEY, String(Math.max(0, n))).catch(() => {});
 }
+
+// An wie vielen verschiedenen Tagen die App schon benutzt wurde (zählt einmal pro App-Start mit).
+// Für die Werbeleiste auf der Startseite: die gibt es erst ab dem 3. Tag, neue Nutzer sehen dort keine Werbung.
+export const START_AD_FROM_DAY = 3;
+const DAYS_KEY = 'findimal-days';
+let daysPromise: Promise<number> | null = null;
+export function daysUsed(): Promise<number> {
+  daysPromise ??= (async () => {
+    try {
+      const raw = await AsyncStorage.getItem(DAYS_KEY);
+      const d = raw ? (JSON.parse(raw) as { last: string; n: number }) : { last: '', n: 0 };
+      if (d.last === today()) return d.n;
+      const next = { last: today(), n: d.n + 1 };
+      await AsyncStorage.setItem(DAYS_KEY, JSON.stringify(next));
+      return next.n;
+    } catch {
+      return 1;
+    }
+  })();
+  return daysPromise;
+}
