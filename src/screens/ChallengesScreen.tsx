@@ -47,6 +47,7 @@ type Props = {
 };
 
 const MEDALS_PER_FRAME = 4;
+const BADGES_FOLDED = 6; // zwei Reihen
 type Slot = 'quiz' | 'goal' | 'week' | 'mid';
 const SEEN_DONE = 'findimal-seen-done'; // geschaffte Aufgaben, deren „Geschafft!“ schon gezeigt wurde
 
@@ -136,22 +137,30 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
   );
   // Die Medaillen sind aufwendige Grafiken: erst die Seite zeigen, dann die Abzeichen
   // in kleinen Portionen nachzeichnen (sie liegen ohnehin weiter unten) – so öffnet die Seite sofort.
+  // Auf der Seite stehen nur die neuesten Abzeichen; alle erst nach dem Aufklappen (spart viele Grafiken beim Scrollen)
+  const [allBadges, setAllBadges] = useState(false);
+  const visibleBadges = allBadges ? progress.badges.length : Math.min(BADGES_FOLDED, progress.badges.length);
   const [medals, setMedals] = useState(0);
   useEffect(() => {
+    if (medals >= visibleBadges) return;
     let frame = 0;
     const step = () => {
       setMedals((n) => {
-        if (n + MEDALS_PER_FRAME < progress.badges.length) frame = requestAnimationFrame(step);
+        if (n + MEDALS_PER_FRAME < visibleBadges) frame = requestAnimationFrame(step);
         return n + MEDALS_PER_FRAME;
       });
     };
     frame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(frame);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  const badgeList = [...progress.badges].sort(
-    (a, b) => Number(freshBadges.includes(b.id)) - Number(freshBadges.includes(a.id)),
-  );
+  }, [visibleBadges]);
+  // Reihenfolge: neue zuerst, dann verdiente (spätere zuerst, die sind meist die jüngsten), dann die noch offenen
+  const rank = (b: Badge, i: number) => (freshBadges.includes(b.id) ? 0 : b.earned ? 1000 - i : 2000 + i);
+  const badgeList = progress.badges
+    .map((b, i) => ({ b, r: rank(b, i) }))
+    .sort((x, y) => x.r - y.r)
+    .map((x) => x.b)
+    .slice(0, visibleBadges);
   useEffect(() => {
     if (!active) return; // erst animieren, wenn man die Seite wirklich sieht
     let alive = true;
@@ -576,6 +585,17 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
               ),
             )}
           </View>
+          {progress.badges.length > BADGES_FOLDED && (
+            <Pressable
+              onPress={() => setAllBadges((v) => !v)}
+              accessibilityRole="button"
+              style={({ pressed }) => [styles.moreBadges, { borderColor: p.line, opacity: pressed ? 0.7 : 1 }]}
+            >
+              <Text style={[styles.moreBadgesText, { color: p.ink }]}>
+                {allBadges ? t('ch.lessBadges') : t('ch.allBadges', { n: progress.badges.length })} {allBadges ? '▴' : '▾'}
+              </Text>
+            </Pressable>
+          )}
         </View>
 
         <Text style={[styles.note, { color: p.mute }]}>
@@ -943,6 +963,8 @@ const styles = StyleSheet.create({
   answerText: { fontFamily: fonts.sansBold, fontSize: 14 },
   badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 12, rowGap: 16 },
   badge: { width: '33.3%', alignItems: 'center' },
+  moreBadges: { marginTop: 16, borderWidth: 1, borderRadius: 14, paddingVertical: 11, alignItems: 'center' },
+  moreBadgesText: { fontFamily: fonts.sansBold, fontSize: 15 },
   medalSpot: { width: 75, height: 97 }, // Platzhalter, bis die Medaille gezeichnet ist
   medalWrap: {
     borderRadius: 40,
