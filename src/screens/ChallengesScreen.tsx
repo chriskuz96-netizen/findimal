@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Alert, Animated, Easing, LayoutChangeEvent, Pressable, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { Alert, Animated, Easing, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, G, LinearGradient, Path, Rect, Stop } from 'react-native-svg';
 
@@ -122,18 +122,12 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
   freshRef.current = freshBadges;
   const seeRef = useRef(onSeeBadges);
   seeRef.current = onSeeBadges;
-  // Scrollen läuft komplett nativ (flüssig, auch mit Werbebanner); hier nur kurz prüfen, ob die Abzeichen zu sehen waren
-  const seen = useRef({ active, winH });
-  seen.current = { active, winH };
-  const onScroll = useRef(
-    Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
-      useNativeDriver: true,
-      listener: (e: { nativeEvent: { contentOffset: { y: number } } }) => {
-        const { active: on, winH: h } = seen.current;
-        if (on && e.nativeEvent.contentOffset.y + h > badgesY.current + 120) sawBadges.current = true;
-      },
-    }),
-  ).current;
+  useEffect(() => {
+    const id = scrollY.addListener(({ value }) => {
+      if (active && value + winH > badgesY.current + 120) sawBadges.current = true;
+    });
+    return () => scrollY.removeListener(id);
+  }, [scrollY, winH, active]);
   useEffect(
     () => () => {
       if (sawBadges.current && freshRef.current.length) seeRef.current?.(freshRef.current);
@@ -465,12 +459,12 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
 
   return (
     <View style={{ flex: 1, backgroundColor: p.bg }}>
-      <Animated.ScrollView
+      <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={{ paddingBottom: 24 }}
         keyboardShouldPersistTaps="handled"
         scrollEventThrottle={16}
-        onScroll={onScroll}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
       >
         <View style={[styles.hx, { paddingTop: insets.top + 34 }]} onLayout={(e) => setHeadH(e.nativeEvent.layout.height)}>
           <HeaderBackground />
@@ -587,7 +581,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
         <Text style={[styles.note, { color: p.mute }]}>
           {t('ch.note', { find: XP.find, fresh: XP.newSpecies })}
         </Text>
-      </Animated.ScrollView>
+      </ScrollView>
 
       {/* Forscher-Quiz im eigenen Fenster */}
       <ForscherQuiz
