@@ -15,25 +15,25 @@ type Placement = 'result' | 'details' | 'season' | 'challenges' | 'collection' |
 type Size = 'inline' | 'bar' | 'big';
 const web = Platform.OS === 'web';
 
-function useBanner() {
+function useBanner(fixed: boolean) {
   const [b, setB] = useState<{ gma: typeof import('react-native-google-mobile-ads'); id: string } | null>(null);
   useEffect(() => {
     if (web) return;
     let alive = true;
-    bannerId().then(async (id) => {
+    bannerId(fixed).then(async (id) => {
       const gma = id ? await ads() : null;
       if (alive && gma && id) setB({ gma, id });
     });
     return () => {
       alive = false;
     };
-  }, []);
+  }, [fixed]);
   return b;
 }
 
 // Der eigentliche Banner. onShown: erst wenn wirklich eine Anzeige geladen ist (dann erscheint die Beschriftung)
 function Banner({ size, onShown }: { size: Size; onShown: (on: boolean) => void }) {
-  const b = useBanner();
+  const b = useBanner(size === 'big');
   const { width } = useWindowDimensions();
   if (!b) return null;
   const { BannerAd, BannerAdSize } = b.gma;
@@ -44,9 +44,12 @@ function Banner({ size, onShown }: { size: Size; onShown: (on: boolean) => void 
       width={size === 'inline' ? Math.min(width - 2 * spacing.gutter - 24, 400) : undefined}
       maxHeight={size === 'inline' ? 120 : undefined}
       requestOptions={requestOptions}
-      onAdLoaded={() => onShown(true)}
+      onAdLoaded={(d) => {
+        adLog(`Banner ${size} geladen ${d?.width ?? '?'}×${d?.height ?? '?'}`);
+        onShown(true);
+      }}
       onAdFailedToLoad={(e) => {
-        adLog('Banner: ' + String(e?.message ?? e).slice(0, 100));
+        adLog(`Banner ${size} …${b.id.slice(-4)}: ` + String(e?.message ?? e).slice(0, 90));
         onShown(false);
       }}
     />

@@ -48,10 +48,9 @@ export function ads(): Promise<GMA | null> {
         adLog('keine Werbung: canRequestAds=false');
         return gma; // keine Werbung ohne Einwilligung (gma trotzdem für Datenschutz-Knopf)
       }
-      await gma.default().setRequestConfiguration({
-        maxAdContentRating: gma.MaxAdContentRating.G,
-        tagForUnderAgeOfConsent: false,
-      });
+      // Familiengeeignet nur für echte Anzeigen: Googles Test-Anzeigen haben keine Altersfreigabe
+      // und würden sonst herausgefiltert („No ad to show“).
+      if (ADS_LIVE) await gma.default().setRequestConfiguration({ maxAdContentRating: gma.MaxAdContentRating.G });
       await gma.default().initialize();
       ready = true;
       adLog('AdMob bereit');
@@ -67,10 +66,12 @@ export function ads(): Promise<GMA | null> {
 export const adsReady = () => ready;
 export const requestOptions = { requestNonPersonalizedAdsOnly: true } as const;
 
-export async function bannerId(): Promise<string | null> {
+// fixed: feste Größe (z. B. 300×250) – dafür hat Google eine eigene Test-Anzeige
+export async function bannerId(fixed = false): Promise<string | null> {
   const gma = await ads();
   if (!gma || !ready) return null;
-  return ADS_LIVE && ADMOB_BANNER_IOS ? ADMOB_BANNER_IOS : gma.TestIds.ADAPTIVE_BANNER;
+  if (ADS_LIVE && ADMOB_BANNER_IOS) return ADMOB_BANNER_IOS;
+  return fixed ? gma.TestIds.BANNER : gma.TestIds.ADAPTIVE_BANNER;
 }
 
 // Datenschutz-Einstellungen für Werbung (Pflicht in der EU: Einwilligung jederzeit änderbar)
