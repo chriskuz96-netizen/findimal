@@ -158,10 +158,10 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
     );
   const newest = earnedList.slice(0, Math.min(6, Math.max(BADGE_ROW, earnedList.filter((b) => freshBadges.includes(b.id)).length)));
   const almost = openList.slice(0, BADGE_ROW);
-  const almostStarted = almost.length > 0 && progressOf(almost[0]) > 0;
-  // in dieser Reihenfolge stehen die Medaillen auf der Seite (für das Nachzeichnen in Portionen)
-  const visibleBadges =
-    newest.length + almost.length + (openEarned ? earnedList.length : 0) + (openRest ? openList.length : 0);
+  // zugeklappt nur eine Reihe je Gruppe, aufgeklappt die ganze Gruppe (fängt mit derselben Reihe an)
+  const earnedShown = openEarned ? earnedList : newest;
+  const openShown = openRest ? openList : almost;
+  const visibleBadges = earnedShown.length + openShown.length;
   const [medals, setMedals] = useState(0);
   useEffect(() => {
     if (medals >= visibleBadges) return;
@@ -604,37 +604,37 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
                 )}
               </View>
             );
-            const fold = (label: string, open: boolean, toggle: () => void) => (
+            // Gruppen-Kopf: Name und Anzahl, rechts der Pfeil zum Auf- und Zuklappen (wenn es mehr als eine Reihe gibt)
+            const head = (label: string, more: boolean, open: boolean, toggle: () => void) => (
               <Pressable
                 onPress={toggle}
+                disabled={!more}
                 accessibilityRole="button"
                 accessibilityState={{ expanded: open }}
                 style={({ pressed }) => [styles.foldRow, { borderColor: p.line, opacity: pressed ? 0.7 : 1 }]}
               >
                 <Text style={[styles.foldRowText, { color: p.ink }]}>{label}</Text>
-                <View style={[styles.foldBtn, { borderColor: p.line }]}>
-                  <Text style={[styles.foldBtnText, { color: p.ink }]}>{open ? '▴' : '▾'}</Text>
-                </View>
+                {more && (
+                  <View style={[styles.foldBtn, { borderColor: p.line }]}>
+                    <Text style={[styles.foldBtnText, { color: p.ink }]}>{open ? '▴' : '▾'}</Text>
+                  </View>
+                )}
               </Pressable>
             );
             return (
               <>
-                {newest.length > 0 && (
+                {earnedList.length > 0 && (
                   <>
-                    <Text style={[styles.badgeGroup, { color: p.mute }]}>{t('ch.newest')}</Text>
-                    {grid(newest)}
+                    {head(t('ch.earnedAll', { n: earnedList.length }), earnedList.length > newest.length, openEarned, () => setOpenEarned((v) => !v))}
+                    {grid(earnedShown)}
                   </>
                 )}
-                {almost.length > 0 && (
+                {openList.length > 0 && (
                   <>
-                    <Text style={[styles.badgeGroup, { color: p.mute }]}>{t(almostStarted ? 'ch.almost' : 'ch.nextUp')}</Text>
-                    {grid(almost)}
+                    {head(t('ch.openAll', { n: openList.length }), openList.length > almost.length, openRest, () => setOpenRest((v) => !v))}
+                    {grid(openShown)}
                   </>
                 )}
-                {earnedList.length > 0 && fold(t('ch.earnedAll', { n: earnedList.length }), openEarned, () => setOpenEarned((v) => !v))}
-                {openEarned && grid(earnedList)}
-                {openList.length > 0 && fold(t('ch.openAll', { n: openList.length }), openRest, () => setOpenRest((v) => !v))}
-                {openRest && grid(openList)}
               </>
             );
           })()}
@@ -1017,7 +1017,6 @@ const styles = StyleSheet.create({
   answerText: { fontFamily: fonts.sansBold, fontSize: 14 },
   badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 12, rowGap: 16 },
   badge: { width: '33.3%', alignItems: 'center' },
-  badgeGroup: { fontFamily: fonts.sansBold, fontSize: 12.5, letterSpacing: 0.6, textTransform: 'uppercase', marginTop: 18 },
   foldRow: { flexDirection: 'row', alignItems: 'center', marginTop: 16, borderTopWidth: 1, paddingTop: 12 },
   foldRowText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 15.5 },
   medalSpot: { width: 75, height: 97 }, // Platzhalter, bis die Medaille gezeichnet ist
