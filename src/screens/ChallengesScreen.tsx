@@ -47,7 +47,7 @@ type Props = {
 };
 
 const MEDALS_PER_FRAME = 4;
-const BADGES_FOLDED = 6; // zwei Reihen
+const BADGE_ROW = 3; // eine Reihe Medaillen
 type Slot = 'quiz' | 'goal' | 'week' | 'mid';
 const SEEN_DONE = 'findimal-seen-done'; // geschaffte Aufgaben, deren „Geschafft!“ schon gezeigt wurde
 
@@ -137,9 +137,31 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
   );
   // Die Medaillen sind aufwendige Grafiken: erst die Seite zeigen, dann die Abzeichen
   // in kleinen Portionen nachzeichnen (sie liegen ohnehin weiter unten) – so öffnet die Seite sofort.
-  // Auf der Seite stehen nur die neuesten Abzeichen; alle erst nach dem Aufklappen (spart viele Grafiken beim Scrollen)
-  const [allBadges, setAllBadges] = useState(false);
-  const visibleBadges = allBadges ? progress.badges.length : Math.min(BADGES_FOLDED, progress.badges.length);
+  // Auf der Seite stehen nur zwei kurze Reihen: die zuletzt erreichten und die, die fast geschafft sind.
+  // Alle erreichten bzw. alle offenen erst nach dem Aufklappen (spart viele Grafiken beim Scrollen).
+  const [openEarned, setOpenEarned] = useState(false);
+  const [openRest, setOpenRest] = useState(false);
+  const progressOf = (b: Badge) => (b.need && b.have ? b.have / b.need : 0);
+  const idx = (b: Badge) => progress.badges.indexOf(b);
+  // erreicht: neue zuerst, dann spätere vor früheren (die sind meist die jüngsten)
+  const earnedList = progress.badges
+    .filter((b) => b.earned)
+    .sort((x, y) => Number(freshBadges.includes(y.id)) - Number(freshBadges.includes(x.id)) || idx(y) - idx(x));
+  // offen: am weitesten fortgeschritten zuerst, bei Gleichstand das, wo am wenigsten fehlt
+  const openList = progress.badges
+    .filter((b) => !b.earned)
+    .sort(
+      (x, y) =>
+        progressOf(y) - progressOf(x) ||
+        (x.need ?? 1) - (x.have ?? 0) - ((y.need ?? 1) - (y.have ?? 0)) ||
+        idx(x) - idx(y),
+    );
+  const newest = earnedList.slice(0, Math.min(6, Math.max(BADGE_ROW, earnedList.filter((b) => freshBadges.includes(b.id)).length)));
+  const almost = openList.slice(0, BADGE_ROW);
+  const almostStarted = almost.length > 0 && progressOf(almost[0]) > 0;
+  // in dieser Reihenfolge stehen die Medaillen auf der Seite (für das Nachzeichnen in Portionen)
+  const visibleBadges =
+    newest.length + almost.length + (openEarned ? earnedList.length : 0) + (openRest ? openList.length : 0);
   const [medals, setMedals] = useState(0);
   useEffect(() => {
     if (medals >= visibleBadges) return;
@@ -154,19 +176,6 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
     return () => cancelAnimationFrame(frame);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleBadges]);
-  // Reihenfolge: neue zuerst, dann verdiente (spätere zuerst, die sind meist die jüngsten), dann die offenen –
-  // die, bei denen man schon am weitesten ist, vorn. Eingeklappt ist immer mindestens ein offenes dabei
-  // (das nächste, das man freischalten kann).
-  const progressOf = (b: Badge) => (b.need && b.have ? b.have / b.need : 0);
-  const rank = (b: Badge, i: number) =>
-    freshBadges.includes(b.id) ? 0 : b.earned ? 1000 - i : 3000 - Math.round(progressOf(b) * 1000) + i / 100;
-  const sorted = progress.badges
-    .map((b, i) => ({ b, r: rank(b, i) }))
-    .sort((x, y) => x.r - y.r)
-    .map((x) => x.b);
-  const nextUp = sorted.find((b) => !b.earned);
-  let badgeList = sorted.slice(0, visibleBadges);
-  if (nextUp && !badgeList.includes(nextUp)) badgeList = [...badgeList.slice(0, -1), nextUp];
   useEffect(() => {
     if (!active) return; // erst animieren, wenn man die Seite wirklich sieht
     let alive = true;
@@ -556,14 +565,7 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
           style={[styles.card, { backgroundColor: p.card, borderColor: p.line, marginTop: 26 }]}
           onLayout={(e) => (badgesY.current = e.nativeEvent.layout.y)}
         >
-          {/* Kopf antippen: auf- und zuklappen (oben, damit man nach dem Aufklappen nicht nach unten muss) */}
-          <Pressable
-            style={styles.bh}
-            onPress={() => setAllBadges((v) => !v)}
-            disabled={progress.badges.length <= BADGES_FOLDED}
-            accessibilityRole="button"
-            accessibilityLabel={allBadges ? t('ch.lessBadges') : t('ch.allBadges', { n: progress.badges.length })}
-          >
+          <View style={styles.bh}>
             <Text style={[styles.h3, { color: p.ink, flex: 1 }]}>{t('ch.badges')}</Text>
             {freshBadges.length > 0 && (
               <View style={styles.newPill}>
@@ -571,49 +573,71 @@ export function ChallengesScreen({ progress, forscher, onForscher, avatar, name,
               </View>
             )}
             <Text style={[styles.small, { color: p.mute, marginLeft: 8 }]}>
-              {progress.badges.filter((b) => b.earned).length} / {progress.badges.length}
+              {earnedList.length} / {progress.badges.length}
             </Text>
-            {progress.badges.length > BADGES_FOLDED && (
-              <View style={[styles.foldBtn, { borderColor: p.line }]}>
-                <Text style={[styles.foldBtnText, { color: p.ink }]}>{allBadges ? '▴' : '▾'}</Text>
-              </View>
-            )}
-          </Pressable>
-          <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
-          <View style={styles.badges}>
-            {badgeList.map((b, i) =>
-              i >= medals ? (
-                <View key={b.id} style={styles.badge}>
-                  <View style={styles.medalSpot} />
-                </View>
-              ) : (
-              <BadgeView
-                key={b.id}
-                badge={b}
-                p={p}
-                selected={avatar === b.id}
-                fresh={freshBadges.includes(b.id)}
-                name={badgeName(b)}
-                onPress={() => {
-                  if (freshBadges.includes(b.id)) onSeeBadges?.([b.id]);
-                  const xp = `+${BADGE_XP[BADGE_TIER[b.id]]} XP`;
-                  Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}\n\n${xp}` : `${t('ch.notYet', { hint: badgeHint(b) })}\n\n${xp}`);
-                }}
-              />
-              ),
-            )}
           </View>
-          {progress.badges.length > BADGES_FOLDED && (
-            <Pressable
-              onPress={() => setAllBadges((v) => !v)}
-              accessibilityRole="button"
-              style={({ pressed }) => [styles.moreBadges, { borderColor: p.line, opacity: pressed ? 0.7 : 1 }]}
-            >
-              <Text style={[styles.moreBadgesText, { color: p.ink }]}>
-                {allBadges ? t('ch.lessBadges') : t('ch.allBadges', { n: progress.badges.length })} {allBadges ? '▴' : '▾'}
-              </Text>
-            </Pressable>
-          )}
+          <Text style={[styles.sub, { color: p.mute }]}>{t('ch.badgesHint')}</Text>
+          {(() => {
+            let at = 0; // laufende Nummer über alle Reihen (Medaillen werden der Reihe nach gezeichnet)
+            const grid = (list: Badge[]) => (
+              <View style={styles.badges}>
+                {list.map((b) =>
+                  at++ >= medals ? (
+                    <View key={b.id} style={styles.badge}>
+                      <View style={styles.medalSpot} />
+                    </View>
+                  ) : (
+                    <BadgeView
+                      key={b.id}
+                      badge={b}
+                      p={p}
+                      selected={avatar === b.id}
+                      fresh={freshBadges.includes(b.id)}
+                      name={badgeName(b)}
+                      onPress={() => {
+                        if (freshBadges.includes(b.id)) onSeeBadges?.([b.id]);
+                        const xp = `+${BADGE_XP[BADGE_TIER[b.id]]} XP`;
+                        Alert.alert(badgeName(b), b.earned ? `✓ ${badgeHint(b)}\n\n${xp}` : `${t('ch.notYet', { hint: badgeHint(b) })}\n\n${xp}`);
+                      }}
+                    />
+                  ),
+                )}
+              </View>
+            );
+            const fold = (label: string, open: boolean, toggle: () => void) => (
+              <Pressable
+                onPress={toggle}
+                accessibilityRole="button"
+                accessibilityState={{ expanded: open }}
+                style={({ pressed }) => [styles.foldRow, { borderColor: p.line, opacity: pressed ? 0.7 : 1 }]}
+              >
+                <Text style={[styles.foldRowText, { color: p.ink }]}>{label}</Text>
+                <View style={[styles.foldBtn, { borderColor: p.line }]}>
+                  <Text style={[styles.foldBtnText, { color: p.ink }]}>{open ? '▴' : '▾'}</Text>
+                </View>
+              </Pressable>
+            );
+            return (
+              <>
+                {newest.length > 0 && (
+                  <>
+                    <Text style={[styles.badgeGroup, { color: p.mute }]}>{t('ch.newest')}</Text>
+                    {grid(newest)}
+                  </>
+                )}
+                {almost.length > 0 && (
+                  <>
+                    <Text style={[styles.badgeGroup, { color: p.mute }]}>{t(almostStarted ? 'ch.almost' : 'ch.nextUp')}</Text>
+                    {grid(almost)}
+                  </>
+                )}
+                {earnedList.length > 0 && fold(t('ch.earnedAll', { n: earnedList.length }), openEarned, () => setOpenEarned((v) => !v))}
+                {openEarned && grid(earnedList)}
+                {openList.length > 0 && fold(t('ch.openAll', { n: openList.length }), openRest, () => setOpenRest((v) => !v))}
+                {openRest && grid(openList)}
+              </>
+            );
+          })()}
         </View>
 
         <Text style={[styles.note, { color: p.mute }]}>
@@ -993,8 +1017,9 @@ const styles = StyleSheet.create({
   answerText: { fontFamily: fonts.sansBold, fontSize: 14 },
   badges: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 12, rowGap: 16 },
   badge: { width: '33.3%', alignItems: 'center' },
-  moreBadges: { marginTop: 16, borderWidth: 1, borderRadius: 14, paddingVertical: 11, alignItems: 'center' },
-  moreBadgesText: { fontFamily: fonts.sansBold, fontSize: 15 },
+  badgeGroup: { fontFamily: fonts.sansBold, fontSize: 12.5, letterSpacing: 0.6, textTransform: 'uppercase', marginTop: 18 },
+  foldRow: { flexDirection: 'row', alignItems: 'center', marginTop: 16, borderTopWidth: 1, paddingTop: 12 },
+  foldRowText: { flex: 1, fontFamily: fonts.sansBold, fontSize: 15.5 },
   medalSpot: { width: 75, height: 97 }, // Platzhalter, bis die Medaille gezeichnet ist
   medalWrap: {
     borderRadius: 40,
