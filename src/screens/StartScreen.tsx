@@ -39,6 +39,7 @@ type Props = {
   onPickPhoto: () => void;
   firstVisit?: boolean; // gerade erst eingerichtet
   quizOpen?: boolean; // Forscher-Quiz heute noch nicht gespielt
+  streak?: number; // Quiz-Serie in Tagen (0 = keine)
   onOpenQuiz?: () => void; // zur Challenges-Seite
 };
 
@@ -61,6 +62,7 @@ export function StartScreen({
   firstVisit,
   quizOpen,
   onOpenQuiz,
+  streak = 0,
 }: Props) {
   const insets = useSafeAreaInsets();
   const p = useColorScheme() === 'dark' ? darkPalette : lightPalette;
@@ -120,6 +122,20 @@ export function StartScreen({
           <Avatar id={avatar} name={name ?? '?'} size={AVATAR} />
         </Pressable>
         <Text style={[styles.avatarXp, { top: insets.top + AVATAR + 4 }]}>{xp} XP</Text>
+        {/* Quiz-Serie (wie in den Challenges): Flamme mit Tagen, antippen öffnet die Challenges */}
+        {streak > 0 && (
+          <Pressable
+            onPress={onOpenQuiz}
+            disabled={!onOpenQuiz}
+            hitSlop={6}
+            accessibilityRole="button"
+            accessibilityLabel={`${streak} ${t(streak === 1 ? 'fq.streakDay' : 'fq.streakDays')}`}
+            style={[styles.avatarStreak, { top: insets.top + AVATAR + 26 }]}
+          >
+            <Icon name="flame" size={12} color={colors.accent} />
+            <Text style={styles.avatarStreakText}>{streak}</Text>
+          </Pressable>
+        )}
 
         {/* Sprache oben rechts zum Aufklappen */}
         <LanguageButton top={insets.top + 18} />
@@ -232,6 +248,20 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     paddingVertical: 2,
   },
+  avatarStreak: {
+    position: 'absolute',
+    left: 8 + (AVATAR - 60) / 2,
+    width: 60,
+    zIndex: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 3,
+    backgroundColor: 'rgba(0,0,0,0.35)',
+    borderRadius: 99,
+    paddingVertical: 2,
+  },
+  avatarStreakText: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.white, fontVariant: ['tabular-nums'] },
   center: {
     flex: 1,
     alignItems: 'center',
